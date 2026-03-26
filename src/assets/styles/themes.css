@@ -1,0 +1,16 @@
+/* themes.css */
+:root {
+  --theme-primary-color: #6200ee;
+  --theme-secondary-color: #008073;
+  --theme-background-color: #ffffff;
+  --theme-text-color: #000000;
+  --theme-font-family: 'Roboto', sans-serif;
+}
+
+/* Dark mode theme (applied via a class on the body or root) */
+body.dark-mode {
+  --theme-primary-color: #bb86fc;
+  --theme-secondary-color: #03dac6;
+  --theme-background-color: #121212;
+  --theme-text-color: #ffffff;
+}

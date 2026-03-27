@@ -1,33 +1,18 @@
-import { resetSheet } from 'assets/styles/reset-styles.js';
-
 const template = document.createElement("template");
 template.innerHTML = `
   <style>
     #content_wrapper {
+     font-family: var(--theme-font-family);
       &.home {
-        height: 100vh;
-        padding: 30px 25px 25px 60px;
-        box-sizing: border-box;
-        background: url(./assets/images/bg/downtown30.jpg) 0 0 no-repeat #556B2F;
-        /*background: url(./assets/images/bg/bg_storm20.jpg) center center repeat #556B2F;*/
+        position: relative;
+        //height: auto;
+        height: calc(100% - 26px);
+        width:100%;
+        background: url(./assets/images/bg/boatMobile.jpg) 0 0 no-repeat;
         background-size: cover;
         section {
-          box-sizing: border-box;
           padding: 2rem;
           position: relative;
-          &:before {
-            content:'';
-            background: url(./assets/images/bg/hexagon.png) top center no-repeat;
-            width: 570px;
-            height: 570px;
-            position: absolute;
-            z-index: 0;
-            bottom: calc(100% - 570px - 2rem);
-            right: calc(100% - 450px);
-          }
-          p {
-            text-shadow: 0px 0px 5px rgba(0,0,0,0.6);
-          }
         }
         h2 {
           text-align: left;
@@ -38,46 +23,41 @@ template.innerHTML = `
           width: 100%;
           position: relative;
           z-index:2;
+          text-shadow: 1px 1px 1px var(--theme-shadow-color);
           .hey {
-            color:$blue;
-            font-family: "giddyup-std",sans-serif;
+            color: var(--theme-secondary-color);
+            font-family: var(--theme-font-decorative);
+            font-weight: 400;
+            font-style: normal;
             display: inline-block;
             vertical-align: middle;
-            transform: rotate(-14deg);
+            margin-bottom: -1rem;
           }
           .proper {
-            color:$orange;
-            font-family: 'Playfair Display',Garamond,serif;
+            color: var(--theme-primary-color);
+            font-style: normal;
             font-size:63px;
             margin-left: 0px;
-            //text-shadow: -3px 2px 0px $black;
             display: inline-block;
             vertical-align: middle;
           }
           .detail {
-            font-family: 'Special Elite', cursive;
+            font-family: var(--theme-font-subhead);
+            font-weight: 700;
+            font-style: normal;
             display:block;
             font-size: 21px;
             line-height:2;
             text-align: right;
             margin-top: -10px;
-            color:$blue;
           }
-          sup {
-            vertical-align: super;
-            margin: 0 -9px;
-          }
-          .heart {
-            fill: $pink;
-            width: 20px;
-            transform: rotate(5deg);
-          }
+
         }
         p {
+          color: var(--theme-text-color);
           position: relative;
           z-index:3;
-          max-width: 380px;
-          width: 100%;
+          background: var(--theme-intro-bg);
         }
       }
     }
@@ -85,29 +65,70 @@ template.innerHTML = `
     @media all and (min-width: 768px) {
       #content_wrapper {
         &.home {
+          background: url(./assets/images/bg/boatTab.jpg) 0 0 no-repeat;
+          background-size: cover;
           width:100%;
           padding: 0;
-          overflow:hidden;
           h2 {
             &.proper {
               margin-top: -60px;
             }
           }
           section {
-            top: calc(100% - 715px);
-            left: calc(100% - 550px);
-            max-width:570px;
-            padding:5rem 2rem 2rem 7rem;
-            &:before {
-              right: 3rem;
-              bottom: 5rem;
-            }
+            padding:2rem;
+            position: sticky;
+            bottom: 17%;
+            left: 50%;
+            transform: translateX(-92%);
+            width: 55vw;
             p {
               font-size: 18px;
               line-height: 24px;
-              max-width: 380px;
-              width: 100%;
             }
+          }
+        }
+      }
+    }
+
+    @media all and (min-width: 850px) {
+      #content_wrapper {
+        section {
+          bottom: 5%;
+        }
+      }
+    }
+    
+
+    @media all and (min-width: 1024px) {
+      #content_wrapper {
+        &.home {
+          background: url(./assets/images/bg/boat.jpg) 50% 75% no-repeat;
+          background-size: cover;
+          section {
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-110%);
+            width:40vw;
+          }
+        }
+      }
+    }
+
+    @media (min-aspect-ratio: 16/9) {
+      #content_wrapper {
+        &.home {
+          section {
+            width: 40vw;
+          }
+        }
+      }
+    }
+
+    @media (min-aspect-ratio: 21/9) {
+      #content_wrapper {
+        &.home {
+          section {
+            width: 40vw;
           }
         }
       }
@@ -116,8 +137,9 @@ template.innerHTML = `
   <div id="content_wrapper" class="home">
     <section>
       <h2>
-        <span class="proper">Hey, I'm Heather</span>
-          <span class="detail">software engineer</span>
+        <span class="hey">hey, </span>
+        <span class="proper">I'm Heather</span>
+        <span class="detail">software engineer</span>
       </h2>
       <p>Full-stack Engineer with 15+ years in web development — strong on the frontend (React, Next.js, accessible and high-performance UIs) with proven experience in Wordpress, Ruby on Rails, and Symfony (PHP). I build SPAs, dashboards, and enterprise portals that integrate cleanly with REST and GraphQL APIs and scale within modern CMS platforms. Currently expanding into Generative AI engineering with credentials in machine learning, data engineering, and GenAI frameworks. I care about code quality, close collaboration with design and product, and building things that actually work for users.</p>
     </section>
@@ -127,11 +149,9 @@ template.innerHTML = `
 class HomeContent extends HTMLElement {
   constructor() {
     super();
-    // 2. Attach shadow DOM
     const shadow = this.attachShadow({ mode: "open" });
-    this.shadowRoot.adoptedStyleSheets = [resetSheet]
+    this.shadowRoot.adoptedStyleSheets = [window.resetSheet]
     
-    // 3. Append the cloned template content to the shadow DOM
     shadow.appendChild(template.content.cloneNode(true));
   }
 }

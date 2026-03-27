@@ -7,14 +7,43 @@
 
 	<title>Heather Sullivan Portfolio</title>
 
+	<link rel="stylesheet" href="https://use.typekit.net/aid0ldy.css">
 	<link rel="stylesheet" href="assets/styles/themes.css?ver=now" />
 
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=yes, width=device-width"/>
 	<meta name="description" content="Heather Sullivan Software Engineer - React, Next.js & GenAI. Building things that actually work for users.">
 
+	<script src="assets/styles/reset-styles.js"></script>
+	<script src="components/theme-switcher.js" defer></script>
 	<script src="components/home-content.js" defer></script>
+	<script src="components/portfolio-content.js" defer></script>
+	<script src="components/site-footer.js" defer></script>
+
+	<script>
+		document.addEventListener('theme-change', (event) => {
+			const theme = event.detail.theme;
+
+			document.body.className = theme;
+
+			localStorage.setItem('theme', theme);
+		});
+
+		const savedTheme = localStorage.getItem('theme');
+		if(savedTheme && document.body) {
+			document.body.className = savedTheme;
+		}
+	</script>
 </head>
 
-<body class="">
-	<home-content></home-content>
+<body class="downtown">
+	<theme-switcher></theme-switcher>
+	<site-footer></site-footer>
+	<div class="container">
+		<div class="page">
+			<home-content></home-content>
+		</div>
+		<div class="page">
+			<portfolio-content></portfolio-content>
+		</div>
+	</div>
 </body>

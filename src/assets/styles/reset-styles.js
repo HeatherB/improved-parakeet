@@ -1,3 +1,4 @@
+const resetCSS = `
 /* Box sizing rules */
 *,
 *::before,
@@ -22,12 +23,6 @@ figure, blockquote, dl, dd {
 ul[role='list'],
 ol[role='list'] {
   list-style: none;
-}
-
-/* Set core body defaults */
-body {
-  min-height: 100vh;
-  line-height: 1.5;
 }
 
 /* Set shorter line heights on headings and interactive elements */
@@ -71,3 +66,10 @@ textarea:not([rows]) {
 :target {
   scroll-margin-block: 5ex;
 }
+`;
+
+const resetSheet = new CSSStyleSheet();
+resetSheet.replaceSync(resetCSS);
+
+// make it globally available
+window.resetSheet = resetSheet;

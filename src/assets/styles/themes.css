@@ -1,12 +1,83 @@
 /* themes.css */
 :root {
-  --theme-primary-color: #6200ee;
-  --theme-secondary-color: #008073;
-  --theme-background-color: #ffffff;
+  --theme-primary-color: #f4824e; /* orange */
+  --theme-secondary-color: #0DDFFF; /* teal */
+  --theme-background-color: #A9A9A9; /* dark grey */
   --theme-text-color: #000000;
-  --theme-font-family: 'Roboto', sans-serif;
+  --theme-shadow-color: #ffffff;
+  --theme-intro-bg: #ffffff;
+  --theme-footer-bg:  #000000;
+  --theme-footer-color: #ffffff;
+  --theme-font-family: playfair-display, serif;
+  --theme-font-decorative:  giddyup-std, sans-serif;
+  --theme-font-subhead:  prestige-elite-std, monospace;
+
+
+  /*$accentgrey: #666666;
+$darkgrey: #A9A9A9;
+$grey: #333333;
+$black: #000000;
+$white: #ffffff;
+
+$orange: #f4824e;
+$blue: #0DDFFF;
+$pink: #ff66ff;
+$teal: #008080;
+$green: #A9C515;*/
 }
 
+
+/* reset for elements outside shadow */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body {
+  margin-block-end: 0;
+}
+
+/* Set core body defaults */
+body {
+  margin: 0;
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* create scroll snap */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; /* Prevents double scrollbars */
+  background: var(--theme-background-color);
+}
+
+.container {
+  height: 100vh; /* Viewport Height */
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory; /* Vertical snap, strict enforcement */
+}
+
+.page {
+  height: 100vh; /* Each section takes full screen height */
+  scroll-snap-align: start; /* Snap to top of the section */
+}
+
+
+
+
+/* themes */
 /* Dark mode theme (applied via a class on the body or root) */
 body.dark-mode {
   --theme-primary-color: #bb86fc;
@@ -14,3 +85,5 @@ body.dark-mode {
   --theme-background-color: #121212;
   --theme-text-color: #ffffff;
 }
+
+

@@ -14,33 +14,69 @@
 	<meta name="description" content="Heather Sullivan Software Engineer - React, Next.js & GenAI. Building things that actually work for users.">
 
 	<script src="assets/styles/reset-styles.js"></script>
+	<script src="assets/styles/themes/theme-registry.js"></script>
+	<script src="assets/styles/themes/home-downtown.js"></script>
+	<script src="assets/styles/themes/home-great_outdoors.js"></script>
+	<script src="assets/styles/themes/home-retro.js"></script>
+	<script src="components/coloring-canvas.js" defer></script>
 	<script src="components/theme-switcher.js" defer></script>
 	<script src="components/home-content.js" defer></script>
+	<script src="components/about-content.js" defer></script>
 	<script src="components/portfolio-content.js" defer></script>
 	<script src="components/site-footer.js" defer></script>
 
 	<script>
 		document.addEventListener('theme-change', (event) => {
 			const theme = event.detail.theme;
-
 			document.body.className = theme;
-
 			localStorage.setItem('theme', theme);
 		});
 
-		const savedTheme = localStorage.getItem('theme');
-		if(savedTheme && document.body) {
+		// Apply saved theme to body on load
+		const savedTheme = localStorage.getItem('theme') || 'downtown';
+		document.addEventListener('DOMContentLoaded', () => {
 			document.body.className = savedTheme;
-		}
+
+			// Disable snap scrolling once on the portfolio (last) section
+			const container = document.querySelector('.container');
+			const pages = document.querySelectorAll('.page');
+			const lastPage = pages[pages.length - 1];
+			const DESKTOP_BREAKPOINT = 1024;
+			
+			const updateSnapBehavior = () => {
+				const isDesktop = window.innerWidth >= DESKTOP_BREAKPOINT;
+				const scrollPosition = container.scrollTop;
+				const lastPageStart = lastPage.offsetTop;
+				
+				if (!isDesktop) {
+					// No snap on mobile/tablet
+					container.style.scrollSnapType = 'none';
+				} else if (scrollPosition >= lastPageStart - 100) {
+					// On portfolio section, disable snap
+					container.style.scrollSnapType = 'none';
+				} else {
+					// Desktop, above portfolio - enable snap
+					container.style.scrollSnapType = 'y mandatory';
+				}
+			};
+			
+			container.addEventListener('scroll', updateSnapBehavior);
+			window.addEventListener('resize', updateSnapBehavior);
+			updateSnapBehavior(); // Initial check
+		});
 	</script>
 </head>
 
 <body class="downtown">
-	<theme-switcher></theme-switcher>
+	<coloring-canvas></coloring-canvas>
+	<!--<theme-switcher></theme-switcher>-->
 	<site-footer></site-footer>
 	<div class="container">
 		<div class="page">
 			<home-content></home-content>
+		</div>
+		<div class="page">
+			<about-content></about-content>
 		</div>
 		<div class="page">
 			<portfolio-content></portfolio-content>

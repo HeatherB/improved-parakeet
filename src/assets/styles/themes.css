@@ -2,15 +2,18 @@
 :root {
   --theme-primary-color: #f4824e; /* orange */
   --theme-secondary-color: #0DDFFF; /* teal */
-  --theme-background-color: #A9A9A9; /* dark grey */
+  --theme-background-color: #E5E4E2; /* platinum grey */
   --theme-text-color: #000000;
   --theme-shadow-color: #ffffff;
   --theme-intro-bg: #ffffff;
+  --theme-color-black: #000000;
+  --theme-color-white: #ffffff;
   --theme-footer-bg:  #000000;
   --theme-footer-color: #ffffff;
   --theme-font-family: playfair-display, serif;
   --theme-font-decorative:  giddyup-std, sans-serif;
   --theme-font-subhead:  prestige-elite-std, monospace;
+  --theme-font-sans: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
 
 
   /*$accentgrey: #666666;
@@ -50,7 +53,7 @@ body {
 /* Set core body defaults */
 body {
   margin: 0;
-  min-height: 100vh;
+  min-height: 100vh; 
   line-height: 1.5;
 }
 
@@ -59,19 +62,43 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow: hidden; /* Prevents double scrollbars */
+  overflow: auto; /* Allow scrolling on mobile */
   background: var(--theme-background-color);
 }
 
+@media (min-width: 1024px) {
+  html, body {
+    overflow: hidden; /* Prevents double scrollbars on desktop */
+  }
+}
+
 .container {
-  height: 100vh; /* Viewport Height */
+  height: auto; /* Allow natural height on mobile/tablet */
   overflow-y: scroll;
-  scroll-snap-type: y mandatory; /* Vertical snap, strict enforcement */
+  scroll-snap-type: none; /* No snap by default (mobile/tablet) */
 }
 
 .page {
-  height: 100vh; /* Each section takes full screen height */
-  scroll-snap-align: start; /* Snap to top of the section */
+  height: auto; /* Content-based height on mobile/tablet */
+  min-height: auto;
+  scroll-snap-align: none;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    height: 100vh;
+    scroll-snap-type: y mandatory; /* Enable snap on desktop only */
+  }
+  
+  .page {
+    height: 100vh; /* Each section takes full screen height */
+    scroll-snap-align: start; /* Snap to top of the section */
+  }
+  
+  .page:last-child {
+    height: auto; /* Allow last section to grow to fit content */
+    min-height: 100vh;
+  }
 }
 
 
@@ -84,6 +111,22 @@ body.dark-mode {
   --theme-secondary-color: #03dac6;
   --theme-background-color: #121212;
   --theme-text-color: #ffffff;
+}
+
+/* Great Outdoors theme - disable scroll snap for continuous scroll */
+body.great_outdoors {
+  background: #f5f5f5; /* Light neutral background */
+}
+
+body.great_outdoors .container {
+  scroll-snap-type: none; /* Disable snap for smooth scroll */
+  overflow-y: auto;
+}
+
+body.great_outdoors .page {
+  scroll-snap-align: unset;
+  height: auto; /* Allow natural height */
+  min-height: 100vh;
 }
 
 

@@ -17,10 +17,20 @@ templateFooter.innerHTML = `
 				margin: 0;
 				padding: 0;
 			}
+			.easter-egg {
+				cursor: pointer;
+				opacity: 0.3;
+				transition: opacity 0.2s;
+				text-decoration: none;
+				margin-left: 0.5rem;
+			}
+			.easter-egg:hover {
+				opacity: 1;
+			}
 		}
 	</style>
 	<div id="footer">
-		<p>&copy; Heather Sullivan 2026</p>
+		<p>&copy; Heather Sullivan 2026<a href="game.html" class="easter-egg" title="🎮">👾</a></p>
 	</div>
 `;
 

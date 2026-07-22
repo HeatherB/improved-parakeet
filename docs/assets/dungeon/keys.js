@@ -1,105 +1,94 @@
-/*
-a javascript file for keyboard movement
-*/
-
+/**
+ * Keyboard and gyroscope input handler
+ */
 
 // arrow key codes
-var UP = 38;
-var DOWN = 40;
-var RIGHT = 39;
-var LEFT = 37;
+const UP = 38;
+const DOWN = 40;
+const RIGHT = 39;
+const LEFT = 37;
 
-// directions
-var moveUp = false;
-var moveDown = false;
-var moveRight = false;
-var moveLeft = false;
+// movement directions
+let moveUp = false;
+let moveDown = false;
+let moveRight = false;
+let moveLeft = false;
 
-// add keyboard listeners
-window.addEventListener("keydown", function(event) {
-	switch(event.keyCode) {
-		case UP:
-			moveUp = true;
-			break;
+// keyboard listeners
+window.addEventListener(
+  "keydown",
+  (event) => {
+    switch (event.keyCode) {
+      case UP:
+        moveUp = true;
+        break;
+      case DOWN:
+        moveDown = true;
+        break;
+      case LEFT:
+        moveLeft = true;
+        break;
+      case RIGHT:
+        moveRight = true;
+        break;
+    }
+  },
+  false
+);
 
-		case DOWN:
-			moveDown = true;
-			break;
+window.addEventListener(
+  "keyup",
+  (event) => {
+    switch (event.keyCode) {
+      case UP:
+        moveUp = false;
+        break;
+      case DOWN:
+        moveDown = false;
+        break;
+      case LEFT:
+        moveLeft = false;
+        break;
+      case RIGHT:
+        moveRight = false;
+        break;
+    }
+  },
+  false
+);
 
-		case LEFT:
-			moveLeft = true;
-			break;
+// gyroscope support for mobile devices
+if (window.DeviceOrientationEvent) {
+  window.addEventListener(
+    "deviceorientation",
+    (event) => {
+      const beta = event.beta; // front or back tilt (forward is positive)
+      const gamma = event.gamma; // left or right tilt (right is positive)
 
-		case RIGHT:
-			moveRight = true;
-			break;		
-	}
-}, false);
+      // front and back tilt
+      if (beta > 5) {
+        moveDown = true;
+        moveUp = false;
+      } else if (beta < -5) {
+        moveUp = true;
+        moveDown = false;
+      } else {
+        moveUp = false;
+        moveDown = false;
+      }
 
-window.addEventListener("keyup", function(event) {
-	switch(event.keyCode) {
-		case UP:
-			moveUp = false;
-			break;
-
-		case DOWN:
-			moveDown = false;
-			break;
-
-		case LEFT:
-			moveLeft = false;
-			break;
-
-		case RIGHT:
-			moveRight = false;
-			break;
-	}
-}, false);
-
-
-// touch for gyroscope
-if(window.DeviceOrientationEvent) { 
-	window.addEventListener('deviceorientation', function(event) {
-	  var alpha = event.alpha; // direction according to compass
-	  var beta = event.beta; // front or back (forward is positive)
-	  var gamma = event.gamma; // left or right  (right is positive)
-	  // front and back tilt
-	  if(beta > 5) {
-	  	//$('.lost h1').css('color', 'red');
-	  	moveDown = true;
-	  	moveUp = false;
-	  } else if(beta < -5) {
-	  	//$('.lost h1').css('color', 'black');
-	  	moveUp = true;
-	  	moveDown = false;
-	  } else {
-	  	//$('.lost h1').css('color', 'green');
-	  	moveUp = false;
-	  	moveDown = false;
-	  }
-	  // left and right tilt
-	  if(gamma > 10) {
-	  	//$('.lost p').css('color', 'red');
-	  	moveRight = true;
-	  	moveLeft = false;
-	  } else if(gamma < -10) {
-	  	//$('.lost p').css('color', 'black');
-	  	moveLeft = true;
-	  	moveRight = false;
-	  } else {
-	  	moveLeft = false;
-	  	moveRight = false;
-	  	//$('.lost p').css('color', 'green');
-	  }
-	}, false);
+      // left and right tilt
+      if (gamma > 10) {
+        moveRight = true;
+        moveLeft = false;
+      } else if (gamma < -10) {
+        moveLeft = true;
+        moveRight = false;
+      } else {
+        moveLeft = false;
+        moveRight = false;
+      }
+    },
+    false
+  );
 }
-
-/*window.ondevicemotion = function(event) {
-	gamma = Math.round(event.gamma); // left to right
-	beta = Math.rounnd(event.beta); // fron to back
-	if(gamma == -27) {
-		alert("gamma has reached -27");
-	} else {
-		alert("wtf");
-	}
-}*/

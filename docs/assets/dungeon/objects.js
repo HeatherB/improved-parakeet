@@ -1,7 +1,5 @@
-//--- The sprite object
-
-var spriteObject =
-{
+// --- The sprite object
+const spriteObject = {
   sourceX: 0,
   sourceY: 0,
   sourceWidth: 64,
@@ -14,41 +12,37 @@ var spriteObject =
   vy: 0,
   visible: true,
   scrollable: true,
-  
-  //Getters
-  centerX: function()
-  {
-    return this.x + (this.width / 2);
+
+  // Getters
+  centerX() {
+    return this.x + this.width / 2;
   },
-  centerY: function()
-  {
-    return this.y + (this.height / 2);
+  centerY() {
+    return this.y + this.height / 2;
   },
-  halfWidth: function()
-  {
+  halfWidth() {
     return this.width / 2;
   },
-  halfHeight: function()
-  {
+  halfHeight() {
     return this.height / 2;
   },
 };
 
-//-- the monster object
-monsterObject = Object.create(spriteObject);
+// -- the monster object
+const monsterObject = Object.create(spriteObject);
 monsterObject.sourceX = 128;
 
 // the monster's states
-monsterObject.NORMAL = [2,0];
-monsterObject.SCARED = [2,1];
+monsterObject.NORMAL = [2, 0];
+monsterObject.SCARED = [2, 1];
 monsterObject.state = monsterObject.NORMAL;
 
-monsterObject.update = function() {
+monsterObject.update = function () {
   this.sourceX = this.state[0] * this.width;
   this.sourceY = this.state[1] * this.height;
 };
 
-// the monsters allowed speed
+// the monster's allowed speed
 monsterObject.speed = 1;
 
 // properties to help the monster change direction
@@ -61,22 +55,16 @@ monsterObject.validDirections = [];
 monsterObject.direction = monsterObject.NONE;
 monsterObject.hunt = false;
 
-
-
-
-//-- the cat object
-alienObject = Object.create(spriteObject);
+// -- the alien object
+const alienObject = Object.create(spriteObject);
 alienObject.sourceX = 128;
 
-// the cat's states
+// the alien's states
 alienObject.NORMAL = [1, 0];
 alienObject.SCARED = [1, 3];
 alienObject.state = alienObject.NORMAL;
 
-alienObject.update = function() {
-  //console.log('alien should update');
+alienObject.update = function () {
   this.sourceX = this.state[0] * this.width;
   this.sourceY = this.state[1] * this.height;
 };
-
-

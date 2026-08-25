@@ -106,7 +106,8 @@ templatePortfolioContent.innerHTML = `
 				<article class="project-tile" role="listitem">
 					<h3>GitHub | Personal Portfolio Site — Vanilla JS Architecture with Web Components & Dynamic Theming</h3>
 					<p>This repo for this site! A lightweight, framework-free portfolio site built entirely with native Web Components and modern browser APIs. This project demonstrates how far vanilla JavaScript can go when paired with thoughtful architecture.<br />
-					<a href="https://github.com/HeatherB/improved-parakeet" target="_blank" rel="noopener noreferrer" aria-label="View portfolio site source code on GitHub">github.com/HeatherB/improved-parakeet</a>
+					<a href="https://github.com/HeatherB/improved-parakeet" target="_blank" rel="noopener noreferrer" aria-label="View portfolio site source code on GitHub">Source Code</a> |
+					<a href="https://github.com/HeatherB/version_genai/blob/main/design-system-theme-registry.md" target="_blank" rel="noopener noreferrer" aria-label="View design system documentation">Design System Spec</a>
 					</p>
 				</article>
       	<!--<div class="project-tile">

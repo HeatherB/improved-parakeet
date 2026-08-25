@@ -1,12 +1,12 @@
 const template = document.createElement("template");
 template.innerHTML = `
-  <div id="content_wrapper" class="content_wrapper home">
+  <div id="content_wrapper" class="content_wrapper home" role="region" aria-labelledby="intro-heading">
     <section>
-      <h2>
+      <h1 id="intro-heading">
         <span class="hey">hey, </span>
         <span class="proper">I'm Heather</span>
         <span class="detail">software engineer</span>
-      </h2>
+      </h1>
       <p>Enterprise UI architect and lead engineer with 15+ years of experience designing, scaling, and delivering high-performing, accessible digital products.</p><p>Highly experienced in modern frontend architecture, including React, Next.js, and TypeScript, with deep full-stack and generative artificial intelligence (AI) capabilities.</p><p>Proven record leading cross-functional engineering teams, improving Core Web Vitals, and delivering large-scale digital platforms.</p>
     </section>
   </div>

@@ -37,9 +37,9 @@ templateAboutContent.innerHTML = `
 		}
   }
 	</style>
-	<div id="about-section" class="about">
+	<div id="about-section" class="about" role="region" aria-labelledby="about-heading">
     <section>
-		<h2 class="section_header">About</h2>
+		<h2 id="about-heading" class="section_header">About</h2>
 			<div>
 	      <p class="lead">At Deloitte, I work in frontend engineering and UI architecture, supporting enterprise digital product delivery across e-commerce, platform modernization, and AI-enabled experiences.</p><p class="sub">I have led frontend delivery, improved automated testing practices, and built complex, high-performance user interface systems for AI-enabled applications.</p><p class="sub">I specialize in turning complex, ambiguous concepts into production-ready, scalable systems while partnering closely with product, design, quality assurance, and engineering teams.</p>
       </div>

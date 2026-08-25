@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
 	<meta charset="utf-8" />
 
@@ -12,6 +14,39 @@
 
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=yes, width=device-width"/>
 	<meta name="description" content="Heather Sullivan Software Engineer - React, Next.js & GenAI. Building things that actually work for users.">
+
+	<!-- Accessibility: Skip link and focus styles -->
+	<style>
+		.skip-link {
+			position: absolute;
+			top: -100px;
+			left: 50%;
+			transform: translateX(-50%);
+			background: #000;
+			color: #fff;
+			padding: 0.75rem 1.5rem;
+			z-index: 9999;
+			border-radius: 0 0 4px 4px;
+			text-decoration: none;
+			font-family: system-ui, sans-serif;
+			font-weight: 600;
+			transition: top 0.2s ease;
+		}
+		.skip-link:focus {
+			top: 0;
+			outline: 3px solid #4A90D9;
+			outline-offset: 2px;
+		}
+		/* Global focus-visible styles */
+		:focus-visible {
+			outline: 3px solid #4A90D9;
+			outline-offset: 2px;
+		}
+		/* Remove default focus for mouse users */
+		:focus:not(:focus-visible) {
+			outline: none;
+		}
+	</style>
 
 	<!-- Analytics -->
 	<script defer src="https://cloud.umami.is/script.js" data-website-id="a83ddb1f-3a12-46b1-8e85-de9b25768810"></script>
@@ -42,8 +77,13 @@
 
 			// Disable snap scrolling once on the portfolio (last) section
 			const container = document.querySelector('.container');
-			const pages = document.querySelectorAll('.page');
-			const lastPage = pages[pages.length - 1];
+			const pages = document.querySelectorAll('.page');				
+				// Keyboard navigation between sections
+				document.addEventListener('keydown', (e) => {
+					if (e.key === 'Tab' && !e.shiftKey) {
+						// Let default tab behavior work
+					}
+				});			const lastPage = pages[pages.length - 1];
 			const DESKTOP_BREAKPOINT = 1024;
 			
 			const updateSnapBehavior = () => {
@@ -90,18 +130,22 @@
 </head>
 
 <body class="downtown">
-	<coloring-canvas></coloring-canvas>
+	<!-- Skip Link for keyboard/screen reader users -->
+	<a href="#main-content" class="skip-link">Skip to main content</a>
+	
+	<coloring-canvas aria-hidden="true"></coloring-canvas>
 	<!--<theme-switcher></theme-switcher>-->
-	<site-footer></site-footer>
-	<div class="container">
-		<div class="page">
+	<site-footer role="contentinfo"></site-footer>
+	<main id="main-content" class="container" role="main" aria-label="Portfolio sections">
+		<section class="page" id="home" aria-label="Introduction" tabindex="-1">
 			<home-content></home-content>
-		</div>
-		<div class="page">
+		</section>
+		<section class="page" id="about" aria-label="About me" tabindex="-1">
 			<about-content></about-content>
-		</div>
-		<div class="page">
+		</section>
+		<section class="page" id="work" aria-label="Portfolio work" tabindex="-1">
 			<portfolio-content></portfolio-content>
-		</div>
-	</div>
+		</section>
+	</main>
 </body>
+</html>

@@ -12,7 +12,7 @@ window.registerTheme('downtown', `
         padding: 2rem;
         background: var(--theme-intro-bg);
       }
-      h2 {
+      h1 {
         text-align: left;
         padding-top: 0;
         padding-bottom: 3%;

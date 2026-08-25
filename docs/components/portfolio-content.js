@@ -76,6 +76,18 @@ templatePortfolioContent.innerHTML = `
 					</p>
 				</div>
 				<div class="project-tile">
+					<h3>Xbox Game Studios | Interactive Tutorial Platform</h3>
+					<p>Built an interactive "Learn to Play" multimedia application for Age of Empires featuring dynamic canvas hotspots with X/Y positioning, native video delivery with timestamp synchronization, and persistent user progress tracking. The case study focuses on interactive UX engineering, responsive design, and CMS-driven content architecture.<br />
+					<a href="https://github.com/HeatherB/version_genai/blob/main/microsoft-learn-to-play.md" target="_blank">Learn to Play Case Study</a>
+					</p>
+				</div>
+				<div class="project-tile">
+					<h3>Xbox Game Studios | Automated Localization Platform</h3>
+					<p>Architected a WordPress plugin that integrated Azure Translator API to automate multi-language content generation, eliminating manual translation workflows for editorial teams. Features include batch translation of complex ACF structures, translation locking to protect manual edits, and Polylang integration for 6+ languages.<br />
+					<a href="https://github.com/HeatherB/version_genai/blob/main/microsoft-translation-platform.md" target="_blank">Translation Platform Case Study</a>
+					</p>
+				</div>
+				<div class="project-tile">
 					<h3>GitHub</h3>
 					<p>Selected repos I contribute to<br />
 					<a href="https://github.com/HeatherB" target="_blank">github.com/HeatherB</a>

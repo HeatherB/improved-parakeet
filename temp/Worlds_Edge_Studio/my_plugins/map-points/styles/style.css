@@ -1,0 +1,82 @@
+.mappoint_btn {
+    margin: 1em 0;
+    cursor: pointer;
+}
+#map_point_selection_wrapper {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: auto;
+	right: auto;
+	z-index:9999;
+	box-sizing: border-box;
+	padding: 2em;
+	border: 5px solid #000000;
+	background: #f5f5dc;
+}
+#map_sheer {
+	display: none;
+	position: fixed;
+	z-index: 50;
+	top:0;
+	left: 0;
+	width:100%;
+	height:100%;
+	background: rgba(0,0,0,0.85);
+}
+#map_point_selection_wrapper.popped {
+	display: block;
+}
+#map_point_selection_wrapper.popped + #map_sheer {
+	display: block;
+}
+#close_map_point_selection {
+	display: block;
+	width: 30px;
+	height: 30px;
+	background: #000000;
+	color:#f5f5dc;
+	font-weight: bold;
+	text-align:center;
+	position: absolute;
+	top:0;
+	left: 0;
+	border: none;
+}
+#close_map_point_selection:hover{
+	background: #f5f5dc;
+	color:#000000;
+}
+.scaled_map_image {
+	position: relative;
+}
+span.tempMarker {
+	width: 30px;
+	height: 30px;
+	padding: 5px;
+    border: solid 5px #c00;
+    border-radius: 50%;
+    background-color: #c00;
+    background-clip: content-box;
+    transition: border-color 200ms ease-in, background-color 200ms ease-in;
+    box-sizing: border-box;
+	position: absolute;
+	z-index:99;
+}
+label.faux_vid_select {
+	display: block; 
+	font-weight: bold; 
+	padding: 15px 0 0 0;
+	margin: 0 0 3px;
+}
+p.faux_vid_select {
+	display:block; 
+	padding: 0; 
+	font-size:13px; 
+	font-style:italic;
+	margin: 0 0 10px;
+}
+div[data-name="video_selection"] {
+	/*display: none;*/
+	border: 1px solid red;
+}

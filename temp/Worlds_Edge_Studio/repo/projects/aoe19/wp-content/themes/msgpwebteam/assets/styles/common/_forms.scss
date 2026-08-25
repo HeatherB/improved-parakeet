@@ -1,0 +1,443 @@
+.error_msg {
+    background: $ui-color-scarlet;
+
+    p {
+        color: #fff;
+        padding: 1.5em;
+    }
+}
+            
+select {
+    max-width: 31em;
+
+    &.standard {
+        display: inline-block;
+        vertical-align: bottom;
+        border: 0;
+        outline: 0px solid $ui-color-textlink;
+        outline-style: none;
+        transition: outline 0.3s;
+        padding: 0 0.5em;
+        line-height: 2em;
+        background: url($image-path + 'forms/form-controls-desk.png') no-repeat, url($image-path + 'forms/form-controls-desk.png') no-repeat;
+        background-position: right -29em top -17.6em, left top;
+        background-size: 32em 35.2em, 32em 35.2em;
+        height: 2em;
+        position: relative;
+        font-size: inherit;
+        appearance: none;
+
+        &::-ms-expand {
+            display: none;
+        }
+
+        &:hover {
+            background-position: right -29em top -19.8em, left top -2.2em;
+            outline: 0px solid $ui-color-textlink;
+            outline-style: none;
+            outline-width: 0;
+        }
+
+        &:focus {
+            background-position: right -29em top -24.2em, left top -6.6em;
+        }
+
+        &:disabled {
+            background-position: right -29em top -22em, left top -4.4em;
+        }
+    }
+}
+
+input[type="text"], 
+input[type="email"] {
+    max-width: 31em;
+
+    &.other_input { max-width: 20em; }
+
+    &.standard {
+        display: inline-block;
+        vertical-align: bottom;
+        border: 0;
+        outline: 0px solid $ui-color-textlink;
+        outline-style: none;
+        transition: outline 0.3s;
+        padding: 0 0.5em;
+        line-height: 2em;
+        background: url($image-path + 'forms/form-controls-desk.png') no-repeat, url($image-path + 'forms/form-controls-desk.png') no-repeat;
+        background-position: right -29em top -8.8em, left top;
+        background-size: 32em 35.2em, 32em 35.2em;
+        height: 2em;
+        position: relative;
+        font-size: inherit;
+
+        &:hover {
+            background-position: right -29em top -11em, left top -2.2em;
+            outline: 0px solid $ui-color-textlink;
+            outline-style: none;
+            outline-width: 0;
+        }
+
+        &:focus {
+            background-position: right -29em top -15.4em, left top -6.6em;
+        }
+
+        &:disabled {
+            background-position: right -29em top -13.2em, left top -4.4em;
+        }
+    }
+}
+
+%checkable-inputs {
+    display: none;
+
+    + label {
+        /* !! fix syntax and make sure it doesn't break anything 
+        font-size: calc(1em * #$ui-form-control-scale-mobile); */
+        display: inline-block;
+        vertical-align: text-top;
+        height: 1em;
+        width: 1em;
+        position: relative;
+        padding: 0px;
+        cursor: pointer;
+        background: url($image-path + 'forms/form-controls-desk.png');
+        background-size: 20em 22em;
+        margin-left: 0;
+    }
+}
+
+input[type="radio"] {
+
+    &.standard {
+        @extend %checkable-inputs;
+
+        + label {
+            background-position: -3.125em -8.25em;
+
+            &:hover {
+                background-position: -3.125em -9.375em;
+            }
+        }
+
+        &:disabled {
+            + label {
+                background-position: -3.125em -11.625em;
+            }
+        }
+
+        &:focus {
+            + label {
+                background-position: -3.125em -13.875em;
+            }
+        }
+
+        &:checked {
+            + label {
+                background-position: -3.125em -6em;
+
+                &:hover {
+                    background-position: -3.125em -7.125em;
+                }
+            }
+
+            &:disabled {
+                + label {
+                    background-position: -3.125em -10.5em;
+                }
+            }
+
+            &:focus {
+                + label {
+                    background-position: -3.125em -12.75em;
+                }
+            }
+        }
+    }
+}
+
+input[type="checkbox"] {
+
+    & + .other_label {
+        &:before {
+            content: "(Required)";
+        }
+    }
+
+    &.standard {
+        @extend %checkable-inputs;
+
+        + label {
+            background-position: -2em -8.25em;
+
+            &:hover {
+                background-position: -2em -9.375em;
+            }
+        }
+
+        &:disabled {
+            + label {
+                background-position: -2em -11.625em;
+            }
+        }
+
+        &:focus {
+            + label {
+                background-position: -2em -13.875em;
+            }
+        }
+
+        &:checked {
+            + label {
+                background-position: -2em -6em;
+
+                &:hover {
+                    background-position: -2em -7.125em;
+                }
+            }
+
+            &:disabled {
+                + label {
+                    background-position: -2em -10.5em;
+                }
+            }
+
+            &:focus {
+                + label {
+                    background-position: -2em -12.75em;
+                }
+            }
+        }
+
+        &.required {
+            ~ span {
+                &::after {
+                    content: "(required)";
+                    display: inline;
+                    margin-left: 0.25em;
+                    color: $red-error-dark;
+                }
+
+                &[data-required-translation] {
+                    &::after {
+                        content: attr(data-required-translation);
+                    }
+                    
+                }
+            }
+        }
+    }
+
+    &.toggle {
+        @extend %checkable-inputs;
+
+        + label {
+            width: 2em;
+            background-position: -4.25em -6em;
+
+            &::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 1em;
+                height: 1em;
+                background: url($image-path + 'forms/form-controls-desk.png');
+                background-size: 20em 22em;
+                background-position: -6.375em -8.25em;
+                transform: translate(0, 0);
+                transition: transform 0.3s ease-out;
+            }
+
+            &:hover {
+                background-position: -4.25em -9.375em;
+
+                &::before {
+                    background-position: -6.375em -9.375em;
+                }
+            }
+        }
+
+        &:disabled {
+            + label {
+                background-position: -4.25em -11.625em;
+
+                &::before {
+                    background-position: -6.375em -11.625em;
+                }
+            }
+        }
+
+        &:focus {
+            + label {
+                background-position: -4.25em -12.75em;
+            }
+        }
+
+        &:checked {
+            + label {
+                background-position: -4.25em -6em;
+
+                &::before {
+                    transform: translate(100%, 0);
+                    background-position: -6.375em -6em;
+                }
+
+                &:hover {
+                    background-position: -4.25em -7.125em;
+
+                    &::before {
+                        background-position: -6.375em -7.125em;
+                    }
+                }
+            }
+
+            &:disabled {
+                + label {
+                    background-position: -4.25em -10.5em;
+
+                    &::before {
+                        transform: translate(0, 0);
+                        background-position: -6.375em -10.5em;
+                    }
+                }
+            }
+
+            &:focus {
+                + label {
+                    background-position: -4.25em -12.75em;
+                }
+            }
+        }
+    }
+}
+
+/*********************************** MOBILE LANDSCAPE ****************************************************/
+@media (min-width: $ui-breakpoint-moblandscape) and (min-aspect-ratio: 33/32) {
+
+    input[type="radio"] {
+        &.standard {
+            + label {
+                font-size: calc(1em * $ui-form-control-scale-moblandscape);
+            }
+        }
+    }
+    input[type="checkbox"] {
+        &.standard {
+            + label {
+                font-size: calc(1em * $ui-form-control-scale-moblandscape);
+            }
+        }
+
+        &.toggle {
+            + label {
+                font-size: calc(1em * $ui-form-control-scale-moblandscape);
+            }
+        }
+    }
+}
+
+/************************************* TABLET ***************************************************/
+
+@media (min-width: $ui-breakpoint-tablet) {
+    input[type="radio"] {
+        &.standard {
+            + label {
+                font-size: calc(1em * $ui-form-control-scale-tablet);
+            }
+        }
+    }
+    input[type="checkbox"] {
+        &.standard {
+            + label {
+                font-size: calc(1em * $ui-form-control-scale-tablet);
+            }
+        }
+
+        &.toggle {
+            + label {
+                font-size: calc(1em * $ui-form-control-scale-tablet);
+            }
+        }
+    }
+}
+
+/*********************************** DESKTOP ***********************************************************/
+@media (min-width: $ui-breakpoint-desk) {
+
+    input[type="radio"] {
+        &.standard {
+            + label {
+                font-size: calc(1em * $ui-form-control-scale-desk);
+            }
+        }
+    }
+    input[type="checkbox"] {
+        &.standard {
+            + label {
+                font-size: calc(1em * $ui-form-control-scale-desk);
+            }
+        }
+
+        &.toggle {
+            + label {
+                font-size: calc(1em * $ui-form-control-scale-desk);
+            }
+        }
+    }
+
+}
+
+/*********************************** ULTRA *************************************************************/
+@media (min-width: $ui-breakpoint-ultra) {
+
+    select {
+        &.standard {
+            background: url($image-path + 'forms/form-controls-ultra.png') no-repeat, url($image-path + 'forms/form-controls-ultra.png') no-repeat;
+            background-size: 32em 35.2em, 32em 35.2em;
+            background-position: right -29em top -17.6em, left top;
+        }
+    }
+    input[type="text"] {
+        &.standard {
+            background: url($image-path + 'forms/form-controls-ultra.png') no-repeat, url($image-path + 'forms/form-controls-ultra.png') no-repeat;
+            background-size: 32em 35.2em, 32em 35.2em;
+            background-position: right -29em top -8.8em, left top;
+        }
+    }
+    input[type="radio"] {
+        &.standard {
+            + label {
+                font-size: calc(1em * $ui-form-control-scale-ultra);
+                background: url($image-path + 'forms/form-controls-ultra.png');
+                background-size: 20em 22em;
+                background-position: -3.125em -8.25em;
+            }
+        }
+    }
+    input[type="checkbox"] {
+        &.standard {
+            + label {
+                font-size: calc(1em * $ui-form-control-scale-ultra);
+                background: url($image-path + 'forms/form-controls-ultra.png');
+                background-size: 20em 22em;
+                background-position: -2em -8.25em;
+            }
+        }
+
+        &.toggle {
+            + label {
+                font-size: calc(1em * $ui-form-control-scale-ultra);
+                background: url($image-path + 'forms/form-controls-ultra.png');
+                background-size: 20em 22em;
+                background-position: -4.25em -6em;
+
+                &::before {
+                    background: url($image-path + 'forms/form-controls-ultra.png');
+                    background-size: 20em 22em;
+                    background-position: -6.375em -8.25em;
+                }
+            }
+        }
+    }
+
+}

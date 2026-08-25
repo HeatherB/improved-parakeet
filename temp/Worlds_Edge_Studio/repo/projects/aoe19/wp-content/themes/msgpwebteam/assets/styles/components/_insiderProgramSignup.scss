@@ -1,0 +1,584 @@
+// Insider Program Signup
+
+.insider-signup__banner {
+    display: block;
+    background-image: url($image-path + 'survey/hero-survey.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: $xdark-brown;
+}
+
+
+.insider_survey {
+    .completed {
+        height: inherit;
+        display: none;
+        .title_name {
+            color: #fff;
+        }
+    }
+    .cordian, .question {
+        margin-bottom: 0;
+        border-bottom: solid 2px $ui-color-darkgold;
+
+        &.disabled:not(.welcome) {
+            .title {
+                background: #251b0e;
+                background: linear-gradient(180deg,#3e2d17,#5d4423 5%,#4d381d 10%,#281d0f 90%,#332513 95%,#291e10);
+            }
+
+        }
+
+        .title {
+            padding: 1em;
+            display: block;
+            background: #665527;
+            background: linear-gradient(to bottom, #6e5c29 0%,#816c2c 9%,#665527 19%,#44361a 75%,#544420 91%,#584822 100%);
+
+
+            &::after {
+                display: none;
+            }
+
+            &.complete {
+                @include icon_old(17, 38, 0, top);
+            }
+
+            &.incomplete {
+                @include icon_old(20, 38, 0, top);
+            }
+        }
+
+        .insider_content {
+            .error_msg {
+                position: relative;
+                background: $ui-color-scarlet;
+
+                p {
+                    color: #fff;
+                    padding: 1.5em;
+                    text-align: center;
+
+                    a {
+                        color: $ui-color-darklink;
+                    }
+
+                }
+
+            }
+
+            #value_gamertag {
+                color: #665527;
+            }
+
+
+            .ac_content_container {
+                transition: none;
+                .ac_content {
+                    transition: none;
+                }
+            }
+
+            .ac_content {
+
+                padding: 1.5em;
+
+                h1 {
+                    text-align: center;
+                    margin-bottom: 3.125rem;
+                }
+
+                .nda_container {
+                    border: solid 1px #847a62;
+                    max-height: 400px;
+                    overflow-y: scroll;
+                    margin-top: 1em;
+                    margin-bottom: 1em;
+                    padding: 1em;
+                }
+
+                #contact_prefs {
+                    input[type=email] {
+                        max-width: 31em;
+                    }
+                }
+
+                #survey_complete {
+                    ul {
+                        width: 80%;
+                        margin-left: auto;
+                        margin-right: auto;
+                    }
+                }
+
+                .steam_connected {
+                    display: block;
+                    margin-top: 30px;
+                    text-align: center;
+
+                    .disconnect_steam_container {
+                        position: relative;
+                        left: 50%;
+                        -ms-transform: translateX(-50%);
+                        transform: translateX(-50%);
+                        margin-left: 1.5em;
+
+                        .disconnect_steam {
+                            margin-bottom: 1em;
+
+                            .disconnect {
+                                display: none;
+                            }
+
+                            svg {
+                                -webkit-filter: invert(100%);
+                                filter: invert(100%);
+                                position: absolute;
+                                top: 50%;
+                                -ms-transform: translateY(-50%);
+                                transform: translateY(-50%);
+                                width: 25px;
+                            }
+                            span {
+                                margin-left: 30px;
+                            }
+
+                            &:hover {
+                                .steam_personaname {
+                                    display: none;
+                                }
+                                .disconnect {
+                                    display: inline;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .status_section {
+                    font: 20/30px;
+                    font-weight: bold;
+
+                    .edit_btn {
+                        margin-top: 10px;
+
+                        .edit {
+                            &.show {
+                                display: inline-block;
+                            }
+
+                            &.hide {
+                                display: none;
+                            }
+
+                            width: 192px;
+                            @include icon_old(16, 25, 0, bottom);
+                        }
+                    }
+
+                    .info_status {
+                        width: 100%;
+                        min-height: 40px;
+                        background-color: #251b0e;
+
+                        .info_label {
+                            color: #f1e9d0;
+                            line-height: 40px;
+
+                            &.complete {
+                                @include icon_old(17, 38, 0, bottom);
+                            }
+
+                            &.incomplete {
+                                @include icon_old(20, 38, 0, bottom);
+                            }
+                        }
+                    }
+
+                    &.centered_full {
+                        width: 100%;
+                        text-align: center;
+
+                        .info_status {
+                            width: 100%;
+                            margin-bottom: 30px;
+                        }
+                    }
+                }
+
+                #ndaLanguageForm {
+                    font-size: 85%;
+                    border-bottom: solid 1px #847a62;
+                    margin-bottom: 1em;
+                    label, 
+                    select { 
+                        font-size: inherit; 
+                        display: inline-block;
+                        width: auto;
+                    }
+                    label {
+                        margin-right: 0.25em;
+                        .icon {
+                            background: url($image-path + 'icon-globe.svg');
+                            background-size: 100% 100%;
+                            width: 1.25em;
+                            height: 1.25em;
+                            display: inline-block;
+                            vertical-align: sub;
+                            margin-right: 0.25em;
+                        }
+                    }
+                }
+                
+                .survey_flex_container {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    align-items: flex-start;
+                    align-content: center;
+
+                    .survey_flex_item {
+                        flex: 0 1 100%;
+
+                        &.survey_question_confirm {
+                            flex: 0 1 100%;
+                        }
+                    }
+
+                    &.opac_container_1 {
+                        padding: 1em;
+                    }
+                }
+
+                .survey-question-label {
+                    font-weight: 600;
+
+                    &.survey_welcome {
+                        font-size: 2em;
+                    }
+
+                    &[for="pref_email"] {
+                        .tooltip_icon {
+                            direction: rtl;
+                            line-height: 1;
+
+                            &::after,
+                            &:hover::after { vertical-align: baseline; }
+
+                            &::before {
+                                content: "(required)";
+                                font-weight: normal;
+                                margin-left: 0.25em;
+                                color: $red-error-dark;
+                                vertical-align: text-top;
+                            }
+                        }
+                    }
+                    &[for="pref_country"] {
+                        position: relative;
+                        &::after {
+                            content: "(required)";
+                            font-weight: normal;
+                            margin-left: 0.25em;
+                            color: $red-error-dark;
+                            vertical-align: text-top;
+                            position: absolute;
+                            left: 7em;
+                            top: 0;
+                            display: block;
+                        }
+                    }
+                }
+
+                .survey-button-container {
+                    display: block;
+                    margin-top: 30px;
+                    text-align: center;
+
+                    .button.cta {
+                        margin-right: 1.5em;
+                        margin-bottom: 1em;
+                        min-width: 13em;
+                    }
+                }
+            }
+
+            .tooltip_icon {
+                @include icon_old_after(9, 25, 1, text-bottom);
+
+                &:hover {
+                    @include icon_old_after(9, 25, 2, text-bottom);
+
+                    &::after {
+                        vertical-align: baseline;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Sidebar on profile */
+body.profile {
+    .profile-main {
+         @include breakpoint(medium only) {
+            @include grid-column(9, 16);
+        }
+    }
+    .profile-sidebar {
+        @include breakpoint(medium only) {
+             @include grid-column(3, 16);
+        }
+
+        .button.cta.save-survey-data {
+            margin-right: 1.5em;
+            margin-bottom: 1em;
+            max-width: 15.5em;
+
+            padding-left: 0px;
+            margin-right:0;
+            display: block;
+            width:100%;
+            background: none;
+            @include breakpoint(medium only) {
+                /* 0.625em(10px) @ 48.000em(768px) increasing to 1em(16px) @ 61.875em(990px) */
+                /* where  2.70 = 100 * font_size_difference / viewport_width_difference */
+                font-size: calc(0.625em + ((1vw - 0.485em) * 2.70));
+            }
+            &:before {
+                content:'';
+                border: 0;
+                padding: 0;
+                position: absolute;
+                display: inline-block;
+                line-height: 2;
+                background: url($image-path + 'btn/button-age2.png') left top;
+                background-size: auto 200%;
+                max-width: 27.5em;
+                z-index: -1;
+                width:88%;
+                height: 100%;
+                left: 0;
+            }
+            &:after {
+                content: "";
+                position: absolute;
+                right: 0px;
+                top: 0;
+                height: 100%;
+                width: 18%;
+                background: url($image-path + 'btn/button-age2.png') right top;
+                background-size: auto 200%;
+                z-index: -1;
+            }
+        }
+        .cta-anim-right {
+            right: 0;
+        }
+        @include breakpoint(medium up) {
+          a:focus {
+            outline: 2px solid $ui-color-royalgold-hover;
+          }
+        }
+    }
+}
+
+
+// Summary Section
+.insider_survey {
+
+    .teasers {
+
+        .ac_content_container {
+
+            .survey_questions_answered {
+                margin-top: 30px;
+
+                .survey_question_confirm {
+                    text-align: left;
+
+                    .question_label {
+                        font: 20/30px;
+                        font-weight: bold;
+
+                    }
+
+                    .completion_list {
+                        //margin-left: 1.5em;
+
+                        li {
+                            font: 16/32;
+                        }
+
+                        &.completion_confirmed {
+                            width: 90%;
+                            margin-left: auto;
+                            margin-right: auto;
+
+                            li {
+                                @include icon_old(17, 38, 0, bottom);
+                                list-style: none;
+                                background: none;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .survey-answers {
+                label.survey-answer {
+                    font-size: rem-calc(24px);
+                    line-height: rem-calc(30px);
+                    display: block;
+                    padding: 1px 2px;
+                    margin-left: 23px;
+                    text-indent: -24px;
+                }
+            }
+
+        }
+    }
+}
+
+/*********************************** TABLET ***********************************************************/
+
+@media (min-width: $ui-breakpoint-tablet) {
+    .insider_survey {
+        .insider_content {
+            .ac_content {
+                .insider_communication_prefs {
+                    input[type=email] {
+                        max-width: inherit;
+                    }
+                }
+
+                .survey-question-label {
+                    font-weight: 600;
+
+                    &.survey_welcome {
+                        font-size: 2em;
+                    }
+                }
+
+                .survey-button-container {
+                    .button.cta {
+                        margin-left: 1.5em;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*********************************** DESKTOP ***********************************************************/
+
+@media (min-width: $ui-breakpoint-desk) {
+
+    .ac_content {
+        .survey_flex_container {
+
+            .survey_flex_item {
+                flex: 0 0 auto;
+
+                &.survey_question_confirm {
+                    flex: 0 0 48%;
+                }
+            }
+
+            &.opac_container_1 {
+                padding: 1em;
+            }
+        }
+    }
+
+    // Survey Summary
+    .insider_survey {
+
+        .teasers {
+
+            .ac_content_container {
+
+                .ac_content {
+
+                    .status_section {
+
+                        .info_status {
+                            width: 392px;
+                            min-height: 40px;
+                            background-color: #251b0e;
+
+                            .info_label {
+                                color: #f1e9d0;
+                                line-height: 40px;
+
+                                &.complete {
+                                    @include icon_old(17, 38, 0, bottom);
+                                }
+
+                                &.incomplete {
+                                    @include icon_old(20, 38, 0, bottom);
+                                }
+                            }
+                        }
+                    }
+
+                    .survey_flex_container {
+
+                        .survey_flex_item {
+                            flex: 0 0 auto;
+
+                            &.survey_question_confirm {
+                                flex: 0 0 48%;
+                            }
+                        }
+
+                        &.opac_container_1 {
+                            padding: 1em;
+                        }
+                    }
+                }
+
+                .survey_questions_answered {
+
+                    .survey_question_confirm {
+
+                        .completion_list {
+                            &.completion_confirmed {
+                                width: 70%;
+                                margin-left: auto;
+                                margin-right: auto;
+
+                                li {
+                                    @include icon_old(17, 38, 0, bottom);
+                                    list-style: none;
+                                    background: none;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .survey-answers {
+                    label.survey-answer {
+                        font-size: rem-calc(24px);
+                        line-height: rem-calc(30px);
+                        display: block;
+                        padding: 1px 2px;
+                        margin-left: 23px;
+                        text-indent: -24px;
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+/* fte tool */
+.questions_problems {
+    box-sizing: border-box;
+    padding: 1rem 0;
+}
+

@@ -1,0 +1,96 @@
+$oneVR:2.5625rem;
+$halfVR: 1.28125rem;
+$myStatsAvatar: 3.203125rem;
+
+.stats-leaderboard-header {
+ margin-top: -131px;
+  @include breakpoint(small only) {
+    margin-top: -40px;
+  }
+}
+
+.leader-header {
+  &__top {
+    @include clearfix;
+    margin-bottom: .128125rem;
+    margin-bottom: 1.28125rem;
+  }
+  &__regions,
+  &__maps,
+  &__title,
+  &__search {
+    width: calc(50% - 10px);
+  }
+  &__regions,
+  &__title {
+    float: left;
+  }
+  &__maps,
+  &__search {
+    float: right;
+  }
+  &__search {
+    display: flex;
+    .search-field {
+      flex-grow: 1;
+    }
+    .btn--search {
+      flex-grw:0;
+      height: $oneVR;
+      line-height: $oneVR;
+      margin-left: 10px;
+      i {
+        line-height: $oneVR;
+      }
+    }
+  }
+  input,
+  select {
+    margin-bottom: 0px !important;
+  }
+}
+
+.my-stats {
+  &__top {
+    @include clearfix;
+    height: $myStatsAvatar;
+    margin-bottom: .640625rem;
+  }
+  &__avatar {
+    img {
+      height: $myStatsAvatar;
+      width: $myStatsAvatar;
+      margin-right: 20px;
+      float: left;
+      border: 1px solid rgba(192, 136, 64, 0.7);
+    }
+  }
+  &__gamertag {
+    h4,
+    span {
+      color: $light-alt;
+    }
+    h4 {
+      margin-bottom: 5px;
+    }
+    span{
+      font-size: 14px;
+      font-weight: 100;
+    }
+  }
+  &__bottom {
+    .button {
+      height: $oneVR;
+      line-height: $oneVR;
+      font-size: $oneVR / 2;
+      font-family: "trajan-pro-3", serif;
+      padding: 0;
+      background: url(https://localhost:3000/wp-content/themes/msgpwebteam/dist/images/ui/nav-link-texture.jpg) repeat center top, url(https://localhost:3000/wp-content/themes/msgpwebteam/dist/images/ui/nav-active-texture.jpg) repeat center top;
+      border-radius: 0;
+      border: 2px solid #2d2a23;
+      vertical-align: middle;
+      width: 100%;
+    }
+  }
+
+}

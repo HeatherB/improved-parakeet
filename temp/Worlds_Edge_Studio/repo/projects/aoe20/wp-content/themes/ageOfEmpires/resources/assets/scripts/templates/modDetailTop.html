@@ -1,0 +1,84 @@
+<!-- existing piece from old file -->
+<% if (modStatusId === 3 || modStatusId === 4) { %>
+<div class="alert --mod-detail">
+  <div class="alert__content">
+    <span class="alert__heading --alert">Alert!</span>
+    <div class="alert__message">
+      <% if (modStatusId === 3) { %>
+        <h4 class="alert__title">This mod has been flagged by an admin.</h4>
+      <% } else if (modStatusId === 4) { %>
+        <h4 class="alert__title">This mod has been removed by an admin.</h4>
+      <% } %>
+      <% if (modStatusMessage) { %>
+        <p class="alert__desc"><%= modStatusMessage %></p>
+      <% } %>
+    </div>
+  </div>
+</div>
+<% } %>
+<!-- end existing piece from old file -->
+
+<!-- gallery area -->
+<div class="mods__gallery">
+  <!-- main image -->
+  <div class="mods__image-wrapper js-thumbCarousel-targets">
+    <% _.each(imageUrls, function(image, index) { %>
+      <img src="<%= image.imageName %>" alt="image <%= image.imageId %>" />
+    <% }); %>
+  </div>
+
+  <!-- list of thumbs -->
+  <% if (imageUrls.length > 1) { %>
+    <div class="mods__thumbs-wrapper js-thumbCarousel-triggers">
+      <% _.each(imageUrls, function(image, index) { %>
+        <img src="<%= image.imageThumbnail %>" alt="image <%= image.imageId %>" />
+      <% }); %>
+    </div>
+  <% } %>
+</div>
+
+<!-- mod rating block -->
+<div class="mods__rating">
+  <!-- some kind of loop or other to output -->
+  <!-- group of stars -->
+  <!-- text/integer rating -->
+  <h5 class="mods__rating-count">888,888,888 ratings</h5>
+</div>
+
+<!-- mod attribution block -->
+<div class="mods__attribution">
+  <% if (metaData.creatorName) { %>
+  <h5 class="mods__sub-heading">Created By</h5>
+  <h3 class="mods__sub-heading-author">
+    <!-- the data does not appear to return a user image -->
+    <!--<img src="/" alt="gamertag" />-->
+    <%= metaData.creatorName %>
+  </h3>
+  <% } %>
+  <div class="mods__stats">
+    <table>
+      <tr>
+        <th scope="row" class="mods__stats-label">Subscribers</th>
+        <td><%= metaData.installs %></td>
+        <% if (metaData.modDiskSize > 0) { %>
+        <th scope="row" class="mods__stats-label">File Size</th>
+        <td><%= (metaData.modDiskSize / (1024 * 1024)).toFixed(2) %>MB</td>
+        <% } %>
+        <th scope="row" class="mods__stats-label">Version</th>
+        <td><!-- we dont appear to have this piece of data - no mod version --></td>
+        <% if (metaData.lastUpdate) { %>
+        <th scope="row" class="mods__stats-label">Last Updated</th>
+        <td><%= (new Date(metaData.lastUpdate)).toLocaleDateString() %></td>
+        <% } %>
+        <% if (metaData.createDate) { %>
+        <th scope="row" class="mods__stats-label">Created On</th>
+        <td><%= (new Date(metaData.createDate)).toLocaleDateString() %></td>
+        <% } %>
+      </tr>
+    </table>
+  </div>
+
+  <a href="https://www.ageofempires.com/mods/mods-download-install-instructions/" class="mods__button --info">
+    How To Install
+  </a>
+</div>

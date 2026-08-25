@@ -1,0 +1,131 @@
+.bargraph-table {
+  margin: 0;
+  width: 100%;
+
+  thead,
+  tbody,
+  tfoot,
+  tr {
+    //override Foundation
+    background-color: transparent;
+  }
+
+  th {
+    color: $brown;
+    text-transform: uppercase;
+    font-size: 14px;
+    &.no-horiz-pad {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  th, td {
+    padding: 10px;
+    text-align: left;
+
+    &.align-right {
+      text-align: right;
+    }
+
+    &.align-center {
+      text-align: center;
+    }
+
+    // @include breakpoint(large) {
+    //   padding: 10px 15px;
+    // }
+  }
+
+  thead {
+    border-bottom: 2px solid $light-brown;
+  }
+
+  tbody {
+
+    tr:nth-child(odd) {
+      background: rgba($brown, 0.1);
+    }
+
+    tr:nth-child(even) {
+      background: none;
+    }
+
+  }
+
+  .graph-line {
+    background: rgba($light-brown, 0.5);
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 1px;
+
+    &.graph-line--25 {
+      left: 25%;
+    }
+
+    &.graph-line--50 {
+      left: 50%;
+    }
+
+    &.graph-line--75 {
+      left: 75%;
+    }
+  }
+
+  .bargraph-table__label-cell {
+    white-space: nowrap;
+    width: 1em;
+    @include breakpoint(large) {
+      padding-right: 15px;
+    }
+  }
+
+  .bargraph-table__stat-cell {
+    border-left: 1px solid rgba($light-brown, 0.5);
+    white-space: nowrap;
+    width: 1em;
+    @include breakpoint(large) {
+      padding-left: 15px;
+    }
+  }
+
+  .bargraph-table__bargraph-cell {
+    border-left: 2px solid $light-brown;
+    border-right: 1px solid rgba($light-brown, 0.5);
+    padding-left: 0;
+    padding-right: 0;
+    position: relative;
+    width: calc(100% - 2em);
+  }
+
+}
+
+.dark-content-box {
+  .bargraph-table {
+    color: $light-alt;
+
+    th, td {
+      color: $light-alt;
+    }
+
+    tr.highlighted {
+      color: $light;
+      font-weight: bold;
+    }
+
+    tbody {
+
+      tr:nth-child(odd) {
+        background: none;
+      }
+
+      tr:nth-child(even) {
+        background: rgba($yellow, 0.1);
+      }
+
+    }
+
+  }
+}

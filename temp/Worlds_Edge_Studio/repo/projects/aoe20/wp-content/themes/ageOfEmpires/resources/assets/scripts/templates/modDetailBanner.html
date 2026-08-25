@@ -1,0 +1,24 @@
+<h2 class="mods__mod-title<% if (metaData.isOwner) { %> editable<% } %>"><%= gameTitleName %>: <%= modName %><!--(DATA) Gold Technology At Wonder With All Technology--></h2>
+<!-- Mod Tags -->
+<ul class="mods__tag-list">
+	<% _.each(modTagNames, function(modTagName) { %>
+	<li class="mods__tag --<%= modTagName.toLowerCase() %> ">
+        <%= modTagName %> 
+	</li>
+	<% }); %>
+</ul>
+
+
+
+<!-- header area mod buttons -->
+<div class="mods__buttons">
+	<% if (metaData.isOwner) { %>
+    <a href="./edit/" class="mods__button --edit">
+    	Edit this mod
+    </a>
+    <% } %>
+	<button type="button" class="mods__button --subscribe">
+		Subscribe
+	</button>
+</div>
+

@@ -1,0 +1,151 @@
+<div class="frame-box search-results clans-players-list__results">
+  <table class="frame-box__inner frame-box__inner--light frame-box__inner--no-pad">
+    <tbody class="search-results__content">
+      <% _.each(results, function(item) { %>
+      <tr class="
+          search-results__row not-loaded
+          <% if (item.role === 'founder') { %>
+          is-founder
+          <% } %>
+          <% if (item.role === 'officer') { %>
+          is-officer
+          <% } %>
+          <% if (item.role === 'member') { %>
+          is-member
+          <% } %>
+          <% if (item.role === 'applicant') { %>
+          is-applicant
+          <% } %>
+          <% if (item.role === 'blocked') { %>
+          is-blocked
+          <% } %>
+          "
+          data-player-id="<%= item.playerId %>">
+        <td class="search-results__cell clan-player-avatar">
+          <div class="search-results__animate">
+            <a href="<%= item.profileURL %>" target="_blank" rel="noopener noreferrer">
+              <img src="<%= item.avatar %>" onerror="this.src= window.wp_object.default_avatar"/>
+            </a>
+          </div>
+        </td>
+        <td class="search-results__cell clan-player-gamertag">
+          <div class="search-results__animate">
+            <span class="search-results__label">
+              <span class="clan-player-role is-founder">Founder</span>
+              <span class="clan-player-role is-officer">Officer</span>
+              <span class="clan-player-role is-member">Member</span>
+              <span class="clan-player-role is-applicant">Applicant</span>
+              <span class="clan-player-role is-blocked">Blocked</span>
+            </span>
+            <a href="<%= item.profileURL %>" target="_blank" rel="noopener noreferrer"><%= item.gamertag %></a>
+          </div>
+        </td>
+        <td class="search-results__cell">
+          <div class="search-results__animate">
+            <span class="search-results__label">Skill Level</span>
+            <%= item.skill %>
+          </div>
+        </td>
+        <td class="search-results__cell clan-player-activity">
+          <div class="search-results__animate">
+            <span class="search-results__label">Activity Level</span>
+            <%= item.activity %>
+          </div>
+        </td>
+        
+        <td class="search-results__cell clan-player-actions">
+          <div class="search-results__animate">
+           <% if(
+              (window.wp_object.clanRole == 'founder' || 
+              window.wp_object.clanRole == 'officer' ||
+              item.playerId == window.wp_object.playerId) &&
+              (item.role !== 'founder' && window.wp_object.clanAssoc == window.wp_object.clan_ID )
+            ){%>
+            <div class="tooltip-menu">
+              <button type="button" class="tooltip-menu__trigger">
+                <i class="fa fa-3x fa-cog" aria-hidden="true"></i>
+                <span class="sr-only">
+                  <span class="tooltip-menu__trigger-label--open">Open Actions Menu</span>
+                  <span class="tooltip-menu__trigger-label--close">Close Actions Menu</span>
+                </span>
+              </button>
+              <div class="tooltip-menu__content">
+                <ul>
+                  <% if(item.playerId == window.wp_object.playerId){ %> <!-- Only show if it's current user's tile -->
+                  <li class="do-profile">
+                    <a href="/profile" >Edit Profile</a>
+                  </li>
+                  <% } %>
+                  <!-- Start of admin tools -->
+                  <% if(
+                     (window.wp_object.clanRole == 'founder' || 
+                     window.wp_object.clanRole == 'officer') &&
+                     item.playerId != window.wp_object.playerId ){ %>
+                  <li class="do-demote">
+                    <a href="#" data-clan-player-action="demote">Demote</a>
+                  </li>
+                  <% } %>
+                  <% if( window.wp_object.clanRole == 'founder' && item.role == 'officer' ){ %>
+                  <li class="do-promote-officer">
+                    <a tabindex="0" data-open="warning-promote-officer" data-clan-player-action="promote-officer">Promote</a>
+                  </li>
+                  <% } %>
+                  <% if( 
+                     (window.wp_object.clanRole == 'founder' ||
+                     window.wp_object.clanRole == 'officer') &&
+                     item.role == 'member' ){ 
+                   %>
+                  <li class="do-promote-member">
+                    <a href="#" data-clan-player-action="promote-member">Promote</a>
+                  </li>
+                  <% } %>
+                    <% console.log('playerID:' + item.playerId); %>
+                    <% console.log('objectID:' + window.wp_object.playerId); %>
+                  <% if( 
+                     (window.wp_object.clanRole === 'founder' || 
+                      window.wp_object.clanRole === 'officer') && 
+                     item.playerId != window.wp_object.playerId ){ %>
+                  <li class="do-kick">
+                    <a href="#" data-clan-player-action="kick">Kick</a>
+                  </li>
+                  <li class="do-block">
+                    <a href="#" data-clan-player-action="block">Block</a>
+                  </li>
+                  <li class="do-unblock">
+                    <a href="#" data-clan-player-action="unblock">Unblock</a>
+                  </li>
+                  <li class="do-approve">
+                    <a href="#" data-clan-player-action="approve">Approve</a>
+                  </li>
+                  <li class="do-deny">
+                    <a href="#" data-clan-player-action="deny">Deny</a>
+                  </li>
+                  <% } %>
+                </ul>
+              </div>
+            </div>
+            <% } else if( window.wp_object.clanRole === 'founder' && (item.role === 'founder' && window.wp_object.clanAssoc == window.wp_object.clan_ID)){ %> <!-- End Tool Menu. Start of Admin Profile edit -->
+               <div class="tooltip-menu">
+                <button type="button" class="tooltip-menu__trigger">
+                  <i class="fa fa-3x fa-cog" aria-hidden="true"></i>
+                  <span class="sr-only">
+                    <span class="tooltip-menu__trigger-label--open">Open Actions Menu</span>
+                    <span class="tooltip-menu__trigger-label--close">Close Actions Menu</span>
+                  </span>
+                </button>
+                <div class="tooltip-menu__content">
+                  <ul>
+                    <li class="do-profile">
+                      <a href="/profile" >Edit Profile</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            <% } %>  <!-- End of Founder only section -->
+          </div>
+        </td>
+      </tr>
+      <% }); %> <!-- End each loop -->
+    </tbody>
+  </table>
+</div>

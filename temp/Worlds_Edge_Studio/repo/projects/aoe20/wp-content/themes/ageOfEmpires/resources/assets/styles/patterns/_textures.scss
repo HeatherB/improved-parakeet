@@ -1,0 +1,59 @@
+// textures
+
+$texturePath: $imagePath + 'ui/textile-60c.png';
+$texturePathRetina: $imagePath + 'ui/textile-60c@2x.png';
+$texturePathLight: $imagePath + 'ui/textile-30c.png';
+$texturePathLightRetina: $imagePath + 'ui/textile-30c@2x.png';
+$textureSize: 256px;
+
+// Texture
+// Adds textile texture overlay + background color or gradient
+// Arguments:
+//   $bg-color 	: optional, accepts a solid background color
+//   $gradient 	: optional, accepts a css gradient, if provided gradient will override bg-color
+//   $light 	: optional, bool, default is false, if true, the lighter opacity image will be used
+//   $remove 	: optional, bool, default is false, if true, the texture will be removed from the element
+//
+// Notes: Provide only $bg-color OR $gradient. 
+//        Gradient will override bg-color if both are provided.
+//		  If $bg-color is provided when $remove is true, it will be set as the background-color
+
+@mixin texture($bg-color: null, $gradient: null, $light: false, $remove: false) {
+	$texture: $texturePath;
+	$textureRetina: $texturePathRetina;
+
+	@if $light {
+		$texture: $texturePathLight;
+		$textureRetina: $texturePathLightRetina;
+	}
+
+	$background-image: url($texture);
+	$background-image-retina: url($textureRetina);
+
+	@if $gradient {
+		$background-image: url($texture), $gradient;
+		$background-image-retina: url($textureRetina), $gradient;
+	}
+
+	@if not $remove {
+
+		@if $bg-color { background-color: $bg-color; }
+
+		background-blend-mode: overlay;	
+		background-size: $textureSize;
+		background-image: $background-image;
+
+		@include retina() {
+			background-image: $background-image-retina;
+		}
+
+	} @else {
+		background-image: revert;
+
+		@if $bg-color { 
+			background-color: $bg-color; 
+		} @else {
+			background-color: revert;
+		}
+	}
+}

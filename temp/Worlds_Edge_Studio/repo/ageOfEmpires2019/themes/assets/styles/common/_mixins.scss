@@ -1,0 +1,247 @@
+
+@mixin styledScrollbar() {
+    scrollbar-width: thin;
+    scrollbar-color: $ui-color-royalgold #171109;
+
+    &::-webkit-scrollbar {
+        width: 11px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #171109;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $ui-color-royalgold;
+      border-radius: 6px;
+      border: 3px solid #171109;
+    }
+}
+
+
+// quick visibility snippets
+@mixin visible($display: block) {
+    visibility: visible;
+    opacity: 1;
+    display: $display;
+}
+
+@mixin invisible {
+    visibility: hidden;
+    opacity: 0;
+    display: none;
+}
+
+
+// Aspect Ratio Box
+// Use to set an element's base size to a given aspect ratio
+// Children do not have to be absolute positioned, and can expand past aspect ratio height
+// Example 16:9 would be called as aspectRatioBox(16,9);
+
+@mixin aspectRatioBox($w,$h) {
+  position: relative;
+
+  &::before {
+    content: "";
+    width: 1px;
+    margin-left: -1px;
+    float: left;
+    height: 0;
+    padding-top: $h / $w * 100%;
+  }
+
+  &::after {
+    content: "";
+    display: table;
+    clear:both;
+  }
+}
+
+/*
+  This mixin can be used to set the object-fit:
+  @include object-fit(contain);
+  or object-fit and object-position:
+  @include object-fit(cover, top);
+*/
+@mixin object-fit($fit: fill, $position: null){
+  -o-object-fit: $fit;
+     object-fit: $fit;
+  @if $position {
+    -o-object-position: $position;
+       object-position: $position;
+    font-family: 'object-fit: #{$fit}; object-position: #{$position}';
+  } @else {
+    font-family: 'object-fit: #{$fit}';
+  }
+}
+
+
+// VW Calculator
+//  Viewport Width Calculator
+@function calcvw($target, $name) {
+  // Define the viewport width design calculation widths from Photoshop PSD file
+  // $vwBreapoint: ( 'xsmall': 767, 'small': 768, 'medium': 992, 'large': 1866);
+  $pxBaseSize: map-get($vwBreapoint, $name);
+  $vw-context: (map-get($vwBreapoint, $name)*.01) * 1px;
+  $vwBreapoint: ('xs': 767, 'sm': 1920, 'md': 1920, 'lg': 1920);
+  @return ($target/$vw-context) * 1vw;
+}
+
+// HERO Background filters
+@mixin hero-background {
+  -webkit-filter: grayscale(1) opacity(.22); /* older versions of webkit */
+  -webkit-filter: grayscale(100%) opacity(.22); /* vendor prefixes */
+  filter: gray; /* IE6-9 */
+  filter: grayscale(100%) opacity(0.22);
+}
+
+@mixin absolute-centered {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin absolute-position($postop: 50%, $posleft: 50%) {
+  left: $posleft;
+  position: absolute;
+  top: $postop;
+  transform: translate(($posleft * -1), ($postop * -1));
+}
+
+@mixin blur($blur: 3px) {
+  -webkit-filter: blur($blur);
+  filter: blur($blur);
+}
+
+@mixin vertical-align($position: relative) {
+  position: $position;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+@mixin alert_icon($index, $size, $row, $vAlign) {
+    vertical-align: $vAlign;
+
+    &:before {
+        // Manually define the icon set */
+        $columns: 9; // Number of icons going across
+        background-image: url($image-path + 'alert-icons-sheet-desk.png');
+        background-size: $columns * 100%;
+
+        // Size icon will be displayed */
+        width: #{$size}px;
+        height: #{$size}px;
+
+        // Position background-image based on number of icons in sprite */
+        background-position: #{(100/($columns - 1)*($index - 1))}% #{$row*$size}px;
+
+        // Set position to inline */
+        content: "";
+        display: inline-block;
+        line-height: #{$size}px;
+        vertical-align: $vAlign;
+        margin-right: 1em;
+    }
+}
+
+// icon
+// ----------
+// $column and $row accept a human-friendly, 1-based number, like the following:
+//
+//     1   2   3   4   5
+//   _____________________
+// 1 |___|___|___|___|___|
+// 2 |___|___|___|___|___|
+// 3 |___|___|___|___|___|
+//
+// $size param is optional and accepts any unit
+
+@mixin icon($column, $row, $size: null) {
+  //convert col and row to zero-base
+  $column: $column - 1;
+  $row: $row - 1;
+
+  $positionX: 100% / ($icon-sprite-columns - 1) * $column;
+  $positionY: 100% / ($icon-sprite-rows - 1) * $row;
+
+  @if $size {
+    width: $size;
+    height: $size;
+  }
+
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+  background-image: url($icon-sprite);
+  background-size: auto $icon-sprite-rows * 100%;
+  background-position: $positionX $positionY;
+}
+
+
+// icon-change-row-to
+// ----------
+// Use only on elements that have already included mixin icon.
+// Use to change row in icon sprite to the given parameter - for hover effect
+// $row parameter is 1-based, (see icon mixin)
+
+@mixin icon-change-row-to($row) {
+  //convert row to zero-base
+  $row: $row - 1;
+  background-position-y: 100% / ($icon-sprite-rows - 1) * $row;
+}
+
+
+
+
+// old version of icon, always in a ::before pseudo element
+@mixin icon_old($index, $size, $row, $vAlign) {
+  vertical-align: $vAlign;
+
+  &:before {
+    // Manually define the icon set */
+    $columns: 22; // Number of icons going across
+    background-image: url($image-path + 'icon-set.png');
+    background-size: $columns * 100%;
+
+    // Size icon will be displayed */
+    width: #{$size}px;
+    height: #{$size}px;
+
+    // Position background-image based on number of icons in sprite */
+    background-position: #{(100/($columns - 1)*($index - 1))}% #{$row*$size}px;
+
+    // Set position to inline */
+    content: "";
+    display: inline-block;
+    line-height: #{$size}px;
+    vertical-align: $vAlign;
+  }
+}
+
+// old version of icon, always in an ::after pseudo element
+@mixin icon_old_after($index, $size, $row, $vAlign) {
+  vertical-align: $vAlign;
+
+  &:after {
+    // Manually define the icon set */
+    $columns: 22; // Number of icons going across
+    background-image: url($image-path + 'icon-set.png');
+    background-size: $columns * 100%;
+
+    // Size icon will be displayed */
+    width: #{$size}px;
+    height: #{$size}px;
+
+    // Position background-image based on number of icons in sprite */
+    background-position: #{(100/($columns - 1)*($index - 1))}% #{$row*$size}px;
+
+    // Set position to inline */
+    content: "";
+    display: inline-block;
+    line-height: #{$size}px;
+    vertical-align: $vAlign;
+  }
+}

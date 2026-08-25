@@ -1,0 +1,334 @@
+// typography
+
+// root fluid type size
+
+html {
+	font-size: 14px;
+
+	@include breakpoint(min-width, $bpSmallest) {
+		// for some reason, the breakpoint values need to be converted to px in order to lint/compile properly
+		font-size: fluidTypeCalc(em2px($bpSmallest), em2px($bpMedium), 14px, 18px);
+	}
+
+	@include breakpoint(min-width, $bpMedium) {
+		font-size: 18px;
+	}
+
+	@include breakpoint(min-width, $bpNavBreak) {
+		font-size: fluidTypeCalc(em2px($bpNavBreak), em2px($bpLarge), 18px, 22px);
+	}
+
+	@include breakpoint(min-width, $bpLarge) {
+		font-size: 22px;
+	}
+}
+
+
+// global text properties
+
+body {
+	line-height: $lineHeight;
+	font-family: $bodyFont;
+	color: $textColor;
+	-webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+}
+
+
+// for use on single-line, boxed-in text elements like buttons and inputs
+// accepts sizes small, large
+
+@mixin linebox($size: null, $setFontSize: true) {
+	$padding: $lineboxPaddingVert $lineboxPaddingHoriz;
+	$modScaleStep: 0;
+
+	@if $size == small {
+		$padding: $lineboxPaddingSmallVert $lineboxPaddingSmallHoriz;
+		$modScaleStep: -1;
+	} @else if $size == large {
+		$padding: $lineboxPaddingLargeVert $lineboxPaddingLargeHoriz;
+		$modScaleStep: 1;
+	}
+
+	line-height: $baseline;
+	padding: $padding;
+
+	@if $setFontSize {
+		font-size: modScale($modScaleStep);
+	}
+}
+
+// for use on boxed-in icons
+// accepts sizes small, large
+
+@mixin iconbox($size: null) {
+  padding: $lineboxPaddingVert - $iconSize - 1rem;
+  line-height: var(--linebox-line-height);
+
+  @if $size == small {
+    padding: $lineboxPaddingSmallVert - $iconSize - 1rem;
+  } @else if $size == large {
+    padding: $lineboxPaddingLargeVert - $iconSize - 1rem;
+    min-width: 0;
+  }
+}
+
+
+// gradient fill text with fallback
+
+@mixin gradientText($gradient: linear-gradient(to right, $gold10, $gold30), $textShadow:$textShadow, $fallback: $gold10) {
+	color: $fallback;
+	text-shadow: $textShadow;
+
+	@supports(-webkit-background-clip: text) {
+		background: $gradient;
+		color: transparent;
+		background-clip: text;
+		// including -webkit- properties because they weren't getting autoprefixed
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+
+		@if $textShadow {
+			text-shadow: none;
+			filter: drop-shadow($textShadow);
+		}
+	}
+}
+
+
+// small caps option
+// used by headings
+
+@mixin smallCaps($spacing: true, $family: null) {
+	font-variant: small-caps;
+	font-variant-numeric: lining-nums;
+
+	@if ($family) {
+		font-family: $family;
+	}
+
+	@if ($spacing) {
+		letter-spacing: $letterSpacing;
+	}
+}
+
+
+// headings
+
+@mixin h($num) {
+	display: block;
+	font-weight: 700;
+	font-style: normal;
+	margin: 0 0 $baseline/2;
+	padding: $baseline/2 0 0 ;
+	font-family: $displayFont;
+	line-height: 1.5;
+
+	@if $num <= 2 {
+		@include gradientText();
+		font-size: modScale(5);
+	} 
+	@else if $num == 3 {
+		color: $gold10;
+		font-size: modScale(4);
+	} 
+	@else if $num == 4 {
+		color: $gold10;
+		font-size: modScale(3);
+	} 
+	@else if $num == 5 {
+		color: $gold10;
+		font-size: modScale(2);
+		font-weight: 400;
+		text-transform: uppercase;
+		letter-spacing: $letterSpacing;
+	} 
+	@else if $num == 6 {
+		color: $gold10;
+		font-family: $bodyFont;
+		font-size: modScale(1);
+		font-weight: 400;
+		text-transform: uppercase;
+		letter-spacing: $letterSpacing;
+	} 
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	line-height: 1.5;
+}
+
+h2 { font-size: modScale(5); }
+h3 { font-size: modScale(4); }
+h4 { font-size: modScale(3); }
+h5 { font-size: modScale(2); }
+h6 { font-size: modScale(1); }
+
+@for $i from 1 through 6 {
+	.h#{$i} { @include h($i); }
+}
+
+@mixin bodyText() {
+	font-size: 1rem;
+	line-height: $lineHeight;
+	font-family: $bodyFont;
+	font-weight: 400;
+}
+
+
+// paragraph
+
+p { 
+	margin: 0;
+	padding: 0;
+	margin-bottom: $baseline;
+}
+
+
+// links
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@mixin link() {
+	color: $linkColor;
+	text-decoration: underline;
+
+	&:hover,
+	&:focus {
+		color: $linkColorHover;
+	}
+
+	&:active {
+		color: $white;
+	}
+}
+
+.link { @include link(); }
+
+
+// address
+
+address {
+  font-style: normal;
+}
+
+
+//blockquote
+
+blockquote {
+	padding-top: $baseline/2;
+	margin: $baseline/2 0;
+	padding: $baseline;
+	border-left: 5px solid $marine50;
+	background-color: $marine80;
+}
+
+.quote {
+  padding-top: 0;
+  margin-bottom: 0;
+}
+
+cite {
+  font-size: modScale(-1);
+  font-style: italic;
+  display: inline-block;
+  padding-top: $baseline/2;
+
+  &:before {
+    content: "\2014\00a0";
+    display: inline;
+  }
+}
+
+
+//unstyled lists
+
+ul, ol {
+  padding: $baseline/2 0;
+  margin: 0;
+  list-style: none;
+
+  li {
+    margin-bottom: $baseline/2;
+  }
+}
+
+// List Styles
+// options: bulleted, numbered, zebra;
+@mixin list($style) {
+
+	@if $style == 'bulleted' or $style == 'numbered' {
+		li {
+		    text-indent: -1em;
+		    margin-left: 1em;
+		    margin-bottom: $baseline / 2;
+
+		    &:before {
+				color: inherit;
+				width: 1rem;
+				text-indent: 0;
+				display: inline-block;
+		    }
+		}
+
+		@if $style == 'bulleted' {
+			li:before { 
+				content: ""; 
+				width: 0.4em;
+				height: 0.4em;
+				border-radius: 50%;
+				background: linear-gradient(180deg, $gold20, $gold40);
+				margin-right: 1em - 0.4em;
+				vertical-align: top;
+				margin-top: calc(#{$baseline} / 2 - 0.2em); // half the line-height minus half the bullet height, to center bullet
+			}
+		} 
+		@if $style == 'numbered' {
+			counter-reset: default-counter;
+
+			li {
+			    counter-increment: default-counter;
+
+			    &:before { content: counter(default-counter) ". "; }
+			}
+		}
+	} 
+
+	@if $style == 'zebra' {
+		li {
+			padding-left: $baseline/2;
+			padding-right: $baseline/2;
+
+			&:nth-child(even) {
+				padding-top: $baseline/2;
+				padding-bottom: $baseline/2;
+				background-color: rgba($shade90, 0.4);
+			}
+
+			&:last-of-type {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+ul.bulleted,
+ol.bulleted { @include list(bulleted); }
+
+ol.numbered,
+ul.numbered { @include list(numbered); }
+
+ul.zebra,
+ol.zebra { @include list(zebra); }
+
+dl { @include clearfix; }
+
+dt { font-weight: 700; }
+
+dd {
+  margin-left: 0;
+  margin-bottom: $baseline;
+}

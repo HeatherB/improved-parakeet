@@ -1,0 +1,111 @@
+//extends .content
+.mods-content {
+
+  &.mods-all-content {
+
+    @include breakpoint(small only) {
+      .main {
+        margin-top: -20px;
+      }
+    }
+
+    @include breakpoint(medium) {
+      .main {
+        @include grid-column(12, $grid-column-gutter);
+        float: none;
+        margin-top: -40px;
+      }
+    }
+
+  }
+
+  &.mods-single-content {
+
+    @include breakpoint(small only) {
+      padding-top: 10px;
+
+      .mobile-title {
+        margin-bottom: 10px;
+        text-align: center;
+
+        .lead {
+          color: $light-alt;
+          font-weight: 700;
+          line-height: 1.2;
+          margin: 0;
+          padding: .5em 0;
+        }
+      }
+
+      .mod-detail-sidebar {
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    @include breakpoint(medium) {
+      padding-top: 25px;
+
+      .main {
+        @include grid-column(12, $grid-column-gutter);
+        float: none;
+      }
+
+      .mod-detail-top {
+        @include grid-column(8, $grid-column-gutter);
+        position: relative;
+      }
+
+      .mod-detail-sidebar {
+        @include grid-column(4, $grid-column-gutter);
+        float: right;
+        position: relative;
+      }
+
+      .mod-detail-bottom,.mod-detail-comments {
+        @include grid-column(8, $grid-column-gutter);
+        @include grid-column-end;
+        position: relative;
+      }
+    }
+
+    @include breakpoint(large) {
+      padding-top: 50px;
+
+      .mod-detail-top,
+      .mod-detail-sidebar {
+        margin-top: -120px;
+      }
+    }
+
+  }
+
+}
+
+// &.is-reveal-open and
+// .reveal-overlay lines fix 
+// issue of not being able to scroll down to see
+// rest of "Flag as Inappropriate" modal 
+// on single mods page when modal is open
+body.mods-single {
+  
+  &.is-reveal-open {
+    overflow: hidden !important;
+
+    .reveal-overlay {
+      overflow-y: hidden;
+
+      .reveal {
+        overflow-y: auto;
+      }
+
+      @include breakpoint(720 up) {
+        overflow-y: auto !important;
+        .reveal {
+          overflow-y: hidden;
+        }
+
+      }
+    }
+
+  }
+}

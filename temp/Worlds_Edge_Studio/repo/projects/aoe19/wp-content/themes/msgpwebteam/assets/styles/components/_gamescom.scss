@@ -1,0 +1,48 @@
+.gamescom {
+  &.video-content {
+      background: url($image-path + 'bgs/age2de-videohero-desk.jpg') center top;
+      background-size: cover;
+  }
+  .teasers {
+    .langaugeSelect {
+      text-align: right;
+    }
+    .center {
+      text-align: center;
+    }
+    .teaser {
+      .video_container {
+        position:relative;
+        padding-bottom:56.25%;
+        height:0;
+        overflow:hidden;
+      }
+      .video_container iframe, .video-container object, .video-container embed {
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+      }
+    }
+  }
+}
+
+
+@media (min-width: $ui-breakpoint-desk) {
+  .gamescom {
+    .teasers {
+      .langaugeSelect {
+        position: relative;
+        top: -2em;
+        margin-bottom: -2em;
+      }
+      .teaser {
+        &.video {
+          padding-left: 16.555555%;
+          padding-right: 16.555555%;
+        }
+      }
+    }
+  }
+}

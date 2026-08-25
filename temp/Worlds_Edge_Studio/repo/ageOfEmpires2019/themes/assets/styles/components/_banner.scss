@@ -1,0 +1,272 @@
+.banner {
+  align-items: center;
+  background: url($image-path + 'main_banner.jpg') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  height: 310px;
+  position: relative;
+
+  &__inner {
+    text-align: center;
+    width: 100%;
+  }
+
+  // Hide BG image in banner when using a custom BG image
+  &__no-bg-image {
+    background-image: none;
+  }
+
+  @include breakpoint(medium only) {
+    height: 250px;
+  }
+
+  @include breakpoint(small only) {
+    height: 140px;
+  }
+
+  > .row {
+    position: relative;
+  }
+
+  .lead {
+    color: $light;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  &--sweepstakes {
+    background: url($image-path + 'sweepstakes/sweepstakes-bg.jpg') no-repeat center center;
+    background-size: cover !important;
+    height: 500px;
+
+    h1 { text-transform: uppercase; }
+  }
+
+  &--aoeiide {
+    @include aspectRatioBox(6,1);
+    padding: 2rem;
+    height: auto;
+    background: url($image-path + 'hero-news-desk.jpg') no-repeat top center;
+    background-size: cover;
+
+    @include breakpoint(small only) {
+      height: auto;
+      @include aspectRatioBox(3,1);
+      background-image: url($image-path + 'hero-news-mobile.jpg');
+      background-position: 20% 0;
+    }
+
+    @include breakpoint(medium only) {
+      height: auto;
+    }
+  }
+  &--aoeiiide {
+    @include aspectRatioBox(6,1);
+    padding: 2rem;
+    height: auto;
+    background: url($image-path + 'age3de/heros/age3de-landing-hero-desk.jpg') no-repeat top center;
+    background-size: cover;
+
+    @include breakpoint(small only) {
+      height: auto;
+      @include aspectRatioBox(3,1);
+      background-image: url($image-path + 'hero-news-mobile.jpg');
+      background-position: 20% 0;
+    }
+
+    @include breakpoint(medium only) {
+      height: auto;
+    }
+  }
+
+  &.addon_expansion {
+    height: 36vw;
+    flex-flow: wrap;
+    align-content: center;
+
+    @include breakpoint(small only) {
+      height: 270px;
+    }
+
+    > .row.column {
+      height: 100%;
+    }
+    &.copy-block {
+      align-content: flex-start;
+      align-items: flex-start;
+      height: auto;
+      padding-bottom:2em;
+      > .row.column,
+      .banner-block {
+        flex: 1 100%;
+      }
+    }
+    .addon_expansion_hero_banner_buttons {
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      text-align: center;
+      bottom: 0em;
+      @include breakpoint(medium up) {
+        bottom: 1em;
+      }
+      .btn-aoe--cta {
+        margin-bottom:0.5em;
+        @include breakpoint(medium up) {
+          margin-bottom:0;
+        }
+        @include breakpoint(xxlarge up) {
+          font-size: 1.5rem;
+        }
+      }
+    }
+    .banner-block {
+      max-width: 90%;
+      width:100%;
+      margin: 0 auto;
+      color: #e3d9b7;
+      background-color: rgba(0, 0, 0, 0.8);
+      box-sizing: border-box;
+      padding: 1em;
+      p {
+        margin:0 auto 1em;
+        text-align: left;
+      }
+      .addon_expansion_hero_banner_buttons {
+        position: relative;
+        bottom: auto;
+      }
+      @include breakpoint(medium up) {
+        max-width: 700px;
+        width: 100%;
+      }
+    }
+    h1 {
+      background-position: top center;
+      background-repeat: no-repeat;
+    }
+
+    &.tall-game-logo {
+
+      .addon_expansion_hero_banner_buttons {
+        bottom: -1.5em;
+      }
+
+      @include breakpoint(medium up) {
+        h1 {
+          margin-top: -0.8em;
+        }
+      }
+
+      @include breakpoint(large up) {
+        h1 {
+          margin-top: -1.5em;
+        }
+      }
+
+      @include breakpoint(small only) {
+        height: 75vw;
+
+        h1 {
+          padding-bottom: 10%;
+        }
+      }
+
+      @include breakpoint(400 down) {
+        h1 {
+          margin-top: -1.5em;
+        }
+      }
+
+    }
+
+  }
+
+  &.lotw {
+    background-image: url($image-path + 'age2/lotw/lotw-hero-desk.jpg');
+    @include breakpoint(small only) {
+      background-image: url($image-path + 'age2/lotw/lotw-hero-mobile.jpg');
+    }
+     h1 {
+      background-image: url($image-path + 'age2/lotw/age2de-lotw-logo-desk.png');
+      text-indent: -9999em;
+      background-size:100%;
+      margin: 0 auto;
+      padding-top:55%;
+      height: auto;
+      max-width: 260px;
+      width: 100%;
+      @include breakpoint(medium up) {
+        margin-top: -0.25em;
+        max-width: 40%;
+      }
+      @include breakpoint(large up) {
+        max-width: 50%;
+        margin-top:-1em;
+      }
+      @include breakpoint(xxlarge up) {
+        max-width: 44vw;
+      }
+      @include breakpoint(ultra up) {
+        padding-top:70%;
+      }
+    }
+  }
+  &.captureage {
+    background-image: url($image-path + 'age2/heros/age2de-landing-hero-desk.jpg');
+    @include breakpoint(small only) {
+      background-image: url($image-path + 'age2/heros/age2de-landing-hero-mobile.jpg');
+    }
+    h1 {
+      background-image: url($image-path + 'age2/logos/captureage-logo-2.png');
+      text-indent: -9999em;
+      max-width: 220px;
+      padding-top: 30%;
+      margin: 0 auto;
+      background-size: contain;
+      @include breakpoint(medium up) {
+         max-width: 330px;
+         padding-top:20%;
+      }
+    }
+  }
+
+}
+
+.support .banner,
+.single-post .banner,
+.news-roll .banner,
+.empire-wars .banner,
+.aoe2 .banner,
+.aoe2-issues .banner {
+    background: url($image-path + 'hero-news-desk.jpg') no-repeat top center;
+    padding: 2rem 0;
+    background-size: cover;
+
+    .banner__inner {
+      width: 85%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @include breakpoint(small only) {
+      background-image: url($image-path + 'hero-news-mobile.jpg');
+      background-position: 20% 0;
+    }
+    @include breakpoint(medium only) {
+      height: 17vw;
+    }
+
+    @media (min-width: $ui-breakpoint-tablet) {
+      height: 17vw;
+
+      .banner__inner {
+        width: 65%;
+      }
+    }
+
+    @include breakpoint(ultra up) {
+      background-image: url($image-path + 'hero-news-4k.jpg');
+    }
+}

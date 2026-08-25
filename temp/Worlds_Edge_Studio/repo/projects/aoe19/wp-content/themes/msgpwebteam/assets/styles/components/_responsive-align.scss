@@ -1,0 +1,20 @@
+@each $breakpoint in $breakpoint-classes {
+  @if $breakpoint == small {
+  // Do nothing
+  } @else {
+    @include breakpoint($breakpoint) {
+      //provides ability to use .medium-align-left, .large-align-left, and so on..., in order to override .align-center OR .align-right
+      .#{$breakpoint}-align-left {
+        text-align: left;
+      }
+      //provides ability to use .medium-align-center, .large-align-center, and so on..., in order to override .align-left OR .align-right
+      .#{$breakpoint}-align-center {
+        text-align: center;
+      }
+      //provides ability to use .medium-align-right, .large-align-right, and so on..., in order to override .align-center OR .align-left
+      .#{$breakpoint}-align-right {
+        text-align: right;
+      }
+    }
+  }
+}

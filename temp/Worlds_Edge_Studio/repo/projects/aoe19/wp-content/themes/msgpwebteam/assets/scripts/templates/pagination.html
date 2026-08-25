@@ -1,0 +1,23 @@
+<h4 class="pagination-title">Displaying <strong><%= numItemStart %>-<%= numItemEnd %></strong> of <strong><%= numTotalItems %></strong></h4>
+
+<% if (numTotalPages > 1) { %>
+<ul class="pagination" role="navigation" aria-label="Pagination">
+  <% if (showFirstNav) { %>
+  <li><button aria-label="page 1" data-page="1">1</button></li>
+  <li class="ellipsis"></li>
+  <% } %>
+
+  <% _.each(arrPageRange, function(item, index) { %>
+  <% if (item == numCurPage) { %>
+  <li class="current"><%= item %></li>
+  <% } else { %>
+  <li><button aria-label="page <%= item %>" data-page="<%= item %>"><%= item %></button></li>
+  <% } %>
+  <% }); %>
+
+  <% if (showLastNav) { %>
+  <li class="ellipsis"></li>
+  <li><button aria-label="page <%= numTotalPages %>" data-page="<%= numTotalPages %>"><%= numTotalPages %></button></li>
+  <% } %>
+</ul>
+<% } %>

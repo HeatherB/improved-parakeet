@@ -1,0 +1,44 @@
+.mods-detail-legend {
+  margin-bottom: 1.5rem;
+
+  dl {
+    color: $light-alt;
+    margin: 0;
+
+    > dt {
+      background: $dark-yellow;
+      font-weight: normal;
+      margin-bottom: 0;
+      padding: 10px 15px;
+      text-transform: uppercase;
+    }
+
+    > dd {
+      background: $xdark-brown;
+      margin-bottom: 1rem;
+      padding: 10px 15px;
+    }
+
+  }
+
+  @include breakpoint(large) {
+
+    dl {
+      display: flex;
+      flex-wrap: wrap;
+
+      > dt {
+        margin-bottom: 5px;
+        width: 40%;
+      }
+
+      > dd {
+        margin-bottom: 5px;
+        width: 60%;
+      }
+
+    }
+
+  }
+
+}

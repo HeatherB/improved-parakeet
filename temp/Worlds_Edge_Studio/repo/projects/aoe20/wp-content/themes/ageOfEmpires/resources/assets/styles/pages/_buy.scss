@@ -1,0 +1,361 @@
+// buy page
+
+// mixins for local use only 
+// (remember, these have global scope, so keep the names specific)
+
+@mixin productBannerBg($image, $position: 50% 0) {
+	.product__banner {
+		background-image: url($imagePath + 'swoosh.png'),
+						  url($imagePath + 'swoosh-mask-light.svg'),
+						  url($imagePath + $image);
+		background-position: 0 101%, 0 101%, $position; // we use 101% to avoid subpixel sliver at bottom
+	}
+	
+	&:nth-of-type(even) .product__banner {
+		background-image: url($imagePath + 'swoosh.png'),
+						  url($imagePath + 'swoosh-mask-dark.svg'),
+						  url($imagePath + $image);
+	}
+}
+
+// variables for local use only
+// (remember, these have global scope, so keep the names specific)
+:root {
+	--productTopSpacerMultiplier: 13.5;
+	--productBannerOverlap: 7rem;
+	--productBannerSwooshHeight: 13rem;
+
+	@include breakpoint(min-width, $bpNavBreak) {
+		/*--productTopSpacerMultiplier: 11.5;
+		--productBannerOverlap: 7rem;
+		--productBannerSwooshHeight: 13rem;*/
+		--productTopSpacerMultiplier: 15.5;
+		--productBannerOverlap: 4rem;
+		--productBannerSwooshHeight: 8rem;
+	}
+}
+
+.buy__page__title {
+	@include pageTitle(absolute);
+	left: 0;
+	right:0;
+}
+
+
+.product {
+	position: relative;
+	padding-top: calc(#{$baseline} * var(--productTopSpacerMultiplier));
+	padding-bottom: $baseline*6;
+	@include border(drawn-bar-vbars, 0);
+	@include alternateBgColor();
+
+	&:first-of-type {
+		padding-top: calc(#{$baseline} * (var(--productTopSpacerMultiplier) + 2));
+
+		.product__banner {
+			height: calc(#{$baseline} * (var(--productTopSpacerMultiplier) + 2) + var(--productBannerOverlap));
+		}
+	}
+
+	&[data-game="Age of Empires IV"] {
+		@include productBannerBg('buynow-bg-age4.jpg');
+	}
+
+	&[data-game="Age of Empires III: Definitive Edition"] {
+		@include productBannerBg('buynow-bg-age3de.jpg', 0 0);
+	}
+
+	&[data-game="Age of Empires III"] {
+		@include productBannerBg('buynow-bg-age3.jpg');
+	}
+
+	&[data-game="Age of Empires II: Definitive Edition"] {
+		@include productBannerBg('buynow-bg-age2de.jpg', 25% 0);
+	}
+
+	&[data-game="Age of Empires II HD"] {
+		@include productBannerBg('buynow-bg-age2hd.jpg', 75% 0);
+	}
+
+	&[data-game="Age of Empires: Definitive Edition"] {
+		@include productBannerBg('buynow-bg-age1de.jpg', 0 0);
+	}
+
+	&[data-game="Age of Mythology"], &[data-game="Age of Mythology: Extended Edition"] {
+		@include productBannerBg('buynow-bg-myth.jpg', 75% 0);
+	}
+}
+
+.product__banner {
+	@include absolutePosition(0);
+	height: calc(#{$baseline} * var(--productTopSpacerMultiplier) + var(--productBannerOverlap));
+	width: 100%;
+	// assumes there are 3 bg images (set in productBannerBg)
+	background-size: 100% var(--productBannerSwooshHeight), 100% var(--productBannerSwooshHeight), cover;
+	background-repeat: no-repeat, no-repeat, no-repeat;
+}
+
+.product__card {
+	@include card($hasGradient: false, $hasGlow: true, $glowSize: 33% $baseline*5, $glowPosition: 40% 0);
+	position: relative;
+		
+	@include breakpoint(min-width, $bpNavBreak) {
+		margin-left: $baseline*1.25;
+	}
+}
+
+.product__layout {
+	display: grid;
+	grid-column-gap: $baseline*0.5;
+	grid-row-gap: $baseline*0.5;
+	grid-template-columns: $baseline*6 1fr;
+
+	@include breakpoint(min-width, $bpSmall) {
+		grid-template-columns: 3fr 4fr;
+		grid-column-gap: $baseline*0.75;
+		grid-row-gap: $baseline*0.75;
+	}
+
+	@include breakpoint(min-width, $bpNavBreak) {
+		grid-column-gap: $baseline*1.25;
+		grid-row-gap: $baseline;
+		grid-template-columns: $baseline*9 1fr 11rem;
+	}
+}
+
+.product__img-wrapper {
+	height: auto;
+	//background-color: $grey50;
+	background-color: transparent;
+	position: relative;
+	top: $baseline*-2;
+	margin-bottom: $baseline*-2;
+	width: auto;
+
+	@include breakpoint(min-width, $bpNavBreak) {
+		box-shadow: $boxShadow;
+		width: $baseline*11.5;
+		position: absolute;
+		left: $baseline*-2.5;
+		top: $baseline*-3;
+		z-index: 2;
+		margin-bottom: 0;
+
+		&::after {
+			content: "";
+		    position: absolute;
+		    top: -9px;
+		    left: -9px;
+		    height: calc(100% + 20px);
+		    width: calc(100% + 19px);
+		    z-index: -1;
+		    border: 30px solid;
+		    border-image-source: url($imagePath + "ui/gold-border--drawn.svg");
+		    border-image-slice: 50;
+		}
+	}
+
+	img {
+		width: 100%;
+		height: auto;
+		display: block;
+	}
+}
+
+.product__info {
+	grid-column: 1 / -1;
+
+	@include breakpoint(min-width, $bpNavBreak) {
+		grid-column: 2 / -1;
+	}
+
+	@include breakpoint(min-width, $bpLarge) {
+		grid-column: 2;
+	}
+}
+
+.product__title {
+	font-family: $displayFont;
+	font-weight: bold;
+	font-size: modScale(3);
+	line-height: $lineHeight;
+	margin-top: 0;
+	margin-bottom: $baseline*0.5;
+	color: $gold10;
+	text-shadow: 1px 1px 0 rgba($black, 0.6);
+
+	@include breakpoint(max-width, $bpNavBreak) {
+		@include border(drawn-bars, $mask: true); // uses an ::after element
+		@include absolutePosition($baseline*-3, 0);
+		transform: translateY(-100%);
+		width: calc(100% + #{$baseline});
+		font-size: modScale(2);
+		text-align: center;
+		background: linear-gradient(to right, rgba($marine70, 0), rgba($marine70, 0.75) 12%, $marine90 40% 60%, rgba($marine70, 0.75) 88%, rgba($marine70, 0));
+		background-clip: content-box;
+		margin-bottom: $baseline;
+		margin-left: $baseline*-0.5;
+		margin-right: $baseline*-0.5;
+
+		&::before {
+			content: "";
+			@include absoluteCover();
+			z-index: -1;
+		}
+
+		.product__title__text {
+			@include pageTitleText();
+		}
+	}
+}
+
+.product__description {
+	margin-bottom: $baseline;
+}
+
+.product__purchase-options {
+	text-align: center;
+	grid-column: 2;
+	grid-row: 1;
+
+	@include breakpoint(min-width, $bpNavBreak) {
+		grid-column: 1;
+		grid-row: 1;
+		margin-top: $baseline*13;
+	}
+
+	@include breakpoint(min-width, $bpLarge) {
+		grid-column: 3;
+		grid-row: 1;
+		margin-top: 0;
+	}
+}
+
+.purchase__option {
+	@include button();
+	padding: 1.6rem;
+	margin-bottom: 0;
+	display: inline-block;
+
+	& + & {
+		margin-top: $baseline*0.5;
+	}
+
+	@include breakpoint(max-width, $bpNavBreak) {
+		padding: $baseline;
+	}
+}
+
+.purchase__option__image {
+	height: 1.6rem;
+	width: 100%; // needed to keep the button from expanding to the icons intrinsic viewbox width
+	@include objectFit(contain);
+	vertical-align: top;
+}
+
+.product__system-reqs {
+
+
+	@include breakpoint(min-width, $bpSmall) {
+		@include row(tight);
+	}
+}
+
+.product__system-reqs__block {
+	margin-bottom: $baseline;
+
+	&:last-of-type { margin-bottom: 0; }
+
+	@include breakpoint(min-width, $bpSmall) {
+		margin-bottom: 0;
+		@include cell(tight);
+		flex: 1 1 40%;
+	}
+}
+
+.product__system-reqs__header {
+	font-size: modScale(-1);
+	text-transform: uppercase;
+	letter-spacing: $letterSpacing;
+	line-height: $lineHeight;
+	color: $gold20;
+	text-shadow: $textShadow;
+	font-weight: 400;
+	margin: 0;
+}
+
+.product__system-reqs__list {
+	@include list(bulleted);
+	font-size: modScale(-1);
+	line-height: $lineHeight;
+	padding-bottom: 0;
+
+	li { 
+		margin-bottom: $baseline/3; 
+
+		&:last-child { margin-bottom: 0; }
+	}
+}
+
+.product__expansions {
+	grid-column: 1 / -1;
+	
+	
+
+	@include breakpoint(min-width, $bpNavBreak) {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-column-gap: $baseline*1.25;
+		grid-row-gap: $baseline;
+	}
+}
+
+.product__expansions__header {
+	font-size: modScale(2);
+	line-height: $lineHeight;
+	font-family: $displayFont;
+	color: $gold10;
+	font-weight: bold;
+	text-shadow: $textShadow;
+	margin-bottom: $baseline/2;
+
+	@include breakpoint(min-width, $bpNavBreak) {
+		margin: 0;
+		margin-bottom: $baseline*-0.5;
+		grid-column: 1 / -1;
+	}
+}
+
+.product__expansion {
+	margin-bottom: $baseline;
+	display: grid;
+	grid-template-columns: 80px 1fr;
+	grid-gap: $baseline*0.5;
+
+	@include breakpoint(min-width, $bpNavBreak) {
+		grid-template-columns: 152px 1fr;
+	}
+}
+
+.product__expansion__thumbnail {
+	background-color: $grey50;
+	min-height: $baseline*4.75; // avoid jank
+	float: left;
+	margin-right: $baseline*0.5;
+	margin-bottom: $baseline*0.5;
+	height: auto;
+
+	@include breakpoint(min-width, $bpNavBreak) {
+		margin-right: $baseline*1.25;
+	}
+}
+
+.product__expansion__title {
+	font-size: modScale(-1);
+	color: $gold20;
+	margin: 0;
+}
+
+.product__expansion__description {
+	font-size: modScale(-1);
+}

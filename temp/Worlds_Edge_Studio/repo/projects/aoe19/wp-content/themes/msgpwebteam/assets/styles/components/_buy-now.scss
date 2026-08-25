@@ -1,0 +1,836 @@
+.buy-now {
+  hr {
+    border-bottom: 2px solid $neutral-hr;
+  }
+
+  &--first {
+    position: relative;
+    z-index: 1;
+
+    @include breakpoint(xlarge) {
+        margin-top: calc(-75px - (2rem + 3vw));
+    }
+
+    &[data-gamename="Age_of_Empires_IV_Pre-Order_Digital_Deluxe_Edition"] {
+      @include breakpoint(ultra) {
+          margin-top: calc(-290px - (2rem + 3vw));
+      }
+    }
+  }
+
+  .jump_nav {
+    display: block;
+    position: relative;
+    top: -6em;
+  }
+
+  @include breakpoint(small only) {
+    .frame-box,
+    .frame-box__inner {
+      padding:0 !important;
+    }
+  }
+
+  .frame-box {
+    .frame-box {
+      padding: 0;
+    }
+  }
+
+  &--featured {
+    .buy-now {
+      &__game-title {
+
+        padding-left: 440px;
+
+        @include breakpoint(medium only) {
+          padding: 8px 8px 8px 8px;
+        }
+        @include breakpoint(small only) {
+          padding: 8px 8px 20px 8px;
+        }
+        @include breakpoint(1020) {
+          h2,
+          h3 {
+            font-size: rem-calc(22);
+            line-height: rem-calc(24);
+          }
+        }
+        @include breakpoint(1165) {
+          h2,
+          h3 {
+            font-size: rem-calc(30);
+            line-height: rem-calc(32);
+          }
+        }
+
+        // Large featured image size
+        &.buy-now__game-title-feat-img-lg-size {
+          padding-left: 0;  
+
+          @include breakpoint(1030 down) {
+            h3 {
+              padding-left: 40px;
+            }
+          }
+
+        }
+
+      }
+
+      &__game-img,
+      &__content {
+        float: left;
+      }
+
+      &__game-img {
+        @include breakpoint(small only) {
+          padding-top: 10px;
+        }
+      }
+
+      &__game-img {
+        @include breakpoint(medium only) {
+          @include grid-col(3);
+
+          .buy-now__feat-img {
+            position: static;
+          }
+        }
+
+        @include breakpoint(small only) {
+          float: none;
+          @include clearfix;
+        }
+      }
+
+      &__content {
+        @include breakpoint(medium only) {
+          @include grid-col(9);
+          padding-left: 0 !important;
+
+          .buy-now__inner {
+            padding-right: rem-calc(8);
+            max-width:none;
+          }
+        }
+        @include breakpoint(small only) {
+           @include grid-column(12);
+        }
+      }
+
+      &__inner {
+        @include breakpoint(medium down) {
+          max-width: none !important;
+          padding: 0 0px 0px 8px !important;
+        }
+      }
+
+      &__footer {
+        padding-top: rem-calc(80);
+        @include breakpoint(small only) {
+          padding-bottom: 0;
+          padding-top: rem-calc(12);
+        }
+      }
+
+      &__buttons {
+        float: right;
+        padding-right: 15px;
+        max-width: 270px;
+        img {
+          width: 100%;
+        }
+
+        @include breakpoint(medium down) {
+          @include grid-col(12);
+          max-width: none;
+        }
+      }
+      
+      &__buttons-wrap {
+
+        .btn-aoe {
+          @include breakpoint(medium only) {
+            display: inline-block;
+            width: auto;
+
+            & + .btn-aoe {
+              margin-left: 1rem;
+            }
+          }
+        }
+
+        @include breakpoint(small only) {
+          padding-right: rem-calc(8);
+        }
+      }
+
+      &__feat-img {
+        //position: absolute;
+        //top: 15px;
+        //left: 15px;
+
+        @include breakpoint(small only) {
+          padding-left: 8px;
+        }
+
+        img {
+          //width: 390px !important;
+        }
+
+        // Large size featured image
+        img {
+          &.buy-now__feat-img-lg-size  {
+            width: 600px !important;   
+            
+            @include breakpoint(1030 down) {
+              width: 424px !important;
+              top: 0;
+              left: 0;
+              margin: auto;
+              float: none;
+              padding: 0;
+            }
+            
+            @include breakpoint(450 down) {
+              width: 300px !important;
+            }
+
+          }
+
+        }
+
+        @include breakpoint(small only) {
+          position: static;
+          float: left;
+          width: 50%;
+        }
+
+        // Large featured image
+        &.buy-now__feat-img-wrapper-lg-size {
+          top: 75px;
+
+          @include breakpoint(1030 down) {
+            float: none;
+            width: 424px;
+            padding: 0;
+            margin: 0 auto;
+            position: relative;
+            top: 0;
+            left: 0;
+          }
+
+          @include breakpoint(450 down) {
+            width: 300px;
+          }
+
+        }
+
+      }
+
+      &__content {
+        //padding-left: 440px;
+
+        // Large featured image size
+        &.buy-now__content-feat-img-lg-size {
+          padding-left: 650px;
+        }
+
+        &.buy-now__content-feat-img-lg-size {
+          @include breakpoint(1030 down) {
+            padding-right: 0.625rem !important;
+            padding-left: 0.625rem !important;
+            width: 100% !important
+          }
+        }
+
+        @include breakpoint(small only) {
+          padding-left:0;
+        }
+      }
+
+      &__inner {
+        max-width: 410px;
+        padding-top: 2rem;
+
+        @include breakpoint(1000) {
+          max-width: 550px;
+        }
+
+        @include breakpoint(1165) {
+          max-width: 600px;
+        }   
+
+      }
+      
+    }
+
+  }
+
+  // Featured image large
+  .buy-now__inner-feat-img-lg-size {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  &__default {
+
+    .buy-now__game-img {
+      @include breakpoint(medium) {
+        @include grid-column(3);
+      }
+    }
+
+    .buy-now__content {
+      @include grid-column(6, 0);
+
+      @include breakpoint(small only) {
+        @include grid-column(12, 0);
+      }
+    }
+
+    .buy-now__buttons {
+      @include grid-column(3);
+      /* reskin store page buttons to match microsoft button */
+      .btn-aoe {
+        border: 2px solid transparent;
+        &::before,
+        &::after {
+          background: #000000;
+        }
+        &:hover,
+        &:focus {
+          border: 2px solid #cab163;
+          color: $light;
+
+            &:before { background: #000000; }
+            &:after { background: #000000; }
+        }
+      }
+
+      .buy-now__buttons-wrap {
+        @include breakpoint(medium down) {
+          display: none;
+        }
+      }
+
+      .buy-now__buttons-wrap-tablet {
+        display: none;
+
+        @include breakpoint(medium down) {
+          display: block;
+
+          .btn-aoe {
+            width: 100%;
+            margin: 0;
+          }
+        }
+
+        .btn-microsoft {
+          padding: 0;
+          img {
+            width:100%;
+            height: auto;
+          }
+          @include breakpoint(medium only) {
+            img {
+              width:auto;
+              height: 80px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &--no-exp {
+    padding-bottom: 0 !important;
+  }
+
+  &__title-wrapper {
+    @include breakpoint(medium up) {
+      @include grid-row();
+    }
+  }
+
+  &--h2 {
+    margin-bottom: rem-calc(8);
+    font-size:rem-calc(40);
+    line-height:rem-calc(42);
+    color: $light-alt;
+
+    @include breakpoint(small only) {
+      font-size:rem-calc(13);
+      line-height:rem-calc(18);
+      padding: rem-calc(8) rem-calc(8) 0;
+    }
+  }
+
+  &--h3 {
+    font-size: rem-calc(30);
+    line-height: rem-calc(32);
+    margin-bottom: 8px;
+    color: $light-alt;
+
+    @include breakpoint(small only) {
+      margin-bottom: 0;
+      /*font-weight:100;*/
+      font-size: rem-calc(13);
+      line-height: rem-calc(13);
+    }
+  }
+
+  &__white-bg {
+    box-shadow: inset 0px 0px 60px 0px rgba(55,36,22,0.5);
+    background: $light-alt;
+    color: $black;
+
+    @include breakpoint(medium up) {
+      @include grid-row-nest();
+    }
+
+    @include breakpoint(small only) {
+      @include clearfix;
+    }
+  }
+
+  &__white-bg-inner {
+    background: transparent;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    @include clearfix;
+
+    @include breakpoint(1000) {
+      height: 419px;
+    }
+
+    @include breakpoint(1165) {
+      height: 419px;
+    }
+
+  }
+
+  &__footer {
+    padding-top: 20px;
+
+    @include breakpoint(small only) {
+      padding: rem-calc(10) rem-calc(8);
+
+      .buy-now__game-expansions {
+        padding-top: rem-calc(10);
+        @include grid-row();
+
+        .buy-now__exp {
+            &:first-child {
+              padding-right:rem-calc(8);
+
+              @include breakpoint(medium down) {
+                padding-right: 0;
+              }
+            }
+
+          @include breakpoint(small only) {
+            margin-bottom: rem-calc(8);
+          }
+        }
+      }
+    }
+  }
+
+  &__game-img {
+
+    @include breakpoint(small only) {
+      margin-top: -45px;
+    }
+
+    .buy-now__feat-img img {
+      border: 1px solid $brand-alt;
+    }
+
+  }
+
+   // Large featured image 
+   .buy-now__game-img-lg-size {
+
+    @include breakpoint(1030 down) {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+      width: 100% !important;
+    }
+    
+  }
+
+  &__inner {
+    padding-right: rem-calc(20);
+
+    @include breakpoint(medium down) {
+      margin-bottom: 20px;
+    }
+
+    @include breakpoint(small only) {
+      padding: 0 8px 8px 8px;
+    }
+
+    ul {
+      li {
+        font-size:rem-calc(16);
+        line-height: rem-calc(21);
+
+        @include breakpoint(medium down) {
+          font-size:rem-calc(13);
+          line-height: rem-calc(16);
+        }
+      }
+    }
+  }
+
+  &__mobile-img {
+
+    .frame-box {
+      float: left;
+
+      @include breakpoint(small only) {
+        width: 50%;
+      }
+    }
+  }
+
+  &__desc {
+
+    @include breakpoint(medium down) {
+      font-size: rem-calc(13);
+      line-height: rem-calc(18);
+
+      p,
+      ul li {
+        color: $text-alt;
+        margin-bottom: 0;
+      }
+
+      hr {
+        margin: 8px 0 !important;
+      }
+    }
+
+    @include breakpoint(1000) {
+      font-size: rem-calc(13);
+      line-height: rem-calc(18);
+    }
+
+    @include breakpoint(1165) {
+      font-size: rem-calc(16);
+      line-height: rem-calc(22);
+    }
+  }
+
+  &__mobile-buttons {
+    display: none;
+    float: right;
+    width: 50%;
+    padding-right: rem-calc(0);
+
+    @include breakpoint(small only) {
+      display: block;
+      padding-left: 12px;
+
+      .btn-aoe {
+        display: block;
+        width: 100%;
+      }
+    } 
+
+  }
+
+  &__desc-small {
+
+    @include breakpoint(small only) {
+      @include grid-column(12, 0);
+    }
+  }
+
+  &__buttons {
+    @include breakpoint(small only) {
+      display: none;
+    }
+  }
+
+  &__buttons-wrap {
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+
+    .btn-aoe {
+      width: 100%;
+      margin-bottom: 10px;
+      /* reskin store page buttons to match microsoft button */
+      border: 2px solid transparent;
+      &::before,
+      &::after {
+        background: #000000;
+      }
+      &:hover,
+      &:focus {
+        border: 2px solid #cab163;
+        color: $light;
+
+          &:before { background: #000000; }
+          &:after { background: #000000; }
+      }
+      @include breakpoint(medium down) {
+        display: block;
+        margin: 10px;
+        float: left;
+      }
+
+      @include breakpoint(small only) {
+        float: none !important;
+        margin: 0 0 10px;
+      }
+    }
+
+    @include breakpoint(small only) {
+      padding-right: 0;
+      width: 100%;
+    }
+
+    .btn-microsoft {
+      padding: 0;
+      img {
+        width:100%;
+        height: auto;
+      }
+      @include breakpoint(medium only) {
+        img {
+          width:auto;
+          height: 80px;
+        }
+      }
+      
+    }
+
+    // Large featured image size
+    &.buy-now__buttons-wrap-feat-btns-img-lg-size {
+
+      .btn-aoe--image {   
+        width: 40%;
+        padding: 0;     
+        margin-top: 10px;
+
+        img {
+          width: 100%;
+          height: auto;
+        }
+
+      }
+
+    }
+
+  }
+  &__buttons-wrap-tablet {
+    display: none;
+    @include breakpoint(medium only) {
+      display: block;
+    }
+  }
+  
+  &__exp {
+    @include breakpoint(medium) {
+      @include grid-column(6, 0);
+    }
+    @include breakpoint(small only) {
+      @include grid-column(12, 0);
+    }
+  }
+  &__exp-img {
+    float: left;
+    width: 25%;
+    min-height: 195px;
+    img {
+      vertical-align: top;
+      border: 1px solid $brand-alt;
+      max-height: 170px;
+      height: 170px;
+      @include breakpoint(small only) {
+        height: auto;
+      }
+      width: 100%;
+      width: 100%;
+    }
+  }
+  &__exp-content {
+    float: left;
+    width: 75%;
+    padding-left: 8px;
+    p {
+      font-size: rem-calc(13);
+      line-height: rem-calc(18);
+      color: $light-alt;
+    }
+  }
+}
+
+.inter_inter {
+  @include breakpoint(medium up) {
+    width: calc(100% + 2rem); 
+    left: -1rem;
+  }
+  .frame-box__inner {
+    border: none;
+    padding-bottom: 0;
+  }
+}
+.inter_inter + .buy-now__footer {
+  padding-top: 0;
+}
+.included_expansions {
+  background: #c7bc9e;;
+  box-sizing: border-box;
+  padding: 0.5rem 1rem;
+  @include breakpoint(small only) {
+    margin-bottom:0.5rem;
+    clear: both;
+  }
+  .frame-box {
+    background:none;
+  }
+  .buy-now__exp, .buy-now__exp-img {
+    float: none !important;
+    display: inline-block;
+    vertical-align: top;
+  }
+  .buy-now__exp {
+    width:23%;
+    margin-left: 1%;
+    @include breakpoint(medium up) {
+      width:90%;
+      margin-left:0;
+    }
+    @include breakpoint(large up) {
+      width:49%;
+    }
+  }
+  .buy-now__exp-img {
+    width:100%;
+    min-height:0;
+    @include breakpoint(medium up) {
+      width:90%;
+    }
+  }
+  .buy-now__exp-img img {
+    border: none;
+    @include breakpoint(medium up) {
+      height: auto;
+    }
+  }
+}
+
+/* age iv preorder */
+.frame-box {
+  &.buy-now--first.buy-now--featured {
+    border: 2px solid $ui-color-royalgold;
+    background-image: url($image-path + 'age4/bgs/preorder/bg-titlebg-ageiv-mobile.png'), linear-gradient(#2a3950, #181c28);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size:contain;
+    @include breakpoint(large up) {
+      background-image: url($image-path + 'age4/bgs/preorder/bg-titlebg-ageiv-desk.png'), linear-gradient(#2a3950, #181c28);
+      background-position: 0px -6rem, 0 0;
+    }
+    @include breakpoint(ultra up) {
+      background-image: url($image-path + 'age4/bgs/preorder/bg-titlebg-ageiv-4k.png'), linear-gradient(#2a3950, #181c28);
+    }
+    .buy-now--h3 {
+      color:#cda351;
+      width: 100%;
+      line-height: 1.5;
+      @include breakpoint(large up) {
+        max-width: 50%;
+      }
+    }
+    .frame-box, 
+    .frame-box__inner--dark,
+    .buy-now__white-bg {
+      border: none;
+      background: none;
+    }
+    .buy-now__white-bg {
+      color:#f1e9d0;
+      box-shadow: none;
+    }
+    .buy-now__game-img .buy-now__feat-img img {
+      border: 2px solid $ui-color-royalgold;
+    }
+    hr {
+      height: 1px;
+      margin: .75rem 0;
+      background: -webkit-gradient(linear,left top,right top,from(rgba(159,108,45,.2)),color-stop(25%, #a18a3e),to(rgba(159,108,45,.2)));
+      background: -webkit-linear-gradient(left,rgba(159,108,45,.2), #a18a3e 25% 75%,rgba(159,108,45,.2));
+      background: -o-linear-gradient(left,rgba(159,108,45,.2), #a18a3e 25% 75%,rgba(159,108,45,.2));
+      background: linear-gradient(90deg,rgba(159,108,45,.2), #a18a3e 25% 75%,rgba(159,108,45,.2));
+      border:none;
+    }
+    .buy-now__game-title {
+      padding-left:0;
+    }
+    .buy-now__feat-img {
+      top: 8rem;
+    }
+    .buy-now__desc {
+      img {
+        margin-bottom: 1rem;
+      }
+    }
+    @media screen and (max-width: 63.9375em) {
+      .buy-now__desc p, .buy-now__desc ul li {
+          color:#f1e9d0;
+          margin-bottom: 0;
+      }
+    }
+  }
+}
+.banner--ageiv_preorder {
+  background-image: url($image-path + 'age4/bgs/preorder/bg-hero-buynow-mobile.jpg');
+  background-position: top center;
+  background-repeat: no-repeat;
+  height: 0;
+  padding-bottom: 38.21%;
+  h1 {
+    padding-top:30%;
+  }
+  @include breakpoint(large up) {
+    background-image: url($image-path + 'age4/bgs/preorder/bg-hero-buynow-desk.jpg');
+    padding-bottom: 23.43%;
+    h1 {
+      padding-top:20%;
+    }
+  }
+  @include breakpoint(ultra up) {
+    background-image: url($image-path + 'age4/bgs/preorder/bg-hero-buynow-4k.jpg');
+    h1 {
+      padding-top:13%;
+      font-size:4rem;
+    }
+  }
+}
+.buy-now--featured .buy-now__content, 
+.buy-now--featured .buy-now__game-img {
+  margin-left: 1rem;
+}
+
+/* featured preorder titles */
+@include breakpoint(large up) {
+  .buy-now--featured .buy-now__game-img {
+    max-width:25%;
+  }
+  .buy-now--featured .buy-now__content {
+    width: calc(71% - 270px);
+  }
+  .buy-now--featured .buy-now__inner {
+    max-width: none;
+    width:100%;
+  }
+}

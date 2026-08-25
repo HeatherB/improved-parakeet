@@ -1,0 +1,165 @@
+//extends .dark-content-box
+.stats-listings {
+
+  .arrow-badge-hr:not(:first-child) {
+    margin-top: 2.0rem;
+  }
+
+  &__showNoResults {
+    margin-bottom: 0 !important;
+  }
+
+  dl.stats-list {
+    align-items: stretch;
+    display: flex;
+    flex-wrap: wrap;
+    line-height: 1.2;
+    margin: 0;
+
+    .sm {
+      font-size: 0.8em;
+    }
+
+    sub {
+      bottom: auto;
+    }
+
+    dt {
+      border-top: 1px solid $neutral-brown;
+      color: $light-alt;
+      margin: 0;
+      padding: 0.7em 10px 0.7em 0;
+      width: 60%;
+    }
+
+    dd {
+      border-top: 1px solid $neutral-brown;
+      margin: 0;
+      padding: 0.5em 10px 0.5em 0;
+      width: 40%;
+    }
+
+    @include breakpoint(medium) {
+      dt, dd {
+        &:first-of-type {
+          border-top: 0;
+        }
+      }
+    }
+
+  }
+
+  @include breakpoint(small only) {
+    .columns:first-child {
+      dt, dd {
+        &:first-of-type {
+          border-top: 0;
+        }
+      }
+    }
+  }
+
+  .opponent-type {
+    &:first-child {
+      padding-right: 20px;
+    }
+  }
+
+}
+
+
+// Stats associated with circle progress
+// ------------------------------------------------+
+//
+
+.progress-stats {
+  margin: 0 auto 1rem;
+  text-align: center;
+  white-space: nowrap;
+  height: 48px;
+
+  @include breakpoint(small only) {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+
+  li {
+    color: $light-alt;
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1;
+    margin: auto;
+    padding: 0 2rem;
+    position: relative;
+    width: auto;
+
+    @include breakpoint(small only) {
+      margin: 0;
+    }
+
+    &::after {
+      background: $white;
+      content: '';
+      display: block;
+      height: 100%;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transform: skewX(-10deg);
+      width: 5px;
+    }
+
+    &:last-child {
+      padding-left: 1rem;
+
+      &::after {
+        display: none;
+      }
+    }
+
+    span {
+      color: $white;
+      display: block;
+      font-size: 2rem;
+    }
+  }
+}
+
+.progress-meter text {
+  @include breakpoint(small only) {
+    font-size: 20px !important;
+  }
+}
+
+.game-stats {
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+  @include breakpoint(small only) {
+    display: block;
+  }
+  &__equal {
+    @include breakpoint(small only) {
+      text-align: center;
+      h2 {
+        margin-bottom: 1.5rem;
+      }
+    }
+  }
+  .pagination-container {
+    padding: 0 0 !important;
+    margin-bottom: 0;
+  }
+  .pagination-title,
+  ul.pagination {
+    max-width:none;
+    margin-bottom: 0 !important;
+  }
+  .pagination-title {
+    @include breakpoint(small only) {
+      margin-bottom: .75rem !important;
+    }
+  }
+}

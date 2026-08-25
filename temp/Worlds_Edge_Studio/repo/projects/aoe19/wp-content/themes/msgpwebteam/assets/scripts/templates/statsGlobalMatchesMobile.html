@@ -1,0 +1,41 @@
+<div class="search-results frame-box">
+  <div class="frame-box__inner frame-box__inner--light frame-box__inner--no-pad hideOverflow" id="globalMatches">
+    <div class="tableHeading">
+      <h3>Recent Matches</h3>
+      <h5><span class="globalmatches-label">1v1 RandomMap</span></h5>
+    </div>
+
+    <% _.each(matchList, function(item) { %>
+    <table id="global_matches" class="search-results__content results-container">
+      <tr class="search-results__row search-results__row--leader not-loaded" data-gameId="<%= item.gameId %>" data-profileId="<%= item.profileId %>">
+        <td colspan="2" align="left" class="gmPlayer">
+          <div class="profile_avatar_wrapper"><img class="stats_avatar" src="<%= item.avatarUrl %>"></div>
+          <!--<a href="<%= window.wp_object.homeUrl %>/stats/?profileId=<%= item.profileId %>&game=age2"><%= item.userName %></a>-->
+          <a href="<%= window.wp_object.homeUrl %>/stats/?profileId=<%= item.profileId %>&gamertag=<%= item.userName %>&player=<%= item.playerNumber %>&game=age2&matchType=<%= board %>"><%= item.userName %></a>
+        </td>
+      </tr>
+      <tr class="search-results__row search-results__row--leader not-loaded" data-gameId="<%= item.gameId %>" data-profileId="<%= item.profileId %>">
+        <th scope="row" class="gm-civilization">Civilization:</th>
+        <td align="left" class="gmCivilization"><%= item.civilization %></td>
+      </tr>
+      <tr class="search-results__row search-results__row--leader not-loaded" data-gameId="<%= item.gameId %>" data-profileId="<%= item.profileId %>">
+        <th scope="row" class="gm-result">Result:</th>
+        <td align="left" class="gmResult <%= item.winLoss %>"><%= item.winLoss %></td>
+      </tr>
+      <tr class="search-results__row search-results__row--leader not-loaded" data-gameId="<%= item.gameId %>" data-profileId="<%= item.profileId %>">
+        <th scope="row" class="gm-maps">Map:</th>
+        <td align="left" class="gmMaps"><%= item.mapType %></td>
+      </tr>
+      <tr class="search-results__row search-results__row--leader not-loaded" data-gameId="<%= item.gameId %>" data-profileId="<%= item.profileId %>">
+        <th scope="row" class="gm-player_count">Players:</th>
+        <td align="left" class="gmPlayer_count"><%= item.playerCount %></td>
+      </tr>
+      <tr class="search-results__row search-results__row--leader not-loaded" data-gameId="<%= item.gameId %>" data-profileId="<%= item.profileId %>">
+        <th scope="row" class="gm-length">Date:</th>
+        <td align="left" class="gmLength"><%= item.dateTime %></td>
+      </tr>
+    </table>
+    <% }) %>
+
+  </div>
+</div>

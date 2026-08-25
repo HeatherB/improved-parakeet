@@ -1,0 +1,100 @@
+#zendesk_faq_adminMenu_wrapper {
+    width: 100%;
+    max-width:80%;
+}
+
+#zendesk_faq_adminMenu_wrapper .faqSelector {
+	display: block;
+	height: 300px;
+    overflow: scroll;
+    border: 1px solid black;
+    padding: 0px 0 0 10px;
+    background: #ffffff;
+}
+#zendesk_faq_adminMenu_wrapper .faqSelector li {
+    cursor: pointer;
+}
+#zendesk_faq_adminMenu_wrapper .faqSelector li:hover,
+#zendesk_faq_adminMenu_wrapper .faqSelector li.selected {
+	background: #1f2636;
+	color:#ffffff;
+}
+#article_category_list {
+    padding: 0 1em 1em;
+    display: inline-block;
+}
+#article_category_list p {
+    margin: 0 0 0.5em 0;
+}
+#article_category_list label {
+    display: block;
+    margin-bottom: 0.25em;
+}
+#zendesk_form_table {
+    border-collapse: separate;
+    border-spacing: 0 15px;
+}
+#zendesk_form_table th {
+    padding: 20px 10px 0px 0;
+    line-height: 1;
+}
+#zendesk_form_table h2 {
+    margin: 1em 0 0;
+}
+#zendesk_form_table tbody tr {
+    width:100%;
+}
+#zendesk_form_table tbody td {
+    padding: 0;
+    vertical-align: top;
+    border: 1px solid #000000;
+}
+#zendesk_form_table td#editting_msg_wrapper {
+    margin-bottom: 0;
+    padding: 0;
+    line-height: 0;
+}
+#zendesk_form_table td#editting_msg_wrapper.show {
+    margin-bottom: 9px;
+    padding: 15px 10px;
+    line-height: 1.3;
+    vertical-align: middle;
+    color:#cc3939;
+}
+#zendesk_form_table tbody h3.heading {
+    margin: 0;
+    padding: 0;
+    background: #999999;
+    padding: 0.5em;
+}
+#zendesk_form_table tbody label {
+    display: block;
+    margin:0.5em;
+    font-size:14px;
+}
+#zendesk_form_table tbody .preview_wrapper {
+    padding: 1em;
+}
+#zendesk_form_table tbody .preview_wrapper img {
+    max-width: 100% !important;
+    height: auto !important;
+}
+#zendesk_form_table tbody .faq_title {
+    font-weight: bold;
+}
+/* active faq */
+#zendesk_form_table tbody td.selected {
+    background: #1e2536;
+}
+#zendesk_form_table tbody td.selected .preview_wrapper {
+    color: #ffffff;
+    border-top: 1px solid #426380;
+}
+#zendesk_form_table tbody td.selected h3.heading {
+    background: #1f2636;
+    background: -moz-linear-gradient(180deg, #426380 0%, #1f2636 100%);
+    background: -webkit-linear-gradient(180deg, #426380 0%, #1f2636 100%);
+    background: linear-gradient(180deg, #426380 0%, #1f2636 100%);
+    color: #fefefe;
+}
+

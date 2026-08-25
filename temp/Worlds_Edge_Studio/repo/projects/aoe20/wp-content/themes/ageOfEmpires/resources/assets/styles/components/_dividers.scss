@@ -1,0 +1,15 @@
+// dividers
+
+.divider,
+%divider {
+	height: 1px;
+	margin: $baseline/2 0;
+	background: linear-gradient(90deg, rgba($gold50, 0.2), $gold50 25% 75%, rgba($gold50, 0.2));
+
+	&.--left {
+		background: linear-gradient(90deg, $gold30, rgba($gold50, 0.2));
+
+	}
+}
+
+

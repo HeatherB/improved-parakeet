@@ -1,0 +1,171 @@
+//layout
+
+html { box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+	background-color: $bodyBgColor;
+}
+
+.disabled { opacity: $disabledOpacity; }
+
+main { position: relative; }
+
+section {
+	height: auto;
+	padding-top: $sectionPadding;
+	padding-bottom: $sectionPadding;
+  	position: relative;
+  	overflow: hidden;
+  	z-index: $zBase;
+
+  	&:nth-of-type(even) {
+  		background-color: $shade95;
+  	}
+}
+
+img {
+  max-width: 100%;
+  @include objectFit(cover);
+}
+
+figure {
+	margin: 0;
+}
+
+figcaption {
+	font-size: modScale($modScale, -1);
+	font-style: italic;
+}
+
+iframe,
+video {
+	width: 100%;
+	height: 100%;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+button {
+	appearance: none;
+	-webkit-appearance: none;
+	background: transparent;
+	border: none;
+	outline: none;
+}
+
+hr {
+	border: 0;
+	height: 1px;
+	background: $grey60;
+	margin: $baseline 0;
+}
+
+
+// containers
+// options: site, page
+@mixin container($level: page) {
+	width: 100%;
+	@include marginAuto();
+
+	@if $level == site {
+		max-width: $siteWidth;
+		overflow: hidden;
+	}
+
+	@if $level == page {
+		max-width: calc(#{$contentWidth} + var(--page-margin) * 2);
+		padding-left: var(--page-margin);
+		padding-right: var(--page-margin);
+	}
+}
+
+.site-container { @include container(site); }
+
+.page-container { @include container(page); }
+
+.overlay {
+	display: none;
+	position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($black,0.5);
+	z-index: $zOverlay;
+}
+
+//sections !!todo!! refactor and move most of this to individual section files
+
+
+
+// expects to be inside a .page-container
+@mixin offsetContent($direction: left, $size: 8) {
+	$breakpoint: $bpLarge;
+
+	@if $size <= 6 {
+		$breakpoint: $bpMedium;
+	}
+
+	@include breakpoint(min-width, $breakpoint) {
+		width: colspan($size);
+		flex-grow: 0;
+
+		@if $direction == right {
+			@include offset($numColumns - $size);
+		}
+	}
+}
+
+@mixin section($type: null) {
+	@if $type == hero {
+		@include aspectRatioBox(16,9);
+		padding: 0;
+		display: flex;
+		align-items: flex-end;
+		max-height: 75vh;
+	}
+}
+
+
+.section-background {
+	@include absoluteCover();
+	z-index: -1;
+
+	img {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.section__title {
+	font-family: $displayFont;
+	font-size: modScale(3);
+	font-weight: bold;
+	color: $gold10;
+	text-shadow: $textShadow;
+
+	@include breakpoint(min-width, $bpMedium) {
+		font-size: modScale(5);
+	}
+}
+
+.section__title__more {
+	margin: 0;
+	min-width: 10rem;
+	font-size: modScale(-2);
+
+	.--pointer-right {
+		margin-right: -0.5rem;
+	}
+
+	.--pointer-left {
+		margin-left: -0.5rem;
+	}
+}
+

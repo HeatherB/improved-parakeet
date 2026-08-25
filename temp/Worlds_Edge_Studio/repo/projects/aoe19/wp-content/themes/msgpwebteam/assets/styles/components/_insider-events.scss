@@ -1,0 +1,770 @@
+.tease.insider-events {
+    background-image: url($image-path + 'bgs/framebox-dark-texture-desk.jpg');
+    color: $light-alt;
+    display: block;
+    padding: 1em;
+    @include goldBorder();
+
+    // band-aid fix until we apply global box-sizing
+    box-sizing: border-box;
+    & > * { box-sizing: inherit; }
+    //
+
+    @media (min-width: $ui-breakpoint-tablet) { 
+        padding: $teasers-padding-tablet;
+    }
+
+    .buttons {
+        .sandbutton {
+            min-width: 15em;
+            max-width: 27.5em;
+            margin: 0 auto;
+            display: inline-block;
+        }
+    }
+
+}
+
+.text-block {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 1rem 2rem;
+    text-align: center;
+    background-color: rgba(0,0,0,0.5);
+    text-shadow: 0px 0.06em 0.26em rgba(0, 0, 0, 0.26), 
+                 0px 0.06em 0.13em rgba(0, 0, 0, 0.42);
+
+    &::before {
+        @extend %pseudo-cover;
+        @extend %border--gold-bracket--horiz;
+    }
+
+    @media (min-width: $ui-breakpoint-tablet) { 
+        .text-content {
+            width: 40em;
+            max-width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+}
+
+
+
+
+
+// cards
+
+@mixin eventCardFlex {
+    width: 100%;
+    margin: 0.75rem;
+
+    @media (min-width: $ui-breakpoint-tablet) {
+        flex: 1 1 40%;
+    }
+
+    @media (min-width: $ui-breakpoint-desk) {
+        flex: 1 1 30%;
+
+        .isIE & { flex: 1 1 28%; }
+    }
+}
+
+@keyframes cardFlip {
+  0% {
+    transform: rotateZ(0deg) rotateY(180deg);
+  } 
+  50% {
+    transform: rotateZ(-5deg) rotateY(90deg);
+  }
+  100% {
+    transform: rotateZ(0deg) rotateY(0deg);
+  }  
+}
+
+@keyframes cardBackflip {
+  0% {
+    transform: rotateZ(0deg) rotateY(0deg);
+  } 
+  50% {
+    transform: rotateZ(-5deg) rotateY(90deg);
+  }
+  100% {
+    transform: rotateZ(0deg) rotateY(180deg);
+  }
+}
+
+
+.insider-events__cards {
+    margin: 0.5rem -0.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: stretch;
+    align-items: stretch;
+
+    // these pseudo elements fill in flex space if there's only 1 item in last row
+    &::after,
+    &::before {
+        content: "";
+        display: block; // needed for IE11
+        @include eventCardFlex;
+    }
+
+    &::before { order: 999; }
+
+    .isIE & {
+        @media (min-width: $ui-breakpoint-tablet) {
+            &::after,
+            &::before {
+                display: block;
+                flex: 1 1 45%; // IE11 needs for the pseudo element's flex-basis to be larger than the cards'
+            }
+        }
+    }
+}
+
+.insider-event__card {
+    @include aspectRatioBox(7,10);
+    @include goldBorder();
+    @include eventCardFlex;
+    transform-style: preserve-3d;
+    transform: rotateY(180deg);
+    
+    box-shadow: 0px 0.272727em 0.909090em 0px rgba(0, 0, 0, 0.38), 
+                0px 0.318181em 0.681818em 0px rgba(0, 0, 0, 0.42);
+
+    color: $ui-color-parchment;
+    
+
+    &.--more {
+        transform: rotateY(0deg);
+        text-align: center;
+        padding: 1.1111em 0.7272em;
+        min-height: 0;
+        background-image: url($image-path + 'bgs/marble-tile-v2.jpg');
+        background-size: cover;
+        background-position: right top;
+
+        .insider-event__card__content-container { justify-content: center; }
+
+        .logo { width: 18em; }
+
+        .title {
+            margin-bottom: 1em;
+            max-width: 100%; // needed for IE
+        }
+    }
+
+    &.--flipped { animation: cardFlip .275s forwards linear; }
+    &.--backflip { animation: cardBackflip .275s forwards linear; }
+}
+
+/* center card when there is only one */
+@media (min-width: 768px) {
+    .only_one_card {
+        &.insider-events__cards {
+           &:before, &:after {
+                display: none;
+            }
+        }
+
+        .insider-event__card {
+            flex: 0 0 47%;
+            width:47%;
+        }
+    }
+}
+@media (min-width: 1280px) {
+    .only_one_card {
+        &.insider-events__cards {
+            &:before, &:after {
+                display: none;
+            }
+        }
+
+        .insider-event__card {
+            flex: 0 0 31%;
+            width:31%;
+        }
+    }
+}
+
+.insider-event__card__face {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-size: cover;
+
+    &.age1de { background-image: url($image-path + 'age1/bgs/insider-card-age-desk.jpg'); }
+    &.age2de { background-image: url($image-path + 'age2de/bgs/insider-card-age2-desk.jpg'); }
+    &.age3de { background-image: url($image-path + 'age3de/bgs/insider-card-age3de-desk.jpg'); }
+    &.myth { background-image: url($image-path + 'myth/bgs/insider-card-myth-desk.jpg'); }
+    &.age4 { background-image: url($image-path + 'age4/bgs/insider-age4card-desk.jpg'); }
+
+    &.--front {
+        z-index: 4;
+        transform: rotateY(180deg);
+    }
+
+    &.--back {
+        background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.2)), 
+                    url($image-path + 'bgs/framebox-dark-texture-desk.jpg');
+        display: none; 
+
+        .--flipped & { display: block; }
+        .--backflip & { display: none; }
+    }
+}
+
+.insider-event__card__content-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.insider-event__header {
+    width: 100%;
+    background: $ui-color-imageoverlay;
+    padding: 1rem 3rem 0.75rem 1rem;  
+
+    .--back & {
+        font-size: 0.8em;
+    } 
+
+    .isIE & { padding-bottom: 1em; } // add extra padding to account for IE not expanding container to last line when content breaks
+}
+
+.insider-event__game { 
+    font-weight: 400;
+    font-size: 0.875em;
+}
+
+.insider-event__name {
+    color: white;
+    margin: 0;
+    font-size: 1em;
+}
+
+.insider-event__platform {
+    position: absolute;
+    top: 0.75rem; //0.25rem less than container padding
+    right: 0.75rem; //0.25rem less than container padding
+    width: 1.25em;
+    height: 1.25em;
+}
+
+.insider-event__content {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    width: 100%;
+    flex: 999 1 100%;
+    padding: 0.75em;
+
+    @media (min-width: $ui-breakpoint-tablet) { 
+        font-size: 0.7em;
+        padding: 1em; 
+    }
+
+    @media (min-width: $ui-breakpoint-desk) { 
+        font-size: 1em;
+        padding-top: 0.5em;
+    }
+}
+
+.insider-event__content__block {
+    background: $ui-color-imageoverlay;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+
+    &:last-of-type { margin-bottom: 0; }
+
+    .--back & { 
+        height: 100%; 
+        display: flex; 
+        flex-direction: column;
+    }
+
+    @include breakpoint(small only) {
+        p { margin-bottom: 0.625em; }
+    }
+}
+
+.insider-event__content__block__header {
+    font-size: 1em;
+    color: $ui-color-royalgold;
+    text-align: left;
+    line-height: 1.5;
+
+    .--back & { color: $ui-color-royalgold-hover; }
+}
+
+.insider-event__inclusion {
+    width:100%;
+    padding: 0.5rem;
+    text-align:center;
+    background: rgb(29,54,35);
+    background: linear-gradient(90deg, rgba(29,54,35,1) 0%, rgba(42,111,54,1) 50%, rgba(29,54,35,1) 100%);
+}
+.insider-event__inclusion__message {
+    margin:0 auto;
+    text-shadow: 0px 0px 3px rgba(0,0,0,0.7);
+    &:before {
+        content:'';
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        margin-right: 0.5em;
+        vertical-align: middle;
+        @extend %icon--success;
+    }
+}
+
+.insider-event__requirements {
+    text-align: center;
+    .insider-event__requirements__inner {
+        backface-visibility: hidden;
+        .insider-event__card__button-group-wrapper {
+            width:100%;
+            margin:0 auto;
+            button, a {
+                width:100%;
+            }
+            .card-turner {
+                justify-content: center;
+            }
+        }
+        .insider-event__reveal__btn,
+        .insider-event__launch-xbox-hub {
+            height: auto;
+            line-height: 1.5;
+            max-width: 100%;
+            width: 100%;
+            padding: 0.75em;
+            font-size: 1rem;
+            white-space: break-spaces;
+            &.insider-event__hide__btn {
+                @extend %btn-aoe;
+                @extend %btn-aoe--small;
+                @extend %btn-aoe--borderless;
+                @extend %icon-button;
+            }
+        }
+        .insider-event__launch-xbox-hub {
+            margin-top:0.5rem;
+        }
+        &.--revealed {
+             animation: cardFlip .275s forwards linear;
+            .insider-event__reveal__btn,
+            .insider-event__card__button-group-wrapper {
+                display: none;
+            }
+            .insider-event__reveal__face {
+                display: block;
+            }
+        }
+        &.--obscured {
+            animation: cardBackflip .275s forwards linear;
+        }
+    }
+}
+
+.insider-event__requirements__checklist,
+%insider-event__requirements__checklist {
+    @extend %unstyled-list;
+    margin: 0.25rem 0;
+    text-align: left;
+
+    li {
+        color: $light-alt;
+        align-items: center;
+        margin-bottom: 0.25rem;
+        line-height: 2em;
+        height:2em;
+        pointer-events: none;
+
+        display: grid;
+        grid-template-columns: auto 1fr;
+
+        .btn-aoe {
+            pointer-events: auto;
+        }
+
+        &::before {
+            content: "";
+            width: 2em;
+            height: 2em;
+            margin-right: 0.25em;
+            margin-left: -0.25rem;
+            @extend %icon--question;
+        }
+
+        &.inadequate::before { @extend %icon--error; }
+
+        &.incomplete::before { @extend %icon--error; }
+
+        &.complete::before { @extend %icon--success; }
+
+        &.warning::before { @extend %icon--question; }
+
+        &.passed-requirements {
+            cursor: pointer;
+            pointer-events: auto;
+
+            &::after {
+                content: "";
+                width: 2em;
+                height: 2em;
+                margin-left: 0.25em;
+                @extend %icon--arrow-right;
+            }
+        }
+        &.misc_message {
+            line-height: 1.5;
+        }
+    }
+}
+
+%icon-button {
+    display: inline-flex;
+    align-items: center;
+
+    .icon {
+        width: 1.625em;
+        height: 1.625em;
+        line-height: 2em;
+        margin-right: 0.25em;
+        margin-left: -0.25em;
+    }
+
+    &:hover,
+    &:focus {
+        .icon {  @include icon-change-row-to(2); }
+    }
+}
+
+.card-turner {
+    @extend %btn-aoe;
+    @extend %btn-aoe--small;
+    @extend %btn-aoe--borderless;
+    @extend %icon-button;
+
+    &.--to-back {
+        &:hover,
+        &:focus {
+            .icon {
+                @include icon-change-row-to(4);
+            }
+        }
+    }
+}
+
+.insider-event__invites { color: $ui-color-royalgold; }
+
+.insider-event__invite-date {
+    font-family: $serif-font-family;
+    letter-spacing: $cap-spacing;
+    color: white;
+    font-size: 1.1em;
+    margin: 0;
+}
+
+.insider-event__resend {
+    text-align: center;
+}
+
+.insider-event__duration {
+    font-size: 120%;
+    color: $white;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+
+
+// requirement comparison
+
+
+.insider-event__requirement-comparison {
+    display: grid;
+    width: 100%;
+    grid-template-columns: max-content 1fr;
+}
+
+.requirement-comparison__req-header {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.requirement-comparison__checklist {
+    @extend %insider-event__requirements__checklist;
+    
+    li {
+        
+        &.inadequate,
+        &.warning {
+            background-color: $ui-color-scarlet;
+            padding-left: 0.25rem;
+            padding-right: 0.25rem;
+        }
+
+        &.warning,
+        &.extra_requirement { 
+            background-color: #75590B; 
+        }
+
+        &.extra_requirement {
+            &::before {
+                background-position: 37.47619% 67%;
+            }
+        }
+    }
+    &.--extra_requirement {
+        margin: -0.25em 0 0.5em 0;
+    }
+
+    &.--reqs {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    &.--user {
+        grid-column: 2;
+        grid-row: 2;
+        text-align: right;
+
+        li {
+            display: flex;
+            justify-content: flex-end;
+
+            &::before { display: none; }
+        }
+    }
+}
+
+.requirement-comparison__user-header {
+    grid-column: 2;
+    grid-row: 1;
+    text-align: right;
+}
+
+.requirement-comparison__tip { 
+    color: $ui-color-royalgold;
+    grid-column: 1 / -1; 
+    text-align: center;
+
+    a { 
+        color: $ui-color-darklink !important; 
+        font-weight: bold; 
+    }
+
+    .--back & { color: $ui-color-royalgold-hover; }
+
+    &.--lower {
+        flex: 999 1 auto;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+    }
+}
+
+.sys-req-warning {
+    display: block;
+    cursor: pointer;
+}
+
+// IE can't figure out this grid, so let's float
+.isIE {
+    .insider-event__requirement-comparison { display: block; }
+
+    .requirement-comparison__req-header {
+        width: 60%;
+        float: left;
+    }
+
+    .requirement-comparison__checklist {
+
+        &.--reqs {
+            width: 60%;
+            float: left;
+            clear: left;
+        }
+        
+        &.--user {
+            width: 40%;
+            float: right;
+            clear: right;
+        }
+    }
+
+    .requirement-comparison__user-header {
+        width: 40%;
+        float: right;
+        margin-top: -1.7rem; // magic number
+    }
+
+    .requirement-comparison__tip { clear: both; }
+}
+
+
+
+
+// back-side buttons
+
+
+.insider-event__card__button-group {
+    width: 100%;
+    //flex: 999 1 auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    
+
+    .more-button {
+        @extend %btn-aoe;
+        @extend %btn-aoe--small;
+        @extend %btn-aoe--borderless;
+        @extend %icon-button;
+
+        &:hover,
+        &:focus {
+            .icon {
+                @include icon-change-row-to(4);
+            }
+        }
+    }
+
+    @include breakpoint(medium) {
+        .card-turner {
+            .icon { margin-left: -0.75rem; }
+        }
+    }
+}
+
+// post invite button group
+.insider-event__card__button-group_post-invite {
+    width: 100%;
+
+    .more-button {
+        @extend %btn-aoe;
+        @extend %btn-aoe--small;
+        @extend %btn-aoe--borderless;
+        @extend %icon-button;
+        margin-top: 0.5rem;
+        white-space: break-spaces;
+        height: auto;
+        line-height: 1.25;
+        padding: 0.5rem;
+        width:100%;
+        justify-content: center;
+
+        &:hover,
+        &:focus {
+            .icon {
+                @include icon-change-row-to(4);
+            }
+        }
+    }
+
+    @include breakpoint(medium) {
+        .card-turner {
+            .icon { margin-left: -0.75rem; }
+        }
+    }
+}
+
+.insider-event__keys {
+    .insider-event__reveal__btn {
+        display: block;
+        margin: 0.5rem auto 0;
+    }
+    .insider-event__reveal__face {
+        text-align: center;
+        display: none;
+        margin-top:0.5rem;
+        ul { 
+            margin: 0 auto;
+        }
+        li {
+            list-style-type: none;
+            background: none;
+            padding: 0;
+            span {
+                display: block;
+            }
+        }
+        .insider-event__reveal__extra {
+            font-size: 1rem;
+            p {
+                margin-bottom:0;
+                line-height:1;
+            }
+        }
+    }
+    .insider-event__hide__btn {
+        text-indent: -9999em;
+        background: url($image-path + 'close-button.png');
+        width:32px;
+        height:32px;
+        display:block;
+        position: absolute;
+        top: -25px;
+        right: -25px;
+    }
+}
+/* must insist */
+.content 
+.insider-event__keys .insider-event__reveal__face 
+ul:not(.pagination):not(.progress-stats):not(.slick-dots):not(.not_a_list) li {
+    list-style-type: none;
+    background: none;
+    padding: 0;
+}
+
+
+
+// event details modal
+
+
+.event-details-modal__header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    & > * {
+        margin-bottom: 1rem;
+    }
+}
+
+.event-details-modal__title {
+    padding-right: 1rem;
+
+    .insider-event__game {
+        margin-bottom: 0.25rem !important;
+    }
+
+    .insider-event__platform {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 0.5rem;
+        top: -0.25rem;
+        right: 0;
+    }
+}
+
+.insider-event__system-requirements__list {
+    list-style: none;
+}
+

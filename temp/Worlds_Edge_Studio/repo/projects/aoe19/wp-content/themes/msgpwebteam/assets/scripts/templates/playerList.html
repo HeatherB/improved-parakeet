@@ -1,0 +1,59 @@
+<% if(apiRequest) { %>
+
+<table class="player-list">
+    <thead class="player-list__header">
+    <tr>
+        <th class="player-list__header-item"></th>
+        <th class="player-list__header-item">Player</th>
+        <th class="player-list__header-item">Civilization</th>
+        <th class="player-list__header-item">Team</th> 
+        <th class="player-list__header-item"><% if(game !='age2') { %> Total Score <% } %></th>
+        <th class="player-list__header-item">Result</th>
+    </tr>
+    </thead>
+    <tbody class="player-list__content">
+    <% _.each(results, function(item) { %>
+    <% console.log('Item: ' + JSON.stringify(item)); %>
+        <tr class="player-list__row">
+            <td class="player-list__cell player-list__avatar">
+                <div class="player-list__avatar-wrapper">
+                    <img src="<%= item.avatarUrl %>">
+                </div>
+            </td>
+            <td class="player-list__cell player-list__gamertag">
+                <span class="player-list__mobile-label">Player</span>
+                <span class="player-list__mobile-value">
+        <% if( item.isHuman === true ) { %>
+            <% if( item.userName ) { %>
+                <a href="<%= homeUrl %>/stats/?gamertag=<%= item.userName %>&player=<%= item.playerNumber %>&gameId=<%= matchSummary.gameId %>&profileId=<%= item.userId %>&game=<%= game %>" title="View Player Stats"><%= item.userName %></a>
+                <% if( item.matchReplayAvailable ) { %>
+                    <a href="<%= matchReplayUrl %>/?gameId=<%= matchSummary.gameId %>&profileId=<%= item.userId %>" class="icon_matchReplay" title="Download Match Replay"><span>Play Video</span></a>
+                <% } %>
+            <% } else { %>
+                <a href="<%= homeUrl %>/stats/?gamertag=<%= item.gamertag %>&player=<%= item.playerNumber %>&gameId=<%= matchSummary.gameId %>&game=<%= game %>"><%= item.gamertag %></a>
+            <% } %>
+        <% } else { %>
+            <%= item.gamertag %>
+        <% } %>
+            </td>
+            <td class="player-list__cell player-list__civName">
+                <span class="player-list__mobile-label">Civ</span>
+                <span class="player-list__mobile-value" style="background-color: <%= item.color %>;color: #2e2c26 !important;"><%= item.civName %></span>
+            </td>
+            <td class="player-list__cell player-list__team">
+                <span class="player-list__mobile-label">Team</span>
+                <span class="player-list__mobile-value"><%= item.team %></span></td>
+            <td class="player-list__cell player-list__total-score">
+                <span class="player-list__mobile-label">Score</span>
+                <span class="player-list__mobile-value"><%= item.totalScore %></span>
+            </td>
+            <td class="player-list__cell player-list__winLoss player-list__winLoss--<%= item.winLoss %>">
+                <span class="player-list__mobile-label">Result</span>
+                <span class="player-list__mobile-value"><%= item.winLoss %></span>
+            </td>
+        </tr>
+    <% }) %>
+    </tbody>
+</table>
+<% } %>
+

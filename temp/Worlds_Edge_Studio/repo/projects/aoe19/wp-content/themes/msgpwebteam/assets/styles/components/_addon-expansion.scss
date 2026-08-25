@@ -1,0 +1,134 @@
+body.game_modes-template-page-addon-expansion-blade {
+  section.block-content {
+    .focus-button-container {
+      max-width:80%;
+    }
+    .lotw .focus-button-container .button.cta {
+      min-width: 18.5em;
+    }
+    .captureage .focus-button-container .button.cta {
+      min-width: 13em;
+    }
+    &:nth-child(odd) {
+      background: url($image-path + 'bg-dark-zigg-desk.jpg');
+      .substance {
+        h2 {
+          color: $ui-color-parchment;
+        }
+      }
+    }
+    .substance {
+      h2 {
+        margin-bottom: 0.25em;
+      }
+    }
+  }
+}
+body.page-template-page-addon-expansion-blade,
+body.dawn-of-the-dukes {
+  section.block-content {
+    &:nth-child(even) {
+      background: url($image-path + 'bg-dark-zigg-desk.jpg');
+      .substance {
+        h2 {
+          color: $ui-color-parchment;
+        }
+      }
+    }
+    &:nth-child(odd) {
+      background: none;
+    }
+  }
+}
+
+.teasers .tease.border--simple.dawn-dukes {
+  border: 2px solid $ui-color-royalgold;
+}
+.teasers .tease.border--simple.dawn-dukes.full {
+  border: none;
+}
+
+body.dawn-of-the-dukes {
+  .banner {
+    h1 {
+      text-indent: -9999em;
+      background-image: url($image-path + 'age4/heros/dukes/logo-age2de-dotd-mobile.png');
+      background-position: top center;
+      background-repeat: no-repeat;
+      background-size:contain;
+      padding-top:30%;
+      @include breakpoint(large up) {
+        background-image: url($image-path + 'age4/heros/dukes/logo-age2de-dotd-desk.png');
+      }
+      @include breakpoint(ultra up) {
+        background-image: url($image-path + 'age4/heros/dukes/logo-age2de-dotd-4k.png');
+      }
+      @include breakpoint(xxlarge up) {
+        padding-top:40%;
+      }
+      @include breakpoint(ultra up) {
+        padding-top:50%;
+      }
+    }
+  }
+  .asterisk {
+    color: $red-error;
+  }
+  .anchor_bg {
+    background-image: url($image-path + 'age4/bgs/bg-quickbanner-ivpreorder-desk.jpg');
+    padding-bottom: 6%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top center;
+    margin-bottom: 1rem;
+    padding-top: 23%;
+    @include breakpoint(ultra up) {
+      background-image: url($image-path + 'age4/bgs/bg-quickbanner-ivpreorder-4k.jpg');
+    }
+  }
+  .tease {
+    .sandbutton {
+      margin: auto;
+      width: 200px;
+      text-align: center;
+      line-height: 2;
+      font-size:13px;
+      font-size:0.813rem;
+      @include breakpoint(large up) {
+        font-size:21px;
+        font-size:1.313rem;
+      }
+    }
+    &.full {
+      .bg {
+        background-size: contain;
+        background-position: top center;
+        min-height: 0;
+        padding-top: 56.25%;
+        background-color: $black;
+        &:after {
+          content:'';
+          border: 2px solid $ui-color-royalgold;
+          width: 100%;
+          height: 0;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          padding-bottom: calc(56.25% - 2px);
+        }
+      }
+    }
+    @include breakpoint(medium up) {
+      &.full {
+        display: inline-block;
+        width: 32%;
+        vertical-align: top;
+        margin-right:1%;
+      }
+      &:last-child {
+        margin-right:0;
+      }
+    }
+  }
+}

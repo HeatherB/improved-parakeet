@@ -1,0 +1,120 @@
+.mods-detail-gallery {
+  .mods-detail-gallery--media {
+    padding-top: 56.25%;
+    position: relative;
+  }
+
+  .mods-detail-gallery--tabs-content {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .mods-detail-gallery--tabs-panel {
+    height: 100%;
+    padding: 0;
+    position: relative;
+    width: 100%;
+
+    img {
+      display: block;
+      height: 100%;
+      position: absolute;
+      width: 100%;
+    }
+  }
+
+  .mods-detail-gallery--thumbs {
+    padding: 8px;
+    position: relative;
+    text-align: center;
+
+    @include breakpoint(medium) {
+      padding: 12px;
+    }
+  }
+
+  .mods-detail-gallery--thumbs-list {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    list-style: none;
+    margin: 0;
+
+    > li {
+      float: none;
+      padding: 0 3px;
+      width: 20%;
+
+      @include breakpoint(medium) {
+        padding: 0 6px;
+      }
+    }
+
+    .mods-detail-gallery--thumb-link {
+      display: block;
+      padding: 3px;
+      position: relative;
+
+      .mods-detail-gallery--thumb-wrapper {
+        display: block;
+        padding-top: 56.25%;
+        position: relative;
+
+        > img {
+          display: block;
+          height: 100%;
+          left: 0;
+          position: absolute;
+          top: 0;
+          width: 100%;
+        }
+      }
+
+      &::before {
+        background: url($image-path+'ui/thumb-link-frame.jpg') no-repeat center center;
+        background-size: 100%;
+        content: '';
+        display: block;
+        height: 100%;
+        left: 0;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        transition: opacity 0.2s;
+        width: 100%;
+      }
+
+      &::after {
+        background: url($image-path+'ui/nav-active-arrow-up.png') no-repeat center bottom;
+        background-size: 30% auto;
+        bottom: calc(100% - 1px);
+        content: '';
+        display: block;
+        height: 25%;
+        left: 0;
+        opacity: 0;
+        position: absolute;
+        transition: opacity 0.2s;
+        width: 100%;
+      }
+
+      &:hover, &:focus {
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+
+    > li.is-active {
+      a.mods-detail-gallery--thumb-link::before,
+      a.mods-detail-gallery--thumb-link::after {
+        opacity: 1;
+      }
+    }
+
+  }
+
+}

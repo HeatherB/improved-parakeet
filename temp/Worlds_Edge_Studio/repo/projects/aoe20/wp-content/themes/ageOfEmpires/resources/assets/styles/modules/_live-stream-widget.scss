@@ -1,0 +1,19 @@
+// live stream widget
+
+.stream__info {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.stream__views {
+	display: flex;
+	align-items: center;
+}
+
+.stream__host__avatar {
+	@include breakpoint(min-width, $bpMedium) {
+		width: $baseline*1.5;
+		height: $baseline*1.5;
+	}
+}

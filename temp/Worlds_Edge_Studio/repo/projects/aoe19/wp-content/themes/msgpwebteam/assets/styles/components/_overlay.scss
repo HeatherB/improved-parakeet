@@ -1,0 +1,23 @@
+$color-overlay-bg: rgba(19, 28, 35, .5);
+
+.overlay__image {
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    user-select: none;
+}
+
+%overlay,
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $color-overlay-bg;
+    z-index: map-get($z-index, 'nav-overlay');
+}

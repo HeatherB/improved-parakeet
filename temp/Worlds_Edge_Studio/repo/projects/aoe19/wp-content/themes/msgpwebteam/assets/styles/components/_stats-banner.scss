@@ -1,0 +1,28 @@
+//extends .banner
+.stats-banner {
+
+  &.stats-multiplayer-banner {
+    h1 {
+      margin-bottom: 0.25em;
+    }
+  }
+  .button.cta {
+  	margin-top: 1rem;
+  }
+  button {
+  	&.gamertag-search {
+  		margin-left: 10px;
+  	}
+  }
+
+}
+
+@include breakpoint(medium up) {
+  .stats-banner {
+    .button.cta {
+      margin-top: 2rem;
+      font-size: 1.15rem;
+    }
+  }
+}
+

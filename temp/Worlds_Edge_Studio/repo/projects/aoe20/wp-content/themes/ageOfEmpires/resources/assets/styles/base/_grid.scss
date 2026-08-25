@@ -1,0 +1,53 @@
+// grid
+
+// Row
+// options: tight
+@mixin row($mod: null, $marginsOnly: false, $gap: null) {
+  @if not $marginsOnly {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  @if $gap {
+    // we use the following syntax because $gap may be a calc() function
+    margin-left: calc(#{$gap} / -2);
+    margin-right: calc(#{$gap} / -2);
+  }
+  @else if $mod == tight {
+    margin-left: $gutterSmall/-2;
+    margin-right: $gutterSmall/-2;
+  } @else {
+    margin-left: $gutter/-2;
+    margin-right: $gutter/-2;
+  }
+}
+
+// Cell
+// options: tight
+@mixin cell($mod: reg, $marginsOnly: false, $gap: null) {
+  @if not $marginsOnly {
+    flex-grow: 1;
+    display: block;
+  }
+
+  @if $gap {
+    // we use the following syntax because $gap may be a calc() function
+    margin-left: calc(#{$gap} / 2);
+    margin-right: calc(#{$gap} / 2);
+  }
+  @else if $mod == tight {
+    margin-left: $gutterSmall/2;
+    margin-right: $gutterSmall/2;
+  } @else {
+    margin-left: $gutter/2;
+    margin-right: $gutter/2;
+  }
+}
+
+@function colspan($num) {
+  @return $column * $num;
+}
+
+@mixin offset($num) {
+    margin-left: $column * $num;
+}

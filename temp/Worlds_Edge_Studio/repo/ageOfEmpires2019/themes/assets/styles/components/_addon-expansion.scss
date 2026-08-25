@@ -1,0 +1,35 @@
+body.game_modes-template-page-addon-expansion-blade,
+body.page-template-page-addon-expansion-blade {
+  section.block-content {
+    .focus-button-container {
+      max-width:80%;
+    }
+    .lotw .focus-button-container .button.cta {
+      min-width: 18.5em;
+    }
+    .captureage .focus-button-container .button.cta {
+      min-width: 13em;
+    }
+    &:nth-child(odd) {
+      background: url($image-path + 'bg-dark-zigg-desk.jpg');
+      .substance {
+        h2 {
+          color: $ui-color-parchment;
+        }
+      }
+    }
+    .substance {
+      h2 {
+        margin-bottom: 0.25em;
+      }
+    }
+  }
+}
+/* captureage is bening stubborn */
+body.page-template-page-addon-expansion-blade {
+  section.block-content {
+    &:nth-child(even) {
+      background: url($image-path + 'bg-dark-zigg-desk.jpg');
+    }
+  }
+}

@@ -1,0 +1,404 @@
+// Home Hero-Franchise
+#hero {
+    position: relative;
+    padding-top: 198.75%;
+    background: url($image-path + 'showcase/fh-top-ivpreorder-mobile.jpg') center top;
+    background-size: 100% auto;
+    z-index: 400;
+
+    .logo {
+        display: none;
+        position: absolute;
+        pointer-events: none; 
+        z-index: 400;
+        background-size: 100% auto;
+        background-repeat: no-repeat;
+
+        &.age4 {
+            display: block;
+            width: 65%;
+            height: 50%;
+            left: 50%;
+            top: 8%;
+            transform: translate(-50%,0%);
+            background-image: url($image-path + 'showcase/fh-oct28.png');
+            background-position: 50% 0;
+            display: none;    
+        }
+
+    }
+
+    svg#heroselectors,
+    svg#heroselectors-m {
+        width: 100%;
+        height: 106.603773%;
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        polygon,
+        rect {
+            fill: rgba(255, 0, 255, 0);
+
+            &.open { pointer-events: none; }
+        }
+    }
+
+    svg#heroselectors { display: none; }
+}
+
+nav.heronav,
+nav.heronav-m {
+    position: absolute;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    pointer-events: none;
+
+    ul {
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        bottom: 0;
+        transform: translate(-50%, 50%);
+        width: 13.7em;
+        list-style: none;
+        pointer-events: none;
+
+        .btn-aoe--cta {
+            font-size: inherit;
+            height: auto;
+            line-height: 2em;
+            max-width: calc(100% - 2.5em);
+        }
+
+        .sandbutton {
+            min-width: 12em;
+            max-width: calc(100% - 2.5em);
+            margin: 0 auto;
+            width: 100%;
+            padding: 0 1em;
+        }
+
+        .sandbutton {
+            &.timeup {
+                .anim-liveicon {
+                    height: 2em;
+                    position: absolute;
+                    left: 0;
+                    padding-left: 1em;
+                    z-index: 999;
+
+                    svg {
+                        width: auto !important;
+                    }
+                }
+
+                .sandbutton-text {
+                    position: absolute;
+                    right: 0;
+                    padding-right: 1em;
+                    justify-content: flex-end;
+                }
+
+            }
+        }
+
+        li {
+            margin-bottom: 0.5em;
+            position: relative;
+            transition: opacity 0.5s;
+            opacity: 0;
+
+            display: block;
+                    text-align: center;
+
+                    width: 100%;
+                    max-width:17em;
+                    position: relative;
+
+                    .btn-aoe--cta {
+                        margin-right: 1.5em;
+                        margin-bottom: 0;
+                        min-width: 13.5em;
+
+                        padding-left: 0px;
+                        margin-right:0;
+                        display: block;
+                        width:100%;
+                        background: none;
+                        &:before {
+                            content:'';
+                            border: 0;
+                            padding: 0;
+                            position: absolute;
+                            display: inline-block;
+                            line-height: 2;
+                            background: url($image-path + 'btn/button-age2.png') left top;
+                            background-size: auto 200%;
+                            max-width: 27.5em;
+                            z-index: -1;
+                            width:88%;
+                            height: 100%;
+                            left: 0;
+                        }
+                        &:after {
+                            /*display: none;*/
+                            content: "";
+                            position: absolute;
+                            right: 0px;
+                            top: 0;
+                            height: 100%;
+                            width: 18%;
+                            background: url($image-path + 'btn/button-age2.png') right top;
+                            background-size: auto 200%;
+                            z-index: -1;
+                        }
+                    }
+                    .cta-anim-right {
+                        right: 0;
+                    }
+                    @include breakpoint(medium up) {
+                      a:focus {
+                        outline: 2px solid $ui-color-royalgold-hover;
+                      }
+                    }
+                }
+
+            &:last-of-type {
+                margin-bottom: 0;
+            } 
+
+        &.open {
+            transform: translate(-50%, 0);
+            pointer-events: auto;
+
+            li {
+                opacity: 1;
+                transition-delay: 0s;
+
+                &:nth-of-type(2) { transition-delay: 0.1s; }
+                &:nth-of-type(3) { transition-delay: 0.2s; }
+                &:nth-of-type(4) { transition-delay: 0.3s; }
+                &:nth-of-type(5) { transition-delay: 0.4s; }
+                &:nth-of-type(6) { transition-delay: 0.5s; }
+                &:nth-of-type(7) { transition-delay: 0.6s; }
+                &:nth-of-type(8) { transition-delay: 0.7s; }
+                &:nth-of-type(9) { transition-delay: 0.8s; }
+            }
+        }
+    }
+}
+
+nav.heronav {
+    display: none
+}
+
+nav.heronav-m {
+    width: 100%;
+    height: 50%;
+
+    ul {
+        //left: 50%;
+        left: 75%;
+        transition: transform 0.5s ease-out;
+        bottom: 7%;
+        font-size: 3.5vw;
+    }
+}
+
+.coverup {
+    position: relative;
+    margin-top: -6%;
+    padding-top: 13.125%;
+    background: url($image-path + 'fan-preview/heros/fh-bot-prefanpreview-m.png') center top no-repeat;
+    background-size: contain;
+    z-index: 300;
+    pointer-events: none;
+}
+
+.marble {
+    position: relative;
+    background: url($image-path + 'tile-blackmarble.jpg');
+    padding-top: 6%;
+}
+
+.divider-frank {
+    position: relative;
+    padding-top: 12.5%;
+    z-index: 100;
+    margin-top: -13.5%;
+    margin-bottom: -4.4%;
+
+    &:before, &:after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+        background-image: url($image-path + 'divider-frank.png');
+        background-size: auto 200%; 
+    }
+
+    &:before {
+        width: 100%;
+        background-position: left top;
+    }
+
+    &:after {
+        width: 50%;
+        background-position: right bottom;
+    }
+}
+
+@media (min-width: 768px) and (min-aspect-ratio: 4/3), 
+(min-width: 1280px) {
+
+    #hero { 
+        padding-top: 29.639889%;
+        background: url($image-path + 'showcase/fh-top-ivpreorder-desk.jpg') center top;
+        background-size: 100% auto;
+
+        svg#heroselectors {
+            height: 132.2807%;
+        }
+
+        // align content to center of each franchise block. 
+        // These classes apply to .heronav ul and .logo
+        & .myth { left: 92.448%;}
+        & .age1 { left: 7.552%;}
+        & .age2 { left: 24.21875%}
+        & .age3 { left: 75.78125%; }
+        & .age4 { 
+            left: 50%; 
+            bottom: -12%;
+        }
+
+        .logo {
+            display: block;
+            top: auto;
+            bottom: 0;
+            opacity: 1;
+            transition: opacity 1s;
+            height: 100%;
+            background-position: 50% 100%;
+            
+
+            &.open {
+                opacity: 0;
+
+                &.no-open {
+                    opacity: 1;
+                }
+
+            }
+
+            //all logos need to be translated x by -50%
+            &.myth {
+                width: 12%;
+                transform: translate(-50%,9%);
+                background-image: url("#{$image-path}home-hero-myth-slot5-desk.png");
+            }
+
+            &.age1 {
+                width: 12%;
+                transform: translate(-50%,9%);
+                background-image: url("#{$image-path}home-hero-age1de-slot1-desk.png");
+            }
+
+             &.age2 {
+                //desk+ styles
+                width: 12%;
+                transform: translate(-50%,9%);
+                background-image: url("#{$image-path}home-hero-age2de-slot2-desk.png");
+            }
+
+            &.age3 {
+                width: 12%;
+                transform: translate(-50%,9%);
+                background-image: url($image-path + 'home-hero-age3de-slot4-desk.png');
+
+            }
+
+            &.age4 {
+                height: 100%;
+                background-position: 50% 100%;
+                top: auto;
+                bottom: 5%;
+                width: 25%;
+                transform: translate(-50%,0%);
+                //background-image: url($image-path + 'age4/heros/home-hero-age4-slot3-desk.png');
+                display: block;
+            }
+        
+
+        }
+        svg#heroselectors-m { display: none; }
+
+        svg#heroselectors { display: block; }
+    }
+
+    nav.heronav-m {
+        display: none;
+    }
+
+    nav.heronav {
+        display: block;
+        overflow: visible;
+        width: 100%;
+        height: 97%;
+
+        ul {
+            transition: transform 0.7s ease-out;
+            font-size: 1vw;
+        }
+
+        li.always-visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    }
+
+    .coverup {
+        margin-top: -4%;
+        padding-top: 8.697917%;
+        background: url($image-path + 'showcase/fh-bot-ivpreorder-desk.png') center top;
+        background-size: 100% auto;
+    }
+
+    .marble {
+        padding-top: 4%;
+    }
+
+    .divider-frank {
+        padding-top: 4.166667%;
+        margin-top: -6.2%;
+        margin-bottom: -1.6%;
+    }
+}
+
+@media (min-width: 1921px) {
+    #hero {
+        .logo {
+            &.myth {
+                background-image: url($image-path + 'home-hero-myth-slot5-4k.png');
+            }
+
+            &.age1 {
+                background-image: url($image-path + 'home-hero-age1de-slot1-4k.png');
+            }
+
+            &.age2 {
+                background-image: url($image-path + 'home-hero-age2de-slot2-4k.png');
+            }
+
+            &.age3 {
+                background-image: url($image-path + 'home-hero-age3de-slot4-4k.png');
+            }
+
+            &.age4 {
+               // background-image: url($image-path + 'age4/heros/home-hero-age4-slot3-4k.png');
+            }
+        }
+    }
+}

@@ -1,0 +1,46 @@
+<!-- mods discussion -->
+<h3 class="mods__sub-heading --discussion">
+  Join the Discussion
+
+  <!-- block to create comment -->
+  <div class="mods_add-comment">
+    <!-- avatar image -->
+    <div class="mods__avatar-wrapper">
+    <!-- the data does not appear to return a user image -->
+    <!--<img src="/" alt="gamertag" />-->
+    </div>
+    <!-- gamertag -->
+    <h6 class="mods__avatar-name">DoYouThinkSheSauraDon</h6>
+    <!-- textarea input -->
+    <div class="mods__avatar-make-comment">copy copy copy copy copy</div>
+    <!-- submit button -->
+    <button type="button" class="mods__submit-comment --comment">
+      Post Comment
+    </button>
+  </div>
+
+  <!-- output existing comments -->
+  <div class="mods_display-comment">
+    <!-- avatar image -->
+    <div class="mods__avatar-wrapper">
+    <!-- the data does not appear to return a user image -->
+    <!--<img src="/" alt="gamertag" />-->
+    </div>
+    <!-- gamertag -->
+    <h6 class="mods__avatar-name"><%= metaData.creatorName %><!--DoYouThinkSheSauraDon--></h6>
+    <!-- comment area -->
+    <div class="mods__avatar-display-comment"><%= metaData.modDescription %><!--copy copy copy copy copy--></div>
+    <!-- like button & count -->
+    <button type="button" class="mods__button --like">
+      888,888
+    </button>
+    <!-- reply button -->
+    <button type="button" class="mods__button --reply">
+      reply
+    </button>
+    <!-- flag button -->
+    <button type="button" class="mods__button --flag">
+      report
+    </button>
+  </div>
+</h3>

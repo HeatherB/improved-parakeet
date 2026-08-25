@@ -1,0 +1,42 @@
+<!-- related mods block -->
+<% if (modList.length) { %>
+  <h3 class="mods__sub-heading">Related Mods</h3>
+
+  <!-- each related mod -->
+  <% _.each(modList, function(item) { %>
+  <div class="mods__related-mod">
+    <!-- mod image -->
+    <% if (item.thumnail) { %>
+    <img src="<%= item.thumnail %>" alt="image <%= item.modName %>" class="mods__related-mod-image" />
+    <% } %>
+    <!-- mod rating -->
+    <div class="mods__related-mod-rating">
+    <!-- some kind of loop or other to output -->
+    <!-- group of stars -->
+    <!-- text/integer rating -->
+    </div>
+
+    <!-- mod name -->
+    <h6 class="mods__related-mod-title"><%= item.modName %><!--Extraordinarily Long Mod Title Name Description--></h6>
+    <!-- mod attribution (avatar and gamertag) -->
+    <div class="mods__avatar-wrapper">
+      <!-- the data does not appear to return a user image -->
+      <!--<img src="/" alt="gamertag" />-->
+      by <%= item.creatorName %>
+    </div>
+    <!-- flags -->
+    <ul class="mods_tag-list">
+      <% _.each(item.modTagNames, function(modTagName) { %>
+      <li class="mods__tag --<%= modTagName.toLowerCase() %> ">
+            <%= modTagName %> 
+      </li>
+      <% }); %>
+    </ul>
+    <!-- download button -->
+    <button type="button" class="mods__button --download">
+      download
+    </button>
+  </div><!-- end each related mod -->
+  <% }); %>
+
+<% } %>

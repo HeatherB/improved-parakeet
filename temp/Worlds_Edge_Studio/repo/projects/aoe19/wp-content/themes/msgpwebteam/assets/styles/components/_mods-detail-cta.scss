@@ -1,0 +1,44 @@
+.mods-detail-cta {
+
+  &__inner {
+    &::before {
+      background: url($image-path+'ui/goldbar-vert.png') repeat-y center top;
+      bottom: 0;
+      content: '';
+      display: block;
+      height: 100%;
+      left: calc(50% - 3px);
+      position: absolute;
+      top: 0;
+      width: 6px;
+
+      @include breakpoint(medium only) {
+        background: none;
+      }
+    }
+
+    @include breakpoint(medium only) {
+      .columns + .columns {
+        margin-top: 20px;
+      }
+    }
+
+  }
+
+  .btn-aoe--block {
+    margin-bottom: 0.5rem;
+  }
+
+  .stat {
+    color: $light;
+  }
+
+  .stat-label {
+    color: $light-alt;
+  }
+
+  .button.success {
+    margin-top: 1.0em;
+  }
+
+}

@@ -1,0 +1,64 @@
+.section-nav {
+  margin-bottom: 10px;
+  position: relative;
+  @include breakpoint(medium) {
+    margin-bottom: 50px;
+  }
+
+  &__link {
+    background: url($image-path+'ui/nav-link-texture.jpg') repeat center top,
+    url($image-path+'ui/nav-active-texture.jpg') repeat center top;
+    box-shadow: 0 5px 15px rgba($black, 0.5) inset;
+    color: $light-alt;
+    display: block;
+    font-family: $serif-font-family;
+    font-size: 12px;
+    height: 30px;
+    line-height: 30px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 2px 5px rgba($xdark-brown, 0.5);
+    white-space: nowrap;
+    width: 100%;
+
+    &::after {
+      background: url($image-path+'ui/nav-active-arrow-down.png') no-repeat center bottom;
+      background-size: contain;
+      content: '';
+      display: none;
+      height: 20px;
+      left: 0;
+      position: absolute;
+      top: calc(100% - 1px);
+      width: 100%;
+      @include breakpoint(small down) {
+        height: 10px;
+      }
+    }
+
+    &:hover, &:focus, &.is-current {
+      background: url($image-path+'ui/nav-active-texture.jpg') repeat center top,
+      url($image-path+'ui/nav-link-texture.jpg') repeat center top;
+      color: $light;
+    }
+
+    &.is-current {
+      color: $dark-brown;
+
+      &::after {
+        display: block;
+      }
+    }
+
+    @include breakpoint(medium) {
+      // font-size: 16px;
+      height: 60px;
+      line-height: 60px;
+    }
+    @include breakpoint(large) {
+      font-size: 20px;
+    }
+  }
+
+}

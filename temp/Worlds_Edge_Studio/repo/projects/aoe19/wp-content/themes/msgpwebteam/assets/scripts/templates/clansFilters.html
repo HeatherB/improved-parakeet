@@ -1,0 +1,72 @@
+<form class="clans-filters__form" role="form" action="/clans/search/">
+
+  <div class="clans-filters__content">
+    <h2 class="clans-filters__title">Clans Search &amp; Filter</h2>
+    <div class="columns large-3">
+      <div class="search-field" id="clansSearchBox">
+        <input type="search" id="q" name="q" placeholder="Search Clan Names & Tags" data-input-field />
+        <button type="button" class="clear-search" data-clear-button>
+          <i class="fa fa-times"><span class="visually-hidden">Clear search terms</span></i>
+        </button>
+      </div>
+    </div>
+    <div class="columns large-6">
+      <div class="row">
+        <div class="columns medium-4">
+          <label class="show-for-sr" for="skill">Skill Level</label>
+          <select id="skill" name="skill">
+            <option value="">Skill Level</option>
+            <% _.each(skill, function(type) { %>
+            <option value="<%= type.skillId %>"><%= type.skillName %></option>
+            <% }); %>
+          </select>
+
+          <label class="show-for-sr" for="searchby">Search By</label>
+          <select id="searchby" name="searchby">
+            <option value="title">Search By Name</option>
+            <option value="tag">Search By Tag</option>
+          </select>
+							
+        </div>
+        <div class="columns medium-4">
+          <label class="show-for-sr" for="activity">Activity Level</label>
+          <select id="activity" name="activity">
+            <option value="">Activity Level</option>
+            <% _.each(activity, function(type) { %>
+            <option value="<%= type.activityId %>"><%= type.activityName %></option>
+            <% }); %>
+          </select>
+
+          <label class="show-for-sr" for="language">Language</label>
+          <select id="language" name="language">
+            <option value="">Language</option>
+          </select>
+        </div>
+        <div class="columns medium-4">
+          <label class="show-for-sr" for="memberRange">Member Count</label>
+          <select id="memberRange" name="memberRange">
+            <option value="">Member Count</option>
+            <% _.each(memberRange, function(type) { %>
+            <option value="<%= type.membersId %>"><%= type.membersName %></option>
+            <% }); %>
+          </select>
+							
+					<label class="show-for-sr" for="dateRange">Creation Date</label>
+          <select id="dateRange" name="dateRange">
+            <option value="">Creation Date</option>
+            <% _.each(dateRange, function(type) { %>
+            <option value="<%= type.dateId %>"><%= type.dateName %></option>
+            <% }); %>
+          </select>
+							
+        </div>
+      </div>
+    </div>
+    <div class="columns small-8 small-pull-2 medium-4 medium-pull-4 large-3 large-pull-0">
+      <button type="submit" class="btn-aoe btn-aoe--block"><i class="fa fa-search" role="presentation"></i> Search Clans</button>
+    </div>
+  </div>
+
+  <input class="hide" type="text" id="sort" name="sort" value="clanName" />
+  <input class="hide" type="text" id="sortOrder" name="sortOrder" value="DESC" />
+</form>

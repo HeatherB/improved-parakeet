@@ -1,0 +1,21 @@
+<% _.each(posts, function(post) { %>
+<div class="community-connections__content" data-social-account="twitter">
+    <div class="social__container background--rock">
+        <div class="social__content-wrapper">
+            <span class="social-icon-background"></span>
+            <span class="social-icon fa fa-twitter" aria-hidden="true"></span>
+            <a class="social__content-link" href="<%= post.postUrl %>">
+                <div class="image__container" style="background-image: url(<%= post.imageUrl %>);"></div>
+                <div class="message__container"><p><p><%= post.postContent %></p></div>
+            </a>
+            <div class="info__container">
+                <a href="<%= post.authorUrl %>" class="avatar__container">
+                    <img src="<%= post.authorAvatarUrl %>" />
+                </a>
+                <a href="<%= post.authorUrl %>" class="social-username"><%= post.author %></a>
+            </div>
+            <a href="<%= post.authorUrl %>"><span class="social-post-date"><%= post.postDate %></span></a>
+        </div>
+    </div>
+</div>
+<% }); %>

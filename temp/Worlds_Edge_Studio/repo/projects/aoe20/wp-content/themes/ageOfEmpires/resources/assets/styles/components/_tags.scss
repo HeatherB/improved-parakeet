@@ -1,0 +1,33 @@
+.mods__tag,
+.mods__button {
+	&.--edit {
+		@include iconBackground(edit);
+	}
+	&.--subscribe {
+		@include iconBackground(subscribe);
+	}
+	&.--graphics {
+		@include iconBackground(graphics);
+	}
+	&.--official {
+		@include iconBackground(official);
+	}
+	&.--terrain {
+		@include iconBackground(terrain);
+	}
+	&.--event {
+		@include iconBackground(event);
+	}
+	&.--scenarios {
+		@include iconBackground(scenarios);
+	}
+	&.--speech {
+		@include iconBackground(speech);
+	}
+	&.--other {
+		@include iconBackground(other);
+	}
+	&.--info {
+		@include iconBackground(info);
+	}
+}

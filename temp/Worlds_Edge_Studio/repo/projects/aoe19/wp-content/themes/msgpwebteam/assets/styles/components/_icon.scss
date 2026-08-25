@@ -1,0 +1,366 @@
+// Icon
+// Various icon styles not contained within AwesomeFont
+// ------------------------------------------------+
+//
+
+.icon {
+  background-repeat: no-repeat;
+  background-size: 100%;
+  display: inline-block;
+
+  &--alert {
+    background-image: url($image-path + 'icon-alert.svg');
+    height: 63px;
+    width: 50px;
+  }
+}
+
+
+// SVG icon sprite
+// ---------------------------------------+
+//
+
+.svg-icon {
+  display: inline-block;
+  fill: $white;
+  height: 1em;
+  line-height: 1em;
+  transition: all 0.3s ease-in-out;
+  vertical-align: middle;
+  width: 1em;
+}
+
+a:hover,
+a:focus {
+  .svg-icon {
+    fill: $yellow;
+    text-decoration: none;
+  }
+}
+
+
+// Icon sprite
+// ---------------------------------------+
+//
+
+.icon--logout,
+%icon--logout {
+  @include icon(1, 1);
+
+  &:hover,
+  &:focus {
+    @include icon-change-row-to(2);
+  }
+}
+
+.icon--login,
+%icon--login {
+  @include icon(2, 1);
+
+  &:hover,
+  &:focus {
+    @include icon-change-row-to(2);
+  }
+}
+
+.icon--search,
+%icon--search {
+  @include icon(3, 1);
+
+  &:hover,
+  &:focus {
+    @include icon-change-row-to(2);
+  }
+}
+
+
+.icon--facebook,
+%icon--facebook {
+  @include icon(4, 1);
+
+  &:hover,
+  &:focus {
+    @include icon-change-row-to(2);
+  }
+}
+
+.icon--twitter,
+%icon--twitter {
+  @include icon(5, 1);
+
+  &:hover,
+  &:focus {
+    @include icon-change-row-to(2);
+  }
+}
+
+.icon--instagram,
+%icon--instagram {
+  @include icon(6, 1);
+
+  &:hover,
+  &:focus {
+    @include icon-change-row-to(2);
+  }
+}
+
+.icon--mixer,
+%icon--mixer {
+  @include icon(7, 1);
+
+  &:hover,
+  &:focus {
+    @include icon-change-row-to(2);
+  }
+}
+
+.icon--menu,
+%icon--menu {
+  @include icon(8, 1);
+
+  &:hover,
+  &:focus {
+    @include icon-change-row-to(2);
+  }
+}
+
+.icon--download,
+%icon--download {
+  @include icon(9, 1);
+
+  &:hover,
+  &:focus {
+    @include icon-change-row-to(2);
+  }
+}
+
+.icon--email-notification,
+%icon--email-notification {
+  @include icon(10, 1);
+
+  &:hover,
+  &:focus {
+    @include icon-change-row-to(2);
+  }
+}
+
+.icon--email,
+%icon--email {
+  @include icon(11, 1);
+
+  &:hover,
+  &:focus {
+    @include icon-change-row-to(2);
+  }
+}
+
+.icon--settings,
+%icon--settings {
+  @include icon(12, 1);
+
+  &:hover,
+  &:focus {
+    @include icon-change-row-to(2);
+  }
+}
+
+.icon--discord,
+%icon--discord {
+  @include icon(13, 1);
+
+  &:hover,
+  &:focus {
+    @include icon-change-row-to(2);
+  }
+}
+
+.icon--arrow-left,
+%icon--arrow-left {
+  @include icon(14, 1);
+
+  &:hover,
+  &:focus {
+    @include icon-change-row-to(2);
+  }
+}
+
+.icon--arrow-right,
+%icon--arrow-right {
+  @include icon(15, 1);
+
+  &:hover,
+  &:focus {
+    @include icon-change-row-to(2);
+  }
+}
+
+.icon--edit,
+%icon--edit {
+  @include icon(16, 1);
+
+  &:hover,
+  &:focus {
+    @include icon-change-row-to(2);
+  }
+}
+
+.icon--success,
+%icon--success {
+  @include icon(17, 1);
+
+  &:hover,
+  &:focus {
+    @include icon-change-row-to(2);
+  }
+}
+
+.icon--arrow-up,
+%icon--arrow-up {
+  @include icon(18, 1);
+
+  &:hover,
+  &:focus {
+    @include icon-change-row-to(2);
+  }
+}
+
+.icon--arrow-down,
+%icon--arrow-down {
+  @include icon(19, 1);
+
+  &:hover,
+  &:focus {
+    @include icon-change-row-to(2);
+  }
+}
+
+.icon--error,
+%icon--error {
+  @include icon(20, 1);
+
+  &:hover,
+  &:focus {
+    @include icon-change-row-to(2);
+  }
+}
+
+.icon--insider,
+%icon--insider {
+  @include icon(21, 1);
+
+  &:hover,
+  &:focus {
+    @include icon-change-row-to(2);
+  }
+}
+
+.icon--bookmark,
+%icon--bookmark {
+  @include icon(22, 1);
+
+  &:hover,
+  &:focus {
+    @include icon-change-row-to(2);
+  }
+}
+
+
+.icon--alert-notification,
+%icon--alert-notification {
+  @include icon(1, 3);
+
+  &:hover,
+  &:focus {
+    @include icon-change-row-to(4);
+  }
+}
+
+.icon--alert,
+%icon--alert {
+  @include icon(2, 3);
+
+  &:hover,
+  &:focus {
+    @include icon-change-row-to(4);
+  }
+}
+
+.icon--close,
+%icon--close {
+  @include icon(3, 3);
+
+  &:hover,
+  &:focus {
+    @include icon-change-row-to(4);
+  }
+}
+
+.icon--I,
+%icon--I {
+  @include icon(4, 3);
+
+  &:hover,
+  &:focus {
+    @include icon-change-row-to(4);
+  }
+}
+
+.icon--II,
+%icon--II {
+  @include icon(5, 3);
+
+  &:hover,
+  &:focus {
+    @include icon-change-row-to(4);
+  }
+}
+
+.icon--III,
+%icon--III {
+  @include icon(6, 3);
+
+  &:hover,
+  &:focus {
+    @include icon-change-row-to(4);
+  }
+}
+
+.icon--IV,
+%icon--IV {
+  @include icon(7, 3);
+
+  &:hover,
+  &:focus {
+    @include icon-change-row-to(4);
+  }
+}
+
+.icon--myth,
+%icon--myth {
+  @include icon(8, 3);
+
+  &:hover,
+  &:focus {
+    @include icon-change-row-to(4);
+  }
+}
+
+.icon--question,
+%icon--question {
+  @include icon(9, 3);
+
+  &:hover,
+  &:focus {
+    @include icon-change-row-to(4);
+  }
+}
+
+.icon--youtube,
+%icon--youtube {
+  @include icon(11, 3);
+
+  &:hover,
+  &:focus {
+    @include icon-change-row-to(4);
+  }
+}

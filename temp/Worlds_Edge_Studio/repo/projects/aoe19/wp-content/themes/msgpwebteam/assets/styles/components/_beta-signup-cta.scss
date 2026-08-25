@@ -1,0 +1,66 @@
+
+.beta-signup-cta__container {
+  @include grid-col-row(12);
+}
+.beta-signup-cta__content-wrapper {
+  background: #f8f5e8 url($image-path+'ui/texture-light.jpg') repeat center top;
+  margin: 0 auto;
+  @include grid-row();
+  h1 {
+    color: #3f3625; 
+    text-align: center;
+    max-width: 728px;
+    @include  breakpoint(medium down) {
+      padding-right: 0;
+      float: none;
+      margin: 0 auto;
+    }
+  }
+  min-height: 400px;
+  position: relative;
+  .beta-signup-cta__content {
+    @include grid-col(12,0);
+    text-align: center;
+    @include breakpoint(medium down){
+      p {
+        padding: 0 20px;
+        float: none;
+        margin: rem-calc(30) auto;
+        font-size: rem-calc(20) !important;
+        color: #3f3625; 
+      }
+    }
+    max-width: 728px;    
+    padding: 0;
+    @include  breakpoint(medium down) {
+      padding-right: 0;
+      float: none;
+    }
+    margin: 0 auto;
+  }
+  .beta-signup-cta__aztec {
+    background: url($image-path+'insiders/wonder.png') left top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: -70px;
+    bottom: -50px;
+    width: 484px; 
+    height: 565px;
+    clip: rect(0px,484px,470px,0px);
+    overflow: hidden;
+    transition: .2s all ease;
+    @include breakpoint(xlarge up) {
+      right: 0px;
+      transition: .2s all ease;
+    }
+    @include  breakpoint(large only) {
+      right: -125px;
+      transition: .2s all ease;
+    }
+    @include breakpoint(medium down) {
+      display: none;
+      transition: .2s all ease;
+    }
+  }
+}

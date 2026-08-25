@@ -1,0 +1,330 @@
+
+
+$rhythm: rem-calc(8);
+$colorthing: #231c16;
+
+.comment-wrap {
+  .frame-box {
+    background-image: url($image-path + 'framebox-bigbg.jpg');
+  }
+  &__load-more {
+    text-align: center;
+  }
+  .frame-box__inner {
+    padding: $rhythm rem-calc(8) !important;
+  }
+}
+
+.comment-content{
+  @include grid-column(12, 0);
+  @include breakpoint(medium up){
+    @include grid-column(12, 0);
+  }
+  h3{
+    font-size: rem-calc(47);
+    line-height: rem-calc(56);
+    color: rgba($light-alt, .5);
+  }
+  &__count {
+    color: $brand-secondary;
+    font-size: rem-calc(13);
+  }
+  textarea{
+    border-radius: rem-calc($rhythm);
+    border:0;
+    background: rgba($white, .5);
+    min-height:rem-calc(116);
+    padding: rem-calc(8);
+    color: $light-alt;
+  }
+
+  input{
+  }
+}
+
+.comment-form-wrapper {
+  padding-left: rem-calc(8);
+  border-left: 1px dotted rgba(0,0,0,.1);
+}
+
+.comment-form {
+  @include clearfix;
+  background: white;
+  padding: $rhythm;
+  width: 100%;
+  background-image: url($image-path + 'framebox-bigbg.jpg');
+  border: 2px solid #2d2a23;
+  box-shadow: 0px 6px 15px 0px rgba(0, 0, 0, 0.4);
+  margin-bottom: 1.5rem;
+  padding: $rhythm;
+  &--children {
+    margin-bottom: 0;
+  }
+  &__row {
+    @include clearfix;
+    &:first-child {
+      margin-bottom: $rhythm;
+    }
+  }
+  form {
+    @include clearfix;
+    textarea {
+      width: 100%;
+      border-radius: 0;
+      background-color: #231c16;
+      outline: none;
+      border: 0;
+    }
+    .comment-form__buttons-wrapper {
+      float: right;
+      button {
+        margin-left: $rhythm;
+      }
+    }
+  }
+  &__avatar {
+    float: left;
+    margin-right:$rhythm;
+    &--logged-off {
+      text-align: center;
+      border: 1px solid $light-alt;
+      width: 56px;
+      height: 56px;
+      &:after {
+        right: -9px !important;
+      }
+      i {
+        color: $light-alt;
+        font-size: rem-calc(32);
+        line-height: rem-calc(32);
+        position: relative;
+        transform: translateY(-50%);
+        top: 50%;
+      }
+    }
+    img {
+      width: 56px;
+      border:1px solid $colorthing;
+    }
+    position: relative;
+    &:after {
+      position: absolute;
+      top: $rhythm;
+      right: -($rhythm);
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-right: 8px solid $colorthing;
+      content: '';
+      display: block;
+    }
+  }
+  &__comment-box {
+    overflow: hidden;
+    position: relative;
+  }
+}
+
+.comment-list{
+  margin-left: 0;
+  &--children{
+    margin-left:rem-calc(0);
+  }
+
+}
+
+.comment{
+  width:100%;
+  float:left;
+  padding: rem-calc(16) 0;
+  list-style-type: none;
+  position: relative;
+  transition: .3s all ease;
+  border-left: 1px solid rgba(0,0,0, .1);
+  &:hover {
+    //background:rgba($white, .1);
+    transition: .3s all ease;
+  }
+  &--has-children{
+    &:before{
+      content: " ";
+      position:absolute;
+      width:1px;
+      height:100%;
+      left:rem-calc(44);
+    }
+  }
+
+  &--child {
+    .comment {
+      &__avatar {
+        width: rem-calc(32);
+      }
+    }
+  }
+
+}
+
+
+.comment {
+  &__form-mount {
+    padding-left: rem-calc(16);
+  }
+  &__content{
+    @include clearfix();
+    position: relative;
+  }
+
+  &__header,
+  &__entry {
+    padding-left: $rhythm;
+    padding-right: $rhythm;
+  }
+
+  &__header {
+    @include clearfix;
+    height:32px;
+  }
+
+  &__header,
+  &__avatar,
+  &__meta {
+    height: 32px;
+  }
+
+  &__avatar{
+    width:rem-calc(32);
+    float: left;
+    margin-right:rem-calc(8);
+    img{
+      width:100%;
+    }
+  }
+
+  &__entry{
+    margin-top: rem-calc(8);
+    border-radius:rem-calc(0);
+    transition: ease all .3s;
+    p {
+      margin-bottom: $rhythm;
+      &:last-child {
+        margin-bottom: 0 !important;
+      }
+    }
+    &:hover{
+      //background:rgba($white, .1);
+      .comment{
+        &__reply{
+          opacity:1;
+        }
+      }
+    }
+  }
+
+  &__meta{
+    span {
+      position: relative;
+      transform: translateY(-50%);
+      top: 50%;
+      float: left;
+      margin-right: 8px;
+      display: block;
+    }
+  }
+
+  &__author{
+    color:$brand-primary;
+    font-weight: bold;
+    font-size: rem-calc(13);
+    line-height: rem-calc(13);
+  }
+
+  &__date-time{
+    color:rgba($black, 1);
+    font-size: rem-calc(13);
+    line-height: rem-calc(13);
+  }
+
+  &__actions {
+    @include clearfix;
+    margin-bottom: $rhythm;
+    padding-left: $rhythm;
+  }
+
+  &__reply-wrapper{
+    float: left;
+    span {
+      color: $brand-primary;
+      font-size: rem-calc(14);
+      line-height: rem-calc(14);
+      transition: ease all .3s;
+      cursor: pointer;
+      text-transform: lowercase;
+      i {
+        transform: scale(-1);
+      }
+    }
+  }
+
+  &__text{
+    color:rgba($black, .8);
+    font-size: rem-calc(18);
+    line-height: rem-calc(28);
+  }
+  &__delete {
+    background: #c08840;
+    border-radius: 2px;
+    color: #fefefe;
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1;
+    padding: 4px 6px;
+    text-transform: uppercase;
+    float: left;
+    transform: translateY(35%);
+  }
+
+}
+
+
+
+.comments{
+  @include grid-row();
+  //padding-top: rem-calc(72);
+
+  .author-preview{
+    @include grid-column(12);
+    @include breakpoint(medium up){
+      @include grid-column(4);
+    }
+    .author-preview-inner{
+      @include grid-column(12,0);
+      padding:rem-calc(8);
+      background: $white;
+      .avatar{
+        @include grid-column(5,0);
+      }
+      .meta-info{
+        @include grid-column(7);
+        .display-name{
+          color:rgba($black, .7);
+          font-size: rem-calc(20);
+          line-height: rem-calc(32);
+        }
+        .author-title{
+          color:rgba($black, .7);
+          font-size: rem-calc(16);
+          line-height: rem-calc(24);
+        }
+      }
+    }
+    .show-all-games{
+      padding: 0px;
+      margin-top: rem-calc(8);
+      a{
+        margin-bottom: 0;
+      }
+    }
+  }
+
+}

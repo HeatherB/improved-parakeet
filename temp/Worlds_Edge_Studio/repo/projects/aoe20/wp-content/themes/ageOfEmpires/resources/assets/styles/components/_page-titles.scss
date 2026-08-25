@@ -1,0 +1,51 @@
+// page titles
+
+@mixin pageTitleText($vPadding: $baseline*0.5, $hPadding: null, $display: inline-block) {
+	color: $gold30;
+	font-size: modScale(3);
+	display: $display;
+	font-family: $displayFont;
+	font-weight: bold;
+	padding-top: 0;
+	padding-bottom: 0;
+
+	@if ($hPadding) {
+		padding-left: $hPadding;
+		padding-right: $hPadding;
+	}
+
+	@include breakpoint(min-width, $bpNavBreak) {
+		@include gradientText(linear-gradient(to right, $gold10, $gold30), 1px 1px 0 rgba($black, 0.6), $gold10);
+		font-size: modScale(4);
+		padding-top: calc(#{$vPadding} / 2);
+		padding-bottom: calc(#{$vPadding} / 2);
+	}
+}
+
+@mixin pageTitle($position: relative) {
+	@include container(page);
+	@include border(drawn-bars, $mask: true); // uses an ::after element
+	text-align: center;
+	background: linear-gradient(to right, rgba($marine70, 0) var(--page-margin), rgba($marine70, 0.75) 20%, $marine90 40% 60%, rgba($marine70, 0.75) 80%, rgba($marine70, 0) calc(100% - var(--page-margin)));
+	background-clip: content-box;
+	z-index: 1;	
+	margin-bottom: $baseline*1.5;
+
+	@if $position == absolute {
+		position: absolute;
+		top: $baseline*2;
+		margin-top: 0;
+	} @else {
+		position: relative;
+		margin-top: $baseline*2;
+	}
+}
+
+.page__title {
+	@include pageTitle();	 
+}
+
+.page__title__text {
+	@include pageTitleText();
+}
+

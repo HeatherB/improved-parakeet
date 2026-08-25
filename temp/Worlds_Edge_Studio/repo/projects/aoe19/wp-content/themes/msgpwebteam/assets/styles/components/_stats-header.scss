@@ -1,0 +1,202 @@
+.header-stats-sign-in {
+  margin-top: -45px;
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    vertical-align: middle;
+    align-items: center;
+    /* width: 75%; */
+    margin: auto;
+    h4,
+    p {
+      margin-bottom: 0px;
+    }
+  }
+}
+.header-stats {
+  @include breakpoint(small only) {
+    padding: 0 10px;
+  }
+}
+.stats-frame {
+  margin-top: -145px;
+  @include breakpoint(small only) {
+    margin-top: -40px;
+  }
+}
+.stats-header {
+  &--block {
+
+  }
+  label {
+    color: $light-alt;
+  }
+  &__avatar {
+    width: 158px;
+    text-align: center;
+    float: left;
+    img {
+      width: 118px;
+      height: 118px;
+      border: 1px solid #b4924a;
+    }
+  }
+  &__username {
+    float: left;
+    padding-right: 20px;
+  }
+  &__middle {
+    position: relative;
+    width: auto;
+    overflow: hidden;
+  }
+  &__middle-top {
+    //padding-top: rem-calc(16);
+    label {
+      display: block;
+    }
+  }
+  &__middle-bottom {
+    width: 100%;
+    position: absolute;
+    bottom: -20px;
+    .section-nav__link {
+      font-size: 18px;
+    }
+    @include breakpoint(small only) {
+      bottom: -90px;
+      left: -10px;
+      .section-nav__link {
+        font-size: 14px;
+        height: 42px;
+        line-height: 42px;
+      }
+    }
+  }
+  &__nav-mobile {
+    margin-bottom: 20px;
+    .section-nav__link {
+      font-size: 12px;
+      height: 42px;
+      line-height: 42px;
+    }
+  }
+  &__placeholder {
+    width: 158px;
+    @include breakpoint(small only) {
+      display: none;
+    }
+  }
+  &__middle-inner {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    @include breakpoint(small only) {
+     // padding: 0 10px;
+    }
+    .frame-box {
+      max-width: 33%;
+      width: calc(33% - 79px);
+      flex: 1 0 auto;
+      margin-right: 10px;
+      @include breakpoint(small only) {
+        width: calc(34% - 10px);
+      }
+    }
+  }
+
+  &__badge-data {
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    text-align: center;
+    span {
+      font-size: 22px;
+      letter-spacing: .05rem;
+      font-weight: bold;
+      color: $light-alt;
+      &.stats-header__badge-label {
+        font-size: 16px;
+        text-transform: capitalize;
+        display: block;
+      }
+    }
+  }
+  &__video-badge {
+    position: relative;
+    width: 180px;
+  }
+  &__badge {
+    height: 160px;
+    position: relative;
+    &--food {
+      background: url($image-path + 'badges/badge-food.png');
+      background-repeat: no-repeat;
+      background-size: 180px 180px;
+    }
+  }
+  &__badge-value {
+    color: white;
+    text-align: center;
+    top: 35%;
+    left: 30%;
+    position: absolute;
+    font-size: 45px;
+    line-height: 45px;
+  }
+}
+
+.stats-header {
+  &__stat-right {
+    width: 50%;
+    float: right;
+    display: flex;
+    justify-content: space-between;
+    position: static;
+    div {
+      flex: 1 0 auto;
+      text-align: right;
+      text-align: right;
+    }
+  }
+  &__stat {
+    text-transform: capitalize;
+    color: $white;
+    &--lg {
+      font-size: 45px;
+      line-height: 51px;
+    }
+    &--md {
+      font-size: 32px;
+      line-height: 38px;
+    }
+    &--sm {
+      font-size: 30px;
+      line-height: 30px;
+      @include breakpoint(small only) {
+        font-size: 24px;
+        line-height: 30px;
+      }
+    }
+
+  }
+  &__label {
+    color: $light-alt;
+    &--lg {
+      font-size: 18px;
+      line-height: 22px;
+      @include breakpoint(small only) {
+        font-size: 12px;
+        line-height: 18px;
+      }
+    }
+    &--sm {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+  &__radial {
+    height: 170px;
+    width: 170px;
+  }
+}

@@ -1,0 +1,36 @@
+
+.new-player-guide__container {
+  @include grid-col-row(12);
+  //background-color: dodgerblue;
+}
+.new-player-guide__content-wrapper {
+  @include grid-row();
+  //background-color: rgba(0,0,0,0.15);
+  h1 {
+    color: #3f3625; // ask Sam about this color
+    text-align: center;
+  }
+
+  .new-player-guide__content {
+    @include grid-col(12,0);
+    text-align: center;
+    @include breakpoint(medium){
+      p {
+        width: 80%;
+        margin: rem-calc(30) auto;
+        font-size: rem-calc(20) !important;
+        color: #3f3625; // ask Sam about this color
+      }
+    }
+    padding: 0;
+    margin: 0;
+    //text-align: center;
+  }
+
+}
+
+
+
+
+
+

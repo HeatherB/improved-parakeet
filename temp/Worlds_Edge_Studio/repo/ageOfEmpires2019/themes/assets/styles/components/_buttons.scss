@@ -1,0 +1,417 @@
+// Foundation text button
+// ------------------------------------------------
+
+.button {
+    font-size: 1em;
+    font-weight: 700;
+    padding: 0.5em 1em;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    &--round-back-btn {
+        border-radius: 50%;
+        padding: 0.25em;
+        text-align: center;
+        width: 1.75em;
+    }
+
+    &--icon-left {
+        .fa { margin-right: 5px; }
+    }
+
+    &--mod-edit {
+        font-size: .875em;
+        position: absolute;
+        right: 50%;
+        top: -2.5em;
+        transform: translateX(50%);
+
+        @include breakpoint(medium) {
+            bottom: 0;
+            display: block;
+            font-size: 1em;
+            right: $global-padding;
+            top: auto;
+            transform: none;
+        }
+    }
+
+    // I think .tall is currently NOT used, but it works
+    &.tall,
+    &--tall { // <-- preferred selector
+        padding: 0.8em;
+        background: url($image-path + 'btn/button-tall-red-desk.png') 100% 33.3333%,
+                    url($image-path + 'btn/button-tall-red-desk.png') 0 0;
+        background-size: auto 400%,
+                         auto 400%;
+        &:hover,
+        &:focus,
+        &:active {
+            background-position: 100% 100%,
+                                 0 66.6666%;
+        }
+
+        .logo {
+            width: auto;
+            height: 100%;
+        }
+    }
+
+    &.success {
+        color: $light;
+
+        &:hover,
+        &:focus {
+            color: $light;
+        }
+
+        &--no-hover {
+            &:hover,
+            &:focus {
+                background-color: $green;
+                cursor: default;
+            }
+        }
+    }
+}
+
+// AOE Theme Buttons
+// ------------------------------------------------
+
+// !! refactor !!
+// change existing selector references to
+// the preferred selectors below.
+// Then remove non-preferred selectors
+
+// remember, these are not scoped variables
+$endcapWidth: 10px;
+$btnHeight: 3em;
+
+$btnHeightSmall: 2em;
+$btnHeightLarge: 4em;
+
+$btnFontSizeSmall: 0.875em;
+$btnFontSizeLarge: 1.125em;
+
+// Basic Button
+.btn,
+.btn-aoe,
+%btn-aoe { //<-- preferred selector
+    color: $ui-color-parchment;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: 700;
+    font-size: 1em;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0 1em;
+    text-shadow: 0 2px 5px rgba($xdark-brown, 0.5);
+    height: $btnHeight;
+    line-height: $btnHeight;
+    white-space: nowrap;
+    overflow: hidden;
+    width: auto;
+    max-width: 100%;
+    z-index: 1;
+
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        background: transparent url($image-path + 'btn/button-red-desk.png') 0 0 no-repeat;
+        background-size: auto 400%;
+        z-index: -1;
+    }
+
+    &::after {
+        background-position: 100% 33.3333%;
+        width: calc(100% - #{$endcapWidth});
+        right: 0;
+        left: auto;
+        z-index: -1;
+    }
+
+
+    &:hover,
+    &:focus {
+        color: $light;
+
+        &:before { background-position: 0 66.6666%; }
+        &:after { background-position: 100% 100%; }
+    }
+}
+
+.btn-aoe,
+%btn-aoe {
+    &--block {
+        display: block;
+        width: 100%;
+    }
+
+    &--small {
+        height: $btnHeightSmall;
+        line-height: $btnHeightSmall;
+        font-size: $btnFontSizeSmall;
+    }
+
+    &--large {
+        height: $btnHeightLarge;
+        line-height: $btnHeightLarge;
+        font-size: $btnFontSizeLarge;
+    }
+
+    &--dark {
+        &::before,
+        &::after {
+            background-image: url($image-path + "btn/button-dark-desk.png");
+        }
+    }
+
+    &--gold {
+        color: $darkish;
+        text-shadow: 0 2px 5px rgba($white, 0.5);
+
+        &::before,
+        &::after {
+            background-image: url($image-path + "btn/button-gold-desk.png");
+        }
+
+        &:hover,
+        &:focus {
+            color: $dark;
+        }
+    }
+
+    &--borderless {
+        &::before,
+        &::after {
+            background-image: url($image-path + "btn/button-simple-scarlet-desk.png");
+            background-size: auto 1000%;
+        }
+
+        &::after { background-position: 100% 66.6666%; }
+
+        &:hover,
+        &:focus {
+            &:before { background-position: 0 0; }
+            &:after { background-position: 100% 66.6666%; }
+        }
+    }
+
+    &--disabled,
+    &:disabled {
+        cursor: default;
+        color: $grey;
+
+        &::before,
+        &::after {
+            background-image: url($image-path + "btn/button-disabled-desk.png");
+        }
+
+        &:hover,
+        &:focus {
+            color: $grey;
+            &::before { background-position: 0 0; }
+            &::after { background-position: 100% 33.33333%; }
+        }
+    }
+
+    &--image {
+        height: auto;
+        line-height: 2em;
+        padding: 1.5em;
+
+        img {
+            height: 2em;
+            vertical-align: top;
+        }
+    }
+
+    &--image-lg {
+
+        img {
+            height: auto;
+        }
+
+    }
+}
+
+
+// remember, these are not scoped variables
+$ctaEndcapWidth: 2.5em;
+
+.button.cta,
+.btn-aoe--cta { //<-- preferred selector
+    border: 0; // only needed with old selector
+    padding: 0; // only needed with old selector
+    position: relative;
+    display: inline-block;
+    line-height: 2;
+    padding-left: $ctaEndcapWidth;
+    margin-right: $ctaEndcapWidth;
+    background: url($image-path + 'btn/button-age2.png') left top;
+    background-size: auto 1000%;
+    color: $ui-color-parchment;
+    font-family: $serif-font-family;
+    font-weight: 700;
+    font-size: inherit;
+    text-align: center;
+    transition: color 0.3s;
+    text-decoration: none;
+    white-space: nowrap;
+    max-width: 27.5em; // background is only so wide. Must restrict width
+    z-index: 1;
+    cursor: pointer;
+
+    &::after {
+        content: "";
+        position: absolute;
+        right: -$ctaEndcapWidth;
+        top: 0;
+        height: 100%;
+        width: 50%;
+        background: url($image-path + 'btn/button-age2.png') right top;
+        background-size: auto 1000%;
+        z-index: -1;
+    }
+
+    &:hover,
+    &:active,
+    &:focus { color: $light; }
+
+    &--large {
+
+        @include breakpoint(medium) {
+            font-size: 125%;
+        }
+    }
+
+    @include breakpoint(small) {
+
+    }
+}
+
+%cta-anim {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.cta-anim-left {
+    @extend %cta-anim;
+    left: 0;
+}
+
+.cta-anim-right {
+    @extend %cta-anim;
+    right: -$ctaEndcapWidth;
+}
+
+
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -0.5em;
+    align-content: flex-start;
+
+    & > * {
+        flex: 1 1 12em;
+        margin: 0.5em;
+    }
+}
+
+.focus-button-container {
+    display: block;
+    text-align: center;
+
+    margin: auto;
+    width: 100%;
+    max-width:17em;
+    position: relative;
+
+    .button.cta {
+        margin-right: 1.5em;
+        margin-bottom: 1em;
+        min-width: 16.5em;
+
+        padding-left: 0px;
+        margin-right:0;
+        display: block;
+        max-width:100%;
+        background: none;
+        &:before {
+            content:'';
+            border: 0;
+            padding: 0;
+            position: absolute;
+            display: inline-block;
+            line-height: 2;
+            background: url($image-path + 'btn/button-age2.png') left top;
+            background-size: auto 1000%;
+            max-width: 27.5em;
+            z-index: -1;
+            width:88%;
+            height: 100%;
+            left: 0;
+        }
+        &:after {
+            /*display: none;*/
+            content: "";
+            position: absolute;
+            right: 0px;
+            top: 0;
+            height: 100%;
+            width: 18%;
+            background: url($image-path + 'btn/button-age2.png') right top;
+            background-size: auto 1000%;
+            z-index: -1;
+        }
+    }
+    .cta-anim-right {
+        right: 0;
+    }
+    @include breakpoint(medium up) {
+      a:focus {
+        outline: 2px solid $ui-color-royalgold-hover;
+      }
+    }
+}
+
+// Sandbuttons
+.sandbutton {
+    height: calc(2em + 2px);
+    width: auto;
+    display: block;
+    position: relative;
+    color: #000;
+    // Light gold border
+    border: 1px solid #ffde8f;
+    font-family: "trajan-pro-3", serif;
+    font-weight: 700;
+
+    .anim-sandbutton {
+        height: 2em;
+    }
+
+    .sandbutton-text {
+        position: relative;
+        width: 100%;
+        display: flex;
+        top: 0;
+        line-height: 2em;
+        justify-content: center;
+    }
+
+}

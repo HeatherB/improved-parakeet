@@ -1,0 +1,500 @@
+// Header
+
+.header {
+    background: $ui-color-marble url($image-path + 'header-marble.jpg');
+    color: $ui-color-parchment;
+    position: relative;
+    z-index: map-get($z-index, 'header');
+    margin-top: 3rem; // height of the profile
+    
+
+    @include breakpoint(medium) {
+        margin-top: 0;
+        border: 0 none;
+
+        a:focus,
+        .header__search__toggle:focus {
+            outline: 2px solid $ui-color-royalgold-hover;
+        }
+    }
+}
+
+.content-container--header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 0.5rem;
+
+    @include breakpoint(medium) {
+        justify-content: flex-start;
+
+        &::after {
+            content: "";
+            order: 3;
+            flex-grow: 999; // pushes last item to the right;
+        }
+    }
+
+    @include breakpoint(large) {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        justify-content: space-between;
+    }
+}
+
+.header__block {
+    display: flex;
+    align-items: center;
+}
+
+.header__link {
+    color: $ui-color-parchment; //overwrite default link color
+    font-weight: bold;
+}
+
+.header__info {
+
+    @include breakpoint(large) { 
+        order: 1;
+        //flex-grow: 999; // reduce size of profile hover target
+        position: relative; 
+    }
+}
+
+@include breakpoint(large) {
+    .header__info,
+    .header__profile__actions,
+    .header__profile__username {
+        margin-top: 3px; // helps to visually center icons & text
+    }
+}
+
+
+
+// search
+
+.header__search__toggle {
+    @extend %icon--search;
+    width: $header-icon-size;
+    height: $header-icon-size;
+    margin-right: 1rem;
+    flex-shrink: 0;
+
+    .is-open & {
+        @extend %icon--close;
+    }
+}
+
+.header__search__form {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0; 
+    right: 0;
+    opacity: 0;
+    visibility: hidden;
+    width: 0;
+    max-width: 31rem; //same as max-width on base form inputs
+    margin-left: 1rem;
+    margin-right: 1rem;
+    transition: width 0.3s ease;
+    z-index: 500; //needs to be above #hero (400 at time of writing)
+
+    .is-open & {
+        width: calc(100% - 2rem);
+        transition: width 0.3s ease;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    @include breakpoint(large) {
+        position: absolute;
+        top: 0;
+        left: calc(0.5rem + #{$header-icon-size}); // margin plus icon width
+        width: 0;
+        margin-left: 0;
+        margin-right: 0;
+        overflow: hidden;
+        transition: width 0.25s ease;
+    }
+}
+
+.header__search__form__input {
+    margin: 0;
+    width: 100%;
+    height: 36px; // height of site logo
+    line-height: 36px; // height of site logo
+}
+
+.header__search__form__submit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 36px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    @extend %icon--search;
+
+    &:hover,
+    &:focus {
+        @include icon-change-row-to(2);
+    }
+
+    &:focus { outline: 2px solid $ui-color-royalgold-hover; }
+
+    .is-open & { opacity: 1; }
+}
+
+
+
+// social
+
+.social {
+    @extend %unstyled-list;
+    display: none;
+
+    @include breakpoint(large) {
+        display: flex;
+    }
+}
+
+.social__link {
+    width: $header-icon-size;
+    height: $header-icon-size;  
+}
+
+
+
+// logo
+
+.header__logo { display: block; }
+
+.site-title {
+    margin: 0;
+    padding: 0;
+    order: 2;
+    height: 1.75rem;
+
+    .home-link { 
+        height: 100%; 
+        // center vertically in case logo has to shrink (very small sizes)
+        display: flex;
+        align-items: center;
+    }
+    img { max-height: 100%; }
+
+    @include breakpoint(medium) {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+    }
+
+    @include breakpoint(large) {
+        height: auto;
+    }
+}
+
+
+
+
+// profile
+
+// styles I can include on hover on desktop
+@mixin profileMenuIsOpen {
+    opacity: 1;
+    max-height: 30rem;
+    transition: max-height 0.5s ease,
+                opacity 0.25s ease;
+}
+//
+
+.header__profile {
+    display: block;
+
+    @include breakpoint(small only) {
+        position: absolute;
+        bottom: 100%;
+        left: 0;
+        width: 100%;
+        height: 3rem;
+    }
+    
+    @include breakpoint(medium) {
+        position: relative;
+        display: flex;
+        align-items: center;
+        order: 2;
+    }
+
+    @include breakpoint(large) { order: 4 };
+}
+
+.header__profile__menu__toggle {
+    width: 100%;
+    padding: 0.5rem;
+    background: $brand-primary;
+    box-shadow: inset 0 -2px 0 $ui-color-darkgold;
+
+    .is-logged-in & {
+        background: linear-gradient( to top, rgba(0,0,0,0.5), rgba(0,0,0,0) 50% ),
+                    url($image-path + 'ui/texture-dark.jpg');
+    }
+
+    @include breakpoint(medium) {
+        width: auto;
+        display: inline-block;
+        height: $header-height;
+        margin: -0.5rem 0; // size of container padding
+        padding: 0.5rem;
+        transition: none;
+        background: transparent;
+        position: relative;
+        box-shadow: none;
+
+        .is-logged-in & { background: transparent; }
+
+        &.is-open {
+            margin-bottom: -0.5rem; // size of container padding
+            background: $brand-primary;
+        }
+    } 
+
+    @include breakpoint(large) {
+        display: flex;
+        flex-direction: row-reverse;
+
+        html:not(.has-touch) & {        
+            &:hover,
+            &:focus,
+            &:focus-within {
+                background-color: $brand-primary;
+
+                .header__profile__menu {
+                    @include profileMenuIsOpen;
+                }
+            }
+        }
+    }
+}
+
+.header__profile__avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2rem;
+    pointer-events: none;
+
+    &::after {
+        content: "";
+        @extend %icon--arrow-down;
+        width: 2rem;
+        height: 2rem;
+
+        .is-open & { @extend %icon--arrow-up; }
+    }
+
+    img {
+        width: 2.1rem;
+        height: 2.1rem;
+        border-radius: 50%;
+        @include object-fit(cover, 50% 50%);
+    }
+
+    @include breakpoint(medium) {
+        height: auto;
+        justify-content: flex-start;
+
+        img {
+            width: $header-icon-size * 1.1;
+            height: $header-icon-size * 1.1;
+        }
+    }
+
+    @include breakpoint(large) {
+        flex-direction: row-reverse;
+
+        html:not(.has-touch) & { pointer-events: auto; } 
+
+        &::after { 
+            display: none; 
+
+            .is-open & { display: none; }
+        }
+
+    }
+}
+
+.header__profile__username {
+    font-weight: bold;
+    padding-left: 0.5rem;
+
+    @include breakpoint(medium only) {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: $menu-width;
+        line-height: 2rem;
+        background-color: $brand-primary;
+        opacity: 0;
+        transition: opacity 0.25s ease;
+
+        .is-open & {
+            opacity: 1;
+        }
+    }
+
+    @include breakpoint(large) {
+        display: inline;
+        margin-left: 0;
+        margin-right: 0.5rem;
+    }
+}
+
+.header__profile__menu {
+    @extend %unstyled-list;
+    width: $menu-width;
+    max-width: 100%;
+    background: url($image-path + 'ui/texture-dark.jpg');
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s ease,
+                opacity 0.5s ease,
+                margin-top 0.5s ease;
+
+    .is-open & {
+        opacity: 1;
+        max-height: 30rem;
+        transition: max-height 0.5s ease,
+                    opacity 0.25s ease,
+                    margin-top 0.5s ease;
+        margin-top: 0.5rem;
+    }
+
+    @include breakpoint(medium) {
+        position: absolute;
+        top: calc(100% + 2rem);
+        left: 0;
+        box-shadow: 0 0 10px rgba(0,0,0,0.7);
+        max-width: none;
+
+        .is-open & { margin-top: 0; }
+    }
+
+    @include breakpoint(large) {
+        left: auto;
+        right: 0;
+        top: 100%;
+
+        &:hover,
+        &:focus {
+            @include profileMenuIsOpen;
+        }
+
+        .menu__item {
+            @include redMenuItemStyles;
+        }
+
+        .menu__item__label {
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
+        }
+    }
+}
+
+.header__profile__actions {
+    @extend %unstyled-list;
+    margin-right: 0.5rem;
+    display: flex;
+
+    display: none; // temp
+}
+
+.header__profile__sign-in {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $brand-primary;
+    height: 3rem;
+
+    .icon--login {
+        width: 2.75rem;
+        height: 2.75rem;
+        transform: translateX(-15%); //needed to visually center beucase there is padding baked in
+    }
+
+    @include breakpoint(medium) {
+        background: transparent;
+        height: auto;
+
+        .icon--login {
+            width: $header-icon-size;
+            height: $header-icon-size;
+            transform: translateX(0%);
+        }
+
+        &:hover,
+        &:focus {
+            .icon--login { @include icon-change-row-to(2); }
+        }
+    }
+
+    @include breakpoint(large) {
+        margin-left: 1rem;
+
+        .icon--login { order: -1; }
+    }
+}
+
+
+
+// mobile menu
+
+.header__menu-toggle {
+    @extend %icon--menu;
+    width: $header-icon-size;
+    height: $header-icon-size;
+    order: 4;
+    flex-shrink: 0;
+    margin-left: 1rem;
+
+    &.is-open {
+        @extend %icon--close;
+    }
+
+    @include breakpoint(large) {
+        display: none;
+        order: initial;
+    }
+}
+
+.header__navigation__mobile-extras {
+    margin-top: 3rem; // band-aid fix to put this below the tallest submenu
+
+    .social {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.25rem 0.5rem;
+
+        // on mobile, always use the hover version for visibility
+        .social__link {
+            @include icon-change-row-to(2);
+
+            &.icon--youtube {
+                @include icon-change-row-to(4);
+            }
+        }
+    }
+
+    @include breakpoint(large) {
+        display: none;
+    }
+}

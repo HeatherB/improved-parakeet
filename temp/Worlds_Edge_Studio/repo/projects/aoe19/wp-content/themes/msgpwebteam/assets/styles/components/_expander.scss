@@ -1,0 +1,52 @@
+//corresponds to /scripts/component/Expander.js
+.expander {
+  position: relative;
+
+  .expander__target {
+    overflow: hidden;
+    position: relative;
+  }
+
+  .expander__mask {
+    background: transparent repeat-x center bottom;
+    bottom: 0;
+    display: block;
+    height: 60px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    width: 100%;
+  }
+
+  .expander__mask--dark {
+    background-image: url($image-path+'ui/mask-dark.png');
+  }
+
+  .expander__mask--light {
+    background-image: url($image-path+'ui/mask-light.png');
+  }
+
+  &.is-active {
+    .expander__mask {
+      display: none;
+    }
+  }
+
+  .expander__footer {
+    height: 38px !important;
+    padding-top: 10px;
+    text-align: center;
+    @include breakpoint(medium) {
+      text-align: right;
+    }
+  }
+
+  .expander__trigger {
+    text-transform: uppercase;
+  }
+
+  // .expander__trigger-text {
+
+  // }
+
+}

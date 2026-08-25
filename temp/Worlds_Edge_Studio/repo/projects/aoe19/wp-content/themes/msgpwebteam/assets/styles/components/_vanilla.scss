@@ -1,0 +1,20 @@
+.comments-wrapper {
+  color: $white !important;
+}
+
+.vanilla-comments {
+  color: white !important;
+}
+
+iframe .Author {
+  color: #fff !important;
+  .SignOutWrap {
+    a {
+      color: $brand-secondary !important;
+    }
+  }
+}
+
+.Author {
+  color: $white !important;
+}

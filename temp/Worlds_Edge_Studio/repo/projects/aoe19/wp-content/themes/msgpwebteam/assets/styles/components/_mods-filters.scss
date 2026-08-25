@@ -1,0 +1,49 @@
+.mods-filters {
+
+  @include breakpoint(medium) {
+
+    .mods-filters__column-30 {
+      @include grid-column(30%);
+    }
+
+    .mods-filters__column-40 {
+      @include grid-column(40%);
+    }
+  }
+
+  input,
+  select {
+    height: 2.5625rem; //fixes Foundation default style
+    margin: 0;
+  }
+
+  .input-field-with-button {
+    display: flex;
+    width: 100%;
+
+    .search-field {
+      flex-grow: 1;
+    }
+
+    .btn--search {
+      flex-grow: 0;
+      margin-left: 5px;
+    }
+  }
+
+  .btn--search {
+    font-size: 20px;
+    height: 2.5625rem;
+    line-height: 2.5625rem;
+  }
+
+  .frame-box__inner {
+    min-height: 70px; // set min height to show loader
+  }
+
+  @include breakpoint(small only) {
+    .columns + .columns {
+      margin-top: 10px;
+    }
+  }
+}

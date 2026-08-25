@@ -1,0 +1,341 @@
+// profile section
+
+.insider__profile {
+    @extend %teaser--banner-overlap;
+    position: relative;
+    z-index: 1; // make sure it's on top of divider endcaps
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    color: $light;
+    box-shadow: inset 0 0 2.727272em 0 rgba(0,0,0,0.2);
+    background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.2)),
+                url($image-path + 'bgs/framebox-texture2-desk.jpg');
+    margin-bottom: 2rem;
+    font-size: 1rem; // keep the text size small when ems are huge
+
+
+    &:before {
+        @extend %pseudo-cover;
+        @include brownBorder();
+        z-index: 0;
+    }
+
+    .steam_login_form {
+        display: inline-block;
+    }
+}
+
+.insider__profile__avatar {
+    @include aspectRatioBox(1,1);
+    position: relative;
+    width: 8rem;
+    margin-right: 1rem;
+
+    img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        background-position: 50% 50%;
+    }
+
+    &::after {
+        @extend %pseudo-cover;
+        width: calc(100% + 8px);
+        height: calc(100% + 8px);
+        top: -4px;
+        left: -4px;
+        border-radius: 50%;
+        border: 1px solid $ui-color-walnut;
+    }
+
+    @include breakpoint(medium) {
+        margin-right: 1.5rem;
+    }
+}
+
+.insider__profile__info {
+    flex: 1 0 auto;
+    color: $ui-color-parchment;
+
+    p { margin-bottom: 0;}
+}
+
+.insider__profile__name {
+    color: $light;
+    margin-bottom: 0.5rem;
+
+    @include breakpoint(medium) {
+        text-indent: -1rem;
+        margin-bottom: 1rem;
+    }
+}
+
+.insider__profile__gamertag,
+.insider__profile__steamname {
+    font-weight: 600;
+    color: $ui-color-darklink;
+}
+
+// insider content blocks - general
+
+.insider-content-block {
+    @include goldBorder;
+}
+
+.teasers .tease.insider-content-block { padding: 0; width: 100%; } //need specific selector to override
+
+.teasers {
+    .cordian {
+        a.title {
+            b, strong {
+                font-weight: normal;
+            }
+        }
+    }
+}
+.insider-count {
+    box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    background: $ui-color-imageoverlay;
+    margin: 0.5em 0 1em;
+    width: 100%;
+    font-weight: bold;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    padding: 0.5em;
+    color: $ui-color-royalgold;
+
+    &::before {
+        content: "";
+        @extend %border--gold-bracket--horiz;
+    }
+}
+
+.insider-forum-latest {
+    margin-left: 0;
+    font-size: 1rem; // keep the text size small when ems are huge
+
+    li {
+        padding-left: 0.8em !important;
+        background-position: 0 0.5em !important;
+    }
+
+    .forum-latest__link {
+        color: $ui-color-darklink;
+
+        &:hover,
+        &:focus {
+            color: $ui-color-darklink-hover;
+        }
+    }
+}
+
+
+
+
+
+// community section
+
+.insider-community {
+    font-size: 1rem; // keep the text size small when ems are huge
+
+    @include breakpoint(large) {
+        display: flex;
+        align-items: stretch;
+    }
+
+    &.insider-community-btn-inherit-font-size {
+        font-size: inherit;
+    }
+
+}
+
+.insider-content-block.--community {
+
+    @include breakpoint(large) {
+        flex: 3;
+        margin: 0;
+    }
+}
+
+.teasers .tease.--community .bg { // teaser overrides
+    background-position: 0 0;
+    min-height: 20rem;
+    height: 100%;
+
+    .text {
+        margin: 5%;
+        flex: 0 1 30rem;
+    }
+}
+
+.insider-actions {
+    font-size: 1rem;
+
+    .button-group:not(.is-enrolled) {
+        width: calc(100% + 1rem);
+        justify-content: center;
+
+        @media (min-width: 40em) and (max-width: 60em) {
+            & > * {
+               max-width: calc(33.3333% - 1rem);
+            }
+        }
+    }
+
+    @include breakpoint(medium only) {
+        display: flex;
+    }
+
+    @include breakpoint(large) {
+        flex: 1;
+        margin-left: 1.5rem;
+    }
+}
+
+.beta-participation {
+    text-align: center;
+
+    @include breakpoint(medium only) {
+        flex: 1;
+        margin-right: 1.5rem;
+
+        & + .button-group {
+            flex: 2;
+        }
+    }
+
+    .button-group {
+        &::before,
+        &::after {
+            content: "";
+            order: 99;
+
+        }
+    }
+}
+
+.beta-participation__header {
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    text-align: left;
+    font-size: 1.1em;
+}
+
+.beta-participation__list {
+    @extend %unstyled-list;
+    text-align: left;
+    margin-bottom: 1rem;
+
+    li {
+        font-weight: bold;
+        color: $ui-color-scarlet;
+    }
+}
+
+
+
+
+
+// goals
+.match-count {
+    @extend .insider-count;
+}
+
+.goal-message {
+    font-size: 1rem;
+    color: $light-alt;
+}
+
+
+
+
+// faq
+
+.faq.flexcol {
+    display: flex;
+    justify-content: space-between;
+
+    .col { flex: 0 1 auto; }
+
+    .buttons {
+        padding: 2em;
+
+        a {  min-width: 15em; }
+    }
+}
+
+@include breakpoint(767 down) {
+    .buttons {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+  }
+
+  .sandbutton {
+    overflow: hidden;
+    padding: 0 2em;
+
+    @include breakpoint(767 down) {
+        max-width: 100%;
+    }
+
+    .anim-sandbutton {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        left: 0;
+    }
+
+    .sandbutton-text {
+      position: relative;
+      padding: 0;
+    }
+
+}
+
+
+/* get around :not selector and restrict to only insiders landing page */
+.content {
+    #insiders-landing-faqs {
+        .cordian {
+            h1,h2,h3,h4,h5,h6,ol,ul:not(.pagination):not(.progress-stats):not(.slick-dots):not(.not_a_list) li {
+                display: none;
+            }
+            &.open {
+                h1,h2,h3,h4,h5,h6,ol,ul:not(.pagination):not(.progress-stats):not(.slick-dots):not(.not_a_list) li {
+                    display: inherit;
+                }
+            }
+        }
+
+        .buttons {
+            .sandbutton {
+                min-width: 15em;
+                max-width: 27.5em;
+                height: calc(2.3em + 2px);
+                line-height: 2.3em;
+                margin-right: 2.5em;
+                margin-left: 2.5em;
+
+                .sandbutton-text {
+                    line-height: 2.3em;
+                }
+            }
+        }
+
+    }
+}
+
+.insider-community-70per-width {
+    width: 100% !important;
+
+    @include breakpoint(1024 up) {
+        width: 70% !important;
+    }
+}

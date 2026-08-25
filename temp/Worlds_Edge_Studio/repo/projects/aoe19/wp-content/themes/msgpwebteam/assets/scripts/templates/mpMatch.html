@@ -1,0 +1,52 @@
+<div class="frame-box search-results stats-search-results js-matchesLoader" style="position: relative;">
+    <div class="frame-box__inner frame-box__inner--light frame-box__inner--no-pad">
+        <table>
+<% if (apiRequest) { %>
+<thead class="search-results__header">
+<tr>
+    <th class="search-results__sort-label">
+        <button type="button" class="sort-trigger <% if (apiRequest.sortColumn === 'dateTime') { if (apiRequest.sortDirection === 'DESC') { print('is-active-desc'); } else { print('is-active-asc'); } } %>"
+                data-sort="dateTime">Match Date &amp; Time (UTC)<i class="fa" aria-hidden="true"></i></button>
+    </th>
+    <th class="search-results__sort-label">
+        <button type="button" class="sort-trigger <% if (apiRequest.sortColumn === 'wins') { if (apiRequest.sortDirection === 'DESC') { print('is-active-desc'); } else { print('is-active-asc'); } } %>"
+                data-sort="wins">Win/Loss<i class="fa" aria-hidden="true"></i></button>
+    </th>
+    <th class="search-results__sort-label">
+        <button type="button" class="sort-trigger <% if (apiRequest.sortColumn === 'map') { if (apiRequest.sortDirection === 'DESC') { print('is-active-desc'); } else { print('is-active-asc'); } } %>"
+                data-sort="map">Map<i class="fa" aria-hidden="true"></i></button>
+    </th>
+    <th class="search-results__sort-label">
+        <button type="button" class="sort-trigger <% if (apiRequest.sortColumn === 'civilization') { if (apiRequest.sortDirection === 'DESC') { print('is-active-desc'); } else { print('is-active-asc'); } } %>"
+                data-sort="civilization">Civilization<i class="fa" aria-hidden="true"></i></button>
+    </th>
+</tr>
+</thead>
+<% } %>
+            <tbody class="search-results__content">
+<% _.each(results, function(item) { %>
+
+                <tr class="search-results__row search-results__row--mpMatch not-loaded" data-gameId="<%= item.gameId %>">
+                    <td class="search-results__cell">
+                        <span class="search-results__mobile-label">Match Date &nbsp; Time (UTC)</span>
+                        <span class="search-results__mobile-value"><%= item.dateTime %></span>
+                    </td>
+                    <td class="search-results__cell">
+                        <span class="search-results__mobile-label">Win/Loss</span>
+                        <span class="search-results__mobile-value"><%= item.winLoss %></span>
+                    </td>
+                    <td class="search-results__cell">
+                        <span class="search-results__mobile-label">Map</span>
+                        <span class="search-results__mobile-value"><%= item.mapType %></span>
+                    </td>
+                    <td class="search-results__cell">
+                        <span class="search-results__mobile-label">Faction</span>
+                        <span class="search-results__mobile-value"><%= item.civilization %></span>
+                    </td>
+                </tr>
+
+<% }); %>
+            </tbody>
+        </table>
+    </div>
+</div>

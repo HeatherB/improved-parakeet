@@ -1,0 +1,114 @@
+// snippets
+// bits of code that get reused frequently
+
+
+// general
+// -------
+
+
+// uses absolute positioning to fill parent element
+// expects parent to have position: relative, absolute, or fixed
+
+@mixin absoluteCover() {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+// reusable absolute position snippet 
+//
+// args are pretty self-explanatory
+//
+// examples: 
+//    @include absolutePosition(0) => position: absolute; top: 0;
+//    @include absolutePosition(0 auto) => position: absolute; top: 0; left: auto;
+//    @include absolutePosition($right: 0, $bottom: 0)  => position: absolute; right: 0; bottom: 0;
+
+@mixin absolutePosition($top: null, $left:null, $bottom:null, $right:null) {
+    position: absolute;
+
+    // if only 1 value was specified, use that value for everything
+    @if ($top) {
+        top: $top;
+    } 
+    @if ($left) {
+        left: $left;
+    }
+    @if ($bottom) {
+        bottom: $bottom;
+    }
+    @if ($right) {
+        right: $right;
+    }
+}
+
+
+// sets left and right margins to auto
+
+@mixin marginAuto() {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+// Remove First Child Spacing
+// Removes top spacing on an element's first child. Call on the parent element.
+// Use when you want to control a container's padding but the content is variable
+
+@mixin removeFirstChildSpacing() {
+    & > *:first-child() { 
+        padding-top: 0;
+        margin-top: 0; 
+    }
+}
+
+
+// clearfix
+// sometimes you just need a clearfix. Only use if you know what you're doing
+
+@mixin clearfix() {
+  &:after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
+
+
+/*
+  Outlines text with a stroke
+*/
+@mixin text-outline($stroke-size, $outline-color) {
+  text-shadow: #{$stroke-size} #{$stroke-size} 0px #{$outline-color},
+         -#{$stroke-size} -#{$stroke-size} 0 #{$outline-color},
+         -#{$stroke-size} #{$stroke-size} 0 #{$outline-color},
+         #{$stroke-size} -#{$stroke-size} 0 #{$outline-color},
+         #{$stroke-size} 0 0 #{$outline-color},
+         -#{$stroke-size} 0 0 #{$outline-color},
+         0 #{$stroke-size} 0 #{$outline-color},
+         0 -#{$stroke-size} 0 #{$outline-color};
+}
+
+
+/*
+  Outlines box with a stroke, using box-shadow
+*/
+@mixin box-outline($stroke-size, $outline-color) {
+  box-shadow: #{$stroke-size} #{$stroke-size} 0px #{$outline-color},
+         -#{$stroke-size} -#{$stroke-size} 0 #{$outline-color},
+         -#{$stroke-size} #{$stroke-size} 0 #{$outline-color},
+         #{$stroke-size} -#{$stroke-size} 0 #{$outline-color},
+         #{$stroke-size} 0 0 #{$outline-color},
+         -#{$stroke-size} 0 0 #{$outline-color},
+         0 #{$stroke-size} 0 #{$outline-color},
+         0 -#{$stroke-size} 0 #{$outline-color};
+}
+
+
+// project-specific
+// ----------------
+

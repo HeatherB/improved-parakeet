@@ -1,0 +1,540 @@
+.stats-mode-age2, .stats-career-age2, .game-stats {
+	padding-right: 0.625rem;
+	padding-left: 0.625rem;
+	h3 {
+		color: $ui-color-parchment;
+		margin-right: 1.25rem;
+		//margin-left: 1.25rem;
+		font-size: 1.375rem;
+		/* should be blanket styles */
+		/*font-size: 30px;
+		font-family: trajan-pro-3, serif;
+		font-weight: 700;*/
+		@include breakpoint(large up) {
+			font-size: 1.875rem;
+			margin: 0 0 0.625rem 1.25rem;
+		}
+	}
+	h4 {
+		color: $ui-color-parchment;
+		font-size: 1.125rem;
+		margin-bottom: 0;
+		/* should be blanket styles */
+		/*font-family: trajan-pro-3, serif;
+		font-weight: 700;*/
+		@include breakpoint(large up) {
+			font-size: 1.5rem;
+		}
+	}
+	hr {
+		margin: 10px 0;
+		border: none;
+	}
+	dl {
+		margin-bottom: 1.25rem;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+		align-content: flex-start;
+		vertical-align: middle;
+		dt {
+			font-weight: bold;
+			color: $ui-color-parchment;
+			font-size: 0.875rem; /* 14px */
+			height: 1.875rem;
+			margin-bottom: 0;
+			@include breakpoint(large up) {
+				font-size: 1rem; /* 16px */
+			}
+			&.units-destroyed, &.units-lost, &.buildings-raised, &.buildings-lost {
+				&:before {
+					content:'';
+					display: inline-block;
+					width: 0.9375rem;
+					height: 0.9375rem;
+					margin: 0 5px -2px 0;
+					@include breakpoint(large up) {
+						width: 1.25rem;
+						height: 1.25rem;
+					}
+				}
+			}
+			&.units-destroyed {
+				&:before {
+					background-color: #ffcd57;
+				}
+			}
+			&.units-lost {
+				&:before {
+					background-color: #c54a26;
+				}
+			}
+			&.buildings-raised {
+				&:before {
+					background-color: #74e8e6;
+				}
+			}
+			&.buildings-lost {
+				&:before {
+					background-color: #0d8585;
+				}
+			}
+		}
+		dd {
+			color: #ffffff;
+			font-size: 1.125rem;
+			height: 1.875rem;
+			@include breakpoint(large up) {
+				font-size: 1.5rem;
+				height: auto;
+			}
+		}
+	}
+	.col {
+		display: block;
+		width:100%;
+		/*&:last-child {
+			margin-left: 1.25rem;
+		}*/
+		@include breakpoint(large up) {
+			width: calc(49% - 1px);
+			display: inline-block;
+			vertical-align: top;
+			/*&:last-child {
+				margin-left: 20px;
+			}*/
+			&.civs-figs {
+				margin-left: 20px;
+			}
+		}
+		@media all and (min-width: 1024px) and (max-width:1210px) {
+			&.civs-figs {
+				margin-left: 16px;
+			}
+		}
+		.col {
+			@include breakpoint(large up) {
+				width: calc(49% - 7px);
+				&.buildings-figs {
+					margin-left: 18px;
+				}
+			}
+		}
+		.dark-content-box {
+			padding: 0.625rem;
+			@include breakpoint(large up) {
+				padding: 1.25rem 1.25rem 2.5rem 1.25rem;
+			}
+			/*.col {
+				width: 46%;
+				display: inline-block;
+				vertical-align: top;
+				&:last-child {
+					margin-left: 1.25rem;
+				}
+			}*/
+		}
+		dl {
+			margin-bottom: 0;
+			&.high-score {
+				border-bottom: 2px solid rgba(204, 166, 85, 0.1)
+			}
+		}
+		dl + div {
+			padding-top: 0.625rem;
+			margin: 0 auto 1.25rem;
+		}
+	}
+	small {
+		display: block;
+		color: $ui-color-parchment;
+		padding: 0.5rem 0;
+	}
+	.heading_help {
+		a.how_help_link {
+	      display: block;
+	      width:100%;
+	      max-width:195px;
+	      color: #e3d9b7;
+	      -webkit-transition: color .3s;
+	      -o-transition: color .3s;
+	      transition: color .3s;
+	      text-decoration: none;
+	      background-image: -webkit-linear-gradient(#ad2b2d,#ad2b2d);
+	      background-image: -o-linear-gradient(#ad2b2d,#ad2b2d);
+	      background-image: linear-gradient(#ad2b2d,#ad2b2d);
+	      background-position: 0 100%;
+	      background-repeat: no-repeat;
+	      background-size: 0 .1em;
+	      -webkit-transition: background-size .5s ease-out,background-image .5s;
+	      -o-transition: background-size .5s ease-out,background-image .5s;
+	      transition: background-size .5s ease-out,background-image .5s;
+	      @include breakpoint(large up) {
+	      	margin-left: 1.25rem;
+	      }
+	      &:hover {
+	        color: #d1413f;
+	        background-image: -webkit-linear-gradient(#d1413f,#d1413f);
+	        background-image: -o-linear-gradient(#d1413f,#d1413f);
+	        background-image: linear-gradient(#d1413f,#d1413f);
+	        background-size: 100% .1em;
+	      }
+	    }
+	}
+	.stats-overview__equal.js-victories-loader {
+		display: block;
+		.progress-circle--donut {
+			width: 100%;
+		}
+	}
+	.stats-civs__height-placeholder {
+		min-height: 1715px;
+	}
+	#chart-victorytype {
+		.slice {
+			fill: #e68c35;
+			&:first-child {
+				fill: #c54a26;
+			}
+			&:last-child {
+				fill: #ffcd57;
+			}
+		}
+		.labelName, .labelValue, .lines {
+			display: none;
+		}
+	}
+	#victorytype_static_labels {
+		display: block;
+		width:90px;
+		height: 90px;
+		list-style-type: none;
+		font-size: 13px;
+		line-height: 22px;
+		color: $ui-color-parchment;
+		position: absolute;
+		left: 0;
+		right:0;
+		margin: 0 auto;
+		top:35%;
+		@include breakpoint(small only) {
+			position: relative;
+			margin: 0;
+		}
+		li {
+			background: none;
+			padding: 0;
+			margin: 0;
+			font-size: 13px;
+		    line-height: 22px;
+			&.vic_type_military, &.vic_type_economy, &.vic_type_technology {
+				&:before {
+					content:'';
+					display: inline-block;
+					vertical-align:middle;
+					margin-right: 5px;
+					width: 18px;
+					height: 18px;
+				}
+			}
+			&.vic_type_military {
+				&:before {
+					background:#ffcd57;
+				}
+			}
+			&.vic_type_economy {
+				&:before {
+					background:#e68c35;
+				}
+			}
+			&.vic_type_technology {
+				&:before {
+					background:#c54a26;
+				}
+			}
+		}
+	}
+	#chart-wins, #chart-units {
+		.background {
+			fill: #c54a26;
+		}
+		.foreground {
+			fill: #ffcd57 !important; /* overwrite inline gradient */
+		}
+		text {
+			@include breakpoint(large up) {
+				font-size: 2.563rem; /* 41 px */
+			}
+		}
+	}
+	#chart-buildings {
+		.background {
+			fill: #0d8585;
+		}
+		.foreground {
+			fill: #74e8e6 !important; /* overwrite inline gradient */
+		}
+		text {
+			@include breakpoint(large up) {
+				font-size: 2.563rem; /* 41 px */
+			}
+		}
+	}
+	#chart-units, #chart-buildings {
+		text {
+			display: none;
+		}
+	}
+	.stats-constructs {
+		dl {
+			border-bottom: 2px solid rgba(204, 166, 85, 0.1);
+		}
+		dt, dd {
+			height: auto;
+			padding: 0.8125rem 0 0.3125rem;
+			@include breakpoint(large up) {
+				padding-bottom: 0;
+			}
+		}
+	}
+	.dark-content-box {
+		 width: 100%;
+		 padding: 0.625rem;
+	}
+	.game_mode_stats {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+		align-items: center;
+		align-content: flex-start;
+		vertical-align:middle;
+		margin-bottom: 0.625rem;
+	}
+	#game_mode_select_top, #game_mode_select_bottom {
+		color: $ui-color-walnut;
+		/* should be blanket styles */
+		/* font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+    	font-size: 1.125rem; */
+    	font-size: 0.875rem;
+    	height: 37px;
+    	width: 100%;
+    	max-width:75%;
+    	@include breakpoint(large up) {
+    		width: 17rem;
+    		font-size: 1.125rem;
+    		margin-bottom: 0.625rem;
+    		margin-left: 0.5rem;
+    	}
+	}
+	.stats-overview {
+		@include breakpoint(large up) {
+			margin-bottom: 1rem;
+		}
+	}
+	.stats-overview__height-placeholder {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+		align-items: center;
+		align-content: flex-start;
+		@include breakpoint(large up) {
+    		min-height: 200px;
+    		.sleeve {
+    			width: 50%;
+    			display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+				justify-content: flex-start;
+				align-items: center;
+				align-content: flex-start;
+				vertical-align:middle;
+    		}
+    	}
+	}
+	.progress-stats {
+		margin: 0;
+		padding: 0;
+		text-align: left;
+		height: auto;
+		max-width: calc(100% - 220px);
+		width: 100%;
+		display: block;
+		@include breakpoint(large up) {
+			padding: 0 2.5rem 0 1.25rem;
+			margin-right: 2.5rem; /* 40px */
+			max-width: 220px;
+		}
+		@media all and (min-width: 1024px) and (max-width:1210px) {
+			max-width: 200px;
+			margin-right: 0;
+			padding: 0 0.5rem 0 1.25rem;
+		}
+		li {
+			display: block;
+			color: $ui-color-parchment;
+			/* should be blanket styles */
+			/* font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; */
+    		font-size: 0.875rem;
+    		padding: 0;
+    		padding-left: 0.625rem; /* 10px */
+    		@include breakpoint(large up) {
+    			font-size: 1.25rem; 
+    		    padding-left: 2.5rem;
+    		    &:last-child {
+    				padding-left: 2.5rem;
+    			}
+    		}
+    		&:last-child {
+    			padding-left: 0.625rem; /* 10px */
+    			@include breakpoint(large up) {
+    				padding-left: 2.5rem;
+    			}
+    			span {
+    				color: #c6bc9d;
+    			}
+    		}
+			span {
+				color: $ui-color-parchment;
+				font-size: 1.688rem; /* 27px */
+				@include breakpoint(large up) {
+					font-size: 2.563rem; /* 41px */
+				}
+			}
+			&:after {
+				display: none;
+			}
+			&.dividers.gold.slim {
+				width: 100%;
+				margin:0.625rem 0 0.625rem -0.625rem;
+    			@include breakpoint(large up) {
+    				width: calc(100% + 5rem);
+					margin: 1.25rem 0;
+    			}
+    			@media all and (min-width: 1024px) and (max-width:1210px) {
+    				width: 100%;
+    			}
+			}
+			/*&:after {
+				content:'';
+				display: block;
+				height: 5px;
+				position: relative;
+				background: gold;
+				width: 100%;
+				margin:0.625rem 0 0.625rem -0.625rem;
+				@include breakpoint(large up) {
+					width: calc(100% + 5rem);
+					margin: 1.25rem 0 1.25rem -2.5rem;
+				}
+				
+			}*/
+		}
+	}
+	/*.progress-circle {
+		width: 200px;
+		margin: 0;
+	}*/
+	.sleeve {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+		align-items: center;
+		align-content: flex-start;
+		width: 100%;
+	}
+	.current-rating {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+		align-items: center;
+		align-content: flex-start;
+		margin: 1.25rem 0 0.625rem;
+		width: 100%;
+		div {
+			/*width: 80px;*/
+			width:28%;
+			height: 80px;
+			padding: 0.625rem;
+			padding: 10px 5px;
+			background: #342a1d;
+			@include breakpoint(small only) {
+				padding-top: 0.5rem;
+				line-height: 13px;
+			}
+			&:nth-child(2) {
+				margin:0 1.25rem;
+			}
+			@include breakpoint(medium up) {
+				width: 31%;
+			}
+			@include breakpoint(large up) {
+				&:nth-child(2) {
+					margin:0 2.5rem;
+				}
+			}
+
+			.rank_value {
+				color: $ui-color-parchment;
+				font-weight: bold;
+				font-size: 1.125rem;
+				font-size:13px;
+				display: block;
+				@include breakpoint(large up) {
+					font-size: 2.188rem;
+					font-size: 28px;
+				}
+				@media all and (min-width: 1024px) and (max-width:1210px) {
+					font-size:24px;
+				}
+			}
+			.rank_current {
+				font-weight: bold;
+				color: #c6bc9d;
+				font-size: 0.6875rem;
+				font-size:11px;
+				@include breakpoint(large up) {
+					font-size: 1.25rem;
+					font-size: 20px;
+				}
+				@media all and (min-width: 1024px) and (max-width:1210px) {
+					font-size:16px;
+				}
+			}
+		}
+		@include breakpoint(large up) {
+			width: 50%;
+			div {
+				width: 160px;
+				height: 160px;
+				padding: 1.25rem;
+				padding: 20px;
+			}
+		}
+		@media all and (min-width: 1024px) and (max-width:1210px) {
+			div {
+				width:27%;
+			}
+		}
+	}
+	.bargraph-table {
+		th {
+			font-size: 0.6875rem; /* 11px */
+		}
+		td {
+			font-size: 0.875rem; /* 14px */
+		}
+	}
+	progress.bargraph.bargraph--em-val {
+		&:before {
+			font-size: 1.125rem; /* 18px */
+			font-weight: bold;
+			color: #ffffff;
+		}
+	}
+}

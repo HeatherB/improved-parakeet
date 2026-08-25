@@ -1,0 +1,138 @@
+$font-color: #2e2c26;
+.player-list-wrapper {
+  .frame-box__inner {
+    padding: 0 !important;
+  }
+  table {
+    margin-bottom: 0 !important;
+  }
+}
+.player-list-header {
+
+}
+.player-list {
+  table[class=body] {
+    td {
+      .search-results {
+        &__cell {
+          @include breakpoint(medium down) {
+            @include clearfix;
+            display: block !important;
+            padding: 0 0 5px;
+            text-align: left;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+  &__header {
+    background: #2d2a23;
+    th {
+      text-align: center;
+      color: $light-alt;
+      span {
+        color: $light-alt;
+      }
+    }
+  }
+  &__content {
+    background: transparent;
+  }
+  &__row {
+    //background: rgba(115,71,22,.1);
+    background: #f8f5e8 url(http://localhost:3000/wp-content/themes/msgpwebteam/dist/images/ui/texture-light.jpg) repeat center top;
+    &:nth-child(2n) {
+      //background: rgba(115,71,22,.5);
+      background: rgba(115, 71, 22, 0.1);
+    }
+  }
+  &__cell {
+    text-align: center;
+    span {
+      color: $font-color;
+    }
+  }
+  &__avatar {
+    img {
+      width: 40px;
+      height: 40px;
+    }
+  }
+  &__gamertag {
+    text-align: left;
+    span {
+      font-weight: bold;
+    }
+  }
+  &__civName {
+    span.player-list__mobile-value {
+      display: block;
+      padding: .125rem 0;
+      font-size: 15px;
+      font-weight: bold;
+      line-height: 32px;
+      width:100%;
+      color: #2e2c26 !important;
+    }
+  }
+  &__winLoss {
+    &--Win {
+      span {
+        color: green !important;
+      }
+    }
+    span {
+      font-family: $serif-font-family;
+      font-weight: bold;
+    }
+  }
+  &__mobile-label {
+    display: none;
+    color: $font-color !important;
+    text-shadow: 0 0 0;
+  }
+
+}
+.player-list {
+  @include breakpoint(small only) {
+    thead {
+      display: none;
+    }
+    .player-list {
+      &__cell {
+        @include clearfix;
+        display: block;
+        text-align: center !important;
+      }
+      &__avatar {
+        display: none !important;
+      }
+      &__civName {
+        .player-list__mobile-label {
+          padding: .25rem;
+          font-size: 15px;
+          line-height: 32px;
+        }
+        .player-list__mobile-value {
+          display: block !important;
+          float: left !important;
+          width: 50% !important;
+        }
+      }
+      &__mobile-label {
+        display: block;
+        float: left;
+        font-weight: 700;
+        max-width: 240px;
+        padding-right: 5%;
+        width: 50%;
+      }
+      &__mobile-value {
+        display: block !important;
+        float: left !important;
+        width: 50% !important;
+      }
+    }
+  }
+}

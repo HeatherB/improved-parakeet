@@ -1,0 +1,110 @@
+// header stream overlay
+
+.stream-overlay {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem $gutter 2rem;
+    background: rgba($light-alt,.55);
+    z-index: 1;
+
+    .home & {
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba($light-alt,.55);
+            z-index: -1;
+        }
+
+        &::after {
+            background-image: url(../images/default/default-hero-beam-vod-bkg.png);
+            filter: blur(3px);
+        }
+    }
+}
+
+.stream {
+    box-sizing: border-box;
+    position: relative;
+    padding: 10px;
+    width: 100%;
+    max-width: calc(24em * 16 / 9); // magic number based on max height of container times desired aspect ratio
+    background: $brown url(../images/ui/frame-box-texture.jpg) repeat center top;
+    border: 2px solid $xdark-brown;
+    box-shadow: 0px 6px 15px 0px rgba(0, 0, 0, 0.4);
+}
+
+.stream__close {
+    display: block;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    overflow: hidden;
+    background-image: url(../images/beam-close-btn-32.png);
+    background-size: 200% 100%;
+    background-position: 0 0;
+    z-index: 1;
+
+    &:hover {
+        background-position-x: -32px;
+        cursor: pointer;
+    }
+}
+
+.stream__frame,
+.stream__info {
+    border: 1px solid $light-alt;
+    background: $light-alt url(../images/ui/texture-light.jpg) repeat center top;
+}
+
+.stream__info {
+    padding: 0.5rem;
+    font-size: 1.05rem;
+    border-top: 0;
+    text-align: left;                        
+
+    @media (min-width: 40em) {
+        display: grid;
+        grid-gap: 1.5rem;
+        grid-template-columns: 1fr max-content;
+    }
+}
+
+.stream__cta {
+    display: none;
+    @media (min-width: 40em) { display: block; }
+}
+
+.stream__thumb {
+    display: block;
+
+    @media (min-width: $ui-breakpoint-tablet) {
+        display: none;
+    }
+}
+
+.stream__embed {
+    @include aspectRatioBox(16,9);
+
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    @media (max-width: 640px) {
+        display: none;
+    }
+}

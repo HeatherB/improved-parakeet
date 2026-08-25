@@ -1,0 +1,11 @@
+.civ-sub-heading {
+	font-size: 1.2rem;
+	line-height: 1.6;
+	width:100%;
+	max-width: 70%; 
+	background-image: linear-gradient(to right, rgba(0,0,0,0.1), rgba(255,0,0,0)); 
+	padding-left: 0.5em;
+	margin-bottom: 1rem;
+	font-weight: bold;
+	font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+}

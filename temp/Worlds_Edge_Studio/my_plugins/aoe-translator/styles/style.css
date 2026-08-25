@@ -1,0 +1,121 @@
+/* generate translations on pages and posts */
+#populate_translations {
+    cursor: pointer;
+    margin-top:1em;
+    margin-bottom: 1em;
+}
+#populate_translations:disabled {
+    cursor: not-allowed;
+}
+#my_admin_translator {
+    width: 100%;
+    max-width:100%;
+    background: #fff;
+    margin: 1em 0;
+    display: block;
+}
+.my_admin_translator_inner p {
+    margin-top:0;
+}
+#my_admin_translator h4 {
+    margin-bottom: 0.5em;
+}
+#my_admin_translator label {
+    display: inline-block;
+    margin-right:1em;
+}
+#my_admin_translator .lock_content {
+    margin-bottom: 1em;
+}
+#my_admin_translator .lock_content .icon {
+    background: #caedfe;
+    border-radius: 3px;
+    width: 15px;
+    height: 12px;
+    position: relative;
+    display: inline-block;
+    vertical-align: bottom;
+    cursor:pointer;
+}
+#my_admin_translator .lock_content .icon:before {
+    content: "";
+    display: block;
+    position: absolute;
+    border-top:3px solid #caedfe;
+    border-right:3px solid #caedfe;
+    top: -6px;
+    left: 5.3px;
+    width: 5px;
+    height: 5px;
+    border-radius: 35px 35px 0 0;
+}
+#my_admin_translator .lock_content.locked .icon {
+    background: #0073aa;
+}
+#my_admin_translator .lock_content.locked .icon:before {
+    content: "";
+    display: block;
+    position: absolute;
+    border:3px solid #0073aa;
+    top: -6px;
+    left: 2.3px;
+    width: 5px;
+    height: 5px;
+    border-radius: 35px 35px 0 0;
+}
+#my_admin_translator .lock_content.locked .icon:hover {
+    background: #333333;
+}
+#my_admin_translator .lock_content.locked .icon:hover:before {
+     border:3px solid #333333;
+}
+#my_admin_translator label span {
+    padding-left: 0.25rem;
+}
+#my_admin_translator input[type="checkbox"] {
+    margin-right: 0;
+}
+#my_admin_translator_request_response.success {
+    color: #228B22;
+}
+#my_admin_translator_request_response.fail {
+    color: #ff0033;
+}
+
+/* singular translation menu */
+#translate_something_wrapper {
+    width:100%;
+    max-width:80%;
+}
+#translate_something_wrapper h4 {
+    margin: 2em 0 0.5em;
+}
+#translate_something_wrapper textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    min-height: 50px;
+}
+#translate_something_wrapper label {
+    display: block;
+    margin: 0.5em 0;
+}
+#translate_something_wrapper #translateThisBTN {
+    margin:2em 0;
+    cursor: pointer;
+}
+#translate_something_wrapper .returned_translation_wrapper #success_response,
+#translate_something_wrapper .returned_translation_wrapper #failure_response {
+    display: none;
+}
+#translate_something_wrapper .returned_translation_wrapper.success #success_response {
+    display: block;
+    color: #228B22;
+}
+#translate_something_wrapper .returned_translation_wrapper.fail #failure_response {
+    display: block;
+    color: #ff0033;
+}
+#translate_something_wrapper span.transliteration {
+    display: block;
+}

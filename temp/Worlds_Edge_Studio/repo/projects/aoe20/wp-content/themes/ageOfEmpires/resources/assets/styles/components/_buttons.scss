@@ -1,0 +1,416 @@
+// buttons
+
+
+// standard styles for all types of buttons
+%button-defaults {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: uppercase;
+	letter-spacing: $letterSpacing;
+	cursor: pointer;
+	white-space: nowrap;
+	margin-bottom: $baseline;
+	border: 1px solid transparent;
+	transition: background-color 300ms ease;
+	text-shadow: $textShadow;
+	box-shadow: 0 0.15em 0.3em rgba($black,0.6);
+	vertical-align: bottom;
+
+	svg[class*="icon"] {
+		width: 1em;
+		height: 1em;
+		margin: 0 0.25em;
+	}
+
+	&:disabled { 
+		opacity: $disabledOpacity; 
+		cursor: not-allowed;
+		box-shadow: 0 0.15em 0.2rem rgba($black,0.6);
+	}
+}
+
+
+// Button Size
+// Used to set or update a button's size
+// arguments:
+//   $size 	: optional, default is null / medium size, accepts ['small', 'large']
+//   $cta 	: optional bool, default is false, if true, font size accommodations will be made for smaller Maiola render
+@mixin buttonSize($size: null, $cta: false) {
+	$horizPadding: $lineboxPaddingHoriz;
+	@include linebox($size);
+
+	@if $size == small {
+		$horizPadding: $lineboxPaddingSmallHoriz;
+	}
+	@if $size == large {
+		$horizPadding: $lineboxPaddingLargeHoriz;
+	}
+	@if $cta {
+		padding-left: $horizPadding * 2;
+		padding-right: $horizPadding * 2;
+	}
+}
+
+
+// Button Color
+// Used to set or update a button's color scheme
+// note: This mixin is for standard buttons. 
+//       Other button types have different colors and their own mixin
+// arguments:
+//   $color 		: optional, default is null / primary colors, 
+// 					  accepts ['secondary', 'destruct']
+//   $iconColorMatch: optional bool, default is false / standard icon gradient
+// 					  if true, icon fill will match text color
+
+@mixin buttonColor($color: null, $iconColorMatch: false) {
+	// defaults - primary button colors
+	$top-color: $marine65;
+	$bottom-color: $marine80;
+	$hover-top-color: $marine55; 
+	$hover-bottom-color: $marine70;
+	$disabled-top-color: $marine75;
+	$disabled-bottom-color: $marine90;
+	$textColor: $gold10;
+	$hover-text-color: $gold5;
+	$svg-fill: standardIconFill();
+	$hover-svg-fill: standardIconFill($state: hover);
+
+	// set color variables based on $color arg
+	@if $color == secondary {
+		$top-color: $shade70;
+		$bottom-color: $shade90;
+		$hover-top-color: $shade65;
+		$hover-bottom-color: $shade85;
+		$disabled-top-color: $shade80;
+		$disabled-bottom-color: $shade90;
+	} 
+	@if $color == destruct {
+		$top-color: $destruct75;
+		$bottom-color: $destruct85;
+		$hover-top-color: $destruct65;
+		$hover-bottom-color: $destruct75; 
+		$disabled-top-color: $destruct80;
+		$disabled-bottom-color: $destruct90;
+	} 
+	@if $iconColorMatch {
+		$svg-fill: $textColor;
+		$hover-svg-fill: $hover-text-color;
+	}
+
+	color: $textColor;
+	// we use background-color + background image so we can 
+	// create the illusion of transition (at the time of writing
+	// you cannot transition a linear-gradient). The background-color
+	// transitions, which distracts from the instant change of the
+	// linear-gradient, making the gradient transition look smoother
+	background-color: $top-color;
+	background-image: linear-gradient(0deg, $bottom-color, rgba($bottom-color, 0));
+
+	svg[class*="icon"] { fill: $svg-fill; }
+
+	&:not(:disabled):hover,
+	&:not(:disabled):focus { 
+		color: $hover-text-color;
+		background-color: $hover-top-color;
+		background-image: linear-gradient(0deg, $hover-bottom-color, rgba($hover-bottom-color, 0));
+		border: 1px solid;
+		border-image-slice: 1;
+		border-width: 1px;
+		border-image-source: linear-gradient(to bottom, $gold10, $gold40);
+		
+		svg[class*="icon"] { fill: $hover-svg-fill; }
+	}
+
+	&:disabled { 
+		background-color: $disabled-top-color;
+		background-image: linear-gradient(0deg, $disabled-bottom-color, rgba($disabled-bottom-color, 0));
+	}
+}
+
+
+// Hollow Button Color
+// Used to set or update a hollow button's color scheme
+// note: This mixin is for hollow buttons. 
+//       Other button types have different colors and their own mixin
+// arguments:
+//   $color: optional, default is null / primary colors, accepts ['secondary', 'destruct']
+//   $iconColorMatch: optional bool, default is false / standard icon gradient
+// 					  if true, icon fill will match text color
+
+@mixin hollowButtonColor($color: null, $iconColorMatch: false) {
+	$border-gradient: linear-gradient(to bottom, $gold10, $gold40);
+	$hover-border-gradient: linear-gradient(to bottom, $gold5, $gold35);
+	$textColor: $gold10;
+	$hover-text-color: $gold5;
+	$hover-bg-color: $gold65;
+	$svg-fill: standardIconFill();
+	$hover-svg-fill: standardIconFill($state: hover);
+
+	@if $color == secondary {
+		$border-gradient: linear-gradient(to bottom, $marine20, $marine50);
+		$hover-border-gradient: linear-gradient(to bottom, $marine15, $marine45);
+		$textColor: $marine20;
+		$hover-text-color: $marine10;
+		$hover-bg-color: $marine75;
+	} 
+	@if $color == destruct {
+		$border-gradient: linear-gradient(to bottom, $destruct30, $destruct60);
+		$hover-border-gradient: linear-gradient(to bottom, $destruct25, $destruct55);
+		$textColor: $destruct30;
+		$hover-text-color: $destruct20;
+		$hover-bg-color: $destruct85;
+	}
+	@if $iconColorMatch {
+		$svg-fill: $textColor;
+		$hover-svg-fill: $hover-text-color;
+	}
+
+	border-image-source: $border-gradient;
+	color: $textColor;
+
+	svg[class*="icon"] { fill: $svg-fill; }
+
+	&:not(:disabled):hover,
+	&:not(:disabled):focus { 
+		color: $hover-text-color;
+		background-color: $hover-bg-color;
+		border-image-source: $hover-border-gradient;
+
+		svg[class*="icon"] { fill: $hover-svg-fill; }
+	}
+}
+
+
+// Standard Button
+// arguments:
+// 	 $color: optional, default is null / primary colors, accepts ['secondary', 'destruct']
+// 	 $size : optional, default is null / medium size, accepts ['small', 'large']
+
+@mixin button($color: null, $size: null) {
+	@extend %button-defaults;
+	@include buttonSize($size);
+	@include buttonColor($color);
+}
+
+
+// Hollow Button (transparent background)
+// arguments:
+// 	 $color: optional, default is null / gold color, accepts ['secondary', 'destruct']
+// 	 $size : optional, default is null / medium size, accepts ['small', 'large']
+
+@mixin hollowButton($color: null, $size: null) {
+	@extend %button-defaults;
+	@include buttonSize($size);
+	@include hollowButtonColor($color);
+	background: transparent;
+	border-image-slice: 1;
+	border-width: 1px;
+}
+
+
+// Call-To-Action Button (animated)
+// arguments:
+// 	 $size : optional, default is null / medium size, accepts ['small', 'large']
+
+@mixin ctaButton($size: null) {
+	@extend %button-defaults;
+	@include buttonSize($size: $size, $cta: true);
+	font-family: $displayFont;
+	font-weight: 700;
+	color: $gold80;
+	text-transform: none;
+	border-color: $gold10;
+	box-shadow: $boxShadow;
+	text-shadow: 1px 1px 2px rgba($gold10,0.8);
+	position: relative;
+	letter-spacing: 0;
+	z-index: 0;
+
+	// this element is created by JS
+	.button-animation { 
+		@include absoluteCover();
+		z-index: -1;
+	}
+
+	svg[class*="icon"] { fill: $gold80; }
+
+	// this pseudo element is here so the button has a background before the animation loads
+	&::after {
+		@include absoluteCover();
+		content: "";
+		background: linear-gradient(to bottom, $gold10, $gold40);
+		z-index: -2;
+	}
+
+	&:hover,
+	&:focus {
+		// animation handled via js
+		color: $gold90;
+	}
+
+	&:active {
+		background-color: $gold10;
+		color: $gold95;
+
+		svg[class*="icon"] { fill: $gold95; }
+	}
+	
+	&:disabled {
+		background: $gold30;
+		border-color: $gold20;
+		text-shadow: none;
+		opacity: 1;
+	}
+}
+
+
+@mixin graphicButton() {
+	@include texture($gradient: linear-gradient(180deg, $marine70, $marine90));
+	display: inline-block;
+	position: relative;
+	padding: $baseline*0.5;
+	height: $baseline*4;
+	box-shadow: $boxShadow;
+
+	font-weight: bold;
+	color: $gold10;
+	text-shadow: $textShadow;
+
+	span {
+		position: relative;
+		z-index: 2;
+	}
+
+	svg {
+		position: absolute;
+		top: 0.5rem;
+		left: 0.5rem;
+		height: calc(100% - 1rem);
+		fill: $gold20;
+		opacity: 0.25;
+		z-index: 1;
+	}
+
+	img {
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: auto;
+		height: 100%;
+		z-index: 1;
+	}
+}
+
+// removing user agent padding styles from default button element
+button {
+	padding: 0; 
+}
+
+
+// utility classes for buttons 
+// Use only when it doesn't make sense to assign a unique class
+.button {
+	@include button();
+
+	&.--secondary { @include buttonColor(secondary); }
+
+	&.--destruct { @include buttonColor(destruct); }
+}
+
+.hollow-button {
+	@include hollowButton();
+
+	&.--secondary { @include hollowButtonColor(secondary); }
+
+	&.--destruct { @include hollowButtonColor(destruct); }
+}
+
+.cta-button {
+	@include ctaButton();
+}
+
+.button,
+.hollow-button,
+.cta-button {
+	&.--small { @include buttonSize(small); }
+
+	&.--large { @include buttonSize(large); }
+}
+
+	
+// Button Groups
+
+
+// Button Group Justify
+// Used to set or update a button group's horizontal alignment / flex justification
+// Arguments:
+//   $direction: optional, defaults to null (start/left with no override), accepts ['start'/'left','end'/'right','center'/'middle'] 
+
+@mixin buttonGroupJustify($direction: null) {
+	@if ($direction == start or $direction == left) {
+		justify-content: flex-start;
+	}
+
+	@if ($direction == end or $direction == right) {
+		justify-content: flex-end;
+	}
+
+	@if ($direction == center or $direction == middle) {
+		justify-content: center;
+	}
+}
+
+
+// Button Group Stacked
+// Used to set or update a button group's stacked state
+// Arguments:
+//   $isStacked: optional bool, defaults to false/inline
+
+@mixin buttonGroupStacked($isStacked: false) {
+	& > * {
+		@include cell(tight, $marginsOnly: true);
+
+		@if $isStacked { flex: 1 1 100%; }
+		@else { flex: 0 1 auto; }
+	}
+}
+
+
+// Button Group
+// arguments:
+// 	 $justify: optional, defaults to start/left, accepts ['end'/'right,'center'/'middle']
+//   $isStacked: optional bool, defaults to false/inline
+
+@mixin buttonGroup($justify: null, $isStacked: false) {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	@include row(tight, $marginsOnly: true);
+	@include buttonGroupStacked($isStacked: $isStacked);
+	@include buttonGroupJustify($direction: $justify);
+}
+
+
+// button group utility classes
+// use only when it doesn't make sense to add a unique class
+
+.button-group {
+	@include buttonGroup($isStacked: true);
+
+	&.--stacked { @include buttonGroupStacked(true); }
+
+	&.--justify-start,
+	&.--align-left { @include buttonGroupJustify(start); }
+
+	&.--justify-end,
+	&.--align-right { @include buttonGroupJustify(end); }
+
+	&.--justify-center,
+	&.--align-center { @include buttonGroupJustify(center); }
+
+	@include breakpoint(min-width, $bpSmall) {
+		@include buttonGroupStacked(false)
+	}
+}
+

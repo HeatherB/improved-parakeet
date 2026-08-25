@@ -1,0 +1,25 @@
+// hero sections
+
+.hero {
+	@include aspectRatioBox(4,3);
+	max-height: 80vh;
+	position: relative;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+}
+
+.hero__background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: 50% 50%;
+	z-index: -1;
+}
+
+.hero__content {
+	@include container(page);
+}

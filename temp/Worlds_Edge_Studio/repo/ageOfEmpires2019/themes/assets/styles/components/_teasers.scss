@@ -1,0 +1,890 @@
+.teasers {
+    padding: $teasers-padding;
+
+    &:first-of-type { padding-top: 1em + $teasers-padding; }
+    &:last-of-type { padding-bottom: 1em + $teasers-padding; }
+
+    .tease, .teaser {
+        position: relative;
+        margin-bottom: 1em + $teasers-padding;
+
+        .bg {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            align-items: flex-end;
+            align-content: flex-end;
+            position: relative;
+            min-height: 39.181818em;
+            margin: -1px; /*hide seams behind border*/
+            background-size: cover;
+
+        .buttons {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-content: flex-start;
+            align-items: flex-start;
+
+            a {
+                flex: 0 1 auto;
+                margin-bottom: 0.5em;
+                margin-top: 0.5em;
+                white-space: nowrap;
+                width: 100%;
+            }
+        }
+
+        .text {
+            margin: 7.142857%;
+            width: 76.691729%;
+            padding: 4.511278%;
+            color: $ui-color-parchment;
+            background-color: $ui-color-imageoverlay;
+            position: relative;
+            box-sizing: initial;
+
+            p { line-height: 1.454545em; }
+
+            .title { text-align: center; }
+
+            h4.title {
+                font-size: 1.090909em;
+                line-height: 1.541666em;
+                margin: 0px;
+            }
+
+            .center {
+                a:not(.cta) {
+                    color: $ui-color-darklink;
+                    background-image: none;
+
+                    &:hover {
+                        color: $ui-color-darklink-hover;
+                        background-image: none;
+                    }
+                }
+            }
+
+            .words {
+                a:not(.cta) {
+                    color: $ui-color-darklink;
+                    transition: color 0.3s;
+                    text-decoration: none;
+                    position: relative;
+
+                    &:after {
+                        content: "";
+                        position: absolute;
+                        border-bottom: 1px solid $ui-color-textlink;
+                        bottom: 0px;
+                        left: 0px;
+                        width: 0px;
+                        transition: width 0.5s ease-out, border-bottom 0.5s;
+                    }
+
+                    &:active,
+                    &:hover {
+                        color: $ui-color-darklink-hover;
+
+                        &:after {
+                            width: 100%;
+                            border-bottom: 1px solid $ui-color-textlink-hover;
+                        }
+                    }
+
+                    &.linkreset {
+                        &:after {
+                            bottom: auto;
+                            left: auto;
+                            transition: none;
+                            border: 0px;
+                        }
+
+                        &:hover:after { border: 0px }
+                    }
+                }
+            }
+        }
+    }
+
+    // utility styles
+
+    &.border--simple {
+        border: 2px solid $ui-color-walnut;
+        padding: 1px;
+    }
+
+    &.secondary {
+        .bg {
+            .text {
+                h4.title { text-align: left; }
+            }
+        }
+
+        @media (min-width: $ui-breakpoint-tablet) {
+            .bg .text {
+                margin: 4.477611%;
+                flex: 0 0 45.569620%;
+            }
+        }
+
+        @media (min-width: $ui-breakpoint-desk) {
+            .bg .text {
+                margin: 2.025316%;
+                flex: 0 0 32.0802%;
+            }
+        }
+    }
+
+    &.top {
+        @media (min-width: $ui-breakpoint-tablet) {
+            .bg { align-items: flex-start; }
+        }
+    }
+
+    &.left {
+        .bg { justify-content: flex-start; }
+    }
+
+
+    &.vert {
+      margin-bottom: 0px;
+
+      .bg {
+        min-height: 6.727272em;
+        justify-content: center;
+      }
+
+      &.dynasties {
+        .bg {
+            background-image: url($image-path + 'insiders/bgs/bg-tease-dynasties-horz-mobile.jpg');
+            background-position: center top;
+            background-repeat: no-repeat;
+            background-size: auto 100%;
+        }
+      }
+      &.lotw-faq-section {
+        .bg {
+            background-image: url($image-path + 'insiders/bgs/lotw/fp-bg-insider-faq-mobile.jpg');
+            background-position: center top;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+      }
+    }
+
+
+    // unique styles
+
+    &.horse {
+      .bg {
+        background-image: url($image-path + 'age2/bgs/bg-tease-age2-horse-vert-mobile.jpg');
+        background-position: left top;
+
+        @media (min-width: $ui-breakpoint-tablet) { background-image: url($image-path + 'age2/bgs/bg-tease-age2-horse-tablet.jpg'); }
+        @media (min-width: $ui-breakpoint-desk) {
+            background-image: url($image-path + 'age2/bgs/bg-tease-age2-horse-tablet.jpg');
+            background-position: right top;
+        }
+        @media (min-width: $ui-breakpoint-ultra) { background-image: url($image-path + 'age2/bgs/bg-tease-age2-horse-ultra.jpg'); }
+      }
+    }
+
+    &.niagara {
+      .bg {
+        background-image: url($image-path + 'insiders/bgs/bg-tease-niagara-vert-mobile.jpg');
+        background-position: left top;
+
+        @media (min-width: $ui-breakpoint-tablet) { background-image: url($image-path + 'insiders/bgs/bg-tease-niagara-right-tablet.jpg'); }
+        @media (min-width: $ui-breakpoint-desk) { background-image: url($image-path + 'insiders/bgs/bg-tease-niagara-right-desk.jpg'); }
+        @media (min-width: $ui-breakpoint-ultra) { background-image: url($image-path + 'insiders/bgs/bg-tease-niagara-right-desk.jpg'); }
+      }
+    }
+
+    &.spanish {
+      .bg {
+        background-image: url($image-path + 'insiders/bgs/bg-tease-spanish-vert-mobile.jpg');
+        background-position: right 28% top;
+
+        @media (min-width: $ui-breakpoint-tablet) { background-image: url($image-path + 'insiders/bgs/bg-tease-spanish-left-tablet.jpg'); }
+        @media (min-width: $ui-breakpoint-desk) { background-image: url($image-path + 'insiders/bgs/bg-tease-spanish-left-desk.jpg'); }
+        @media (min-width: $ui-breakpoint-ultra) { background-image: url($image-path + 'insiders/bgs/bg-tease-spanish-left-desk.jpg'); }
+      }
+    }
+
+    &.city {
+      .bg {
+        background-image: url($image-path + 'insiders/bgs/bg-tease-city-vert-mobile.jpg');
+        background-position: center top;
+
+        @media (min-width: $ui-breakpoint-tablet) { background-image: url($image-path + 'insiders/bgs/bg-tease-city-right-tablet.jpg'); }
+        @media (min-width: $ui-breakpoint-desk) { background-image: url($image-path + 'insiders/bgs/bg-tease-city-right-desk.jpg'); }
+        @media (min-width: $ui-breakpoint-ultra) { background-image: url($image-path + 'insiders/bgs/bg-tease-city-right-desk.jpg'); }
+      }
+    }
+
+    &.insider {
+      .bg {
+        background-image: url($image-path + 'insiders/bgs/bg-tease-age2-vert-mobile.jpg');
+        background-position: left top;
+
+        @media (min-width: $ui-breakpoint-tablet) { background-image: url($image-path + 'insiders/bgs/bg-tease-age2-right-tablet.jpg'); }
+        @media (min-width: $ui-breakpoint-desk) { background-image: url($image-path + 'insiders/bgs/bg-tease-age2-right-desk.jpg'); }
+        @media (min-width: $ui-breakpoint-ultra) { background-image: url($image-path + 'insiders/bgs/bg-tease-age2-right-desk.jpg'); }
+      }
+    }
+
+    &.lotw {
+      .bg {
+        background-image: url($image-path + 'insiders/bgs/lotw/fp-bg-insider-intro-mobile.jpg');
+        background-position: right 28% top;
+
+        @media (min-width: $ui-breakpoint-tablet) { background-image: url($image-path + 'insiders/bgs/lotw/fp-bg-insider-intro-desk.jpg'); }
+        @media (min-width: $ui-breakpoint-desk) { background-image: url($image-path + 'insiders/bgs/lotw/fp-bg-insider-intro-desk.jpg'); }
+        @media (min-width: $ui-breakpoint-ultra) { background-image: url($image-path + 'insiders/bgs/lotw/fp-bg-insider-intro-4k.jpg'); }
+      }
+    }
+
+    &.lotw-block-bg-img {
+      .bg {
+        background-image: url($image-path + 'insiders/bgs/lotw/fp-bg-insider-count-mobile.jpg');
+        background-position: right 28% top;
+
+        @media (min-width: $ui-breakpoint-tablet) { background-image: url($image-path + 'insiders/bgs/lotw/fp-bg-insider-count-desk.jpg') !important; }
+        @media (min-width: $ui-breakpoint-desk) { background-image: url($image-path + 'insiders/bgs/lotw/fp-bg-insider-count-desk.jpg') !important; }
+        @media (min-width: $ui-breakpoint-ultra) { background-image: url($image-path + 'insiders/bgs/lotw/fp-bg-insider-count-4k.jpg') !important; }
+      }
+    }
+
+    &.purchase {
+      .bg {
+        background-image: url($image-path + 'bgs/framebox-dark-texture-desk.jpg');
+
+        .text {
+          background: none;
+          padding: 0;
+          flex: 0 0 85.714285%;
+          align-items: stretch;
+
+          .holder {
+            padding: 1.090909em;
+            background: $ui-color-imageoverlay;
+            margin-bottom: 2.142857em;
+
+            &.windows,
+            &.steam {
+              h4.title {
+                font-size: 1em;
+                line-height: 1.43125em;
+              }
+            }
+
+            &.steam { margin: 0; }
+          }
+        }
+      }
+    }
+
+    &.addon_expansion {
+      .bg {
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size:cover;
+        .text {
+          margin: 2.025316%;
+          flex: 0 0 35%;
+          width: 35%;
+          .title {
+            text-align: left;
+          }
+          @include breakpoint(small only) {
+            width: 90%;
+            flex: 0 0 90%;
+            box-sizing: border-box;
+            margin: 5% auto;
+          }
+        }
+      }
+      &.full {
+        .bg {
+          .text {
+            width:100%;
+            flex: 100%;
+            @include breakpoint(medium up) {
+              .words {
+                display: flex;
+                p {
+                  flex-basis: 100%;
+                  padding: 5px 10px;
+                  box-sizing: border-box;
+                  &:first-child {
+                    padding: 5px 10px 5px 0;
+                  }
+                  &:last-child {
+                    padding: 5px 0 5px 10px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      &.border--parchment {
+        .bg {
+          background: url($image-path + 'background_paper_repeat.jpg');
+          justify-content: flex-start;
+          -webkit-box-pack: justify;
+          align-content: flex-start;
+          -webkit-box-align: start;
+          align-items: flex-start;
+          min-height: auto;
+          .text{
+            background: transparent;
+            width:100%;
+            flex: 100%;
+            color: $black;
+
+          }
+        }
+      }
+    }
+
+    &.empirewars {
+        .bg { background-image: url($image-path + 'bgs/bg-tease-age2-empwar-mobile.jpg'); }
+
+        &--start {
+            .bg {
+                background: url($image-path + 'bgs/bg-screen-age2-empwar-malay-mobile.jpg') bottom left;
+                background-size: cover;
+            }
+        }
+
+        &--play {
+            .bg {
+                background: url($image-path + 'bgs/bg-screen-age2-empwar-arabia-mobile.jpg') bottom right;
+                background-size: cover;
+            }
+        }
+
+        @media (min-width: $ui-breakpoint-tablet) {
+            .bg { background-image: url($image-path + 'bgs/bg-tease-age2-empwar-tablet.jpg'); }
+
+            &--start .bg {
+                background-image: url($image-path + 'bgs/bg-screen-age2-empwar-malay-tablet.jpg');
+                background-size: cover;
+            }
+
+            &--play .bg {
+                background-image: url($image-path + 'bgs/bg-screen-age2-empwar-arabia-tablet.jpg');
+                background-size: cover;
+            }
+        }
+
+        @media (min-width: $ui-breakpoint-desk) {
+            .bg { background-image: url($image-path + 'bgs/bg-tease-age2-empwar-desk.jpg'); }
+
+            &--start .bg {
+                background-image: url($image-path + 'bgs/bg-screen-age2-empwar-malay-desk.jpg');
+                background-size: cover;
+            }
+
+            &--play .bg {
+                background-image: url($image-path + 'bgs/bg-screen-age2-empwar-arabia-desk.jpg');
+                background-size: cover;
+            }
+        }
+
+        @media (min-width: $ui-breakpoint-ultra) {
+            .bg { background-image: url($image-path + 'bgs/bg-tease-age2-empwar-ultra.jpg'); }
+
+            &--start .bg {
+                background-image: url($image-path + 'bgs/bg-screen-age2-empwar-malay-ultra.jpg');
+                background-size: cover;
+            }
+
+            &--play .bg {
+                background-image: url($image-path + 'bgs/bg-screen-age2-empwar-arabia-ultra.jpg');
+                background-size: cover;
+            }
+        }
+    }
+
+
+  &.countdown {
+        .bg {
+            background-image: url($image-path + 'age2de/bgs/bg-tease-right-shipviking-age2de-mobile.jpg');
+            background-position: right top;
+            background-size: cover;
+
+            #launch_count {
+                color: $ui-color-royalgold;
+                line-height: 2em;
+            }
+
+            ul {
+                margin-left: 0;
+
+                li {
+                    background: none !important;
+                    padding-left: 0 !important;
+
+                    .button {
+                        min-width: 11em;
+                    }
+                }
+            }
+        }
+   }
+
+}
+
+  .faq.flexcol {
+    display: flex;
+    flex-wrap: wrap;
+
+    h3 {
+      display: none;
+    }
+
+    .col {
+      &.eight {
+        width: 100%;
+        order: 1;
+
+        .buttons {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: space-around;
+          align-content: flex-start;
+          align-items: flex-start;
+
+          a {
+            flex: 0 1 auto;
+            margin-bottom: 0.5em;
+            white-space: nowrap;
+          }
+        }
+      }
+
+      &.four {
+        width: 100%;
+        order: 0;
+      }
+    }
+  }
+}
+
+.section--divider-teaser-no-top-border-padding {
+  > div {
+    margin-top: -1em + -#{$teasers-padding};
+  }
+}
+
+
+
+
+
+/************************************* TABLET ***************************************************/
+@media (min-width: $ui-breakpoint-tablet) {
+  .teasers {
+    &:first-of-type {
+      padding-top: $teasers-padding-tablet;
+    }
+
+    &:last-of-type {
+      padding-bottom: $teasers-padding-tablet;
+    }
+
+    .tease {
+      margin-bottom: $teasers-padding-tablet;
+
+      .bg {
+        min-height: 20.944444em;
+        justify-content: flex-end;
+
+        .text {
+          flex: 0 0 62.686567%;
+          margin: 4.477611% 7.462686%;
+          width: 62.686567%;
+          padding: 2.238805%;
+
+          h4.title {
+            font-size: 1.166666em;
+            line-height: 1.523809em;
+          }
+
+          .words {
+            font-size: 0.777777em;
+            line-height: 1.5em;
+          }
+
+          .buttons a {
+            width: auto;
+            /*min-width: 210px;
+            min-width: 170px;*/
+          }
+        }
+      }
+
+
+
+      &.purchase {
+        .bg {
+          background: url($image-path + 'age2de/gamescom-preorder-tablet.jpg') left 10% top;
+
+          .text {
+            flex: 0 1 67.164179%;
+            margin: 4.477611% 7.462686%;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            align-items: stretch;
+            align-content: space-between;
+
+            .holder {
+              flex: 0 2 100%;
+              padding: 1.071428em;
+              background: $ui-color-imageoverlay;
+              margin-bottom: 2.142857em;
+
+              &.windows {
+                flex: 0 1 calc(46.666666% - 2.142857em);
+                margin: 0;
+
+                h4.title {
+                  font-size: 0.7em;
+                  line-height: 1.43125em;
+                }
+              }
+
+              &.steam {
+                flex: 0 1 calc(46.666666% - 2.142857em);
+                margin: 0;
+
+                h4.title {
+                  font-size: 0.7em;
+                  line-height: 1.43125em;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &.countdown {
+        .bg {
+          background: url($image-path + 'age2de/bgs/bg-tease-right-shipviking-age2de-tablet.jpg') right top;
+          background-size: cover;
+        }
+      }
+
+      &.vert {
+        margin-bottom: 0px;
+
+        .bg {
+          min-height: 7.444444em;
+        }
+
+        &.dynasties {
+          .bg {
+            background: url($image-path + 'insiders/bgs/bg-tease-dynasties-horz-tablet.jpg') center top;
+          }
+        }
+        &.lotw-faq-section {
+          .bg {
+            background: url($image-path + 'insiders/bgs/lotw/fp-bg-insider-faq-mobile.jpg') center top;
+            background-size: cover;
+          }
+        }
+      }
+    }
+  }
+  .section--divider-teaser-no-top-border-padding {
+    > div {
+      margin-top: -#{$teasers-padding-tablet};
+    }
+  }
+
+}
+
+/*********************************** DESKTOP ***********************************************************/
+
+@media (min-width: $ui-breakpoint-desk) {
+  .teasers {
+    &:first-of-type {
+      padding-top: 2.90909em;
+    }
+
+    &:last-of-type {
+      padding-bottom: 2.90909em;
+    }
+
+    .tease {
+      margin-bottom: 2.90909em;
+
+      .bg {
+        min-height: 30.545454em;
+        margin: -1px; /*hide seams behind gold border*/
+        .text {
+          flex: 0 0 45.569620%;
+          margin: 2.025316% 7.974683%;
+          width: 45.569620%;
+          padding: 2.025316%;
+
+          h4.title {
+            font-size: 1.40909em;
+            line-height: 1.612903em;
+          }
+
+          .words {
+            font-size: 0.90909em;
+            line-height: 1.4875em;
+          }
+        }
+      }
+
+      &.purchase {
+        .bg {
+          background: url($image-path + 'age2de/gamescom-preorder-desk.jpg') left 27% top;
+
+          .text {
+            flex: 0 1 49.620253%;
+
+            .holder {
+              flex: 0 2 100%;
+              padding: 1.454545em;
+              margin-bottom: 1.454545em;
+
+              &.windows {
+                flex: 0 1 calc(47.959183% - #{$teasers-padding-desk});
+                margin: 0;
+
+                h4.title {
+                  font-size: 0.7em;
+                  line-height: 1.43125em;
+                }
+              }
+
+              &.steam {
+                flex: 0 1 calc(47.959183% - #{$teasers-padding-desk});
+                margin: 0;
+
+                h4.title {
+                  font-size: 0.7em;
+                  line-height: 1.43125em;
+                }
+              }
+            }
+          }
+        }
+      }
+
+
+
+      &.countdown {
+        .bg {
+          background: url($image-path + 'age2de/bgs/bg-tease-right-shipviking-age2de-desk.jpg') right top;
+          background-size: cover;
+        }
+      }
+
+      &.vert {
+        .bg {
+          min-height: 52.181818em;
+        }
+
+        &.dynasties {
+          .bg {
+            background: url($image-path + 'insiders/bgs/bg-tease-dynasties-vert-desk.jpg') center top;
+          }
+        }
+
+        &.lotw-faq-section {
+          .bg {
+            background: url($image-path + 'insiders/bgs/lotw/fp-bg-insider-faq-desk.jpg') center top;
+            background-size: cover;
+          }
+        }
+
+      }
+
+
+    }
+
+    .faq.flexcol {
+      flex-wrap: wrap;
+
+      h3 {
+        display: block;
+      }
+
+      .col {
+        &.eight {
+          width: 66%;
+          order: 0;
+        }
+
+        &.four {
+          width: 32%;
+          order: 1;
+
+          .text {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  .section--divider-teaser-no-top-border-padding {
+    > div {
+      margin-top: -2.90909em;
+    }
+  }
+
+}
+
+/*********************************** ULTRA *************************************************************/
+@media (min-width: $ui-breakpoint-ultra) {
+  .teasers {
+    .tease {
+      margin-bottom: 2.844444em;
+
+      .bg {
+        min-height: 30.088888em;
+        margin: -1px; /*hide seams behind gold border*/
+        .text {
+          flex: 0 0 calc(49.620253% - 2.844444em);
+          margin: 1.422222em 3.911111em;
+          width: calc(49.620253% - 2.844444em);
+          padding: 1.422222em;
+
+          h4.title {
+            font-size: 1.40909em;
+            line-height: 1.612903em;
+          }
+
+          .words {
+            font-size: 0.90909em;
+            line-height: 1.4875em;
+          }
+        }
+      }
+
+      &.vert {
+        .bg {
+          min-height: 52.181818em;
+
+          &.dynasties {
+            .bg {
+              background: url($image-path + 'insiders/bgs/bg-tease-dynasties-vert-desk.jpg') center top;
+            }
+          }
+          &.lotw-faq-section {
+            .bg {
+              background: url($image-path + 'insiders/bgs/lotw/fp-bg-insider-faq-4k.jpg') center top;
+              background-size: cover;
+            }
+          }
+        }
+      }
+    }
+
+    .faq.flexcol {
+      flex-wrap: wrap;
+
+      h3 {
+        display: block;
+      }
+
+      .col {
+        &.eight {
+          width: 66%;
+          order: 0;
+        }
+
+        &.four {
+          width: 32%;
+          order: 1;
+
+          .text {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+// Used on /insiders page when there is sections
+// with the same same custom background images (like LOTW) to make them sections closer together
+.section--divider-teaser-no-top-border-padding {
+  &::before, &::after {
+    display: none !important;
+  }
+
+  > div {
+    padding-top: 0 !important;
+  }
+}
+
+.teasers {
+  .tease-custom-bg-image {
+    width: 100%;
+
+    .tease-mobile-image {
+      width: 100%;
+
+      @media (min-width: $ui-breakpoint-tablet) {
+        display: none;
+      }
+    }
+
+    .bg {
+      @include breakpoint(767 down) {
+        flex-direction: column;
+        background-image: none !important;
+        min-height: auto;
+
+          .text {
+            margin: 0;
+            width: auto;
+            background-color: #000;
+
+            .text-inner {
+              margin-top: -20%;
+            }
+
+          }
+
+      }
+
+    }
+
+    .buttons {
+      @include breakpoint(767 down) {
+        padding: 0 2em;
+
+        a {
+          max-width: 12.5em;
+        }
+
+      }
+    }
+
+  }
+
+  .insider-content-block {
+    &.tease-custom-bg-image {
+      .bg {
+        .text {
+          width: calc(100% - calc(4.511278% * 2));
+        }
+      }
+    }
+  }
+}

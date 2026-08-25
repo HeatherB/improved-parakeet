@@ -1,0 +1,144 @@
+// posts
+
+// mixins for local use only 
+// (remember, these have global scope, so keep the names specific)
+@mixin postListing($flex-wrap: 'nowrap', $flex-basis: auto) {
+	@include row(tight);
+	display: flex;
+	justify-content: space-between;
+
+	& > * { 
+		@include cell(tight);
+		width: 100%;
+		margin-bottom: $baseline;
+	}
+
+	@include breakpoint(min-width, $bpSmall) {
+		flex-wrap: $flex-wrap;
+
+		& > * {
+			@include cell(tight);
+			flex: 1 1 $flex-basis;
+			margin-bottom: $baseline;
+			flex: 1 1 20%;
+
+			@if ($flex-wrap: 'wrap') {
+				margin-bottom: $baseline;
+			} @else {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+@mixin postTypeText() {
+	font-family: $bodyFont;
+	font-size: modScale(-1);
+	text-transform: uppercase;
+	letter-spacing: $letterSpacing;
+	color: $grey20;
+	text-shadow: $textShadow;
+	padding: $baseline/4 $baseline/2;
+	padding-right: $baseline;
+	background: linear-gradient(90deg, $shade80 0%, calc(100% - #{$baseline} * 0.75), rgba($shade80,0));
+	display: inline-block;
+	vertical-align: top;
+	max-width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.post-listing {
+	@include postListing();
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+
+	&.--grid {
+		@include postListing('wrap',40%);
+	}
+}
+
+.post__link {
+	display: block;
+	@include aspectRatioBox(16,7);
+	margin-bottom: $baseline*2; // accommodates for post__info negative position
+
+	@include breakpoint(min-width, $bpLarge) {
+		margin-bottom: $baseline;
+	}
+
+	@include breakpoint(min-width, $bpContentMax) {
+		margin-bottom: 0;
+	}
+}
+
+.post__thumbnail {
+	@include absoluteCover();
+
+	// fallback styles when image doesn't show
+	background-color: rgba($black,0.5);
+	color: $grey30;
+
+	img {
+		@include absoluteCover();
+	}
+}
+
+.post__type {
+	@include border(drawn-bar-bottom, $mask: false);
+}
+
+.post__type__text {
+	@include postTypeText();
+}
+
+.post__info {
+	width: 100%;
+	position: absolute;
+	left: 0;
+	bottom: $baseline*-2; 
+
+	@include breakpoint(min-width, $bpLarge) {
+		bottom: $baseline*-1;
+	}
+
+	@include breakpoint(min-width, $bpContentMax) {
+		bottom: 0;
+	}
+}
+
+.post__title {
+	width: 100%;
+	font-size: modScale(0);
+	font-weight: normal;
+	color: $gold10;
+	text-shadow: $textShadow;
+	padding: $baseline/2;
+	margin: 0;
+	position: relative;
+	@include texture($gradient: linear-gradient(0deg, $marine80, $marine60));
+
+	@include breakpoint(min-width, $bpNavBreak) {
+		font-size: modScale(-1);
+		padding: $baseline/4 $baseline/2;
+	}
+}
+
+.post__title__text {
+	display: block;
+	min-height: $baseline*2;
+
+	@supports (-webkit-line-clamp: 2) {
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+	 	text-overflow: ellipsis;
+		overflow: hidden;
+	}
+}
+
+
+
+

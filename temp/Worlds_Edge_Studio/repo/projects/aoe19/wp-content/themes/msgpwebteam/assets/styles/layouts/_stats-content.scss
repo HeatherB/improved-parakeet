@@ -1,0 +1,70 @@
+//extends .content
+.stats-content {
+
+  @include breakpoint(small only) {
+    .main {
+      margin-top: -20px;
+    }
+  }
+
+  @include breakpoint(medium) {
+
+    .main {
+      @include grid-column(12, $grid-column-gutter);
+      float: none;
+      /*margin-top: -40px;*/
+    }
+
+    .stats-sidebar {
+      @include grid-column(3, $grid-column-gutter);
+      float: right;
+      position: relative;
+    }
+
+    .stats-main {
+      @include grid-column(12, 0);
+      @include grid-column-end;
+      position: relative;
+    }
+
+  }
+
+  // &.stats-multiplayer-content {
+  //
+  // }
+  //
+  // &.stats-campaign-content {
+  //
+  // }
+}
+
+@include breakpoint(large) {
+  .stats-overview {
+    display: flex;
+
+    &__primary {
+      margin-right: 20px;
+      width: 35%;
+    }
+
+    &__equal {
+      width: 50%;
+      margin-right: 20px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    &__secondary {
+      flex: 1;
+    }
+
+    &__height-placeholder {
+      min-height: 284px;
+    }
+
+    &__stats-header-label {
+      
+    }
+  }
+}

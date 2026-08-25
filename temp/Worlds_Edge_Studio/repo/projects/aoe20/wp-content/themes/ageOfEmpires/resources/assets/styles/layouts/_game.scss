@@ -1,0 +1,156 @@
+// games page template
+body.single-games-data {
+	main.main {
+		section {
+			@include border(drawn-bar-vbars);
+			padding-top: 0;
+			padding-bottom: 0;
+			overflow: visible;
+			.page-container {
+				padding-top: $sectionPadding;
+				padding-bottom: $sectionPadding;
+			}
+			&.game-page__links, 
+			&.news-section, 
+			&.game-page__media {
+				background-color: $shade95;
+				&:before {
+					@include absoluteCover();
+					content: "";
+					background-image: url($imagePath + 'swoosh_vertical.png');
+					background-position: top center;
+					background-repeat: no-repeat;
+					background-size: 100% auto;
+					opacity: 0.75;
+					z-index: -1;
+				}
+				@include breakpoint(min-width, $bpSmall) {
+					&:before {
+						background-image: url($imagePath + 'swoosh.png');
+						background-position: 50% 60%;
+					}
+				}
+			}
+		}
+	}
+}
+
+.game-page__hero {
+	@include section($type: hero);
+}
+
+.game-page__title {
+	width: 100%;
+	margin: 0 auto;
+	transform: translateY(15%);
+
+	img { 
+		@include objectFit(cover);
+		width: 100%;
+		height: 100%;
+	}
+
+	@include breakpoint(min-width, $bpSmall) {
+		width: 33.3333%;
+		margin: 0 auto;
+	}
+}
+
+.game-page__featured-content {
+	@include postListing();
+}
+
+.game-page__links__list {
+	width: colspan(10);
+	margin-left: auto;
+	margin-right: auto;
+
+	& > * { margin-bottom: $baseline; }
+
+	@include breakpoint(min-width, 30em) {
+		display: grid;
+		grid-gap: $gutterSmall;
+		grid-template-columns: repeat(2, 1fr);
+
+		& > * { margin-bottom: 0; }
+	}
+
+	@include breakpoint(min-width, $bpSmall) {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	@include breakpoint(min-width, $bpLarge) {
+		grid-template-columns: repeat(5,1fr);
+	}
+}
+
+.game-page__link {
+	@include graphicButton();
+	width: 100%;
+	
+	@include breakpoint(min-width, $bpLarge) {
+		min-width: 0;
+	}
+}
+
+.game-page__about {
+	.page-container {
+		.game-page__about__main,
+		.game-page__about__features {
+			@include texture($bg-color: $shade90);
+			$lin-grad: linear-gradient($shade80, $shade95);
+			position: relative;
+			padding: $baseline*0.75;
+			padding-top:0;
+			color: $grey20;
+			box-shadow: $boxShadow;
+			> * {
+				position: relative;
+				z-index: 1;
+			}
+			&:after {
+				@include absoluteCover();
+				content: "";
+				background: radial-gradient(ellipse 40% #{$baseline*3} at 0 0, $shade60, rgba($shade60,0));
+				z-index: 0;
+			}
+		}
+		.section__title {
+			margin-bottom: $gutterSmall;
+			line-height:1;
+		}
+		@include breakpoint(min-width, $bpMobileWide, max-width, $bpNavBreak) {
+			.game-page__about__main,
+			.game-page__about__features {
+				margin-bottom: $gutterSmall;
+			}
+			.game-page__about__main,
+			.game-page__about__features,
+			.section__title {
+				max-width: colspan(10);
+				margin-left: auto;
+				margin-right:auto;
+			}
+		}
+		@include breakpoint(min-width, $bpNavBreak) {
+			.game-page__about__main,
+			.game-page__about__features {
+				padding-bottom: 0;
+			}
+			.about-container {
+				display: grid;
+				grid-gap: $gutterSmall;
+				grid-template-columns: 1fr 1fr;
+			}
+			.game-page__about__main {
+				grid-column: auto/ span 2;
+			}
+		}
+		@include breakpoint(min-width, $bpLarge) {
+			.about-container {
+				max-width: 66%;
+				width:100%;
+			}
+		}
+	}
+}

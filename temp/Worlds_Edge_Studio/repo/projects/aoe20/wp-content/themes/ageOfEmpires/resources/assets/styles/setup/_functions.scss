@@ -1,0 +1,211 @@
+// functions
+
+// strips the unit from a number
+// borrowed `strip-unit` function from Hugo Giraudel
+// https://css-tricks.com/snippets/sass/strip-unit-function/
+//
+// usage:
+//   stripUnit(10px); returns 10
+//   stripUnit(10px - 5px); returns 5
+
+@function stripUnit($number) {
+  @if type-of($number) == "number" and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+
+// convert ems to px
+// requires stripUnit function
+
+@function em2px($target, $context: 1em) {
+   @if $target == 0 { @return 0; }
+   @return ($target / 1em) * ($context / 1em) * 16 + 0px;
+}
+
+// convert px to ems
+// defaults to browser's default 16px font size
+@function px2em($pixels, $context: 16) {
+  @if $pixels == 0 { @return 0; }
+  @return stripUnit($pixels) / stripUnit($context) * 1em;
+}
+
+
+
+// returns a rem value based on a given step on a given modular scale
+// for use with fluid-type mixin
+// $step must be an integer so if you want half steps, you need set the ratio to half of your modscale
+// remember, to halve the ratio, you only halve the amount over 1
+// example: half step of 1.414 would be 1.207 
+
+// @function modScale($step, $ratio: $modScale) {
+// 	$number: 1;
+  
+// 	@if $step == 0 {
+//         @return $number * 1rem;
+// 	} 
+//  	@else if $step < 0 {
+//         @if ($step % 2 == 0) {
+//             @for $i from -1 through $step {
+//                 $number: $number / $ratio;
+//             }
+//         }
+    	
+//   	}
+//   	@else {
+//     	@for $i from 1 through $step {
+//       		$number: $number * $ratio;
+//     	}
+//   	}
+
+//   	@return $number * 1rem;
+// }
+
+
+// Whole Modular Scale
+// Returns a rem value equal to a given step on a given modular scale. Does not accommodate for half steps.
+// args:
+//   $step  : required | integer | defines the step on the modular scale (0 = base text size), can be negative
+//   $ratio : optional | number | defines the modular scale ratio | default is the sitewide modular scale, defined in _variables.scss
+// examples:
+//   wholeModScale(0, 1.414) => 1rem
+//   wholeModScale(1, 1.414) => 1.414rem
+//   wholeModScale(-1, 1.414) => 0.707rem
+
+@function wholeModScale($step, $ratio: $modScale) {
+    $number: 1;
+
+    @if ($step == 0) {
+        @return $number * 1rem;
+    }
+    @else if ($step < 0) {
+        @for $i from -1 through $step {
+            $number: $number / $ratio;
+        }
+    } 
+    @else {
+        @for $i from 1 through $step {
+            $number: $number * $ratio;
+        }
+    }
+    
+    @return $number * 1rem;
+}
+
+// Modular Scale
+// Returns a rem value equal to a given half step on a given modular scale. Because $step must be an integer, each increment of 1 represents a half step on the scale.
+// args:
+//   $step  : required | integer | defines the half step on the modular scale (0 = base text size), can be negative
+//   $ratio : optional | number | defines the modular scale ratio | default is the sitewide modular scale, defined in _variables.scss
+// examples:
+//   modScale(0, 1.414) => 1rem
+//   modScale(1, 1.414) => 1.207rem
+//   modScale(2, 1.414) => 1.414rem
+
+@function modScale($step, $ratio: $modScale) {
+    $nextStep: null;
+    $prevStep: null;
+
+    // if $step is even, we know it's a whole step, so we can just return using the wholeModScale() function
+    @if ($step % 2 == 0) {
+        // we divide by 2 to get the appropriate step to pass to wholeModScale()
+        $step: $step / 2;
+
+        @return wholeModScale($step, $ratio);
+    } 
+    // if $step is odd, we know it's a half step
+    // to calculate the half step, we get the previous and next whole step values and return the average
+    @else {
+        $nextStep: wholeModScale(($step + 1) / 2, $ratio);
+        $prevStep: wholeModScale(($step - 1) / 2, $ratio);
+
+        @return ($nextStep + $prevStep) / 2;
+    }
+}
+
+
+
+// Creates fluid type size with upper and lower gates
+//
+// Written by Indrek Paas
+// Inspired by Mike Riethmuller's Precise control over responsive typography
+// http://madebymike.com.au/writing/precise-control-responsive-typography/
+//
+// Requires strip-unit function
+//
+// works best when all arguments are specified in pixels.
+//
+// usage:
+//   @include fluidType(font-size, em2px($bpSmall), em2px($bpLarge), 14px, 22px);
+//   - Returns a size between 14px and 22px, based on viewport width, between the $bpSmall and $bpLarge breakpoints.
+//   - At $bpSmall and smaller text will be 14. At $bpLarge and larger text will be 22px.
+
+@function fluidTypeCalc($min-vw, $max-vw, $min-value, $max-value, $reverse: false) {
+    
+    @if ($reverse) {
+        @return calc(#{$max-value} - #{stripUnit($max-value - $min-value)} * (100vw - #{$min-vw}) / #{stripUnit($max-vw - $min-vw)});
+    } @else {
+        @return calc(#{$min-value} + #{stripUnit($max-value - $min-value)} * (100vw - #{$min-vw}) / #{stripUnit($max-vw - $min-vw)});
+    }
+}
+
+@mixin fluidType($properties, $min-vw, $max-vw, $min-value, $max-value) {
+    @each $property in $properties {
+        #{$property}: $min-value;
+    }
+
+    @media (min-width: $min-vw) {
+        @each $property in $properties {
+            #{$property}: fluidTypeCalc($min-vw, $max-vw, $min-value, $max-value);
+        }
+    }
+
+    @media (min-width: $max-vw) {
+        @each $property in $properties {
+            #{$property}: $max-value;
+        }
+    }
+}
+
+
+// Sets a color to a specified brightness and/or saturation
+//
+// args:
+//   $color - the color you wish to adjust
+//   $lightness - the desired lightness
+//   $saturation - optional - the desired saturation
+
+@function setBrightness($color, $lightness, $saturation: null) {
+    $currentLightness: lightness($color);
+    $currentSaturation: saturation($color);
+
+    @if ($currentLightness < $lightness) {
+        @if ($saturation) {
+            @if ($currentSaturation < $saturation) {
+                @return saturate(lighten($color, $lightness - $currentLightness), $saturation - $currentSaturation);
+            } @else if ($currentSaturation > $saturation) {
+                @return saturate(lighten($color, $lightness - $currentLightness), $currentSaturation - $saturation);
+            } @else {
+                @return lighten($color, $lightness - $currentLightness);
+            }
+        } @else {
+            @return lighten($color, $lightness - $currentLightness);
+        }
+    } @else if ($currentLightness > $lightness) {
+        @if ($saturation) {
+            @if ($currentSaturation < $saturation) {
+                @return saturate(darken($color, $currentLightness - $lightness), $saturation - $currentSaturation);
+            } @else if ($currentSaturation > $saturation) {
+                @return saturate(darken($color, $currentLightness - $lightness), $currentSaturation - $saturation);
+            } @else {
+                @return darken($color, $currentLightness - $lightness);
+            }
+        } @else {
+            @return darken($color, $currentLightness - $lightness);
+        }
+    } @else {
+        @return $color;
+    }
+}

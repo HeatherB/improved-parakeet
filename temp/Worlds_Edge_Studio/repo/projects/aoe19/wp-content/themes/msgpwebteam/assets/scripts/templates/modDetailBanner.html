@@ -1,0 +1,9 @@
+<!-- TODO: Display edit link conditionally if they are the owner of the mod -->
+<div class="row column<% if (metaData.isOwner) { %> editable<% } %>">
+    <button type="button" class="button button--round-back-btn"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+    <h1 class="h3 light">Browse Mods</h1>
+    <p class="lead hide-for-small-only"><%= gameTitleName %>: <%= modName %></p>
+    <% if (metaData.isOwner) { %>
+    <a href="/mods/details/<%= metaData.modId %>/edit/" class="button button--icon-left button--mod-edit"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this mod</a>
+    <% } %>
+</div>

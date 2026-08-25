@@ -1,0 +1,16 @@
+<% _.each(results, function(item) { %>
+<div class="campaign-card">
+    <div class="frame-box">
+        <div class="campaign-card__img-wrapper <% if(item.value < item.max) { %> campaign-card--greyScale <% } %>">
+            <img src="<%= item.imageUrl %>" />
+        </div>
+        <div class="campaign-card__content frame-box__inner--light">
+            <h4><%= item.name %></h4>
+            <span>Scenarios Completed</span> <span><%= item.value %>/<%= item.max %></span>
+            <div class="campaign-card__progress">
+                <progress class="progress-bar__bar" max="<%= item.max %>" value="<%= item.value %>"></progress>
+            </div>
+        </div>
+    </div>
+</div>
+<% }); %>

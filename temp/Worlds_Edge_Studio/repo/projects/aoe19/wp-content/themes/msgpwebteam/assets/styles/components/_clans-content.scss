@@ -1,0 +1,215 @@
+
+// Overall container
+// ------------------------------------------------+
+//
+
+.clans-detail-content {
+  > .row {
+    margin-bottom: 30px;
+  }
+}
+
+//Character Counter Textarea
+textarea + .characterCount {
+	float: right;
+	position: relative;
+	top: -15px;
+	font-size: 0.8em;
+	color: grey;
+}
+
+//Character Counter Error
+.field_error + .characterCount {
+	float: right;
+	position: relative;
+	font-size: 0.8em;
+	color: #fff;
+}
+
+//Character Counter Input
+input + .characterCount {
+	float: right;
+	position: relative;
+	font-size: 0.8em;
+	color: grey;
+}
+
+#owner_motd {
+  .form__item {
+    padding: 15px;
+  }
+  
+  .error {
+    background: $ui-color-scarlet;
+  }
+  
+}
+
+.form__item > .form__el > .err_reason {
+  position: relative;
+  color: darkred;
+}
+
+.form__textarea > .err_reason {
+  position: relative;
+  color: darkred;
+  top: -15px;
+}
+
+
+
+
+
+// Daily Message
+// ------------------------------------------------+
+//
+
+.clans-daily-msg {
+  margin-bottom: 1.5rem;
+
+  &__date {
+    color: $neutral-yellow;
+  }
+  
+  .new_motd {
+    color: $neutral-yellow;
+    font-weight: 400;
+    float: right;
+    font-style: italic;
+    
+    &:hover {
+      color: #fff;
+      cursor: pointer;
+    }
+    
+  }
+}
+
+.new_motd_text {
+  resize: none;
+  width: 100%;
+  min-height: 150px;
+  overflow: hidden;
+  padding: 15px;
+}
+
+// Stats & Leave button
+// ------------------------------------------------+
+//
+
+.clans-stats {
+  ul {
+    font-size: rem-calc(28px);
+    line-height: 1.2;
+    list-style: none;
+    margin: 0;
+
+    @include breakpoint(small down) {
+      font-size: rem-calc(18px);
+      text-align: center;
+    }
+
+    li {
+      margin-bottom: 20px;
+    }
+
+    span:not(#memberCount) {
+      color: $dark-yellow;
+      display: block;
+      font-size: rem-calc(16px);
+      font-weight: 700;
+      text-transform: uppercase;
+
+      @include breakpoint(small down) {
+        font-size: rem-calc(14px);
+      }
+    }
+
+  }
+}
+
+// Activity Log
+// ------------------------------------------------+
+//
+
+.clans-activity-log {
+  color: $white;
+  margin-bottom: 1.5rem;
+
+  h4 {
+    color: $yellow;
+    font-size: rem-calc(16px);
+    padding-top: 1rem;
+    text-transform: uppercase;
+  }
+
+  p {
+    margin-bottom: 0.5rem;
+  }
+
+  a {
+    color: $white;
+    font-weight: 700;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+}
+
+// Members List
+// results list is in components/_search-results
+// pagination is in components/_pagination
+// search filters is in components/_clans-filters
+// ------------------------------------------------+
+//
+
+// Overall container
+.clans-players-list {
+  margin-bottom: 4rem;
+  position: relative;
+}
+
+// List heading (h2)
+.clans-players-list__count {
+  margin-bottom: 1rem;
+  font-size: 1.75rem;
+}
+
+//Application Links
+.ad_applications{
+	margin-top: 50px;
+	padding: 20px;
+	text-align: center;
+	
+	b{
+		color: #fff;
+		font-size: 1.1rem;
+		display: block;
+	}
+	
+	p{
+		color: #fff;
+	}
+	
+	.application_links{
+		display: inline-block;
+		
+		.app_link{
+			display: block;
+			
+			img {
+				border: none;
+				margin: 10px;
+			}
+			
+		}
+		
+	}
+	
+	@include breakpoint(small down) {
+		margin-top: 20px;
+	}
+	
+}

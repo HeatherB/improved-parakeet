@@ -1,0 +1,324 @@
+<form method="post" action="#form-submit" id="clans-form" class="form clans-form">
+  <% if (id) {  %><input type="hidden" name="ClanId" value="<%= id %>"><% } %>
+  <fieldset class="form__group section--arrow-divider">
+
+    <div class="row">
+
+      <div class="columns large-6 medium-6">
+        <div class="row">
+          <div class="columns">
+            <div class="form__item">
+              <label for="clan-name" class="form__label form__label--required">
+                <span>Clan Name</span>
+                <span data-tooltip data-width="350" aria-haspopup="true" class="has-tip info_btn" data-disable-hover="false" tabindex="1" title="Clan names must be unique and may not contain symbols.">&#x24D8;</span>
+              </label>
+              <div class="form__el">
+                <input type="text" placeholder="Type name here" value="<%= name %>" name="ClanName" id="clan-name">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="columns">
+            <div class="form__item">
+              <label for="clan-motto" class="form__label form__label--required">
+                <span>Clan Motto</span>
+                <span data-tooltip data-width="350" aria-haspopup="true" class="has-tip info_btn" data-disable-hover="false" tabindex="1" title="Displayed under the clan's name on the clan page.">&#x24D8;</span>
+              </label>
+              <div class="form__el">
+                <input class="counted" maxlength="100" type="text" placeholder="Type motto here" value="<%= motto %>" name="ClanMotto" id="clan-motto">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="columns large-6 medium-6">
+            <div class="form__item">
+              <label for="clan-tag" class="form__label form__label--required">
+                <span>Clan Tag</span>
+                <span data-tooltip data-width="350" aria-haspopup="true" class="has-tip info_btn" data-disable-hover="false" tabindex="1" title="Allow up to 4 characters to create a clan short name.">&#x24D8;</span>
+              </label>
+              <div class="form__el">
+                <input type="text" placeholder="Type clan tag here" value="<%= tag %>" maxlength="4" name="ClanTag" id="clan-tag">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns large-6 medium-6">
+        <div class="row">
+          <div class="columns large-6 medium-6">
+            <div class="form__item">
+              <label for="clan-lang" class="form__label form__label--required">
+                <span>Language</span>
+                <span data-tooltip  data-width="350" aria-haspopup="true" class="has-tip info_btn" data-disable-hover="false" tabindex="1" title="Clan's primary language.">&#x24D8;</span>
+              </label>
+              <div class="form__el">
+                <select name="ClanLanguage" id="clan-lang">
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="columns large-6 medium-6">
+            <div class="form__item">
+              <label for="clan-visibility" class="form__label form__label--required">
+                <span>Visibility</span>
+                <span data-tooltip data-width="350" aria-haspopup="true" class="has-tip info_btn" data-disable-hover="false" tabindex="1" title="Setting visibility to private will prevent it from showing up in searches.">&#x24D8;</span>
+              </label>
+              <div class="form__el">
+                <select name="ClanVisibility" id="clan-visibility">
+                  <option value="Public" <% if (visibility === 'Public' ) { print('selected'); } %>>Public</option>
+                  <option value="Private" <% if (visibility === 'Private') { print('selected'); } %>>Private</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="columns large-6 medium-6">
+            <div class="form__item">
+              <label for="clan-activity-level" class="form__label form__label--required">
+                <span>Activity Level</span>
+                <span data-tooltip data-width="350" aria-haspopup="true" class="has-tip info_btn" data-disable-hover="false" tabindex="1" title="How often clan is active.">&#x24D8;</span>
+              </label>
+              <div class="form__el">
+                <select name="ClanActivityLevel" id="clan-activity-level">
+                  <option value="Daily" <% if (activityLevel === 'Daily' || activityLevel === null) { print('selected'); } %>>Daily</option>
+                  <option value="Weekly" <% if (activityLevel === 'Weekly') { print('selected'); } %>>Weekly</option>
+                  <option value="Monthly" <% if (activityLevel === 'Monthly') { print('selected'); } %>>Monthly</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="columns large-6 medium-6">
+            <div class="form__item">
+              <label for="clan-skill-level" class="form__label form__label--required">
+                <span>Avg Skill Level</span>
+                <span data-tooltip data-width="350" aria-haspopup="true" class="has-tip info_btn" data-disable-hover="false" tabindex="1" title="Average skill level of members.">&#x24D8;</span>
+              </label>
+              <div class="form__el">
+                <select name="ClanAvgSkillLevel" id="clan-skill-level">
+                  <option value="Beginner" <% if (avgSkillLevel === 'Beginner' || avgSkillLevel === null) { print('selected'); } %>>Beginner</option>
+                  <option value="Intermediate" <% if (avgSkillLevel === 'Intermediate') { print('selected'); } %>>Intermediate</option>
+                  <option value="Advanced" <% if (avgSkillLevel === 'Advanced') { print('selected'); } %>>Advanced</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="columns large-6 medium-6">
+            <div class="form__item">
+              <label for="clan-applications" class="form__label form__label--required">
+                <span>Applications</span>
+                <span data-tooltip data-width="350" aria-haspopup="true" class="has-tip info_btn" data-disable-hover="false" tabindex="1" title="This option cannot be changed later. Anyone can freely join open clans. Restricted clans require a join request to be approved by clan owner or officer. Closed clans do not accept new members.">&#x24D8;</span>
+              </label>
+              <div class="form__el">
+                <select name="ClanApplications" id="clan-applications">
+                  <option value="Open" <% if (applications === 'open' || applications === null) { print('selected'); } %>>Open</option>
+                  <option value="Restricted" <% if (applications === 'restricted') { print('selected'); } %>>Restricted</option>
+                  <option value="Closed" <% if (applications === 'closed') { print('selected'); } %>>Closed</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="columns large-6 medium-6">
+        <div class="form__item">
+          <label class="form__label form__label--required">
+            <span>Manifesto</span>
+            <span data-tooltip data-width="350" aria-haspopup="true" class="has-tip info_btn" data-disable-hover="false" tabindex="1" title="Tell the world about your clan!">&#x24D8;</span>
+          </label>
+          <div class="form__el">
+            <div class="form__textarea">
+              <textarea class="counted" id="clan-manifesto" name="ClanManifesto" maxlength="500"><%= manifesto %></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns large-6 medium-6">
+        <div class="form__item">
+          <label class="form__label">
+            <span>Daily Message</span>
+          </label>
+          <div class="form__el">
+            <div class="form__textarea">
+              <textarea class="counted" id="clan-daily-message" name="ClanDailyMessage" maxlength="500"><%= dailyMessage %></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </fieldset>
+
+  <div class="row">
+    <fieldset class="clans-create-logo columns form__group section--arrow-divider">
+      <h2>Edit your clan logo</h2>
+
+      <ul class="tabs clans-create-logo__nav not_a_list" data-tabs id="logo-tabs">
+        <li class="clans-create-logo__tab tabs-title is-active">
+          <div class="frame-box frame-box--button">
+            <div class="frame-box__inner frame-box__inner--button">
+              <a href="#logo-backgrounds" aria-selected="true">
+                <svg focusable="false" class="svg-icon svg-icon--background"><use xlink:href="/wp-content/themes/msgpwebteam/dist/images/svg-icons-sprite.svg#icon-background"></use></svg>
+                <span>Layer 1:</span>
+                Background
+              </a>
+            </div>
+          </div>
+        </li>
+        <li class="clans-create-logo__tab tabs-title">
+          <div class="frame-box frame-box--button">
+            <div class="frame-box__inner frame-box__inner--button">
+              <a href="#logo-shields">
+                <svg focusable="false" class="svg-icon svg-icon--shield"><use xlink:href="/wp-content/themes/msgpwebteam/dist/images/svg-icons-sprite.svg#icon-shield"></use></svg>
+                <span>Layer 2:</span>
+                Shield
+              </a>
+            </div>
+          </div>
+        </li>
+        <li class="clans-create-logo__tab tabs-title">
+          <div class="frame-box frame-box--button">
+            <div class="frame-box__inner frame-box__inner--button">
+              <a href="#logo-icons">
+                <svg focusable="false" class="svg-icon svg-icon--building"><use xlink:href="/wp-content/themes/msgpwebteam/dist/images/svg-icons-sprite.svg#icon-building"></use></svg>
+                <span>Layer 3:</span>
+                Icon
+              </a>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <div class="clans-create-logo__logos tabs-content" data-tabs-content="logo-tabs">
+        <div class="tabs-panel is-active" id="logo-backgrounds">
+          <div class="carousel">
+            <% _.each(logoBgs, function(item, index) { %>
+              <% if (index % 16 === 0) { %>
+              <div><div class="clans-form__radio-group">
+              <% } %>
+                <div class="clans-form__radio">
+                  <input id="clans-logo-bg-<%= item.postID %>" name="ClanLogoBackground" type="radio" value="<%= item.postID %>" <% if (item.postID === logoBg || !logoBg && index === 0) { print('checked'); } %> />
+                  <label for="clans-logo-bg-<%= item.postID %>">
+                    <img src="<%= item.href %>" alt="Logo Background Image <%= item.postID %>" />
+                    <div class="clans-form__radio-selected">
+                      <i class="fa fa-check" aria-hidden="true"></i>
+                    </div>
+                  </label>
+                </div>
+              <% if (((index + 1) % 16 === 0 && index !== 0) || logoBgs.length === index + 1) { %>
+              </div></div>
+              <% } %>
+            <% }); %>
+          </div>
+        </div>
+        <div class="tabs-panel" id="logo-shields">
+          <div class="carousel">
+            <% _.each(logoShields, function(item, index) { %>
+              <% if (index % 16 === 0) { %>
+              <div><div class="clans-form__radio-group">
+              <% } %>
+                <div class="clans-form__radio">
+                  <input id="clans-logo-shield-<%= item.postID %>" name="ClanLogoShield" type="radio" value="<%= item.postID %>" <% if (item.postID === logoShield || !logoShield && index === 0) { print('checked'); } %> />
+                  <label for="clans-logo-shield-<%= item.postID %>">
+                    <img src="<%= item.href %>" alt="Logo Shield Image <%= item.postID %>" />
+                    <div class="clans-form__radio-selected">
+                      <i class="fa fa-check" aria-hidden="true"></i>
+                    </div>
+                  </label>
+                </div>
+              <% if (((index + 1) % 16 === 0 && index !== 0) || logoShields.length === index + 1) { %>
+              </div></div>
+              <% } %>
+            <% }); %>
+          </div>
+        </div>
+        <div class="tabs-panel" id="logo-icons">
+          <div class="carousel">
+            <% _.each(logoIcons, function(item, index) { %>
+              <% if (index % 16 === 0) { %>
+              <div><div class="clans-form__radio-group">
+              <% } %>
+                <div class="clans-form__radio">
+                  <input id="clans-logo-icon-<%= item.postID %>" name="ClanLogoIcon" type="radio" value="<%= item.postID %>" <% if (item.postID === logoIcon || !logoIcon && index === 0) { print('checked'); } %> />
+                  <label for="clans-logo-icon-<%= item.postID %>">
+                    <img src="<%= item.href %>" alt="Logo Icon Image <%= item.postID %>" />
+                    <div class="clans-form__radio-selected">
+                      <i class="fa fa-check" aria-hidden="true"></i>
+                    </div>
+                  </label>
+                </div>
+              <% if (((index + 1) % 16 === 0 && index !== 0) || logoIcons.length === index + 1) { %>
+              </div></div>
+              <% } %>
+            <% }); %>
+          </div>
+        </div>
+      </div>
+
+      <div class="clans-create-logo__preview-container">
+        <div class="clans-create-logo__preview-inner">
+          <div class="clans-create-logo__preview">
+            <img alt="" id="logo-background-image" />
+          </div>
+          <div class="clans-create-logo__preview">
+            <img alt="" id="logo-shield-image" />
+          </div>
+          <div class="clans-create-logo__preview">
+            <img alt="" id="logo-icon-image" />
+          </div>
+        </div>
+        <div class="clans-create-logo__reset-cta">
+          <button type="button" class="btn-aoe btn-aoe--gold btn-aoe--block" id="logos-reset">Reset</button>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+  <div class="row">
+    <fieldset class="clans-create-banner columns form__group section--arrow-divider">
+      <h2>Edit your clan header</h2>
+
+      <div class="clans-create-banner__banners" id="clan-backgrounds">
+        <div class="carousel">
+          <% _.each(backgrounds, function(item, index) { %>
+            <% if (index % 4 === 0) { %>
+            <div><div class="clans-form__radio-group">
+            <% } %>
+              <div class="clans-form__radio">
+                <input id="clans-background-<%= item.postID %>" name="ClanBackgroundImage" type="radio" value="<%= item.postID %>" <% if (item.postID === background || !background && index === 0) { print('checked'); } %> />
+                <label for="clans-background-<%= item.postID %>">
+                  <img src="<%= item.href %>" alt="Background Image <%= item.postID %>" />
+                  <div class="clans-form__radio-selected">
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                  </div>
+                </label>
+              </div>
+            <% if (((index + 1) % 4 === 0 && index !== 0) || backgrounds.length === index + 1) { %>
+            </div></div>
+            <% } %>
+          <% }); %>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+  <div class="row">
+    <div class="columns">
+      <button class="btn-aoe mods-form__btn" type="submit">Submit</button>
+      <button class="btn-aoe btn-aoe--gold mods-form__btn" type="button" id="form-cancel">Cancel</button>
+      <p class="form__api-error">Error submitting clan! Please verify your data and try again.</p>
+    </div>
+  </div>
+</form>

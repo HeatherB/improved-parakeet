@@ -1,0 +1,264 @@
+.anchor {
+    position: relative;
+    &::before {
+        content: "";
+        display: block;
+        margin-top: -6rem;
+        height: 6rem;
+        visibility: hidden;
+        pointer-events: none;
+    }
+}
+
+%teaser--banner-overlap {
+    @include breakpoint(large) {
+        margin-top: calc(-#{$teasers-padding-tablet} - (2rem + 3vw));
+    }
+
+    @media (min-width: $ui-breakpoint-desk) {
+        margin-top: calc(-#{$teasers-padding-desk} - (2rem + 3vw));
+    }
+}
+
+.game-mode__video {
+    position: relative;
+    max-width: 50rem;
+    margin: 0 auto $teasers-padding * 1.5;
+
+    @include breakpoint(large) {
+        margin-top: calc(-#{$teasers-padding-tablet} - (2rem + 3vw));
+        margin-bottom: $teasers-padding-tablet * 1.5;
+    }
+
+    @media (min-width: $ui-breakpoint-desk) {
+        margin-top: calc(-#{$teasers-padding-desk} - (2rem + 3vw));
+        margin-bottom: $teasers-padding-desk * 1.5;
+        max-width: 60rem;
+    }
+}
+
+.video-embed {
+    @include aspectRatioBox(16,9);
+
+    iframe {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+// all .su-* styles are overrides for the shortcodes ultimate plugin
+.cordian,
+.su-accordion {
+    margin-bottom: 1.454545em;
+
+    button.title {
+        width: 100%;
+        text-align: left;
+        outline: none;
+    }
+
+    button.title,
+    a.title,
+    .su-spoiler-title,
+    .su-spoiler-style-default > .su-spoiler-title,
+    .su-spoiler-style-fancy > .su-spoiler-title,
+    .su-spoiler-style-simple > .su-spoiler-title {
+        display: block;
+        background: $ui-color-walnut;
+        background: linear-gradient(180deg, rgb(62, 45, 23) 0%, rgb(93, 68, 35) 5%, rgb(77, 56, 29) 10%, rgb(40, 29, 15) 90%, rgb(51, 37, 19) 95%, rgb(41, 30, 16) 100%);
+        font-size: 1.227272em;
+        font-weight: normal; //su override only
+        line-height: 1.5em;
+        padding-left: 0.5em;
+        padding-right: 2em;
+        padding-top: 0.25em;
+        padding-bottom: 0.25em;
+        position: relative;
+        color: $ui-color-parchment;
+        transition: color 0.3s, background 0.3s;
+
+        &::after {
+            content: '';
+            display: block;
+            width: 2em;
+            height: 2em;
+            position: absolute;
+            bottom: 50%;
+            right: 0px;
+            background: url($image-path + 'icon-set.png');
+            background-size: 2200% 400%;
+            background-position: -36em 0px;
+            transform: translateY(50%);
+        }
+        &:hover {
+            background: linear-gradient(180deg, rgb(86, 67, 44) 0%, rgb(118, 91, 57) 5%, rgb(101, 78, 49) 10%, rgb(63, 50, 36) 90%, rgb(74, 58, 39) 95%, rgb(63, 50, 36) 100%);
+            color: white;
+            cursor: pointer;
+            &::after {
+                background-position: -36em -2em;
+            }
+        }
+    }
+    span.title {
+      display: block;
+      background: #362b1b;
+      position: relative;
+      color: $ui-color-parchment;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      &::after {
+        content: '';
+        display: block;
+        width: 2em;
+        height: 2em;
+        position: absolute;
+        bottom: 3px;
+        right: 5px;
+        font-size: 1.4em;
+        background: url($image-path + 'icon-set.png');
+        background-size: 2200% 400%;
+        background-position: -36em 0px;
+      }
+      &:hover {
+        color: white;
+        cursor: pointer;
+        &::after {
+          background-position: -36em -2em;
+        }
+      }
+    }
+    .text,
+    .su-spoiler-content,
+    .su-spoiler-style-default > .su-spoiler-content,
+    .su-spoiler-style-fancy > .su-spoiler-content,
+    .su-spoiler-style-simple > .su-spoiler-content {
+        padding: 0.363636em;
+        background-color: $ui-opac-container-1;
+        transition: padding 0.5s ease-out;
+        .words {
+            text-align: justify;
+            line-height: 0px;
+            opacity: 0;
+            transition: line-height 0.5s ease-out, opacity 0.3s;
+            delay-transition: 0s, 0.2s;
+            p, ul, li {
+                margin: 0px;
+                transition: margin 0.5s ease-out;
+                line-height: inherit;
+            }
+        }
+    }
+    .content, .ac_content_container {
+      height: 0;
+      opacity: 0;
+      transition: all 0.5s ease-out, opacity 0.3s;
+      .ac_content {
+        transition: height 0.5s ease-out, opacity 1.5s;
+        opacity: 0;
+        position: relative;
+      }
+    }
+
+    &.open,
+    .su-spoiler {
+        a.title, span.title, button.title {
+            &::after {
+                background-position: -34em 0px;
+            }
+            &:hover {
+                &::after {
+                    background-position: -34em -2em;
+                }
+            }
+        }
+        .text {
+            padding: 0.727272em;
+            .words {
+                line-height: 1.545454em;
+                opacity: 1;
+                delay-transition: 0s, 0s;
+                p, ul {
+                    margin-bottom: 1.545454em;
+                    line-height: inherit;
+                }
+            }
+        }
+    }
+    &.sub_ac_open {
+      a.title, span.title, button.title {
+        &::after {
+          background-position: -34em 0px;
+        }
+        &:hover {
+          &::after {
+            background-position: -34em -2em;
+          }
+        }
+      }
+      .ac_content_container {
+        transition: height 0.5s ease-out, opacity 1.5s;
+        opacity: 1;
+        height: inherit;
+        .ac_content {
+          transition: all 0.5s ease-out, opacity 1.5s;
+          opacity: 1;
+          z-index: 5;
+        }
+      }
+    }
+}
+
+// direct su overrides
+// su provides its own icon, which we want to hide.
+// su adds a closed class when closed, wheras our accordion adds an open class when open. 
+// Therefore we have to do extra overrides
+
+.su-accordion {
+    .su-spoiler-icon {
+        display: none;
+        opacity: 0;
+    }
+
+    .su-spoiler {
+        margin-bottom: 1.454545em !important;
+        
+        .su-spoiler-title {
+            &::after {
+                background-position: -34em 0px;
+            }
+
+            &:hover {
+              &::after {
+                background-position: -34em -2em;
+              }
+            }
+        }
+    }
+
+    .su-spoiler-closed {
+        .su-spoiler-title,
+        .su-spoiler-style-default > .su-spoiler-title,
+        .su-spoiler-style-fancy > .su-spoiler-title,
+        .su-spoiler-style-simple > .su-spoiler-title {
+            &::after {
+                background-position: -36em 0px;
+            }
+
+            &:hover {
+              &::after {
+                background-position: -36em -2em;
+              }
+            }
+        }
+    }
+
+    .su-spoiler-content,
+    .su-spoiler-style-default > .su-spoiler-content,
+    .su-spoiler-style-fancy > .su-spoiler-content,
+    .su-spoiler-style-simple > .su-spoiler-content {
+        padding: 0.727272em;
+        transition: none;
+    }
+}
+

@@ -1,0 +1,21 @@
+.arrow-hr {
+  background: url($image-path+'arrow_line_divider.png') no-repeat center center;
+  background-size: 100% 100%;
+  display: block;
+  height: 40px;
+  margin-bottom: 1.0rem;
+  position: relative;
+  width: 100%;
+
+  @include breakpoint(medium only) {
+    height: 30px;
+  }
+
+  @include breakpoint(small only) {
+    height: 20px;
+  }
+
+  > hr {
+    display: none;
+  }
+}

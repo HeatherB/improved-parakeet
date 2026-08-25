@@ -1,0 +1,110 @@
+.reveal {
+  &.image-caption-modal-reveal {
+    display: block;
+    top: 10vh !important;
+    width: 85vw;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    @include breakpoint(small only) {
+      margin: auto;
+    }
+  }
+}
+
+.image-caption-modal {
+  .close-reveal-modal {
+    width: 32px;
+    height: 32px;
+    display: block;
+    z-index: 999999999;
+    background-repeat: no-repeat;
+    background: url($image-path+'close-button.png');
+    background-position: 0 0;
+    cursor: pointer;
+  }
+  &--noCaptionLong {
+    .image-caption-modal {
+      &__inner {
+        display: block;
+      }
+      &__image-inner {
+        background: transparent !important;
+        display: inline-block;
+        margin: auto;
+      }
+      &__image-wrapper {
+        max-height: 80vh;
+        margin:auto;
+        position: relative;
+        width: auto;
+      }
+      &__image {
+        width: 100%;
+        text-align: center;
+        img {
+          max-height: 80vh;
+					flex-shrink: 0;
+        }
+      }
+      &__caption-short {
+        background: rgba(0,0,0,1);
+        text-align: center;
+        padding: 20px;
+        color: white;
+        font-size: 14px;
+        line-height: 24px;
+        //position: absolute;
+        //bottom: 0;
+        width: 100%;
+      }
+    }
+  }
+  &__inner {
+    display: flex;
+    height: 80vh;
+    @include breakpoint(small only) {
+      display: block;
+    }
+  }
+  &__image {
+    width: 60%;
+    @include breakpoint(small only) {
+      width: 100%;
+    }
+  }
+  &__image-inner {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    background: rgba(0,0,0,1);
+    img {
+      margin: auto;
+      max-height: 100%;
+			flex-shrink: 0;
+    }
+  }
+  &__caption {
+    padding: 60px 40px 40px;
+    font-size: 14px;
+    line-height: 24px;
+    background: $light-alt;
+    width: 40%;
+    @include breakpoint(small only) {
+      width: 100%;
+    }
+  }
+  &__caption-inner {
+    font-size: 14px;
+    line-height: 24px;
+    overflow-y: auto;
+    max-height: 100%;
+    padding-right: 20px;
+    h4 {
+      padding-bottom: 20px;
+    }
+  }
+}
+
+.image-modal-caption {
+
+}

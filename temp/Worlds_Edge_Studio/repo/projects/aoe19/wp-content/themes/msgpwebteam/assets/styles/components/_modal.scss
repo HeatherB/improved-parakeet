@@ -1,0 +1,85 @@
+.reveal:not(.reveal--warning):not(.reveal--error) {
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+.modal,
+.reveal {
+    background:transparent;
+    border:none;
+    &:focus{
+        outline:none;
+    }
+    .modal-inner{
+        position:relative;
+        border:#010101 2px solid;
+        border-bottom:#010101 4px solid;
+        border-right: #010101 4px solid;
+        margin:0 auto;
+        padding:5px 5px 8px 5px;
+        box-shadow:5px 5px 1px rgba(0,0,0,.1);
+
+        .modal-content {
+            overflow:hidden;
+            position:relative;
+            border:none;
+            padding:2rem;
+            width:100%;
+
+            @include breakpoint(small only){
+                padding-top:40px;
+            }
+
+            h2 {
+                color: #616161;
+                text-transform: uppercase;
+                position: relative;
+
+                &:before{
+                    content:" ";
+                    height:1px;
+                    background:#616161;
+                    width:8em;
+                    max-width: 50%;
+                    position:absolute;
+                    bottom:-0.25em;
+                    left:0;
+                }
+            }
+            h4{
+                margin-bottom:20px;
+            }
+            p{
+            }
+            ul {
+            }
+            .link{
+                margin-bottom:20px;
+                a {
+                    &:hover {
+                        color: $white !important;
+                    }
+                }
+            }
+        }
+        .close-button{
+            //@include gradient(#fff09c,#ffea60,#f18022,#b46100, 3%, 50%);
+            display:block;
+            height:32px;
+            width:32px;
+            margin:5px 5px 0px 0px;
+            //padding:0px 5px 2px 6px;
+            right: 0.5rem;
+            i{
+                color:$white;
+                font-size:rem-calc(38);
+            }
+        }
+        .cta-button{
+            text-transform:none;
+        }
+    }
+}
+
+
+
+

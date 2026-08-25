@@ -1,0 +1,222 @@
+
+#processingMessage {
+	display: inline-block;
+	color: $light;
+	margin-left: 20px;
+}
+
+.insiders {
+	&__callout {
+		color: $brand-primary;
+		border-top: double 4px $brand-primary; 
+		border-bottom: double 4px $brand-primary; 
+		padding: 10px 0;
+		margin: 15px 0 20px 0;
+		display: inline-block;
+	}
+	&__body {
+		background: url($image-path+'insiders/insider-body-bg.png') no-repeat top center;
+		background-size: contain;
+		padding: 20px 20px 40px 20px;
+		margin-top: -30px;
+		input {
+			line-height: 2;
+			width: 300px;
+			margin: 0;
+		}
+		#GamerTag { color: $dark-brown; }
+	}
+	&__banner {
+	  align-items: top;
+	  padding-top: 70px;
+	  background: url($image-path+'insiders/main_banner.jpg') no-repeat top center;
+	  background-size: cover;
+	  display: flex;
+	  height: 184px;
+	  position: relative;
+
+	  > .row {
+	    position: relative;
+	  }
+
+	  .lead {
+	    color: $light;
+	    line-height: 1.2;
+	    margin: 0;
+	  }
+
+	}
+
+	&__breadcrumbs { 
+		margin: 0 auto; 		
+		list-style: none;
+		display: inline-block;
+	}
+	&__breadcrumb { 
+		float: left;
+    	color: $dark;    	   	
+    	display: inline-block;
+    	height: 100px;
+    	width: 100px;
+    	background-size: auto 200% !important;
+
+    	&--0 {    	
+    		background: url($image-path+'insiders/insider-icons-sprite.svg') no-repeat 0 0;
+    		opacity: .5;
+    		@include breakpoint(small down) {
+				height: 75px;
+	    		width: 75px;
+			}
+    	}
+    	&--1 {
+    		background: url($image-path+'insiders/insider-icons-sprite.svg') no-repeat -100px 0;
+    		opacity: .5;
+    		@include breakpoint(small down) {
+				height: 75px;
+	    		width: 75px;
+	    		background-position: -75px 0;
+			}
+      	}
+    	&--2 {
+    		background: url($image-path+'insiders/insider-icons-sprite.svg') no-repeat -200px 0;
+    		opacity: .5;
+    		@include breakpoint(small down) {
+				height: 75px;
+	    		width: 75px;
+	    		background-position: -150px 0;
+			}
+    	}
+    	&--3 {
+    		background: url($image-path+'insiders/insider-icons-sprite.svg') no-repeat -300px 0;
+    		opacity: .5;
+    		@include breakpoint(small down) {
+				height: 75px;
+	    		width: 75px;
+	    		background-position: -225px 0;
+			}
+    	}
+
+    	&--current-0 {
+    		background: url($image-path+'insiders/insider-icons-sprite.svg') no-repeat 0 0;
+    		@include breakpoint(small down) {
+				height: 75px;
+	    		width: 75px;
+			}
+    	}
+    	&--current-1 {
+    		background: url($image-path+'insiders/insider-icons-sprite.svg') no-repeat -100px 0;
+    		@include breakpoint(small down) {
+				height: 75px;
+	    		width: 75px;
+	    		background-position: -75px 0;
+			}
+    	}
+    	&--current-2 {
+    		background: url($image-path+'insiders/insider-icons-sprite.svg') no-repeat -200px 0;
+    		@include breakpoint(small down) {
+				height: 75px;
+	    		width: 75px;
+	    		background-position: -150px 0;
+			}
+    	}
+    	&--current-3 {
+    		background: url($image-path+'insiders/insider-icons-sprite.svg') no-repeat -300px 0;
+    		@include breakpoint(small down) {
+				height: 75px;
+	    		width: 75px;
+	    		background-position: -225px 0;
+			}
+    	}
+	    				    		
+    	&--disabled-0 {
+    		background: url($image-path+'insiders/insider-icons-sprite.svg') no-repeat 0 -100px;
+    		a:hover { cursor: not-allowed; }
+    		@include breakpoint(small down) {
+				height: 75px;
+	    		width: 75px;
+	    		background-position: 0 -75px;
+			}
+    	}
+    	&--disabled-1 {
+    		background: url($image-path+'insiders/insider-icons-sprite.svg') no-repeat -100px -100px;
+    		a:hover { cursor: not-allowed; }
+    		@include breakpoint(small down) {
+				height: 75px;
+	    		width: 75px;
+	    		background-position: -75px -75px;
+			}
+    	}
+    	&--disabled-2 {
+    		background: url($image-path+'insiders/insider-icons-sprite.svg') no-repeat -200px -100px;
+    		a:hover { cursor: not-allowed; }
+    		@include breakpoint(small down) {
+				height: 75px;
+	    		width: 75px;
+	    		background-position: -150px -75px;
+			}
+    	}
+    	&--disabled-3 {
+    		background: url($image-path+'insiders/insider-icons-sprite.svg') no-repeat -300px -100px;
+    		a:hover { cursor: not-allowed; }
+    		@include breakpoint(small down) {
+				height: 75px;
+	    		width: 75px;
+	    		background-position: -225px -75px;
+			}
+    	}
+
+    	img { height: 100%; width: 100%; }
+    	a { display: block; }
+    	
+    }
+	&__breadcrumb-divider {
+		float: left;
+		
+		display: inline-block;
+		margin: 5px;
+		margin-top: 0;
+		height: 100px;
+    	width: 100px;
+    	background: url($image-path+'insiders/insider-lines-red.svg') no-repeat 0 center;
+
+    	@include breakpoint(medium only) {
+			width: 50px;
+		}
+
+		@include breakpoint(small only) {
+			display: none;
+		}
+
+		&--active {
+			background: url($image-path+'insiders/insider-lines-red.svg') no-repeat 0 center;
+		}
+		&--disabled {
+			background: url($image-path+'insiders/insider-lines-black.svg') no-repeat 0 center;
+		}
+	}
+	&__modal {
+		display: block; 
+		top: 63px; 
+		height: 720px !important;
+		max-width: 850px; 
+		width: auto !important; 
+		overflow: hidden;
+		@include breakpoint(small down) {
+			height: 1250px !important;
+		}
+
+		&--container {
+			height: 95% !important; 
+			@include breakpoint(small down) {
+				height: 97% !important;
+			}
+			width: 100% !important; 
+			left: 0 !important; 
+			top: 20px !important; 
+			margin-bottom: 30px;
+		}
+	}
+}
+
+
+

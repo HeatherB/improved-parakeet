@@ -1,0 +1,89 @@
+// insider subscription section
+
+.insider-subscribe {
+	background-image: url($imagePath + "logos/logo-age2de.png"), url($imagePath + "bg-age2de-joanhorse-left-mobile.png");
+	background-position: 5% 3%, top left;
+	background-repeat: no-repeat, no-repeat;
+	//border-top: 1px solid $gold30;
+	background-size: 300px auto, 100% auto;
+	padding-top: $sectionPadding*6;
+	overflow:visible;
+	@include border(drawn-bar-vbars);
+	@include breakpoint(min-width, $bpMedium) {
+		background-image: url($imagePath + "logos/logo-age2de.png"), url($imagePath + "bg-age2de-joanhorse-left-desk.png");
+		background-size: 300px auto, cover;
+		background-position: 10% 6%, bottom left;
+		padding-top: $sectionPadding*2;
+		padding-bottom: $sectionPadding*3.5;
+	}
+}
+
+.insider-subscribe__content {
+	max-width: 30rem;
+	margin-left: auto;
+	margin-right: auto;
+
+	@include breakpoint(min-width, $bpMedium) {
+		max-width: 60%;
+		margin-right: 0;
+	}
+
+	@include breakpoint(min-width, $bpLarge) {
+		max-width: 50%;
+	}
+}
+
+.insider-subscribe__title {
+	@include smallCaps;
+	@include gradientText(linear-gradient(to right, $gold10, $gold30), 1px 1px 0 rgba($black, 0.6), $gold10);
+	text-align: center;
+	font-family: $displayFont;
+	font-weight: bold;
+	text-align: left;
+	font-size: modScale(5);
+	line-height: 1;
+	letter-spacing: 0;
+	margin: 0;
+}
+
+.insider-subscribe__card {
+	@include card();
+	padding: $baseline;
+	&::after {
+		content: "";
+	    position: absolute;
+	    top: -9px;
+	    left: -9px;
+	    height: calc(100% + 20px);
+	    width: calc(100% + 19px);
+	    z-index: -1;
+	    border: 30px solid;
+	    border-image-source: url($imagePath + "ui/gold-border--drawn.svg");
+	    border-image-slice: 50;
+	}
+	ul {
+		padding-left: 1em;
+	}
+}
+
+
+.insider-subscribe__footer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.insider-subscribe__cta {
+	@include ctaButton(); 
+	margin: 0 auto $baseline/2;
+	height: 2.35em;
+	padding: 0 2.35em;
+	transition: all ease 500ms;
+}
+
+.insider-subscribe__disclaimer {
+	@include link();
+	font-size: modScale(-1);
+	text-align: center;
+}

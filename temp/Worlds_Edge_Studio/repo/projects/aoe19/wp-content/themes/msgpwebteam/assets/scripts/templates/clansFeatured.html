@@ -1,0 +1,92 @@
+<div class="clans-featured__group frame-box search-results">
+  <div class="frame-box__inner frame-box__inner--light frame-box__inner--no-pad">
+    <table>
+        <thead class="search-results__header">
+          <tr>
+            <th class="search-results__sort-label clan-logo"></th>
+            <th class="search-results__sort-label clan-name">
+              <button type="button" class="sort-trigger <% if (apiRequest.sort === 'clanName') { if (apiRequest.sortOrder === 'DESC') { print('is-active-desc'); } else { print('is-active-asc'); } } %>"
+                data-sort="clanName">Clan Name<i class="fa" aria-hidden="true"></i></button>
+            </th>
+            <th class="search-results__sort-label">
+              <button type="button" class="sort-trigger <% if (apiRequest.sort === 'clanTag') { if (apiRequest.sortOrder === 'DESC') { print('is-active-desc'); } else { print('is-active-asc'); } } %>"
+                data-sort="clanTag">Clan Tag<i class="fa" aria-hidden="true"></i></button>
+            </th>
+            <th class="search-results__sort-label">
+              <button type="button" class="sort-trigger <% if (apiRequest.sort === 'average_skill_level') { if (apiRequest.sortOrder === 'DESC') { print('is-active-desc'); } else { print('is-active-asc'); } } %>"
+                data-sort="average_skill_level">Skill Level<i class="fa" aria-hidden="true"></i></button>
+            </th>
+            <th class="search-results__sort-label">
+              <button type="button" class="sort-trigger <% if (apiRequest.sort === 'activity_level') { if (apiRequest.sortOrder === 'DESC') { print('is-active-desc'); } else { print('is-active-asc'); } } %>"
+                data-sort="activity_level">Activity Level<i class="fa" aria-hidden="true"></i></button>
+            </th>
+            <th class="search-results__sort-label">
+              <button type="button" class="sort-trigger <% if (apiRequest.sort === 'member_count') { if (apiRequest.sortOrder === 'DESC') { print('is-active-desc'); } else { print('is-active-asc'); } } %>"
+                data-sort="member_count">Member Count<i class="fa" aria-hidden="true"></i></button>
+            </th>
+            <th class="search-results__sort-label">
+              <button type="button" class="sort-trigger <% if (apiRequest.sort === 'date') { if (apiRequest.sortOrder === 'DESC') { print('is-active-desc'); } else { print('is-active-asc'); } } %>"
+                data-sort="date">Date Created<i class="fa" aria-hidden="true"></i></button>
+            </th>
+            <th class="search-results__sort-label">
+              <button type="button" class="sort-trigger <% if (apiRequest.sort === 'applications') { if (apiRequest.sortOrder === 'DESC') { print('is-active-desc'); } else { print('is-active-asc'); } } %>"
+                data-sort="applications">Application<i class="fa" aria-hidden="true"></i></button>
+            </th>
+            <th class="search-results__sort-label">
+              <button type="button" class="sort-trigger <% if (apiRequest.sort === 'language') { if (apiRequest.sortOrder === 'DESC') { print('is-active-desc'); } else { print('is-active-asc'); } } %>"
+                data-sort="language">Language<i class="fa" aria-hidden="true"></i></button>
+            </th>
+          </tr>
+        </thead>    
+      <tbody class="search-results__content">
+      <% _.each(results, function(item) { %>
+        <tr class="search-results__row loaded">
+          <td class="search-results__cell clan-logo">
+            <a class="clan-logo-container" href="<%= item.permalink %>">
+              <img src="<%= item.clanLogo %>" onerror="this.src= window.wp_object.default_avatar"/>
+            </a>
+          </td>
+          <td class="search-results__cell clan-name">
+            <h4><a href="<%= item.permalink %>"><%= item.clanName %></a></h4>
+          </td>
+          <td class="search-results__cell">
+            <span class="search-results__mobile-label">Clan Tag</span>
+            [<%= item.clanTag %>]
+          </td>
+          <td class="search-results__cell">
+            <span class="search-results__mobile-label">Skill Level</span>
+            <%= item.skill %>
+          </td>
+          <td class="search-results__cell">
+            <span class="search-results__mobile-label">Activity Level</span>
+            <%= item.activity %>
+          </td>
+          <td class="search-results__cell">
+            <span class="search-results__mobile-label">Member Count</span>
+            <%= item.memberCount %>
+          </td>
+          <% if (item.createDate) { %>
+          <td class="search-results__cell">
+            <span class="search-results__mobile-label">Date Created</span>
+            <%= (new Date(item.createDate)).toLocaleDateString() %>
+          </td>
+          <% } else { %>
+          <td class="search-results__cell">
+            <span class="search-results__mobile-label">Date Created</span>
+            [not available]
+          </td>
+          <% } %>
+          <td class="search-results__cell">
+            <span class="search-results__mobile-label">Application</span>
+            <%= item.application %>
+          </td>
+          <td class="search-results__cell">
+            <span class="search-results__mobile-label">Language</span>
+            <%= item.language %>
+          </td>
+        </tr>
+      <% }); %>
+      </tbody>
+    </table>
+  </div>
+</div>

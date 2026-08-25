@@ -1,0 +1,33 @@
+.mods__mobile-menu {
+	@include breakpoint(min-width, $bpNavBreak) {
+		display: none;
+	}
+}
+
+.mods__subnav-block {
+	&[data-game-id="ageiv"] {
+		a[data-game-id="ageiv"] {
+			display: none;
+		}
+	}
+	&[data-game-id="ageiii"] {
+		a[data-game-id="ageiii"] {
+			display: none;
+		}
+	}
+	&[data-game-id="ageii"] {
+		a[data-game-id="ageii"] {
+			display: none;
+		}
+	}
+	&[data-game-id="agei"] {
+		a[data-game-id="agei"] {
+			display: none;
+		}
+	}
+	&[data-game-id="aom"] {
+		a[data-game-id="aom"] {
+			display: none;
+		}
+	}
+}

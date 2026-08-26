@@ -9,7 +9,14 @@
 
 	<title>Heather Sullivan Portfolio</title>
 
+	<!-- Preload fonts to prevent FOUT -->
+	<link rel="preconnect" href="https://use.typekit.net" crossorigin>
+	<link rel="preload" href="https://use.typekit.net/aid0ldy.css" as="style">
 	<link rel="stylesheet" href="https://use.typekit.net/aid0ldy.css">
+	<script>
+		// Hide content until fonts are loaded
+		document.documentElement.classList.add('fonts-loading');
+	</script>
 	<link rel="stylesheet" href="assets/styles/themes.css?ver=now" />
 
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=yes, width=device-width"/>
@@ -17,6 +24,10 @@
 
 	<!-- Accessibility: Skip link and focus styles -->
 	<style>
+		/* Hide content until fonts are ready */
+		.fonts-loading {
+			visibility: hidden;
+		}
 		.skip-link {
 			position: absolute;
 			top: -100px;
@@ -61,6 +72,7 @@
 	<script src="components/home-content.js" defer></script>
 	<script src="components/about-content.js" defer></script>
 	<script src="components/portfolio-content.js" defer></script>
+	<script src="components/project-content.js" defer></script>
 	<script src="components/site-footer.js" defer></script>
 
 	<script>
@@ -68,6 +80,11 @@
 			const theme = event.detail.theme;
 			document.body.className = theme;
 			localStorage.setItem('theme', theme);
+		});
+
+		// Reveal content when fonts are loaded
+		document.fonts.ready.then(() => {
+			document.documentElement.classList.remove('fonts-loading');
 		});
 
 		// Apply saved theme to body on load
@@ -136,6 +153,7 @@
 	<coloring-canvas aria-hidden="true"></coloring-canvas>
 	<!--<theme-switcher></theme-switcher>-->
 	<site-footer role="contentinfo"></site-footer>
+	<project-content></project-content>
 	<main id="main-content" class="container" role="main" aria-label="Portfolio sections">
 		<section class="page" id="home" aria-label="Introduction" tabindex="-1">
 			<home-content></home-content>

@@ -4,7 +4,7 @@ templateAboutContent.innerHTML = `
 	#about-section {
     background: var(--theme-background-color);
     color: var(--theme-text-color);
-    font-family: var(--theme-font-family);
+    font-family: var(--theme-font-sans);
     font-size: 1rem;
     padding: 2rem;
     section {
@@ -20,6 +20,14 @@ templateAboutContent.innerHTML = `
 		}
     p {
       margin: 0 0 1rem 0;
+			&.sub {
+				margin-left: 2rem;
+				&:before {
+					content: "• ";
+					display: inline-block;
+					width: 1rem;
+				}
+			}
 			&.sub, & a {
 				font-family: var(--theme-font-subhead);
 			}

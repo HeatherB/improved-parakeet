@@ -136,7 +136,9 @@ const PROJECT_ROUTES = {
     'ecoplanner': 'case-studies/seattle-ecoplanner.md',
     'learn-to-play': 'case-studies/microsoft-learn-to-play.md',
     'translation-platform': 'case-studies/microsoft-translation-platform.md',
-    'design-system': 'case-studies/design-system-theme-registry.md'
+    'design-system': 'case-studies/design-system-theme-registry.md',
+    'enmasse-gaming': 'case-studies/enmasse-gaming-ecommerce.md',
+    'plexipixel-pokemon': 'case-studies/plexipixel-pokemon-launch.md'
 };
 
 class ProjectContent extends HTMLElement {

@@ -23,7 +23,7 @@ window.registerTheme('great_outdoors', `
         max-width: 600px;
         margin: 2rem;
       }
-      h2 {
+      h1 {
         text-align: center;
         padding: 0;
         font-size: 48px;
@@ -73,7 +73,7 @@ window.registerTheme('great_outdoors', `
   @media all and (min-width: 768px) {
     #content_wrapper {
       &.home {
-        h2 {
+        h1 {
           font-size: 64px;
           .hey { font-size: 48px; }
           .proper { font-size: 72px; }

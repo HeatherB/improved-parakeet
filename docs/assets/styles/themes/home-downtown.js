@@ -1,6 +1,6 @@
 window.registerTheme('downtown', `
   #content_wrapper {
-    font-family: var(--theme-font-family);
+    font-family: var(--theme-font-sans);
     &.home {
       position: relative;
       height: calc(100% - 26px);
@@ -12,7 +12,7 @@ window.registerTheme('downtown', `
         padding: 2rem;
         background: var(--theme-intro-bg);
       }
-      h2 {
+      h1 {
         text-align: left;
         padding-top: 0;
         padding-bottom: 3%;
@@ -29,10 +29,11 @@ window.registerTheme('downtown', `
           font-style: normal;
           display: inline-block;
           vertical-align: middle;
-          margin-bottom: -1rem;
+          margin-bottom: -4rem;
         }
         .proper {
           color: var(--theme-primary-color);
+          font-family: var(--theme-font-family);
           font-style: normal;
           font-size: 63px;
           margin-left: 0px;

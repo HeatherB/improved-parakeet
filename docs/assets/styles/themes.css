@@ -1,7 +1,8 @@
 /* themes.css */
 :root {
-  --theme-primary-color: #f4824e; /* orange */
-  --theme-secondary-color: #0DDFFF; /* teal */
+  --theme-primary-color: #FF7F50; /* coral */
+  --theme-primary-darker-color: #CC5500; /* burnt orange */
+  --theme-secondary-color: #30D5C8; /* teal */
   --theme-background-color: #E5E4E2; /* platinum grey */
   --theme-text-color: #000000;
   --theme-shadow-color: #ffffff;

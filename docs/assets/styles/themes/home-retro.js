@@ -25,7 +25,7 @@ window.registerTheme('retro', `
         text-align: right;
         max-width: 500px;
       }
-      h2 {
+      h1 {
         text-align: right;
         padding: 0;
         font-size: 60px;
@@ -82,7 +82,7 @@ window.registerTheme('retro', `
   @media all and (min-width: 768px) {
     #content_wrapper {
       &.home {
-        h2 {
+        h1 {
           .hey { font-size: 28px; letter-spacing: 12px; }
           .proper { font-size: 96px; }
           .detail { font-size: 16px; letter-spacing: 8px; }
@@ -101,7 +101,7 @@ window.registerTheme('retro', `
     #content_wrapper {
       &.home {
         section { max-width: 650px; right: 10%; }
-        h2 { .proper { font-size: 110px; } }
+        h1 { .proper { font-size: 110px; } }
       }
     }
   }

@@ -1,0 +1,21 @@
+<html>
+<head>
+<title>Loading</title>
+<style>
+  body { background-color: #000; }
+</style>
+</head>
+<body>
+  <script>
+    if (window.opener) {
+      window.opener.location.href = window.location.protocol + "//" + window.location.host + '<%= @billing.purchase_info["resultcode"] != "0" && @billing.purchase_info["resultcode"] != "301" ? "/#{@game}/payment-failure" : "/#{@game}/payment-confirmation" %>';
+      self.close();
+    } else if (window.parent) {
+      window.parent.location.href = window.location.protocol + "//" + window.location.host + '<%= @billing.purchase_info["resultcode"] != "0" && @billing.purchase_info["resultcode"] != "301" ? "/#{@game}/payment-failure" : "/#{@game}/payment-confirmation" %>';
+    } else {
+      window.location.href = window.location.protocol + "//" + window.location.host + '<%= @billing.purchase_info["resultcode"] != "0" && @billing.purchase_info["resultcode"] != "301" ? "/#{@game}/payment-failure" : "/#{@game}/payment-confirmation" %>';
+    }
+
+  </script> 
+</body>
+</html>

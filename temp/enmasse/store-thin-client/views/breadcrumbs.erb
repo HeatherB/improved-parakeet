@@ -1,0 +1,16 @@
+<% prams = request.query_string.gsub(/page=\d+/, '')
+   prams = prams.gsub(/&&/, '&').gsub(/&$/, '')
+   prams = '?' + prams if prams.length > 2 %>
+<% if @breadcrumbs.length > 0 %>
+        <ul class="breadcrumb">
+          <% @breadcrumbs.each_with_index do |bc, index| %>
+            <li<%= " class='last'" if (index == @breadcrumbs.size - 1) %>>
+                <% if bc[:href] %>
+                    <a href="<%= bc[:href] %><%= prams unless bc[:no_params] %>"><%= bc[:text] %></a>
+                <% else %>
+                    <%= bc[:text] %>
+                <% end %>
+            </li>
+          <% end %>
+        </ul>
+<% end %>

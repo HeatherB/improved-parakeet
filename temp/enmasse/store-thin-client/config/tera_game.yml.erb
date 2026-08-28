@@ -1,0 +1,12 @@
+tera_game:
+  name: <%= "#{fetch(:tera_name)}" %>
+  url: <%= "#{fetch(:tera_url)}" %>
+  ssl: <%= "#{fetch(:tera_use_ssl)}" %>
+  use_memcache: <%= "#{fetch(:tera_use_memcache)}" %>
+  memcache_hosts:
+  <% fetch(:tera_memcached_hosts).each do |memsrv| %>
+    - <%= "#{memsrv}" %>
+  <% end %>
+  cache_prefix: <%= "#{fetch(:tera_cache_prefix)}" %>
+  game_id: <%= "#{fetch(:tera_game_id)}" %>
+  type: <%= "#{fetch(:tera_type)}" %>

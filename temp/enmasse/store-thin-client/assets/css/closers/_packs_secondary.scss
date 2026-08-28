@@ -1,0 +1,180 @@
+body.closers_packs {
+	.alert-block {
+		font-size:18px;
+		>div {
+			margin: 0 auto;
+		}
+	}
+	.bundle {
+		&.secondary {
+			background: url(https://eme04.enmasse-game.com/images/closers/shop/packs/bundlebg_ace.jpg) top center no-repeat #bdabf7;
+			.inner {
+				//background: $white;
+			}
+			.bundle_heading {
+				background:#8ea5bd;
+			}
+			.bundle_content {
+				padding: 20px;
+				p {
+					font-size:18px;
+					text-align: left;
+					position: relative;
+					z-index:10;
+				}
+				.popup-info {
+					text-align: left;
+					max-width: 390px;
+					margin:0;
+					position: relative;
+					z-index: 10;
+					display: block;
+				}
+			}
+			.login-plate {
+				margin:20px auto;
+				position: relative;
+				padding-top:14px;
+				width: 210px;
+				height: 70px;
+				z-index:9;
+				a {
+					font-size: 26px;
+				}
+			}
+			#selected-amt, #selected-amt-price {
+				h3 {
+					font-size: 36px;
+				}
+				p {
+					font-size: 21px;
+					text-align:center;
+				}
+			}
+			#purchase-confirmation {
+				.submitBTN {
+					@include linear-slant-btn(#ffeb00, $white, #000000);
+					position: relative;
+					margin: 20px auto;
+				    left: 0;
+				    right: 0;
+				    width: 210px;
+				    height: 70px;
+				    cursor: pointer;
+				    padding-top: 18px;
+				    z-index:9;
+					input[type=submit] {
+						transform: skew(20deg);
+					    -webkit-transform: skew(20deg);
+					    -moz-transform: skew(20deg);
+					    -o-transform: skew(20deg);
+					    -ms-transform: skew(20deg);
+					    display: block;
+						font-size: 26px;
+						text-align:center;
+						display: block;
+						color:$black;
+						text-decoration: none;
+						background: none;
+						border: none;
+						margin:0 auto;
+						box-shadow: none;
+					}
+					&:hover {
+						background: $black;
+						input[type=submit] {
+							color: #ffeb00;
+						}	
+					}
+				}
+			}
+		}
+	}
+}
+
+@include breakpoint(tablet) {
+	body.closers_packs {
+		#page-content {
+			overflow-x:	hidden;
+		}
+		.bundle {
+			&.secondary {
+				.inner {
+					min-height:580px;
+					&:after {
+						content:'';
+						background: url(http://eme04.enmasse-game.com/images/closers/rebranding/blacklambs_long_V2.png) bottom right no-repeat;
+						bottom:0;
+						right:auto;
+						left: 14%;
+						top: auto;
+						z-index: 9;
+						height:610px;
+						background-size:contain;
+					}
+				}
+				.bundle_title {
+					left: -26%;
+					&:after {
+						height: 76px;
+					}
+				}
+				.bundle_content {
+					p {
+						font-size: 26px;
+						text-align: left;
+						max-width:50%;
+					}
+				}
+				#selected-amt, #selected-amt-price {
+					text-align: left;
+				}
+				#selected-amt, #selected-amt-price {
+					h3 {
+						font-size: 60px;
+						text-align: left;
+					}
+					p {
+						font-size: 48px;
+						text-align: left;
+					}
+				}
+				#purchase-confirmation {
+					.submitBTN {
+						margin: 20px 10px;
+						z-index: 10;
+					}
+				}
+				.login-plate {
+					margin: 20px 10px;
+					z-index: 10;
+				}
+			}
+		}
+	}
+}
+@include breakpoint(desktop) {
+	body.closers_packs {
+		.alert-block {
+			>div {
+				margin: 140px auto -100px;
+			}
+		}
+		.bundle {
+			&.secondary {
+				.bundle_title {
+					&:after {
+						height: 88px;
+					}
+				}
+				.inner {
+					min-height:630px;
+					&:after {
+						left: 4%;
+						height:660px;
+					}
+				}
+			}
+		}
+	}
+}

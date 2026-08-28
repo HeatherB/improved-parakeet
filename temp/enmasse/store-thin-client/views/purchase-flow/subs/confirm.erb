@@ -1,0 +1,78 @@
+<div class="subs">
+  <div class="content">
+    <% if @billing.auth_flag? # UPDATE FLOW %>
+      <p>Please verify your billing address information below. To complete these changes, you will also need to enter your credit card information on the next screen.</p>
+      <p>Even if you are not changing your credit card information, you need to verify your credit card information on the next screen to complete these changes.</p>
+      <div class="content-block">
+        <form method="POST" action="/<%= @game %>/<%= session['path'] %>">
+          <input type="hidden" name="game_account_id" value="<%= @game_accounts[0]["id"] %>" data-active="<%= @game_accounts[0]["subscription_active"] %>" />
+          <h3>Billing Info <small><input type="submit" class="edit" value="edit" /></small></h3>
+        </form>
+        <ul>
+          <% if @billing.country == "USA" || @billing.country == "CAN" %>
+            <li>City: <%= @billing.city %></li>
+            <li>State: <%= (@billing.state == "^") ? "" : "#{@billing.state}" %></li>
+            <li>Zip: <%= @billing.zip %></li>
+            <% end %>
+            <li>Country: <%= @billing.country %></li>
+        </ul>
+      </div>
+    <% else # NEW SUB %>
+      <ul>
+        <li class="content-block">
+          <h3>Elite Status <small><a href="/<%= @game %>/<%= session['path'] %>/#paymentList">Edit</a></small></h3>
+          <ul>
+            <li>Amount: $<%= sprintf "%.2f", @billing.price %></li>
+            <li>Tax: $<%= sprintf "%.2f", @tax_amount.to_f %></li>
+            <li>Total: $<%= sprintf "%.2f", @billing.price.to_f + @tax_amount.to_f %></li>
+          </ul>
+        </li>
+        <li class="content-block">
+          <h3>Billing Info <small><a href="/<%= @game %>/<%= session['path'] %>/#billingInfo">Edit</a></small></h3>
+          <ul>
+            <% if @billing.country == "USA" || @billing.country == "CAN" %>
+            <li>City: <%= @billing.city %></li>
+            <li>State: <%= (@billing.state == "^") ? "" : "#{@billing.state}" %></li>
+            <li>Zip: <%= @billing.zip %></li>
+            <% end %>
+            <li>Country: <%= @billing.country %></li>
+          </ul>
+        </li>
+      </ul>
+    <% end %>
+    <h2>Auto-Renewal Plan Terms</h2>
+    <p>By checking the box below and completing your purchase, you authorize and permit En Masse Entertainment to automatically renew your purchased license or subscription for successive Elite Status (30-days recurring) renewal terms at the specified Elite Status (30-days recurring) license price (plus taxes and fees, less any applicable discounts) using the payment information for your initial purchase, until you cancel.</p>
+    <p>You may cancel your auto-renewal plan at any time by visiting the <a href="/<%= @game %>/elite-status">Elite Status Page</a>, selecting your account, clicking the “Edit Elite Status” button, then clicking on the “cancel your elite status” link at the bottom of the page.</p>
+  </div>
+</div>
+
+<div class="text-align-center">
+  <div id="cbox_AcceptTerms">
+    <input type="checkbox" name="agreeTerms" id="agreeTerms">
+    <span>I have read and agree to the auto-renewal plan terms and charges.</span>
+    <label for="agreeTerms" class="error">Please agree to the auto-renewal plan terms and charges.</label>
+  </div>
+</div>
+
+<div class="text-align-center">
+  <% if @billing.payment_method == 'token' %>
+    <input type="submit" class="button-secondary confirm" value="Complete Transaction" onclick="_gaq.push(['_trackEvent', 'Purchase Funnels', 'Submit Billing Info Review', 'Subscription']);" />
+  <% else %>
+    <input type="submit" class="button-secondary confirm" value="Continue to Next Step" onclick="_gaq.push(['_trackEvent', 'Purchase Funnels', 'Submit Order Review', 'Subscription']);" />
+  <% end %>
+  <div class="processing"><span class="loading"></span> Processing...</div>
+</div>
+
+<% if @billing.auth_flag %>
+  <script type="text/javascript">
+    window.onload = function(){
+      _gaq.push(['_trackEvent', 'Purchase Funnels', 'View Billing Info Review Screen', 'Subscription']);
+    }
+  </script>
+<% else %>
+  <script type="text/javascript">
+    window.onload = function(){
+      _gaq.push(['_trackEvent', 'Purchase Funnels', 'View Order Review Screen', 'Subscription']);
+    }
+  </script>
+<% end %>

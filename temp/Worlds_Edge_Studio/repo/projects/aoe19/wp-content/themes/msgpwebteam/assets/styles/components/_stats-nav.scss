@@ -1,9 +1,0 @@
-//extends .section-nav
-.stats-nav {
-
-  @include breakpoint(small down) {
-    .columns {
-      margin-bottom: 10px;
-    }
-  }
-}

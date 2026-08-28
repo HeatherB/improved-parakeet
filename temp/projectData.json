@@ -1,0 +1,121 @@
+[
+    {
+        "name": "elevate ortho",
+        "project_type": "responsive website",
+        "url_path": "http://moore-theodore.sesamehub.com/",
+        "image_path": "http://lorempixel.com/400/200/",
+        "project_copy": "blah, blah, blah"
+    },
+    {
+        "name": "bailey ortho",
+        "project_type": "fixed website",
+        "url_path": "http://www.baileyorthodontics.com",
+        "image_path": "http://lorempixel.com/400/200/",
+        "project_copy": "blah, blah, blah"
+    },
+    {
+        "name": "ashburn pedo",
+        "project_type": "responsive website",
+        "url_path": "http://www.ashburnpedo.com",
+        "image_path": "http://lorempixel.com/400/200/",
+        "project_copy": "blah, blah, blah"
+    },
+    {
+        "name": "elenberger ortho",
+        "project_type": "responsive website",
+        "url_path": "http://www.elenbergerorthodontics.com",
+        "image_path": "http://lorempixel.com/400/200/",
+        "project_copy": "blah, blah, blah"
+    },
+    {
+        "name": "village center orthodontics",
+        "project_type": "responsive website",
+        "url_path": "http://www.drbonebreak.com/",
+        "image_path": "http://lorempixel.com/400/200/",
+        "project_copy": "blah, blah, blah"
+    },
+    {
+        "name": "pediatric dental group",
+        "project_type": "responsive website",
+        "url_path": "http://www.thepediatricdentalgroup.com/",
+        "image_path": "http://lorempixel.com/400/200/",
+        "project_copy": "blah, blah, blah"
+    },
+    {
+        "name": "A. E. Ortho Group",
+        "project_type": "fixed website with seperate mobile content",
+        "url_path": "http://www.smilesbyelchahal.com",
+        "image_path": "http://lorempixel.com/400/200/",
+        "project_copy": "blah, blah, blah"
+    },
+    {
+        "name": "optimal ortho",
+        "project_type": "fixed website with seperate mobile content",
+        "url_path": "http://www.optimalorthodontics.com/",
+        "image_path": "http://lorempixel.com/400/200/",
+        "project_copy": "blah, blah, blah"
+    },
+    {
+        "name": "sindelar dental",
+        "project_type": "fixed website",
+        "url_path": "http://www.sindelardental.com",
+        "image_path": "http://lorempixel.com/400/200/",
+        "project_copy": "blah, blah, blah"
+    },
+    {
+        "name": "bergen ortho",
+        "project_type": "responsive website",
+        "url_path": "http://www.bergenortho.com/",
+        "image_path": "http://lorempixel.com/400/200/",
+        "project_copy": "blah, blah, blah"
+    },
+    {
+        "name": "seattle design center",
+        "project_type": "website overhaul",
+        "url_path": "http://seattledesigncenter.com/",
+        "image_path": "http://lorempixel.com/400/200/",
+        "project_copy": "I rebuilt the seattle design center website while I was working at .advancedMethod. The previous site had been built in flash and it was time for an overhaul. I worked with The Geneva Group to integrate the SDC's inventory and scheduling applications."
+    },
+    {
+        "name": "templated temporary website",
+        "project_type": "templated temporary website",
+        "url_path": "http://site1.sesameconnectdemo.com",
+        "image_path": "http://lorempixel.com/400/200/",
+        "project_copy": "Sesame also provides a temporary site to new memebers. A Project Manager fills out a variables php page and the temporary site is generated in just a few minutes from a few different color options. I wrote html, css and php for this project."
+    },
+    {
+        "name": "template development",
+        "project_type": "Sesame Designed Sites &bull; GitHub",
+        "url_path": "http://www.sesamewebdesign.com/sds-gallery.php",
+        "image_path": "http://lorempixel.com/400/200/",
+        "project_copy": "In addition to building custom websites (our psds product) for Sesame Communications, I also manage our templates (our sds product). I developed a few of these templates and am in charge of upkeep on the local and global css, javascript and php files.<br />I contribute to github repositories for Sesame Communications. I re-skinned the client checklist tool and developed the temporary site. When clients first sign up for service with Sesame, they step through a checklist process to get the ball rolling on their website. Clients select a lot of content for their website as well as make some style choices. I re-skinned the Client Checklist Tool in April 2014."
+    },
+    {
+        "name": "skillshow",
+        "project_type": "website overhaul",
+        "url_path": "http://skillshow.com/",
+        "image_path": "http://lorempixel.com/400/200/",
+        "project_copy": "I have been involved in a pretty major overhaul of the website for Skillshow. In particular, I have worked on the Recruiter's section of the site. You can visit their github repository here."
+    },
+    {
+        "name": "sesame communications corporate site",
+        "project_type": "website reskin",
+        "url_path": "http://www.sesamecommunications.com/",
+        "image_path": "http://lorempixel.com/400/200/",
+        "project_copy": "blah, blah, blah"
+    },
+    {
+        "name": "sierra nevada beercamps across america",
+        "project_type": "website reskin",
+        "url_path": "http://www.tbd.com/",
+        "thumb_path": "assets/img/work/snbcaa.jpg",
+        "project_copy": "blah, blah, blah"
+    },
+    {
+        "name": "bofa tower directory search",
+        "project_type": "kiosk application",
+        "url_path": "no",
+        "thumb_path": "assets/img/work/bofa.png",
+        "project_copy": "blah, blah, blah"
+    }
+] 

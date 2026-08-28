@@ -1,0 +1,78 @@
+<section class="pack_pack confirm">
+	<h1>Please Confirm Your Purchase</h1>
+	<div class="pack_details">
+		<div class="heading">
+			<h2>Tera Back To School Pack</h2>
+		</div>
+		<div class="extra_copy">
+			<p>This button opens a pop-up window, so you may complete your purchase. If you have a pop-up blocker installed, please temporarily disable it to allow the window to open so you may complete your purchase.</p>
+		</div>
+	</div>
+	<div class="action">
+		<div class="price_reveal">
+			<span>$49.99</span>
+		</div>
+		<% if !session[:account_id] # IF NOT LOGGED IN  %>
+	    	<div class="btn_blue">
+	        	<a href='/' class="sign-in login-popup-link">SIGN IN to purchase</a>
+	    	</div>
+		<% else %>
+		<div id="purchase-confirmation">
+              <form id="payform" name="payform">
+              	<div id="hidden-fields" data-action-url="<%= @billing.payment_url %>"></div>
+              	<% if @billing.errors.any? && @show_errors %>
+                  <div id="error-explanation">
+                    <div class="error">
+                      <% @billing.errors.full_messages.each do |msg| %>
+                        <article><%= msg %></article>
+                      <% end %>
+                    </div>
+                  </div>
+                <% end %>
+		    	<!-- xsolla style button -->
+		      	<!--<button class="btn_blue confirm" data-project_id="###" data-id="###">
+		        	<span>Confirm Purchase</span>
+		      	</button>-->
+		      	<div class="submitBTN btn_blue">
+                  <input type="submit" class="confirm" value="Confirm Purchase" onclick="_gaq.push(['_trackEvent', 'Purchase Funnels', 'Submit Order Review', 'TERA Pack']);"/>
+                  <!--<button class="btn_blue confirm" data-project_id="###" data-id="###">
+		        	<span>Confirm Purchase</span>-->
+		      	</button>
+                </div>
+		      <!-- end xsolla button -->
+		<% end %>
+	</div>
+	
+</section>
+
+
+
+
+<!--<div id="purchase-confirmation">
+              <form id="payform" name="payform">
+                <div id="hidden-fields" data-action-url="<%= @billing.payment_url %>"></div>
+                <div id="selected-amt">
+                  <h3>Closers Packs</h3>
+                  <p><%#= @billing.name %></p>
+                </div>
+                <div id="selected-amt-price">
+                  <p>$<span><%#= sprintf "%.2f", @billing.price %></span> USD</p>
+                </div>
+                <%# if @billing.errors.any? && @show_errors %>
+                  <div id="error-explanation">
+                    <div class="error">
+                      <%# @billing.errors.full_messages.each do |msg| %>
+                        <article><%#= msg %></article>
+                      <%# end %>
+                    </div>
+                  </div>
+                <%# end %>
+
+                <div class="submitBTN">
+                  <input type="submit" class="button-secondary confirm" value="Confirm Order" onclick="_gaq.push(['_trackEvent', 'Purchase Funnels', 'Submit Order Review', 'Closers Packs']);"/>
+                </div>
+                <small class="popup-info">This button opens a pop-up window for your chosen payment method. If you have a pop-up blocker installed,
+                  please temporarily disable it to allow the window to open so you may complete your purchase.</small>
+
+              </form>
+            </div>-->

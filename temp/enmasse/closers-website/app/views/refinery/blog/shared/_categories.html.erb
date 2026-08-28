@@ -1,0 +1,38 @@
+<%# if @categories != nil and @categories.any? %>
+<nav class="category_nav">
+  <ul id='categories'>
+    <% @categories.each do |category| %>
+    <% if(category.title.downcase == 'featured') %>
+    <% else %>
+      <!--<li data-select=<%= category.title %> <%= " class='selected' " if @category.present? and @category.id == category.id %>>-->
+      <li <%= " class=selected " if @category.present? and @category.id == category.id %>>
+        <%= link_to "#{category.title}", refinery.blog_category_path(category) %>
+        </li>
+      <!--</li>-->
+      <% end %>
+    <% end %>
+  </ul>
+ </nav>
+<%# end %>
+
+
+<!--<nav class="category_nav">
+	<ul>
+		<li data-select="Announcements">
+			<button type="button" id="load_annoucements">Announcements</button>
+		</li>
+		<li data-select="Community">
+			<button type="button" id="load_annoucements">Community</button>
+		</li>
+		<li data-select="Patch">
+			<button type="button" id="load_patch-notes">Patch Notes</button>
+		</li>
+		<li data-select="Dev.">
+			<button type="button" id="load_developer-blog">Developer Blog</button>
+		</li>
+	</ul>
+	<p id="noPosts">No Posts match the search criteria, please select another category.</p>
+</nav>-->
+
+<%#= link_to "Load Other", load_other_path, :remote => true %>
+

@@ -1,0 +1,4971 @@
+@mixin item-icon(){
+  @include border-radius(10px);
+  width: 75px;
+  height: 75px;
+  position: relative;
+  border: 1px solid black;
+  margin: 5px;
+
+  &:after {
+    @include border-radius(10px);
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    border: 2px solid $lightGray;
+    width:79px;
+    height:79px;
+  }
+}
+
+@mixin item-icon-bgpos($x: 0, $y:0) {
+  @include item-icon();
+  background-position: #{-($x * 75px)} #{-($y * 75px)};
+}
+
+.k62, .inner-armor-dark-1 {
+  @include item-icon();
+  background-image: image-url('icons/InnerArmor.jpg');
+  background-position: 0 0;
+}
+.l62, .inner-armor-dark-2 {
+  @include item-icon();
+  background-image: image-url('icons/InnerArmor.jpg');
+  background-position: -75px 0;
+}
+.m62, .inner-armor-light-1 {
+  @include item-icon();
+  background-image: image-url('icons/InnerArmor.jpg');
+  background-position: -150px 0;
+}
+.n62, .inner-armor-light-2 {
+  @include item-icon();
+  background-image: image-url('icons/InnerArmor.jpg');
+  background-position: -225px 0;
+}
+.f62, .google-eyes {
+  @include item-icon();
+  background-image: image-url('icons/Animated_Accessories.png');
+  background-position: 0 0;
+}
+.g62, .pinwheel-headband {
+  @include item-icon();
+  background-image: image-url('icons/Animated_Accessories.png');
+  background-position: -75px 0;
+}
+.h62, .flower-pinwheel {
+  @include item-icon();
+  background-image: image-url('icons/Animated_Accessories.png');
+  background-position: -150px 0;
+}
+.i62, .hypno-eyes {
+  @include item-icon();
+  background-image: image-url('icons/Animated_Accessories.png');
+  background-position: -225px 0;
+}
+.j62, .bubble-bubble {
+  @include item-icon();
+  background-image: image-url('icons/Animated_Accessories.png');
+  background-position: -300px 0;
+}
+.e62, .inner-armor-white {
+  @include item-icon();
+  background-image: image-url('icons/inner-armor.jpg');
+  background-position: -75px 0;
+}
+.d62, .inner-armor-black {
+  @include item-icon();
+  background-image: image-url('icons/inner-armor.jpg');
+  background-position: 0 0;
+}
+.nm, .nightmare-mount {
+  @include item-icon();
+  background-image: image-url('icons/mount-horses.jpg');
+  background-position: 0 0;
+}
+.sm, .sleipnir-mount {
+  @include item-icon();
+  background-image: image-url('icons/mount-horses.jpg');
+  background-position: -75px 0;
+}
+.fc, .federation-charger {
+  @include item-icon();
+  background-image: image-url('icons/mount-horses.jpg');
+  background-position: -150px 0;
+}
+.rainbow, .a25 {
+  @include item-icon();
+  background-image: image-url('icons/mount-horses.jpg');
+  background-position: -225px 0;
+}
+.h15, .peep {
+  @include item-icon();
+  background-image: image-url('icons/mount-birds.jpg');
+  background-position: 0 0;
+}
+.i15, .ember {
+  @include item-icon();
+  background-image: image-url('icons/mount-birds.jpg');
+  background-position: -75px 0;
+}
+.j15, .violet-birdcage {
+  @include item-icon();
+  background-image: image-url('icons/mount-birds.jpg');
+  background-position: -150px 0;
+}
+.a16, .fire-birdcage {
+  @include item-icon();
+  background-image: image-url('icons/mount-birds.jpg');
+  background-position: -225px 0;
+}
+.f23, .harley {
+  @include item-icon();
+  background-image: image-url('icons/mount-pigs.jpg');
+  background-position: 0 0;
+}
+.g23, .petunia {
+  @include item-icon();
+  background-image: image-url('icons/mount-pigs.jpg');
+  background-position: -75px 0;
+}
+.h23, .boss {
+  @include item-icon();
+  background-image: image-url('icons/mount-pigs.jpg');
+  background-position: -150px 0;
+}
+.i23, .harry-porker {
+  @include item-icon();
+  background-image: image-url('icons/mount-pigs.jpg');
+  background-position: -225px 0;
+}
+.j23, .waddles {
+  @include item-icon();
+  background-image: image-url('icons/mount-pigs.jpg');
+  background-position: -300px 0;
+}
+.a24, .pig-loot-box {
+  @include item-icon();
+  background-image: image-url('icons/mount-pigs.jpg');
+  background-position: -375px 0;
+}
+.b24, .road-hog-loot-box {
+  @include item-icon();
+  background-image: image-url('icons/mount-pigs.jpg');
+  background-position: -450px 0;
+}
+.a34, .blitz {
+  @include item-icon();
+  background-image: image-url('icons/mount-wolves.jpg');
+  background-position: 0 0;
+}
+.b34, .temper {
+  @include item-icon();
+  background-image: image-url('icons/mount-wolves.jpg');
+  background-position: -75px 0;
+}
+.c34, .cinder {
+  @include item-icon();
+  background-image: image-url('icons/mount-wolves.jpg');
+  background-position: -150px 0;
+}
+.d34, .slash {
+  @include item-icon();
+  background-image: image-url('icons/mount-wolves.jpg');
+  background-position: -225px 0;
+}
+.e34, .wolf-pack {
+  @include item-icon();
+  background-image: image-url('icons/mount-wolves.jpg');
+  background-position: -300px 0;
+}
+.f34, .cinderstorm {
+  @include item-icon();
+  background-image: image-url('icons/mount-wolves.jpg');
+  background-position: -375px 0;
+}
+.g34, .cinderheart {
+  @include item-icon();
+  background-image: image-url('icons/mount-wolves.jpg');
+  background-position: -450px 0;
+}
+.h34, .cinderglow {
+  @include item-icon();
+  background-image: image-url('icons/mount-wolves.jpg');
+  background-position: -525px 0;
+}
+.g46, .wolf-mount-lootbox-snarlstorm {
+  @include item-icon();
+  background-image: image-url('icons/mount-wolves.jpg');
+  background-position: -600px 0;
+}
+.h46, .wolf-mount-lootbox-snarlspring {
+  @include item-icon();
+  background-image: image-url('icons/mount-wolves.jpg');
+  background-position: -675px 0;
+}
+.i46, .wolf-mount-lootbox-snarlheart {
+  @include item-icon();
+  background-image: image-url('icons/mount-wolves.jpg');
+  background-position: -750px 0;
+}
+.j46, .wolf-mount-lootbox-gloryshine {
+  @include item-icon();
+  background-image: image-url('icons/mount-wolves.jpg');
+  background-position: -825px 0;
+}
+.a47, .wolf-mount-lootbox-gloryforce {
+  @include item-icon();
+  background-image: image-url('icons/mount-wolves.jpg');
+  background-position: -900px 0;
+}
+.b47, .wolf-mount-lootbox-gloryheart {
+  @include item-icon();
+  background-image: image-url('icons/mount-wolves.jpg');
+  background-position: -975px 0;
+}
+.c47, .snarl{
+  @include item-icon();
+  background-image: image-url('icons/mount-wolves.jpg');
+  background-position: -1050px 0;
+}
+.d47, .glory{
+  @include item-icon();
+  background-image: image-url('icons/mount-wolves.jpg');
+  background-position: -1125px 0;
+}
+.h49, .police-car-lootbox {
+  @include item-icon();
+  background-image: image-url('icons/mount-police-cars.jpg');
+  background-position: 0 0;
+}
+.i49, .police-car-all-types {
+  @include item-icon();
+  background-image: image-url('icons/mount-police-cars.jpg');
+  background-position: -75px 0;
+}
+.g50, .police-car-loot-hp {
+  @include item-icon();
+  background-image: image-url('icons/mount-police-cars.jpg');
+  background-position: -150px 0;
+}
+.h50, .police-car-loot-stamina {
+  @include item-icon();
+  background-image: image-url('icons/mount-police-cars.jpg');
+  background-position: -225px 0;
+}
+.i50, .police-car-loot-mana {
+  @include item-icon();
+  background-image: image-url('icons/mount-police-cars.jpg');
+  background-position: -300px 0;
+}
+.b54, .oriental-dragon {
+  @include item-icon();
+  background-image: image-url('icons/mount-dragons.jpg');
+  background-position: 0 0;
+}
+.c54, .golden-dragon {
+  @include item-icon();
+  background-image: image-url('icons/mount-dragons.jpg');
+  background-position: -75px 0;
+}
+.d54, .golden-dragon-loot-hp {
+  @include item-icon();
+  background-image: image-url('icons/mount-dragons.jpg');
+  background-position: -150px 0;
+}
+.e54, .golden-dragon-loot-mp {
+  @include item-icon();
+  background-image: image-url('icons/mount-dragons.jpg');
+  background-position: -225px 0;
+}
+.f54, .golden-dragon-loot-st {
+  @include item-icon();
+  background-image: image-url('icons/mount-dragons.jpg');
+  background-position: -300px 0;
+}
+.g54, .oriental-dragon-loot-st {
+  @include item-icon();
+  background-image: image-url('icons/mount-dragons.jpg');
+  background-position: -375px 0;
+}
+.h54, .oriental-dragon-loot-mp {
+  @include item-icon();
+  background-image: image-url('icons/mount-dragons.jpg');
+  background-position: -450px 0;
+}
+.i54, .oriental-dragon-loot-hp {
+  @include item-icon();
+  background-image: image-url('icons/mount-dragons.jpg');
+  background-position: -525px 0;
+}
+.a54, .snowbite-wintera-lootbox {
+  @include item-icon();
+  background-image: image-url('icons/mount-snowbite.jpg');
+  background-position: 0 0;
+}
+.j53, .snowbite-lootbox {
+  @include item-icon();
+  background-image: image-url('icons/mount-snowbite.jpg');
+  background-position: -75px 0;
+}
+.f53, .snowbite-all-mounts {
+  @include item-icon();
+  background-image: image-url('icons/mount-snowbite.jpg');
+  background-position: -150px 0;
+}
+.d53, .kumas-all-trecking-mounts {
+  @include item-icon();
+  background-image: image-url('icons/mount-kumas.jpg');
+  background-position: 0 0;
+}
+.e53, .kumas-all-christmas-and-wintera-mounts {
+  @include item-icon();
+  background-image: image-url('icons/mount-kumas.jpg');
+  background-position: -75px 0;
+}
+.g53, .kumas-trek-lootbox {
+  @include item-icon();
+  background-image: image-url('icons/mount-kumas.jpg');
+  background-position: -150px 0;
+}
+.h53, .kumas-christmas-lootbox {
+  @include item-icon();
+  background-image: image-url('icons/mount-kumas.jpg');
+  background-position: -225px 0;
+}
+.i53, .kumas-wintera-christmas-lootvox {
+  @include item-icon();
+  background-image: image-url('icons/mount-kumas.jpg');
+  background-position: -300px 0;
+}
+.exm, .ex-trm-mount {
+  @include item-icon();
+  background-image: image-url('icons/mount-misc.jpg');
+  background-position: 0 0;
+}
+.mun, .munchhausen {
+  @include item-icon();
+  background-image: image-url('icons/mount-misc.jpg');
+  background-position: -75px 0;
+}
+.gou, .gourmando {
+  @include item-icon();
+  background-image: image-url('icons/mount-misc.jpg');
+  background-position: -150px 0;
+}
+.h52, .snowdrift {
+  @include item-icon();
+  background-image: image-url('icons/mount-misc.jpg');
+  background-position: -225px 0;
+}
+.c53, .orange-tiger {
+  @include item-icon();
+  background-image: image-url('icons/mount-misc.jpg');
+  background-position: -300px 0;
+}
+.j59, .polar-bears {
+  @include item-icon();
+  background-image: image-url('icons/mount-misc.jpg');
+  background-position: -375px 0;
+}
+.d61, .yellow-race-car {
+  @include item-icon();
+  background-image: image-url('icons/mount-race-cars.jpg');
+  background-position: 0 0;
+}
+.e61, .red-race-car {
+  @include item-icon();
+  background-image: image-url('icons/mount-race-cars.jpg');
+  background-position: -75px 0;
+}
+.f61, .black-race-car {
+  @include item-icon();
+  background-image: image-url('icons/mount-race-cars.jpg');
+  background-position: -150px 0;
+}
+.a62, .buzzer {
+  @include item-icon();
+  background-image: image-url('icons/mount-beetles.jpg');
+  background-position: 0 0;
+}
+.b62, .cutter {
+  @include item-icon();
+  background-image: image-url('icons/mount-beetles.jpg');
+  background-position: -75px 0;
+}
+.c62, .tweedle  {
+  @include item-icon();
+  background-image: image-url('icons/mount-beetles.jpg');
+  background-position: -150px 0;
+}
+.c61, .elin-merry-sunshine-dress {
+  @include item-icon();
+  background-image: image-url('icons/merry-sunshine.jpg');
+  background-position: 0 0;
+}
+.b60, .merry-sunshine-hat {
+  @include item-icon();
+  background-image: image-url('icons/merry-sunshine.jpg');
+  background-position: -75px 0;
+}
+.i60, .red-tie-up {
+  @include item-icon();
+  background-image: image-url('icons/accessories-tie-ups.jpg');
+  background-position: 0 0;
+}
+.j60, .black-tie-up {
+  @include item-icon();
+  background-image: image-url('icons/accessories-tie-ups.jpg');
+  background-position: -75px 0;
+}
+.a61, .blue-tie-up {
+  @include item-icon();
+  background-image: image-url('icons/accessories-tie-ups.jpg');
+  background-position: -150px 0;
+}
+.f60, .red-rally-cap {
+  @include item-icon();
+  background-image: image-url('icons/accessories-baseball-caps.jpg');
+  background-position: 0 0;
+}
+.g60, .black-rally-cap {
+  @include item-icon();
+  background-image: image-url('icons/accessories-baseball-caps.jpg');
+  background-position: -75px 0;
+}
+.h60, .blue-rally-cap {
+  @include item-icon();
+  background-image: image-url('icons/accessories-baseball-caps.jpg');
+  background-position: -150px 0;
+}
+.baseball-cap, .bc {
+  @include item-icon();
+  background-image: image-url('icons/accessories-baseball-caps.jpg');
+  background-position: -225px 0;
+}
+.c60, .red-helmet {
+  @include item-icon();
+  background-image: image-url('icons/accessories-helmets.jpg');
+  background-position: 0 0;
+}
+.d60, .silver-helmet {
+  @include item-icon();
+  background-image: image-url('icons/accessories-helmets.jpg');
+  background-position: -75px 0;
+}
+.e60, .black-helmet {
+  @include item-icon();
+  background-image: image-url('icons/accessories-helmets.jpg');
+  background-position: -150px 0;
+}
+.j51, .cheshire-cat-bundle {
+  @include item-icon();
+  background-image: image-url('icons/wonderland.jpg');
+  background-position: 0 0;
+}
+.i51, .wonderland-item-lootbox {
+  @include item-icon();
+  background-image: image-url('icons/wonderland.jpg');
+  background-position: -75px 0;
+}
+.h51, .wonderland-weapon-smartbox {
+  @include item-icon();
+  background-image: image-url('icons/wonderland.jpg');
+  background-position: -150px 0;
+}
+.d51, .cheshire-cat-head {
+  @include item-icon();
+  background-image: image-url('icons/wonderland.jpg');
+  background-position: -225px 0;
+}
+.a51, .cheshire-cat-smartbox {
+  @include item-icon();
+  background-image: image-url('icons/wonderland.jpg');
+  background-position: -300px 0;
+}
+.b51, .mad-hatter-hat {
+  @include item-icon();
+  background-image: image-url('icons/wonderland.jpg');
+  background-position: -375px 0;
+}
+.j50, .mad-hatter-costume {
+  @include item-icon();
+  background-image: image-url('icons/wonderland.jpg');
+  background-position: -450px 0;
+}
+.soft-bear-hat, .i30 {
+  @include item-icon();
+  background-image: image-url('icons/knit-hats.jpg');
+  background-position: 0 0;
+}
+.warm-kitty-hat, .j30 {
+  @include item-icon();
+  background-image: image-url('icons/knit-hats.jpg');
+  background-position: -75px 0;
+}
+.frog-hat, .h30 {
+  @include item-icon();
+  background-image: image-url('icons/knit-hats.jpg');
+  background-position: -150px 0;
+}
+.a49, .rusty-pet {
+  @include item-icon();
+  background-image: image-url('icons/pets.jpg');
+  background-position: 0 0;
+}
+.b50, .rainie-pet {
+  @include item-icon();
+  background-image: image-url('icons/pets.jpg');
+  background-position: -75px 0;
+}
+.c50, .pinkie-pet {
+  @include item-icon();
+  background-image: image-url('icons/pets.jpg');
+  background-position: -150px 0;
+}
+.d50, .miss-catatonic-pet {
+  @include item-icon();
+  background-image: image-url('icons/pets.jpg');
+  background-position: -225px 0;
+}
+.e50, .bonzai-pet {
+  @include item-icon();
+  background-image: image-url('icons/pets.jpg');
+  background-position: -300px 0;
+}
+.f50, .addams-pet {
+  @include item-icon();
+  background-image: image-url('icons/pets.jpg');
+  background-position: -375px 0;
+}
+.j49, .zero-pet {
+  @include item-icon();
+  background-image: image-url('icons/pets.jpg');
+  background-position: -450px 0;
+}
+.g49, .halloween-pet-bundle {
+  @include item-icon();
+  background-image: image-url('icons/pets.jpg');
+  background-position: -525px 0;
+}
+.psc, .pet-skill-candyspinner {
+  @include item-icon();
+  background-image: image-url('icons/pets.jpg');
+  background-position: -600px 0;
+}
+.pf,  .pet-food {
+  @include item-icon();
+  background-image: image-url('icons/pets.jpg');
+  background-position: -675px 0;
+}
+.c17, .cheeks-and-totes-bundle {
+  @include item-icon();
+  background-image: image-url('icons/pets.jpg');
+  background-position: -750px 0;
+}
+.e17, .cheeks {
+  @include item-icon();
+  background-image: image-url('icons/pets.jpg');
+  background-position: -825px 0;
+}
+.d17, .totes {
+  @include item-icon();
+  background-image: image-url('icons/pets.jpg');
+  background-position: -900px 0;
+}
+.b32, .carniverous-plant {
+  @include item-icon();
+  background-image: image-url('icons/pets.jpg');
+  background-position: -975px 0;
+}
+.h39, .felicity {
+  @include item-icon();
+  background-image: image-url('icons/pets.jpg');
+  background-position: -1050px 0;
+}
+.j52, .pets {
+  @include item-icon();
+  background-image: image-url('icons/pets.jpg');
+  background-position: -1125px 0;
+}
+.j38, .gamekeeper-hats {
+  @include item-icon();
+  background-image: image-url('icons/gamekeepers.jpg');
+  background-position: 0 0;
+}
+.a38, .plaid-gamekeeper {
+  @include item-icon();
+  background-image: image-url('icons/gamekeepers.jpg');
+  background-position: -75px 0;
+}
+.b38, .gamekeeper {
+  @include item-icon();
+  background-image: image-url('icons/gamekeepers.jpg');
+  background-position: -150px 0;
+}
+.c38, .black-gamekeeper {
+  @include item-icon();
+  background-image: image-url('icons/gamekeepers.jpg');
+  background-position: -225px 0;
+}
+.d38, .white-gamekeeper {
+  @include item-icon();
+  background-image: image-url('icons/gamekeepers.jpg');
+  background-position: -300px 0;
+}
+.e38, .brown-gamekeeper {
+  @include item-icon();
+  background-image: image-url('icons/gamekeepers.jpg');
+  background-position: -375px 0;
+}
+.f38, .grey-gamekeeper {
+  @include item-icon();
+  background-image: image-url('icons/gamekeepers.jpg');
+  background-position: -450px 0;
+}
+.b42, .bunny-rabbit-ears {
+  @include item-icon();
+  background-image: image-url('icons/animal-ears.jpg');
+  background-position: 0 0;
+}
+.c42, .jack-rabbit-ears {
+  @include item-icon();
+  background-image: image-url('icons/animal-ears.jpg');
+  background-position: -75px 0;
+}
+.d42, .cute-bunny-ears {
+  @include item-icon();
+  background-image: image-url('icons/animal-ears.jpg');
+  background-position: -150px 0;
+}
+.e42, .puppy-dog-ears {
+  @include item-icon();
+  background-image: image-url('icons/animal-ears.jpg');
+  background-position: -225px 0;
+}
+.f42, .pound-puppy-ears {
+  @include item-icon();
+  background-image: image-url('icons/animal-ears.jpg');
+  background-position: -300px 0;
+}
+.g42, .floppy-ears {
+  @include item-icon();
+  background-image: image-url('icons/animal-ears.jpg');
+  background-position: -375px 0;
+}
+.e58, .penguin-head {
+  @include item-icon();
+  background-image: image-url('icons/animal-costumes.jpg');
+  background-position: 0 0;
+}
+.a59, .penguin-smartbox {
+  @include item-icon();
+  background-image: image-url('icons/animal-costumes.jpg');
+  background-position: -75px 0;
+}
+.f58, .bear-head--colorful-bear-head {
+  @include item-icon();
+  background-image: image-url('icons/animal-costumes.jpg');
+  background-position: -150px 0;
+}
+.b59, .bear-smartbox--color-bear-body {
+  @include item-icon();
+  background-image: image-url('icons/animal-costumes.jpg');
+  background-position: -225px 0;
+}
+.g58, .duck-head {
+  @include item-icon();
+  background-image: image-url('icons/animal-costumes.jpg');
+  background-position: -300px 0;
+}
+.d59, .duck-smartbox {
+  @include item-icon();
+  background-image: image-url('icons/animal-costumes.jpg');
+  background-position: -375px 0;
+}
+.h58, .black-sheep-head {
+  @include item-icon();
+  background-image: image-url('icons/animal-costumes.jpg');
+  background-position: -450px 0;
+}
+.e59, .black-sheep-smartbox {
+  @include item-icon();
+  background-image: image-url('icons/animal-costumes.jpg');
+  background-position: -525px 0;
+}
+.i58, .white-sheep-head--color-sheep-head {
+  @include item-icon();
+  background-image: image-url('icons/animal-costumes.jpg');
+  background-position: -600px 0;
+}
+.f59, .white-sheep-smartbox--color-sheep-body {
+  @include item-icon();
+  background-image: image-url('icons/animal-costumes.jpg');
+  background-position: -675px 0;
+}
+.i59, .pig-head {
+  @include item-icon();
+  background-image: image-url('icons/animal-costumes.jpg');
+  background-position: -750px 0;
+}
+.h59, .pink-sheep-head-accesory {
+  @include item-icon();
+  background-image: image-url('icons/animal-costumes.jpg');
+  background-position: -825px 0;
+}
+.c59, .pig-smartbox--elin-pink-sheep-body {
+  @include item-icon();
+  background-image: image-url('icons/animal-costumes.jpg');
+  background-position: -900px 0;
+}
+.f43, .bear-head-item-and-bundle {
+  @include item-icon();
+  background-image: image-url('icons/animal-costumes.jpg');
+  background-position: -975px 0;
+}
+.d44, .bear-suit {
+  @include item-icon();
+  background-image: image-url('icons/animal-costumes.jpg');
+  background-position: -1050px 0;
+}
+.e43, .bunny-head-item-and-bundle {
+  @include item-icon();
+  background-image: image-url('icons/animal-costumes.jpg');
+  background-position: -1125px 0;
+}
+.c44, .bunny-suit {
+  @include item-icon();
+  background-image: image-url('icons/animal-costumes.jpg');
+  background-position: -1200px 0;
+}
+.d43, .kitty-head-item-and-bundle {
+  @include item-icon();
+  background-image: image-url('icons/animal-costumes.jpg');
+  background-position: -1275px 0;
+}
+.b44, .kitty-suit {
+  @include item-icon();
+  background-image: image-url('icons/animal-costumes.jpg');
+  background-position: -1350px 0;
+}
+.c43, .panda-head-item-and-bundle {
+  @include item-icon();
+  background-image: image-url('icons/animal-costumes.jpg');
+  background-position: -1425px 0;
+}
+.a44, .panda-suit {
+  @include item-icon();
+  background-image: image-url('icons/animal-costumes.jpg');
+  background-position: -1500px 0;
+}
+.b43, .raccoon-head-item-and-bundle {
+  @include item-icon();
+  background-image: image-url('icons/animal-costumes.jpg');
+  background-position: -1575px 0;
+}
+.j43, .raccon-suit {
+  @include item-icon();
+  background-image: image-url('icons/animal-costumes.jpg');
+  background-position: -1650px 0;
+}
+.j58, .puppy-smartbox {
+  @include item-icon();
+  background-image: image-url('icons/animal-costumes.jpg');
+  background-position: -1725px 0;
+}
+.g43, .animal-costume-accessories-box {
+  @include item-icon();
+  background-image: image-url('icons/animal-costumes.jpg');
+  background-position: -1800px 0;
+}
+.g59, .elin-colorful-cat-costume {
+  @include item-icon();
+  background-image: image-url('icons/animal-costumes.jpg');
+  background-position: -1875px 0;
+}
+.a42, .elin-black-cat-club-costume {
+  @include item-icon();
+  background-image: image-url('icons/animal-costumes.jpg');
+  background-position: -1950px 0;
+}
+.j42, .elin-kitty-cat-club-costume {
+  @include item-icon();
+  background-image: image-url('icons/animal-costumes.jpg');
+  background-position: -2025px 0;
+}
+.h43, .elin-black-cat-costume-box {
+  @include item-icon();
+  background-image: image-url('icons/animal-costumes.jpg');
+  background-position: -2100px 0;
+}
+.i43, .elin-red-cat-costume-box {
+  @include item-icon();
+  background-image: image-url('icons/animal-costumes.jpg');
+  background-position: -2175px 0;
+}
+.h42, .kitty-cat-hat {
+  @include item-icon();
+  background-image: image-url('icons/animal-costumes.jpg');
+  background-position: -2250px 0;
+}
+.i42, .black-cat-hat {
+  @include item-icon();
+  background-image: image-url('icons/animal-costumes.jpg');
+  background-position: -2325px 0;
+}
+.j41, .kitty-cat-whiskers {
+  @include item-icon();
+  background-image: image-url('icons/animal-costumes.jpg');
+  background-position: -2400px 0;
+}
+.peg, .bar-peg-leg {
+  @include item-icon();
+  background-image: image-url('icons/pirate-costumes.jpg');
+  background-position: 0 0;
+}
+.epl, .elin-peg-leg {
+  @include item-icon();
+  background-image: image-url('icons/pirate-costumes.jpg');
+  background-position: -75px 0;
+}
+.ppl, .pop-peg-leg {
+  @include item-icon();
+  background-image: image-url('icons/pirate-costumes.jpg');
+  background-position: -150px 0;
+}
+.cfpl, .castf-peg-leg {
+  @include item-icon();
+  background-image: image-url('icons/pirate-costumes.jpg');
+  background-position: -225px 0;
+}
+.cmpl, .castm-peg-leg {
+  @include item-icon();
+  background-image: image-url('icons/pirate-costumes.jpg');
+  background-position: -300px 0;
+}
+.afpl, .amanf-peg-leg {
+  @include item-icon();
+  background-image: image-url('icons/pirate-costumes.jpg');
+  background-position: -375px 0;
+}
+.ampl, .maleaman-peg-leg {
+  @include item-icon();
+  background-image: image-url('icons/pirate-costumes.jpg');
+  background-position: -450px 0;
+}
+.efpl, .femelf-peg-leg {
+  @include item-icon();
+  background-image: image-url('icons/pirate-costumes.jpg');
+  background-position: -525px 0;
+}
+.empl, .elfm-peg-leg {
+  @include item-icon();
+  background-image: image-url('icons/pirate-costumes.jpg');
+  background-position: -600px 0;
+}
+.hfpl, .humanf-peg-leg {
+  @include item-icon();
+  background-image: image-url('icons/pirate-costumes.jpg');
+  background-position: -675px 0;
+}
+.hmpl, .humanm-peg-leg {
+  @include item-icon();
+  background-image: image-url('icons/pirate-costumes.jpg');
+  background-position: -750px 0;
+}
+.pir, .pirate-costume {
+  @include item-icon();
+  background-image: image-url('icons/pirate-costumes.jpg');
+  background-position: -825px 0;
+}
+.pe, .pirate-eye {
+  @include item-icon();
+  background-image: image-url('icons/pirate-costumes.jpg');
+  background-position: -900px 0;
+}
+.ge, .gold-eye {
+  @include item-icon();
+  background-image: image-url('icons/pirate-costumes.jpg');
+  background-position: -975px 0;
+}
+.se, .silver-eye {
+  @include item-icon();
+  background-image: image-url('icons/pirate-costumes.jpg');
+  background-position: -1050px 0;
+}
+.rh, .redbeard-hat {
+  @include item-icon();
+  background-image: image-url('icons/pirate-costumes.jpg');
+  background-position: -1125px 0;
+}
+.gban, .pirate-bandana-green {
+  @include item-icon();
+  background-image: image-url('icons/pirate-costumes.jpg');
+  background-position: -1200px 0;
+}
+.bh, .blackbeard-hat {
+  @include item-icon();
+  background-image: image-url('icons/pirate-costumes.jpg');
+  background-position: -1275px 0;
+}
+.rban, .pirate-bandana-red {
+  @include item-icon();
+  background-image: image-url('icons/pirate-costumes.jpg');
+  background-position: -1350px 0;
+}
+.j24, .plunder-bundle {
+  @include item-icon();
+  background-image: image-url('icons/pirate-costumes.jpg');
+  background-position: -1425px 0;
+}
+.a55, .deluxe-magician-lootbox {
+  @include item-icon();
+  background-image: image-url('icons/magician.jpg');
+  background-position: 0 0;
+}
+.b55, .headliners-box {
+  @include item-icon();
+  background-image: image-url('icons/magician.jpg');
+  background-position: -75px 0;
+}
+.c55, .plain-magician-lootbox {
+  @include item-icon();
+  background-image: image-url('icons/magician.jpg');
+  background-position: -150px 0;
+}
+.d55, .ruby-tuxedo-box {
+  @include item-icon();
+  background-image: image-url('icons/magician.jpg');
+  background-position: -225px 0;
+}
+.j55, .presto-change-o {
+  @include item-icon();
+  background-image: image-url('icons/magician.jpg');
+  background-position: -300px 0;
+}
+.a56, .harveys-hat {
+  @include item-icon();
+  background-image: image-url('icons/magician.jpg');
+  background-position: -375px 0;
+}
+.b56, .ruby-fascinator {
+  @include item-icon();
+  background-image: image-url('icons/magician.jpg');
+  background-position: -450px 0;
+}
+.c56, .ebon-fascinator {
+  @include item-icon();
+  background-image: image-url('icons/magician.jpg');
+  background-position: -525px 0;
+}
+.j54, .magician-accessories-box {
+  @include item-icon();
+  background-image: image-url('icons/magician.jpg');
+  background-position: -600px 0;
+}
+.i29, .black-giftbox {
+  @include item-icon();
+  background-image: image-url('icons/gift-boxes.jpg');
+  background-position: 0 0;
+}
+.j29, .white-giftbox {
+  @include item-icon();
+  background-image: image-url('icons/gift-boxes.jpg');
+  background-position: -75px 0;
+}
+.b25, .golden-giftbox {
+  @include item-icon();
+  background-image: image-url('icons/gift-boxes.jpg');
+  background-position: -150px 0;
+}
+.j48, .smartbox-with-female-white-nurse-uniforms {
+  @include item-icon();
+  background-image: image-url('icons/nurses.jpg');
+  background-position: 0 0;
+}
+.a49, .smartbox-with-female-pink-nurse-uniforms {
+  @include item-icon();
+  background-image: image-url('icons/nurses.jpg');
+  background-position: -75px 0;
+}
+.b49, .smartbox-with-female-black-nurse-uniforms {
+  @include item-icon();
+  background-image: image-url('icons/nurses.jpg');
+  background-position: -150px 0;
+}
+.d49, .smartbox-with-nametaggable-female-white-nurse-uniforms {
+  @include item-icon();
+  background-image: image-url('icons/nurses.jpg');
+  background-position: -225px 0;
+}
+.e49, .smartbox-with-nametaggable-female-pink-nurse-uniforms {
+  @include item-icon();
+  background-image: image-url('icons/nurses.jpg');
+  background-position: -300px 0;
+}
+.f49, .smartbox-with-nametaggable-female-black-nurse-uniforms {
+  @include item-icon();
+  background-image: image-url('icons/nurses.jpg');
+  background-position: -375px 0;
+}
+.a48, .nurse-cap-white {
+  @include item-icon();
+  background-image: image-url('icons/nurses.jpg');
+  background-position: -450px 0;
+}
+.b48, .nurse-cap-pink {
+  @include item-icon();
+  background-image: image-url('icons/nurses.jpg');
+  background-position: -525px 0;
+}
+.c48, .nurse-cap-black {
+  @include item-icon();
+  background-image: image-url('icons/nurses.jpg');
+  background-position: -600px 0;
+}
+.d48, .mega-syringe-green {
+  @include item-icon();
+  background-image: image-url('icons/nurses.jpg');
+  background-position: -675px 0;
+}
+.e48, .mega-syringe-red {
+  @include item-icon();
+  background-image: image-url('icons/nurses.jpg');
+  background-position: -750px 0;
+}
+.c49, .smartbox-with-the-police-uniforms {
+  @include item-icon();
+  background-image: image-url('icons/police.jpg');
+  background-position: 0 0;
+}
+.e47, .elin-halloween-police-uniform-a {
+  @include item-icon();
+  background-image: image-url('icons/police.jpg');
+  background-position: -75px 0;
+}
+.f47, .elin-halloween-police-uniform-b {
+  @include item-icon();
+  background-image: image-url('icons/police.jpg');
+  background-position: -150px 0;
+}
+.g47, .elin-halloween-police-uniform-c {
+  @include item-icon();
+  background-image: image-url('icons/police.jpg');
+  background-position: -225px 0;
+}
+.f48, .police-bowler-hat-white {
+  @include item-icon();
+  background-image: image-url('icons/police.jpg');
+  background-position: -300px 0;
+}
+.g48, .police-bowler-hat-grey {
+  @include item-icon();
+  background-image: image-url('icons/police.jpg');
+  background-position: -375px 0;
+}
+.h48, .peaked-cap-black {
+  @include item-icon();
+  background-image: image-url('icons/police.jpg');
+  background-position: -450px 0;
+}
+.i48, .peaked-cap-grey {
+  @include item-icon();
+  background-image: image-url('icons/police.jpg');
+  background-position: -525px 0;
+}
+.g56, .Dragonsilk-Dress-Box {
+  @include item-icon();
+  background-image: image-url('icons/asian.jpg');
+  background-position: 0 0;
+}
+.h56, .Floral-Dress-box {
+  @include item-icon();
+  background-image: image-url('icons/asian.jpg');
+  background-position: -75px 0;
+}
+.i56, .Skyblossom-Dress-box {
+  @include item-icon();
+  background-image: image-url('icons/asian.jpg');
+  background-position: -150px 0;
+}
+.j56, .Plum-Blossom-Dress-box {
+  @include item-icon();
+  background-image: image-url('icons/asian.jpg');
+  background-position: -225px 0;
+}
+.a57, .Watered-Silk-Dress-box {
+  @include item-icon();
+  background-image: image-url('icons/asian.jpg');
+  background-position: -300px 0;
+}
+.b57, .Winter-Orchid-Dress-box {
+  @include item-icon();
+  background-image: image-url('icons/asian.jpg');
+  background-position: -375px 0;
+}
+.c57, .Flowered-Jeonmo {
+  @include item-icon();
+  background-image: image-url('icons/asian.jpg');
+  background-position: -450px 0;
+}
+.d57, .Butterfly-Jeonmo {
+  @include item-icon();
+  background-image: image-url('icons/asian.jpg');
+  background-position: -525px 0;
+}
+.e57, .Black-Orchid-Jeonmo {
+  @include item-icon();
+  background-image: image-url('icons/asian.jpg');
+  background-position: -600px 0;
+}
+.f57, .Spring-Pouch {
+  @include item-icon();
+  background-image: image-url('icons/asian.jpg');
+  background-position: -675px 0;
+}
+.g57, .Rainbow-Pouch {
+  @include item-icon();
+  background-image: image-url('icons/asian.jpg');
+  background-position: -750px 0;
+}
+.h57, .Lucky-Pouch {
+  @include item-icon();
+  background-image: image-url('icons/asian.jpg');
+  background-position: -825px 0;
+}
+.i57, .Violet-Blossom {
+  @include item-icon();
+  background-image: image-url('icons/asian.jpg');
+  background-position: -900px 0;
+}
+.j57, .Azure-Blossom {
+  @include item-icon();
+  background-image: image-url('icons/asian.jpg');
+  background-position: -975px 0;
+}
+.a58, .Crimson-Blossom {
+  @include item-icon();
+  background-image: image-url('icons/asian.jpg');
+  background-position: -1050px 0;
+}
+.b58, .Ornemental-Headpeice {
+  @include item-icon();
+  background-image: image-url('icons/asian.jpg');
+  background-position: -1125px 0;
+}
+.c58, .Jeweled-Headpeice {
+  @include item-icon();
+  background-image: image-url('icons/asian.jpg');
+  background-position: -1200px 0;
+}
+.d58, .Floral-Headpeice {
+  @include item-icon();
+  background-image: image-url('icons/asian.jpg');
+  background-position: -1275px 0;
+}
+.f35, .white-capes-lootbox {
+  @include item-icon();
+  background-image: image-url('icons/mantles.jpg');
+  background-position: 0 0;
+}
+.g35, .nobles-cape {
+  @include item-icon();
+  background-image: image-url('icons/mantles.jpg');
+  background-position: -75px 0;
+}
+.h35, .frosty-matle-of-indifference {
+  @include item-icon();
+  background-image: image-url('icons/mantles.jpg');
+  background-position: -150px 0;
+}
+.i35, .generals-mantle {
+  @include item-icon();
+  background-image: image-url('icons/mantles.jpg');
+  background-position: -225px 0;
+}
+.j35, .commmanders-mantle {
+  @include item-icon();
+  background-image: image-url('icons/mantles.jpg');
+  background-position: -300px 0;
+}
+.a36, .veterans-mantle {
+  @include item-icon();
+  background-image: image-url('icons/mantles.jpg');
+  background-position: -375px 0;
+}
+.b36, .captains-mantle {
+  @include item-icon();
+  background-image: image-url('icons/mantles.jpg');
+  background-position: -450px 0;
+}
+.c36, .officers-mantle {
+  @include item-icon();
+  background-image: image-url('icons/mantles.jpg');
+  background-position: -525px 0;
+}
+.b61, .beary-important-case {
+  @include item-icon();
+  background-image: image-url('icons/backpacks.jpg');
+  background-position: 0 0;
+}
+.i14, .can-haz-backpack {
+  @include item-icon();
+  background-image: image-url('icons/backpacks.jpg');
+  background-position: -75px 0;
+}
+.j14, .popo-panda-piper-pack {
+  @include item-icon();
+  background-image: image-url('icons/backpacks.jpg');
+  background-position: -150px 0;
+}
+.d45, .pink-back-pack {
+  @include item-icon();
+  background-image: image-url('icons/backpacks.jpg');
+  background-position: -225px 0;
+}
+.e45, .black-back-pack {
+  @include item-icon();
+  background-image: image-url('icons/backpacks.jpg');
+  background-position: -300px 0;
+}
+.f45, .blue-checkered-back-pack {
+  @include item-icon();
+  background-image: image-url('icons/backpacks.jpg');
+  background-position: -375px 0;
+}
+.g45, .green-checkered-back-pack {
+  @include item-icon();
+  background-image: image-url('icons/backpacks.jpg');
+  background-position: -450px 0;
+}
+.h45, .white-checkered-back-pack {
+  @include item-icon();
+  background-image: image-url('icons/backpacks.jpg');
+  background-position: -525px 0;
+}
+.f15, .sports-bag {
+  @include item-icon();
+  background-image: image-url('icons/backpacks.jpg');
+  background-position: -600px 0;
+}
+.g15, .school-bag {
+  @include item-icon();
+  background-image: image-url('icons/backpacks.jpg');
+  background-position: -675px 0;
+}
+.e15, .lost-and-found-box {
+  @include item-icon();
+  background-image: image-url('icons/backpacks.jpg');
+  background-position: -750px 0;
+}
+.d56, .white-scarf {
+  @include item-icon();
+  background-image: image-url('icons/scarfs.jpg');
+  background-position: 0 0;
+}
+.e56, .red-scarf {
+  @include item-icon();
+  background-image: image-url('icons/scarfs.jpg');
+  background-position: -75px 0;
+}
+.f56, .scarf-lootbox {
+  @include item-icon();
+  background-image: image-url('icons/scarfs.jpg');
+  background-position: -150px 0;
+}
+.h27, .grey-fedora {
+  @include item-icon();
+  background-image: image-url('icons/fedoras.jpg');
+  background-position: 0 0;
+}
+.i27, .brown-fedora {
+  @include item-icon();
+  background-image: image-url('icons/fedoras.jpg');
+  background-position: -75px 0;
+}
+.j27, .white-fedora {
+  @include item-icon();
+  background-image: image-url('icons/fedoras.jpg');
+  background-position: -150px 0;
+}
+.k28, .black-fedora {
+  @include item-icon();
+  background-image: image-url('icons/fedoras.jpg');
+  background-position: -225px 0;
+}
+.c32, .elin-elite-nightfall-ninjagi {
+  @include item-icon();
+  background-image: image-url('icons/ninja.jpg');
+  background-position: 0 0;
+}
+.d32, .straw-hat {
+  @include item-icon();
+  background-image: image-url('icons/ninja.jpg');
+  background-position: -75px 0;
+}
+.e32, .kitsune-mask {
+  @include item-icon();
+  background-image: image-url('icons/ninja.jpg');
+  background-position: -150px 0;
+}
+.f32, .dokebi-mask {
+  @include item-icon();
+  background-image: image-url('icons/ninja.jpg');
+  background-position: -225px 0;
+}
+.g32, .ninja-face-mask {
+  @include item-icon();
+  background-image: image-url('icons/ninja.jpg');
+  background-position: -300px 0;
+}
+.h32, .leather-ninja-mask {
+  @include item-icon();
+  background-image: image-url('icons/ninja.jpg');
+  background-position: -375px 0;
+}
+.i32, .ninja-steelface-mask {
+  @include item-icon();
+  background-image: image-url('icons/ninja.jpg');
+  background-position: -450px 0;
+}
+.j32, .ninja-steel-horn-mask {
+  @include item-icon();
+  background-image: image-url('icons/ninja.jpg');
+  background-position: -525px 0;
+}
+.a33, .ninja-usagi-mask {
+  @include item-icon();
+  background-image: image-url('icons/ninja.jpg');
+  background-position: -600px 0;
+}
+.b33, .ninja-oni-horn-mask {
+  @include item-icon();
+  background-image: image-url('icons/ninja.jpg');
+  background-position: -675px 0;
+}
+.c33, .elin-elite-bloodshadow-ninjagi {
+  @include item-icon();
+  background-image: image-url('icons/ninja.jpg');
+  background-position: -750px 0;
+}
+.d33, .true-ultimate-power-weapon-lootbox {
+  @include item-icon();
+  background-image: image-url('icons/ninja.jpg');
+  background-position: -825px 0;
+}
+.e33, .nightfall-ninja-for-life {
+  @include item-icon();
+  background-image: image-url('icons/ninja.jpg');
+  background-position: -900px 0;
+}
+.f33, .ultimate-power-accessory-loot-box {
+  @include item-icon();
+  background-image: image-url('icons/ninja.jpg');
+  background-position: -975px 0;
+}
+.g33, .true-ultimate-elin-elite-box {
+  @include item-icon();
+  background-image: image-url('icons/ninja.jpg');
+  background-position: -1050px 0;
+}
+.h33, .elin-bloodshadow-ninjagi {
+  @include item-icon();
+  background-image: image-url('icons/ninja.jpg');
+  background-position: -1125px 0;
+}
+.i33, .all-female-bloodshadow-ninjagi {
+  @include item-icon();
+  background-image: image-url('icons/ninja.jpg');
+  background-position: -1200px 0;
+}
+.j33, .all-male-bloodshadow-ninjagi {
+  @include item-icon();
+  background-image: image-url('icons/ninja.jpg');
+  background-position: -1275px 0;
+}
+.e55, .black-ronin-hat {
+  @include item-icon();
+  background-image: image-url('icons/ninja.jpg');
+  background-position: -1350px 0;
+}
+.b19, .ultra-hero-mask-gold {
+  @include item-icon();
+  background-image: image-url('icons/ultra.jpg');
+  background-position: 0 0;
+}
+.c19, .ultra-hero-mask-white {
+  @include item-icon();
+  background-image: image-url('icons/ultra.jpg');
+  background-position: -75px 0;
+}
+.d19, .ultra-hero-mask-red {
+  @include item-icon();
+  background-image: image-url('icons/ultra.jpg');
+  background-position: -150px 0;
+}
+.e19, .ultra-hero-mask-black {
+  @include item-icon();
+  background-image: image-url('icons/ultra.jpg');
+  background-position: -225px 0;
+}
+.f19, .ultra-hero-mask-blue {
+  @include item-icon();
+  background-image: image-url('icons/ultra.jpg');
+  background-position: -300px 0;
+}
+.g18, .hyper-hero-mask-gold {
+  @include item-icon();
+  background-image: image-url('icons/hyper.jpg');
+  background-position: 0 0;
+}
+.h18, .hyper-hero-mask-white {
+  @include item-icon();
+  background-image: image-url('icons/hyper.jpg');
+  background-position: -75px 0;
+}
+.i18, .hyper-hero-mask-red {
+  @include item-icon();
+  background-image: image-url('icons/hyper.jpg');
+  background-position: -150px 0;
+}
+.j18, .hyper-hero-mask-black {
+  @include item-icon();
+  background-image: image-url('icons/hyper.jpg');
+  background-position: -225px 0;
+}
+.a19, .hyper-hero-mask-blue {
+  @include item-icon();
+  background-image: image-url('icons/hyper.jpg');
+  background-position: -300px 0;
+}
+.f17, .titan-force-all-males {
+  @include item-icon();
+  background-image: image-url('icons/titan.jpg');
+  background-position: 0 0;
+}
+.g17, .dyeable-titan-force-all-males-loot-box {
+  @include item-icon();
+  background-image: image-url('icons/titan.jpg');
+  background-position: -75px 0;
+}
+.h17, .accesories-loot-box-all-titan-helmets {
+  @include item-icon();
+  background-image: image-url('icons/titan.jpg');
+  background-position: -150px 0;
+}
+.e22, .dyeable-titan-force-all-males {
+  @include item-icon();
+  background-image: image-url('icons/titan.jpg');
+  background-position: -225px 0;
+}
+.a22, .dyeable-black-devilicious-all-females {
+  @include item-icon();
+  background-image: image-url('icons/devils.jpg');
+  background-position: 0 0;
+}
+.b22, .dyeable-red-devilicious-all-females {
+  @include item-icon();
+  background-image: image-url('icons/devils.jpg');
+  background-position: -75px 0;
+}
+.d22, .dyeable-devilicious-all-females {
+  @include item-icon();
+  background-image: image-url('icons/devils.jpg');
+  background-position: -150px 0;
+}
+.g19, .devil-horns {
+  @include item-icon();
+  background-image: image-url('icons/devils.jpg');
+  background-position: -225px 0;
+}
+.h19, .devil-wings {
+  @include item-icon();
+  background-image: image-url('icons/devils.jpg');
+  background-position: -300px 0;
+}
+.i19, .rare-devil-wings {
+  @include item-icon();
+  background-image: image-url('icons/devils.jpg');
+  background-position: -375px 0;
+}
+.c18, .devilicious-all-females {
+  @include item-icon();
+  background-image: image-url('icons/devils.jpg');
+  background-position: -450px 0;
+}
+.d18, .dyeable-devilicious-all-females-loot-box {
+  @include item-icon();
+  background-image: image-url('icons/devils.jpg');
+  background-position: -525px 0;
+}
+.e30, .little-devil-horns {
+  @include item-icon();
+  background-image: image-url('icons/devils.jpg');
+  background-position: -600px 0;
+}
+.c41, .wooden-ukulele {
+  @include item-icon();
+  background-image: image-url('icons/beach.jpg');
+  background-position: 0 0;
+}
+.i40, .seaside-ukulele {
+  @include item-icon();
+  background-image: image-url('icons/beach.jpg');
+  background-position: -75px 0;
+}
+.j40, .summer-lei {
+  @include item-icon();
+  background-image: image-url('icons/beach.jpg');
+  background-position: -150px 0;
+}
+.d41, .woven-seaside-hat {
+  @include item-icon();
+  background-image: image-url('icons/beach.jpg');
+  background-position: -225px 0;
+}
+.e41, .woven-sun-hat {
+  @include item-icon();
+  background-image: image-url('icons/beach.jpg');
+  background-position: -300px 0;
+}
+.sun, .sun-hat {
+  @include item-icon();
+  background-image: image-url('icons/beach.jpg');
+  background-position: -375px 0;
+}
+.cool, .cooler {
+  @include item-icon();
+  background-image: image-url('icons/beach.jpg');
+  background-position: -450px 0;
+}
+.bb, .beachbag {
+  @include item-icon();
+  background-image: image-url('icons/beach.jpg');
+  background-position: -525px 0;
+}
+.ws, .waverider-surfboard {
+  @include item-icon();
+  background-image: image-url('icons/beach.jpg');
+  background-position: -600px 0;
+}
+.st, .scuba-tank {
+  @include item-icon();
+  background-image: image-url('icons/beach.jpg');
+  background-position: -675px 0;
+}
+.da, .deluxe-aqualung {
+  @include item-icon();
+  background-image: image-url('icons/beach.jpg');
+  background-position: -750px 0;
+}
+.dh, .diving-helmet {
+  @include item-icon();
+  background-image: image-url('icons/beach.jpg');
+  background-position: -825px 0;
+}
+.gdh, .gold-dive-helmet {
+  @include item-icon();
+  background-image: image-url('icons/beach.jpg');
+  background-position: -900px 0;
+}
+.a41, .super-shades {
+  @include item-icon();
+  background-image: image-url('icons/glasses.jpg');
+  background-position: 0 0;
+}
+.hsg, .heart-shaped-glasses {
+  @include item-icon();
+  background-image: image-url('icons/glasses.jpg');
+  background-position: -75px 0;
+}
+.ssg, .steffana-sunglasses {
+  @include item-icon();
+  background-image: image-url('icons/glasses.jpg');
+  background-position: -150px 0;
+}
+.i44, .round-glasses {
+  @include item-icon();
+  background-image: image-url('icons/glasses.jpg');
+  background-position: -225px 0;
+}
+.h44, .spotted-round-glasses {
+  @include item-icon();
+  background-image: image-url('icons/glasses.jpg');
+  background-position: -300px 0;
+}
+.d27, .tortoise-shell-glasses {
+  @include item-icon();
+  background-image: image-url('icons/glasses.jpg');
+  background-position: -375px 0;
+}
+.e27, .pink-glasses {
+  @include item-icon();
+  background-image: image-url('icons/glasses.jpg');
+  background-position: -450px 0;
+}
+.f27, .black-glasses {
+  @include item-icon();
+  background-image: image-url('icons/glasses.jpg');
+  background-position: -525px 0;
+}
+.g27, .brown-glasses {
+  @include item-icon();
+  background-image: image-url('icons/glasses.jpg');
+  background-position: -600px 0;
+}
+.e31, .green-honker {
+  @include item-icon();
+  background-image: image-url('icons/glasses.jpg');
+  background-position: -675px 0;
+}
+.f31, .green-glasses {
+  @include item-icon();
+  background-image: image-url('icons/glasses.jpg');
+  background-position: -750px 0;
+}
+.h40, .carnivale-shades {
+  @include item-icon();
+  background-image: image-url('icons/glasses.jpg');
+  background-position: -825px 0;
+}
+.f41, .normal-swimsuits {
+  @include item-icon();
+  background-image: image-url('icons/swimsuits.jpg');
+  background-position: 0 0;
+}
+.a40, .rare-swimsuits {
+  @include item-icon();
+  background-image: image-url('icons/swimsuits.jpg');
+  background-position: -75px 0;
+}
+.b40, .elin-swimsuits {
+  @include item-icon();
+  background-image: image-url('icons/swimsuits.jpg');
+  background-position: -150px 0;
+}
+.j39, .swimsuit-accessories {
+  @include item-icon();
+  background-image: image-url('icons/swimsuits.jpg');
+  background-position: -225px 0;
+}
+.i39, .string-bikini {
+  @include item-icon();
+  background-image: image-url('icons/swimsuits.jpg');
+  background-position: -300px 0;
+}
+.c40, .white-dye-string-bikini {
+  @include item-icon();
+  background-image: image-url('icons/swimsuits.jpg');
+  background-position: -375px 0;
+}
+.d40, .pink-dye {
+  @include item-icon();
+  background-image: image-url('icons/swimsuits.jpg');
+  background-position: -450px 0;
+}
+.vars, .dyeable-castanic-female-varsity-swimsuit {
+  @include item-icon();
+  background-image: image-url('icons/swimsuits.jpg');
+  background-position: -525px 0;
+}
+.cfd, .dyeable-castanic-female-duckie {
+  @include item-icon();
+  background-image: image-url('icons/swimsuits.jpg');
+  background-position: -600px 0;
+}
+.cfc, .dyeable-castanic-female-croptop {
+  @include item-icon();
+  background-image: image-url('icons/swimsuits.jpg');
+  background-position: -675px 0;
+}
+.cfb, .dyeable-castanic-female-bikini {
+  @include item-icon();
+  background-image: image-url('icons/swimsuits.jpg');
+  background-position: -750px 0;
+}
+.efd, .dyeable-high-elf-female-duckie {
+  @include item-icon();
+  background-image: image-url('icons/swimsuits.jpg');
+  background-position: -825px 0;
+}
+.efv, .dyeable-high-elf-female-deep-v {
+  @include item-icon();
+  background-image: image-url('icons/swimsuits.jpg');
+  background-position: -900px 0;
+}
+.esb, .dyeable-high-elf-female-silver-bikini {
+  @include item-icon();
+  background-image: image-url('icons/swimsuits.jpg');
+  background-position: -975px 0;
+}
+.hfd, .dyeable-human-female-duckie {
+  @include item-icon();
+  background-image: image-url('icons/swimsuits.jpg');
+  background-position: -1050px 0;
+}
+.fjc, .dyeable-human-female-jersey-cover-up {
+  @include item-icon();
+  background-image: image-url('icons/swimsuits.jpg');
+  background-position: -1125px 0;
+}
+.fsb, .dyeable-human-female-string-bikini {
+  @include item-icon();
+  background-image: image-url('icons/swimsuits.jpg');
+  background-position: -1200px 0;
+}
+.afd, .dyeable-amani-female-duckie {
+  @include item-icon();
+  background-image: image-url('icons/swimsuits.jpg');
+  background-position: -1275px 0;
+}
+.afv, .dyeable-amani-female-deep-v {
+  @include item-icon();
+  background-image: image-url('icons/swimsuits.jpg');
+  background-position: -1350px 0;
+}
+.afb, .dyeable-amani-female-silver-bikini {
+  @include item-icon();
+  background-image: image-url('icons/swimsuits.jpg');
+  background-position: -1425px 0;
+}
+.pd, .dyeable-popori-duckie {
+  @include item-icon();
+  background-image: image-url('icons/swimsuits.jpg');
+  background-position: -1500px 0;
+}
+.plv, .dyeable-popori-life-vest {
+  @include item-icon();
+  background-image: image-url('icons/swimsuits.jpg');
+  background-position: -1575px 0;
+}
+.hmd, .dyeable-human-male-duckie {
+  @include item-icon();
+  background-image: image-url('icons/swimsuits.jpg');
+  background-position: -1650px 0;
+}
+.hmf, .dyeable-human-male-fundoshi {
+  @include item-icon();
+  background-image: image-url('icons/swimsuits.jpg');
+  background-position: -1725px 0;
+}
+.hmj, .dyeable-human-male-jammers {
+  @include item-icon();
+  background-image: image-url('icons/swimsuits.jpg');
+  background-position: -1800px 0;
+}
+.hms, .dyeable-human-male-speeders {
+  @include item-icon();
+  background-image: image-url('icons/swimsuits.jpg');
+  background-position: -1875px 0;
+}
+.blv, .dyeable-baraka-life-vest {
+  @include item-icon();
+  background-image: image-url('icons/swimsuits.jpg');
+  background-position: -1950px 0;
+}
+.bd, .dyeable-baraka-duckie {
+  @include item-icon();
+  background-image: image-url('icons/swimsuits.jpg');
+  background-position: -2025px 0;
+}
+.h41, .elin-apron-swim {
+  @include item-icon();
+  background-image: image-url('icons/swimsuits.jpg');
+  background-position: -2100px 0;
+}
+.g22, .white-captain-hat {
+  @include item-icon();
+  background-image: image-url('icons/party-boat.jpg');
+  background-position: 0 0;
+}
+.h22, .steel-party-boat-captain {
+  @include item-icon();
+  background-image: image-url('icons/party-boat.jpg');
+  background-position: -75px 0;
+}
+.i22, .red-captain-hat {
+  @include item-icon();
+  background-image: image-url('icons/party-boat.jpg');
+  background-position: -150px 0;
+}
+.j22, .navy-party-boat-captain {
+  @include item-icon();
+  background-image: image-url('icons/party-boat.jpg');
+  background-position: -225px 0;
+}
+.a23, .navy-captain-hat {
+  @include item-icon();
+  background-image: image-url('icons/party-boat.jpg');
+  background-position: -300px 0;
+}
+.b23, .red-party-boat-captain {
+  @include item-icon();
+  background-image: image-url('icons/party-boat.jpg');
+  background-position: -375px 0;
+}
+.c23, .steel-captain-hat {
+  @include item-icon();
+  background-image: image-url('icons/party-boat.jpg');
+  background-position: -450px 0;
+}
+.d23, .white-party-boat-captain {
+  @include item-icon();
+  background-image: image-url('icons/party-boat.jpg');
+  background-position: -525px 0;
+}
+.e23, .party-boat-loot-box {
+  @include item-icon();
+  background-image: image-url('icons/party-boat.jpg');
+  background-position: -600px 0;
+}
+.f22, .dyeable-elin-witch-lootbox {
+  @include item-icon();
+  background-image: image-url('icons/witch.jpg');
+  background-position: 0 0;
+}
+.j21, .dyeable-elin-witch {
+  @include item-icon();
+  background-image: image-url('icons/witch.jpg');
+  background-position: -75px 0;
+}
+.j19, .witchy-poo {
+  @include item-icon();
+  background-image: image-url('icons/witch.jpg');
+  background-position: -150px 0;
+}
+.a20, .witch-hat {
+  @include item-icon();
+  background-image: image-url('icons/witch.jpg');
+  background-position: -225px 0;
+}
+.b18, .elin-witch {
+  @include item-icon();
+  background-image: image-url('icons/witch.jpg');
+  background-position: -300px 0;
+}
+.a15, .blue-team-captain {
+  @include item-icon();
+  background-image: image-url('icons/volleyball.jpg');
+  background-position: 0 0;
+}
+.b15, .red-team-captain {
+  @include item-icon();
+  background-image: image-url('icons/volleyball.jpg');
+  background-position: -75px 0;
+}
+.c15, .blue-volleyball {
+  @include item-icon();
+  background-image: image-url('icons/volleyball.jpg');
+  background-position: -150px 0;
+}
+.d15, .red-volleyball {
+  @include item-icon();
+  background-image: image-url('icons/volleyball.jpg');
+  background-position: -225px 0;
+}
+.c37, .all-inner-armor {
+  @include item-icon();
+  background-image: image-url('icons/inner-armor2.jpg');
+  background-position: 0 0;
+}
+.a37, .inner-amor-power {
+  @include item-icon();
+  background-image: image-url('icons/inner-armor2.jpg');
+  background-position: -75px 0;
+}
+.g36, .inner-amor-hp {
+  @include item-icon();
+  background-image: image-url('icons/inner-armor2.jpg');
+  background-position: -150px 0;
+}
+.h36, .inner-amor-mp {
+  @include item-icon();
+  background-image: image-url('icons/inner-armor2.jpg');
+  background-position: -225px 0;
+}
+.i36, .inner-amor-end {
+  @include item-icon();
+  background-image: image-url('icons/inner-armor2.jpg');
+  background-position: -300px 0;
+}
+.j36, .inner-amor-crit {
+  @include item-icon();
+  background-image: image-url('icons/inner-armor2.jpg');
+  background-position: -375px 0;
+}
+.a35, .red-rose-eye-patch {
+  @include item-icon();
+  background-image: image-url('icons/rose-eye-patch.jpg');
+  background-position: 0 0;
+}
+.b35, .black-rose-eye-patch {
+  @include item-icon();
+  background-image: image-url('icons/rose-eye-patch.jpg');
+  background-position: -75px 0;
+}
+.c35, .pink-rose-eye-patch {
+  @include item-icon();
+  background-image: image-url('icons/rose-eye-patch.jpg');
+  background-position: -150px 0;
+}
+.d35, .pale-purple-rose-eye-patch {
+  @include item-icon();
+  background-image: image-url('icons/rose-eye-patch.jpg');
+  background-position: -225px 0;
+}
+.e35, .white-rose-eye-patch {
+  @include item-icon();
+  background-image: image-url('icons/rose-eye-patch.jpg');
+  background-position: -300px 0;
+}
+.i38, .all-frills {
+  @include item-icon();
+  background-image: image-url('icons/frills.jpg');
+  background-position: 0 0;
+}
+.d37, .pink-frill {
+  @include item-icon();
+  background-image: image-url('icons/frills.jpg');
+  background-position: -75px 0;
+}
+.f37, .white-frill {
+  @include item-icon();
+  background-image: image-url('icons/frills.jpg');
+  background-position: -150px 0;
+}
+.g37, .black-frill {
+  @include item-icon();
+  background-image: image-url('icons/frills.jpg');
+  background-position: -225px 0;
+}
+.g38, .green-frill {
+  @include item-icon();
+  background-image: image-url('icons/frills.jpg');
+  background-position: -300px 0;
+}
+.hf, .housekeepers-frill {
+  @include item-icon();
+  background-image: image-url('icons/frills.jpg');
+  background-position: -375px 0;
+}
+.kda, .social-skill-kitchen-dance {
+  @include item-icon();
+  background-image: image-url('icons/emotes.jpg');
+  background-position: 0 0;
+}
+.a14, .sit-emote {
+  @include item-icon();
+  background-image: image-url('icons/emotes.jpg');
+  background-position: -75px 0;
+}
+.b14, .peace-emote {
+  @include item-icon();
+  background-image: image-url('icons/emotes.jpg');
+  background-position: -150px 0;
+}
+.a17, .steamer-trunk {
+  @include item-icon();
+  background-image: image-url('icons/steampunk.jpg');
+  background-position: 0 0;
+}
+.b17, .dyeable-steampunk-lootbox {
+  @include item-icon();
+  background-image: image-url('icons/steampunk.jpg');
+  background-position: -75px 0;
+}
+.b16, .gas-mask {
+  @include item-icon();
+  background-image: image-url('icons/steampunk.jpg');
+  background-position: -150px 0;
+}
+.d24, .dyeable-steampunk-costume {
+  @include item-icon();
+  background-image: image-url('icons/steampunk.jpg');
+  background-position: -225px 0;
+}
+.h24, .steampunk-weapons {
+  @include item-icon();
+  background-image: image-url('icons/steampunk.jpg');
+  background-position: -300px 0;
+}
+.rc, .race-change {
+  @include item-icon();
+  background-image: image-url('icons/account.jpg');
+  background-position: 0 0;
+}
+.nc, .name-change {
+  @include item-icon();
+  background-image: image-url('icons/account.jpg');
+  background-position: -75px 0;
+}
+.csl, .character-slot {
+  @include item-icon();
+  background-image: image-url('icons/account.jpg');
+  background-position: -150px 0;
+}
+.bs, .bank-slot {
+  @include item-icon();
+  background-image: image-url('icons/account.jpg');
+  background-position: -225px 0;
+}
+.be, .bank-expansion {
+  @include item-icon();
+  background-image: image-url('icons/account.jpg');
+  background-position: -300px 0;
+}
+.cs, .additional-character-slot {
+  @include item-icon();
+  background-image: image-url('icons/account.jpg');
+  background-position: -375px 0;
+}
+.j25, .snowbelle-lootbox {
+  @include item-icon();
+  background-image: image-url('icons/events.jpg');
+  background-position: 0 0;
+}
+.a26, .snowbelle-bundle {
+  @include item-icon();
+  background-image: image-url('icons/events.jpg');
+  background-position: -75px 0;
+}
+.b26, .hot-coffee {
+  @include item-icon();
+  background-image: image-url('icons/events.jpg');
+  background-position: -150px 0;
+}
+.c26, .santa-candle {
+  @include item-icon();
+  background-image: image-url('icons/events.jpg');
+  background-position: -225px 0;
+}
+.d26, .double-scoope-icecream {
+  @include item-icon();
+  background-image: image-url('icons/events.jpg');
+  background-position: -300px 0;
+}
+.e26, .smoothie {
+  @include item-icon();
+  background-image: image-url('icons/events.jpg');
+  background-position: -375px 0;
+}
+.b37, .Federation-bills {
+  @include item-icon();
+  background-image: image-url('icons/events.jpg');
+  background-position: -450px 0;
+}
+.c31, .pot-o-green-lootbox {
+  @include item-icon();
+  background-image: image-url('icons/events.jpg');
+  background-position: -525px 0;
+}
+.lob, .loot-box {
+  @include item-icon();
+  background-image: image-url('icons/site.jpg');
+  background-position: 0 0;
+}
+.bu, .bundle {
+  @include item-icon();
+  background-image: image-url('icons/site.jpg');
+  background-position: -75px 0;
+}
+.i52, .elite-icon {
+  @include item-icon();
+  background-image: image-url('icons/site.jpg');
+  background-position: -150px 0;
+}
+.e24, .ico-emp {
+  @include item-icon();
+  background-image: image-url('icons/site.jpg');
+  background-position: -225px 0;
+}
+.i45, .triple-t-school-lootbox {
+  @include item-icon();
+  background-image: image-url('icons/school.jpg');
+  background-position: 0 0;
+}
+.j45, .arcadia-school-lootbox {
+  @include item-icon();
+  background-image: image-url('icons/school.jpg');
+  background-position: -75px 0;
+}
+.a46, .frost-school-bundle {
+  @include item-icon();
+  background-image: image-url('icons/school.jpg');
+  background-position: -150px 0;
+}
+.b46, .valkalei-school-bundle {
+  @include item-icon();
+  background-image: image-url('icons/school.jpg');
+  background-position: -225px 0;
+}
+.c46, .dragonfall-school-bundle {
+  @include item-icon();
+  background-image: image-url('icons/school.jpg');
+  background-position: -300px 0;
+}
+.c14, .allemanthea-prep-uniform {
+  @include item-icon();
+  background-image: image-url('icons/school.jpg');
+  background-position: -375px 0;
+}
+.d14, .velika-vocational-uniform {
+  @include item-icon();
+  background-image: image-url('icons/school.jpg');
+  background-position: -450px 0;
+}
+.e14, .kai-poly-uniform {
+  @include item-icon();
+  background-image: image-url('icons/school.jpg');
+  background-position: -525px 0;
+}
+.f14, .feral-valley-jr-high-uniform {
+  @include item-icon();
+  background-image: image-url('icons/school.jpg');
+  background-position: -600px 0;
+}
+.g14, .charcoal-eldritch-academy-uniform {
+  @include item-icon();
+  background-image: image-url('icons/school.jpg');
+  background-position: -675px 0;
+}
+.h14, .ivory-eldritch-academy-uniform {
+  @include item-icon();
+  background-image: image-url('icons/school.jpg');
+  background-position: -750px 0;
+}
+.c52, .flower-blue {
+  @include item-icon();
+  background-image: image-url('icons/flowers.jpg');
+  background-position: 0 0;
+}
+.d52, .flower-black {
+  @include item-icon();
+  background-image: image-url('icons/flowers.jpg');
+  background-position: -75px 0;
+}
+.e52, .flower-white {
+  @include item-icon();
+  background-image: image-url('icons/flowers.jpg');
+  background-position: -150px 0;
+}
+.f52, .flower-red {
+  @include item-icon();
+  background-image: image-url('icons/flowers.jpg');
+  background-position: -225px 0;
+}
+.g28, .single-bloom {
+  @include item-icon();
+  background-image: image-url('icons/flowers.jpg');
+  background-position: -300px 0;
+}
+.b41, .white-kerchief {
+  @include item-icon();
+  background-image: image-url('icons/kerchief.jpg');
+  background-position: 0 0;
+}
+.e40, .aquacheck-kerchief {
+  @include item-icon();
+  background-image: image-url('icons/kerchief.jpg');
+  background-position: -75px 0;
+}
+.f40, .berry-kershief {
+  @include item-icon();
+  background-image: image-url('icons/kerchief.jpg');
+  background-position: -150px 0;
+}
+.a45, .black-cap {
+  @include item-icon();
+  background-image: image-url('icons/visors.jpg');
+  background-position: 0 0;
+}
+.b45, .yellow-cap {
+  @include item-icon();
+  background-image: image-url('icons/visors.jpg');
+  background-position: -75px 0;
+}
+.c45, .pink-cap {
+  @include item-icon();
+  background-image: image-url('icons/visors.jpg');
+  background-position: -150px 0;
+}
+.g44, .school-headset {
+  @include item-icon();
+  background-image: image-url('icons/hairbands.jpg');
+  background-position: 0 0;
+}
+.d30, .hypnotizing-hairband {
+  @include item-icon();
+  background-image: image-url('icons/hairbands.jpg');
+  background-position: -75px 0;
+}
+.a30, .candy-spun-hairband {
+  @include item-icon();
+  background-image: image-url('icons/hairbands.jpg');
+  background-position: -150px 0;
+}
+.i28, .red-feelers {
+  @include item-icon();
+  background-image: image-url('icons/hairbands.jpg');
+  background-position: -225px 0;
+}
+.h21, .red-bat-hairband {
+  @include item-icon();
+  background-image: image-url('icons/hairbands.jpg');
+  background-position: -300px 0;
+}
+.j20, .black-bat-hairband {
+  @include item-icon();
+  background-image: image-url('icons/hairbands.jpg');
+  background-position: -375px 0;
+}
+.i25, .golden-antler-hairband {
+  @include item-icon();
+  background-image: image-url('icons/hairbands.jpg');
+  background-position: -450px 0;
+}
+.e51, .gigantic-navy-blue-bow {
+  @include item-icon();
+  background-image: image-url('icons/hairbands.jpg');
+  background-position: -525px 0;
+}
+.g51, .gigantic-blue-bow {
+  @include item-icon();
+  background-image: image-url('icons/hairbands.jpg');
+  background-position: -600px 0;
+}
+.f21, .nightsky-mask {
+  @include item-icon();
+  background-image: image-url('icons/masquerade.jpg');
+  background-position: 0 0;
+}
+.g21, .sunbright-mask {
+  @include item-icon();
+  background-image: image-url('icons/masquerade.jpg');
+  background-position: -75px 0;
+}
+.h20, .nightsky-domino-mask {
+  @include item-icon();
+  background-image: image-url('icons/masquerade.jpg');
+  background-position: -150px 0;
+}
+.i20, .sunbright-domino-mask {
+  @include item-icon();
+  background-image: image-url('icons/masquerade.jpg');
+  background-position: -225px 0;
+}
+.k26, .clown-mask {
+  @include item-icon();
+  background-image: image-url('icons/halloween-masks.jpg');
+  background-position: 0 0;
+}
+.i21, .alien-mask {
+  @include item-icon();
+  background-image: image-url('icons/halloween-masks.jpg');
+  background-position: -75px 0;
+}
+.c20, .franken-mask {
+  @include item-icon();
+  background-image: image-url('icons/halloween-masks.jpg');
+  background-position: -150px 0;
+}
+.d20, .famished-skeleton-mask {
+  @include item-icon();
+  background-image: image-url('icons/halloween-masks.jpg');
+  background-position: -225px 0;
+}
+.e20, .fresh-pumkpin-mask {
+  @include item-icon();
+  background-image: image-url('icons/halloween-masks.jpg');
+  background-position: -300px 0;
+}
+.f20, .packleader-wolf-mask {
+  @include item-icon();
+  background-image: image-url('icons/halloween-masks.jpg');
+  background-position: -375px 0;
+}
+.g20, .alluri-giant-killer-mask {
+  @include item-icon();
+  background-image: image-url('icons/halloween-masks.jpg');
+  background-position: -450px 0;
+}
+.a21, .knife-hat {
+  @include item-icon();
+  background-image: image-url('icons/halloween-masks.jpg');
+  background-position: -525px 0;
+}
+.b21, .bone-weary-skeleton-mask {
+  @include item-icon();
+  background-image: image-url('icons/halloween-masks.jpg');
+  background-position: -600px 0;
+}
+.c21, .stylish-pumpkin-mask {
+  @include item-icon();
+  background-image: image-url('icons/halloween-masks.jpg');
+  background-position: -675px 0;
+}
+.d21, .big-bad-wolf-mask {
+  @include item-icon();
+  background-image: image-url('icons/halloween-masks.jpg');
+  background-position: -750px 0;
+}
+.e21, .frakenhat {
+  @include item-icon();
+  background-image: image-url('icons/halloween-masks.jpg');
+  background-position: -825px 0;
+}
+.i17, .accessories-loot-box-with-alien-head {
+  @include item-icon();
+  background-image: image-url('icons/halloween-masks.jpg');
+  background-position: -900px 0;
+}
+.j17, .accessories-loot-box-with-knife-hat {
+  @include item-icon();
+  background-image: image-url('icons/halloween-masks.jpg');
+  background-position: -975px 0;
+}
+.a18, .accesories-loot-box-with-new-frankenstein-mask {
+  @include item-icon();
+  background-image: image-url('icons/halloween-masks.jpg');
+  background-position: -1050px 0;
+}
+.b30, .roamin-helm {
+  @include item-icon();
+  background-image: image-url('icons/halloween-masks.jpg');
+  background-position: -1125px 0;
+}
+.f55, .cool-cat-cap {
+  @include item-icon();
+  background-image: image-url('icons/hats.jpg');
+  background-position: 0 0;
+}
+.g55, .ushanka {
+  @include item-icon();
+  background-image: image-url('icons/hats.jpg');
+  background-position: -75px 0;
+}
+.h55, .cotton-tail-earmuffs {
+  @include item-icon();
+  background-image: image-url('icons/hats.jpg');
+  background-position: -150px 0;
+}
+.i55, .bejellew-chapeau {
+  @include item-icon();
+  background-image: image-url('icons/hats.jpg');
+  background-position: -225px 0;
+}
+.f51, .many-hats {
+  @include item-icon();
+  background-image: image-url('icons/hats.jpg');
+  background-position: -300px 0;
+}
+.j44, .retro-cap {
+  @include item-icon();
+  background-image: image-url('icons/hats.jpg');
+  background-position: -375px 0;
+}
+.g40, .carnivale-captains-cap {
+  @include item-icon();
+  background-image: image-url('icons/hats.jpg');
+  background-position: -450px 0;
+}
+.j31, .me-lucky-hat {
+  @include item-icon();
+  background-image: image-url('icons/hats.jpg');
+  background-position: -525px 0;
+}
+.f30, .patterned-bandana {
+  @include item-icon();
+  background-image: image-url('icons/hats.jpg');
+  background-position: -600px 0;
+}
+.g30, .viking-horn-helmet {
+  @include item-icon();
+  background-image: image-url('icons/hats.jpg');
+  background-position: -675px 0;
+}
+.c30, .farming-hat {
+  @include item-icon();
+  background-image: image-url('icons/hats.jpg');
+  background-position: -750px 0;
+}
+.c24, .farmer-hat {
+  @include item-icon();
+  background-image: image-url('icons/hats.jpg');
+  background-position: -825px 0;
+}
+.j28, .widows-veil {
+  @include item-icon();
+  background-image: image-url('icons/hats.jpg');
+  background-position: -900px 0;
+}
+.a28, .wig {
+  @include item-icon();
+  background-image: image-url('icons/hats.jpg');
+  background-position: -975px 0;
+}
+.b29, .brides-veil {
+  @include item-icon();
+  background-image: image-url('icons/hats.jpg');
+  background-position: -1050px 0;
+}
+.h28, .pink-wreath {
+  @include item-icon();
+  background-image: image-url('icons/hats.jpg');
+  background-position: -1125px 0;
+}
+.e28, .silver-crown {
+  @include item-icon();
+  background-image: image-url('icons/hats.jpg');
+  background-position: -1200px 0;
+}
+.f28, .gold-crown {
+  @include item-icon();
+  background-image: image-url('icons/hats.jpg');
+  background-position: -1275px 0;
+}
+.h25, .santa-hood {
+  @include item-icon();
+  background-image: image-url('icons/hats.jpg');
+  background-position: -1350px 0;
+}
+.tur, .turduken {
+  @include item-icon();
+  background-image: image-url('icons/hats.jpg');
+  background-position: -1425px 0;
+}
+.chef, .chefs-hat {
+  @include item-icon();
+  background-image: image-url('icons/hats.jpg');
+  background-position: -1500px 0;
+}
+.shr, .shrimp-hat {
+  @include item-icon();
+  background-image: image-url('icons/hats.jpg');
+  background-position: -1575px 0;
+}
+.fish, .fish-hat {
+  @include item-icon();
+  background-image: image-url('icons/hats.jpg');
+  background-position: -1650px 0;
+}
+.b53, .summer-bloom {
+  @include item-icon();
+  background-image: image-url('icons/weapons.jpg');
+  background-position: 0 0;
+}
+.b31, .celestial-weapon-lootbox {
+  @include item-icon();
+  background-image: image-url('icons/weapons.jpg');
+  background-position: -75px 0;
+}
+.i24, .ice-weapon {
+  @include item-icon();
+  background-image: image-url('icons/weapons.jpg');
+  background-position: -150px 0;
+}
+.d36, .blackheart-lootbox {
+  @include item-icon();
+  background-image: image-url('icons/weapons.jpg');
+  background-position: -225px 0;
+}
+.iwsb, .ice-weapon-skin-box {
+  @include item-icon();
+  background-image: image-url('icons/weapons.jpg');
+  background-position: -300px 0;
+}
+.h47, .medical-eye-patch-white {
+  @include item-icon();
+  background-image: image-url('icons/medical-eye-patch.jpg');
+  background-position: 0 0;
+}
+.i47, .medical-eye-patch-pink {
+  @include item-icon();
+  background-image: image-url('icons/medical-eye-patch.jpg');
+  background-position: -75px 0;
+}
+.j47, .medical-eye-patch-black {
+  @include item-icon();
+  background-image: image-url('icons/medical-eye-patch.jpg');
+  background-position: -150px 0;
+}
+.wmail, .dyeable-elin-black-stockings-mailot {
+  @include item-icon();
+  background-image: image-url('icons/accessories.jpg');
+  background-position: 0 0;
+}
+.bmail, .dyeable-elin-white-stockings-mailot {
+  @include item-icon();
+  background-image: image-url('icons/accessories.jpg');
+  background-position: -75px 0;
+}
+.b52, .qipao-chinese-hair {
+  @include item-icon();
+  background-image: image-url('icons/accessories.jpg');
+  background-position: -150px 0;
+}
+.c51, .pocket-watch {
+  @include item-icon();
+  background-image: image-url('icons/accessories.jpg');
+  background-position: -225px 0;
+}
+.i31, .turtle-back {
+  @include item-icon();
+  background-image: image-url('icons/accessories.jpg');
+  background-position: -300px 0;
+}
+.g31, .olive-bandit-mask {
+  @include item-icon();
+  background-image: image-url('icons/accessories.jpg');
+  background-position: -375px 0;
+}
+.h31, .green-arrow-apple {
+  @include item-icon();
+  background-image: image-url('icons/accessories.jpg');
+  background-position: -450px 0;
+}
+.b28, .red-bow {
+  @include item-icon();
+  background-image: image-url('icons/accessories.jpg');
+  background-position: -525px 0;
+}
+.c28, .monocle {
+  @include item-icon();
+  background-image: image-url('icons/accessories.jpg');
+  background-position: -600px 0;
+}
+.d28, .moustache {
+  @include item-icon();
+  background-image: image-url('icons/accessories.jpg');
+  background-position: -675px 0;
+}
+.c27, .organ-grinder {
+  @include item-icon();
+  background-image: image-url('icons/accessories.jpg');
+  background-position: -750px 0;
+}
+.g29, .accessories-lootbox-icon {
+  @include item-icon();
+  background-image: image-url('icons/accessories.jpg');
+  background-position: -825px 0;
+}
+.a31, .accessories-lootbox {
+  @include item-icon();
+  background-image: image-url('icons/accessories.jpg');
+  background-position: -900px 0;
+}
+.b20, .bat-wings {
+  @include item-icon();
+  background-image: image-url('icons/accessories.jpg');
+  background-position: -975px 0;
+}
+.ssr, .serens-sand-ring {
+  @include item-icon();
+  background-image: image-url('icons/accessories.jpg');
+  background-position: -1050px 0;
+}
+.bn, .veteran-bloodstone-neclace {
+  @include item-icon();
+  background-image: image-url('icons/accessories.jpg');
+  background-position: -1125px 0;
+}
+.vbn, .veliks-bloodstone-necklace {
+  @include item-icon();
+  background-image: image-url('icons/accessories.jpg');
+  background-position: -1200px 0;
+}
+.we, .city-wheel-earing {
+  @include item-icon();
+  background-image: image-url('icons/accessories.jpg');
+  background-position: -1275px 0;
+}
+.f24, .silver-shimmering {
+  @include item-icon();
+  background-image: image-url('icons/costumes.jpg');
+  background-position: 0 0;
+}
+.g24, .gold-shimmering {
+  @include item-icon();
+  background-image: image-url('icons/costumes.jpg');
+  background-position: -75px 0;
+}
+.a60, .elin-airy-aurora-dress {
+  @include item-icon();
+  background-image: image-url('icons/costumes.jpg');
+  background-position: -150px 0;
+}
+.a53, .dyeable-maid {
+  @include item-icon();
+  background-image: image-url('icons/costumes.jpg');
+  background-position: -225px 0;
+}
+.e44, .dyeable-seren-school-outfit {
+  @include item-icon();
+  background-image: image-url('icons/costumes.jpg');
+  background-position: -300px 0;
+}
+.f44, .classic-elin-2014-outfit {
+  @include item-icon();
+  background-image: image-url('icons/costumes.jpg');
+  background-position: -375px 0;
+}
+.i41, .elin-sailor {
+  @include item-icon();
+  background-image: image-url('icons/costumes.jpg');
+  background-position: -450px 0;
+}
+.g41, .dyeable-elin-sailor-suit {
+  @include item-icon();
+  background-image: image-url('icons/costumes.jpg');
+  background-position: -525px 0;
+}
+.a39, .all-basic-butler-and-maid-outfits {
+  @include item-icon();
+  background-image: image-url('icons/costumes.jpg');
+  background-position: -600px 0;
+}
+.h38, .elin-special-maid-lootbox {
+  @include item-icon();
+  background-image: image-url('icons/costumes.jpg');
+  background-position: -675px 0;
+}
+.h37, .elin-chamber-maid {
+  @include item-icon();
+  background-image: image-url('icons/costumes.jpg');
+  background-position: -750px 0;
+}
+.i37, .elin-parlor-maid {
+  @include item-icon();
+  background-image: image-url('icons/costumes.jpg');
+  background-position: -825px 0;
+}
+.j37, .dyeable-elin-maid-outfit {
+  @include item-icon();
+  background-image: image-url('icons/costumes.jpg');
+  background-position: -900px 0;
+}
+.e37, .dyeable-maid-costume-females {
+  @include item-icon();
+  background-image: image-url('icons/costumes.jpg');
+  background-position: -975px 0;
+}
+.a32, .dyeable-maid-outfit {
+  @include item-icon();
+  background-image: image-url('icons/costumes.jpg');
+  background-position: -1050px 0;
+}
+.j26, .female-dyeable-legitimate-buisness-suits {
+  @include item-icon();
+  background-image: image-url('icons/costumes.jpg');
+  background-position: -1125px 0;
+}
+.f26, .dyeable-princess-rida-maid-uniform {
+  @include item-icon();
+  background-image: image-url('icons/costumes.jpg');
+  background-position: -1200px 0;
+}
+.g26, .male-dyeable-legitimate-buisness-suits {
+  @include item-icon();
+  background-image: image-url('icons/costumes.jpg');
+  background-position: -1275px 0;
+}
+.h26, .Elintat-sleeve-suit {
+  @include item-icon();
+  background-image: image-url('icons/costumes.jpg');
+  background-position: -1350px 0;
+}
+.i26, .dyeable-elin-gun-moll-suit {
+  @include item-icon();
+  background-image: image-url('icons/costumes.jpg');
+  background-position: -1425px 0;
+}
+.h29, .party-attire-cosutmes-lootbox-icon {
+  @include item-icon();
+  background-image: image-url('icons/costumes.jpg');
+  background-position: -1500px 0;
+}
+.a27, .legitimate-buisness-accesories-lootbox {
+  @include item-icon();
+  background-image: image-url('icons/costumes.jpg');
+  background-position: -1575px 0;
+}
+.b27, .legitimate-buisness-suits-lootbox {
+  @include item-icon();
+  background-image: image-url('icons/costumes.jpg');
+  background-position: -1650px 0;
+}
+.f25, .elin-dyeable-snowbelle-wrap {
+  @include item-icon();
+  background-image: image-url('icons/costumes.jpg');
+  background-position: -1725px 0;
+}
+.g25, .all-female-dyeable-snowbelle-wrap {
+  @include item-icon();
+  background-image: image-url('icons/costumes.jpg');
+  background-position: -1800px 0;
+}
+.c25, .female-santa-suit {
+  @include item-icon();
+  background-image: image-url('icons/costumes.jpg');
+  background-position: -1875px 0;
+}
+.bmg, .black-magic {
+  @include item-icon();
+  background-image: image-url('icons/costumes.jpg');
+  background-position: -1950px 0;
+}
+.kb, .kill-bam {
+  @include item-icon();
+  background-image: image-url('icons/costumes.jpg');
+  background-position: -2025px 0;
+}
+.bm, .black-magic-suit {
+  @include item-icon();
+  background-image: image-url('icons/costumes.jpg');
+  background-position: -2100px 0;
+}
+.mu, .princess-arins-maid-uniform {
+  @include item-icon();
+  background-image: image-url('icons/costumes.jpg');
+  background-position: -2175px 0;
+}
+.mc, .mutinous-crux {
+  @include item-icon();
+  background-image: image-url('icons/crystals.jpg');
+  background-position: 0 0;
+}
+.sc, .fine-savage-crux {
+  @include item-icon();
+  background-image: image-url('icons/crystals.jpg');
+  background-position: -75px 0;
+}
+.frc, .fine-relentless-crux {
+  @include item-icon();
+  background-image: image-url('icons/crystals.jpg');
+  background-position: -150px 0;
+}
+.ac, .anarchic-crux {
+  @include item-icon();
+  background-image: image-url('icons/crystals.jpg');
+  background-position: -225px 0;
+}
+.fvc, .fine-vigorous-crux {
+  @include item-icon();
+  background-image: image-url('icons/crystals.jpg');
+  background-position: -300px 0;
+}
+.acx, .acrimonious-crux {
+  @include item-icon();
+  background-image: image-url('icons/crystals.jpg');
+  background-position: -375px 0;
+}
+.prz, .pristine-relentless-zyrk {
+  @include item-icon();
+  background-image: image-url('icons/crystals.jpg');
+  background-position: -450px 0;
+}
+.ppz, .pristine-powerful-zyrk {
+  @include item-icon();
+  background-image: image-url('icons/crystals.jpg');
+  background-position: -525px 0;
+}
+.ea, .extensive-alkahest {
+  @include item-icon();
+  background-image: image-url('icons/alkahest.jpg');
+  background-position: 0 0;
+}
+.d31, .premium-alkahest {
+  @include item-icon();
+  background-image: image-url('icons/alkahest.jpg');
+  background-position: -75px 0;
+}
+.ma, .masterwork-alkahest {
+  @include item-icon();
+  background-image: image-url('icons/alkahest.jpg');
+  background-position: -150px 0;
+}
+.ra, .refined-alkahest {
+  @include item-icon();
+  background-image: image-url('icons/alkahest.jpg');
+  background-position: -225px 0;
+}
+.sb, .spellbind {
+  @include item-icon();
+  background-image: image-url('icons/alkahest.jpg');
+  background-position: -300px 0;
+}
+.d46, .blessed-enigmatic-scroll-case {
+  @include item-icon();
+  background-image: image-url('icons/scrolls.jpg');
+  background-position: 0 0;
+}
+.e46, .blessed-enigmatic-scroll {
+  @include item-icon();
+  background-image: image-url('icons/scrolls.jpg');
+  background-position: -75px 0;
+}
+.f46, .noble-enigmatic-scroll {
+  @include item-icon();
+  background-image: image-url('icons/scrolls.jpg');
+  background-position: -150px 0;
+}
+.mes, .masterwork-enigmatic-scroll {
+  @include item-icon();
+  background-image: image-url('icons/scrolls.jpg');
+  background-position: -225px 0;
+}
+.ts, .safe-haven-teleport-scroll {
+  @include item-icon();
+  background-image: image-url('icons/scrolls.jpg');
+  background-position: -300px 0;
+}
+.a52, .level-58-scroll {
+  @include item-icon();
+  background-image: image-url('icons/scrolls.jpg');
+  background-position: -375px 0;
+}
+.ses, .semi-enigmatic-scroll {
+  @include item-icon();
+  background-image: image-url('icons/scrolls.jpg');
+  background-position: -450px 0;
+}
+.iis, .intricate-identification-scroll {
+  @include item-icon();
+  background-image: image-url('icons/scrolls.jpg');
+  background-position: -525px 0;
+}
+.cb, .crystal-bind {
+  @include item-icon();
+  background-image: image-url('icons/scrolls.jpg');
+  background-position: -600px 0;
+}
+.irs, .instance-reset-scroll {
+  @include item-icon();
+  background-image: image-url('icons/scrolls.jpg');
+  background-position: -675px 0;
+}
+.gbl, .godesses-blessing {
+  @include item-icon();
+  background-image: image-url('icons/scrolls.jpg');
+  background-position: -750px 0;
+}
+.ic, .greater-infused-charm {
+  @include item-icon();
+  background-image: image-url('icons/charms.jpg');
+  background-position: 0 0;
+}
+.ec, .greater-enduring-charm {
+  @include item-icon();
+  background-image: image-url('icons/charms.jpg');
+  background-position: -75px 0;
+}
+.pc, .greater-power-charm {
+  @include item-icon();
+  background-image: image-url('icons/charms.jpg');
+  background-position: -150px 0;
+}
+.sd, .summon-dimon {
+  @include item-icon();
+  background-image: image-url('icons/summon.jpg');
+  background-position: 0 0;
+}
+.smo, .summon-monti {
+  @include item-icon();
+  background-image: image-url('icons/summon.jpg');
+  background-position: -75px 0;
+}
+.sp, .summon-phargo {
+  @include item-icon();
+  background-image: image-url('icons/summon.jpg');
+  background-position: -150px 0;
+}
+.ssw, .summon-shwab {
+  @include item-icon();
+  background-image: image-url('icons/summon.jpg');
+  background-position: -225px 0;
+}
+.hop, .holism-potion {
+  @include item-icon();
+  background-image: image-url('icons/potions.jpg');
+  background-position: 0 0;
+}
+.mp, .mana-potion {
+  @include item-icon();
+  background-image: image-url('icons/potions.jpg');
+  background-position: -75px 0;
+}
+.hp, .health-potion {
+  @include item-icon();
+  background-image: image-url('icons/potions.jpg');
+  background-position: -150px 0;
+}
+.di, .divine-infusion {
+  @include item-icon();
+  background-image: image-url('icons/potions.jpg');
+  background-position: -225px 0;
+}
+.rp, .rejuvenation-potion {
+  @include item-icon();
+  background-image: image-url('icons/potions.jpg');
+  background-position: -300px 0;
+}
+.kd, .kaias-dedication {
+  @include item-icon();
+  background-image: image-url('icons/potions.jpg');
+  background-position: -375px 0;
+}
+.bp, .battle-panacea {
+  @include item-icon();
+  background-image: image-url('icons/potions.jpg');
+  background-position: -450px 0;
+}
+.e18, .canephora-potion {
+  @include item-icon();
+  background-image: image-url('icons/potions.jpg');
+  background-position: -525px 0;
+}
+.e36, .twice-cured-loot-box {
+  @include item-icon();
+  background-image: image-url('icons/potions.jpg');
+  background-position: -600px 0;
+}
+.f36, .once-cured-loot-box {
+  @include item-icon();
+  background-image: image-url('icons/potions.jpg');
+  background-position: -675px 0;
+}
+.lb, .lelyns-bandage {
+  @include item-icon();
+  background-image: image-url('icons/comsumables.jpg');
+  background-position: 0 0;
+}
+.ti, .travelers-tnsurance {
+  @include item-icon();
+  background-image: image-url('icons/comsumables.jpg');
+  background-position: -75px 0;
+}
+.xb, .xp-boost {
+  @include item-icon();
+  background-image: image-url('icons/comsumables.jpg');
+  background-position: -150px 0;
+}
+.ad, .apothecary-dye {
+  @include item-icon();
+  background-image: image-url('icons/comsumables.jpg');
+  background-position: -225px 0;
+}
+.ghb, .gold-hunter-boost {
+  @include item-icon();
+  background-image: image-url('icons/comsumables.jpg');
+  background-position: -300px 0;
+}
+.qgb, .questers-gold-boost {
+  @include item-icon();
+  background-image: image-url('icons/comsumables.jpg');
+  background-position: -375px 0;
+}
+.sk, .strong-key {
+  @include item-icon();
+  background-image: image-url('icons/comsumables.jpg');
+  background-position: -450px 0;
+}
+.f18, .tertas-fruit-candy {
+  @include item-icon();
+  background-image: image-url('icons/comsumables.jpg');
+  background-position: -525px 0;
+}
+.d25, .travel-journal {
+  @include item-icon();
+  background-image: image-url('icons/comsumables.jpg');
+  background-position: -600px 0;
+}
+.e25, .village-atlas {
+  @include item-icon();
+  background-image: image-url('icons/comsumables.jpg');
+  background-position: -675px 0;
+}
+.a43, .shape-changer-big-head {
+  @include item-icon();
+  background-image: image-url('icons/comsumables.jpg');
+  background-position: -750px 0;
+}
+.g52, .reputation-boost {
+  @include item-icon();
+  background-image: image-url('icons/comsumables.jpg');
+  background-position: -825px 0;
+}
+.a001, .all-female-varsity-blue-dogs-outfits {
+  @include item-icon();
+  background-image: image-url('icons/VarsityStore.png');
+  background-position: 0 0;
+}
+.a002, .all-male-varsity-blue-dogs-outfits {
+  @include item-icon();
+  background-image: image-url('icons/VarsityStore.png');
+  background-position: -75px 0;
+}
+.a003, .all-female-castanica-demons-outfit {
+  @include item-icon();
+  background-image: image-url('icons/VarsityStore.png');
+  background-position: -150px 0;
+}
+.a004, .all-male-castanica-demons-outfit {
+  @include item-icon();
+  background-image: image-url('icons/VarsityStore.png');
+  background-position: -225px 0;
+}
+.a005, .sharp-shades {
+  @include item-icon();
+  background-image: image-url('icons/VarsityStore.png');
+  background-position: -300px 0;
+}
+.a006, .black-catocaster {
+  @include item-icon();
+  background-image: image-url('icons/VarsityStore.png');
+  background-position: -375px 0;
+}
+.a007, .electric-fire {
+  @include item-icon();
+  background-image: image-url('icons/VarsityStore.png');
+  background-position: -450px 0;
+}
+.a008, .pink-backpack {
+  @include item-icon();
+  background-image: image-url('icons/VarsityStore.png');
+  background-position: -525px 0;
+}
+.a009, .canvas-backpack {
+  @include item-icon();
+  background-image: image-url('icons/VarsityStore.png');
+  background-position: -600px 0;
+}
+.a010, .all-female-jeans-and-jacket {
+  @include item-icon();
+  background-image: image-url('icons/VarsityStore.png');
+  background-position: -675px 0;
+}
+.a011, .all-male-jeans-and-jacket {
+  @include item-icon();
+  background-image: image-url('icons/VarsityStore.png');
+  background-position: -750px 0;
+}
+.a012, .fiery-wings {
+  @include item-icon();
+  background-image: image-url('icons/wings.png');
+  background-position: 0 0;
+}
+.a013, .pink-wings {
+  @include item-icon();
+  background-image: image-url('icons/wings.png');
+  background-position: -75px 0;
+}
+.a014, .gold-wings {
+  @include item-icon();
+  background-image: image-url('icons/wings.png');
+  background-position: -150px 0;
+}
+.a015, .purple-wings {
+  @include item-icon();
+  background-image: image-url('icons/wings.png');
+  background-position: -225px 0;
+}
+.a016, .white-wings {
+  @include item-icon();
+  background-image: image-url('icons/wings.png');
+  background-position: -300px 0;
+}
+.a017, .black-wings {
+  @include item-icon();
+  background-image: image-url('icons/wings.png');
+  background-position: -375px 0;
+}
+.a018, .elegant-black-bonnet {
+  @include item-icon();
+  background-image: image-url('icons/gothic.png');
+  background-position: 0 0;
+}
+.a019, .medley-bonnet {
+  @include item-icon();
+  background-image: image-url('icons/gothic.png');
+  background-position: -75px 0;
+}
+.a020, .ivory-bloom {
+  @include item-icon();
+  background-image: image-url('icons/gothic.png');
+  background-position: -150px 0;
+}
+.a021, .ebony-bloom {
+  @include item-icon();
+  background-image: image-url('icons/gothic.png');
+  background-position: -225px 0;
+}
+.a022, .brilliant-topper {
+  @include item-icon();
+  background-image: image-url('icons/gothic.png');
+  background-position: -300px 0;
+}
+.a023, .aubergine-topper {
+  @include item-icon();
+  background-image: image-url('icons/gothic.png');
+  background-position: -375px 0;
+}
+.a024, .dyeable-female-gothic-elegance {
+  @include item-icon();
+  background-image: image-url('icons/gothic.png');
+  background-position: -450px 0;
+}
+.a025, .dyeable-male-gothic-swagger {
+  @include item-icon();
+  background-image: image-url('icons/gothic.png');
+  background-position: -525px 0;
+}
+.a026, .elin-gother-medley {
+  @include item-icon();
+  background-image: image-url('icons/gothic.png');
+  background-position: -600px 0;
+}
+.a027, .female-gothic-elegance {
+  @include item-icon();
+  background-image: image-url('icons/gothic.png');
+  background-position: -675px 0;
+}
+.a028, .male-gothic-swagger {
+  @include item-icon();
+  background-image: image-url('icons/gothic.png');
+  background-position: -750px 0;
+}
+.a029, .socko {
+  @include item-icon();
+  background-image: image-url('icons/cat-mounts.png');
+  background-position: 0 0;
+}
+.a030, .saltyko {
+  @include item-icon();
+  background-image: image-url('icons/cat-mounts.png');
+  background-position: -75px 0;
+}
+.a031, .foral-bamboo-hat {
+  @include item-icon();
+  background-image: image-url('icons/fighting-game.png');
+  background-position: 0 0;
+}
+.a032, .dragonflower-hat {
+  @include item-icon();
+  background-image: image-url('icons/fighting-game.png');
+  background-position: -75px 0;
+}
+.a033, .dragonos-hoard-backpack {
+  @include item-icon();
+  background-image: image-url('icons/fighting-game.png');
+  background-position: -150px 0;
+}
+.a034, .dragonscale-helmet {
+  @include item-icon();
+  background-image: image-url('icons/fighting-game.png');
+  background-position: -225px 0;
+}
+.a035, .dragoneye-glasses {
+  @include item-icon();
+  background-image: image-url('icons/fighting-game.png');
+  background-position: -300px 0;
+}
+.a036, .serpentine-hat {
+  @include item-icon();
+  background-image: image-url('icons/fighting-game.png');
+  background-position: -375px 0;
+}
+.a037, .dragonfire-gi {
+  @include item-icon();
+  background-image: image-url('icons/fighting-game.png');
+  background-position: -450px 0;
+}
+.a038, .dyed-dragonfire-gi {
+  @include item-icon();
+  background-image: image-url('icons/fighting-game.png');
+  background-position: -525px 0;
+}
+.a039, .crimsonmare {
+  @include item-icon();
+  background-image: image-url('icons/ghost-horse.png');
+  background-position: 0 0;
+}
+.a040, .shadowmare {
+  @include item-icon();
+  background-image: image-url('icons/ghost-horse.png');
+  background-position: -75px 0;
+}
+.a041, .wintersilk-dress {
+  @include item-icon();
+  background-image: image-url('icons/silk.png');
+  background-position: 0 0;
+}
+.a042, .frostsilk-dress {
+  @include item-icon();
+  background-image: image-url('icons/silk.png');
+  background-position: -75px 0;
+}
+.a043, .wintersilk-hat {
+  @include item-icon();
+  background-image: image-url('icons/silk.png');
+  background-position: -150px 0;
+}
+.a044, .frostsilk-hat {
+  @include item-icon();
+  background-image: image-url('icons/silk.png');
+  background-position: -225px 0;
+}
+.a045, .snowsilk-dress {
+  @include item-icon();
+  background-image: image-url('icons/silk.png');
+  background-position: -300px 0;
+}
+.a046, .goldensilk-dress {
+  @include item-icon();
+  background-image: image-url('icons/silk.png');
+  background-position: -375px 0;
+}
+.a047, .snowsilk-hat {
+  @include item-icon();
+  background-image: image-url('icons/silk.png');
+  background-position: -450px 0;
+}
+.a048, .goldensilk-hat {
+  @include item-icon();
+  background-image: image-url('icons/silk.png');
+  background-position: -525px 0;
+}
+.a049, .frostspun-flower {
+  @include item-icon();
+  background-image: image-url('icons/silk.png');
+  background-position: -600px 0;
+}
+.a050, .rainbow-cloud {
+  @include item-icon();
+  background-image: image-url('icons/clouds.png');
+  background-position: 0 0;
+}
+.a051, .happy-cloud {
+  @include item-icon();
+  background-image: image-url('icons/clouds.png');
+  background-position: -75px 0;
+}
+.a052, .angry-cloud {
+  @include item-icon();
+  background-image: image-url('icons/clouds.png');
+  background-position: -150px 0;
+}
+.a053, .red-plasma {
+  @include item-icon();
+  background-image: image-url('icons/plasma-weapons.png');
+  background-position: 0 0;
+}
+.a054, .purple-plasma {
+  @include item-icon();
+  background-image: image-url('icons/plasma-weapons.png');
+  background-position: -75px 0;
+}
+.a055, .green-plasma {
+  @include item-icon();
+  background-image: image-url('icons/plasma-weapons.png');
+  background-position: -150px 0;
+}
+.a056, .blue-plasma {
+  @include item-icon();
+  background-image: image-url('icons/plasma-weapons.png');
+  background-position: -225px 0;
+}
+.a057, .red-master-plasma {
+  @include item-icon();
+  background-image: image-url('icons/plasma-weapons.png');
+  background-position: -300px 0;
+}
+.a058, .purple-master-plasma {
+  @include item-icon();
+  background-image: image-url('icons/plasma-weapons.png');
+  background-position: -375px 0;
+}
+.a059, .green-master-plasma {
+  @include item-icon();
+  background-image: image-url('icons/plasma-weapons.png');
+  background-position: -450px 0;
+}
+.a060, .blue-master-plasma {
+  @include item-icon();
+  background-image: image-url('icons/plasma-weapons.png');
+  background-position: -525px 0;
+}
+.a061, .black-school-girl {
+  @include item-icon();
+  background-image: image-url('icons/hellokitty-lootboxes.png');
+  background-position: 0 0;
+}
+.a062, .pink-school-girl {
+  @include item-icon();
+  background-image: image-url('icons/hellokitty-lootboxes.png');
+  background-position: -75px 0;
+}
+.a063, .special-elin-dress {
+  @include item-icon();
+  background-image: image-url('icons/hellokitty-lootboxes.png');
+  background-position: -150px 0;
+}
+.a064, .kitty-beret {
+  @include item-icon();
+  background-image: image-url('icons/hellokitty-lootboxes.png');
+  background-position: -225px 0;
+}
+.a065, .kitty-headphones {
+  @include item-icon();
+  background-image: image-url('icons/hellokitty-lootboxes.png');
+  background-position: -300px 0;
+}
+.a066, .golden-backpack-kitty {
+  @include item-icon();
+  background-image: image-url('icons/hellokitty-lootboxes.png');
+  background-position: -375px 0;
+}
+.a067, .red-kitty-headband {
+  @include item-icon();
+  background-image: image-url('icons/hellokitty-lootboxes.png');
+  background-position: -450px 0;
+}
+.a068, .pink-kitty-headband {
+  @include item-icon();
+  background-image: image-url('icons/hellokitty-lootboxes.png');
+  background-position: -525px 0;
+}
+.a069, .red-kitty-backpack {
+  @include item-icon();
+  background-image: image-url('icons/hellokitty-lootboxes.png');
+  background-position: 0px -75px;
+}
+.a070, .pink-kitty-backpack {
+  @include item-icon();
+  background-image: image-url('icons/hellokitty-lootboxes.png');
+  background-position: -75px -75px;
+}
+.a071, .kitty-mount {
+  @include item-icon();
+  background-image: image-url('icons/hellokitty-lootboxes.png');
+  background-position: -150px -75px;
+}
+.a072, .kitty-black-tux {
+  @include item-icon();
+  background-image: image-url('icons/hellokitty-lootboxes.png');
+  background-position: -225px -75px;
+}
+.a073, .kitty-white-tux {
+  @include item-icon();
+  background-image: image-url('icons/hellokitty-lootboxes.png');
+  background-position: -300px -75px;
+}
+.a074, .kitty-pet {
+  @include item-icon();
+  background-image: image-url('icons/hellokitty-lootboxes.png');
+  background-position: -375px -75px;
+}
+.a075, .red-school-girl {
+  @include item-icon();
+  background-image: image-url('icons/hellokitty-lootboxes.png');
+  background-position: -450px -75px;
+}
+/* officer costumes */
+.a076, .dyeable-male-officer-uniform {
+  @include item-icon();
+  background-image: image-url('icons/officer-costume-sprite.png');
+  background-position: 0 0;
+}
+.a077, .dyeable-female-officer-uniform {
+  @include item-icon();
+  background-image: image-url('icons/officer-costume-sprite.png');
+  background-position: -75px 0;
+}
+.a078, .male-officer-uniform {
+  @include item-icon();
+  background-image: image-url('icons/officer-costume-sprite.png');
+  background-position: -150px 0;
+}
+.a079, .female-officer-uniform {
+  @include item-icon();
+  background-image: image-url('icons/officer-costume-sprite.png');
+  background-position: -225px 0;
+}
+.a080, .blue-coat {
+  @include item-icon();
+  background-image: image-url('icons/officer-costume-sprite.png');
+  background-position: -300px 0;
+}
+.a081, .black-coat {
+  @include item-icon();
+  background-image: image-url('icons/officer-costume-sprite.png');
+  background-position: -375px 0;
+}
+.a082, .red-coat {
+  @include item-icon();
+  background-image: image-url('icons/officer-costume-sprite.png');
+  background-position: -450px 0;
+}
+.a083, .blue-officer-cap {
+  @include item-icon();
+  background-image: image-url('icons/officer-costume-sprite.png');
+  background-position: -525px 0;
+}
+.a084, .black-officer-cap {
+  @include item-icon();
+  background-image: image-url('icons/officer-costume-sprite.png');
+  background-position: 0px -75px;
+}
+.a085, .red-beret {
+  @include item-icon();
+  background-image: image-url('icons/officer-costume-sprite.png');
+  background-position: -75px -75px;
+}
+.a086, .black-beret {
+  @include item-icon();
+  background-image: image-url('icons/officer-costume-sprite.png');
+  background-position: -150px -75px;
+}
+.a087, .dyeable-officer-box {
+  @include item-icon();
+  background-image: image-url('icons/officer-costume-sprite.png');
+  background-position: -225px -75px;
+}
+.a088, .officer-box {
+  @include item-icon();
+  background-image: image-url('icons/officer-costume-sprite.png');
+  background-position: -300px -75px;
+}
+/* begin mounts */
+.a089, .regal-dark {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_sprite2.png');
+  background-position: 0 0;
+}
+.a090, .smoulder {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_sprite2.png');
+  background-position: -75px 0;
+}
+.a091, .brown {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_sprite2.png');
+  background-position: -150px 0;
+}
+.a092, .gold-lion {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_sprite2.png');
+  background-position: -225px 0;
+}
+.a093, .silver {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_sprite2.png');
+  background-position: -300px 0;
+}
+.a094, .pegasus-white {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_sprite2.png');
+  background-position: -375px 0;
+}
+.a095, .bay {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_sprite2.png');
+  background-position: -450px 0;
+}
+.a096, .frost {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_sprite2.png');
+  background-position: -525px 0;
+}
+.a097, .pegasus-black {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_sprite2.png');
+  background-position: -600px 0;
+}
+.a098, .flying-lootbox {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_sprite2.png');
+  background-position: -675px 0;
+}
+/* end */
+.a099, .red-snapback-hat {
+  @include item-icon();
+  background-image: image-url('icons/hiphop_loot_boxes_sprite2.png');
+  background-position: 0 0;
+}
+.a100, .grey-bucket-hat {
+  @include item-icon();
+  background-image: image-url('icons/hiphop_loot_boxes_sprite2.png');
+  background-position: -75px 0;
+}
+.a101, .dyeable-hiphop-costume-lootbox {
+  @include item-icon();
+  background-image: image-url('icons/hiphop_loot_boxes_sprite2.png');
+  background-position: -150px 0;
+}
+.a102, .boom-box {
+  @include item-icon();
+  background-image: image-url('icons/hiphop_loot_boxes_sprite2.png');
+  background-position: -225px 0;
+}
+.a103, .blue-snapback-hat {
+  @include item-icon();
+  background-image: image-url('icons/hiphop_loot_boxes_sprite2.png');
+  background-position: -300px 0;
+}
+.a104, .blue-bucket-hat {
+  @include item-icon();
+  background-image: image-url('icons/hiphop_loot_boxes_sprite2.png');
+  background-position: -375px 0;
+}
+.a105, .black-snapback-hat {
+  @include item-icon();
+  background-image: image-url('icons/hiphop_loot_boxes_sprite2.png');
+  background-position: -450px 0;
+}
+.a106, .hiphop-costume-smartbox {
+  @include item-icon();
+  background-image: image-url('icons/hiphop_loot_boxes_sprite2.png');
+  background-position: -525px 0;
+}
+.a107, .female-hiphop {
+  @include item-icon();
+  background-image: image-url('icons/hiphop_loot_boxes_sprite2.png');
+  background-position: -600px 0;
+}
+.a108, .male-hiphop {
+  @include item-icon();
+  background-image: image-url('icons/hiphop_loot_boxes_sprite2.png');
+  background-position: -675px 0;
+}
+.a109, .male-hiphop-dyeable {
+  @include item-icon();
+  background-image: image-url('icons/hiphop_loot_boxes_sprite2.png');
+  background-position: -750px 0;
+}
+.a110, .female-hiphop-dyeable {
+  @include item-icon();
+  background-image: image-url('icons/hiphop_loot_boxes_sprite2.png');
+  background-position: -825px 0;
+}
+/* school uniforms */
+.a111, .intermural {
+  @include item-icon();
+  background-image: image-url('icons/Loot_boxes_schooluniforms.png');
+  background-position: 0 0;
+}
+.a112, .formal-finishing {
+  @include item-icon();
+  background-image: image-url('icons/Loot_boxes_schooluniforms.png');
+  background-position: -75px 0;
+}
+.a113, .formal-kaiator {
+  @include item-icon();
+  background-image: image-url('icons/Loot_boxes_schooluniforms.png');
+  background-position: -150px 0;
+}
+.a114, .formal-pora-elinu {
+  @include item-icon();
+  background-image: image-url('icons/Loot_boxes_schooluniforms.png');
+  background-position: -225px 0;
+}
+.a115, .formal-sinestral {
+  @include item-icon();
+  background-image: image-url('icons/Loot_boxes_schooluniforms.png');
+  background-position: -300px 0;
+}
+.a116, .casual-finishing {
+  @include item-icon();
+  background-image: image-url('icons/Loot_boxes_schooluniforms.png');
+  background-position: -375px 0;
+}
+.a117, .casual-kaiator {
+  @include item-icon();
+  background-image: image-url('icons/Loot_boxes_schooluniforms.png');
+  background-position: -450px 0;
+}
+.a118, .casual-pora-elinu {
+  @include item-icon();
+  background-image: image-url('icons/Loot_boxes_schooluniforms.png');
+  background-position: -525px 0;
+}
+.a119, .casual-sinestral {
+  @include item-icon();
+  background-image: image-url('icons/Loot_boxes_schooluniforms.png');
+  background-position: -600px 0;
+}
+.a120, .post-grad-loot-box {
+  @include item-icon();
+  background-image: image-url('icons/Loot_boxes_schooluniforms.png');
+  background-position: -675px 0;
+}
+.a121, .clive-sultan {
+  @include item-icon();
+  background-image: image-url('icons/llamas.png');
+  background-position: 0 0;
+}
+.a122, .andy-drama {
+  @include item-icon();
+  background-image: image-url('icons/llamas.png');
+  background-position: -75px 0;
+}
+.a123, .bellbottom-prue {
+  @include item-icon();
+  background-image: image-url('icons/llamas.png');
+  background-position: -150px 0;
+}
+.a124, .baby-powderpuff {
+  @include item-icon();
+  background-image: image-url('icons/llamas.png');
+  background-position: -225px 0;
+}
+.a125, .yellow-umbrella {
+  @include item-icon();
+  background-image: image-url('icons/raincoats.png');
+  background-position: 0 0;
+}
+.a126, .yellow-raincoat {
+  @include item-icon();
+  background-image: image-url('icons/raincoats.png');
+  background-position: -75px 0;
+}
+.a127, .red-umbrella {
+  @include item-icon();
+  background-image: image-url('icons/raincoats.png');
+  background-position: -150px 0;
+}
+.a128, .high-elf-super-box {
+  @include item-icon();
+  background-image: image-url('icons/raincoats.png');
+  background-position: -225px 0;
+}
+.a129, .green-umbrella {
+  @include item-icon();
+  background-image: image-url('icons/raincoats.png');
+  background-position: -300px 0;
+}
+.a130, .dyeable-raincoat {
+  @include item-icon();
+  background-image: image-url('icons/raincoats.png');
+  background-position: -375px 0;
+}
+.a131, .castanic-super-box {
+  @include item-icon();
+  background-image: image-url('icons/raincoats.png');
+  background-position: -450px 0;
+}
+.a132, .black-umbrella {
+  @include item-icon();
+  background-image: image-url('icons/raincoats.png');
+  background-position: -525px 0;
+}
+.a133, .swat-female {
+  @include item-icon();
+  background-image: image-url('icons/swat.png');
+  background-position: 0 0;
+}
+.a134, .swat-male {
+  @include item-icon();
+  background-image: image-url('icons/swat.png');
+  background-position: -75px 0;
+}
+.a135, .swat-mask {
+  @include item-icon();
+  background-image: image-url('icons/swat.png');
+  background-position: -150px 0;
+}
+.a136, .swat-cap {
+  @include item-icon();
+  background-image: image-url('icons/swat.png');
+  background-position: -225px 0;
+}
+.a137, .barrett-m82 {
+  @include item-icon();
+  background-image: image-url('icons/swat.png');
+  background-position: -300px 0;
+}
+.a138, .swat-dyeable-female {
+  @include item-icon();
+  background-image: image-url('icons/swat.png');
+  background-position: -375px 0;
+}
+.a139, .swat-dyeable-male {
+  @include item-icon();
+  background-image: image-url('icons/swat.png');
+  background-position: -450px 0;
+}
+.a140, .fitted-beach-wear {
+  @include item-icon();
+  background-image: image-url('icons/Loot_boxes_swimsuits.png');
+  background-position: 0 0;
+}
+.a141, .striped-bikini {
+  @include item-icon();
+  background-image: image-url('icons/Loot_boxes_swimsuits.png');
+  background-position: -75px 0;
+}
+.a142, .leisure-shorts {
+  @include item-icon();
+  background-image: image-url('icons/Loot_boxes_swimsuits.png');
+  background-position: -150px 0;
+}
+.a143, .butterfly-plunge {
+  @include item-icon();
+  background-image: image-url('icons/Loot_boxes_swimsuits.png');
+  background-position: -225px 0;
+}
+.a144, .dyeable-striped-bikini {
+  @include item-icon();
+  background-image: image-url('icons/Loot_boxes_swimsuits.png');
+  background-position: -300px 0;
+}
+.a145, .dyeable-leisure-shorts {
+  @include item-icon();
+  background-image: image-url('icons/Loot_boxes_swimsuits.png');
+  background-position: -375px 0;
+}
+.a146, .dyeable-elin-striped-one-piece {
+  @include item-icon();
+  background-image: image-url('icons/Loot_boxes_swimsuits.png');
+  background-position: -450px 0;
+}
+.a147, .elin-striped-one-piece {
+  @include item-icon();
+  background-image: image-url('icons/Loot_boxes_swimsuits.png');
+  background-position: -525px 0;
+}
+.a148, .elin-beach-cadet {
+  @include item-icon();
+  background-image: image-url('icons/Loot_boxes_swimsuits.png');
+  background-position: -600px 0;
+}
+.a149, .dyeable-fitted-beach-wear {
+  @include item-icon();
+  background-image: image-url('icons/Loot_boxes_swimsuits.png');
+  background-position: -675px 0;
+}
+.a150, .sunrise-shades {
+  @include item-icon();
+  background-image: image-url('icons/Loot_boxes_swimsuits.png');
+  background-position: -750px 0;
+}
+.a151, .butterfly-specs {
+  @include item-icon();
+  background-image: image-url('icons/Loot_boxes_swimsuits.png');
+  background-position: -825px 0;
+}
+.a152, .striped-hairband {
+  @include item-icon();
+  background-image: image-url('icons/Loot_boxes_swimsuits.png');
+  background-position: -900px 0;
+}
+.a153, .butterfly-hairband {
+  @include item-icon();
+  background-image: image-url('icons/Loot_boxes_swimsuits.png');
+  background-position: -975px 0;
+}
+.a154, .floppy-straw-hat {
+  @include item-icon();
+  background-image: image-url('icons/Loot_boxes_swimsuits.png');
+  background-position: -1050px 0;
+}
+.a155, .airboss {
+  @include item-icon();
+  background-image: image-url('icons/Loot_boxes_pigs_sprite.png');
+  background-position: 0 0;
+}
+.a156, .airy-porker {
+  @include item-icon();
+  background-image: image-url('icons/Loot_boxes_pigs_sprite.png');
+  background-position: -75px 0;
+}
+.a157, .amelia {
+  @include item-icon();
+  background-image: image-url('icons/Loot_boxes_pigs_sprite.png');
+  background-position: -150px 0;
+}
+.a158, .orville {
+  @include item-icon();
+  background-image: image-url('icons/Loot_boxes_pigs_sprite.png');
+  background-position: -225px 0;
+}
+.a159, .regular-pigs-loot-box {
+  @include item-icon();
+  background-image: image-url('icons/Loot_boxes_pigs_sprite.png');
+  background-position: -300px 0;
+}
+.a160, .special-pigs-loot-box {
+  @include item-icon();
+  background-image: image-url('icons/Loot_boxes_pigs_sprite.png');
+  background-position: -375px 0;
+}
+.a161, .white-inner-armor {
+  @include item-icon();
+  background-image: image-url('icons/Loot_boxes_monkey.png');
+  background-position: 0 0;
+}
+.a162, .black-inner-armor {
+  @include item-icon();
+  background-image: image-url('icons/Loot_boxes_monkey.png');
+  background-position: -75px 0;
+}
+.a163, .crit-inner-armor {
+  @include item-icon();
+  background-image: image-url('icons/Loot_boxes_monkey.png');
+  background-position: -150px 0;
+}
+.a164, .hp-inner-armor {
+  @include item-icon();
+  background-image: image-url('icons/Loot_boxes_monkey.png');
+  background-position: -225px 0;
+}
+.a165, .mp-inner-armor {
+  @include item-icon();
+  background-image: image-url('icons/Loot_boxes_monkey.png');
+  background-position: -300px 0;
+}
+.a166, .endurance-inner-armor {
+  @include item-icon();
+  background-image: image-url('icons/Loot_boxes_monkey.png');
+  background-position: -375px 0;
+}
+.a167, .power-inner-armor {
+  @include item-icon();
+  background-image: image-url('icons/Loot_boxes_monkey.png');
+  background-position: -450px 0;
+}
+.a168, .diamond-dragon {
+  @include item-icon();
+  background-image: image-url('icons/dragon_loot_box_sprite.png');
+  background-position: 0px 0;
+}
+.a169, .ghost-dragon {
+  @include item-icon();
+  background-image: image-url('icons/dragon_loot_box_sprite.png');
+  background-position: -75px 0;
+}
+.a170, .crimson-dragon {
+  @include item-icon();
+  background-image: image-url('icons/dragon_loot_box_sprite.png');
+  background-position: -150px 0;
+}
+.a171, .iron-dragon {
+  @include item-icon();
+  background-image: image-url('icons/dragon_loot_box_sprite.png');
+  background-position: -225px 0;
+}
+.a172, .dragon-token {
+  @include item-icon();
+  background-image: image-url('icons/dragon_loot_box_sprite.png');
+  background-position: -300px 0;
+}
+.a173, .silver-elleon-smartbox {
+  @include item-icon();
+  background-image: image-url('icons/elleon_loot_box_sprite.png');
+  background-position: 0 0;
+}
+.a174, .gold-elleon-smartbox {
+  @include item-icon();
+  background-image: image-url('icons/elleon_loot_box_sprite.png');
+  background-position: -75px 0;
+}
+.a175, .regular-elleon-smartbox {
+  @include item-icon();
+  background-image: image-url('icons/elleon_loot_box_sprite.png');
+  background-position: -150px 0;
+}
+.a176, .elleon-weapon-token-store {
+  @include item-icon();
+  background-image: image-url('icons/elleon_loot_box_sprite.png');
+  background-position: -225px 0;
+}
+.a177, .rare-skull-mask {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_skeletons.png');
+  background-position: 0 0;
+}
+.a178, .regular-skull-mask {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_skeletons.png');
+  background-position: -75px 0;
+}
+.a179, .regular-skelaton-suit {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_skeletons.png');
+  background-position: -150px 0;
+}
+.a180, .rare-skelaton-suit {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_skeletons.png');
+  background-position: -225px 0;
+}
+.a181, .dyeable-cowgirl {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_cowgirls.png');
+  background-position: 0 0;
+}
+.a182, .wrestler {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_cowgirls.png');
+  background-position: -75px 0;
+}
+.a183, .cowgirl {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_cowgirls.png');
+  background-position: -150px 0;
+}
+.a184, .dyeable-wrestler {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_cowgirls.png');
+  background-position: -225px 0;
+}
+.a185, .wrestler-mask-red {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_cowgirls.png');
+  background-position: -300px 0;
+}
+.a186, .cowboy-hat {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_cowgirls.png');
+  background-position: -375px 0;
+}
+.a187, .wrestler-mask-black {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_cowgirls.png');
+  background-position: -450px 0;
+}
+.a188, .cowboy-hat-black {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_cowgirls.png');
+  background-position: -525px 0;
+}
+.a189, .frills {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_picnic.png');
+  background-position: 0 0;
+}
+.a190, .red-cloche {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_picnic.png');
+  background-position: -75px 0;
+}
+.a191, .red-ribbon-boater {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_picnic.png');
+  background-position: -150px 0;
+}
+.a192, .green-cloche {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_picnic.png');
+  background-position: -225px 0;
+}
+.a193, .dyeable-frills {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_picnic.png');
+  background-position: -300px 0;
+}
+.a194, .black-cloche {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_picnicBW.png');
+  background-position: 0 0;
+}
+.a195, .black-ribbon {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_picnicBW.png');
+  background-position: -75px 0;
+}
+.a196, .black-ribbon-boater {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_picnicBW.png');
+  background-position: -150px 0;
+}
+.a197, .black-frill {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_picnicBW.png');
+  background-position: -225px 0;
+}
+.a198, .yellow-ribbon {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_picnicBW.png');
+  background-position: -300px 0;
+}
+.a199, .female-winter-parka {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_parkas.png');
+  background-position: 0 0;
+}
+.a200, .ear-muffs {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_parkas.png');
+  background-position: -75px 0;
+}
+.a201, .winter-parka {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_parkas.png');
+  background-position: -150px 0;
+}
+.a202, .dyeable-winter-parka {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_parkas.png');
+  background-position: -225px 0;
+}
+.a203, .dyeable-female-winter-parka {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_parkas.png');
+  background-position: -300px 0;
+}
+.a204, .red-knit-hat {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_parkas.png');
+  background-position: -375px 0;
+}
+.a205, .black-knit-hat {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_parkas.png');
+  background-position: -450px 0;
+}
+.a206, .sky-cycle {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_wintera.png');
+  background-position: 0 0;
+}
+.a207, .personalized-gym {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_wintera.png');
+  background-position: -75px 0;
+}
+.a208, .jet-cycle {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_wintera.png');
+  background-position: -150px 0;
+}
+.a209, .chroma-plasma {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_wintera.png');
+  background-position: -225px 0;
+}
+.a210, .party-dress {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_partycocktail.png');
+  background-position: 0 0;
+}
+.a211, .cocktail-dress {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_partycocktail.png');
+  background-position: -75px 0;
+}
+.a212, .black-ribbon-band {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_partycocktail.png');
+  background-position: -150px 0;
+}
+.a213, .white-ribbon-band {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_partycocktail.png');
+  background-position: -225px 0;
+}
+.a214, .dyeable-party-dress {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_partycocktail.png');
+  background-position: -300px 0;
+}
+.a215, .white-fur-coat {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_partycocktail.png');
+  background-position: -375px 0;
+}
+.a216, .black-fur-coat {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_partycocktail.png');
+  background-position: -450px 0;
+}
+.a217, .disco-ball {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_partycocktail.png');
+  background-position: -525px 0;
+}
+.a218, .obsidian-helmet {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_dragonitems.png');
+  background-position: 0 0;
+}
+.a219, .volcanic-helmet {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_dragonitems.png');
+  background-position: -75px 0;
+}
+.a220, .glacial-helmet {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_dragonitems.png');
+  background-position: -150px 0;
+}
+.a221, .volcanic-wings {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_dragonitems.png');
+  background-position: -225px 0;
+}
+.a222, .obsidian-wings {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_dragonitems.png');
+  background-position: -300px 0;
+}
+.a223, .glacial-wings {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_dragonitems.png');
+  background-position: -375px 0;
+}
+.a224, .obsidian-armor {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_dragonitems.png');
+  background-position: -450px 0;
+}
+.a225, .volcanic-armor {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_dragonitems.png');
+  background-position: -525px 0;
+}
+.a226, .glacial-armor {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_dragonitems.png');
+  background-position: -600px 0;
+}
+.a227, .ash-dragon {
+  @include item-icon();
+  background-image: image-url('icons/bone_dragons_bonnets.png');
+  background-position: 0 0;
+}
+.a228, .astra-dragon {
+  @include item-icon();
+  background-image: image-url('icons/bone_dragons_bonnets.png');
+  background-position: -75px 0;
+}
+.a229, .ultra-dragon {
+  @include item-icon();
+  background-image: image-url('icons/bone_dragons_bonnets.png');
+  background-position: -150px 0;
+}
+.a230, .night-dragon {
+  @include item-icon();
+  background-image: image-url('icons/bone_dragons_bonnets.png');
+  background-position: -225px 0;
+}
+.a231, .bone-dragon {
+  @include item-icon();
+  background-image: image-url('icons/bone_dragons_bonnets.png');
+  background-position: -300px 0;
+}
+.a232, .bow-emote {
+  @include item-icon();
+  background-image: image-url('icons/bone_dragons_bonnets.png');
+  background-position: -375px 0;
+}
+.a233, .maids-plum-gingham-bonnet {
+  @include item-icon();
+  background-image: image-url('icons/bone_dragons_bonnets.png');
+  background-position: -450px 0;
+}
+.a234, .maids-pink-bonnet {
+  @include item-icon();
+  background-image: image-url('icons/bone_dragons_bonnets.png');
+  background-position: -525px 0;
+}
+.a235, .maids-white-bonnet {
+  @include item-icon();
+  background-image: image-url('icons/bone_dragons_bonnets.png');
+  background-position: -600px 0;
+}
+.a236, .maids-brown-gingham-bonnet {
+  @include item-icon();
+  background-image: image-url('icons/bone_dragons_bonnets.png');
+  background-position: -675px 0;
+}
+.a237, .maids-embroidered-pink-bonnet {
+  @include item-icon();
+  background-image: image-url('icons/bone_dragons_bonnets.png');
+  background-position: -750px 0;
+}
+.a238, .maids-brown-bonnet {
+  @include item-icon();
+  background-image: image-url('icons/bone_dragons_bonnets.png');
+  background-position: -825px 0;
+}
+.a239, .dyeable-maid-costume {
+  @include item-icon();
+  background-image: image-url('icons/bone_dragons_bonnets.png');
+  background-position: -900px 0;
+}
+.a240, .tailor-maid {
+  @include item-icon();
+  background-image: image-url('icons/bone_dragons_bonnets.png');
+  background-position: -975px 0;
+}
+.a241, .galcial-skin {
+  @include item-icon();
+  background-image: image-url('icons/bone_dragons_bonnets.png');
+  background-position: -1053px 0;
+}
+.a242, .obsidian-skin {
+  @include item-icon();
+  background-image: image-url('icons/bone_dragons_bonnets.png');
+  background-position: -1128px 0;
+}
+.a243, .volcanic-skin {
+  @include item-icon();
+  background-image: image-url('icons/bone_dragons_bonnets.png');
+  background-position: -1203px 0;
+}
+.a244, .night-guard-shield {
+  @include item-icon();
+  background-image: image-url('icons/loot_box_armors.png');
+  background-position: 0 0;
+}
+.a245, .night-guard-helmet {
+  @include item-icon();
+  background-image: image-url('icons/loot_box_armors.png');
+  background-position: -75px 0;
+}
+.a246, .dawn-guard-shield {
+  @include item-icon();
+  background-image: image-url('icons/loot_box_armors.png');
+  background-position: -150px 0;
+}
+.a247, .dawn-guard-helmet {
+  @include item-icon();
+  background-image: image-url('icons/loot_box_armors.png');
+  background-position: -225px 0;
+}
+.a248, .iron-guard-shield {
+  @include item-icon();
+  background-image: image-url('icons/loot_box_armors.png');
+  background-position: -300px 0;
+}
+.a249, .iron-guard-helmet {
+  @include item-icon();
+  background-image: image-url('icons/loot_box_armors.png');
+  background-position: -375px 0;
+}
+.a250, .dawn-guard-armor {
+  @include item-icon();
+  background-image: image-url('icons/loot_box_armors.png');
+  background-position: -450px 0;
+}
+.a251, .night-guard-armor {
+  @include item-icon();
+  background-image: image-url('icons/loot_box_armors.png');
+  background-position: -525px 0;
+}
+.a252, .iron-guard-armor {
+  @include item-icon();
+  background-image: image-url('icons/loot_box_armors.png');
+  background-position: -600px 0;
+}
+.a253, .dawn-guard-lootbox {
+  @include item-icon();
+  background-image: image-url('icons/loot_box_armors.png');
+  background-position: -675px 0;
+}
+.a254, .night-guard-lootbox {
+  @include item-icon();
+  background-image: image-url('icons/loot_box_armors.png');
+  background-position: -750px 0;
+}
+.a255, .iron-guard-lootbox {
+  @include item-icon();
+  background-image: image-url('icons/loot_box_armors.png');
+  background-position: -825px 0;
+}
+.a256, .armoire-guard-lootbox {
+  @include item-icon();
+  background-image: image-url('icons/loot_box_armors.png');
+  background-position: -900px 0;
+}
+.a257, .pink-innerarmor {
+  @include item-icon();
+  background-image: image-url('icons/loot_box_pink_innerarmor.png');
+  background-position: 0 0;
+}
+.a258, .wedding-suit {
+  @include item-icon();
+  background-image: image-url('icons/loot_box_wedding.png');
+  background-position: 0 0;
+}
+.a259, .wedding-dress {
+  @include item-icon();
+  background-image: image-url('icons/loot_box_wedding.png');
+  background-position: -75px 0;
+}
+.a260, .wedding-veil {
+  @include item-icon();
+  background-image: image-url('icons/loot_box_wedding.png');
+  background-position: -150px 0;
+}
+.a261, .wedding-cape {
+  @include item-icon();
+  background-image: image-url('icons/loot_box_wedding.jpg');
+  background-position: -225px 0;
+}
+.a262, .wedding-veil-dark {
+  @include item-icon();
+  background-image: image-url('icons/loot_box_wedding.jpg');
+  background-position: -450px 0;
+}
+.a263, .wedding-cape-dark {
+  @include item-icon();
+  background-image: image-url('icons/loot_box_wedding.jpg');
+  background-position: -525px 0;
+}
+.a264, .bunny-blue {
+  @include item-icon();
+  background-image: image-url('icons/bunnies.jpg');
+  background-position: 0 0;
+}
+.a265, .bunny-pink {
+  @include item-icon();
+  background-image: image-url('icons/bunnies.jpg');
+  background-position: -75px 0;
+}
+.a266, .leopard-suit {
+  @include item-icon();
+  background-image: image-url('icons/leopardsuits.jpg');
+  background-position: 0 0;
+}
+.a267, .leopard-leotard {
+  @include item-icon();
+  background-image: image-url('icons/leopardsuits.jpg');
+  background-position: -75px 0;
+}
+.a268, .red-leotard {
+  @include item-icon();
+  background-image: image-url('icons/leopardsuits.jpg');
+  background-position: -150px 0;
+}
+.a269, .leopard-glasses {
+  @include item-icon();
+  background-image: image-url('icons/leopardsuits.jpg');
+  background-position: -225px 0;
+}
+.a270, .leopard-ears {
+  @include item-icon();
+  background-image: image-url('icons/leopardsuits.jpg');
+  background-position: -300px 0;
+}
+.a271, .all-wrapped-up {
+  @include item-icon();
+  background-image: image-url('icons/swimsuits2017.jpg');
+  background-position: 0 0;
+}
+.a272, .tan-tastic {
+  @include item-icon();
+  background-image: image-url('icons/swimsuits2017.jpg');
+  background-position: -75px 0;
+}
+.a273, .lifegaurd {
+  @include item-icon();
+  background-image: image-url('icons/swimsuits2017.jpg');
+  background-position: -150px 0;
+}
+.a274, .deep-dive {
+  @include item-icon();
+  background-image: image-url('icons/swimsuits2017.jpg');
+  background-position: -225px 0;
+}
+.a275, .bronze-look {
+  @include item-icon();
+  background-image: image-url('icons/swimsuits2017.jpg');
+  background-position: -300px 0;
+}
+.a276, .castanic-female-bikini {
+  @include item-icon();
+  background-image: image-url('icons/old_swimsuits.png');
+  background-position: 0 0;
+}
+.a277, .golden-male-speeder {
+  @include item-icon();
+  background-image: image-url('icons/old_swimsuits.png');
+  background-position: -75px 0;
+}
+.a278, .human-female-string-bikini {
+  @include item-icon();
+  background-image: image-url('icons/old_swimsuits.png');
+  background-position: -150px 0;
+}
+.a279, .amani-female-silver-bikini {
+  @include item-icon();
+  background-image: image-url('icons/old_swimsuits.png');
+  background-position: -225px 0;
+}
+.a280, .fundoshi-male {
+  @include item-icon();
+  background-image: image-url('icons/old_swimsuits.png');
+  background-position: -300px 0;
+}
+.a281, .elin-sailor-suit {
+  @include item-icon();
+  background-image: image-url('icons/old_swimsuits.png');
+  background-position: -375px 0;
+}
+.a282, .bleachwear-female {
+  @include item-icon();
+  background-image: image-url('icons/old_swimsuits.png');
+  background-position: -450px 0;
+}
+.a283, .elin-black-stockings-mailot {
+  @include item-icon();
+  background-image: image-url('icons/old_swimsuits.png');
+  background-position: -525px 0;
+}
+.a284, .elin-white-stockings-mailot {
+  @include item-icon();
+  background-image: image-url('icons/old_swimsuits.png');
+  background-position: -600px 0;
+}
+.a285, .elin-pink-polka-dot-mailot {
+  @include item-icon();
+  background-image: image-url('icons/old_swimsuits.png');
+  background-position: -675px 0;
+}
+.a286, .elin-skyblue-polka-dot-mailot {
+  @include item-icon();
+  background-image: image-url('icons/old_swimsuits.png');
+  background-position: -750px 0;
+}
+.a287, .elin-floral-mailot {
+  @include item-icon();
+  background-image: image-url('icons/old_swimsuits.png');
+  background-position: -825px 0;
+}
+.a288, .midnight-mailot-swimsuit {
+  @include item-icon();
+  background-image: image-url('icons/old_swimsuits.png');
+  background-position: -900px 0;
+}
+.a289, .dyeable-castanic-female-croptop {
+  @include item-icon();
+  background-image: image-url('icons/old_swimsuits.png');
+  background-position: -975px 0;
+}
+.a290, .castanic-female-silver-croptop {
+  @include item-icon();
+  background-image: image-url('icons/old_swimsuits.png');
+  background-position: -1050px 0;
+}
+.a291, .articarmor-suit {
+  @include item-icon();
+  background-image: image-url('icons/articarmor.png');
+  background-position: 0 0;
+}
+.a292, .articarmor-wings {
+  @include item-icon();
+  background-image: image-url('icons/articarmor.png');
+  background-position: -75px 0;
+}
+.a293, .articarmor-helmet {
+  @include item-icon();
+  background-image: image-url('icons/articarmor.png');
+  background-position: -150px 0;
+}
+.a294, .articweapon {
+  @include item-icon();
+  background-image: image-url('icons/Arctic_Weapon_Product_Icon.png');
+  background-position: 0 0;
+}
+
+.a295, .argon-supply-kit {
+  @include item-icon();
+  background-image: image-url('icons/argonSupply.png');
+  background-position: 0 0;
+}
+.a296, .prime-repleneshment-potable {
+  @include item-icon();
+  background-image: image-url('icons/argonSupply.png');
+  background-position: -75px 0;
+}
+.a297, .prime-recovery-potable {
+  @include item-icon();
+  background-image: image-url('icons/argonSupply.png');
+  background-position: 150px 0;
+}
+.a298, .scroll-of-rapid-resurrection {
+  @include item-icon();
+  background-image: image-url('icons/argonSupply.png');
+  background-position: -225px 0;
+}
+.a299, .friendly-feast {
+  @include item-icon();
+  background-image: image-url('icons/argonSupply.png');
+  background-position: -300px 0;
+}
+.a300, .prime-battle-solution {
+  @include item-icon();
+  background-image: image-url('icons/argonSupply.png');
+  background-position: -375px 0;
+}
+.a301, .lamb-bolgini {
+  @include item-icon();
+  background-image: image-url('icons/argonSupply.png');
+  background-position: -450px 0;
+}
+.a302, .wolf-allinone {
+  @include item-icon();
+  background-image: image-url('icons/Loot_boxes_wolves.png');
+  background-position: 0 0;
+}
+.a303, .wolf-obsidian {
+  @include item-icon();
+  background-image: image-url('icons/Loot_boxes_wolves.png');
+  background-position: -75px 0;
+}
+.a304, .wolf-thunder {
+  @include item-icon();
+  background-image: image-url('icons/Loot_boxes_wolves.png');
+  background-position: -150px 0;
+}
+.a305, .wolf-cherry-blossom {
+  @include item-icon();
+  background-image: image-url('icons/Loot_boxes_wolves.png');
+  background-position: -225px 0;
+}
+.a306, .female-red-chiffon {
+  @include item-icon();
+  background-image: image-url('icons/jp_anniversary_spirte.png');
+  background-position: 0 0;
+}
+.a307, .female-dyeable-chiffon {
+  @include item-icon();
+  background-image: image-url('icons/jp_anniversary_spirte.png');
+  background-position: -75px 0;
+}
+.a308, .male-dyeable-embroidered-suit {
+  @include item-icon();
+  background-image: image-url('icons/jp_anniversary_spirte.png');
+  background-position: -150px 0;
+}
+.a309, .male-embroidered-suit {
+  @include item-icon();
+  background-image: image-url('icons/jp_anniversary_spirte.png');
+  background-position: -225px 0;
+}
+.a310, .blue-visor {
+  @include item-icon();
+  background-image: image-url('icons/lootbox_elemental.png');
+  background-position: 0 0;
+}
+.a311, .white-visor {
+  @include item-icon();
+  background-image: image-url('icons/lootbox_elemental.png');
+  background-position: -75px 0;
+}
+.a312, .clear-blue-visor {
+  @include item-icon();
+  background-image: image-url('icons/lootbox_elemental.png');
+  background-position: -150px 0;
+}
+.a313, .clear-pink-visor {
+  @include item-icon();
+  background-image: image-url('icons/lootbox_elemental.png');
+  background-position: -225px 0;
+}
+.a314, .male-starglow-costume {
+  @include item-icon();
+  background-image: image-url('icons/lootbox_elemental.png');
+  background-position: -300px 0;
+}
+.a315, .male-blue-sky-costume {
+  @include item-icon();
+  background-image: image-url('icons/lootbox_elemental.png');
+  background-position: -375px 0;
+}
+.a316, .female-blue-sky-costume {
+  @include item-icon();
+  background-image: image-url('icons/lootbox_elemental.png');
+  background-position: -450px 0;
+}
+.a317, .female-starglow-costume {
+  @include item-icon();
+  background-image: image-url('icons/lootbox_elemental.png');
+  background-position: -525px 0;
+}
+.a318, .smart-dyad-niveot-structure {
+  @include item-icon();
+  background-image: image-url('icons/dragonboxes_sprite.png');
+  background-position: 0 0;
+}
+.a319, .dyad-niveot-structure {
+  @include item-icon();
+  background-image: image-url('icons/dragonboxes_sprite.png');
+  background-position: -75px 0;
+}
+.a320, .metamorphic-emblem {
+  @include item-icon();
+  background-image: image-url('icons/dragonboxes_sprite.png');
+  background-position: -150px 0;
+}
+.a321, .golden-talent {
+  @include item-icon();
+  background-image: image-url('icons/dragonboxes_sprite.png');
+  background-position: -225px 0;
+}
+.a322, .superior-noctenium-elixir {
+  @include item-icon();
+  background-image: image-url('icons/dragonboxes_sprite.png');
+  background-position: -300px 0;
+}
+.a323, .health-potion {
+  @include item-icon();
+  background-image: image-url('icons/dragonboxes_sprite.png');
+  background-position: -375px 0;
+}
+.a324, .crafters-cure {
+  @include item-icon();
+  background-image: image-url('icons/dragonboxes_sprite.png');
+  background-position: -450px 0;
+}
+.a325, .pet-argette {
+  @include item-icon();
+  background-image: image-url('icons/dragonboxes_sprite.png');
+  background-position: -525px 0;
+}
+.a326, .pet-crimsette {
+  @include item-icon();
+  background-image: image-url('icons/dragonboxes_sprite.png');
+  background-position: -600px 0;
+}
+.a327, .mount-phoenix {
+  @include item-icon();
+  background-image: image-url('icons/mount-phoenix.png');
+  background-position: 0 0;
+}
+.a328, .homemade-costume {
+  @include item-icon();
+  background-image: image-url('icons/halloween2017_icons.png');
+  background-position: 0 0;
+}
+.a329, .pumpkin-mask {
+  @include item-icon();
+  background-image: image-url('icons/halloween2017_icons.png');
+  background-position: -75px 0;
+}
+.a330, .pink-unicorn {
+  @include item-icon();
+  background-image: image-url('icons/black-unicorn-sprite.png');
+  background-position: 0px 0;
+}
+.a331, .black {
+  @include item-icon();
+  background-image: image-url('icons/black-unicorn-sprite.png');
+  background-position: -75px 0;
+}
+.a332, .blue-plate {
+  @include item-icon();
+  background-image: image-url('icons/footsteps_sprite.png');
+  background-position: 0 0;
+}
+.a333, .cutie-product {
+  @include item-icon();
+  background-image: image-url('icons/footsteps_sprite.png');
+  background-position: -75px 0;
+}
+.a334, .pink-plate {
+  @include item-icon();
+  background-image: image-url('icons/footsteps_sprite.png');
+  background-position: -150px 0;
+}
+.a335, .blue-headset {
+  @include item-icon();
+  background-image: image-url('icons/christmas2017_sprite.png');
+  background-position: 0 0;
+}
+.a336, .santa-hat {
+  @include item-icon();
+  background-image: image-url('icons/christmas2017_sprite.png');
+  background-position: -75px 0;
+}
+.a337, .silver-token {
+  @include item-icon();
+  background-image: image-url('icons/christmas2017_sprite.png');
+  background-position: -150px 0;
+}
+.a338, .golden-antler {
+  @include item-icon();
+  background-image: image-url('icons/christmas2017_sprite.png');
+  background-position: -225px 0;
+}
+.a339, .dyeable-snowbelle {
+  @include item-icon();
+  background-image: image-url('icons/christmas2017_sprite.png');
+  background-position: -300px 0;
+}
+.a340, .regular-popstar {
+  @include item-icon();
+  background-image: image-url('icons/christmas2017_sprite.png');
+  background-position: -375px 0;
+}
+.a341, .dyeable-popstar {
+  @include item-icon();
+  background-image: image-url('icons/christmas2017_sprite.png');
+  background-position: -450px 0;
+}
+.a342, .grey-headset {
+  @include item-icon();
+  background-image: image-url('icons/christmas2017_sprite.png');
+  background-position: -525px 0;
+}
+.a343, .dyeable-female-mechanical-suit {
+  @include item-icon();
+  background-image: image-url('icons/flightsuit_sprite.png');
+  background-position: 0 0;
+}
+.a344, .male-mechanical-suit {
+  @include item-icon();
+  background-image: image-url('icons/flightsuit_sprite.png');
+  background-position: -75px 0;
+}
+.a345, .female-mechanical-suit {
+  @include item-icon();
+  background-image: image-url('icons/flightsuit_sprite.png');
+  background-position: -150px 0;
+}
+.a346, .male-mechanical-suit-helmet-silver {
+  @include item-icon();
+  background-image: image-url('icons/flightsuit_sprite.png');
+  background-position: -225px 0;
+}
+.a347, .male-mechanical-suit-helmet-red {
+  @include item-icon();
+  background-image: image-url('icons/flightsuit_sprite.png');
+  background-position: -300px 0;
+}
+.a348, .female-mechanical-suit-silver-wings {
+  @include item-icon();
+  background-image: image-url('icons/flightsuit_sprite.png');
+  background-position: -375px 0;
+}
+.a349, .female-mechanical-suit-silver-visor {
+  @include item-icon();
+  background-image: image-url('icons/flightsuit_sprite.png');
+  background-position: -450px 0;
+}
+.a350, .female-mechanical-suit-red-wings {
+  @include item-icon();
+  background-image: image-url('icons/flightsuit_sprite.png');
+  background-position: -525px 0;
+}
+.a351, .dyeable-male-mechanical-suit {
+  @include item-icon();
+  background-image: image-url('icons/flightsuit_sprite.png');
+  background-position: -600px 0;
+}
+.a352, .flying-skill {
+  @include item-icon();
+  background-image: image-url('icons/flightsuit_sprite.png');
+  background-position: -675px 0;
+}
+.a353, .female-mechanical-suit-red-visor {
+  @include item-icon();
+  background-image: image-url('icons/flightsuit_sprite.png');
+  background-position: -750px 0;
+}
+.a354, .wintry-penguins {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_penguins.png');
+  background-position: 0 0;
+}
+.a355, .snowflake-penguins {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_penguins.png');
+  background-position: -75px 0;
+}
+.a356, .lazy-penguins {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_penguins.png');
+  background-position: -150px 0;
+}
+.a357, .happy-penguins {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_penguins.png');
+  background-position: -225px 0;
+}
+.a358, .frost-suit {
+  @include item-icon();
+  background-image: image-url('icons/frostsuits.png');
+  background-position: 0 0;
+}
+.a359, .frost-suit-lootbox {
+  @include item-icon();
+  background-image: image-url('icons/frostsuits.png');
+  background-position: -75px 0;
+}
+.a360, .dyeable-frost-suit {
+  @include item-icon();
+  background-image: image-url('icons/frostsuits.png');
+  background-position: -150px 0;
+}
+.a361, .red-mech-weapon-skin {
+  @include item-icon();
+  background-image: image-url('icons/mechweaponskins.png');
+  background-position: 0 0;
+}
+.a362, .rare-red-mech-weapon-skin {
+  @include item-icon();
+  background-image: image-url('icons/mechweaponskins.png');
+  background-position: -75px 0;
+}
+.a363, .chrome-mech-weapon-skin {
+  @include item-icon();
+  background-image: image-url('icons/mechweaponskins.png');
+  background-position: -150px 0;
+}
+.a364, .rare-chrome-mech-weapon-skin {
+  @include item-icon();
+  background-image: image-url('icons/mechweaponskins.png');
+  background-position: -225px 0;
+}
+.a365, .flower-footsteps {
+  @include item-icon();
+  background-image: image-url('icons/product_flower_footsteps_icon.png');
+  background-position: 0 0;
+}
+.a366, .combat-thrush {
+  @include item-icon();
+  background-image: image-url('icons/battle_songbirds.png');
+  background-position: 0 0;
+}
+.a367, .battle-thrush {
+  @include item-icon();
+  background-image: image-url('icons/battle_songbirds.png');
+  background-position: -75px 0;
+}
+.a368, .combat-canary {
+  @include item-icon();
+  background-image: image-url('icons/battle_songbirds.png');
+  background-position: -150px 0;
+}
+.a369, .battle-canary {
+  @include item-icon();
+  background-image: image-url('icons/battle_songbirds.png');
+  background-position: -225px 0;
+}
+.a370, .fire-footsteps {
+  @include item-icon();
+  background-image: image-url('icons/fireice_sprite.png');
+  background-position: 0 0;
+}
+.a371, .ice-footsteps {
+  @include item-icon();
+  background-image: image-url('icons/fireice_sprite.png');
+  background-position: -75px 0;
+}
+.a372, .aot-eren {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_aot_items.png');
+  background-position: 0 0;
+}
+.a373, .aot-levi {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_aot_items.png');
+  background-position: -75px 0;
+}
+.a374, .aot-emote {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_aot_items.png');
+  background-position: -150px 0;
+}
+.a375, .aot-mikasa {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_aot_items.png');
+  background-position: -225px 0;
+}
+.a376, .aot-shasha {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_aot_items.png');
+  background-position: -300px 0;
+}
+.a377, .aot-scoutcoat {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_aot_items.png');
+  background-position: -375px 0;
+}
+.a378, .ws-diabolic {
+  @include item-icon();
+  background-image: image-url('icons/lootboxes_demon_angel_weapon_skins.png');
+  background-position: 0 0;
+}
+.a379, .ws-hellbound {
+  @include item-icon();
+  background-image: image-url('icons/lootboxes_demon_angel_weapon_skins.png');
+  background-position: -75px 0;
+}
+.a380, .ws-hellbound-lootbox {
+  @include item-icon();
+  background-image: image-url('icons/lootboxes_demon_angel_weapon_skins.png');
+  background-position: -150px 0;
+}
+.a381, .ws-angelic {
+  @include item-icon();
+  background-image: image-url('icons/lootboxes_demon_angel_weapon_skins.png');
+  background-position: -225px 0;
+}
+.a382, .ws-supernal {
+  @include item-icon();
+  background-image: image-url('icons/lootboxes_demon_angel_weapon_skins.png');
+  background-position: -300px 0;
+}
+.a383, .ws-supernal-lootbox {
+  @include item-icon();
+  background-image: image-url('icons/lootboxes_demon_angel_weapon_skins.png');
+  background-position: -375px 0;
+}
+.a384, .heaven-costume {
+  @include item-icon();
+  background-image: image-url('icons/lootboxes_celestial_costumes.png');
+  background-position: 0 0;
+}
+.a385, .hell-costume {
+  @include item-icon();
+  background-image: image-url('icons/lootboxes_celestial_costumes.png');
+  background-position: -75px 0;
+}
+.a386, .hell-loot {
+  @include item-icon();
+  background-image: image-url('icons/lootboxes_celestial_costumes.png');
+  background-position: -150px 0;
+}
+.a387, .blue_hairtie {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_2018swim.png');
+  background-position: 0 0;
+}
+.a388, .female_bikini_dyeable {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_2018swim.png');
+  background-position: -75px 0;
+}
+.a389, .female_dyeable_halter {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_2018swim.png');
+  background-position: -150px 0;
+}
+.a390, .female_bikini {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_2018swim.png');
+  background-position: -225px 0;
+}
+.a391, .female_halter {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_2018swim.png');
+  background-position: -300px 0;
+}
+.a392, .male_swim_dyeable {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_2018swim.png');
+  background-position: -375px 0;
+}
+.a393, .male_swim {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_2018swim.png');
+  background-position: -450px 0;
+}
+.a394, .straw_hat {
+  @include item-icon();
+  background-image: image-url('icons/loot_boxes_2018swim.png');
+  background-position: -525px 0;
+}
+

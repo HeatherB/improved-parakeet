@@ -1,0 +1,101 @@
+.columns{
+    display:-moz-inline-stack;
+    display:inline-block;
+    zoom:1;
+    *display:inline;
+}
+.row{
+    clear: both;
+    text-align: center;
+}
+table tr { background: #30343b; }
+table thead tr { background: #1d2128; color: #dddddd; }
+
+.medium, .small { display: none; }
+.screen { display: block; }
+
+/* main nav */
+  #header .three {
+    margin-top: -55px;
+    width: 150px;
+  }
+  #header nav#menu {
+    width: 855px;
+    float: right;
+    margin-top: -20px;
+  }
+  #header nav#menu .nav-bar li { margin-top: 10px; }
+  #header nav#menu .nav-bar li a { padding: 0px; }
+
+/* pagination */
+  #page_container ul.breadcrumb { border-width: 0; }
+
+/* Home page promo's */
+  .article_header .eight, .article_header .four { margin: 0; }
+  .article_header .four { margin-left: -10px; }
+  .article_header .caption { background: black; }
+  .row.article_header .double .caption { width: 100%; }
+  .row.article_header .single .caption { width: 355px; }
+
+/* Item menu */
+  #page_container #tera-item-menu > ul { display: none; }
+  #page_container #tera-item-menu { position: relative; z-index: 11; }
+  #page_container #tera-item-menu .menu-tree li.columns {
+    border-width: 0;
+    margin: 0;
+  }
+  #tera-item-menu .menu-tree li.columns.gold {
+    border-width: 0;
+  }
+  #tera-item-menu .menu-tree > li .flyout { top: 40px; }
+  #tera-item-menu .menu-tree > li .flyout li a { background: #30343b; }
+  #tera-item-menu .menu-tree li:hover { background: #4b4f56; }
+
+/* structure */
+  .tera #page_container #wide_body {
+    background: #30343b;
+    width: 1120px;
+    min-width: 1120px;
+    max-width: 1120px;
+  }
+
+/* Item Cards */
+  .item { float: left; }
+  #wide_body .item-container .item { width: 270px; }
+  #wide_body .item-container .item .title-bar-dark { 
+    background: black;
+    color: #dddddd;
+    width: 250px;
+  }
+  #wide_body .item-container .item .item-alert.badge-elite { background: #c36e00; }
+  #wide_body .item-container .item .item-alert.badge-sale { background: #198607; }
+  #wide_body .item-container .item .item-alert.badge-new { background: #4387ed; }
+  #wide_body .item-container .item .item-alert.badge-event { background: #491bdb; }
+  #wide_body .item-container .item .item-alert.badge-featured { background: #bf5134; }
+  #wide_body .item-container .prices > div { float: left; width: 40%; }
+  #wide_body .item-container .prices > div.elite { color: #ff9400; }
+  #wide_body .item-container .item .card h3.title-bar-dark { display: block; width: 100%; }
+  #wide_body .item-container .item .card .button-secondary { width: 200px; }
+  .item .card .button-secondary { width: 250px; padding: 0; }
+
+  #foundation-modal .account p, #foundation-modal .account select { float: right; }
+  .item-modal .purchase-actions .processing-transaction a.button-secondary {
+    display: block;
+    width: 300px;
+    float: right;
+  }
+  .item-modal .item-image { float: left; }
+  .item-modal .purchase-actions .processing-transaction a.button-secondary span.loading { float:none; }
+
+
+  #page_container .item-details .checkout { width: 200px; }
+
+/* EMP Buckets */
+  .currencies section ul li { width: 210px; float: left; margin: 10px; }
+
+/* Footer */
+  .footer-wrapper #footer .four { width: 32%; }
+  .footer-wrapper #footer #footer-linkroll li {
+    float:left;
+    width: 16%;
+  }

@@ -1,0 +1,495 @@
+{#
+  This is an example default page template. It inherits and extends a layout template
+  that lives in the top-level views/ folder for convenience
+#}
+
+{% extends "layout.html" %}
+
+{% block foot_in_play %}
+<footer>
+      <div class="inner">        
+        <div class="attribution">
+          <a href="{{ data.home._url }}" class="logo_krafton">Krafton</a>
+        </div>
+
+        <div class="legal">
+          <nav>
+            <ul>
+              <li>
+                <a href="/legal/privacy-policy">Privacy Policy</a>
+              </li>
+              <li>
+                <a href="/legal/eula">Legal</a>
+              </li>
+              <li>
+                <a href="https://support.enmasse.com/hc/en-us">Contact Us</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="copyright">
+            <p>&copy; 2020 En Masse Entertainment, Inc. All Rights Reserved.</p>
+          </div>
+        </div><!-- end of legal -->
+      </div>
+    </footer>
+{% endblock %}
+
+{% block social_share %}
+  <meta name='twitter:card' content='summary_large_image'>
+  <meta name='twitter:site' content='@En_Masse_Ent'>
+  <meta name='twitter:title' content='Enmasse Entertainment'>
+  <meta name='twitter:description' content='Seattle-based publisher of TERA, Closers, Stranger Things 3: The Game and The Dark Crystal: Age of Resistance Tactics'>
+  <meta name='twitter:image' content='https://eme02.enmasse-game.com/images/enm/social_share/Discord_BG_1920x1080.jpg'>
+
+  <meta property='fb:app_id' content='589750687728241' />
+  <meta property='og:title' content='Enmasse Entertainment' />
+  <meta property='og:site_name' content='Enmasse Entertainment' />
+  <meta property='og:url' content='https://enmasse.com' />
+  <meta property='og:type'  content='website' />
+  <meta property='og:description' content='Seattle-based publisher of TERA, Closers, Stranger Things 3: The Game and The Dark Crystal: Age of Resistance Tactics' />
+  <meta property='og:image' content='https://eme02.enmasse-game.com/images/enm/social_share/Discord_BG_1920x1080.jpg' />
+{% endblock %}
+
+{% block nav_area_in_play %}
+<header class="{% if data.user %} admin_pane {% endif %}">
+      <div id="logo">
+        <a href="{{ data.home._url }}">
+          <span>Krafton En Masse</span>
+        </a>
+      </div>
+  <nav>
+        <!--<ul>
+          <li>
+            <a href="/">Games</a>
+          </li>
+          <li>
+            <a href="/">Partners</a>
+          </li>
+          <li>
+            <a href="/">Developers</a>
+          </li>
+          <li>
+            <a href="/">Careers</a>
+          </li>
+          <li>
+            <a href="/">Support</a>
+          </li>
+          <li>
+            <a href="/">My Account</a>
+          </li>
+        </ul>-->
+        <ul>
+          <!--<li><a href="{{ data.home._url }}">{{ data.home.title }}</a></li>-->
+          {% for tab in data.home._children %}
+          <li class="{% if data.page and (apos.pages.isAncestorOf(tab, data.page) or tab._id == data.page._id) %} selected {% endif %}">
+            {% if tab.title == 'Games' %}
+              <a href="/#get-launcher">{{ tab.title }}</a>
+            {% elif tab.title == 'Support' %}
+              <a href="https://support.enmasse.com/hc/en-us">{{ tab.title }}</a>
+            {% elif tab.title == 'My Account' %}
+              <a href="https://account.enmasse.com/">{{ tab.title }}</a>
+            {% else %}
+              <a href="{{ tab._url }}">{{ tab.title }}</a>
+            {% endif %}
+            <!--<a href="{{ tab._url }}">{{ tab.title }}</a>-->
+            {% if tab._children.length %}
+              <ul>
+                {% for child in tab._children %}
+                  <li class="{% if data.page and (child._id == data.page._id) %} selected {% endif %}">
+                    <a href="{{ child._url }}">{{ child.title }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+      </nav>
+
+      <div id="mobile-nav-btn">
+        <span class="morph_bar top"></span>
+        <span class="morph_bar middletop"></span>
+        <span class="morph_bar middlebottom"></span>
+        <span class="morph_bar bottom"></span>
+      </div>
+    </header>
+{% endblock %}
+
+{% block main %}
+
+<!--<section id="wide_hero"></section>-->
+
+<div id="hero" class="jobs-pages internal {% if data.user %} admin_pane {% endif %}">
+      {{ apos.area(data.page, 'jobsHeroImg', {
+      widgets: {
+        'apostrophe-images': {
+          size: 'full'
+        }
+      }
+    }) }}
+        <div class="sleeve">
+          {{ apos.area(data.page, 'jobsHeroTitle', {
+            widgets: {
+              'apostrophe-rich-text': {
+                toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
+                styles: [
+                  { name: 'Heading', element: 'h3' }
+                ]
+              }
+            }
+          }) }}
+      </div>
+    </div><!-- end of hero -->
+
+
+<main class="jobs-pages internal {% if data.user %} admin_pane {% endif %}">
+    {% extends "layout.html" %}
+
+  <div class="inner">
+    <section class="mission">
+        <div class="sleeve">
+            <!-- stop wasting my time and do what your told -->
+    		<h2>{{ apos.area(data.page, 'ourMissionTitle', {
+            widgets: {
+              'apostrophe-rich-text': {
+                toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
+                styles: [
+                  { name: 'Heading', element: 'h2' }
+                ]
+              }
+            }
+          }) }}</h2>
+
+          {{ apos.area(data.page, 'ourMissionCopy', {
+            widgets: {
+              'apostrophe-rich-text': {
+                toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
+                styles: [
+                  { name: 'Paragraph', element: 'p' },
+                  { name: 'Anchor', element: 'a'}
+                ]
+              }
+            }
+          }) }}
+    		<!--
+            <h3>Our Mission</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
+    		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>-->
+        </div>
+    </section>
+
+    <section class="currentOpening">
+        <div class="sleeve">
+            <!--<h2>Current Openings</h2>-->
+           <h2>{{ apos.area(data.page, 'currOpeningSectionTitle', {
+            widgets: {
+              'apostrophe-rich-text': {
+                toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
+                styles: [
+                  { name: 'Heading', element: 'h2' }
+                ]
+              }
+            }
+          }) }}</h2>
+
+          <!-- old scripts for job listings -->
+          <div id="BambooHR">
+            <div id="BambooHR-ATS"></div>
+            <!--<script src="https://enmasse.bamboohr.com/js/jobs2.php" type="text/javascript"></script>
+            <div id="BambooHR-Footer">Powered by<a href="http://www.bamboohr.com" target="_blank" rel="external nofollow">
+              <img src="https://resources.bamboohr.com/images/footer-logo.png" alt="BambooHR - HR software"/></a>
+            </div>-->
+          </div>
+          <!-- end old job listing scripts -->
+
+            <!--<ul id="job-listing">
+                <li>
+                    <h3>Job title</h3>
+                    <p>copy about</p>
+                    <p>reports to</p>
+                    <a href="/">More</a>
+                </li>
+            </ul> -->
+        </div>
+    </section>
+
+    <section class="benefits disc-list">
+        <div class="sleeve">
+        	<!--<h2>Benefits</h2>-->
+           <h2> {{ apos.area(data.page, 'beneSectionTitle', {
+            widgets: {
+              'apostrophe-rich-text': {
+                toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
+                styles: [
+                  { name: 'Heading', element: 'h2' }
+                ]
+              }
+            }
+          }) }}</h2>
+        	<ul>
+        		<li>
+        			<div class="img_wrap">
+        				<!--<img src="/" alt="benefit" />-->
+        				{{ apos.area(data.page, 'benefitImgOne', {
+						  widgets: {
+						    'apostrophe-images': {
+						      size: 'full'
+						    }
+						  }
+						}) }}
+        			</div>
+        			<!--<h4>Benefit 1-->{{ apos.singleton(data.page, 'benefitOne', 'apostrophe-rich-text', {
+			      	toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
+	                styles: [
+	                  { name: 'Heading', element: 'h4' }
+	                ]
+			    	}) }}<!--</h4>
+        			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.-->{{ apos.singleton(data.page, 'benefitCopyOne', 'apostrophe-rich-text', {
+			      	toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
+	                styles: [
+	                  { name: 'Paragraph', element: 'p' }
+	                ]
+				    }) }}<!--</p>-->
+        		</li>
+        		<li>
+        			<div class="img_wrap">
+        				<!--<img src="/" alt="benefit" />-->
+        				{{ apos.area(data.page, 'benefitImgTwo', {
+						  widgets: {
+						    'apostrophe-images': {
+						      size: 'full'
+						    }
+						  }
+						}) }}
+        			</div>
+        			<!--<h4>Benefit 1-->{{ apos.singleton(data.page, 'benefitTwoe', 'apostrophe-rich-text', {
+			      	toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
+	                styles: [
+	                  { name: 'Heading', element: 'h4' }
+	                ]
+			    	}) }}<!--</h4>
+        			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.-->{{ apos.singleton(data.page, 'benefitCopyTwo', 'apostrophe-rich-text', {
+			      	toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
+	                styles: [
+	                  { name: 'Paragraph', element: 'p' }
+	                ]
+				    }) }}<!--</p>-->
+        		</li>
+        		<li>
+        			<div class="img_wrap">
+        				<!--<img src="/" alt="benefit" />-->
+        				{{ apos.area(data.page, 'benefitImgThree', {
+						  widgets: {
+						    'apostrophe-images': {
+						      size: 'full'
+						    }
+						  }
+						}) }}
+        			</div>
+        			<!--<h4>Benefit 1-->{{ apos.singleton(data.page, 'benefitThree', 'apostrophe-rich-text', {
+			      	toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
+	                styles: [
+	                  { name: 'Heading', element: 'h4' }
+	                ]
+			    	}) }}<!--</h4>
+        			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.-->{{ apos.singleton(data.page, 'benefitCopyThree', 'apostrophe-rich-text', {
+			      	toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
+	                styles: [
+	                  { name: 'Paragraph', element: 'p' }
+	                ]
+				    }) }}<!--</p>-->
+        		</li>
+                <li>
+                    <div class="img_wrap">
+                        <!--<img src="/" alt="benefit" />-->
+                        {{ apos.area(data.page, 'benefitImgFour', {
+                          widgets: {
+                            'apostrophe-images': {
+                              size: 'full'
+                            }
+                          }
+                        }) }}
+                    </div>
+                    <!--<h4>Benefit 1-->{{ apos.singleton(data.page, 'benefitFour', 'apostrophe-rich-text', {
+                    toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
+                    styles: [
+                      { name: 'Heading', element: 'h4' }
+                    ]
+                    }) }}<!--</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.-->{{ apos.singleton(data.page, 'benefitCopyFour', 'apostrophe-rich-text', {
+                    toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
+                    styles: [
+                      { name: 'Paragraph', element: 'p' }
+                    ]
+                    }) }}<!--</p>-->
+                </li>
+        	</ul>
+        </div>
+    </section>
+
+    <section class="aboutUs">
+        <div class="sleeve">
+            <div class="leftCol">
+            <!--<h2>About Us</h2>-->
+            <h2>{{ apos.area(data.page, 'aboutUsSectionTitle', {
+            widgets: {
+              'apostrophe-rich-text': {
+                toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
+                styles: [
+                  { name: 'Heading', element: 'h2' }
+                ]
+              }
+            }
+          }) }}</h2>
+          {{ apos.area(data.page, 'aboutUsSectionCopy', {
+            widgets: {
+              'apostrophe-rich-text': {
+                toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
+                styles: [
+                  { name: 'Paragraph', element: 'p' }
+                ]
+              }
+            }
+          }) }}
+      </div>
+      <div class="rightCol">
+          <div class="img_wrap">
+            <!--<img src="/" alt="benefit" />-->
+            {{ apos.area(data.page, 'kraftonENMlogo', {
+              widgets: {
+                'apostrophe-images': {
+                  size: 'full'
+                }
+              }
+            }) }}
+        </div>
+      </div>
+            <!--<p>En Masse Entertainment was founded in 2009 with the goal of building loyal audiences for the finest online games in the world and a motto of “Great Games and Great Service to Create Long-Lasting Quality Relationships.” En Masse successfully brought its inaugural title, TERA—a revolutionary action-combat MMO—to western audiences in 2012, followed by the online shooters ZMR (Zombies Monsters Robots) and AVA (Alliance of Valiant Arms), and the 2017 release of Kritika Online, a hyper-stylish anime brawler.</p>
+
+            <p>But "Great Games " aren't limited by platform; En Masse announced its expansion of TERA onto PlayStation® and XBox with console ports in 2017.</p>
+
+            <p>At En Masse Entertainment, we believe everyone should follow their passion, and our passion is great games.</p>
+
+            <p>First and foremost, we are gamers. When we interview job candidates, one of the first questions asked is, “What games are you playing?” But En Masse Entertainment is also a world-class game publisher run by professionals with decades of experience creating, developing, and publishing the games we all love.</p>
+
+            <p>En Masse has created a culture of success by hiring game industry veterans as passionate about their work as they are about the games they play. We demand excellence of ourselves and our co-workers, and our pervasive core values encourage employees to think service first, own our roles, be decisive, be experimental, and deliver solutions.</p>-->
+        </div>
+    </section>
+
+    <section class="ourValues">
+        <div class="sleeve">
+             <div class="leftCol">
+            <!--<h2>Values</h2>-->
+           <h2> {{ apos.area(data.page, 'ourValuesSectionTitle', {
+            widgets: {
+              'apostrophe-rich-text': {
+                toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
+                styles: [
+                  { name: 'Heading', element: 'h2' }
+                ]
+              }
+            }
+          }) }}</h2>
+                 {{ apos.area(data.page, 'ourValuesSection', {
+            widgets: {
+              'apostrophe-rich-text': {
+                toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
+                styles: [
+                  { name: 'Paragraph', element: 'p' }
+                ]
+              }
+            }
+          }) }}
+               <!-- <p>En Masse Entertainment is an award-winning video game publisher, located in the heart of beautiful downtown Seattle.</p>
+
+                <p>Our values define who we are, a collaborative team of respectful, passionate people, who demand excellence from both ourselves and our products. Our culture of trust and transparency fosters collaboration at all levels, and we are not afraid to experiment with new ideas.</p>
+
+                <p>If you are looking for a team to challenge and inspire you, then congratulations! En Masse is definitely the place for you. In return for giving us your best, we offer abundant benefits like a generous PTO/Open Vacation plan, free health benefits to all our employees, transportation passes, a kitchen stocked full of snacks, and more!</p>
+
+                <p>Does this sound like your dream creative environment? Apply today and unlock a life achievement!</p>-->
+            </div>
+            <div class="rightCol">
+                <ul class="values">
+                    <li>
+                        <!--<h5>TRUST</h5>
+                        <p>Honor relationships through open and honest experiences</p>-->
+                        {{ apos.area(data.page, 'firstValue', {
+            widgets: {
+              'apostrophe-rich-text': {
+                toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
+                styles: [
+                  { name: 'Heading', element: 'h5' },
+                  { name: 'Paragraph', element: 'p' }
+                ]
+              }
+            }
+          }) }}
+                    </li>
+                    <li>
+                        <!--<h5>RESPECT</h5>
+                        <p>Treat every interaction as a partnership</p>-->
+                         {{ apos.area(data.page, 'secondValue', {
+            widgets: {
+              'apostrophe-rich-text': {
+                toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
+                styles: [
+                  { name: 'Heading', element: 'h5' },
+                  { name: 'Paragraph', element: 'p' }
+                ]
+              }
+            }
+          }) }}
+                    </li>
+                    <li>
+                        <!--<h5>COMMITMENT</h5>
+                        <p>Stand together in success and strife</p>-->
+                         {{ apos.area(data.page, 'thirdValue', {
+            widgets: {
+              'apostrophe-rich-text': {
+                toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
+                styles: [
+                  { name: 'Heading', element: 'h5' },
+                  { name: 'Paragraph', element: 'p' }
+                ]
+              }
+            }
+          }) }}
+                    </li>
+                    <li>
+                        <!--<h5>COURAGE</h5>
+                        <p>Take action in the face of fear</p>-->
+                         {{ apos.area(data.page, 'fourthValue', {
+            widgets: {
+              'apostrophe-rich-text': {
+                toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
+                styles: [
+                  { name: 'Heading', element: 'h5' },
+                  { name: 'Paragraph', element: 'p' }
+                ]
+              }
+            }
+          }) }}
+                    </li>
+                    <li>
+                        <!--<h5>DELIGHT</h5>
+                        <p>Reveal yourself and your work to be more than expected</p>-->
+                         {{ apos.area(data.page, 'fifthValue', {
+            widgets: {
+              'apostrophe-rich-text': {
+                toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
+                styles: [
+                  { name: 'Heading', element: 'h5' },
+                  { name: 'Paragraph', element: 'p' }
+                ]
+              }
+            }
+          }) }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+  </div><!-- end of inner -->
+
+</main>
+{% endblock %}

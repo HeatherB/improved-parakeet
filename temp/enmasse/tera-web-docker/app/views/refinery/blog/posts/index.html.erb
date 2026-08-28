@@ -1,0 +1,61 @@
+<% content_for :stylesheets, stylesheet_link_tag('refinery/blog/frontend') %>
+
+<section id="navigation">
+  <%= Refinery::Pages::MenuPresenter.new(refinery_menu_pages, self).to_html %>
+</section>
+
+<section id="filter-bar">
+  <div class="inner_wrapper">
+    <%= render :partial => "/refinery/blog/shared/categories" %>
+    
+    <%= render :partial => "/refinery/fake_language_nav" %>
+  </div><!-- end of inner wrapper -->
+</section>
+
+<section id="content_wide_body">
+    <div class="inner_wrapper">
+      <% if @posts_featured && @posts_featured.any? %>
+        <%#= render :partial => "/refinery/blog/shared/categories" %>
+          <%= render :partial => "/refinery/blog/shared/post_featured", :collection => @posts_featured %>
+          <%#= will_paginate @posts %>
+      <% else %>
+        <!--<p><%#=t :no_blog_articles_yet %></p>-->
+      <% end %>
+    <%#= raw @page.content_for(:wide_body) || yield(:wide_body) %>
+    </div><!-- end of inner wrapper -->
+  </section>
+
+
+    <div id="content_wrap">
+    <section id="content_body">
+      <div id="news-posts">
+        <% if @post_flagged_all && @post_flagged_all.any? %>
+        <%#= render :partial => "/refinery/blog/shared/categories" %>
+          <%= render :partial => "/refinery/blog/shared/post", :collection => @post_flagged_all %>
+      <% else %>
+        <p><%=t :no_blog_articles_yet %></p>
+      <% end %>
+      </div><!-- end of news posts -->
+      <% if @post_flagged_all && @post_flagged_all.any? %>
+        <%= will_paginate @post_flagged_all %>
+      <% end %>
+    </section>
+
+    <section id="content_side_body" class="blog_archive_widget">
+      <% if blog_archive_widget != "" %>
+      <h3><img src="/assets/icons/archives-label.png" alt="The Archives" /></h3>
+      <%= blog_archive_widget %>
+      <% end %>
+
+      <%= raw content_for :side_body %>
+
+      <a href="/store/elite-status" class="eliteStatus_sidebar"><img src="https://eme04.enmasse-game.com/images/tera/elite/Front_page_Gumball.png" alt="Sign up for Elite Status" /></a>
+      <a href="https://discordapp.com/invite/EME" class="discordBTN"><img src="/assets/icons/discordBTN.png" alt="Join Us on Discord" /></a>
+
+    </section>
+  </div><!-- end of content_wraper -->
+
+<% content_for :javascripts do %>
+  <%= javascript_include_tag 'app/blog_index.js' %>
+<% end %>
+

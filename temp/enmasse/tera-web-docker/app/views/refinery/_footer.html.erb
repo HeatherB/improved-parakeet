@@ -1,0 +1,26 @@
+<footer>
+  <div class="inner">        
+    <div class="attribution">
+      <a href="https://www.krafton.com/kr/"><%=t :krafton %></a>
+    </div>
+
+    <div class="legal">
+      <nav>
+        <ul>
+          <li>
+            <%= link_to("#{t "privacypolicy"}", '/' + locale.to_s + '/legal/privacy-policy')  %>
+          </li>
+          <li>
+            <li><%= link_to("#{t "eula"}", '/' + locale.to_s + '/legal/eula')  %></li>
+          </li>
+          <li>
+            <li class="last"><a href="https://support.enmasse.com"><%=t :contactus %></a></li>
+          </li>
+        </ul>
+      </nav>
+      <div class="copyright">
+        <p><%=t :copyright %></p>
+      </div>
+    </div><!-- end of legal -->
+  </div>
+</footer>

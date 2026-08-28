@@ -1,0 +1,97 @@
+/***** Lightbox *****/
+#lb-blackout {
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	z-index: 200;
+	background: #000;
+	background: rgba(0, 0, 0, 0.9);
+}
+#lightbox {
+	position: absolute;
+	left: 0;
+	z-index: 9005;
+	width: 90%;
+  top: 150px;
+  margin: 0 auto;
+}
+#emelightbox-wrapper {
+	iframe {
+		max-width: 100%;
+	}
+}
+/*#lightbox-container {
+	width: 100% !important;
+	padding: 8px;
+	position: relative;
+	margin: 0 auto;
+}*/
+#lightbox-container.video {
+	background: none;
+}
+#lightbox-container.video .lightbox-close{
+	top: -11px;
+	right: -11px;
+}
+#lightbox-container .lightbox-vid {
+	width:100%;
+	height:100%;
+}
+#lightbox-content {
+	//box-shadow: 5px 5px 0px 0px $white, -5px 5px 0px 0px $white, -5px -5px $white;
+	border: 0;
+}
+.lightbox-close {
+	width: 58px;
+    height: 58px;
+    position: absolute;
+    top: -49px;
+    right: -53px;
+    border: 0;
+    text-align:center;
+    padding-top:15px;
+	background: url(https://static.enmasse.com/images/closers/global/close_btn.png) no-repeat 0 0;
+	transition: 250ms;
+}
+.lightbox-close:hover {
+	//background-position: 0 -110px;
+	text-decoration: none;
+}
+.lightbox-close:active {
+	//background-position: 0 -110px;
+	text-decoration: none;
+}
+
+/*@include breakpoint(tablet) {
+	#lightbox-container, #lightbox-container .lightbox-vid {
+		width: 640px !important;
+		padding: 0;
+	}
+}
+@include breakpoint(desktop) {
+	#lightbox-container, #lightbox-container .lightbox-vid {
+		width:1000px !important;
+		//height:675px;
+	}
+}
+@include breakpoint(lrgdesk) {
+	#lightbox-container, #lightbox-container .lightbox-vid {
+		width:1200px !important;
+		//height:675px;
+	}
+}*/
+
+// Images
+
+#lightbox-content {
+	.lightbox-img {
+		position:absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    margin:auto;
+	}
+}

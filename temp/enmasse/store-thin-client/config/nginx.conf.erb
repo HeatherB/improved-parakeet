@@ -1,0 +1,76 @@
+upstream <%= "#{fetch(:application)}" %> { server unix:/tmp/<%= "#{fetch(:application)}" %>.sock fail_timeout=<%= "#{fetch(:server_fail_timeout)}" %>; }
+
+#Redirect all www to base site, rewriting so www goes away
+server {
+  	listen       	<%= "#{fetch(:server_port)}" %>;
+	server_name 	www.<%= "#{fetch(:server_url)}" %>;
+  	return 301 $scheme://<%= "#{fetch(:server_url)}" %>$request_uri; 
+}
+
+#limit_req_zone $binary_remote_addr zone=rate_limited_zone:10m rate=1r/s;
+
+server {
+  listen       	        	<%= "#{fetch(:server_port)}" %>;
+	server_name 	        <%= "#{fetch(:server_url)}" %> oldstore.enmasse.com;
+	client_max_body_size 	<%= "#{fetch(:server_max_body_size)}" %>; 
+  	keepalive_timeout 		<%= "#{fetch(:server_keepalive)}" %>;
+
+	access_log 		<%= "#{fetch(:server_url_access_log)}" %> combined;
+	error_log 		<%= "#{fetch(:server_url_error_log)}" %> warn;
+
+	# Location of our static files
+	root <%= "#{fetch(:shared_public)}" %>;
+  
+	include eme_store_rewrites;
+	
+	try_files $uri/index.html $uri.html $uri @app;
+	location @app {
+		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+		proxy_set_header Host $http_host;
+		proxy_redirect off;
+
+		proxy_pass http://<%= "#{fetch(:application)}" %>;
+	}
+
+  	include eme_store_common;
+	
+  	#limit_req  zone=rate_limited_zone  burst=1;
+
+	error_page   500 502 503 504  /50x.html;
+	location = /50x.html {
+		root   <%= "#{fetch(:shared_public)}" %>;
+	}
+
+}
+
+<% if fetch(:server_cdn_use) %>
+server{
+  listen       	<%= "#{fetch(:server_cdn_port)}"  %>;
+  server_name   <%= "#{fetch(:server_cdn_names)}" %>;
+  root          <%= "#{fetch(:shared_public)}"    %>;
+	
+  access_log 		<%= "#{fetch(:server_cdn_access_log)}" %> combined;
+  error_log 		<%= "#{fetch(:server_cdn_error_log)}" %> warn;
+
+  #location @cdn {
+  #  proxy_pass http://<%= "#{fetch(:application)}" %>;
+  #}
+	
+	location ~ ^/(js|css)/ {
+    gzip_static on;
+    expires max;
+    add_header Cache-Control public;
+  }
+	
+	#location ~ ^.+\.(css|js|jpg|jpeg|gif|png|tiff|swf|flv|mov|mp4|ogv|webm|eot|svg|ttf|woff|ico)$ {
+  #  access_log off;
+  #  expires max;
+  #  add_header Cache-Control public;
+	#	
+	#	try_files $uri @cdn;
+  #}
+	
+	include eme_store_common;
+  #include eme_store_asset_locations;
+}
+<% end %>

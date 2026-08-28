@@ -1,0 +1,58 @@
+<% content_for :body_content_title, @category.title %>
+
+<% content_for :currPageCallout do %>
+  <body class="news-category internal">
+<% end %>
+
+<% content_for :body do %>
+  <% if @posts.any? %>
+    <section id="blog_posts">
+      <%= render :partial => "/refinery/blog/shared/post", :collection => @posts %>
+      <%#= will_paginate @posts, :inner_window => 1, :outer_window => 0 %>
+    </section>
+  <% else %>
+    <p>
+      <%= t('.no_posts') %>
+    </p>
+  <% end %>
+<% end %>
+
+<% content_for :side_body do %>
+  <%= render "/refinery/blog/shared/categories" %>
+<% end %>
+
+<%#= render "/refinery/content_page" %>
+<% content_for :stylesheets, stylesheet_link_tag('refinery/blog/frontend') %>
+<!--<div class="blog-index">
+  <div class="wrapper">
+    <div class="page-content">
+      <div class="blog-header">
+        <h1 class="categoryTitle">Posts in the "<%= content_for :body_content_title %>" category</h1>
+      </div>
+      <%= raw content_for :body %>
+    </div>
+  </div>  
+</div>-->
+
+
+<% if @featured_posts %>
+    <%= render :partial => "/refinery/blog/shared/postft", :collection => [@featured_posts] %>
+  <% end %>
+  <% if @posts.any? %>
+    <%= render :partial => "/refinery/blog/shared/categories" %>
+    <section id="blog_posts_news">
+      <div class="wrapper">
+      <%= render :partial => "/refinery/blog/shared/post", :collection => @posts %>
+      </div>
+      <%= will_paginate @posts, :inner_window => 1, :outer_window => 0 %>
+    </section>
+  <% else %>
+    <p><%= t('.no_blog_articles_yet') %></p>
+  <% end %>
+
+
+
+
+<%# content_for :javascripts do %>
+  <%#= javascript_include_tag 'app/blog_index.js' %>
+<%# end %>

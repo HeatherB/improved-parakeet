@@ -1,0 +1,6 @@
+# warning these directories will get wiped and copied over.
+eme_global_assets:
+  target_dirs:
+    js: "app/assets/javascripts/global"
+    css: "app/assets/stylesheets/global"
+    img: "app/assets/images/global"

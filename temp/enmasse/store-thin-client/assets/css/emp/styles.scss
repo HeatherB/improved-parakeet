@@ -1,0 +1,15 @@
+@import "compass/css3";
+@import "global/all";
+
+//emp specific gems
+@import "emp/colors";
+@import "common/fonts";
+@import "emp/buttons";
+@import "emp/layout";
+@import "emp/confirm";
+@import "emp/receipt";
+
+@import "emp/validation";
+
+// ie nonsense
+@import "emp/ie";

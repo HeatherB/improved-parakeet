@@ -1,0 +1,38 @@
+  <div class="page_container purchase-failure">
+    <div class="header">
+      <% if @game %>
+      <div class="game-logo">
+        <img src="<%= img_url("emp/#{@game}-logo.png") %>" alt="<%= @game %>" />
+      </div>
+      <% else %>
+      <div class="game-logo">
+        <img src="<%= img_url('emp/enmasse-logo.png') %>" class="eme" alt="en masse" />
+      </div>
+      <% end %>
+      <div class="steps_progress">
+        <img src="<%= img_url('emp/steps_second.png') %>" alt="confirm" />
+      </div>
+    </div><!-- end of header -->
+  <div id="error-explanation">
+    <% if @error_code.to_i == -100 %>
+    <div class="warning">
+    <% else %>
+    <div class="error">
+    <% end %>
+      <% if @error_code.to_i == 201 %>
+        <p>Payment failed to process: Please <a href="https://support.enmasse.com/hc/en-us/articles/360017538054-Purchasing-EMP-Issues">review the following FAQ</a> for details about your specific error.</p>
+      <% elsif @error_code.to_i == -100 %>
+        <p>Payment process is pending: Your payment has been received and will be processed soon. You will receive a confirmation email when the payment is successfully processed. Or, you can <a href="javascript:window.location.href=window.location.href">refresh</a> this page to check the pending payment again.</p>
+      <% else %>
+        <p>Payment failed to process. Please <a href="https://support.enmasse.com/hc/en-us/articles/360017538054-Purchasing-EMP-Issues">review the following FAQ</a> for details about your specific error.</p>
+      <% end %>
+
+      <% if @error_code.to_i != -100 %>
+        <p>Error code: <%= @error_code %></p>
+        <% if @error_msg %>
+          <p>Error message: <%= @error_msg %></p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

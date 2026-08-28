@@ -1,0 +1,75 @@
+@import "utils/reset.less";
+@import "utils/colors.less";
+@import "utils/layout.less";
+@import "utils/internal.less";
+@import "utils/home.less";
+@import "utils/hero.less";
+@import "utils/games.less";
+@import "utils/jobs.less";
+@import "utils/devportal.less";
+@import "utils/partnerprogram.less";
+@import "utils/legal.less";
+@import "utils/navigation.less";
+@import "utils/header_shadows.less";
+@import "utils/specific_games.less";
+@import "utils/receipt.less";
+@import "utils/dc_release.less";
+@import "utils/quiz.less";
+@import "utils/footer.less";
+@import 'utils/enm_lightbox.less';
+@import 'utils/lity_lightbox.less';
+@import "utils/notfound.less";
+@import "utils/i18n.less";
+
+
+// this is the styling for the admin
+// the admin and non-admin interfaces are not told apart in any way
+// so i had to re-class them myself
+body.admin_pane { background-color: @apos-light;}
+body.admin_pane .apos-ui, body.apos-active-blackout .apos-ui { color: #000000;}
+// the login panel for apostrophe
+body.apos-login-page { color: #000000;}
+
+// highlight the editable regions
+body.admin_pane .apos-area {border: 2px dotted black;}
+
+/* cant just remove, have to uninstall, not going to, just hide */
+div[data-apos-admin-bar-item="devcontact-form"], div[data-apos-admin-bar-item="partnercontact-form"] {
+  display: none !important; /* i must insist */
+}
+/* stop inflating the space */
+.internal li .apos-rich-text p {
+  margin:0;
+  padding:0;
+}
+header.admin_pane { z-index: -1; } 
+
+body.admin_pane .main-content {
+  font-family: 'Karla', sans-serif;
+  margin: 200px auto;
+  padding: 20px;
+  max-width: 500px;
+  color: @apos-white;
+  background-color: @apos-primary;
+  .apos-drop-shadow;
+
+  .login-link {
+    float: right;
+    color: @apos-white;
+  }
+}
+
+  // Basic rich-text editor styles:
+  body.admin_pane h3 {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+
+  body.admin_pane h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  body.admin_pane strong { font-weight: bold; }
+  body.admin_pane em { font-style: italic; }
+

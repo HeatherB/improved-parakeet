@@ -1,0 +1,49 @@
+<div class="container-divider"></div>
+<div class="error-page">
+  <h1>{{t 'oops'}}</h1>
+
+  {{#is error 'unauthorized'}}
+    <h2>{{link 'sign_in'}}</h2>
+  {{/is}}
+
+  {{#is error 'forbidden'}}
+    <h2>{{t 'not_authorized'}}</h2>
+  {{/is}}
+
+  {{#is error 'not_found'}}
+    <h2>{{t 'nonexistent_page'}}</h2>
+    <p>{{t 'mistyped_address_or_moved_page'}}</p>
+  {{/is}}
+  
+  <div class="only_in_this_lang">
+    <p><!--Sorry! The article is not available in this language. Please follow this link to see the English support article. We apologize for the inconvenience.-->{{ dc 'article_not_in_lang_view_english' }}</p>
+    <a href="/" id="link_to_eng_version"></a>
+  </div>
+  
+  {{#link 'help_center'}}
+    {{t 'back_to_homepage'}}
+  {{/link}}
+  
+  <div class="search_bar_wrapper" id="errorSearch">
+      <h3>{{ dc 'search_for_answers_by_entering_your_keywords_below' }}</h3>
+    {{search submit=false instant=settings.instant_search class='search search-full'}}
+      <button type="button" id="find-this" value="Search" class="blueBTN">{{ dc 'search' }}</button>
+      <p>{{ dc 'example_k' }}</p>
+    </div>
+  
+   {{#if promoted_articles}}
+      <section class="articles">
+        <h3 class="label">{{t 'promoted_articles'}}</h3>
+        <ul class="article-list promoted-articles">
+          {{#each promoted_articles}}
+            <li class="promoted-articles-item">
+              <a href="{{url}}">
+                {{title}}
+              </a>
+            </li>
+          {{/each}}
+        </ul>
+        <!--<a class="blueBTN all_articles" href="https://enmassehelp.zendesk.com/hc/{{dc 'language_url_gate'}}">{{ dc 'view_more'}}</a>-->
+      </section>
+    {{/if}}
+</div>

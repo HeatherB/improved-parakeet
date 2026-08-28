@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<head>
+  <% cache_key = "#{params[:controller]}/#{params[:action]}/#{params[:path] || params[:id] || params[:page] || 1}" %>
+  <%= render :partial => "/refinery/html_tag" %>
+
+    <% cache("site_bar/#{cache_key}") do %>
+        <%= render :partial => "refinery/head", :locals => { :stylesheets => %w(application) } %>
+      <% end %>
+  </head>
+  <body class="preload">
+    <%= EMEGlobalAssets.snippet("eme-bar", {:create_link => "https://#{Rails.application.config.account_server}/tera/sign-up", :eme_bar => true, :games_menu => true, :alinks => true}) %>
+    
+
+    <div id="mobile-nav-btn">
+      <span class="morph_bar top"></span>
+      <span class="morph_bar middletop"></span>
+      <span class="morph_bar middlebottom"></span>
+      <span class="morph_bar bottom"></span>
+    </div>
+
+
+    <div class="wrapper" id="main-wrap">
+      <main>
+        <%= yield %>
+
+   <%= render :partial => "refinery/ankle" %>
+            <%= render :partial => "refinery/footer" %>
+      </main>
+    </div><!-- end of wrapper -->
+    
+    <div class="video-sleeve">
+      <div class="video-container">
+        <div id="lightbox">
+          <div id="lightbox-content"></div>
+        </div>
+      </div>
+    </div>
+
+
+    
+      <%= render :partial => "/refinery/javascripts" %>
+    <%= EMEGlobalAssets.snippet("sso-init", {:account_server => Rails.application.config.account_server}) %>
+
+    <!-- social network for google -->
+    <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Organization",
+      "name" : "En Masse Entertainment",
+      "url" : "http://www.enmasse.com/",
+      "alternateName" : [
+        "En Masse",
+        "EME",
+        "En Masse Entertainment, Inc."
+      ],
+      "legalName": "En Masse Entertainment, Inc.",
+      "sameAs" : [
+        "https://www.facebook.com/enmasseentertainment/",
+        "https://twitter.com/en_masse_ent",
+        "https://www.youtube.com/user/enmasseentertainment",
+        "https://plus.google.com/109054148843660807376",
+        "https://www.linkedin.com/company/en-masse-entertainment"
+      ]
+    }
+    </script>
+  <% if content_for?(:bodyscripts) %>
+    <%= yield (:bodyscripts) %>
+  <% end %>
+</body>
+</html>

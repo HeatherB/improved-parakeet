@@ -1,0 +1,61 @@
+<main class="strangerthings-confirm" id="strangerthings-confirm">
+  <div class="page-wrap">
+    <div class="sleeve">
+
+
+  <!--<img class="header" src="https://eme04.enmasse-game.com/images/enm/hero/ST3.jpg" />-->
+  <% if !session[:account_id] # IF NOT LOGGED IN     %>
+
+    <div class="note">
+      <h2>Purchase Stranger Things 3: The Game</h2>
+      <p>To purchase Stranger Things 3: The Game, you need to sign into your En Masse Account.</p>
+      <p>To create an En Masse Account for free, <a href="https://account.enmasse.com/strangerthings3/sign-up">click here.</a>
+      </p>
+    </div><!-- end of note -->
+    <div class="loginBTN">
+      <a href='/' class="sign-in login-popup-link">SIGN IN</a>
+    </div>
+
+  <% else %>
+      <div id="purchase-confirmation"><!-- these three lines are needed for form processing -->
+        <h2>Confirm your Purchase</h2>
+        
+        <form id="payform" name="payform">
+          <div id="hidden-fields" data-action-url="<%= @billing.payment_url %>"></div>
+          <div id="selected-amt">
+            <!--<span><%#= @billing.name %></span>-->
+            <span>Stranger Things 3: The Game</span>
+          </div>
+          <div id="selected-amt-price">
+            $<span><%= sprintf "%.2f", @billing.price %></span> USD
+          </div>
+          <% if @billing.errors.any? && @show_errors %>
+            <div id="error-explanation">
+              <div class="error">
+                <% @billing.errors.full_messages.each do |msg| %>
+                  <article><%= msg %></article>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+
+          <div class="submitBTN">
+            <input type="submit" class="button-secondary confirm disabled" value="Confirm Order" onclick="_gaq.push(['_trackEvent', 'Purchase Funnels', 'Submit Order Review', 'Stranger Things 3']);"/>
+          </div>
+          <p class="popup-info">This button opens a pop-up window for your chosen payment method. If you have a pop-up blocker installed,
+            please temporarily disable it to allow the window to open so you may complete your purchase.</p>
+
+        </form>
+      </div>
+    <% end %><!-- end of login check -->
+
+  </div>
+</div>
+</main>
+
+
+<script type="text/javascript">
+  window.onload = function () {
+    _gaq.push(['_trackEvent', 'Purchase Funnels', 'View Order Review Screen', 'Stranger Things 3']);
+  }
+</script>

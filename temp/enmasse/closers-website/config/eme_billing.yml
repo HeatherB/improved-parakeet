@@ -1,0 +1,13 @@
+eme_billing:
+  url: http://billingadapter.service.enmasse.com:5000
+  ssl: false
+  name: EME Billing
+  use_memcache: true
+  memcache_hosts:
+  - ch3-tmcache-p01.chi1.enmasse.com
+  - ch3-tmcache-p02.chi1.enmasse.com
+  cache_prefix: bai-prod
+  type: json
+  purchase_item_url: http://billing.enmasse.com/payment_direct.aspx
+  purchase_url: http://billing.enmasse.com/payment.aspx
+

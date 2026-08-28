@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]> <html dir="ltr" lang="en-US"class="no-js iem7"> <![endif]-->
+<!--[if lt IE 7 ]> <html dir="ltr" lang="en-US" class="no-js ie6 oldie"> <![endif]-->
+<!--[if IE 7 ]>    <html dir="ltr" lang="en-US" class="no-js ie7 oldie"> <![endif]-->
+<!--[if IE 8 ]>    <html dir="ltr" lang="en-US" class="no-js ie8 oldie"> <![endif]-->
+<!--[if (gte IE 9)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html dir="ltr" lang="en-US" class="no-js"><!--<![endif]-->
+  <head>
+    <title><%= @title %></title>
+    <link rel="shortcut icon" href="<%= asset_path("gifting/wintera/#{@game}/icons/favicon.ico") %>" sizes="16x16 24x24 32x32 48x48">
+    <% if @item %>
+    <link rel="canonical" href="<%= request.base_url %><%= @item.link %>"/>
+    <% end %>
+    <link rel="image_src" href="<%= img_url('ico_store.png') %>">
+    <link rel="icon" href="<%= img_url("gifting/wintera/#{@game}/icons/favicon-32x32.png") %>" sizes="32x32">
+    <link rel="apple-touch-icon" href="<%= img_url("gifting/wintera/#{@game}/icons/apple-icon-57x57.png") %>" sizes="57x57">
+    <link rel="apple-touch-icon" href="<%= img_url("gifting/wintera/#{@game}/icons/apple-icon-72x72.png") %>" sizes="72x72">
+    <link rel="apple-touch-icon" href="<%= img_url("gifting/wintera/#{@game}/icons/apple-icon-76x76.png") %>" sizes="76x76">
+    <link rel="apple-touch-icon" href="<%= img_url("gifting/wintera/#{@game}/icons/apple-icon-114x114.png") %>" sizes="114x114">
+    <link rel="apple-touch-icon" href="<%= img_url("gifting/wintera/#{@game}/icons/apple-icon-120x120.png") %>" sizes="120x120">
+    <link rel="apple-touch-icon" href="<%= img_url("gifting/wintera/#{@game}/icons/apple-icon-144x144.png") %>" sizes="144x144">
+    <link rel="apple-touch-icon" href="<%= img_url("gifting/wintera/#{@game}/icons/apple-icon-152x152.png") %>" sizes="152x152">
+    <link rel="apple-touch-icon" href="<%= img_url("gifting/wintera/#{@game}/icons/apple-icon-180x180.png") %>" sizes="180x180">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%= erb :"shared/google-analytics" %>
+    <style type="text/css">
+      @font-face {
+          font-family: 'serif6_beta_rgbold';
+          src: url('/fonts/serif6beta-bold-webfont.eot');
+          src: url('/fonts/serif6beta-bold-webfont.eot?#iefix') format('embedded-opentype'),
+               url('/fonts/serif6beta-bold-webfont.woff') format('woff'),
+               url('/fonts/serif6beta-bold-webfont.ttf') format('truetype'),
+               url('/fonts/serif6beta-bold-webfont.svg#serif6_beta_rgbold') format('svg');
+          font-weight: bold;
+          font-style: normal;
+      }
+      @font-face {
+          font-family: 'serif6_beta_rgitalic';
+          src: url('/fonts/serif6beta-italic-webfont.eot');
+          src: url('/fonts/serif6beta-italic-webfont.eot?#iefix') format('embedded-opentype'),
+               url('/fonts/serif6beta-italic-webfont.woff') format('woff'),
+               url('/fonts/serif6beta-italic-webfont.ttf') format('truetype'),
+               url('/fonts/serif6beta-italic-webfont.svg#serif6_beta_rgitalic') format('svg');
+          font-weight: normal;
+          font-style: italic;
+      }
+    </style>
+    <%= css :gifting, :app, :media => 'screen' %>
+
+    <!--[if lt IE 9]>
+      <%= css 'gifting/ie', :media => 'screen' %>
+      <script>
+        document.createElement('header');
+        document.createElement('nav');
+        document.createElement('section');
+        document.createElement('article');
+        document.createElement('aside');
+        document.createElement('footer');
+        document.createElement('hgroup');
+      </script>
+    <![endif]-->
+  </head>
+  <body class="<%= @game %> gifting">
+    <%= EMEGlobalAssets.snippet("eme-bar", {:create_link => "#{SimpleSSO::ACCOUNT_SERVER_SECURE_URL}/#{@game}/sign-up" }) %>
+    
+
+
+    <div id="page-content">
+      <div id="page_container">
+        <div class="breadcrumbs_wrapper">
+          <%= erb :breadcrumbs %>
+        </div>
+        <div class="site-alert">
+          <% if flash[:error] %>
+            <div class="error"><span class="icon"></span><%= flash[:error] %></div>
+          <% end %>
+          <% if flash[:warn] %>
+            <div class="warning"><span class="icon"></span><%= flash[:warn] %></div>
+          <% end %>
+          <% if flash[:message] %>
+            <div class="info"><span class="icon"></span><%= flash[:message] %></div>
+          <% end %>
+        </div>
+        
+        <%= yield %>
+      </div>
+
+      
+      <%#= EMEGlobalAssets.snippet(:footer, :game => "TERA") %>
+      <!-- footer structure -->
+     <!-- <footer>
+        <div class="eme-footer">
+            <div class="social-block">
+              <ul>
+                <li class="ft-facebook"><a href="/">Facebook</a></li>
+                <li class="ft-twitter"><a href="/">Twitter</a></li>
+                <li class="ft-youtube"><a href="/">Youtube</a></li>
+                <li class="ft-twitch"><a href="/">Twitch</a></li>
+              </ul>
+            </div>
+            <div id="info-block">
+              <div id="ft-links">
+                <%#= EMEGlobalAssets.snippet("ft-links", {:game => @game}) %>
+              </div>
+              <div id="ft-copyright">
+                <%#= EMEGlobalAssets.snippet("copyright", {:game => @game}) %>
+              </div>
+            
+              <div id="ft-logos">
+                <%# if @game.downcase == 'ava' %>        
+                  <%#= EMEGlobalAssets.snippet("corp-logos", {:clogo => "redduck"}) %>
+                  <%#= EMEGlobalAssets.snippet("corp-logos", {:clogo => "enmasse-lightbg"}) %>
+                <%# end %> 
+
+                <%# if @game.downcase == 'closers' %>        
+                  <%#= EMEGlobalAssets.snippet("corp-logos", {:clogo => "naddic-colored"}) %>
+                  <%#= EMEGlobalAssets.snippet("corp-logos", {:clogo => "enmasse-lightbg"}) %>
+                <%# end %> 
+
+                <%# if @game.downcase == 'kritika' %>        
+                  <%#= EMEGlobalAssets.snippet("corp-logos", {:clogo => "allm"}) %>
+                  <%#= EMEGlobalAssets.snippet("corp-logos", {:clogo => "enmasse-lightbg"}) %>
+                <%# end %> 
+
+                <%# if @game.downcase == 'tera' %>
+                  <%#= EMEGlobalAssets.snippet("corp-logos", {:clogo => "enmasse-lightbg"}) %>
+                  <%#= EMEGlobalAssets.snippet("corp-logos", {:clogo => "bluehole"}) %>     
+                <%# end %>
+              </div>
+            </div> 
+              
+            
+        </div>
+      </footer>-->
+      <!-- end footer structure -->
+    </div>
+
+    <%= EMEGlobalAssets.snippet("footer") %>
+
+    <%= erb :"shared/item-modal" %>
+
+    <%= js  :app %>
+
+    <%= erb :reloader if ENV['RACK_ENV'] != 'deployment' %>
+
+    <script>
+      document.body.className = document.body.className.replace("no-js","js");
+    </script>
+    <%= EMEGlobalAssets.snippet("sso-init", {:account_server => SimpleSSO::ACCOUNT_SERVER}) %>
+
+  </body>
+</html>

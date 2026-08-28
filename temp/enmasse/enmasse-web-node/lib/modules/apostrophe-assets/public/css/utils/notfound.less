@@ -1,0 +1,34 @@
+.notfound {
+	display: block;
+	text-align:center;
+	padding:100px 0;
+	h1 {
+		font-size:30px;
+		color: @white;
+		text-transform: none;
+		margin-bottom: 20px;
+	}
+	p {
+		font-size:18px;
+		color: @copyblue;
+	}
+	.inner {
+		background: url(https://eme04.enmasse-game.com/images/enm/bgs/tired_chibi.png) bottom center no-repeat;
+		min-height:430px;
+	}
+}
+
+
+@media all and (min-width: 768px) {
+	.notfound {
+		h1 {
+			font-size:60px;
+		}
+		p {
+			font-size:30px;
+		}
+		.inner {
+			min-height:490px;
+		}
+	}
+}

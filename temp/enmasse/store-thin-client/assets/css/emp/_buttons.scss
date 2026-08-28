@@ -1,0 +1,59 @@
+@mixin yellowBTN() {
+  @include font-exo;
+  font-size:26px;
+  outline: none;
+  box-sizing: border-box;
+  padding: 25px 35px;
+  color: black;
+  text-transform:uppercase;
+  text-shadow: none;
+  border-radius: 5px;
+  border: 1px solid #e6b300;
+  background: rgb(254,249,241); /* Old browsers */
+  background: -moz-linear-gradient(top,  rgba(254,249,241,1) 0%, rgba(236,183,92,1) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(254,249,241,1)), color-stop(100%,rgba(236,183,92,1))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  rgba(254,249,241,1) 0%,rgba(236,183,92,1) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  rgba(254,249,241,1) 0%,rgba(236,183,92,1) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  rgba(254,249,241,1) 0%,rgba(236,183,92,1) 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  rgba(254,249,241,1) 0%,rgba(236,183,92,1) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fef9f1', endColorstr='#ecb75c',GradientType=0 ); /* IE6-9 */
+}
+
+@mixin yellowBTNhover() {
+  border: 1px solid #e6b300;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e6b300+0,ecb75c+0,fef9f1+100 */
+  background: rgb(230,179,0); /* Old browsers */
+  background: -moz-linear-gradient(top,  rgba(230,179,0,1) 0%, rgba(236,183,92,1) 0%, rgba(254,249,241,1) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(230,179,0,1)), color-stop(0%,rgba(236,183,92,1)), color-stop(100%,rgba(254,249,241,1))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  rgba(230,179,0,1) 0%,rgba(236,183,92,1) 0%,rgba(254,249,241,1) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  rgba(230,179,0,1) 0%,rgba(236,183,92,1) 0%,rgba(254,249,241,1) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  rgba(230,179,0,1) 0%,rgba(236,183,92,1) 0%,rgba(254,249,241,1) 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  rgba(230,179,0,1) 0%,rgba(236,183,92,1) 0%,rgba(254,249,241,1) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6b300', endColorstr='#fef9f1',GradientType=0 ); /* IE6-9 */
+}
+
+@mixin greyedOutBTN() {
+  cursor: default;
+  border: 1px solid #807f7c;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e6b300+0,ecb75c+0,fef9f1+100 */
+  background: rgb(128, 127, 124); /* Old browsers */
+  background: -moz-linear-gradient(top,  rgba(128, 127, 124,1) 0%, rgba(255,255,255,1) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(128, 127, 124,1)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  rgba(128, 127, 124,1) 0%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  rgba(128, 127, 124,1) 0%,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  rgba(128, 127, 124,1) 0%,rgba(255,255,255,1) 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  rgba(128, 127, 124,1) 0%,rgba(255,255,255,1) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#807f7c', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+}
+
+@mixin blueBTN() {
+  @include font-exo;
+  background:$internetblue;
+  color:$white;
+  border-radius: 3px;
+  text-transform:uppercase;
+  font-size:16px;
+  box-sizing: border-box;
+  padding: 3px 0 0 0;
+}
+

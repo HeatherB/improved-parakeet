@@ -1,0 +1,90 @@
+<section id="navigation" class="serverstatuses">
+  <%= Refinery::Pages::MenuPresenter.new(refinery_menu_pages, self).to_html %>
+</section>
+
+<section id="filter-bar" class="serverstatuses">
+  <div class="inner_wrapper">
+    <div id="filter-platform">
+      <span data-platform="all" class="filter-all interiorfilter"><%=t :platform_all %></span>
+      <span data-platform="windows" class="filter-windows interiorfilter"><%=t :platform_windows %></span>
+      <span data-platform="playstation" class="filter-playstation interiorfilter"><%=t :platform_playstation %></span>
+      <span data-platform="xbox" class="filter-xbox interiorfilter"><%=t :platform_xbox %></span>
+    </div>
+
+    <!-- language selection -->
+    <%= render :partial => "/refinery/language_nav" %>
+  </div><!-- end of inner wrapper -->
+</section>
+
+<section id="content_article_header" class="serverstatuses">
+  <%= raw @custom_header %>
+  <!--<div class="inner">
+    <div id="ss_known_issues">
+    <h3>Known Issues</h3>
+    <ul>
+      <li>
+        <div class="date_plat_block">
+          <span class="signature_plat xbox">XBOX</span>
+          <span class="signature_date">04.16.2018</span>
+          <span class="signature_state"></span>
+        </div>
+        <div class="ss_known_issue">
+          <p>Morgan the Rat Unable to Walk Backwards During Dance-Off Stage of Mattress Factory</p>
+          <span class="goto_icon"></span>
+        </div>
+      </li>
+
+      <li>
+        <div class="date_plat_block">
+          <span class="signature_plat all">ALL</span>
+          <span class="signature_date">04.16.2018</span>
+          <span class="signature_state open">Open</span>
+        </div>
+        <a href="/" class="ss_known_issue_link">
+          <p>Morgan the Rat Unable to Walk Backwards During Dance-Off Stage of Mattress Factory</p>
+          <span class="goto_icon"></span>
+        </a>
+      </li>
+
+      <li>
+        <div class="date_plat_block">
+          <span class="signature_plat ps">PS4</span>
+          <span class="signature_date">04.16.2018</span>
+          <span class="signature_state resolved">Resolved</span>
+        </div>
+        <div class="ss_known_issue">
+          <p>Several wigs on crooked.</p>
+          <span class="goto_icon"></span>
+        </div>
+      </li>
+
+      <li>
+        <div class="date_plat_block">
+          <span class="signature_plat ps">PS4</span>
+          <span class="signature_date">04.16.2018</span>
+          <span class="signature_state resolved">Resolved</span>
+        </div>
+        <a href="/" class="ss_known_issue_link">
+          <p>Several wigs on crooked.</p>
+          <span class="goto_icon"></span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>--><!-- end of server status known issues -->
+</section>
+
+<div id="main-wrapper" class="serverstatuses">
+  <section id="content_wide_body">
+    <%= render "server_statuses/table" %>
+  </section>
+  <section id="content_body">
+    <%#= raw @page.content_for(:body) || yield(:body) %>
+  </section>
+  <section id="content_side_body">
+    <%#= raw @page.content_for(:side_body) || yield(:side_body) %>
+  </section>
+  <section id="content_article_footer">
+    <%#= raw @page.content_for(:article_footer) || yield(:article_footer) %>
+  </section>
+</div>

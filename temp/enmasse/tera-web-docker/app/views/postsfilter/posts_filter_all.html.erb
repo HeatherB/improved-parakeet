@@ -1,0 +1,7 @@
+<% if @post_flagged_all && @post_flagged_all.any? %>
+    <%= render :partial => "/refinery/blog/shared/post", :collection => @post_flagged_all %>
+    <%#= will_paginate @post_flagged_all %>
+<% else %>
+  <!--<p class="alone"><%#=t :no_blog_articles_yet %></p>-->
+<% end %>
+<%#= I18n.locale.inspect %>

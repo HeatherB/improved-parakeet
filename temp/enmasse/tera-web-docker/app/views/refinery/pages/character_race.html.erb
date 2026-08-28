@@ -1,0 +1,71 @@
+<section id="navigation">
+  <%= Refinery::Pages::MenuPresenter.new(refinery_menu_pages, self).to_html %>
+</section>
+
+
+
+<%# if is_showfilters? %>
+<section id="filter-bar">
+  <div class="inner_wrapper">
+    <div id="filter-platform">
+      <span data-platform="all" class="filter-all interiorfilter"><%=t :platform_all %></span>
+      <span data-platform="windows" class="filter-windows interiorfilter"><%=t :platform_windows %></span>
+      <span data-platform="playstation" class="filter-playstation interiorfilter"><%=t :platform_playstation %></span>
+      <span data-platform="xbox" class="filter-xbox interiorfilter"><%=t :platform_xbox %></span>
+    </div>
+
+    <!-- language selection -->
+    <%= render :partial => "/refinery/language_nav" %>
+  </div><!-- end of inner wrapper -->
+</section>
+<%# end %>
+
+
+
+<section id="content_article_header">
+  <%= raw @page.content_for(:article_header) || yield(:article_header) %>
+  <!-- anniversary -->
+  <!-- special inpage navigation for race and class pages -->
+  <%= render :partial => "/refinery/charrace_nav" %>
+</section>
+
+<div id="main-wrapper">
+  <!-- sticky nav for race apges -->
+
+
+  <nav id="main-nav">
+    <div class="wrapper">
+      <ul class="nav-social">
+        <li>SHARE</li>
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://tera.enmasse.com/game/races" id="share-facebook" target="_blank">Facebook</a></li>
+        <li><a class="twitter-share-button"
+    href="https://twitter.com/intent/tweet?text=Learn%20about%20the%20abilities%20of%20the%20different%20playable%20races%20in%20TERA%20at:%20https://tera.enmasse.com/game/races" id="share-twitter" target="_blank">Twitter</a></li>
+      </ul>
+      <ul class="nav-page">
+        <li><a href="#content_wide_body" id="nav-race_overview_wrapper">Race Overview</a></li>
+         <% if @page.content_for(:body) != '' %>
+        <li><a href="#content_body" id="nav-race_video_wrapper">Race Video</a></li>
+        <% end %>
+        <li><a href="#content_side_body" id="nav-race_lore_wrapper">Lore</a></li>
+      </ul>
+      <div class="play-now">
+        <a href="/sign-up" onclick="ga('send', 'event', 'Accounts', 'Clicked PLAY FREE Button', 'TERA Character Races', {'nonInteraction': 1});">PLAY FREE</a>
+      </div>
+    </div>
+  </nav>
+  <!-- end race page nav part -->
+
+  <section id="content_wide_body">
+    <%= raw @page.content_for(:wide_body) || yield(:wide_body) %>
+  </section>
+
+  <section id="content_body">
+    <%= raw @page.content_for(:body) || yield(:body) %>
+  </section>
+  <section id="content_side_body">
+    <%= raw @page.content_for(:side_body) || yield(:side_body) %>
+  </section>
+  <section id="content_article_footer">
+    <%= raw @page.content_for(:article_footer) || yield(:article_footer) %>
+  </section>
+</div>

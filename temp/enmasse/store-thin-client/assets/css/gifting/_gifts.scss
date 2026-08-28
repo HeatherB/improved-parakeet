@@ -1,0 +1,2516 @@
+$campaign: 'wintera'; // wintera || vday || anniversary
+body.gifting {
+    .intro {
+        margin-top: 25px !important;
+    }
+    .reminder {
+        color: #818181;
+        //margin-bottom: 25px;
+        margin-top: 25px;
+        display: none;
+        h3 {
+            color: #818181;
+            font-size: 26px;
+        }
+        h4 {
+            color: #818181;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        .timer {
+            display: inline-block;
+            vertical-align: top;
+            font-size: 22px;
+            width: 50px;
+            text-align: center;
+            height: 50px;
+            line-height: 50px;
+            border: solid 2px #818181;
+            margin: 10px 10px;
+            margin-top: 5px;
+            position: relative;
+            &:before {
+                content: "Minutes";
+                position: absolute;
+                bottom: -3px;
+                width: 100%;
+                text-align: center;
+                font-size: 12px;
+                left: 0;
+                height: 15px;
+            }
+            &#minutes {
+                &:after {
+                    content: "";
+                    width: 26px;
+                    height: 2px;
+                    background-color: #818181;
+                    position: absolute;
+                    right: -26px;
+                    top: 24px;
+                }
+            }
+            &#hours {
+                &:before {
+                    content: "Hours";
+                }
+                &:after {
+                    content: "";
+                    width: 26px;
+                    height: 2px;
+                    background-color: #818181;
+                    position: absolute;
+                    right: -26px;
+                    top: 24px;
+                }
+            }
+            &#seconds {
+                &:before {
+                    content: "Seconds";
+                }
+            }
+        }
+    }
+    display: block;
+    &.tera, &.closers, &.kritika, &.ava {
+        background: $white;
+    }
+    div.colorbtn {
+        margin: 10px auto;
+        display: block;
+    }
+    a.colorbtn {
+        font-family: 'Exo 2', sans-serif;
+        font-weight: 700;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 20px;
+        display: block;
+        height: 50px;
+        margin: 0;
+        padding-top: 10px;
+    }
+    // ********** ********** ********** ********** 
+    //            Breadcrumbs
+    // ********** ********** ********** ********** 
+    .breadcrumbs_wrapper {
+        background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #2e2e2e), color-stop(100%, #4e4e4e));
+        background: -webkit-linear-gradient(#2e2e2e, #4e4e4e);
+        background: -moz-linear-gradient(#2e2e2e, #4e4e4e);
+        background: -o-linear-gradient(#2e2e2e, #4e4e4e);
+        background: linear-gradient(#2e2e2e, #4e4e4e);
+        text-align: center;
+        margin: 0 auto;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 20px 0;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+        display: block;
+        position: relative;
+        z-index: 2;
+        .breadcrumb {
+            background: none;
+            border: none;
+            margin: 0 auto;
+            display: block;
+            box-shadow: none;
+            width: 100%;
+            max-width: 1120px;
+        }
+        li:first-child {
+            a {
+                display: block;
+                text-indent: -9999em;
+                margin: 0 auto;
+            }
+        }
+        li.last {
+            font-family: 'Exo 2', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            color: $white;
+            text-transform: uppercase;
+            border-radius: 7px;
+            box-sizing: border-box;
+            padding: 10px 0;
+            max-width: 250px;
+            width: 100%;
+            height: 41px;
+            margin: 0 auto;
+            //text-align:left;
+        }
+        li {
+            float: none;
+            a {
+                &:after {
+                    display: none;
+                }
+            }
+        }
+    }
+    // ********** ********** ********** ********** 
+    //            Container
+    // ********** ********** ********** ********** 
+    #page_container {
+        max-width: 100%;
+        #wide_body {
+            padding: 0;
+            background: #ffffff;
+            color: #000000;
+            border: none;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+            margin: 0 auto;
+            max-width: 1120px;
+            .register {
+                width: 100%;
+            }
+        }
+    }
+    #page-content {
+        background: none;
+    }
+    // ********** ********** ********** ********** 
+    //            Carousel
+    // ********** ********** ********** **********
+    #rewards_carousel {
+        margin-bottom: 0;
+        width: 100%;
+        overflow: hidden;
+        img {
+            position: relative;
+            display: block;
+            border: 2px solid #545556;
+            margin-left: calc((100% - 1110px) / 2);
+            opacity: 0;
+            height: 0;
+            transition: opacity 500ms;
+        }
+        .heading, .copy {
+            opacity: 0;
+            transition: opacity 500ms;
+        }
+        li {
+            background: #545556;
+            &.active {
+                img {
+                    height: 100%;
+                }
+                img, .heading, .copy {
+                    opacity: 1;
+                }
+            }
+        }
+        .pager_slider {
+            background: image-url('gifting/wintera/slider_bg.png');
+            width: 320px;
+            height: 31px;
+            position: relative;
+            top: 458px;
+            z-index: 99;
+            margin: 0 auto;
+            .prev {
+                width: 50px;
+                margin: 0;
+                height: 100%;
+                position: absolute;
+                left: 0;
+            }
+            .inner {
+                width: 200px;
+                margin: 0 auto;
+                height: 100%;
+                position: absolute;
+                left: 0;
+                right: 0;
+                padding-top: 7px;
+            }
+            .next {
+                width: 50px;
+                margin: 0;
+                height: 100%;
+                position: absolute;
+                right: 0;
+            }
+            .pager_slide {
+                border-radius: 50%;
+                background: $white;
+                width: 18px;
+                height: 18px;
+                display: block;
+                position: relative;
+                left: 0;
+                transition: left 250ms;
+            }
+        }
+        .pagers {
+            display: none;
+        }
+    }
+    .carousel_about {
+        border-top: 40px solid #1a81c4;
+        background: #90adc0;
+        box-sizing: border-box;
+        padding: 30px 14px 15px 22px;
+        .heading {
+            span.icon, h3 {
+                display: inline-block;
+                vertical-align: top;
+            }
+            span.icon {
+                width: 62px;
+                height: 62px;
+                //background-image: image-url('gifting/wintera/tera/gifting_icon_sprite.png');
+                //background-repeat: no-repeat;
+                //&.crown {
+                //    background-position: 0 0;
+                //}
+                display: none;
+            }
+            h3 {
+                font-family: 'Exo 2', sans-serif;
+                font-weight: 400;
+                font-size: 20px;
+                color: #ffffff;
+                text-align: left;
+                margin-left: 20px;
+                span.label {
+                    display: block;
+                    font-weight: 700;
+                    font-size: 20px;
+                    color: #ffffff;
+                    background: none;
+                    text-align: left;
+                }
+            }
+        }
+        .copy {
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            color: #ffffff;
+            text-align: left;
+            font-size: 16px;
+        }
+    }
+    #gifts_tracker {
+        margin: 0 auto;
+        display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box; /* OLD - Firefox 19- (doesn't work very well) */
+        display: -ms-flexbox; /* TWEENER - IE 10 */
+        display: -webkit-flex; /* NEW - Chrome */
+        display: flex; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 315px;
+        margin: 0 auto 20px;
+        text-align: center;
+        z-index: 500;
+        li {
+            border-radius: 2px;
+            background: #405e71;
+            width: 54px;
+            height: 45px;
+            border: 3px solid #52dcff;
+            color: $white;
+            font-family: 'Exo 2', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            text-align: center;
+            text-decoration: none;
+            padding-top: 2px;
+            &.active {
+                border-color: #ffea34;
+                background: #ffb62a;
+            }
+        }
+    }
+    .buy-more {
+        box-sizing: border-box;
+        padding: 40px 10px 20px;
+        box-shadow: inset 0 11px 7px -8px rgba(0, 0, 0, 0.4);
+        h3 {
+            font-family: 'Exo 2', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            color: #1b1b1b;
+            display: block;
+            text-align: left;
+            line-height: 1;
+            span {
+                color: #e19f10;
+            }
+        }
+        h4 {
+            font-family: 'Exo 2', sans-serif;
+            font-weight: 700;
+            color: #1b1b1b;
+            display: block;
+            text-align: left;
+        }
+        p {
+            font-family: 'Exo 2', sans-serif;
+            font-weight: 400;
+            font-size: 18px;
+            color: #1b1b1b;
+            span {
+                color: #e19f10;
+            }
+        }
+    }
+    // ********** ********** ********** ********** 
+    //            Tabs
+    // ********** ********** ********** **********
+    #tabs {
+        background: none;
+        display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box; /* OLD - Firefox 19- (doesn't work very well) */
+        display: -ms-flexbox; /* TWEENER - IE 10 */
+        display: -webkit-flex; /* NEW - Chrome */
+        display: flex; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0;
+        clear: both;
+        a {
+            font-weight: bold;
+            text-align: left;
+            text-transform: uppercase;
+            font-family: 'Exo 2', sans-serif;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 24px;
+            line-height: 30px;
+            width: 50%;
+            height: 88px;
+            display: table;
+            span {
+                display: table-cell;
+                vertical-align: middle;
+                width: 130px;
+                padding-left: calc((100% - 130px) / 2);
+            }
+        }
+    }
+    /*.gifting {
+	    font-family: 'Exo 2', sans-serif;
+	    background: $white;
+	    color: $white;
+	    font-size:18px;
+	    line-height: 32px;
+	    text-align:center;
+	    .inner {
+			box-sizing: border-box;
+	    	padding: 25px;
+	    	background: #90adc0;
+	    }
+	    .colorbtn {
+	      margin-bottom: 10px;
+	    }
+	}*/
+    
+    // ********** ********** ********** ********** 
+    //            Gift Bundles Area
+    // ********** ********** ********** **********
+    .box_section {
+        //background: #818181;
+        text-align: center;
+        box-sizing: border-box;
+        padding: 0px 0 10px;
+        h4 {
+            color: #ffffff;
+            //background: #90adc0;
+            box-sizing: border-box;
+            padding: 10px 0;
+            font-size: 19px;
+            font-family: 'Exo 2', sans-serif;
+            font-weight: 500;
+            font-style: italic;
+        }
+    }
+    .gift_block {
+        position: relative;
+        border-top: 1px solid #898989;
+        margin-bottom: 20px;
+    }
+    .golden_gift_icon {
+        display: block;
+        background: #74a0cf;
+        img {
+            display: block;
+        }
+    }
+    .gc_icon {
+        display: none;
+    }
+    .small_icon {
+        width: 100%;
+        max-width: 768px;
+    }
+    .gg_about {
+        display: block;
+        @include background(linear-gradient(#4a4c4c, #393a3a));
+        padding: 8px 10px 15px;
+        font-family: 'Exo 2', sans-serif;
+        display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box; /* OLD - Firefox 19- (doesn't work very well) */
+        display: -ms-flexbox; /* TWEENER - IE 10 */
+        display: -webkit-flex; /* NEW - Chrome */
+        display: flex; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        width: 100%;
+        .detail_label {
+            font-weight: bold;
+            color: #ffffff;
+            text-transform: uppercase;
+            text-align: right;
+            font-size: 14px;
+            background: none;
+            width: 20%;
+        }
+        .details {
+            color: #ffffff;
+            text-align: left;
+            font-size: 14px;
+            width: 79%;
+            margin-left: 1%;
+            &.name {
+                font-size: 18px;
+            }
+        }
+        a.colorbtn {
+            width: 170px;
+        }
+    }
+    #history {
+        display: none;
+    }
+    #inventory, #history {
+        padding: 20px 0;
+    }
+    #inventory, #history, #gift-sent {
+        .gift-card {
+            position: relative;
+            display: block;
+            box-sizing: border-box;
+            padding: 10px 0;
+            margin-bottom: 10px;
+            &.empty {
+                background-color: #3a3a3a;
+                .gc_icon, p {
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+                .gc_icon {
+                    background: image-url('gifting/#{$campaign}/gift-bg.png') no-repeat -374px -321px;
+                    width: 120px;
+                    height: 150px;
+                }
+                p {
+                    color: #dddddd;
+                    font-family: 'Exo 2', sans-serif;
+                    font-weight: 400;
+                    width: calc(100% - 130px);
+                    margin: 0;
+                }
+            }
+        }
+    }
+    // ********** ********** ********** ********** 
+    //            Purchased
+    // ********** ********** ********** **********
+    .purchased {
+        display: none;
+    }
+    // ********** ********** ********** ********** 
+    //            Wintera Specific
+    // ********** ********** ********** **********
+    .wintera {
+        .gifting {
+            font-family: 'Exo 2', sans-serif;
+            color: $white;
+            font-size: 18px;
+            line-height: 32px;
+            text-align: center;
+            box-sizing: border-box;
+            .inner {
+                box-sizing: border-box;
+                padding: 25px;
+                background: #818181;
+            }
+            .heading {
+                padding: 30px 10px 15px;
+                text-align: left;
+                h2 {
+                    font-family: 'Exo 2', sans-serif;
+                    font-size: 24px;
+                    color: #1b1b1b;
+                }
+                p {
+                    font-family: 'Exo 2', sans-serif;
+                    font-size: 18px;
+                    color: #1b1b1b;
+                    margin-bottom: 0;
+                }
+            }
+            .colorbtn {
+                margin-bottom: 10px;
+            }
+        }
+        .login-buttons {
+            display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+            display: -moz-box; /* OLD - Firefox 19- (doesn't work very well) */
+            display: -ms-flexbox; /* TWEENER - IE 10 */
+            display: -webkit-flex; /* NEW - Chrome */
+            display: flex; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            width: 230px;
+            margin: 1em auto;
+            float: none;
+            li {
+                border-radius: 5px;
+                box-sizing: border-box;
+                padding: 7px 0;
+                font-family: 'Exo 2', sans-serif;
+                font-weight: 700;
+                text-align: center;
+                text-transform: uppercase;
+                float: none;
+                margin: 0;
+                &:hover {
+                    background:#000000;
+                }
+            }
+            .login-popup-link,
+            .new-user {
+                border-radius: 0;
+                background: none;
+                border: none;
+            }
+        }
+    }
+    // ********** ********** ********** ********** 
+    //            Footer
+    // ********** ********** ********** **********
+    footer {
+        .social-block, .info-block {
+            display: block;
+        }
+        .social-block {
+            li {
+                display: inline-block;
+                vertical-align: middle;
+                background-image: image-url('gifting/wintera/tera/footer-social-sprite.png');
+                background-repeat: no-repeat;
+                height: 48px;
+                position: relative;
+                text-indent: -9999em;
+                margin-right: 30px;
+                cursor: pointer;
+                &:after {
+                    content: '';
+                    background-image: image-url('gifting/wintera/tera/footer-social-sprite.png');
+                    background-repeat: no-repeat;
+                    height: 48px;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    transition: opacity 250ms;
+                    opacity: 0;
+                }
+                &:hover {
+                    &:after {
+                        opacity: 1;
+                    }
+                }
+                &.ft-facebook {
+                    background-position: 0 0;
+                    width: 49px;
+                    &:after {
+                        background-position: 0 -48px;
+                        width: 49px;
+                    }
+                }
+                &.ft-twitter {
+                    background-position: -89px 0;
+                    width: 58px;
+                    &:after {
+                        background-position: -89px -48px;
+                        width: 58px;
+                    }
+                }
+                &.ft-youtube {
+                    background-position: -180px 0;
+                    width: 66px;
+                    &:after {
+                        background-position: -180px -48px;
+                        width: 66px;
+                    }
+                }
+                &.ft-twitch {
+                    background-position: -280px 0;
+                    width: 48px;
+                    &:after {
+                        background-position: -280px -48px;
+                        width: 48px;
+                    }
+                }
+            }
+        }
+        #ft-links,
+        #ft-links a,
+        #ft-copyright {
+            color: #262626;
+        }
+        #ft-links {
+            li {
+                display: inline-block;
+                vertical-align: middle;
+                &:after {
+                    content: "|";
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin-left: 6px;
+                }
+                &.last {
+                    &:after {
+                        content: "";
+                    }
+                }
+            }
+        }
+        #ft-copyright {
+            max-width: 560px;
+            width: 100%;
+        }
+        #ft-logos {
+            .clogo-bluehole {
+                display: block;
+                float: none;
+            }
+        }
+    }
+    // ********** ********** ********** ********** 
+    //            Reveal Modal
+    // ********** ********** ********** **********
+    /* overwritten */
+    .reveal-modal,
+    .reveal-modal.small,
+    .reveal-modal.medium,
+    .reveal-modal.large,
+    .reveal-modal.xlarge {
+        left: auto;
+        right: auto;
+        margin-left: 0;
+        padding: 0px;
+        height: auto;
+    }
+    /* end overwritten */
+    
+    .reveal-modal {
+        &:after {
+            display: none;
+        }
+        h3.reg_banner {
+            background: #2e2e2e;
+            text-transform: uppercase;
+            color: $white;
+            font-family: 'Exo 2', sans-serif;
+            text-align: center;
+            height: 42px;
+            padding: 3px 0 0 0;
+        }
+        h3.error_banner {
+            background: #b50000;
+            text-transform: uppercase;
+            color: $white;
+            font-family: 'Exo 2', sans-serif;
+            text-align: center;
+            height: 42px;
+            padding: 3px 0 0 0;
+            margin: 0;
+            display: none;
+        }
+        h3.title-bar-dark {
+            background: #2e2e2e;
+            text-transform: uppercase;
+            color: $white;
+            font-family: 'Exo 2', sans-serif;
+            text-align: center;
+            height: 42px;
+            padding: 3px 0 0 0;
+        }
+        .close-reveal-modal, a.close-reveal-modal {
+            background: #4e4e4e;
+            color: $white;
+            text-shadow: none;
+            font-size: 36px;
+            top: 0;
+            right: 0;
+            border-radius: 0;
+            border: none;
+            width: 53px;
+            height: 42px;
+            text-align: center;
+            padding-top: 7px;
+        }
+        &#gift-claim {
+            max-width: 867px;
+            width: 100%;
+            background: $white;
+            margin: 0 auto;
+            .gift {
+                display: block;
+            }
+        }
+        &#send-gift {
+            max-width: 584px;
+            width: 100%;
+            background: #adadad;
+            .selector {
+                height: 72px;
+                margin: 20px 0 0 0;
+                li {
+                    margin: 0 0 0 0;
+                    color: #000000;
+                    border: none;
+                    display: inline;
+                    float: left;
+                    background: #d5d5d5;
+                    position: relative;
+                    z-index: 1;
+                    width: 182px;
+                    height: 72px;
+                    border-radius: 5px 5px 0 0;
+                    overflow: hidden;
+                    box-shadow: 8px 0 8px -8px rgba(0, 0, 0, 0.4), 0 -8px 8px -8px rgba(0, 0, 0, 0.4);
+                    .inner {
+                        background: #d5d5d5;
+                        border: none;
+                        color: $black;
+                        font-family: 'Exo 2', sans-serif;
+                        width: 182px;
+                        padding-left: 20px;
+                        text-align: left;
+                        height: 72px;
+                        line-height: 1;
+                        border-radius: 0;
+                        box-shadow: inset 0 -8px 8px -8px rgba(0, 0, 0, 0.4);
+                        span {
+                            width: auto;
+                        }
+                        &:hover {
+                            border: none;
+                        }
+                    }
+                    &:nth-child(2) {
+                        width: 212px;
+                        .inner {
+                            width: 212px;
+                        }
+                    }
+                    &.selected, &:hover {
+                        background: $white;
+                        color: $black;
+                        z-index: 12;
+                        .inner {
+                            background: $white;
+                            color: $black;
+                            box-shadow: inset 0 -8px 8px -8px $white;
+                        }
+                    }
+                }
+            }
+            .name-check {
+                display: none;
+                background: image-url('image-sprite.png')  -216px -419px no-repeat;
+                width: 30px;
+                height: 20px;
+                &.pass {
+                    display: block;
+                    position: absolute;
+                    top: 43px;
+                    left: 400px;
+                    z-index: 99;        
+                }
+            }
+            .inner_wrap {
+                background: $white;
+                width: 100%;
+                padding: 25px 25px 0 25px;
+                margin: 0;
+                position: relative;
+                z-index: 40;
+                box-shadow: 0 -8px 8px -8px rgba(0, 0, 0, 0.4);
+            }
+            .button-secondary {
+                border-radius: 0;
+                background: #2c8bc9;
+                color: $white;
+                font-family: 'Exo 2', sans-serif;
+                text-shadow: none;
+                text-transform: uppercase;
+                border: none;
+                width: 130px;
+                height: 40px;
+                padding: 9px 0 0;
+                text-align: center;
+                &:hover {
+                    background: #000000;
+                }
+                &.disabled {
+                    cursor: wait;
+                    background: #5c5c5c;
+                    &:hover {
+                        background: #5c5c5c;
+                    }
+                }
+            }
+            .messages, #charName, #email {
+                width: 100%;
+            }
+            .messages, .actions {
+                display: block;
+            }
+            .messages {
+                h6 {
+                    font-size: 16px;
+                    font-weight: bold;
+                    font-family: 'Exo 2', sans-serif;
+                    color: $black;
+                }
+            }
+            .actions {
+                text-align: right;
+                a {
+                    background: #5c5c5c;
+                    text-decoration: none;
+                    &:hover {
+                        background: $black;
+                    }
+                }
+                .button-primary {
+                    background: #2c8bc9;
+                    &:hover {
+                        background: $black;
+                    }
+                }
+                a,
+                .button-primary {
+                    border-radius: 0;
+                    color: $white;
+                    font-family: 'Exo 2', sans-serif;
+                    text-shadow: none;
+                    text-transform: uppercase;
+                    border: none;
+                    width: 130px;
+                    height: 40px;
+                    padding: 7px 0 0;
+                    text-align: center;
+                    display: inline-block;
+                }
+            }
+            #charName {
+                .charInfo {
+                    color: $black;
+                    strong, b {
+                        color: $black;
+                    }
+                }
+            }
+            .error-alert {
+                width: 100%;
+                .message {
+                    color: #b50000;
+                }
+            }
+        }
+        &#gift-claim, &#send-gift {
+            border: none;
+            .claim-open {
+                background: $white;
+                padding: 30px 30px 0 30px;
+            }
+            .mail-icon, .open_copy {
+                display: inline-block;
+                vertical-align: top;
+            }
+            .mail-icon {
+                background: image-url('gifting/wintera/mail.png') top center no-repeat;
+                width: 208px;
+                height: 115px;
+            }
+            .open_copy {
+                width: calc(100% - 240px);
+                margin-left: 20px;
+                h6 {
+                    font-size: 16px;
+                    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+                    color: #2e2e2e;
+                    span {
+                        font-weight: bold;
+                    }
+                }
+                p {
+                    font-size: 16px;
+                    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+                    color: #2e2e2e;
+                }
+                .gift_author {
+                    font-size: 16px;
+                    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+                    font-style: italic;
+                    color: #2e2e2e;
+                }
+            }
+            
+            .claim-copy {
+                height: auto;
+                background: #2e2e2e;
+                border-radius: 5px 5px 0px 0px;
+                padding: 13px 0;
+                text-align: center;
+                margin: 20px auto 0;
+                max-width: 821px;
+                h2 {
+                    font-family: 'Exo 2', sans-serif;
+                    font-size: 20px;
+                    text-transform: uppercase;
+                    color: $white;
+                    margin: 0 auto;
+                    padding: 0;
+                }
+            }
+            .content-block {
+                margin: 0 auto;
+                max-width: 815px;
+                width: 100%;
+                height: auto;
+                // height: 535px;
+            }
+        }
+        &#gift-sent {
+            background: $white;
+            max-width: 584px;
+            width: 100%;
+            border: none;
+            h3 {
+                color: $black;
+                font-size: 20px;
+                font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+                &.title-bar-dark {
+                    margin-bottom: 20px;
+                }
+            }
+            h4 {
+                color: $black;
+                font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            }
+            /*h3.title-bar-dark {
+                background: #4b8341;
+                text-transform: uppercase;
+                color: $white;
+                font-family: 'Exo 2', sans-serif;
+                text-align: center;
+                height: 42px;
+                padding: 3px 0 0 0;
+            }*/
+            p {
+                color: $black;
+                font-size: 16px;
+                font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+                .name {
+                    font-style: italic;
+                }
+            }
+            /*.close-reveal-modal {
+                background: #4e4e4e;
+                color: $white;
+                text-shadow: none;
+                font-size: 36px;
+                top: 0;
+                right: 0;
+                border-radius: 0;
+                border: none;
+                width: 53px;
+                height: 42px;
+                text-align: center;
+                padding-top: 7px;
+            }*/
+            #gift-count {
+                p {
+                    display: none;
+                }
+            }
+        }
+        &#gift-faq {
+            background: $white;
+            max-width: 584px;
+            width: 100%;
+            border: none;
+            /*h3 {
+                background: #4b8341;
+                text-transform: uppercase;
+                color: $white;
+                font-family: 'Exo 2', sans-serif;
+                text-align: center;
+                height: 42px;
+                padding: 3px 0 0 0;
+            }*/
+            .inner_wrap {
+                padding: 0 20px;
+                a {
+                    color: #2c8bc9;
+                }
+            }
+            h4 {
+                color: $black;
+                font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+                text-align: left;
+                padding: 3px 0 0 0;
+                font-size: 20px;
+            }
+            p {
+                color: $black;
+            }
+            ol {
+                list-style-type: decimal;
+                color: $black;
+                margin: 0;
+                li {
+                    margin-bottom: 20px;
+                }
+            }
+            /*.close-reveal-modal {
+                background: #4e4e4e;
+                color: $white;
+                text-shadow: none;
+                font-size: 36px;
+                top: 0;
+                right: 0;
+                border-radius: 0;
+                border: none;
+                width: 53px;
+                height: 42px;
+                text-align: center;
+                padding-top: 7px;
+            }*/
+        }
+    }
+
+    @media all and (min-width: 768px) {
+        .breadcrumbs_wrapper {
+            text-align: left;
+            padding: 10px 0;
+            background: image-url('gifting/wintera/gifts_header_bg.png') center center no-repeat, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #2e2e2e), color-stop(100%, #4e4e4e));
+            background: image-url('gifting/wintera/gifts_header_bg.png') center center no-repeat, -webkit-linear-gradient(#2e2e2e, #4e4e4e);
+            background: image-url('gifting/wintera/gifts_header_bg.png') center center no-repeat, -moz-linear-gradient(#2e2e2e, #4e4e4e);
+            background: image-url('gifting/wintera/gifts_header_bg.png') center center no-repeat, -o-linear-gradient(#2e2e2e, #4e4e4e);
+            background: image-url('gifting/wintera/gifts_header_bg.png') center center no-repeat, linear-gradient(#2e2e2e, #4e4e4e);
+            text-align: center;
+            .breadcrumb {
+                text-align: left;
+                height: 87px;
+                li {
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+            }
+        }
+        #rewards_carousel {
+            .pager_slider {
+                display: none;
+            }
+            img {
+                width: 100%;
+                margin: 0;
+            }
+            .buttons {
+                top: 150px;
+            }
+        }
+        .carousel_about {
+            border-top: none;
+            background: #545556;
+            padding-left: 40px;
+            padding-right:40px;
+            .copy {
+                margin-left: 20px;
+            }
+        }
+        #inventory {
+            padding-top: 20px;
+        }
+        #inventory, #history, #gift-sent {
+            .gift-card {
+                width: 540px;
+                height: 309px;
+                &.empty {
+                    width: 100%;
+                    max-width: 1040px;
+                    height: auto;
+                    border-radius: 5px;
+                    margin: 0 auto 10px;
+                    .gc_icon {
+                        position: relative;
+                        left: 40px;
+                    }
+                    p {
+                        position: relative;
+                        left: 60px;
+                        width: calc(100% - 190px);
+                    }
+                }
+            }
+            /*article {
+                padding: 0 40px 0 30px;
+            }*/
+        }
+        #history {
+            article {
+                .last {
+                    padding-left: 20px;
+                }
+            }
+            .gift-card {
+                &.empty {
+                    margin: 0 auto 10px 20px;
+                }
+            }
+        }
+        .gift_block {
+            display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+            display: -moz-box; /* OLD - Firefox 19- (doesn't work very well) */
+            display: -ms-flexbox; /* TWEENER - IE 10 */
+            display: -webkit-flex; /* NEW - Chrome */
+            display: flex; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            max-width: 1040px;
+            margin: 0 auto;
+            @include background(linear-gradient(#2e2e2e, #4e4e4e));
+            margin-bottom: 20px;
+            a {
+                &.colorbtn {
+                    margin-bottom: 0;
+                }
+            }
+        }
+        .golden_gift_icon {
+            width: 540px;
+            height: 304px;
+            margin: 0;
+            .small_icon {
+                display: none;
+            }
+        }
+        .gg_about {
+            width: calc(100% - 540px);
+            background: none;
+            padding: 30px 30px 0px;
+        }
+        #gifts_tracker {
+            display: none;
+        }
+    }
+
+    // ********** ********** ********** ********** 
+    //            Purchased
+    // ********** ********** ********** **********
+    @media all and (min-width: 768px) {
+        .purchased {
+            display: block;
+            position: relative;
+            background: image-url('gifting/#{$campaign}/progress-tablet.png') no-repeat top center;
+            width: 750px;
+            height: 69px;
+            margin: 0 auto;
+            .after {
+                display: none;
+            }
+            p {
+                @include text-shadow( rgba($black, 0.5) -1px -1px 0, rgba($black, 0.5) 1px 1px 0, rgba($black, 0.5) 1px -1px 0, rgba($black, 0.5) -1px 1px 0);
+                color: $white;
+                font-weight: bold;
+            }
+            .bar {
+                position: absolute;
+                top: 5px;
+                left: 21px;
+                right: auto;
+                width: 717px;
+                height: 16px;
+                margin: 17px 0 0;
+                span[id^=fill] {
+                    display: inline-block;
+                    height: 100%;
+                    background: #ffb90a; /* Old browsers */
+                    background: -moz-linear-gradient(top, #ffd426 2%, #fffc4e 10%, #ffb90a 20%, #ffb90a 80%, #ffd223 100%); /* FF3.6-15 */
+                    background: -webkit-linear-gradient(top, #ffd426 2%, #fffc4e 10%, #ffb90a 20%, #ffb90a 80%, #ffd223 100%); /* Chrome10-25,Safari5.1-6 */
+                    background: linear-gradient(to bottom, #ffd426 2%, #fffc4e 10%, #ffb90a 20%, #ffb90a 80%, #ffd223 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffd426', endColorstr='#ffb90a', GradientType=0); /* IE6-9 */
+
+                }
+                #fill-1 { width: 0%; }
+                #fill-2 { width: 9.33%; }
+                #fill-3 { width: 16%; }
+                #fill-4 { width: 21.75%; }
+                #fill-5 { width: 27.75%; }
+                #fill-6 { width: 32.5%; }
+                #fill-7 { width: 37.35%; }
+                #fill-8 { width: 42.25%; }
+                #fill-9 { width: 47.25%; }
+                #fill-10 { width: 52%; }
+                #fill-11 { width: 56.5%; }
+                #fill-12 { width: 61.65%; }
+                #fill-13 { width: 66.5%; }
+                #fill-14 { width: 71.35%; }
+                #fill-15 { width: 76.35%; }
+                #fill-16 { width: 81.15%; }
+                #fill-17 { width: 86%; }
+                #fill-18 { width: 91%; }
+                #fill-19 { width: 95.5%; }
+                #fill-20 { width: 98.75%; }
+
+                #fill-1, #fill-2, #fill-3, #fill-4, #fill-5, #fill-6, #fill-7, #fill-8, #fill-9, #fill-10, #fill-11, #fill-12, #fill-13, #fill-14, #fill-15, #fill-16, #fill-17, #fill-18, #fill-19 {
+                    &:before {
+                        content: '';
+                        display: inline-block;
+                        height: 100%;
+                        width: 23px;
+                        position: relative;
+                        left: 0;
+                        background: #ffb90a; /* Old browsers */
+                        background: -moz-linear-gradient(top, #ffd426 2%, #fffc4e 10%, #ffb90a 20%, #ffb90a 80%, #ffd223 100%); /* FF3.6-15 */
+                        background: -webkit-linear-gradient(top, #ffd426 2%, #fffc4e 10%, #ffb90a 20%, #ffb90a 80%, #ffd223 100%); /* Chrome10-25,Safari5.1-6 */
+                        background: linear-gradient(to bottom, #ffd426 2%, #fffc4e 10%, #ffb90a 20%, #ffb90a 80%, #ffd223 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffd426', endColorstr='#ffb90a', GradientType=0); /* IE6-9 */
+                    }
+                }
+                .left-section, .right-section {
+                    display: none;
+                }
+                &.whale {
+                    .left-section, .right-section, #fill-20 {
+                        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#c1981b+0,f0d18d+10,c1981b+20,965312+80,c1981b+100 */
+                        background: #ffb90a; /* Old browsers */
+                        background: -moz-linear-gradient(top, #ffd426 2%, #fffc4e 10%, #ffb90a 20%, #ffb90a 80%, #ffd223 100%); /* FF3.6-15 */
+                        background: -webkit-linear-gradient(top, #ffd426 2%, #fffc4e 10%, #ffb90a 20%, #ffb90a 80%, #ffd223 100%); /* Chrome10-25,Safari5.1-6 */ 
+                        background: linear-gradient(to bottom, #ffd426 2%, #fffc4e 10%, #ffb90a 20%, #ffb90a 80%, #ffd223 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffd426', endColorstr='#ffb90a', GradientType=0); /* IE6-9 */
+                    }
+                    .bar {
+                        #fill-0, span[id^=fill] {
+                            width: 100%;
+                            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#c1981b+0,f0d18d+10,c1981b+20,965312+80,c1981b+100 */
+                            background: #ffb90a; /* Old browsers */
+                            background: -moz-linear-gradient(top, #ffd426 2%, #fffc4e 10%, #ffb90a 20%, #ffb90a 80%, #ffd223 100%); /* FF3.6-15 */
+                            background: -webkit-linear-gradient(top, #ffd426 2%, #fffc4e 10%, #ffb90a 20%, #ffb90a 80%, #ffd223 100%); /* Chrome10-25,Safari5.1-6 */
+                            background: linear-gradient(to bottom, #ffd426 2%, #fffc4e 10%, #ffb90a 20%, #ffb90a 80%, #ffd223 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffd426', endColorstr='#ffb90a', GradientType=0); /* IE6-9 */
+                        }
+                    }
+                }
+            }
+            .countingplate {
+                display: none;
+            }
+            .markers {
+                position: absolute;
+                top: 15px;
+                left: 10px;
+                width: 727px;
+                height: 25px;
+                span {
+                    display: block;
+                    position: absolute;
+                    z-index: 20;
+                }
+                span[class^=marker] {
+                    background: image-url('gifting/#{$campaign}/marker-tablet.png') no-repeat 0 0;
+                    width: 12px;
+                    height: 25px;
+                }
+                .marker-1 { left: 28px; }
+                .marker-2 { left: 72px; }
+                .marker-3 { left: 119px; }
+                .marker-4 { left: 160px; }
+                .marker-5 { left: 203px; }
+                .marker-6 { left: 237px; }
+                .marker-7 { left: 272px; }
+                .marker-8 { left: 307px; }
+                .marker-9 { left: 343px; }
+                .marker-10 { left: 378px; }
+                .marker-11 { left: 410px; }
+                .marker-12 { left: 446px; }
+                .marker-13 { left: 481px; }
+                .marker-14 { left: 516px; }
+                .marker-15 { left: 551px; }
+                .marker-16 { left: 586px; }
+                .marker-17 { left: 621px; }
+                .marker-18 { left: 656px; }
+                .marker-19 { left: 690px; }
+                .marker-20 { left: 712px; }
+
+                .marker-1, .marker-5, .marker-10, .marker-15, .marker-20 {
+                    &.active {
+                        &:after {
+                            content: "";
+                            position: absolute;
+                            width: 26px;
+                            height: 23px;
+                            background-image: image-url('gifting/wintera/yellow_plates.png');
+                            background-repeat: no-repeat;
+                            z-index: 100;
+                            top: 21px;
+                            left: -7px;
+                        }
+                    }
+                }
+                .marker-1 {
+                    &.active {
+                        &:after {
+                            background-position: 0 -92px;
+                        }
+                    }
+                }
+                .marker-5 {
+                    &.active {
+                        &:after {
+                            background-position: 0 -69px;
+                        }
+                    }
+                }
+                .marker-10 {
+                    &.active {
+                        &:after {
+                            background-position: 0 -46px;
+                        }
+                    }
+                }
+                .marker-15 {
+                    &.active {
+                        &:after {
+                            background-position: 0 -23px;
+                        }
+                    }
+                }
+                .marker-20 {
+                    &.active {
+                        &:after {
+                            background-position: 0 0;
+                        }
+                    }
+                }
+            }
+            
+        }
+        .buy-more h3, .buy-more h4, .buy-more p {
+            padding-left: 40px;
+            padding-right: 40px;
+        } 
+        .wintera {
+            .gifting {
+                padding: 0px 0 20px;
+                margin: 0;
+                .inner {
+                    max-width: 1040px;
+                    margin: 0 auto;
+                }
+                .heading {
+                    padding: 10px 40px 0;
+                    h2 {
+                        margin-bottom: 0;
+                    }
+                }
+                .colorbtn {
+                    margin: 0 15px;
+                    display: inline-block;
+                    vertical-align: middle;
+                    width: 100%;
+                    max-width: 320px;
+                }
+            }
+        }
+        #tabs {
+            margin-top: 0;
+            a {
+                height: 50px;
+                span {
+                    width: 100%;
+                    padding: 0;
+                }
+                &:first-child {
+                    width: 320px;
+                    text-align: center;
+                }
+                &:last-child {
+                    width: calc(100% - 320px);
+                    text-align: left;
+                    span {
+                        padding-left: 50px;
+                    }
+                }
+            }
+        }
+        .box_section {
+            h4 {
+                max-width: 1040px;
+                margin: 0 auto;
+            }
+        }
+        #inventory {
+            background: #d7d7d7;
+        }
+        .buttons {
+            display: block;
+            .next {
+                float: right;
+            }
+        }
+        // ********** ********** ********** ********** 
+        //            Footer
+        // ********** ********** ********** **********
+        footer {
+            .social-block, .info-block {
+                display: inline-block;
+                vertical-align: top;
+            }
+            .social-block {
+                float: right;
+                li {
+                    background-image: image-url('gifting/wintera/tera/footer-social-sprite.png');
+                    background-repeat: no-repeat;
+                    height: 48px;
+                    position: relative;
+                    text-indent: -9999em;
+                    margin-right: 30px;
+                    &:after {
+                        content: '';
+                        background-image: image-url('gifting/wintera/tera/footer-social-sprite.png');
+                        background-repeat: no-repeat;
+                        height: 48px;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        transition: opacity 250ms;
+                        opacity: 0;
+                    }
+                    &:hover {
+                        &:after {
+                            opacity: 1;
+                        }
+                    }
+                    &.ft-facebook {
+                        background-position: 0 0;
+                        width: 49px;
+                        &:after {
+                            background-position: 0 -48px;
+                            width: 49px;
+                        }
+                    }
+                    &.ft-twitter {
+                        background-position: -89px 0;
+                        width: 58px;
+                        &:after {
+                            background-position: -89px -48px;
+                            width: 58px;
+                        }
+                    }
+                    &.ft-youtube {
+                        background-position: -180px 0;
+                        width: 66px;
+                        &:after {
+                            background-position: -180px -48px;
+                            width: 66px;
+                        }
+                    }
+                    &.ft-twitch {
+                        background-position: -280px 0;
+                        width: 48px;
+                        &:after {
+                            background-position: -280px -48px;
+                            width: 48px;
+                        }
+                    }
+                }
+            }
+            #ft-logos {
+                .clogo-bluehole, div {
+                    display: inline-block;
+                    vertical-align: middle;
+                    float: none;
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+
+
+
+    // other modal section from tera only file
+    .restrictions {
+        padding-left: 10px;
+    }
+    #inventory, #history {
+        width: 100%;
+        article {
+            *zoom: 1;
+            &:before, &:after {
+                content: " ";
+                display: table;
+            }
+            &:after {
+                clear: both;
+            }
+            float: none;
+            //padding: 10px;
+            .gift-tag {
+                background: image-url('gifting/gift-tag.png') no-repeat 0 0;
+                width: 328px;
+                height: 143px;
+                padding: 10px 10px 10px 50px;
+                color: $black;
+                font-weight: bold;
+                li {
+                    height: 60px;
+                    word-break: break-all;
+                    padding: 5px;
+                }
+                a {
+                    padding: 10px 30px;
+                }
+            }
+            .last {
+                padding-top: 42px;
+            }
+            .button-primary {
+                background: #b26a0c;
+                @include background-image(linear-gradient($lightGold, $midGold));
+                border-top: 1px solid $lightGold;
+                padding: 10px 30px;
+                font-weight: bold;
+                &:hover {
+                    @include background-image(linear-gradient(lighten($lightGold, 10%), lighten($midGold, 10%)));
+                    border-top: 1px solid $midGold;
+                }
+                &:active {
+                    @include background-image(linear-gradient($midGold, $darkGold));
+                    border-top: 1px solid $midGold;
+                    border-bottom: 1px solid $darkGold;
+                }
+            }
+            &.buy-more {
+                background: #e1f9ff;
+            }
+            .buy-more {
+                color: $txtColor;
+                .blue {
+                    color: $lightBlue;
+                }
+                .button-secondary {
+                    display: inline-block;
+                    padding: 5px 25px;
+                    margin: 45px 36px 0 0;
+                    font-size: 22px;
+                    font-weight: bold;
+                    float: right;
+                }
+                &:hover .ellipses span {
+                    -webkit-transform: rotate(360deg);
+                    -moz-transform: rotate(360deg);
+                    -o-transform: rotate(360deg);
+                }
+                .copy {
+                    display: table-cell;
+                    vertical-align: middle;
+                    height: 120px;
+                    p {
+                        margin: 0 0 0 10px;
+                    }
+                }
+            }
+        }
+        //article:nth-child(even) { background: rgba($darkGray, 0.8); }
+        //article:nth-child(odd) { background: rgba($midGray, 0.8); }
+    }
+    #send-gift {
+        h3 {
+            text-align: center;
+        }
+        .selector {
+            position: relative;
+            z-index: 45;
+            text-align: center;
+            li {
+                @include border-radius(10px);
+                border: 3px solid $midGray;
+                display: inline-block;
+                width: 208px;
+                height: 100px;
+                margin: 50px 30px 10px;
+                font-weight: bold;
+                color: $white;
+                a {
+                    color: $white;
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
+                .inner {
+                    background: #30343b;
+                    @include background(linear-gradient($midGray, darken($darkGray, 10%)));
+                    @include border-radius(6px);
+                    @include transition-property(all);
+                    @include transition-duration(0.5s);
+                    position: relative;
+                    border: 2px solid $lightGray;
+                    width: 202px;
+                    height: 94px;
+                    padding: 10px;
+                    display: table-cell;
+                    vertical-align: middle;
+                    color: $lightBlue;
+                    font-size: 22px;
+                    &:hover {
+                        @include background(linear-gradient($midGray, $darkGray));
+                        @include box-shadow(0px 0px 50px rgba($lightGray, 1));
+                        border-color: $lightBlue;
+                        color: $white;
+                    }
+                }
+                &.selected .inner {
+                    color: $white;
+                    border-color: $white;
+                }
+            }
+        }
+        .messages, #charName, #email, .action, #forumName {
+            //display: none;
+            display: block;
+            position: relative;
+            z-index: 45;
+            width: 475px;
+            margin: 0 auto;
+        }
+        #charName, #forumName {
+            display: none;
+        }
+        .messages {
+            &> div {
+                position: relative;
+            }
+            span.error {
+                display: none;
+                position: absolute;
+                right: -193px;
+                top: 0;
+                background: #820707;
+                background: $lightRed;
+                border: 1px solid $midRed;
+                padding: 1px 5px 0;
+                &:before {
+                    content: "";
+                    position: absolute;
+                    left: -29px;
+                    top: -1px;
+                    border: solid 14px;
+                    border-color: transparent $midRed transparent transparent;
+                }
+            }
+        }
+        #email {
+            margin-bottom: 10px;
+        }
+        #charName {
+            margin-bottom: 0;
+            .charInfo {
+                margin-bottom: 0;
+            }
+            ul {
+                margin: 0;
+            }
+        }
+        .error-alert {
+            display: none;
+            padding: 10px 10px 05px;
+            width: 475px;
+        }
+        div {
+            *zoom: 1;
+            &:before, &:after {
+                content: " ";
+                display: table;
+            }
+            &:after {
+                clear: both;
+            }
+            margin: 10px auto;
+        }
+        .charInfo {
+            display: none;
+        }
+        .button-secondary {
+            float: right;
+            font-size: 22px;
+            padding: 4px 30px;
+        }
+        .actions {
+            position: relative;
+            z-index: 45;
+            display: none;
+            text-align: center;
+            font-size: 22px;
+            margin: 20px auto;
+            a {
+                margin: 0 10px;
+            }
+        }
+        .button-primary {
+            padding: 5px 30px;
+            &.disabled {
+                background: #30343b;
+                @include background(linear-gradient($lightGray, $midGray));
+                border: 1px solid $darkGray;
+                &:hover {
+                    @include background(linear-gradient($lightGray, $midGray));
+                }
+                &:active {
+                    @include background(linear-gradient($lightGray, $midGray));
+                }
+            }
+        }
+        input[name=character], input[name=forumname], input[type=email], input[name=from], input[name=to], textarea {
+            width: 100%;
+            font-size: 22px;
+            padding: 2px 5px;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            color: black;
+        }
+        input[type=email], input[name=forumname] {
+            width: 300px;
+            float: left;
+        }
+        input[name=character] {
+            width: 200px;
+            float: left;
+            margin: 0 5px;
+        }
+        select {
+            border: 0;
+            margin: 0;
+            @include border-radius(10px);
+            font-size: 23px;
+            border: 2px solid $txtColor;
+            width: 120px;
+            float: left;
+            color: black;
+        }
+        .messages {
+            display: none;
+            small {
+                float: right;
+            }
+        }
+    }
+    #gift-sent {
+        h3, h4 {
+            text-align: center;
+        }
+        hr {
+            border-style: dashed;
+        }
+        p {
+            text-align: center;
+            position: relative;
+            z-index: 45;
+        }
+        .gift-card {
+            margin: 30px auto 10px;
+        }
+        #gift-count {
+            padding: 0 10px 20px;
+        }
+    }
+    #gift-claim {
+        width: 840px;
+        margin-left: -420px;
+        h2 {
+            text-align: center;
+        }
+        &> div, &> p {
+            position: relative;
+            z-index: 45;
+            padding: 10px;
+        }
+        .claim-copy {
+            height: 125px;
+        }
+        .grats {
+            display: none;
+        }
+        &> a {
+            text-align: center;
+        }
+        .account {
+            width: 375px;
+            height: 35px;
+            margin: 0 auto;
+            p {
+                font-family: 'Exo 2', sans-serif;
+                margin: 0;
+                float: left;
+                color: $white;
+            }
+            select {
+                -webkit-appearance: menulist-button;
+                font-size: 16px;
+                line-height: 1;
+                height: 28px;
+                width: 200px;
+                padding-top: 2px;
+                float: right;
+                color: black;
+            }
+        }
+        .error-alert {
+            display: none;
+            margin: 10px;
+            color:#b50000;
+            .message {
+                color:#b50000;
+            }
+        }
+        .content-block {
+            margin: 10px;
+            background: image-url('gifting/#{$campaign}/table-bg.jpg') repeat 0 0;
+            width: 815px;
+            height: 535px;
+            text-align: center;
+            padding: 30px 10px;
+            position: relative;
+            outline: none;
+            #gifts-cover {
+                display: none;
+                @include background(rgba(0, 0, 0, 0.5));
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 50;
+                width: 815px;
+                height: 535px;
+            }
+        }
+        .gift {
+            @include transition-property(all);
+            @include transition-duration(0.5s);
+            position: relative;
+            z-index: 45;
+            -webkit-perspective: 1000;
+            -moz-perspective: 1000;
+            perspective: 1000;
+            width: 314px;
+            height: 211px;
+            display: inline-block;
+            margin: 12px 15px;
+            &.flipped .flipper {
+                -webkit-transform: rotateY(180deg);
+                -moz-transform: rotateY(180deg);
+                transform: rotateY(180deg);
+                .back {
+                    backface-visibility: visible;
+                }
+            }
+            .flipper {
+                width: 314px;
+                height: 211px;
+                -webkit-perspective: 1000;
+                -moz-perspective: 1000;
+                perspective: 1000;
+                -webkit-transition: 0.8s;
+                -webkit-transform-style: preserve-3d;
+                -moz-transition: 0.8s;
+                -moz-transform-style: preserve-3d;
+                transition: 0.8s;
+                transform-style: preserve-3d;
+            }
+            .front, .back {
+                @include transition-property(all);
+                @include transition-duration(0.5s);
+                width: 314px;
+                height: 211px;
+                -webkit-backface-visibility: hidden;
+                -moz-backface-visibility: hidden;
+                backface-visibility: hidden;
+                position: absolute;
+                top: 0;
+                left: 0;
+                @include border-radius(14px);
+                &:after {
+                    content: "";
+                    @include border-radius(16px);
+                    position: absolute;
+                    z-index: 1;
+                    top: -2px;
+                    right: -2px;
+                    bottom: -2px;
+                    left: -2px;
+                    border: 2px solid $lightGray;
+                }
+                &:before {
+                    content: "";
+                    @include border-radius(16px);
+                    position: absolute;
+                    z-index: 1;
+                    top: -3px;
+                    right: -3px;
+                    bottom: -3px;
+                    left: -3px;
+                    border: 1px solid $black;
+                }
+            }
+            .front {
+                background: image-url('gifting/#{$campaign}/gift.png') no-repeat 0 0;
+                background-size: 100% 100%;
+                border: 1px solid $black;
+                z-index: 2;
+                &:hover {
+                    width: 324px;
+                    height: 221px;
+                    top: -5px;
+                    left: -5px;
+                    @include box-shadow(rgba($white, 0.8) 0 0 30px);
+                }
+            }
+            .back {
+                background: image-url('gifting/#{$campaign}/flipped.jpg') no-repeat top center;
+                background-size: 100% 100%;
+                -webkit-transform: rotateY(180deg);
+                -moz-transform: rotateY(180deg);
+                transform: rotateY(180deg);
+                .prize {
+                    background-image: image-url('gifting/product-placeholder.png');
+                    background-repeat: no-repeat;
+                    background-position: 0 -75px;
+                    width: 249px;
+                    height: 170px;
+                    margin: 5px auto;
+                }
+                .title {
+                    font-weight: bold;
+                    color: $black;
+                    font-size: 14px;
+                }
+            }
+            &.chosen {
+                z-index: 51;
+                .back {
+                    width: 382px;
+                    height: 257px;
+                    top: -23px;
+                    left: -34px;
+                }
+                .prize {
+                    height: 200px;
+                }
+            }
+        }
+    }
+    .modal-cover {
+        position: fixed;
+        z-index: 100;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+    // end othe rsection from tera only file
+
+
+
+    // ********** ********** ********** ********** 
+    //            Reveal Modal
+    // ********** ********** ********** **********
+    @media all and (min-width: 768px) {
+        /* restored */
+        
+        .reveal-modal, .reveal-modal.small, .reveal-modal.medium, .reveal-modal.large, .reveal-modal.xlarge {
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            height: auto;
+        }
+        /* end restored */
+        
+        .reveal-modal {
+            &:after {
+                display: none;
+            }
+            &#gift-claim {
+                max-width: 867px;
+                width: 100%;
+                background: $white;
+                margin: 0 auto;
+            }
+            &#send-gift {
+                max-width: 584px;
+                width: 100%;
+                background: #adadad;
+                .selector {
+                    height: 72px;
+                    margin: 20px 0 0 0;
+                    li {
+                        margin: 0 0 0 0;
+                        color: #000000;
+                        border: none;
+                        display: inline;
+                        float: left;
+                        background: #d5d5d5;
+                        position: relative;
+                        z-index: 1;
+                        width: 182px;
+                        height: 72px;
+                        border-radius: 5px 5px 0 0;
+                        overflow: hidden;
+                        box-shadow: 8px 0 8px -8px rgba(0, 0, 0, 0.4), 0 -8px 8px -8px rgba(0, 0, 0, 0.4);
+                        .inner {
+                            background: #d5d5d5;
+                            border: none;
+                            color: $black;
+                            font-family: 'Exo 2', sans-serif;
+                            width: 182px;
+                            padding-left: 20px;
+                            text-align: left;
+                            height: 72px;
+                            line-height: 1;
+                            border-radius: 0;
+                            box-shadow: inset 0 -8px 8px -8px rgba(0, 0, 0, 0.4);
+                            span {
+                                width: auto;
+                            }
+                            &:hover {
+                                border: none;
+                            }
+                        }
+                        &:nth-child(2) {
+                            width: 212px;
+                            .inner {
+                                width: 212px;
+                            }
+                        }
+                        &.selected, &:hover {
+                            background: $white;
+                            color: $black;
+                            z-index: 12;
+                            .inner {
+                                background: $white;
+                                color: $black;
+                                box-shadow: inset 0 -8px 8px -8px $white;
+                            }
+                        }
+                    }
+                }
+                .inner_wrap {
+                    background: $white;
+                    width: 100%;
+                    padding: 25px 25px 0 25px;
+                    margin: 0;
+                    position: relative;
+                    z-index: 40;
+                    box-shadow: 0 -8px 8px -8px rgba(0, 0, 0, 0.4);
+                }
+                .button-secondary {
+                    border-radius: 0;
+                    background: #2c8bc9;
+                    color: $white;
+                    font-family: 'Exo 2', sans-serif;
+                    text-shadow: none;
+                    text-transform: uppercase;
+                    border: none;
+                    width: 130px;
+                    height: 40px;
+                    padding: 9px 0 0;
+                    text-align: center;
+                }
+                .messages, #charName, #email, #forumName {
+                    width: 100%;
+                }
+                .messages, .actions {
+                    display: block;
+                }
+                .messages {
+                    h6 {
+                        font-size: 16px;
+                        font-weight: bold;
+                        font-family: 'Exo 2', sans-serif;
+                        color: $black;
+                    }
+                }
+                .actions {
+                    text-align: right;
+                    a {
+                        background: #5c5c5c
+                    }
+                    .button-primary {
+                        background: #2c8bc9;
+                    }
+                    a,
+                    .button-primary {
+                        border-radius: 0;
+                        color: $white;
+                        font-family: 'Exo 2', sans-serif;
+                        text-shadow: none;
+                        text-transform: uppercase;
+                        border: none;
+                        width: 130px;
+                        height: 40px;
+                        padding: 7px 0 0;
+                        text-align: center;
+                        display: inline-block;
+                    }
+                }
+                #charName {
+                    .charInfo {
+                        color: $black;
+                        strong, b {
+                            color: $black;
+                        }
+                    }
+                }
+                .error-alert {
+                    width: 100%;
+                    .message {
+                        color: #b50000;
+                    }
+                }
+            }
+            &#gift-claim, &#send-gift {
+                border: none;
+                h3.reg_banner {
+                    background: #2e2e2e;
+                    text-transform: uppercase;
+                    color: $white;
+                    font-family: 'Exo 2', sans-serif;
+                    text-align: center;
+                    height: 42px;
+                    padding: 3px 0 0 0;
+                }
+                h3.error_banner {
+                    background: #b50000;
+                    text-transform: uppercase;
+                    color: $white;
+                    font-family: 'Exo 2', sans-serif;
+                    text-align: center;
+                    height: 42px;
+                    padding: 3px 0 0 0;
+                    margin: 0;
+                    display: none;
+                }
+                .claim-open {
+                    background: $white;
+                    padding: 30px 30px 0 30px;
+                }
+                .mail-icon, .open_copy {
+                    display: inline-block;
+                    vertical-align: top;
+                }
+                .mail-icon {
+                    background: image-url('gifting/wintera/mail.png') top center no-repeat;
+                    width: 208px;
+                    height: 115px;
+                }
+                .open_copy {
+                    width: calc(100% - 240px);
+                    margin-left: 20px;
+                    h6 {
+                        font-size: 16px;
+                        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+                        color: #2e2e2e;
+                        span {
+                            font-weight: bold;
+                        }
+                    }
+                    p {
+                        font-size: 16px;
+                        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+                        color: #2e2e2e;
+                    }
+                    .gift_author {
+                        font-size: 16px;
+                        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+                        font-style: italic;
+                        color: #2e2e2e;
+                    }
+                }
+                .close-reveal-modal {
+                    background: #4e4e4e;
+                    color: $white;
+                    text-shadow: none;
+                    font-size: 36px;
+                    top: 0;
+                    right: 0;
+                    border-radius: 0;
+                    border: none;
+                    width: 53px;
+                    height: 42px;
+                    text-align: center;
+                    padding-top: 7px;
+                }
+                .claim-copy {
+                    height: auto;
+                    background: #2e2e2e;
+                    border-radius: 5px 5px 0px 0px;
+                    padding: 13px 0;
+                    text-align: center;
+                    margin: 20px auto 0;
+                    max-width: 821px;
+                    h2 {
+                        font-family: 'Exo 2', sans-serif;
+                        font-size: 20px;
+                        text-transform: uppercase;
+                        color: $white;
+                        margin: 0 auto;
+                        padding: 0;
+                    }
+                }
+                .gift {
+                    display: inline-block;
+                }
+                .content-block {
+                    margin: 0 auto;
+                    width: 815px;
+                    height: 535px;
+                }
+            }
+            &#gift-sent {
+                background: $white;
+                max-width: 584px;
+                width: 100%;
+                border: none;
+                h3 {
+                    color: $black;
+                    font-size: 20px;
+                    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+                }
+                h3.title-bar-dark {
+                    background: #4b8341;
+                    text-transform: uppercase;
+                    color: $white;
+                    font-family: 'Exo 2', sans-serif;
+                    text-align: center;
+                    height: 42px;
+                    padding: 3px 0 0 0;
+                }
+                p {
+                    color: $black;
+                    font-size: 16px;
+                    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+                    .name {
+                        font-style: italic;
+                    }
+                }
+                .close-reveal-modal {
+                    background: #4e4e4e;
+                    color: $white;
+                    text-shadow: none;
+                    font-size: 36px;
+                    top: 0;
+                    right: 0;
+                    border-radius: 0;
+                    border: none;
+                    width: 53px;
+                    height: 42px;
+                    text-align: center;
+                    padding-top: 7px;
+                }
+            }
+            &#gift-faq {
+                background: $white;
+                max-width: 584px;
+                width: 100%;
+                border: none;
+                h3 {
+                    background: #4b8341;
+                    text-transform: uppercase;
+                    color: $white;
+                    font-family: 'Exo 2', sans-serif;
+                    text-align: center;
+                    height: 42px;
+                    padding: 3px 0 0 0;
+                }
+                .inner_wrap {
+                    padding: 0 20px;
+                }
+                h4 {
+                    color: $black;
+                    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+                    text-align: left;
+                    padding: 3px 0 0 0;
+                    font-size: 20px;
+                }
+                p {
+                    color: $black;
+                }
+                ol {
+                    list-style-type: decimal;
+                    color: $black;
+                    margin: 0;
+                    li {
+                        margin-bottom: 20px;
+                    }
+                }
+                a {
+                    color: #2c8bc9;
+                }
+                .close-reveal-modal {
+                    background: #4e4e4e;
+                    color: $white;
+                    text-shadow: none;
+                    font-size: 36px;
+                    top: 0;
+                    right: 0;
+                    border-radius: 0;
+                    border: none;
+                    width: 53px;
+                    height: 42px;
+                    text-align: center;
+                    padding-top: 7px;
+                }
+            }
+        }
+    }
+    @media all and (min-width: 768px) and (max-width: 950px) {
+        .gg_about {
+            .detail_label, .details {
+                display: block;
+                width: 100%;
+                text-align: left;
+            }
+        }
+    }
+    @media all and (min-width: 1080px) {
+        .purchased {
+            background: image-url('gifting/#{$campaign}/progress.png') no-repeat 0 0;
+            width: 1075px;
+            height: 99px;
+            .bar {
+                left: 30px;
+                width: 1013px;
+                height: 20px;
+                margin: 28px 0 0;
+                #fill-1 { width: 0%; }
+                #fill-2 { width: 9.33%; }
+                #fill-3 { width: 16%; }
+                #fill-4 { width: 22%; }
+                #fill-5 { width: 27.75%; }
+                #fill-6 { width: 32.75%; }
+                #fill-7 { width: 38%; }
+                #fill-8 { width: 42.65%; }
+                #fill-9 { width: 47.75%; }
+                #fill-10 { width: 52.75%; }
+                #fill-11 { width: 57.5%; }
+                #fill-12 { width: 62.5%; }
+                #fill-13 { width: 67.5%; }
+                #fill-14 { width: 72.35%; }
+                #fill-15 { width: 77.35%; }
+                #fill-16 { width: 82.15%; }
+                #fill-17 { width: 87.25%; }
+                #fill-18 { width: 92.15%; }
+                #fill-19 { width: 97%; }
+                #fill-20 { width: 100%; }
+
+                #fill-1, #fill-2, #fill-3, #fill-4, #fill-5, #fill-6, #fill-7, #fill-8, #fill-9, #fill-10, #fill-11, #fill-12, #fill-13, #fill-14, #fill-15, #fill-16, #fill-17, #fill-18, #fill-19 {
+                    &:before {
+                        width: 34px;
+                    }
+                }
+            }
+            .markers {
+                top: 23px;
+                left: 23px;
+                span[class^=marker] {
+                    background: image-url('gifting/#{$campaign}/marker.png') no-repeat 0 0;
+                    width: 17px;
+                    height: 34px;
+                }
+                .marker-1 { left: 32px; }
+                .marker-2 { left: 94px; }
+                .marker-3 { left: 162px; }
+                .marker-4 { left: 221px; }
+                .marker-5 { left: 281px; }
+                .marker-6 { left: 330px; }
+                .marker-7 { left: 381px; }
+                .marker-8 { left: 430px; }
+                .marker-9 { left: 481px; }
+                .marker-10 { left: 532px; }
+                .marker-11 { left: 581px; }
+                .marker-12 { left: 631px; }
+                .marker-13 { left: 681px; }
+                .marker-14 { left: 731px; }
+                .marker-15 { left: 781px; }
+                .marker-16 { left: 831px;}
+                .marker-17 { left: 881px; }
+                .marker-18 { left: 931px; }
+                .marker-19 { left: 981px; }
+                .marker-20 { left: 1011px; }
+
+                .marker-1, .marker-5, .marker-10, .marker-15, .marker-20 {
+                    &.active {
+                        &:after {
+                            content: "";
+                            position: absolute;
+                            width: 37px;
+                            height: 32px;
+                            background-image: image-url('gifting/wintera/yellow_plates_desk.png');
+                            background-repeat: no-repeat;
+                            z-index: 100;
+                            top: 31px;
+                            left: -9px;
+                        }
+                    }
+                }
+                .marker-1 {
+                    &.active {
+                        &:after {
+                            background-position: 0 -137px;
+                        }
+                    }
+                }
+                .marker-5 {
+                    &.active {
+                        &:after {
+                            background-position: 0 -105px;
+                        }
+                    }
+                }
+                .marker-10 {
+                    &.active {
+                        &:after {
+                            background-position: 0 -69px;
+                        }
+                    }
+                }
+                .marker-15 {
+                    &.active {
+                        &:after {
+                            background-position: 0 -36px;
+                        }
+                    }
+                }
+                .marker-20 {
+                    &.active {
+                        &:after {
+                            background-position: 0 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+} // end body gifting

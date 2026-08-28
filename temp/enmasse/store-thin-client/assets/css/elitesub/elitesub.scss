@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css?family=Exo+2:400,700');
+body.elite {
+    $bluebg: rgba(18, 49, 76, .95);
+    //background-color: #222222;
+    //background-image: image-url('repeatablebg.jpg');
+    background-image: image-url('repeatablebg.jpg');
+    text-align: center;
+    font-family: 'Exo 2', sans-serif;
+
+    #heading {
+        background-image: url("https://static.enmasse.com/images/store/elitestatus-banner.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 370px;
+        width: 100%;
+    }
+
+    .promo {
+        //min-height: 225px;
+        height: auto;
+        width: 100%;
+        background-color: $bluebg;
+        .top-row {
+            //padding-top: 42px;
+            padding: 20px;
+            .sub-text {
+                font-size: 24px;
+                margin-left: 5px;
+                margin-right: 5px;
+                font-weight: bold;
+                color: white;
+                text-align: center;
+                width: 280px;
+                width:100%;
+                height: auto;
+                display: inline-block;
+                vertical-align: top;
+            }
+            .elite-btn {
+                width: 260px;
+                height: 90px;
+                margin: 20px 25px;
+                background-color: #007dd9;
+                box-shadow: 0px 5px 0px 0px #005a9c;
+                text-transform: uppercase;
+                text-align: center;
+                line-height: 90px;
+                color: white;
+                display: inline-block;
+                vertical-align: top;
+                font-size: 30px;
+                font-weight: bold;
+                text-decoration: none;
+                transition: 250ms;
+                &:hover {
+                    cursor: pointer;
+                    text-decoration: none;
+                    background-color: white;
+                    color: #007dd9;
+                    box-shadow: 0px 5px 0px 0px #007dd9;
+                }
+            }
+            .price {
+                color: white;
+                font-size: 24px;
+                display: inline-block;
+                vertical-align: top;
+                position: relative;
+                margin: 30px 25px;
+                span {
+                    color: #fdd600;
+                    font-size: 60px;
+                }
+                &:after {
+                    content: "per month";
+                    font-size: 24px;
+                    color: white;
+                    position: absolute;
+                    right: 0px;
+                    bottom: -25px;
+                }
+            }
+        }
+        small {
+            //padding: 0 270px;
+            width: 370px;
+            max-width: 100%;
+            display: block;
+            color: white;
+            height: auto;
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 20px 0;
+            a {
+                color: #1d6aa5;
+                text-decoration: none;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    #game-nav {
+        height: auto;
+        max-width: 891px;
+        width: 100%;
+        background-color: #aecbdf;
+        position: relative;
+        font-size: 20px;
+        padding-top: 20px;
+        display: inline-block;
+        margin: 25px auto;
+        .links {
+            display: block;
+            margin: 10px 0;
+        }
+        a {
+            color: #007dd9;
+            font-weight: bold;
+            text-decoration: none;
+            margin: 20px 40px;
+            text-transform: uppercase;
+            transition: 250ms;
+            &:hover {
+                cursor: pointer;
+                color: white;
+            }
+        }
+    }
+
+    .game {
+        background-color: $bluebg;
+        height: auto;
+        width: 100%;
+        max-width: 891px;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 45px;
+        .wrapper {
+            padding: 0px 15px;
+        }
+        .desc {
+            font-size: 20px;
+            color: white;
+            height: 50px;
+            line-height: 50px;
+            text-align: left;
+            position: relative;
+            .details-btn {
+                width: 175px;
+                height: 37px;
+                background-color: #007dd9;
+                box-shadow: 0px 5px 0px 0px #005a9c;
+                text-transform: capitalize;
+                text-align: center;
+                line-height: 37px;
+                color: white;
+                display: inline-block;
+                vertical-align: top;
+                font-size: 17px;
+                font-weight: bold;
+                text-decoration: none;
+                transition: 250ms;
+                position: absolute;
+                right: 0px;
+                top: 0px;
+                &:hover {
+                    cursor: pointer;
+                    text-decoration: none;
+                    background-color: white;
+                    color: #007dd9;
+                    box-shadow: 0px 5px 0px 0px #007dd9;
+                }
+            }
+        }
+        .bonuses {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0 -8px;
+            .bonus {
+                background-color: black;
+                background-repeat: no-repeat;
+                background-image: image-url('elite/thumbnails-sprite.jpg');
+                text-align: center;
+                height: 250px;
+                width: 270px;
+                padding-top: 202px;
+                color: white;
+                text-transform: uppercase;
+                margin: 0 8px;
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    #content {
+        width: 100%;
+        max-width: 960px;
+        display: inline-block;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        background-image: image-url('promo/background.jpg');
+        background-position: center top;
+        background-size: contain;
+        padding: 0;
+    }
+
+    footer {
+        height: 170px;
+        width: 100%;
+        background-color: white;
+        padding-top: 20px;
+        color: #939393;
+        font-size: 12px;
+    }
+}

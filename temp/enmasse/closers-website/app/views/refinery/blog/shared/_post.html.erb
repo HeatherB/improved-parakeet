@@ -1,0 +1,25 @@
+<article class="blog_post" id="<%= post.id %>">
+  <h3>
+    <a href="<%= refinery.blog_post_path(post) %>"><%= raw post.title.truncate(60, omission: '&#8230;') %></a>
+  </h3>
+  <div class="post-preview">
+    <% if post.teaser_img_field.present? %>
+      <a href="<%= refinery.blog_post_path(post) %>"><%= image_tag(post.teaser_img_field) %></a>
+    <% else %>
+      <a href="<%= refinery.blog_post_path(post) %>"><img src="/assets/bgs/placeholder-news.jpg" alt="news post" /></a>
+    <% end %>
+    <div class="content">
+      <div class="text">
+        <% if blog_post_teaser_enabled? %>
+          <%= ActionView::Base.full_sanitizer.sanitize(blog_post_teaser(post)) %>
+        <% else %>
+          <%= ActionView::Base.full_sanitizer.sanitize(post.body).truncate(200) %>
+        <% end %>
+      </div>
+      <div class="meta">
+        <span class="author"><%= post.author.username %> | <%=l post.published_at.to_date, :format => "%m.%d.%Y" %></span>
+        <a class="readMore" href="<%= refinery.blog_post_path(post) %>"><span>Read More</span></a>
+      </div>
+    </div>
+  </div>
+</article>

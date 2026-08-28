@@ -1,0 +1,168 @@
+<%
+  @elitePromo_end = Time.new(2016, 3, 22, 10, 00, 00, "-07:00")
+%>
+
+<section id="wide_body">
+  <!-- prior to and after event -->
+  <% if Time.now > @elitePromo_end %>
+    <% if @existing_sub && !@existing_sub["recurring"] %>
+      <h4>Elite Status subscription is for PC Only.</h4>
+      <p>Your subscription will expire on <%= Time.parse(@existing_sub["ended_at"]).strftime("%b %d, %Y") %>, update
+        your credit card data to continue your subscription.</p>
+    <% elsif @existing_sub %>
+      <h2>Manage Elite Status</h2>
+      <ul>
+        <li>Status: <%= @existing_sub["state"].capitalize %></li>
+        <li>Next payment: <%= Time.parse(@existing_sub["ended_at"]).strftime("%b %d, %Y") %></li>
+        <% if @billing.previous_price %>
+          <li>Current Renewal Price: $<span class="promo_pricing"><%= @billing.previous_price %> USD</span>
+        <% end %>
+      </ul>
+      <p>To update your payment information, please fill out the form below.</p>
+    <% else %>
+      <h2>Activate Elite Status for PC</h2>
+      <p>To activate your elite status, please fill out the form below.</p>
+    <% end %>
+  <% else %>
+    <!-- during event -->
+    <% if @existing_sub && !@existing_sub["recurring"] %>
+      <p>Your subscription will expire on <%= Time.parse(@existing_sub["ended_at"]).strftime("%b %d, %Y") %>, update
+        your credit card data to continue your subscription.</p>
+    <% elsif @existing_sub %>
+      <h2>Manage Elite Status for PC</h2>
+      <ul>
+        <li>Status: <%= @existing_sub["state"].capitalize %></li>
+        <li>Next Payment: <%= Time.parse(@existing_sub["ended_at"]).strftime("%b %d, %Y") %></li>
+        <li>Current Renewal Price: $<span class="promo_pricing"><%= @billing.previous_price %> USD</span>
+          <% if EME::Subscription.settings[:promo_price] && @billing.previous_price.to_f > EME::Subscription.settings[:promo_price].to_f # only show button during a promo event.  %>
+            <p class="promo_price_btn">
+              <button class="button-secondary go-button manage-elite-btn" id="change-to-promo" onclick="_gaq.push(['_trackEvent', 'Purchase Funnels', 'Change Subscription', 'Subscription', '10.99', true]);">Get
+                $<%= EME::Subscription.settings[:promo_price] %> Promo Price
+              </button>
+            </p>
+            <!-- promo change success popup -->
+            <div id="promo_sucess_modal" class="reveal-modal">
+              <p class="promo_messaging"></p>
+              <a class="close-reveal-modal">&#215;</a>
+            </div>
+            <!-- end popup -->
+          <% end %>
+        </li>
+      </ul>
+      <p>To update your payment information, please fill out the form below.</p>
+    <% else %>
+      <h2>Activate Elite Status for PC</h2>
+      <p>To activate your elite status, please fill out the form below.</p>
+    <% end %>
+  <% end %>
+  <!-- end of change up -->
+
+  <form id="purchase" action="/tera/confirm" method="post">
+    <div id="activate_elite_status">
+      <div id="select-payment">
+        <div id="paymentList" class="subscriptions">
+          <% if @previous_cc && @existing_sub %>
+            <input id="token" type="radio" name="payment_method" value="SUBSCRIPTION_TOKEN" data-name="<%= @previous_cc['USERNAME'] %>" data-address="<%= @previous_cc['ADDRESS'] %>" data-zip="<%= @previous_cc['ZIPCODE'] %>" data-city="<%= @previous_cc['CITY'] %>" data-country="<%= @previous_cc['COUNTRY'] %>" data-state="<%= @previous_cc['STATE'] %>" data-phone="<%= @previous_cc['PHONE'] %>"/>
+          <% elsif @previous_cc && !@existing_sub %>
+            <input id="token" type="radio" name="payment_method" value="SUBSCRIPTION_TOKEN" data-name="<%= @previous_cc['USERNAME'] %>" data-address="<%= @previous_cc['ADDRESS'] %>" data-zip="<%= @previous_cc['ZIPCODE'] %>" data-city="<%= @previous_cc['CITY'] %>" data-country="<%= @previous_cc['COUNTRY'] %>" data-state="<%= @previous_cc['STATE'] %>" data-phone="<%= @previous_cc['PHONE'] %>"/>
+            <input type="radio" name="amount_id" id="curtoken" value="30"/>
+            <label for="token" class="token paymentOption">
+              <div class="inner">
+                <h4>Use Previous Card</h4>
+                <ul>
+                  <li><%= @previous_cc['CCTYPE'] %></li>
+                  <li>************<%= @previous_cc['CCACCT'] %></li>
+                  <li><span>Expires:</span> <%= @previous_cc['CCEXPDATE'].slice(0, 2) %>
+                    /<%= @previous_cc['CCEXPDATE'].slice(2, 2) %></li>
+                </ul>
+              </div>
+            </label>
+          <% end %>
+
+          <input type="hidden" name="auth_flag" value="<%= @existing_sub ? 1 : 0 %>">
+
+          <% if @sub_pg_codes.payment_types.length > 1 %>
+            <% @sub_pg_codes.payment_types.each_with_index do |pay_type, index| %>
+              <%= rm_amount_id_field(pay_type, @sub_pg_codes.currencies_by_payment_type(pay_type)[0].id, (@existing_sub && @existing_sub["next_payment_at"]), (@existing_sub && pay_type == "SUBSCRIPTION_CC")) %>
+              <label class="paymentOption">
+                <% if pay_type == "SUBSCRIPTION_CC" %>
+                  <div class="inner<%= ' selected' if @existing_sub %>">
+                    <input id="cpg<%= pay_type.gsub(" ", "").downcase %>" type="radio" name="payment_method" value="<%= pay_type.gsub(" ", "").downcase %>" <%= 'checked="checked"' if @existing_sub && pay_type == "SUBSCRIPTION_CC" %> />
+                    <h4>Credit Card</h4>
+                    <div id="sprite_<%= pay_type.gsub(" ", "").downcase %>"></div>
+                  </div>
+                <% elsif pay_type == "SUBSCRIPTION_EC" %>
+                  <div class="inner">
+                    <input id="cpg<%= pay_type.gsub(" ", "").downcase %>" type="radio" name="payment_method" value="<%= pay_type.gsub(" ", "").downcase %>" <%= 'checked="checked"' if @existing_sub && pay_type == "SUBSCRIPTION_CC" %> />
+                    <div id="sprite_<%= pay_type.gsub(" ", "").downcase %>"></div>
+                  </div>
+                <% else %>
+                  <div class="inner<%= ' selected' if @existing_sub %>">
+                    <span><%= pay_type.gsub(" ", "") %></span>
+                    <div id="sprite_<%= pay_type.gsub(" ", "").downcase %>"></div>
+                  </div>
+                <% end %>
+              </label>
+            <% end %>
+          <% else %>
+            <input id="cpg<%= @sub_pg_codes[0].gsub(" ", "").downcase %>" type="radio" name="payment_method" value="<%= @sub_pg_codes[0].payment_type.gsub(" ", "").downcase %>" checked="checked"/>
+          <% end %>
+        </div>
+      </div>
+
+
+      <div id="billing-form">
+        <%= erb :"purchase-flow/billing-form" %>
+      </div>
+
+      <% if @existing_sub && @existing_sub["next_payment_at"] %>
+        <div class="text-align-center">
+          <input type="submit" class="button-secondary update" value="Update payment information" onclick="_gaq.push(['_trackEvent', 'Purchase Funnels', 'Update Billing Info', 'Subscription']);">
+          or
+          <a href="#" id="cancel" onclick="_gaq.push(['_trackEvent', 'Purchase Funnels', 'Click Cancel Subscription Link', 'Subscription']);">cancel
+            your elite status</a>
+        </div>
+      <% else %>
+        <div class="text-align-center">
+          <input type="submit" class="button-secondary confirm" value="Review Order" onclick="_gaq.push(['_trackEvent', 'Purchase Funnels', 'Submit Billing Info', 'Subscription']);">
+        </div>
+      <% end %>
+
+    </div>
+  </form>
+
+  <div id="warningModal" class="reveal-modal">
+    <div class="row item-modal">
+      <h3 class="title-bar-dark">Important Notice!</h3>
+      <div class="desc">
+        <p class="padding">
+          <strong>Due to limitations around PayPal balance transactions, your subscription fee will be charged
+            immediately and 30 days will be added to your account regardless of how much subscription time exists on
+            your account. After this initial charge, your account will be billed only after all of your remaining time
+            has expired.</strong></p>
+        <p class="padding">We apologize for the inconvenience, and we’re working with our partners to improve this
+          experience.</p>
+      </div>
+      <div class="text-align-center">
+        <a class="button-secondary" href="#" id="confirm" onclick="_gaq.push(['_trackEvent', 'Purchase Funnels', 'Submit Subscription Cancellation', 'Subscription']);">Confirm</a>
+        | <a class="button-secondary" href="#" id="cancel">Cancel</a>
+      </div>
+    </div>
+    <a class="close-reveal-modal">&#215;</a>
+  </div>
+
+  <% if @existing_sub && @existing_sub["next_payment_at"] %>
+    <%= erb :"purchase-flow/subs/cancel-modal" %>
+    <script type="text/javascript">
+      window.onload = function () {
+        _gaq.push(['_trackEvent', 'Purchase Funnels', 'View Active Subscription Info', 'Subscription']);
+      }
+    </script>
+  <% else %>
+    <script type="text/javascript">
+      window.onload = function () {
+        _gaq.push(['_trackEvent', 'Purchase Funnels', 'View Billing Info', 'Subscription']);
+      }
+    </script>
+  <% end %>
+</section>

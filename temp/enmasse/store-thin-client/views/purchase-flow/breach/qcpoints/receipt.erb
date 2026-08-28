@@ -1,0 +1,33 @@
+  <div class="page_container receipt">
+    <div class="header">
+      <div class="game-logo">
+        <img src="https://eme03.enmasse-game.com/images/breach/sign-up/breach-logo.png" alt="QC Points" />
+      </div>
+    </div><!-- end of header -->
+
+    <div id="receipt-wrapper">
+      <h2>Purchase Complete</h2>
+      <div id="receipt-notes" class="sleeve">
+        <p>You successfully purchased some QC Points.</p>
+      </div>
+      <div class="purchase-recap">
+        <div id="selected-amt">
+          <span><%= @billing.name %></span>
+          <!-- 500 QC Points -->
+        </div>
+        <div id="selected-amt-price">
+          <div class="pre-price">Price: $<span><%= sprintf "%.2f", @billing.price %></span> USD</div>
+          <div class="plus-tax">Tax: $<span><%= @billing.purchase_info['taxamt'] %></span> USD</div>
+        </div>
+        <div class="total-price">Total: $<span><%= sprintf "%.2f + TAX", @billing.price.to_f %></span> USD</div>
+        <p>Thank you for your purchase. Your items will be delivered to you in-game the next time you log in.</p>
+        <p>Questions about QC Points?, checkout this <a href="https://support.qcgamedev.com/hc/en-us/articles/360022077891" target="_blank">Help Center Article</a>.</p>
+      </div>
+    </div><!-- end of receipt wrapper -->
+    
+    
+  </div>
+
+  
+
+  

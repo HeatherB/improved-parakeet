@@ -1,0 +1,31 @@
+ <% if post_sidebar.live? %>
+    <% cache("blog_post_preview_#{post_sidebar.id}") do %>
+    <a href="<%= refinery.blog_post_path(post_sidebar) %>" class="sidebar_post_link">
+      <article class="blog_post <%= cycle('', 'reverse') %>" id="<%= dom_id(post_sidebar) %>">
+      <span class="icon"></span>
+        <div class="sleeve">
+          <div class="rightCol">
+            <div class="header">
+              <h3><%= ActionView::Base.full_sanitizer.sanitize(post_sidebar.title.truncate(22, omission: '&#8230;')) %></h3>
+            </div>
+            <div class="description">
+              <% if blog_post_teaser_enabled? %>
+                <%= ActionView::Base.full_sanitizer.sanitize(blog_post_teaser(post_sidebar)) %>
+              <% else %>
+                <%= ActionView::Base.full_sanitizer.sanitize(post_sidebar.body) %>
+              <% end %>
+            </div>
+            <div class="foot">
+              <span class="small-text details">
+                <time datetime="<%=l post_sidebar.published_at.to_datetime, :format => "%Y-%m-%dT%H:%M:%SZ" %>" class='posted_at'>
+                <%= post_sidebar.author.username %> | <%=l post_sidebar.published_at.to_date, :format => "%m.%d.%Y" %>
+                </time>
+              </span>
+            </div>
+          </div><!-- end of right col -->
+        </div><!-- end of sleeve -->
+      </article>
+       </a>
+    <% end %>
+
+  <% end %>

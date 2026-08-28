@@ -1,0 +1,68 @@
+<section id="wide_body" class="row">
+  <% if @transactions %>
+    <% if @current_page < 1 %>
+      <p>You are trying to view an invalid page number in your transaction history. Try viewing the <a href="/<%=@game%>/transaction-history">first page of your transaction log</a>.</p>
+    <% elsif @current_page > @last_page %>
+      <p>You don't have that many transactions. Try viewing the <a href="/<%=@game%>/transaction-history">first page of your transaction log</a>.</p>
+    <% elsif @transactions.empty? %>
+      <p>You have no transactions on your account.</p>
+    <% else %>
+        <% @transactions.each do |transaction| %>
+          <div class="transaction-record-border">
+            <div class="transaction-record clearfix">
+              <div class="transaction-summary">
+                <div class="transaction-time">
+                  <time datetime="<%=Time.at(transaction.paymentDate / 1000).localtime('-08:00').strftime('%FT%T-08:00')%>">
+                    <span class="day"><%= Time.at(transaction.paymentDate / 1000).localtime("-08:00").strftime("%B %-d, %Y") %></span>
+                    <span class="time">at <%= Time.at(transaction.paymentDate / 1000).localtime("-08:00").strftime("%l:%M %P PST") %></span>
+                  </time>
+                </div>
+                <ul>
+                  <li><strong>Order Number:</strong> <%= transaction.transactionId %></li>
+                  <% if transaction.externalIdentityId && transaction.offer["tags"].first != "categories:virtual_currency" %>
+                    <li><strong>Game Account:</strong> <%= @game_accounts.find(transaction.externalIdentityId.to_i).first["name"] %></li>
+                  <% end %>
+                  <li><strong>Order Amount:</strong>
+                    <% if "virtualcurrency" == transaction.paymentType %>
+                      <!--span class="emp-icon"></span--><%= sprintf("%.d EMP", transaction.amountTotal) %>
+                    <% else %>
+                      <%= sprintf("$%.2f", transaction.amountTotal) %>
+                    <% end %>
+                  </li>
+                  <li><strong>Paid By:</strong>
+                    <% if "wpsCard" == transaction.paymentType %>
+                      Credit Card
+                    <% elsif "wpsPaypalPreapproved" == transaction.paymentType || "wpsPaypal" == transaction.paymentType  %>
+                      PayPal
+                    <% elsif "virtualcurrency" == transaction.paymentType %>
+                      EMP
+                      <!--span class="emp-abbr-icon">[EMP]</span-->
+                    <% else %>
+                      <%= transaction.paymentType %>
+                    <% end %>
+                  </li>
+                </ul>
+              </div>
+              <div class="transaction-item">
+                <!--img src="http://placehold.it/150x150"/-->
+                <span class="transaction-product-title"><%= transaction.offer["name"] %>
+                  <% if transaction.offer["tags"].first == "categories:virtual_currency" %>
+                    EMP
+                  <% end %>
+                </span>
+              </div>
+              <div class="transaction-status">
+                Order Status: <strong><span class="transaction-status-<%=transaction.paymentStatus%>"><%= transaction.paymentStatus.capitalize %></span></strong>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <%= erb :"shared/pagination" %>
+    <% end %>
+  <% else %>
+    <div class="register">
+      <p>Please sign in below to view your transaction history.</p>
+      <%= erb :"shared/login-form" %>
+    </div>
+  <% end %>
+</section>

@@ -1,0 +1,70 @@
+<main class="strangerthings-shop" id="strangerthings-shop">
+  <div class="page-wrap">
+    <div class="sleeve">
+
+      <section id="shop_heading">
+        <div class="inner">
+          <h1>STRANGER THINGS 3: THE GAME</h1>
+        </div>
+      </section>
+
+      <section id="purchase">
+        <div class="leftCol">
+          <img src="https://eme01.enmasse-game.com/images/store/st3/purchase/main.png" />
+        </div>
+        <div class="rightCol">
+          <div class="text">
+            <p>Explore the world of the hit Netflix original series for yourself in the official game for Stranger Things 3!</p>
+            <p> It’s 1985 in Hawkins, Indiana, and summer's heating up. School’s out, there’s a brand new mall in town, and the Hawkins crew are on the cusp of adulthood. Romance blossoms and complicates the group’s dynamic. They’ll have to figure out how to grow up without growing apart. Meanwhile, danger looms. When the town’s threatened by enemies old and new, Eleven and her friends are reminded that evil never ends; it evolves. Now they’ll have to band together to survive, and remember that friendship is always stronger than fear.</p>
+            <h2>Now Only $19.99!</h2>
+            <% if !session[:account_id] # IF NOT LOGGED IN  %>
+              <div class="purchase_block loggedout">
+                  <a href='/' class="sign-in login-popup-link">SIGN IN to purchase</a>
+              </div>
+            <% else %>
+              <div class="purchase_block purchase_initiate_button" data-product-id="st3upgradetopaid">Purchase</div>
+            <% end %>
+          </div>
+
+            <form id="shop_initiate_form" method="POST" action="/st3/game-purchase/confirm">
+              <input type="hidden" value="" id="product_id" name="product_id"/>
+            </form>
+
+          <div class="sys-requirements">
+            <h4>MINIMUM System Requirements:</h4>
+            <table>
+              <tr>
+                <td class="label">OS:</td>
+                <td>Microsoft® Windows® 10 (64 Bit Only)</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="pre-footer">
+        <h3>Join the Conversation</h3>
+        <div class="social">
+          <ul>
+              <li class="icon_facebook">
+                <a href="https://www.facebook.com/Stranger-Things-The-Game-1983258515088889/">
+                <span>facebook</span>
+                </a>
+              </li>
+              <li class="icon_instagram">
+                <a href="https://www.instagram.com/st_thegame/">
+                <span>instagram</span>
+                </a>
+              </li>
+              <li class="icon_twitter">
+                <a href="https://twitter.com/st_thegame">
+                <span>twitter</span>
+                </a>
+              </li>
+          </ul>
+        </div>
+        <a class="logo_bonusxp" href="https://bonusxp.com/" target="_blank">Bonus XP</a>
+      </section>
+    </div>
+  </div>
+</main>

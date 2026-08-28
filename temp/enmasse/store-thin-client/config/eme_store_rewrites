@@ -1,0 +1,2 @@
+# The old DR store had a URL structure of store.enmasse.com/store/*. We need to redirect any old URLs to our store home page.
+rewrite ^/store/(.*)$ / permanent;

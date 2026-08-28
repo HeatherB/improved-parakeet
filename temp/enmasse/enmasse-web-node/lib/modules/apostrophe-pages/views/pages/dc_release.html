@@ -1,0 +1,518 @@
+{#
+  This is an example default page template. It inherits and extends a layout template
+  that lives in the top-level views/ folder for convenience
+#}
+
+{% extends "layout.html" %}
+
+{% block social_share %}
+  <meta name='twitter:card' content='summary_large_image'>
+  <meta name='twitter:site' content='@En_Masse_Ent'>
+  <meta name='twitter:title' content='Enmasse Entertainment'>
+  <meta name='twitter:description' content='Seattle-based publisher of TERA, Closers, Stranger Things 3: The Game and The Dark Crystal: Age of Resistance Tactics'>
+  <meta name='twitter:image' content='https://eme02.enmasse-game.com/images/enm/social_share/Sharing_{{ data.page.title | replace(" ", "_") }}.jpg'>
+
+  <meta property='fb:app_id' content='589750687728241' />
+  <meta property='og:title' content='Enmasse Entertainment' />
+  <meta property='og:site_name' content='Enmasse Entertainment' />
+  <meta property='og:url' content='https://enmasse.com{{ data.page._url }}' />
+  <meta property='og:type'  content='website' />
+  <meta property='og:description' content='Seattle-based publisher of TERA, Closers, Stranger Things 3: The Game and The Dark Crystal: Age of Resistance Tactics' />
+  <meta property='og:image' content='https://eme02.enmasse-game.com/images/enm/social_share/Sharing_{{ data.page.title | replace(" ", "_") }}.jpg' />
+{% endblock %}
+
+{% block facebook_pixel %}
+  <!-- Facebook Pixel Code -->
+  <script>!function(f,b,e,v,n,t,s) {if(f.fbq)return;n=f.fbq=function(){n.callMethod? n.callMethod.apply(n,arguments):n.queue.push(arguments)}; if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0'; n.queue=[];t=b.createElement(e);t.async=!0; t.src=v;s=b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t,s)}(window,document,'script', 'https://connect.facebook.net/en_US/fbevents.js'); fbq('init', '312034293052440'); fbq('track', 'PageView');</script><noscript><img height="1" width="1" src="https://www.facebook.com/tr?id=312034293052440&ev=PageView&noscript=1"/></noscript>
+  <!-- End Facebook Pixel Code -->
+
+  <!-- Twitter universal website tag code -->
+  <script>
+  !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+  },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+  a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+  // Insert Twitter Pixel ID and Standard Event data below
+  twq('init','o269q');
+  twq('track','PageView');
+  </script>
+  <!-- End Twitter universal website tag code -->
+{% endblock %}
+
+
+{% block foot_in_play %}
+<footer id="dc">
+
+      <div class="inner"> 
+
+      <h3>Join The Conversation</h3>
+
+      <div class="social">
+          {{ apos.area(data.page, 'gameSocialList', {
+                widgets: {
+                  'apostrophe-html': {}
+                }
+              }) }}
+            <ul>
+              <li class="icon_facebook">
+                <a href="https://business.facebook.com/darkcrystaltactics/">
+                  <span>facebook</span>
+                </a>
+              </li>
+              <li class="icon_instagram">
+               <a href="https://www.instagram.com/darkcrystaltactics/">
+                  <span>instagram</span>
+                </a>
+              </li>
+              <li class="icon_youtube">
+                <a href="https://www.youtube.com/user/enmasseentertainment">
+                  <span>youtube</span>
+                </a>
+              </li>
+              <li class="icon_twitter">
+                <a href="https://twitter.com/DCAORtactics">
+                  <span>twitter</span>
+                </a>
+              </li>
+               <li class="icon_twitch">
+                <a href="https://www.twitch.tv/enmasseentertainment">
+                  <span>twitch</span>
+                </a>
+              </li>
+               <li class="icon_forums">
+                <a href="https://darkcrystal.fandom.com/wiki/The_Dark_Crystal:_Age_of_Resistance_Tactics">
+                  <span>forums</span>
+                </a>
+              </li>
+            </ul>
+          </div> 
+
+        <div class="attribution">
+          <a href="https://www.netflix.com" id="ft_netflix">Netflix</a>
+          <a href="https://enmasse.com" id="ft_krafton">Krafton</a>
+          <a href="https://bonusxp.com" id="ft_bonusxp">BonusXP</a>
+        </div>
+
+        <div class="legal">
+          
+          <div class="copyright">
+            <p>{{ __('OFFICIAL MERCHANDISE. The Dark Crystal is a licensed trademark of The Jim Henson Company, used with permission. The Dark Crystal: Age of Resistance &copy; 2020 Netflix. &copy; 2012 - 2020 BonusXP, Inc. &copy; 2009 - 2020 En Masse Entertainment, Inc.') | safe }}</p>
+          </div>
+        </div><!-- end of legal -->
+
+
+        <div class="locale_picker closed">
+            <div class="locale_selected"></div>
+            <svg class="locale_arrow_up" viewBox="0 0 16 16"><polygon fill="#00ccff" points="3,5 8,11 13,5 "></polygon></svg>
+            <svg class="locale_arrow_down" viewBox="0 0 16 16"><polygon fill="#00ccff" points="3,11 8,5 13,11 "></polygon></svg>
+            <ul class="locale_picker_list">
+              {% for localization in apos.workflow.localizations() %}
+                {% set local_class = '' %}
+                {% if localization.workflowLocale == data.workflow.locale %}
+                  {% set local_class = 'selected' %}
+                {% endif %}
+                {% set default_class = '' %}
+                {% if localization.workflowLocale == 'en-us' %}
+                  {% set default_class = 'default' %}
+                {% endif %}
+                <li class="locale {{ local_class }} {{ default_class }}">
+                  <a href="{{ localization._url | build({ workflowLocale: localization.workflowLocale }) }}">{{ localization.label }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+
+
+      </div>
+    </footer>
+{% endblock %}
+
+{% block nav_area_in_play %}
+<header id="dc_header" class="{% if data.user %} admin_pane {% endif %}">
+      <div id="logo">
+        <a href="/">
+          <span>Krafton En Masse</span>
+        </a>
+     </div>
+
+    {% block locale_picker %}
+      <div class="locale_picker closed">
+        <div class="locale_selected"></div>
+        <svg class="locale_arrow_down" viewBox="0 0 16 16"><polygon fill="#00ccff" points="3,5 8,11 13,5 "></polygon></svg>
+        <svg class="locale_arrow_up" viewBox="0 0 16 16"><polygon fill="#00ccff" points="3,11 8,5 13,11 "></polygon></svg>
+        <ul class="locale_picker_list">
+          {% for localization in apos.workflow.localizations() %}
+            {% set local_class = '' %}
+            {% if localization.workflowLocale == data.workflow.locale %}
+              {% set local_class = 'selected' %}
+            {% endif %}
+            {% set default_class = '' %}
+
+            <li class="locale {{ local_class }}">
+              <a href="{{ localization._url | build({ workflowLocale: localization.workflowLocale }) }}">{{ localization.label }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endblock %}
+  
+    </header>
+{% endblock %}
+
+
+{% block main %}
+
+<main class="internal {% if data.user %} admin_pane {% endif %} {% if data.workflow.locale %} {{ data.workflow.locale }} {% endif %}" id='dc_release'>
+    {% extends "layout.html" %}
+
+    <section id="hero">
+    <div class="inner">
+
+      <h1><img src="https://eme03.enmasse-game.com/images/dark_crystal/micro_site/dc_logo_noshadow.png" alt="{{ __('The Dark Crystal: Age of Resistance Tactics') }}" /></h1>
+      <img id="dc_crystal" src="https://eme04.enmasse-game.com/images/dark_crystal_tactics/icons/crystal.png" alt="{{ __('The Dark Crystal: Age of Resistance Tactics') }}" />
+      <!--<ul>
+        <li class="icon_switch">play on switch</li>
+        <li class="icon_ps">play on playstation 4</li>
+        <li class="icon_xbox">play on xbox one</li>
+        <li class="icon_steam">play on steam</li>
+        <li class="icon_osx">play on osx</li>
+      </ul>
+      <h3>{{ __('February 4, 2020') }}</h3> -->
+      <div class="action">
+
+
+        <div class="eme-lightbox">
+          <div>
+            <button type="button" class="lb_init">{{ __('Buy Now') }}</button>
+            <div class="pre-purchase">
+              <div class="inner">
+                <h2>{{ __('Buy Now') }}</h2>
+                <h4>{{ __('Select your platform') }}</h4>
+                <ul>
+                  <li class="switch">
+                    <a href="{{ __('https://www.nintendo.com/games/detail/the-dark-crystal-age-of-resistance-tactics-switch/') }}">
+                      <span>{{ __('Nintendo Switch') }}</span>
+                    </a>
+                  </li>
+                  <li class="ps4">
+                    <a href="https://www.playstation.com/en-us/games/the-dark-crystal-age-of-resistance-tactics-ps4/">
+                      <span>{{ __('Playstation 4') }}</span>
+                    </a>
+                  </li>
+                  <li class="xbox">
+                    <a href="{{ __('https://www.microsoft.com/en-us/p/the-dark-crystal-age-of-resistance-tactics/9nzwxt6vmgg8?activetab=pivot:overviewtab') }}">
+                      <span>{{ __('Xbox One') }}</span>
+                    </a>
+                  </li>
+                  <li class="steam">
+                    <a href="{{ __('https://store.steampowered.com/app/1097790/The_Dark_Crystal_Age_of_Resistance_Tactics/') }}">
+                      <span>{{ __('Steam') }}</span>
+                    </a>
+                  </li>
+                  <li class="enmasse">
+                    <a href="{{ __('http://store.enmasse.com/darkcrystaltactics/product/dctupgradetopaid') }}">
+                      <span>{{ __('En Masse') }}</span>
+                    </a>
+                  </li>
+                  <li class="gog">
+                    <a href="{{ __('https://www.gog.com/game/the_dark_crystal_age_of_resistance_tactics') }}">
+                      <span>{{ __('GOG') }}</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- this is in use, it holds a watch trailer youtube lightbox piece -->
+        <!-- hidden for real purcahse launch -->
+        <!--{{ apos.area(data.page, 'lightboxOption', {
+          widgets: {
+            'apostrophe-html': {}
+          }
+        }) }}-->
+
+
+
+       <!-- <a href="#mc_embed_signup_first">
+          <span>{{ __('Get Updates') }}</span>
+        </a>-->
+      </div>
+    </div><!-- end of inner -->
+  </section>
+
+  <section id="dc_media">
+    <img id="chibi" src="https://eme04.enmasse-game.com/images/dark_crystal_tactics/icons/chibi_green.png" alt="frame" class="data-prax" data-type="parallax" data-depth="0.1" />
+    <div class="stars"></div>
+    <div class="inner">
+      <h2>
+        {{ apos.area(data.page, 'mediaHeader', {
+          widgets: {
+            'apostrophe-rich-text': {
+              toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
+              styles: [
+                { name: 'Heading', element: 'h2' }
+              ]
+            }
+          }
+        }) }}
+      </h2>
+      <div class="media-wrapper">
+        <div class="vid_wrap wrap first" data-mediaslide="media_slide_0">
+          <div class="wrapper">
+            {{ apos.area(data.page, 'mediaLightboxOne', {
+              widgets: {
+                'apostrophe-html': {}
+              }
+            }) }}
+          </div>
+          <div class="action">
+            <span>{{ __('Play') }}</span>
+          </div>
+        </div>
+        <div class="vid_wrap wrap selected" data-mediaslide="media_slide_1">
+          <div class="wrapper">
+           {{ apos.area(data.page, 'mediaLightboxTwo', {
+              widgets: {
+                'apostrophe-html': {}
+              }
+            }) }}
+          </div>
+          <div class="action">
+            <span>{{ __('Play') }}</span>
+          </div>
+        </div>
+        <div class="vid_wrap wrap last" data-mediaslide="media_slide_2">
+          <div class="wrapper">
+            {{ apos.area(data.page, 'mediaLightboxThree', {
+              widgets: {
+                'apostrophe-html': {}
+              }
+            }) }}
+          </div>
+          <div class="action">
+            <span>{{ __('Play') }}</span>
+          </div>
+        </div>
+        {{ apos.area(data.page, 'extraMedias', {
+              widgets: {
+                'dcmedias': {}
+              }
+            }
+          )
+          }}
+
+        <div class="media_pagers"></div>
+        <div class="media-btns">
+          <button type="button" class="media-prev">
+            <span></span>
+          </button>
+          <button type="button" class="media-next">
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div><!-- end of inner -->
+  </section>
+
+  <section id="unite_clans">
+    <img id="chibi" src="https://eme04.enmasse-game.com/images/dark_crystal_tactics/icons/chibi_purple.png" alt="mystic and skesis" class="data-prax" data-type="parallax" data-depth="0.1" />
+    <div class="stars"></div>
+    <div class="inner">
+      <h2><!--Unite The Clans-->
+        {{ apos.area(data.page, 'clansHeader', {
+          widgets: {
+            'apostrophe-rich-text': {
+              toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
+              styles: [
+                { name: 'Heading', element: 'h2' }
+              ]
+            }
+          }
+        }) }}
+      </h2>
+      {{ apos.area(data.page, 'clanBlock', {
+        widgets: {
+          'apostrophe-rich-text': {
+            toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
+            styles: [
+              { name: 'Paragraph', element: 'p' }
+            ]
+          }
+        }
+      }) }}
+      <div class="action">
+        <!-- Begin Mailchimp Signup Form -->
+        <div id="mc_embed_signup_first">
+        <form action="https://enmasse.us18.list-manage.com/subscribe/post?u=f8fa40397982203013bb062ae&amp;id=4000419d2c" method="post" id="mc-embedded-subscribe-form_first" name="mc-embedded-subscribe-form_first" class="validate" target="_blank" novalidate>
+            <!--<div id="mc_embed_signup_scroll">-->
+          
+          <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL_first" placeholder="{{ __('email address') }}" required>
+          <label for="mce-EMAIL_first" class="email_label">{{ __('email address') }}</label>
+            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_f8fa40397982203013bb062ae_4000419d2c" tabindex="-1" value=""></div>
+            <button type="submit" name="subscribe" id="mc-embedded-subscribe_first">
+              <span>{{ __('Get Updates') }}</span>
+            </button>
+            <!--</div>-->
+        </form>
+        </div>
+
+        <!--End mc_embed_signup-->
+        <small>{{ __('Sign up for <em>The Dark Crystal: Age of Resistance Tactics</em> newsletter for the latest news and game updates including trailers, reveals and exclusive behind the scenes information.') | safe }}</small>
+      </div>
+      <img id="fizz" src="https://eme04.enmasse-game.com/images/dark_crystal_tactics/icons/fizz.png" alt="fizzgigg" class="data-prax" data-type="parallax" data-depth="0.2" />
+    </div><!-- end of inner -->
+  </section>
+
+  <section id="earn_victory">
+    <img id="chibi" src="https://eme04.enmasse-game.com/images/dark_crystal_tactics/icons/chibi_blue.png" alt="aughra" class="data-prax" data-type="parallax" data-depth="0.1" />
+    <div class="stars"></div>
+    <div class="inner">
+      <h2>
+        {{ apos.area(data.page, 'victoryHeader', {
+          widgets: {
+            'apostrophe-rich-text': {
+              toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
+              styles: [
+                { name: 'Heading', element: 'h2' }
+              ]
+            }
+          }
+        }) }}
+      </h2>
+      <ul>
+        <li>
+          {{ apos.area(data.page, 'featureImgOne', {
+            widgets: {
+              'apostrophe-images': {
+                size: 'full'
+              }
+            }
+          }) }}
+          {{ apos.singleton(data.page, 'featureOne', 'apostrophe-rich-text', {
+            toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
+                styles: [
+                  { name: 'Heading', element: 'h5' }
+                ]
+          }) }}
+          {{ apos.singleton(data.page, 'featureCopyOne', 'apostrophe-rich-text', {
+            toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
+                styles: [
+                  { name: 'Paragraph', element: 'p' }
+                ]
+          }) }}
+        </li>
+        <li>
+          {{ apos.area(data.page, 'featureImgTwo', {
+            widgets: {
+              'apostrophe-images': {
+                size: 'full'
+              }
+            }
+          }) }}
+          {{ apos.singleton(data.page, 'featureTwo', 'apostrophe-rich-text', {
+            toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
+                styles: [
+                  { name: 'Heading', element: 'h5' }
+                ]
+          }) }}
+          {{ apos.singleton(data.page, 'featureCopyTwo', 'apostrophe-rich-text', {
+            toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
+                styles: [
+                  { name: 'Paragraph', element: 'p' }
+                ]
+          }) }}
+        </li>
+        <li>
+          {{ apos.area(data.page, 'featureImgThree', {
+            widgets: {
+              'apostrophe-images': {
+                size: 'full'
+              }
+            }
+          }) }}
+          {{ apos.singleton(data.page, 'featureThree', 'apostrophe-rich-text', {
+            toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
+                styles: [
+                  { name: 'Heading', element: 'h5' }
+                ]
+          }) }}
+          {{ apos.singleton(data.page, 'featureCopyThree', 'apostrophe-rich-text', {
+            toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
+                styles: [
+                  { name: 'Paragraph', element: 'p' }
+                ]
+          }) }}
+        </li>
+      </ul>
+    </div><!-- end of inner -->
+  </section>
+
+
+
+
+  {% if 'en-us' == data.workflow.locale %}
+  <section id="dc_news">
+    <img id="chibi" src="https://eme04.enmasse-game.com/images/dark_crystal_tactics/icons/chibi_brown.png" alt="frame" class="data-prax" data-type="parallax" data-depth="0.1" />
+    <div class="stars"></div>
+    <div class="inner">
+      <h2>
+        {{ apos.area(data.page, 'newsHeaderOne', {
+          widgets: {
+            'apostrophe-rich-text': {
+              toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
+              styles: [
+                { name: 'Heading', element: 'h2' }
+              ]
+            }
+          }
+        }) }}
+      </h2>
+      <h2>
+        {{ apos.area(data.page, 'newsHeaderTwo', {
+          widgets: {
+            'apostrophe-rich-text': {
+              toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
+              styles: [
+                { name: 'Heading', element: 'h2' }
+              ]
+            }
+          }
+        }) }}
+      </h2>
+      {{ apos.singleton(data.page, 'newsimplanttest', 'apostrophe-blog') }}
+      <div class="action">
+
+        <!-- Begin Mailchimp Signup Form -->
+        <div id="mc_embed_signup">
+        <form action="https://enmasse.us18.list-manage.com/subscribe/post?u=f8fa40397982203013bb062ae&amp;id=4000419d2c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+            <!--<div id="mc_embed_signup_scroll">-->
+          
+          <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="{{ __('email address') }}" required>
+          <label for="mce-EMAIL" class="email_label">{{ __('email address') }}</label>
+            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_f8fa40397982203013bb062ae_4000419d2c" tabindex="-1" value=""></div>
+            <button type="submit" name="subscribe" id="mc-embedded-subscribe">
+              <span>{{ __('Get Updates') }}</span>
+            </button>
+            <!--</div>-->
+        </form>
+        </div>
+
+        <!--End mc_embed_signup-->
+
+
+        <small>{{ __('Sign up for <em>The Dark Crystal: Age of Resistance Tactics</em> newsletter for the latest news and game updates including trailers, reveals and exclusive behind the scenes information.') | safe }}</small>
+      </div>
+      <img src="https://eme04.enmasse-game.com/images/dark_crystal_tactics/icons/spiders.png" id="spiders" class="data-prax" data-type="parallax" data-depth="0.10" />
+    </div><!-- end of inner -->
+  </section>
+
+  {% endif %}
+
+</main>
+
+
+{% endblock %}

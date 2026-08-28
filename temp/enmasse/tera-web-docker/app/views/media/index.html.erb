@@ -1,0 +1,107 @@
+<section id="navigation">
+	<%= Refinery::Pages::MenuPresenter.new(refinery_menu_pages, self).to_html %>
+</section>
+
+<%# if is_showfilters? %>
+<section id="filter-bar">
+  <div class="inner_wrapper">
+    <div id="filter-platform">
+      <span data-platform="all" class="filter-all interiorfilter"><%=t :platform_all %></span>
+      <span data-platform="windows" class="filter-windows interiorfilter"><%=t :platform_windows %></span>
+      <span data-platform="playstation" class="filter-playstation interiorfilter"><%=t :platform_playstation %></span>
+      <span data-platform="xbox" class="filter-xbox interiorfilter"><%=t :platform_xbox %></span>
+    </div>
+
+    <!-- language selection -->
+    <%= render :partial => "/refinery/language_nav" %>
+  </div><!-- end of inner wrapper -->
+</section>
+<%# end %>
+
+<div class="media_page">
+<section id="content_article_header">
+	<%#= raw @page.content_for(:article_header) || yield(:article_header) %>
+	<h2><!--Media--> <%=t :media_label %></h2>
+
+	<div class="media-youtube">
+		<h3><%=t :video_label %> <span><%=t :playlist_label %></span></h3>
+		<!--<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLzpfNG37wb-ntcXXNT773aVy_4nP0gmrH" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>-->
+		<!--<iframe width="720" height="405" src="https://www.youtube.com/embed/?listType=playlist&list=PLzpfNG37wb-ntcXXNT773aVy_4nP0gmrH" frameborder="0" allowfullscreen></iframe>-->
+
+		<div id="youtube-playlist"></div>
+
+	</div>
+</section>
+
+
+<div id="main-wrapper">
+	<section id="content_side_body">
+		<%#= raw @page.content_for(:side_body) || yield(:side_body) %>
+	</section>
+	<section id="content_body">
+		<%#= raw @page.content_for(:body) || yield(:body) %>
+	</section>
+	<!-- so far so good, break total collection into smaller aray of nine image */
+		/* load the first bundle of nine images */
+		/8 on click more button, load next array of nine image */
+	<hr />
+	<%#= @screenshot_images_sliced.inspect %>
+	<%#= @screenshot_images_sliced[0].inspect %>
+	<%#= @screenshot_images_sliced.length %>
+	<hr /> -->
+	<section id="content_wide_body">
+		<%#= raw @page.content_for(:wide_body) || yield(:wide_body) %>
+		<div class="media-screenshots">
+			<div class="inner">
+				<h4><!--screenshots--> <%=t :screenshots_label %></h4>
+				<% if @screenshot_images %>
+
+					<ul class="eme-lightbox" id="screenshot_grid">
+					<% @screenshot_images.each do |simage| %>
+						<li>
+	  						<%= image_tag "media/screenshots/thumbs/#{simage.split('/').last}", data: {large: "/assets/media/screenshots/#{simage.split('/').last}"} %>
+				   		</li>
+					<% end %>
+					<%#= render :partial => "/media/screenshot_list", locals: {screenshot_images: @moreScreens} %>
+					</ul>
+					<div class="actions">
+						<a href="/" class="moreBTN see-more mediaBTN"><%=t :btn_seemore %></a>
+						<a href="/" class="moreBTN see-fewer mediaBTN"><%=t :btn_seefewer %></a>
+						<!--<hr />
+						<%#= link_to "See More", {:controller => :media, :action => :reRollScreenshots}, :remote => true %>-->
+					</div>
+
+				<% else %>
+					<p>screenshot art coming soon!</p>
+				<% end %>
+			</div><!-- end of inner -->
+		</div>
+
+		<div class="media-concepts">
+			<div class="inner">
+			<h4><!--concept art--> <%=t :concepts_label %></h4>
+			<% if @concept_images %>
+				<ul class="eme-lightbox">
+				<% @concept_images.each do |cimage| %>
+					<li>
+	  					<%= image_tag "media/concepts/thumbs/#{cimage.split('/').last}", data: {large: "/assets/media/concepts/#{cimage.split('/').last}"} %>
+				   	</li>
+				<% end %>
+				</ul>
+				<div class="actions">
+					<a href="/" class="moreBTN see-more mediaBTN"><%=t :btn_seemore %></a>
+						<a href="/" class="moreBTN see-fewer mediaBTN"><%=t :btn_seefewer %></a>
+				</div>
+			<% else %>
+				<p>concept art coming soon!</p>
+			<% end %>
+			</div><!-- end of inner -->
+		</div>
+	</section>
+	<section id="content_article_footer">
+		<%#= raw @page.content_for(:article_footer) || yield(:article_footer) %>
+	</section>
+
+	
+</div>
+</div>

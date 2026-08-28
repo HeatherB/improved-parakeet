@@ -1,0 +1,169 @@
+#breach-footer {
+  background-color: #04041a;
+  background-image: url(https://d2g7q0lv6x92ee.cloudfront.net/qcaccount/foot-bg.png);
+  position: relative;
+  &:before {
+    content: "";
+    opacity: .36;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: -webkit-gradient(linear, left top, right top, color-stop(25%, transparent), color-stop(50%, #d5d9fa), color-stop(75%, transparent)) 50% no-repeat;
+    background: linear-gradient(90deg, transparent 25%,#d5d9fa 50%,transparent 75%) 50% no-repeat;
+    background-size: 1700px 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+  .footer {
+    padding: 20px 0;
+    position: relative;
+    &:before {
+      content: "";
+      pointer-events: none;
+      display: block;
+      width: 924px;
+      height: 99px;
+      background: image-url('breach/bar.png') 50% no-repeat;
+      position: absolute;
+      top: -50px;
+      left: 35%;
+    }
+  }
+  a { 
+    color: #d5d9fa; 
+    text-decoration: none !important; 
+    text-transform: none;
+    font-weight:normal;
+    &:hover {
+      color: #e2cc0c;
+    }
+  }
+  .nav, #ft-social-links {
+    text-align: center;
+  }
+  .nav {
+    p { 
+      color: #d5d9fa;
+      font-size:11px;
+      line-height: 2;
+      text-align:center;
+    }
+    ul { 
+      padding: 0;
+      margin: 0;
+      line-height: 1;
+      li { 
+        font-size: 14px; 
+        font-weight: bolder; 
+        display: inline-block; 
+        vertical-align:middle; 
+        color: #d5d9fa;
+        margin-right: 10px;
+      }
+    }
+  }
+}
+#ft-social-links {
+  margin: 20px auto;
+  li {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 9px;
+  }
+  a {
+    background-image: url(https://d2g7q0lv6x92ee.cloudfront.net/qcaccount/emails/sign-up/social-sprite.png);
+    background-repeat: no-repeat;
+    height: 46px;
+    width: 46px;
+    display: block;
+    text-indent: -9999em;
+    font-size:0;
+    &.sm-facebook {
+      background-position: 0 0;
+    }
+    &.sm-twitter {
+      background-position:  -48px 0;
+    }
+    &.sm-instagram {
+      background-position: -96px 0;
+    }
+    &.sm-youtube {
+      background-position: -144px 0;
+    }
+    &.sm-steam {
+      background-position: -193px 0;
+    }
+    &.sm-discord {
+      background-position: -242px 0;
+    }
+  }
+}
+.logo-block {
+  display: block;
+}
+#qc-games-tile, .clogo-enmasse-darkbg {
+  display: inline-block;
+  vertical-align: top;
+}
+#qc-games-tile {
+  margin-left: 25px;
+  height: 46px;
+  width: 46px;
+  border-radius: 5px;
+  overflow:hidden;
+  a {
+    background-image: url(https://d2g7q0lv6x92ee.cloudfront.net/qcaccount/qc_games_logo.png);
+    background-repeat: no-repeat;
+    background-size:contain;
+    height: 100%;
+    width: 100%;
+    /*height: 60px;
+    width: 60px;*/
+    display: block;
+    text-indent: -9999em;
+    font-size:0;
+  }
+}
+/* social icon overwrite - bad naming */
+footer #ft-social-links .clogo-enmasse-darkbg a {
+  background: none;
+  width:auto;
+  height:auto;
+}
+footer .clogo-enmasse-darkbg {
+  background-image: url(http://emeo-cdn4.edge.enmasse-game.com/assets/global/ft-logo-sprite.png);
+}
+
+
+@media only screen and (min-width: 768px) {
+  #qc-games-tile {
+      height: 60px;
+      width: 60px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  #breach-footer {
+    .footer {
+      max-width:1300px;
+      width:100%;
+      margin:0 auto;
+    }
+    .nav, #ft-social-links {
+      display: inline-block;
+      vertical-align:middle;
+      width:49%;
+    }
+    .nav {
+      text-align: left;
+      p {
+        text-align: left;
+        margin-left: 0;
+      }
+    }
+    #ft-social-links {
+      text-align: right;
+    }
+  }
+}

@@ -1,0 +1,239 @@
+body {
+    background-color: white;
+    //font-family: Myriad Pro;
+    main {
+        background: white;
+        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+        z-index: 10;
+        margin-bottom: 10px;
+        margin-top: -10px;
+        overflow: hidden;
+        max-width: 100%;
+    }
+    div {
+        max-width: 100%;
+    }
+    .extra-border {
+        border: solid 2px black;
+    }
+    .header-img {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+    }
+    .learnmore {
+        background-image: url(http://static.enmasse.com/store/extralife/learnmore.jpg);
+        height: 207px;
+        width: 860px;
+        max-width: 100%;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 103px;
+        padding-top: 28px;
+        margin-top: 15px;
+        h1 {
+            width: 300px;
+            text-align: center;
+            line-height: 36px;
+            font-size: 34px;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        .learnmorebtn {
+            width: 288px;
+            height: 64px;
+            line-height: 64px;
+            font-size: 34px;
+            color: white;
+            text-transform: uppercase;
+            text-align: center;
+            text-decoration: none;
+            background-color: #00a8ff;
+            border-radius: 15px;
+            display: block;
+            box-shadow: 0px 5px 0px 0px #0593cf;
+        }
+        @media screen and (max-width: 500px) {
+            padding-left: 0;
+            h1 {
+                position: relative;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .learnmorebtn {
+                position: relative;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    }
+    .pack {
+        width: 860px;
+        max-width: 100%;
+        position: relative;
+        margin: 0 auto;
+        img {
+            width: 100%;
+            box-sizing: border-box;
+            border: solid 1px #dedede;
+            //box-shadow: inset 0px 0px 0px 2px #dedede;
+            display: block;
+        }
+        em {
+            margin-right: 2px;
+        }
+        .buy {
+            background-color: #2e2e2e;
+            padding: 12px 25px;
+            position: relative;
+            height: 90px;
+            .price {
+                color: white;
+                padding: 15px;
+                background-color: #4e4e4e;
+                font-size: 26px;
+                display: inline-block;
+                border-radius: 2px;
+                @media screen and (max-width: 500px) {
+                    position: absolute;
+                    top: -80px;
+                }
+            }
+            .selection {
+                position: absolute;
+                right: 220px;
+                top: 20px;
+                text-align: center;
+                color: white;
+                span {
+                    display: block;
+                    margin-bottom: 5px;
+                }
+                select {
+                    color: black;
+                }
+            }
+            .button {
+                width: 175px;
+                height: 64px;
+                background-color: #1c7ab8;
+                color: white;
+                text-align: center;
+                //line-height: 64px;
+                float: right;
+                text-decoration: none;
+                text-transform: uppercase;
+                font-size: 22px;
+                border-radius: 2px;
+                box-shadow: 0px 2px 0px 0px #0e6095;
+                border: none;
+                position: relative;
+                &.disabled {
+                    pointer-events: none;
+                    opacity: .5;
+                }
+                &.hidden {
+                    display: none;
+                }
+                // xsolla
+                .xpay2Play-widget.xpay2Play-widget__tiny {
+                    width: 100%;
+                    height: 100%;
+                    button {
+                        height: 100%;
+                        width: 100%;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                    }
+                }
+                .xpay2Play-widget {
+                    opacity: 0;
+                    position: absolute;
+                }
+                &:after {
+                    content: "Buy Now";
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    line-height: 64px;
+                }
+            }
+        }
+    }
+    .productdesc {
+        width: 860px;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 16px;
+        h3 {
+            font-size: 23px;
+            font-weight: normal;
+        }
+    }
+    .items {
+        width: 860px;
+        max-width: 100%;
+        position: relative;
+        margin: 30px auto;
+        max-width: 100%;
+        @media screen and (max-width: 830px) {
+            width: 100%;
+        }
+        tr {
+            th {
+                text-align: left;
+            }
+            td {
+                vertical-align: top;
+            }
+            td:nth-child(1) {
+                padding: 18px;
+                img {
+                    border: solid 1px #dedede;
+                    box-sizing: border-box;
+                    border-radius: 5px;
+                    box-shadow: 0px 0px 0px 2px black;
+                    height: 86px;
+                    width: 87px;
+                }
+            }
+            td:nth-child(2) {
+                max-width: 425px;
+            }
+            td:nth-child(4) {
+                padding-right: 10px;
+            }
+            td:nth-child(3), td:nth-child(4) {
+                //font-weight: bold;
+            }
+            &:nth-child(even) {
+                background-color: #bfbfbf;
+            }
+            &:nth-child(odd) {
+                background-color: #dcdcdc;
+            }
+            &:first-child {
+                background-color: #4e4e4e;
+                color: white;
+                font-size: 23px;
+                th {
+                    padding: 10px 15px;
+                }
+            }
+            h4 {
+                font-size: 25px;
+                font-weight: normal;
+                color: #2e2e2e;
+            }
+            td {
+                font-size: 18px;
+                color: #2e2e2e;
+            }
+        }
+    }
+}

@@ -1,0 +1,48 @@
+<div id="class-info">
+  <div id="archer-icon"></div>
+  <h2>Archer</h2>
+  <p>Role: Ranged attacks, Sustained DPS. Archers deliver crippling status effects as well as good mid-range damage.</p>
+</div>
+<% if @level <= 29 %>
+  <div id="skills">
+    <div class="skill">
+      <span class="icon backstep"></span>
+      <p>Backstep</p>
+      <p>Take quick steps backward and out of harm's way.</p>
+    </div>
+    <div class="skill">
+      <span class="icon radiant-arrow"></span>
+      <p>Radiant Arrow</p>
+      <p>Charge up the arrow's attack power by holding down the skill button, then shoot the arrow up to 18m by releasing the button.</p>
+    </div>
+    <div class="skill">
+      <span class="icon penetrating-arrow"></span>
+      <p>Penetrating Arrow</p>
+      <p>Charge up the arrow’s power, then release the button to shoot the arrow at up to 4 targets in an 18-meter line.</p>
+    </div>
+    <div class="skill">
+      <span class="icon stunning-trap"></span>
+      <p>Stunning Trap</p>
+      <p>Set a trap that briefly staggers the victim. The trap lasts for 20 seconds or until triggered.</p>
+    </div>
+  </div>
+<% else %>
+  <div id="crystals">
+    <div class="pve">
+      <h3>PvE Crystals</h3>
+      <ul>
+        <li class="red-crystal">Bitter, savage, focused, carving</li>
+        <li class="blue-crystal">Hardy, poised</li>
+        <li class="green-crystal">Carving</li>
+      </ul>
+    </div>
+    <div class="pvp">
+      <h3>PvP Crystals</h3>
+      <ul>
+        <li class="red-crystal">Salivating, carving, savage, forceful</li>
+        <li class="blue-crystal">Relentless</li>
+        <li class="green-crystal">Griefing, indomitable</li>
+      </ul>
+    </div>
+  </div>
+<% end %>

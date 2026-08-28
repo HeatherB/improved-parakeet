@@ -1,0 +1,63 @@
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="leftCol">
+      <nav class="sitenav">
+       {{#link 'help_center'}}{{help_center.name}}{{/link}}
+       <ul>
+          <li><a href="http://enmasse.com/news">{{ dc 'news' }}</a></li>
+          <li><a href="http://enmasse.com/legal/privacy-policy">{{ dc 'privacy_policy' }}</a></li>
+          <li><a href="http://enmasse.com/legal/terms-of-service">{{ dc 'terms_of_service' }}</a></li>
+          <li><a href="http://enmasse.com/jobs">{{ dc 'jobs' }}</a></li>
+        </ul>
+      </nav>
+      
+      <p>&copy;2019 <em>En Masse Entertainment,</em> Inc. {{ dc 'all_rights_reserved' }}</p>
+      
+      <div class="ft-socials">
+        <a href="https://www.facebook.com/enmasseentertainment/" target="_blank" class="facebook"><span>Facebook</span></a>
+        <a href="https://twitter.com/en_masse_ent" target="_blank" class="twitter"><span>Twitter</span></a>
+        <a href="https://www.linkedin.com/company/en-masse-entertainment" target="_blank" class="linkedin"><span>Linkedin</span></a>
+        <a href="https://www.glassdoor.com/Overview/Working-at-En-Masse-Entertainment-EI_IE591083.11,33.htm" target="_blank" class="glassdoor"><span>GlassDoor</span></a>
+      </div><!-- end of ft socials -->
+    </div>
+
+    <div class="rightCol">
+      <div class="logo-block">
+        <div class="krafton-tile">
+          <a href="https://www.krafton.com">
+            <span>Krafton Union</span>
+          </a>
+        </div>
+        <div class="enmasse-tile">
+          <a href="http://enmasse.com">
+            <span>EnMasse Entertainment</span>
+          </a>
+        </div>
+      </div>
+      
+      <div class="footer-language-selector">
+        {{#if alternative_locales}}
+          <div class="dropdown language-selector">
+            <button class="dropdown-toggle" aria-haspopup="true">
+              {{current_locale.name}}
+            </button>
+            <span class="dropdown-menu dropdown-menu-end" role="menu">
+              {{#each alternative_locales}}
+                <a href="{{url}}" dir="{{direction}}" rel="nofollow" role="menuitem">
+                  {{name}}
+                </a>
+              {{/each}}
+            </span>
+          </div>
+        {{/if}}
+      </div>
+      
+    </div>
+    
+  </div>
+  
+</footer>
+
+
+<!-- Load the Twitch embed script -->
+<!--<script src="https://embed.twitch.tv/embed/v1.js"></script>-->

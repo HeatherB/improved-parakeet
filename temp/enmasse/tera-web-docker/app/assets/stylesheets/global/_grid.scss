@@ -1,0 +1,167 @@
+.row {
+  zoom: 1;  /* For IE 6/7 (trigger hasLayout) */
+}
+.row:before,
+.row:after {
+  content: "";
+  display: table;
+}
+.row:after {
+  clear: both;
+}
+
+.column, .columns {
+  min-height: 1px;
+  float: left;
+  padding: 0 10px;
+  position: relative;
+}
+
+.one {
+  width: 60px;
+}
+.two {
+  width: 140px;
+}
+.three {
+  width: 220px;
+}
+.four {
+  width: 300px;
+}
+.five {
+  width: 380px;
+}
+.six {
+  width: 460px;
+}
+.seven {
+  width: 540px;
+}
+.eight {
+  width: 620px;
+}
+.nine {
+  width: 700px;
+}
+.ten {
+  width: 760px;
+}
+.eleven {
+  width: 840px;
+}
+.twelve {
+  width: 940px;
+}
+
+.row .row .one:first-child,
+.row .row .two:first-child,
+.row .row .three:first-child,
+.row .row .four:first-child,
+.row .row .five:first-child,
+.row .row .six:first-child,
+.row .row .seven:first-child,
+.row .row .eight:first-child,
+.row .row .nine:first-child,
+.row .row .ten:first-child,
+.row .row .eleven:first-child,
+.row .row .twelve:first-child {
+  padding-left:0;
+}
+
+.row .row .one:last-child,
+.row .row .two:last-child,
+.row .row .three:last-child,
+.row .row .four:last-child,
+.row .row .five:last-child,
+.row .row .six:last-child,
+.row .row .seven:last-child,
+.row .row .eight:last-child,
+.row .row .nine:last-child,
+.row .row .ten:last-child,
+.row .row .eleven:last-child,
+.row .row .twelve:last-child {
+  padding-right:0;
+}
+
+@media screen and (min-width: 961px) {
+  .one {
+    width: 8.33333%;
+  }
+  .two {
+    width: 16.66667%;
+  }
+  .three {
+    width: 25%;
+  }
+  .four {
+    width: 33.33333%;
+  }
+  .five {
+    width: 41.66667%;
+  }
+  .six {
+    width: 50%;
+  }
+  .seven {
+    width: 58.33333%;
+  }
+  .eight {
+    width: 66.66667%;
+  }
+  .nine {
+    width: 75%;
+  }
+  .ten {
+    width: 83.333333%;
+  }
+  .eleven {
+    width: 91.66667%;
+  }
+  .twelve {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .one,
+  .two,
+  .three {
+    width: 50%;
+  }
+  .four,
+  .five,
+  .six,
+  .seven,
+  .eight,
+  .nine,
+  .ten,
+  .eleven,
+  .twelve {
+    width: 100%;
+  }
+
+  .row .row .one,
+  .row .row .two,
+  .row .row .three,
+  .row .row .four,
+  .row .row .five,
+  .row .row .six,
+  .row .row .seven,
+  .row .row .eight,
+  .row .row .nine,
+  .row .row .ten,
+  .row .row .eleven,
+  .row .row .twelve {
+    padding:0;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .one,
+  .two,
+  .three,
+  .four, {
+    width: 100%;
+  }
+}

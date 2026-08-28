@@ -1,0 +1,145 @@
+$campaign: 'wintera'; // wintera || vday || anniversary
+
+body.ava {
+  &.gifting {
+    a.colorbtn {
+      @include background(linear-gradient(#011652, #011652));
+      color: #ffffff;
+      border-bottom: 3px solid #ffffff;
+      border-radius: 5px;
+      &:hover {
+        text-decoration: none;
+        background: #e73702;
+      }
+    }
+
+// ********** ********** ********** ********** 
+//            Breadcrumbs
+// ********** ********** ********** ********** 
+
+    .breadcrumbs_wrapper {
+      .breadcrumb {
+        height: 96px;
+      }
+      li:first-child {
+        a {
+          background: image-url('gifting/logos/ava.png') top center no-repeat;
+          width: 269px;
+          height: 96px;
+        }
+      }
+    }
+
+// ********** ********** ********** ********** 
+//            Tabs
+// ********** ********** ********** **********
+    #tabs {
+      a {
+        color:#e73702;
+        background: #1b1b1b;
+        &.active, &:hover { 
+          color: #1b1b1b;
+          background:#e73702;
+        }
+      }
+    }
+
+    .box_section {
+      h4 {
+        background: #818181;
+      }
+      //background: #e1f9ff;
+    }
+
+    #page-content {
+      background: $white;
+    }
+
+
+// ********** ********** ********** ********** 
+//            Carousel
+// ********** ********** ********** **********
+
+    .carousel_about {
+      .heading {
+        span.icon {
+            width: 62px;
+            height: 62px;
+            background-image: url(http://download.enmasse.com/store/ava/wintera/gifting_rewards/gifting_icon_sprite.jpg);
+            background-repeat: no-repeat;
+            &.first {
+                background-position: 0 0;
+            }
+            &.fifth {
+                background-position: 0 -62px;
+            }
+            &.tenth {
+                background-position: 0 -124px;
+            }
+            &.fifteenth {
+                background-position: 0 -186px;
+            }
+            &.twenty {
+                background-position: 0 -248px;
+            }
+        }
+      }
+    }
+
+// ********** ********** ********** ********** 
+//            Wintera Specific
+// ********** ********** ********** **********
+    .wintera {
+      .gifting {
+        .inner {
+          background: #818181;
+        }
+      }
+      
+      .login-buttons {
+        li {
+          color: #000000;
+          background: #1a81c4;
+          border-bottom: 3px solid #1a81c4;
+          &:hover {
+            text-decoration: none;
+            background: #000000;
+          }
+        }
+      }
+    }
+    #inventory, #history {
+      background: #dadada;
+    }
+    #inventory, #history, #gift-sent {
+      .gift-card {
+        &.empty { 
+          .gc_icon {
+            background: image-url('gifting/#{$campaign}/ava/gift-bg.png') no-repeat -374px -321px;
+          }
+          a {
+            color: #ffeb00;
+          }
+        }
+      }
+    }
+
+    @media all and (min-width: 768px) {
+      #inventory {
+        background:#dadada;
+      }
+      .golden_gift_icon {
+        background: image-url('gifting/#{$campaign}/ava/gift-bg.png') 0 0 no-repeat;
+      }
+      .carousel_about {
+        border-top: none;
+        background: #545556;
+      }
+    }
+
+
+
+
+  } // end gifting
+
+} // end ava

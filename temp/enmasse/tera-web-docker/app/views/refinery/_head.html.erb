@@ -1,0 +1,66 @@
+<meta charset='<%= Rails.application.config.encoding %>' />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
+<title><%= browser_title(yield(:title)) %></title>
+
+
+
+<%= stylesheet_link_tag "application" %>
+<%= stylesheet_link_tag "theme" %>
+<%= yield :stylesheets %>
+<!--[if lt IE 9]>
+<script>
+document.createElement('header');
+document.createElement('nav');
+document.createElement('section');
+document.createElement('article');
+document.createElement('aside');
+document.createElement('footer');
+document.createElement('hgroup');
+document.createElement('main');
+document.createElement('video');
+</script>
+<![endif]-->
+
+
+<%= raw @page.top_of_head_code if @page && !@page.top_of_head_code.blank? %>
+
+  <link rel="shortcut icon" href="<%= asset_path ("/favicon.ico") %>" sizes="16x16 24x24 32x32 48x48 64x64">
+  <!-- apple touch icons -->
+  <link rel="icon" href="<%= asset_path ("icons/android-icon-36x36.png") %>" sizes="36x36">
+  <link rel="apple-touch-icon" href="<%= asset_path ("icons/apple-icon-57x57.png") %>" sizes="57x57">
+  <link rel="apple-touch-icon" href="<%= asset_path ("icons/apple-icon-72x72.png") %>" sizes="72x72">
+  <link rel="apple-touch-icon" href="<%= asset_path ("icons/apple-icon-76x76.png") %>" sizes="76x76">
+  <link rel="apple-touch-icon" href="<%= asset_path ("icons/apple-icon-114x114.png") %>" sizes="114x114">
+  <link rel="apple-touch-icon" href="<%= asset_path ("icons/apple-icon-120x120.png") %>" sizes="120x120">
+  <link rel="apple-touch-icon" href="<%= asset_path ("icons/apple-icon-144x144.png") %>" sizes="144x144">
+  <link rel="apple-touch-icon" href="<%= asset_path ("icons/apple-icon-152x152.png") %>" sizes="152x152">
+  <link rel="apple-touch-icon" href="<%= asset_path ("icons/apple-icon-180x180.png") %>" sizes="180x180">
+
+  <meta name="msapplication-TileImage" content="<%= asset_path ("icons/ms-icon-144x144.png") %>">
+  <meta name="msapplication-TileColor" content="#ffffff">
+
+
+<%= render '/refinery/google_analytics' %>
+
+<% if content_for?(:twittercard) %>
+  <%= yield (:twittercard) %>
+<% else %>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@TERA">
+    <meta name="twitter:title" content="TERA">
+    <meta name="twitter:description" content="TERA is the first true action MMORPG, providing all of the depth of an MMO with the intensity and gratification of an action game. Players fully control their characters using the game's dynamic battle system">
+    <meta name="twitter:image" content="https://eme04.enmasse-game.com/images/tera/share/tera.jpg">
+<% end %>
+
+<% if content_for?(:facebookcard) %>
+  <%= yield (:facebookcard) %>
+<% else %>
+  <meta property="og:title" content="TERA" />
+  <meta property="og:site_name" content="TERA"/>
+  <meta property="og:url" content="https://tera.enmasse.com" />
+  <meta property="og:description" content="TERA is the first true action MMORPG, providing all of the depth of an MMO with the intensity and gratification of an action game. Players fully control their characters using the game's dynamic battle system" />
+  <meta property="og:image" content="https://eme04.enmasse-game.com/images/tera/share/tera.jpg" />
+<% end %>
+
+<script type="text/javascript" src="//script.crazyegg.com/pages/scripts/0071/4670.js" async="async"></script>

@@ -1,0 +1,36 @@
+<% content_for :title, "#{t('.blog_archive_for', :date => @date_title)}" %>
+
+<div id="archive_listings">
+	<%# content_for :body do %>
+	  <h1><%= t('.blog_archive_for', :date => @date_title) %></h1>
+	  <% if @posts.any? %>
+	    <section id="blog_posts">
+	      <%= render :partial => "/refinery/blog/shared/post", :collection => @posts %>
+	      <%= will_paginate @posts %>
+	    </section>
+	  <% else %>
+	    <p><%= t('.no_blog_articles_posted', :date => @date_title) %></p>
+	  <% end %>
+	<%# end %>
+
+	<%#= render '/refinery/blog/shared/body_content_right' %>
+	<%#= render "/refinery/content_page" %>
+	<% content_for :stylesheets, stylesheet_link_tag('refinery/blog/frontend') %>
+
+	<%= link_to raw('Return to News Home'),
+                    refinery.blog_root_path(),
+                    :class => 'blog_home' %>
+
+</div><!-- end archive lsiting -->
+
+<section id="content_side_body" class="blog_archive_widget archive">
+      
+      <h3><img src="/assets/icons/archives-label.png" alt="The Archives" /></h3>
+      <%= blog_archive_widget %>
+
+      <%= raw content_for :side_body %>
+
+      <a href="/store/elite-status" class="eliteStatus_sidebar"><img src="https://eme04.enmasse-game.com/images/tera/elite/Front_page_Gumball.png" alt="Sign up for Elite Status" /></a>
+      <a href="https://discordapp.com/invite/EME" class="discordBTN"><img src="/assets/icons/discordBTN.png" alt="Join Us on Discord" /></a>
+
+    </section>

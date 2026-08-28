@@ -1,0 +1,67 @@
+<section id="content_article_header" class="internal">
+	<%= raw @page.content_for(:article_header) || yield(:article_header) %>
+</section>
+<div id="main-wrapper">
+	<section id="content_side_body" class="internal">
+		<%= raw @page.content_for(:side_body) || yield(:side_body) %>
+	</section>
+	<section id="content_body" class="internal">
+		<%= raw @page.content_for(:body) || yield(:body) %>
+	</section>
+	<section id="content_wide_body" class="internal">
+		<%= raw @page.content_for(:wide_body) || yield(:wide_body) %>
+	</section>
+	<section id="content_article_footer" class="internal">
+		<%= raw @page.content_for(:article_footer) || yield(:article_footer) %>
+	</section>
+	<% if is_shopping? %>
+		<div id="specialscripts_wrapper"></div>
+	<% end %>
+</div>
+
+<% content_for :bodyscripts do %>
+	<% if is_shopping? %>
+		<script type='text/javascript'>
+		var ebSession = '[SessionID]';
+		var ebRand = Math.random()+'';
+		ebRand = ebRand * 1000000;
+		//<![CDATA[ 
+		document.write('<scr'+'ipt src="HTTPS://bs.serving-sys.com/Serving/ActivityServer.bs?cn=as&amp;ActivityID=1101310&amp;rnd=' + ebRand + '&amp;Session='+ebSession+'"></scr' + 'ipt>');
+		//]]>
+		</script>
+		<noscript>
+		<img width="1" height="1" style="border:0" src="HTTPS://bs.serving-sys.com/Serving/ActivityServer.bs?cn=as&amp;ActivityID=1101310&amp;Session=[SessionID]&amp;ns=1"/>
+		</noscript>
+	<% end %>
+
+	<% if is_receipt? %>
+		<script type='text/javascript'>
+			var ebSession = '[SessionID]';
+			var ebRand = Math.random()+'';
+			ebRand = ebRand * 1000000;
+			//<![CDATA[ 
+			document.write('<scr'+'ipt src="HTTPS://bs.serving-sys.com/Serving/ActivityServer.bs?cn=as&amp;ActivityID=1101312&amp;rnd=' + ebRand + '&amp;Session='+ebSession+'"></scr' + 'ipt>');
+			//]]>
+		</script>
+		<noscript>
+			<img width="1" height="1" style="border:0" src="HTTPS://bs.serving-sys.com/Serving/ActivityServer.bs?cn=as&amp;ActivityID=1101312&amp;Session=[SessionID]&amp;ns=1"/>
+		</noscript>
+
+		<!-- Google Code for Closers Conversion Pixel Conversion Page -->
+		<script type="text/javascript">
+			/* <![CDATA[ */
+			var google_conversion_id = 829670979;
+			var google_conversion_label = "oLNQCJPx4HcQw4zPiwM";
+			var google_remarketing_only = false;
+			/* ]]> */
+		</script>
+		<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+		<noscript>
+			<div style="display:inline;">
+				<img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/829670979/?label=oLNQCJPx4HcQw4zPiwM&amp;guid=ON&amp;script=0"/>
+			</div>
+		</noscript>
+
+
+	<% end %>
+<% end %>

@@ -1,0 +1,25 @@
+<article class="blog_post <% if post_featured.categories.any? %><% post_featured.categories.each do |cat| %><%= cat.title.downcase %> <% end %><% end %>" id="post_<%= post_featured.id %>">
+    <a href="<%= refinery.blog_post_path(post_featured) %>" class="img-tag">
+      <!--<img src="/assets/test-news.png" title="Jailbreak Weekend Bonanza!" alt="Jailbreak Weekend Bonanza!" rel="385x217" height="217" width="385">-->
+      <% if post_featured.teaser_img_field.present? %>
+        <%= image_tag(post_featured.teaser_img_field) %>
+      <% else %>
+        <img src="/assets/test-news.png" title="TERA" alt="TERA" rel="495x278" height="278" width="495" />
+      <% end %>
+    </a>
+    <div class="copy">
+      <header>
+        <h2><a href="<%= refinery.blog_post_path(post_featured) %>"><%= raw ActionView::Base.full_sanitizer.sanitize(post_featured.title) %></a></h2>
+      </header>
+
+        <% if post_featured.categories.any? %>
+        <div class="platform_icons_wrapper">
+          <% post_featured.categories.each do |cat| %>
+            <div class="platform_icon <%= cat.title.downcase %>"><span></span></div>
+          <% end %>
+          </div>
+        <% end %>
+        
+        <a href="<%= refinery.blog_post_path(post_featured) %>" class="readmore-link <% if post_featured.categories.any? %><% post_featured.categories.each do |cat| %><%= cat.title.downcase %> <% end %><% end %>"><!--Read more--><%=t :btn_readmore %></a>
+    </div>
+  </article>

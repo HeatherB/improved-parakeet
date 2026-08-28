@@ -1,0 +1,38 @@
+  <article class="blog_post" id="post_<%= post.id %>">
+    <a href="<%= refinery.blog_post_path(post) %>" class="img-tag">
+      <!--<img src="/assets/test-news.png" title="Jailbreak Weekend Bonanza!" alt="Jailbreak Weekend Bonanza!" rel="385x217" height="217" width="385">-->
+      <% if post.teaser_img_field.present? %>
+        <%#= image_tag(post.teaser_img_field) %>
+        <div style='background-image:url(<%= post.teaser_img_field %>);'></div>
+      <% else %>
+        <!--<img src="/assets/test-news.png" title="TERA" alt="TERA" rel="385x217" height="217" width="385" />-->
+      <% end %>
+    </a>
+    <div class="copy">
+      <header>
+        <h2 class="<% if post.categories.any? %><% post.categories.each do |cat| %><%= cat.title.downcase %> <%= cat.id %> <% end %><% end %>"><a href="<%= refinery.blog_post_path(post) %>"><%= raw ActionView::Base.full_sanitizer.sanitize(post.title) %></a></h2>
+        <span class="details">
+          <time datetime="Feb 02, 2018" class="posted_at">Posted on <%=l post.published_at.to_date, :format => "%b %d, %Y" %></time> by <%= post.author %>
+        </span>
+      </header>
+      <div class="content">
+        <% if blog_post_teaser(post).present? %>
+          <%= raw ActionView::Base.full_sanitizer.sanitize(blog_post_teaser(post)).truncate(130) %>
+          <%#= post.teaser.html_safe.truncate(130) %>
+        <% else %>
+          <%= raw ActionView::Base.full_sanitizer.sanitize(post.body).truncate(130) %>
+          <%#= post.body.html_safe.truncate(130) %>
+        <% end %>
+      </div>
+
+       <% if post.categories.any? %>
+        <div class="platform_icons_wrapper">
+          <% post.categories.each do |cat| %>
+            <div class="platform_icon <%= cat.title.downcase %>"><span></span></div>
+          <% end %>
+          </div>
+        <% end %>
+        
+      <a href="<%= refinery.blog_post_path(post) %>" class="readmore-link <% if post.categories.any? %><% post.categories.each do |cat| %><%= cat.title.downcase %> <% end %><% end %>"><!--Read more--><%=t :btn_readmore %></a>
+    </div>
+  </article>

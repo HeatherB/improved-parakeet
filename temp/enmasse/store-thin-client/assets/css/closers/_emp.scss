@@ -1,0 +1,118 @@
+div.currencies {
+    margin: 10px;
+    .content-block {
+        margin-bottom: 15px;
+        .emp-header {
+            background: image-url('emp-header.png') no-repeat top center;
+            float: left;
+            width: 400px;
+            height: 150px;
+        }
+        .content { margin-left: 400px; }
+        ul { margin-bottom: 0; }
+    }
+    header a { color: #DDDDDD; }
+    img {
+        float: left;
+        margin-right: 15px;
+    }
+    a {
+        color: $linkColor;
+        &:hover { 
+            color: $linkHover;
+            text-decoration: underline;
+        }
+    }
+    section {
+        overflow:hidden;
+
+        input[type=radio] { display: none; }
+        ul {
+            text-align:center;
+            margin: 0 auto;
+        }
+        li { display: inline-block; }
+        li > label {
+            position: relative;
+            border: 2px solid $lightGray;
+            background: $midGray;
+            width: 200px;
+            height: 120px;
+            float: left;
+            margin: 5px;
+            padding: 5px;
+            text-align: right;
+
+            &:hover {
+                background: $lightGray;
+                border: 2px solid $midGray;
+            }
+        }
+
+        p { margin: -10px 0 0; }
+        .emp-count {
+            color: $white;
+            font-size: 48px;
+        }
+        .emp-price {
+            color: $linkColor;
+            font-size: 32px;
+        }
+        .bonus {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 90;
+            text-align: center;
+            padding: 3px 25px;
+            width:130px;
+            height:40px;
+
+            .ribbon-wrapper {
+                width: 92px;
+                height: 92px;
+                overflow: hidden;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+            }
+
+            .ribbon {
+                @include background-image(linear-gradient(left top, $lightRed, $midRed));
+                @include box-shadow(rgba($black, 0.3) 0px 0px 3px);
+                font: bold 15px Sans-Serif;
+                color: $white;
+                text-align: center;
+                -webkit-transform: rotate(45deg);
+                -moz-transform:    rotate(45deg);
+                -ms-transform:     rotate(45deg);
+                -o-transform:      rotate(45deg);
+                position: relative;
+                padding: 7px 0;
+                left: -30px;
+                top: 41px;
+                width: 130px;
+            }
+        }
+        li:first-child .bonus .ribbon {
+            @include background-image(linear-gradient($lightGray, $midGray));
+        }
+        li input:checked + label {
+            border: 2px solid $linkColor;
+            background: $darkBlue;
+        }
+    }
+}
+
+.register p {
+    text-align: center;
+}
+/* small screen */
+@media only screen and (max-width: 768px) {
+  div.currencies {
+    .content-block {
+        .emp-header { width: 100%; }
+        .content { margin-left: 10px; }
+    }
+  }
+}

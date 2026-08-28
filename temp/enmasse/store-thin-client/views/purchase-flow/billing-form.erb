@@ -1,0 +1,57 @@
+<div id="billing-info">
+  <div class="sleeve">
+    <a name="billingInfo"></a>
+    <h2>Enter Billing Info</h2>
+    <input type="hidden" name="game_account_id" id="game_account_id" value="<%= @billing.game_account_id || 0 %>">
+    <div style="display: none;">
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" value="DummyName" tabindex="1">
+      <span class="error">Invalid Name</span>
+    </div>
+    <div style="display: none;">
+      <label for="address">Address</label>
+      <input type="text" name="address" id="address" value="DummyAddress" autocorrect="off" tabindex="2">
+      <span class="error">Invalid Address</span>
+    </div>
+    <!--<script type="text/javascript"> 
+      var empFlow = false; 
+    </script>-->
+    <div class="form-country">
+      <label for="country">Country</label>
+      <div class="styled-select">
+        <select name="country" id="country" id="country" autocomplete="false" tabindex="5">
+          <option value="">Select One</option>
+          <option value="USA">United States</option>
+          <option value="CAN">Canada</option>
+          <option value="AUS">Australia</option>
+          <option value="BRA">Brazil</option>
+          <option value="">----------</option>
+          <% BillingData::COUNTRIES.each do |country| %>
+            <option value='<%= country[0] %>'<%= ' selected="selected"' if @billing.country == country[0] %>><%= country[1] %></option>
+          <% end %>
+        </select>
+      </div>
+    </div>
+    <input type="hidden" id="state" name="state" value="">
+    <div id="form-zipcode" class="form-zipcode" style="display: none;">
+      <label for="zip">Zip/Postal Code</label>
+      <input type="text" name="zip" id="zip" value="<%= @billing.zip %>" pattern="\d*" tabindex="3" placeholder="ex: 98101">
+      <span class="error">Invalid Postal Code</span>
+      <small id="zip-error">Unable to locate zip code</small>
+    </div>
+    <div class="form-city" style="display: none;">
+      <label for="city">City</label>
+      <input type="text" name="city" id="city" value="" tabindex="4">
+      <span class="error">Invalid City</span>
+    </div>
+
+    <div style="display: none;">
+      <label for="phone">Phone</label>
+      <input type="text" name="phone" id="phone" value="555-555-5555" tabindex="7">
+      <span class="error">Invalid Phone</span>
+    </div>
+    <% if @billing.subscription? %>
+      <input type="hidden" name="auth_flag" value="<%= @billing.auth_flag? ? 1 : 0 %>">
+    <% end %>
+  </div>
+</div>

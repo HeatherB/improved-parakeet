@@ -1,0 +1,11 @@
+fat_foo_goo:
+  url: "https://client2.uat.pok.fatfoogoo.com"
+  ssl: true
+  name: "FatFooGoo"
+  api_user: "client2.com"
+  api_password: "twTA31b9389a60ef4801b120903d6724"
+  use_memcache: true
+  memcache_hosts:
+    - "localhost:11211"
+  cache_prefix: "ffg-dev"
+  type: json

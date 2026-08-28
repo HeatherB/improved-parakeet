@@ -1,0 +1,21 @@
+<div class="tile">
+    <a href="<%= refinery.blog_post_path(postft) %>" >
+        <% if postft.teaser_img_field.present? %>
+            <%= image_tag(postft.teaser_img_field) %>
+        <% else %>
+            <img src="/assets/bgs/placeholder-news.jpg" alt="Closers" />
+        <% end %>
+
+
+      <div class="header">
+        <h2><%= postft.title.truncate(33) %></h2>
+        <span>
+            <% if blog_post_teaser(postft).present? %>
+                <%= raw ActionView::Base.full_sanitizer.sanitize(blog_post_teaser(postft)).truncate(130) %>
+            <% else %>
+                <%= raw ActionView::Base.full_sanitizer.sanitize(postft.body).truncate(130) %>
+            <% end %>
+        </span>
+      </div>
+    </a>
+</div>

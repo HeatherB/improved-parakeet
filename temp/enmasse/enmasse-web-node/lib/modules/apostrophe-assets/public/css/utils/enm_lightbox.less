@@ -1,0 +1,794 @@
+/* special for Internet Explorer */
+.ie9 {
+  button {
+    background: none;
+    filter: none;
+    -ms-filter: none;
+    border: none;
+  }
+}
+.eme-lightbox {
+  img {
+    cursor: pointer;
+  }
+}
+
+/* overwrite of gallery parts */
+#emelightbox-wrapper  {
+  .buttons {
+    position: absolute;
+    top:50%;
+    width:104%;
+    margin-left: -3%;
+    z-index:350;
+    //display:none;
+    button {
+      background: url(https://eme04.enmasse-game.com/images/enm/lightbox-sprite.png) 0 0 no-repeat;
+      width:70px;
+      height:70px;
+      text-indent: -9999em;
+      border:none;
+      outline: none;
+      cursor: pointer;
+    }
+    .prev {
+      float:left;
+      background-position: 0px -70px;
+      &:hover {
+        background-position: 0px -143px;
+      }
+    }
+    .next {
+      float:right;
+      background-position: 1px 3px;
+      &:hover {
+        background-position: 1px -217px;
+      }
+    }
+  }
+  .pagers {
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align:center;
+    bottom: -9px;
+    width:auto;
+    z-index:360;
+    .carouselpager {
+      display:inline-block;
+      position: relative;
+      //background:#000000;
+      //border-radius: 5px;
+      //height:10px;
+      //width:10px;
+      background: url(https://eme04.enmasse-game.com/images/enm/lightbox-sprite.png) -74px -3px no-repeat;
+      width:30px;
+      height:30px;
+      padding: 0;
+      margin:0;
+      border:none;
+      outline: none;
+      cursor: pointer;
+      &.active, &:hover {
+        //background:#fefefe;
+        background-position: -103px -3px;
+      }
+    }
+  }
+  .eme_slide {
+    width:0;
+    height:0;
+    left:-9999em;
+    z-index:330;
+    text-align:center;
+    list-style-type: none;
+    p, h1, h2, h3, h4, h5, h6, ul, li, span, div {
+      text-align:left;
+      display: none;
+    }
+    &.active {
+      left:0;
+      width:100%;
+      height:100%;
+      cursor: pointer;
+      p, h1, h2, h3, h4, h5, h6, ul, li, span, div {
+        display: block;
+      }
+    }
+  }
+}
+
+
+// transition effects
+/*.fade {
+  .eme_slide {
+    opacity: 0;
+    transition: opacity .5s ease-in-out;
+    -moz-transition: opacity .5s ease-in-out;
+    -webkit-transition: opacity .5s ease-in-out;
+    &.active {
+      opacity: 1;
+      left:0;
+      top:0;
+      height:100%;
+    }
+  }
+}*/
+
+
+.lb-thumbs {
+  width:285px;
+  height:233px;
+}
+/* the content inside the acutal lightbox */
+#emelightbox-wrapper {
+  /*position: fixed;
+  z-index: 99;
+  top:50px;
+  bottom:0;
+  right:0;
+  left:0;
+  margin:0 auto;
+  box-shadow: 0px 0px 0px 2px #ca0b1a;
+  border: 1px solid  #ca0b1a;
+  background-color:#dedede;*/
+  display: none;
+  position: absolute;
+  left:0;
+  right:0;
+  top: 50px;
+  width:100%;
+  z-index:3000;
+  #emelightbox {
+    position: relative;
+    margin:0 auto;
+    padding: 0px;
+  //  box-shadow: 0px 0px 0px 1px #000000;
+  //  border: 1px solid  #294d75;
+    //background-color:#dedede;
+   // background: -webkit-linear-gradient(top, #0a2e56 0%, #061c32 100%);
+   // background: linear-gradient(to bottom, #0a2e56 0%, #061c32 100%);
+    width:90vw;
+  }
+  #emelightbox-content {
+    //padding-bottom: 20px;
+    .label {
+      font-weight: bold;
+      font-size: larger;
+      padding: 10px;
+    }
+    li.active {
+      .extra-copy {
+        display: block;
+        padding: 0 10px 10px 10px;
+      }
+    }
+    iframe {
+      width:100%;
+    }
+    img {
+      width:100%;
+      height:auto;
+    }
+    .wrap {
+      display: none;
+      &.selected {
+        display: block;
+        z-index:20;
+        box-shadow: 0 0 20px 10px #000000;
+      }
+      .action {
+        display: none;
+      }
+    }
+    .media_pagers {
+      max-width:300px;
+      width:100%;
+      margin:10px auto;
+      display: -webkit-box;           /* OLD - iOS 6-, Safari 3.1-6 */
+      display: -moz-box;              /* OLD - Firefox 19- (doesn't work very well) */
+      display: -ms-flexbox;           /* TWEENER - IE 10 */
+      display: -webkit-flex;          /* NEW - Chrome */
+      display: flex;                  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      span {
+        border-radius: 50%;
+        width:10px;
+        height:10px;
+        background: transparent;
+        background: #ffffff;
+        border:1px solid #ffffff;
+        box-shadow: 0px 0px 5px #ffffff;
+        text-indent: -9999em;
+        cursor: pointer;
+        &.active {
+          background: #ffffff;
+        }
+      }
+    }
+    .media-btns {
+      position: absolute;
+      top:0;
+      left: -50px;
+      z-index: 0;
+      display: block;
+
+      height:100%;
+      width:calc(100% + 100px);
+      margin:0 auto;
+      button {
+        display: inline-block;
+        background:transparent;
+        outline:none;
+        border:none;
+
+        background: #0a2b4f;
+        color: #ffffff;
+        border: 2px solid #294d75;
+        box-shadow: 0 0 1px #000000;
+        position: relative;
+        cursor: pointer;
+
+        top: 97%;
+        left: 33px;
+        height: 50px;
+        width: 50px;
+        &:hover {
+          background:#294d75;
+        }
+        span {
+          background: none;
+          color: #ffffff;
+          font-family: 'Titillium Web',sans-serif;
+          font-weight: 700;
+          z-index: 20;
+          padding: 0px 0px 0px 10px;
+          outline: none;
+          cursor: pointer;
+          border-top: 15px solid transparent;
+          border-right: 15px solid #ffffff;
+          border-bottom: 15px solid transparent;
+
+          position: absolute;
+          right: 39%;
+          top: 16%;
+        }
+        &.media-next {
+          left: calc(100% - 136px);
+          span {
+            right:auto;
+            left: 36%;
+            border-right: none;
+            border-left: 15px solid #ffffff;
+          }
+        }
+      }
+    }
+  } // end emelightbox-content
+  .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten, .eleven, .twelve,
+  .row .one, .row .two, .row .three, .row .four, .row .five, .row .six, .row .seven, .row .eight, .row .nine, .row .ten, .row .eleven, .row .twelve {
+    width:100%;
+  }
+  .column, .columns, .row, .rows {
+    float:none;
+  }
+  .eme_slide {
+    img, iframe {
+      width:100%;
+      max-width:100%;
+      vertical-align: middle;
+    }
+  }
+  .lb-thumbs {
+    height:auto;
+  }
+  /* specific versions */
+  &.lb_dc_release {
+    #emelightbox-content {
+      /* media widget */
+      .media_pagers {
+        span {
+          background: #ffffff;
+          border: 1px solid #8400ff;
+          box-shadow: 0 0 5px #8400ff;
+          &.active {
+            background:#8400ff;
+          }
+        }
+      }
+      .media-btns {
+        button {
+          //background: url(https://eme03.enmasse-game.com/images/dark_crystal/micro_site/lightbx_dc_sprite.png);
+          background:url(https://eme04.enmasse-game.com/images/dark_crystal_tactics/dctactics_sprite.png);
+          width:51px;
+          height:98px;
+          background-position: -440px -5680px;
+          border: none;
+          box-shadow: none;
+          left: -5px;
+          &.media-next {
+            background-position: -440px -5573px;
+            left: calc(100% - 100px);
+          }
+          span {
+            display: none;
+          }
+        }
+      }
+      /* prepurchase */
+      .lb_init {
+        display: none;
+      }
+      .pre-purchase {
+        display: block;
+        background: url(https://eme04.enmasse-game.com/images/dark_crystal_tactics/prepurchase/lb_bg.png) top center repeat #1c0824;
+        text-align:center;
+        border: 1px solid #5a2c6d;
+        padding: 0 1rem 1rem;
+        .inner {
+          //padding-top:30px;
+         /* &:before, &:after {
+            content: '';
+            display: block;
+            background-image: url(https://eme04.enmasse-game.com/images/dark_crystal_tactics/dct_sprite.png);
+            background-repeat: no-repeat;
+            position: absolute;
+            top:20px;
+            padding-top:50%;
+            width:50%;
+          }
+          &:before {
+            background-position: 10px -2082px;
+            left:0;
+          }
+          &:after {
+            background-position: 156px -4554px;
+            right:0;
+          }*/
+        }
+        h2 {
+          color: #ffffff;
+          text-align:center;
+          text-transform: uppercase;
+          font-family: 'PT Serif', serif;
+          font-weight:700;
+          font-style: italic;
+          font-size:28px;
+          margin-bottom:20px;
+          margin-top:30px;
+        }
+        h4 {
+          color: #ffffff;
+          text-align:center;
+          text-transform: none;
+          font-family: 'Titillium Web',sans-serif;
+          font-weight: 700;
+          font-size:18px;
+          margin-bottom:40px;
+        }
+        ul {
+          display: -webkit-box;           /* OLD - iOS 6-, Safari 3.1-6 */
+          display: -moz-box;              /* OLD - Firefox 19- (doesn't work very well) */
+          display: -ms-flexbox;           /* TWEENER - IE 10 */
+          display: -webkit-flex;          /* NEW - Chrome */
+          display: flex;                  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: space-around;
+          max-width:870px;
+          margin:0 auto;
+          position: relative;
+          z-index:100;
+        }
+        li {
+          //width:72px;
+          margin: 5px;
+          a {
+            color: #ffffff;
+            font-family: 'Titillium Web',sans-serif;
+            font-weight: 400;
+            font-size:16px;
+            display: block;
+            width:117px;
+            height:181px;
+            padding-top: 40px;
+            background: url(https://eme04.enmasse-game.com/images/dark_crystal_tactics/prepurchase/sprite_prepurchase.png) 0 -1050px no-repeat;
+            span {
+              display: block;
+              height: 25px;
+              width:100%;
+              margin:6px auto 0;
+              text-align:center;
+              max-width:100px;
+              width:100%;
+            }
+            &:before {
+              content:'';
+              display: block;
+              background-image: url(https://eme04.enmasse-game.com/images/dark_crystal_tactics/prepurchase/sprite_prepurchase.png);
+              background-repeat: no-repeat;
+              margin: 0 auto;
+            }
+          }
+          &.switch {
+            a {
+              &:before {
+                background-position: 0 -1377px;
+                width:72px;
+                height:72px;
+              }
+            }
+          }
+          &.ps4 {
+            a {
+              &:before {
+                background-position: 0 -1231px;
+                width:90px;
+                height:72px;
+              }
+            }
+          }
+          &.xbox {
+            a {
+              &:before {
+                background-position: 0 -1449px;
+                width:76px;
+                height:76px;
+              }
+            }
+          }
+          &.steam {
+            a {
+              &:before {
+                background-position: 0 -1303px;
+                width:76px;
+                height:74px;
+              }
+            }
+          }
+          &.enmasse {
+            a {
+              &:before {
+                background-position: 0 -901px;
+                width:79px;
+                height:79px;
+              }
+            }
+          }
+          &.gog {
+            a {
+              &:before {
+                background-position: 0 -980px;
+                width:72px;
+                height:70px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .emelightbox-close {
+      background: #000000;
+      width:45px;
+      height:45px;
+      border-radius: 50%;
+      border: none;
+      box-shadow: 0px 0px 6px #dbb346;
+      span {
+        background:url(https://eme04.enmasse-game.com/images/dark_crystal_tactics/dctactics_sprite.png);
+        width:51px;
+        height:51px;
+        background-position: -446px -5516px;
+        border: none;
+        box-shadow: none;
+        text-indent: -9999em;
+        display: block;
+      }
+    }
+  }
+}
+/*#bg_sheer {
+  background: rgb(0,0,0);
+  background: rgba(0,0,0,0.6);
+  width:100%;
+  height:100%;
+  display: none;
+  position: fixed;
+  z-index:98;
+  top:0;
+  bottom:0;
+  right:0;
+  left:0;
+  margin:0 auto;
+}*/
+.emelightbox-open {
+  #emelightbox-wrapper, #blackout {
+    display: block;
+  }
+}
+.emelightbox-close {
+  position: absolute;
+  top: -26px;
+  border: 0;
+  text-align:center;
+  z-index: 370;
+  //background: url(https://eme04.enmasse-game.com/images/enm/lightbox-sprite.png) no-repeat -140px -3px;
+  background: #0a2b4f;
+  color:#ffffff;
+  border: 2px solid #294d75;
+  box-shadow: 0px 0px 1px #000000;
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  right: -17px;
+  padding-top: 4px;
+  font-size: 21px;
+  &:hover {
+    background:#294d75;
+  }
+}
+
+/* the content that pops the lightbox */
+.emelightbox-pop {
+  .emeGallery_wrapper {
+    .buttons, .pagers {
+      display: none !important;
+    }
+    .extra-copy {
+      display: none;
+    }
+  }
+}
+
+@media all and (min-width: 768px) {
+  .emelightbox-close {
+    width: 54px;
+    height: 54px;
+    right: -26px;
+    padding-top:8px;
+    font-size:36px;
+  }
+  #emelightbox-wrapper {
+    #emelightbox-content {
+      .media-btns {
+        button {
+          height: 100px;
+          width: 70px;
+          left: 10px;
+          top: 40%;
+          span {
+            right: 35%;
+            top: 20%;
+            border-top: 30px solid transparent;
+            border-right: 30px solid #ffffff;
+            border-bottom: 30px solid transparent;
+          }
+          &.media-next {
+            left: calc(100% - 160px);
+            span {
+              border-left: 30px solid #ffffff;
+            }
+          }
+        }
+      }
+    }
+  }
+  /* specific versions */
+  #emelightbox-wrapper.lb_dc_release {
+    #emelightbox-content {
+      .media-btns {
+        margin-top:3.5%;
+        position: absolute;
+        top: 0;
+        z-index:-1;
+        width:calc(100% + 100px);
+        height:63%;
+        display: block;
+        button {
+          height:100%;
+          width:49.5%;
+          display: inline-block;
+          background:transparent;
+          outline:none;
+          border:none;
+
+          background: transparent;
+          span {
+            background: url(https://eme03.enmasse-game.com/images/dark_crystal/micro_site/lightbx_dc_sprite.png);
+            width:51px;
+            height:98px;
+            background-position: 0 -178px;
+            border: none;
+            box-shadow: none;
+            display: block;
+            margin-left:0;
+            right: auto;
+            top:0;
+            //top: 41%;
+          }
+          &.media-next {
+            left: 0;
+            span {
+              background-position: 5px -70px;
+              //margin-left:calc(97% - 45px);
+              left: auto;
+              margin-left: 0;
+              right:0;
+            }
+          }
+        }
+      }
+    }
+    #emelightbox-content {
+      /* prepurchase */
+      .pre-purchase {
+        padding: 0 2rem 2rem;
+        .inner {
+          &:before, &:after {
+            content: '';
+            display: block;
+            background-image: url(https://eme04.enmasse-game.com/images/dark_crystal_tactics/prepurchase/sprite_prepurchase.png);
+            background-repeat: no-repeat;
+            position: absolute;
+            z-index:5;
+            //top:20px;
+            //padding-top:50%;
+            width:50%;
+
+            padding-top:55%;
+            //background-size:150%;
+            top: 10px;
+          }
+          &:before {
+            //background-position: 10px -2082px;
+            //background-position: 0 38.5%;
+            background-position: 0 0;
+            left:0;
+          }
+          &:after {
+            //background-position: 156px -4554px;
+            //background-position: 27px 83.95%;
+            background-position: 100% -450px;
+            right:0;
+          }
+        }
+        h2 {
+          font-size:38px;
+          margin-bottom:20px;
+          position: relative;
+          z-index: 10;
+        }
+        h4 {
+          font-size:28px;
+          margin-bottom:40px;
+        }
+        ul {
+          max-width: 630px;
+        }
+      }
+    }
+  }
+}
+@media all and (min-width: 910px) {
+  #emelightbox-wrapper.lb_dc_release {
+    #emelightbox-content {
+      .pre-purchase {
+        .inner {
+          &:before, &:after {
+             padding-top:45%;
+          }
+        }
+      }
+    }
+  }
+}
+@media all and (min-width: 1024px) {
+  /* specific versions */
+  #emelightbox-wrapper.lb_dc_release {
+    #emelightbox-content {
+      .media-btns {
+        margin-top: 3.25%;
+        height: 63%;
+      }
+      /* prepurchase */
+      .pre-purchase {
+        //padding: 0 1rem 1rem;
+        .inner {
+          &:before, &:after {
+            /*background-size:auto;
+
+            top:20px;
+            padding-top:50%;*/
+            padding-top:40%;
+          }
+          &:before {
+            //background-position: 10px -2082px;
+            //background-position: 0 38.5%;
+            //left:0;
+          }
+          &:after {
+            //background-position: 156px -4554px;
+            //background-position: 27px 83.95%;
+            //right:0;
+          }
+        }
+        h2 {
+          font-size:48px;
+          margin-bottom:20px;
+        }
+        h4 {
+          font-size:38px;
+          margin-bottom:30px;
+        }
+      }
+    }
+  }
+}
+
+@media all and (min-width: 1278px) {
+  #emelightbox-wrapper {
+    #emelightbox {
+      width:60vw;
+    }
+    &.lb_dc_release {
+      #emelightbox {
+        width:1200px;
+      }
+      #emelightbox-content {
+        /* prepurchase */
+        .pre-purchase {
+         padding: 0 1rem 1rem;
+         height:576px;
+          .inner {
+            &:before, &:after {
+              padding-top:32%;
+            }
+            /*&:before, &:after {
+              background-size:auto;
+
+              top:20px;
+              padding-top:50%;
+            }
+            &:before {
+              background-position: 10px -2082px;
+              //background-position: 0 38%;
+              //left:0;
+            }
+            &:after {
+              background-position: 156px -4554px;
+              //background-position: 173px 83.12%;
+              //right:0;
+            }*/
+          }
+          h2 {
+            font-size:60px;
+            margin-bottom:40px;
+          }
+          h4 {
+            font-size:45px;
+            margin-bottom:60px;
+          }
+          ul {
+            max-width:870px;
+          }
+        }
+      }
+    }
+  }
+}
+@media all and (min-width: 1380px) {
+  #emelightbox-wrapper #emelightbox-content .media-btns {
+    height:607px;
+  }
+  /* specific versions */
+  #emelightbox-wrapper.lb_dc_release {
+    #emelightbox-content {
+      .media-btns {
+        margin-top:2.25%;
+        height: 68%;
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+<% if @billing && @user %>
+  <input type="hidden" name="userno"      id="userno"      value="<%= @user['id'] %>"/>
+  <input type="hidden" name="userid"      id="userid"      value="<%= @user['email'] %>"/>
+  <input type="hidden" name="gamecode"    id="gamecode"    value="<%= @billing.gamecode %>"/>
+  <input type="hidden" name="pgcode"      id="pgcode"      value="<%= @billing.display_payment_method %>"/>
+  <input type="hidden" name="gameuserno"  id="gameuserno"  value="<%= @billing.display_game_account_id %>"/>
+  <input type="hidden" name="hash"        id="hash"        value='<%= @key %>'/>
+  <input type="hidden" name="tokenflag"   id="tokenflag"   value="<%= @billing.token? ? 'Y' : 'N' %>"/>
+  <input type="hidden" name="country"     id="country"     value="<%= @billing.country %>"/>
+
+  <% if @billing.country == 'USA' || @billing.country == 'CAN' %>
+  <input type="hidden" name="zipcode"     id="zipcode"     value="<%= @billing.zip %>"/>
+  <input type="hidden" name="city"        id="city"        value="<%= @billing.city %>"/>
+  <input type="hidden" name="state"       id="state"       value="<%= @billing.state %>"/>
+  <% end %>
+
+  <input type="hidden" name="email"       id="email"       value="<%= @user['email'] %>"/>
+  <input type="hidden" name="location"    id="location"    value="<%= @billing.gamecode %>-Web"/>
+  <input type="hidden" name="quantity"    id="quantity"    value="1"/>
+
+  <% if @billing.xsolla_direct? %>
+    <!-- XSOLLA Direct !-->
+    <input type="hidden" name="currencyid" id="currencyid" value="<%= @billing.amount_id %>"/>
+    <input type="hidden" name="itemid" id="itemid" value="<%= @billing.item_id %>"/>
+  <% elsif @billing.amount_id && @billing.amount_id != 0 %>
+    <!-- EMP OR SUBSCRIPTION !-->
+    <input type="hidden" name="currencyid" id="currencyid" value="<%= @billing.amount_id %>"/>
+  <% else %>
+    <!-- ITEM ONLY !-->
+    <input type="hidden" name="itemid" id="itemid" value="<%= @billing.rmt_item_id %>"/>
+    <input type="hidden" name="ingameid" id="ingameid" value="<%= @billing.item_id %>"/>
+    <input type="hidden" name="currencyid" id="currencyid" value="0"/>
+  <% end %>
+  <% if @billing.subscription? && !@billing.auth_flag? %>
+    <input type="hidden" name="itemid" id="itemid" value="<%= @billing.subscription_item_id %>"/>
+  <% end %>
+  <% if @billing.subscription? %>
+    <input type="hidden" name="authflag" id="authflag" value="<%= @billing.auth_flag? ? 'Y' : 'N' %>"/>
+  <% end %>
+  <% if @xsolla %>
+    <input type="hidden" name="lastactivedate" id="lastactivedate" value="<%= @xsolla.lastactivedate %>"/>
+    <input type="hidden" name="userlevel" id="userlevel" value="<%= @xsolla.userlevel %>"/>
+    <input type="hidden" name="totalhours" id="totalhours" value="<%= @xsolla.totalhours %>"/>
+  <% end %>
+<% end %>

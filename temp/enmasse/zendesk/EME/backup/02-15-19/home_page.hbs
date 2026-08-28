@@ -1,0 +1,87 @@
+<section class="section hero">
+  <div class="hero-inner">
+    <div class="search_bar_wrapper" id="homeSearch">
+      <h3>{{ dc 'search_for_answers_by_entering_your_keywords_below' }}</h3>
+    {{search submit=false instant=settings.instant_search class='search search-full'}}
+      <button type="button" id="find-this" value="Search" class="yellowBTN">{{ dc 'search' }}</button>
+      <p>{{ dc 'example_k' }}</p>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  
+  <section class="section knowledge-base">
+    <section class="categories blocks">
+      <ul class="blocks-list">
+        {{#each categories}}
+          {{#if ../has_multiple_categories}}
+            <li class="blocks-item {{name}} game-tile">
+              <a href='{{url}}' class="blocks-item-link">
+                <h4 class="blocks-item-title">{{name}}</h4>
+                <p class="blocks-item-description">{{excerpt description}}</p>
+              </a>
+            </li>
+          {{else}}
+            {{#each sections}}
+              <li class="blocks-item {{name}} game-tile {{#if internal}}blocks-item-internal{{/if}}">
+                <a href='{{url}}' class="blocks-item-link">
+                  <h4 class="blocks-item-title">
+                    {{name}}
+                    {{#if internal}}
+                      <span class="icon-lock" title="{{t 'internal'}}"></span>
+                    {{/if}}
+                  </h4>
+                  <p class="blocks-item-description">{{excerpt description}}</p>
+                </a>
+              </li>
+            {{/each}}
+          {{/if}}
+        {{/each}}
+      </ul>
+      {{pagination}}
+    </section>
+  
+
+    {{#if promoted_articles}}
+      <section class="articles">
+        <h3>{{t 'promoted_articles'}}</h3>
+        <ul class="article-list promoted-articles">
+          {{#each promoted_articles}}
+            <li class="promoted-articles-item">
+              <a href="{{url}}">
+                {{title}}
+              </a>
+            </li>
+          {{/each}}
+        </ul>
+        <a class="yellowBTN all_articles" href="https://enmassehelp.zendesk.com/hc/en-us">{{ dc 'view_more'}}</a>
+      </section>
+    {{/if}}
+  </section>
+
+  <section class="action_btns section-tree">
+    <a class="blueBTN" href="/articles">{{ dc 'cant_login' }}</a>
+    <a class="blueBTN" href="https://enmassehelp.zendesk.com/hc/en-us/requests">{{ dc 'my_tickets' }}</a>
+    <a class="blueBTN" href="https://enmassehelp.zendesk.com/hc/en-us/requests/new">{{ dc 'contact_button' }}</a>
+  </section>
+
+<!--
+  {{#if help_center.community_enabled}}
+    <section class="section community">
+      <h2>{{t 'community'}}</h2>
+      {{#link 'community' class='community-link'}}
+        {{t 'join_conversation'}}
+      {{/link}}
+
+      <div class="community-image"></div>
+    </section>
+  {{/if}}
+-->
+
+  <section class="section activity">
+    {{#if settings.show_recent_activity}}
+      {{recent_activity}}
+    {{/if}}
+  </section>
+</div>

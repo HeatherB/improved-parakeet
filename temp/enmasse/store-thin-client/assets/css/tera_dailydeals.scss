@@ -1,0 +1,566 @@
+main.tera_dailydeals {
+  background: #000000;
+  color: #ffffff;
+  font-size: 14px;
+
+  h1, em, span {
+    padding: 0;
+    margin: 0;
+    font-style: normal;
+    font-family: 'Noto Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1em;
+  }
+  
+  #welcome-window-deals {
+    width: 960px;
+    //height: 660px;
+
+    //width: 785px;
+    height: 540px;
+    overflow: hidden;
+    position: relative;
+  }
+  button {
+  	outline: none;
+  	border: none;
+  }
+  #welcome-header {
+  	background: url(http://eme01.enmasse-game.com/images/tera/launcher/welcome_window/head_bar_bg.png) top left repeat-x;
+  	height:41px;
+
+    //height:34px;
+  	text-align:center;
+  	position: relative;
+  }
+  #welcome-header h1 {
+  	font-size:14px;
+  	color:#97bbdb;
+  	padding-top:13px;
+  	text-shadow: 0px 1px 3px rgba(0,0,0,0.8);
+  }
+  #welcome-header .actions {
+  	position: absolute;
+  	top:6px;
+  	right:0px;
+  }
+  .close-welcome {
+  	background: url(http://eme01.enmasse-game.com/images/tera/launcher/welcome_window/welcome_close.png) top center no-repeat;
+  	height:41px;
+  	width:41px;
+  }
+
+  #welcome-main {
+  	background: url(http://eme01.enmasse-game.com/images/tera/launcher/welcome_window/welcome_main_bg.png) center center no-repeat;
+  	height: 577px;
+
+    //height: 467px;
+    height: 508px;
+  	position: relative;
+  }
+  #welcome-main .daily-deals {
+  	//padding-top: 10px;
+    padding-top: 30px;
+  	text-align: center;
+  }
+  #welcome-main .daily-deals .daily-deal {
+  	/*background: url(http://eme01.enmasse-game.com/images/tera/launcher/welcome_window/deal-backer.png) top center no-repeat;
+  	height: 536px;
+  	width: 300px;*/
+
+    background: url(http://eme01.enmasse-game.com/images/tera/launcher/welcome_window/deal-backer-small.png) top center no-repeat;
+    height: 440px;
+    width: 247px;
+  	display: inline-block;
+  	vertical-align: top;
+  	/*margin:0 25px;*/
+  	margin: 0 8px;
+    &.elite-item {
+       background: url(http://eme01.enmasse-game.com/images/tera/launcher/welcome_window/deal-backer-eliteitem-small.png) top center no-repeat;
+       box-shadow: 0px 0px 10px 3px rgba(255,210,0, 0.75);
+       &.elite-user {
+        background: url(http://eme01.enmasse-game.com/images/tera/launcher/welcome_window/deal-backer-eliteuser-small.png) top center no-repeat;
+       }
+    }
+  }
+  #welcome-main .daily-deals .daily-deal .dealTag {
+    display: block;
+    padding: 0;
+    text-align:center;
+    width:97%;
+    margin-left: 2%;
+    margin-top: 2%;
+    margin-bottom: -5px;
+    h4 {
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #0c458c;
+      font-size: 18px;
+      margin:0 auto;
+    }
+    &.cyan {
+      background: #00dfd7;
+    }
+    &.magenta {
+      background: #df4ac1;
+    }
+    &.yellow {
+      background: #dfdc00;
+    }
+    &.white {
+      background: #dfdfdf;
+      h4 {
+        color: #ff6c00;
+      }
+    }
+  }
+  #welcome-main .daily-deals .daily-deal.elite-item .dealTag {
+    margin-left: 1.5%;
+    margin-top: 1.5%;
+  }
+  #welcome-main .daily-deals .daily-deal .deal-title {
+  	color:#ffffff;
+  	font-size:12px;
+    display: table;
+  	
+  	text-shadow:
+  	0px 0px 5px #000000,
+  	0px 0px 5px #000000,
+  	0px 0px 5px #000000;
+  	padding: 0 10px;
+    //height: 55px;
+    height: 52px;
+    width:100%;
+    overflow:hidden;
+  	text-align: center;
+  }
+  #welcome-main .daily-deals .daily-deal .deal-title p {
+    display: table-cell;
+    vertical-align: middle;
+    margin:0 auto;
+  }
+  #welcome-main .daily-deals .daily-deal .deal-img {
+  	border: 1px solid #000000;
+  	padding: 2px;
+  	background-color: #86a7c4;
+  	width:239px;
+  	height:193px;
+
+    width: 197px;
+    height: 160px;
+  	overflow: hidden;
+  	margin: 0 auto 8px;
+  }
+  #welcome-main .daily-deals .daily-deal.elite-item .deal-img {
+    background-color: #f3df00;
+  }
+  #welcome-main .daily-deals .daily-deal .deal-img .deal-img-holder {
+  	background-repeat: no-repeat;
+  	background-position: center bottom;
+    background-size: cover;
+  	width:100%;
+  	height:100%;
+  }
+  #welcome-main .daily-deals .daily-deal .deal-copy {
+  	//width: 239px;
+  	//height: 161px;
+
+    width: 195px;
+    height: 117px;
+  	margin:0 auto;
+  	text-align:left;
+    &.hasTag {
+      height: 91px;
+    }
+  }
+  #welcome-main .daily-deals .daily-deal.elite-item .deal-copy {
+    &.hasTag {
+      height: 91px;
+    }
+  }
+  #welcome-main .daily-deals .daily-deal.elite-item.elite-user .deal-copy {
+    &.hasTag {
+      height: 91px;
+    }
+  }
+  #welcome-main .daily-deals .daily-deal .deal-copy p {
+  	font-size:11px;
+  	line-height:16px;
+  	color:#ffffff;
+  }
+  #welcome-main .daily-deals .daily-deal p.elite-upsell {
+    font-size:12px;
+  }
+  #welcome-main .daily-deals .daily-deal .deal-ft {
+  	padding: 7px 0 0;
+  }
+  #welcome-main .daily-deals .daily-deal .deal-ft .price-block {
+  	display: inline-block;
+  	vertical-align: top;
+  	position: relative;
+  }
+  #welcome-main .daily-deals .daily-deal .deal-ft .price-block.sale {
+  	margin-right: 20px;
+  }
+  #welcome-main .daily-deals .daily-deal .deal-ft .price-title {
+  	font-size: 11px;
+  	color:#eeefef;
+  	display: block;
+  	padding-bottom: 5px;
+  	font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+  }
+  #welcome-main .daily-deals .daily-deal .deal-ft .emp-icon,
+  #welcome-main .daily-deals .daily-deal .deal-ft .price-monies,
+  #welcome-main .daily-deals .daily-deal .deal-ft .price-discount {
+  	display: inline-block;
+  	vertical-align: middle;
+  	font-weight: bold;
+  }
+  #welcome-main .daily-deals .daily-deal .deal-ft .price-monies {
+  	font-size:16px;
+  	color:#eeefef;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+  }
+  #welcome-main .daily-deals .daily-deal .deal-ft .price-discount {
+  	background: url(http://eme01.enmasse-game.com/images/tera/launcher/welcome_window/disco-tag.png) center center no-repeat;
+  	font-size:11px;
+  	color: #ffffff;
+  	width: 63px;
+  	height: 17px;
+  	filter: drop-shadow(0px 1px 3px rgba(0,0,0,0.8));
+  	filter: -webkit-drop-shadow(0px 1px 3px rgba(0,0,0,0.8));
+  	text-shadow: 0px 1px 3px rgba(0,0,0,0.8);
+  	padding-top:4px;
+  }
+  #welcome-main .daily-deals .daily-deal .deal-ft .price-block.slashthru .price-title,
+  #welcome-main .daily-deals .daily-deal .deal-ft .price-block.slashthru .price-monies {
+  	color:#4ab8ff;
+  }
+  #welcome-main .daily-deals .daily-deal .deal-ft .price-block.slashthru .price-title {
+    font-weight: normal;
+  }
+  #welcome-main .daily-deals .daily-deal .deal-ft .price-block.slashthru .price-monies:after {
+  	content:'';
+  	display: block;
+  	position: absolute;
+  	top:12px;
+  	left:4px;
+  	width: 70px;
+  	height: 23px;
+  	background: url(http://eme01.enmasse-game.com/images/tera/launcher/welcome_window/strikethrough.png) top center no-repeat;
+  }
+  #welcome-main .daily-deals .daily-deal .deal-ft .buy-item-btn,
+  #welcome-main .daily-deals .daily-deal .deal-ft .buy-elite-status {
+  	background-image: url(http://eme01.enmasse-game.com/images/tera/launcher/welcome_window/get-btns-small.png);
+  	background-position: 0 0;
+  	background-repeat: no-repeat;
+    background-color: transparent;
+  	font-weight: bold;
+  	color: #ffffff;
+  	font-size: 16px;
+  	height:55px;
+  	width:145px;
+
+    height:46px;
+    width:120px;
+  	margin-top:9px;
+  	margin-left: auto;
+  	margin-right: auto;
+  	cursor:pointer;
+  	display: block;
+  }
+  #welcome-main .daily-deals .daily-deal .deal-ft .buy-item-btn {
+    text-shadow: 1px 1px 3px rgba(7,88,39,0.65), -1px -1px 3px rgba(7,88,39,0.65); 
+  }
+  #welcome-main .daily-deals .daily-deal .deal-ft .buy-elite-status {
+    text-shadow: 1px 1px 3px rgba(255,126,0,0.65), -1px -1px 3px rgba(255,126,0,0.65); 
+  }
+  #welcome-main .daily-deals .daily-deal.elite-item  .deal-ft .buy-item-btn,
+  #welcome-main .daily-deals .daily-deal.elite-item  .deal-ft .buy-elite-status {
+    background-image: url(http://eme01.enmasse-game.com/images/tera/launcher/welcome_window/elite-get-btns-small.png);
+  }
+  #welcome-main .daily-deals .daily-deal .deal-ft .buy-item-btn:hover,
+  #welcome-main .daily-deals .daily-deal .deal-ft .buy-elite-status:hover {
+	 //background-position: 0 -55px;
+    background-position: 0 -46px;
+  }
+  #welcome-main .daily-deals .daily-deal .deal-ft .buy-item-btn.pending,
+  #welcome-main .daily-deals .daily-deal .deal-ft .buy-elite-status.pending {
+  	//background-position: 0 -110px;
+    background-position: 0 -92px;
+  	cursor: wait;
+  }
+  #welcome-footer {
+  	background: url(http://eme01.enmasse-game.com/images/tera/launcher/welcome_window/ft_bar_bg.png) top left repeat-x;
+  	height:45px;
+
+    //height:37px;
+  	position: relative;
+  }
+  #welcome-footer .inner {
+  	position: absolute;
+  	right:0;
+  	top:0;
+  }
+  #welcome-footer h6 {
+  	font-size:14px;
+  	color:#49b7ff;
+  	padding-top:0px;
+  	margin:0;
+  	text-shadow: 0px 1px 3px rgba(0,0,0,0.8);
+  }
+  #welcome-footer #deal-date-notify, #welcome-footer #deal-timer, #welcome-footer h6, #welcome-footer .actions, #welcome-footer h6 .emp-icon, #welcome-footer h6 #welcome-emp {
+  	display: inline-block;
+  	vertical-align: middle;
+  }
+  #welcome-footer h6 #welcome-emp {
+	padding-right: 16px;
+  }
+  .emp-icon {
+  	background: url(http://eme01.enmasse-game.com/images/tera/launcher/welcome_window/emp-icon.png) top center no-repeat;
+  	height:19px;
+  	width:19px;
+  }
+  #welcome-footer #deal-timer, #welcome-footer #deal-date-notify {
+    background: #901079;
+    color: #ffffff;
+    font-weight: bold;
+    font-size:19px;
+    width: 420px;
+    height: 30px;
+    text-transform: uppercase;
+    position: relative;
+    left: -65px;
+  }
+  #welcome-footer #deal-date-notify {
+    width: auto;
+  }
+  #welcome-footer #deal-timer h4, #welcome-footer #deal-date-notify h4 {
+    color: #ffffff;
+    font-weight: bold;
+    font-size:19px;
+    margin: 0 10px 0 10px;
+  }
+  #welcome-footer #deal-timer h4, #welcome-footer #deal-timer span {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  #welcome-footer #deal-timer span {
+    font-family: "Arial Black","Arial Bold",Gadget,sans-serif;
+  }
+  #welcome-footer #deal-timer .timeLabel {
+    font-family: "Arial Narrow",Arial,sans-serif;
+    font-size:15px;
+  }
+  #welcome-footer .actions .buy-emp {
+  	background-image: url(http://eme01.enmasse-game.com/images/tera/launcher/welcome_window/emp-btns-small.png);
+  	background-position: 0 0;
+  	background-repeat: no-repeat;
+  	text-indent: -9999em;
+        background-color: transparent;
+  	//height:37px;
+  	//width:101px;
+
+    height: 32px;
+    width: 84px;
+  	margin-top:3px;
+  	margin-right: 5px;
+  	cursor:pointer;
+  }
+  #welcome-footer .actions .buy-emp:hover {
+	 //background-position: 0 -37px;
+   background-position: 0 -32px;
+  }
+  #welcome-footer .actions .buy-emp.pending {
+  	//background-position: 0 -74px;
+    background-position: 0 -64px;
+  	cursor: wait;
+  }
+
+  #sheer {
+  	display: none;
+  }
+  #sheer.shopping {
+  	display: block;
+  	background: rgba(65,65,65, .8);
+  	position: absolute;
+  	top:0;
+  	bottom:0;
+  	right:0;
+  	left:0;
+  	width:100%;
+  	height:100%;
+  	z-index:2;
+  }
+
+  #pur_confirm, #pur_success, #pur_failed {
+  	display: none;
+  }
+  #pur_confirm.shopping, #pur_success.shopping, #pur_failed.shopping {
+  	display: block;
+  	position: absolute;
+  	//top:100px;
+    top: 50px;
+  	bottom:0;
+  	right:0;
+  	left:0;
+  	width:auto;
+  	height:auto;
+  	z-index: 5;
+  }
+  #pur_confirm.shopping, #pur_failed.shopping {
+  	background: url(http://eme01.enmasse-game.com/images/tera/launcher/welcome_window/modal/purchase_bg.png) top center no-repeat;
+  	box-shadow: 0px 0px 10px rgba(0,0,0,0.6);
+  	width: 401px;
+  	height: 430px;
+  	margin: 0 auto;
+  }
+  #pur_success.shopping {
+  	background: url(http://eme01.enmasse-game.com/images/tera/launcher/welcome_window/modal/success_bg.png) top center no-repeat;
+  	box-shadow: 0px 0px 10px rgba(0,0,0,0.6);
+  	width: 401px;
+  	height: 430px;
+  	margin: 0 auto;
+  }
+  #pur_confirm.shopping .deal-img,
+  #pur_success.shopping .deal-img,
+  #pur_failed.shopping .deal-img {
+  	width:239px;
+  	height:193px;
+  	//margin: 0 auto 15px;
+    margin: 9px auto 15px;
+  }
+  #pur_confirm.shopping .deal-img img, 
+  #pur_confirm.shopping .deal-img .deal-img-holder,
+  #pur_failed.shopping .deal-img img,
+  #pur_failed.shopping .deal-img .deal-img-holder  {
+  	border: 2px solid #86a7c4;
+  	box-shadow: 0px 0px 0px 1px #000000;
+  	background-repeat: no-repeat;
+  	background-position: center bottom;
+  	width:100%;
+  	height:100%;
+  }
+  #pur_success.shopping .deal-img img, 
+  #pur_success.shopping .deal-img .deal-img-holder {
+  	border: 2px solid #ffd658;
+  	box-shadow: 0px 0px 0px 1px #000000;
+  	background-repeat: no-repeat;
+  	background-position: center bottom;
+  	width:100%;
+  	height:100%;
+  }
+  #pur_success.shopping .deal-img .starburst {
+  	background-image: url(http://eme01.enmasse-game.com/images/tera/launcher/welcome_window/modal/starburst.png);
+  	background-position: 0 0;
+  	background-repeat: no-repeat;
+  	width: 529px;
+  	height: 228px;
+  	position: absolute;
+  	top:0;
+  	left:-15%;
+  	right:0;
+  }
+  #pur_confirm.shopping #buy-this-deal {
+  	background-image: url(http://eme01.enmasse-game.com/images/tera/launcher/welcome_window/modal/modal_btns.png);
+  	background-position: 0 -110px;
+  	background-repeat: no-repeat;
+    background-color: transparent;
+  	width: 244px;
+  	height: 54px;
+  	cursor:pointer;
+  	text-align:right;
+  	padding-right: 20px;
+  }
+  #pur_confirm.shopping #buy-this-deal:hover {
+  	background-position: 0 -55px;
+  }
+  #pur_confirm.shopping #buy-this-deal.pending {
+  	background-position: 0 -55px;
+  }
+  #pur_confirm.shopping .close-modal,
+  #pur_success.shopping .close-modal,
+  #pur_failed.shopping .close-modal {
+  	background-image: url(http://eme01.enmasse-game.com/images/tera/launcher/welcome_window/modal/close_modal.png);
+  	background-position: 0 0;
+  	background-repeat: no-repeat;
+  	width: 28px;
+  	height: 28px;
+  	position: absolute;
+  	top:5px;
+  	right:5px;
+  	cursor:pointer;
+  }
+  #pur_success.shopping .close-modal.success {
+  	background-image: url(http://eme01.enmasse-game.com/images/tera/launcher/welcome_window/modal/ok_btns.png);
+  	background-position: 0 0;
+  	background-repeat: no-repeat;
+    background-color: transparent;
+  	text-indent: -9999em;
+  	height:54px;
+  	width:244px;
+  	cursor:pointer;
+  	margin:0 auto;
+  }
+  #pur_success.shopping .close-modal.success:hover {
+  	background-position: 0 -55px;
+  }
+  #pur_success.shopping .close-modal.success.pending {
+  	background-position: 0 -55px;
+  }
+  .modal.shopping .modal_header {
+  	text-align:center;
+  	height: 64px;
+  	padding-top: 10px;
+  }
+  .modal.shopping .deal-label,
+  .modal.shopping .deal-title {
+  	font-size:14px;
+  	line-height: 21px;
+  	color:#ffffff;
+  	font-weight: bold;
+  	text-shadow: 0px 0px 3px rgba(0,0,0,0.6);
+  }
+  .modal.shopping .modal_content {
+  	height: 210px;
+  	text-align:center;
+  	padding-top:17px;
+  	position: relative;
+  }
+  .modal.shopping .modal_foot {
+  	height: 130px;
+  	text-align:center;
+  }
+  #pur_confirm.shopping .modal_foot {
+  	padding-top:60px;
+  }
+  #pur_failed.shopping .modal_foot {
+  	padding-top:40px;
+  	padding-left: 30px;
+  	padding-right: 30px;
+  	line-height:30px;
+  }
+  #pur_success.shopping .modal_foot {
+  	padding-top:40px;
+  	padding-left: 30px;
+  	padding-right: 30px;
+  	color:#45290d;
+  }
+  #pur_confirm.shopping .emp-icon,
+  #pur_confirm.shopping .deal-price {
+   	display: inline-block;
+   	vertical-align:middle;
+  }
+  #pur_confirm.shopping .emp-icon {
+	background-image: url(http://eme01.enmasse-game.com/images/tera/launcher/welcome_window/modal/emp-icon.png);
+  	background-position: 0 0;
+  	background-repeat: no-repeat;
+  	width: 14px;
+  	height: 14px;
+  }
+  #pur_confirm.shopping .deal-price {
+  	color: #ffffff;
+  	font-size: 16px;
+  }
+} // end of tera daily deals

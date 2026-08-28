@@ -1,0 +1,784 @@
+$campaign: 'anniversary'; // wintera || vday || anniversary
+
+// ********** ********** ********** ********** 
+//            Home Page Take Over
+// ********** ********** ********** ********** 
+body.takeover #page-content { background: black image-url('gifting/#{$campaign}/bg-takeover.jpg') no-repeat top center; }
+body.takeover #header { margin-bottom: 70px; }
+body.takeover .promotions.row { margin-top: 70px; }
+body .takover-button { display: none; }
+body.takeover .takover-button {
+  display: block;
+  position: absolute;
+  right: 160px;
+  top: 215px;
+  background: image-url('gifting/#{$campaign}/takeover-button.jpg') no-repeat -2px 0;
+  width: 239px;
+  height: 49px;
+  line-height: 46px;
+  text-align: center;
+  border: 2px solid;
+  @if $campaign == 'wintera' {
+    border-color: lighten($lightBlue, 10%);
+  } else {
+    border-color: lighten($lightRed, 10%);
+  }
+  @include box-shadow(rgba(black, 0.6) 0 6px 25px);
+  @include border-radius(5px);
+  a {
+    display: block;
+    color: white;
+    font-size: 28px;
+    &:hover { text-decoration: none; }
+  }
+  &:hover {
+    background-position: -2px -45px;
+    border-color: white;
+  }
+}
+body.takeover #wide_body {
+  @include background(linear-gradient(rgba($black, 0.8), rgba($black, 0.9)));
+}
+body.takeover .breadcrumb {
+  background: #30343b;
+  @include background(linear-gradient(rgba($black, 0.8), rgba($black, 0.9)));
+  margin-top: 60px;
+}
+.anniversary .gifting h1 {
+  line-height:42px;
+}
+
+// ********** ********** ********** ********** 
+
+// tabs... duh
+#tabs {
+  a {
+    font-weight: bold;
+    &.active, &:hover { 
+      color: $white;
+      text-decoration: underline;
+    }
+  }
+}
+
+// make sure all a tags in gifting page have same hover behavior
+.wintera {
+  a {
+    &:hover {
+      color: $white;
+      text-decoration: underline;
+    }
+  }
+}
+
+.purchased {
+  @include border-radius(15px);
+  position: relative;
+  background: image-url('gifting/#{$campaign}/progress.png') no-repeat -1px -1px;
+  width: 1119px;
+  height: 522px;
+  .after { display: none; }
+  p {
+    @include text-shadow(
+      rgba($black, 0.5) -1px -1px 0, 
+      rgba($black, 0.5) 1px 1px 0, 
+      rgba($black, 0.5) 1px -1px 0, 
+      rgba($black, 0.5) -1px 1px 0);
+    color: $white;
+    font-weight: bold;
+  }
+  .bar {
+    position: absolute;
+    top: 362px;
+    left: 153px;
+    width: 816px;
+    height: 23px;
+    margin: 30px 0 10px;
+    span[id^=fill] {
+      display: inline-block;
+      height: 23px;
+    }
+    #fill-1  { width:  0%; }
+    #fill-2  { width: 7%; }
+    #fill-3  { width: 13.5%; }
+    #fill-4  { width: 21%; }
+    #fill-5  { width: 27%; }
+    #fill-6  { width: 36%; }
+    #fill-7  { width: 40%; }
+    #fill-8  { width: 45%; }
+    #fill-9  { width: 55%; }
+    #fill-10 { width: 60.75%; }
+    #fill-11 { width: 71%; }
+    #fill-12 { width: 79%; }
+    #fill-13 { width: 86%; }
+    #fill-14 { width: 94%; }
+    #fill-15 { width: 100%; }
+    #fill-16 { width: 100%; }
+    #fill-17 { width: 100%; }
+    #fill-18 { width: 100%; }
+    #fill-19 { width: 100%; }
+    #fill-20 {
+      width: 100%;
+    }
+    #fill-1, #fill-2, #fill-3, #fill-4, #fill-5, #fill-6, #fill-7, #fill-8, #fill-9, #fill-10, #fill-11, #fill-12, #fill-13, #fill-14, #fill-15, #fill-16, #fill-17, #fill-18, #fill-19, #fill-20 {
+      &:before {
+        content: '';
+        display: inline-block;
+        height: 23px;
+        width:26px;
+        position: relative;
+        left: -26px;
+        background: #ffb90a; /* Old browsers */
+      background: -moz-linear-gradient(top,  #ffda2b 0%, #fff547 10%, #ffbb0c 20%, #ffb90a 80%, #ffd223 100%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(top,  #ffda2b 0%, #fff547 10%, #ffbb0c 20%, #ffb90a 80%, #ffd223 100%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to bottom,  #ffda2b 0%, #fff547 10%, #ffbb0c 20%, #ffb90a 80%, #ffd223 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffda2b', endColorstr='#ffb90a',GradientType=0 ); /* IE6-9 */
+      }
+    }
+  }
+  .markers {
+    position: absolute;
+    top: 382px;
+    left: 127px;
+    width: 865px;
+    height: 23px;
+
+    span {
+      display: block;
+      position: absolute;
+      z-index: 20;
+    }
+    span[class^=marker] {
+      background: image-url('gifting/#{$campaign}/marker.png') no-repeat 0 0;
+      width: 17px;
+      height: 34px;
+    }
+
+    .marker-1 { left: 17px; }
+    .marker-3 { left: 127px; }
+    .marker-5 { left: 237px; }
+    .marker-10 { left: 512px; }
+    .marker-15 { left: 834px; }
+    .marker-20 { left: 834px; display: none; }
+  }
+}
+// Winter progress bar is blue
+.wintera .purchased {
+  .bar {
+    .left-section, .right-section {
+      position: absolute;
+      top: 0;
+      height: 23px;
+    }
+    .left-section {
+      left: -26px;
+      width: 26px;
+      background: #bf2c2b; /* Old browsers */
+      background: -moz-linear-gradient(top,  #bf2c2b 0%, #f14e4e 10%, #bf2c2b 20%, #590404 80%, #bf2c2b 100%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(top,  #bf2c2b 0%,#f14e4e 10%,#bf2c2b 20%,#590404 80%,#bf2c2b 100%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to bottom,  #bf2c2b 0%,#f14e4e 10%,#bf2c2b 20%,#590404 80%,#bf2c2b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bf2c2b', endColorstr='#bf2c2b',GradientType=0 ); /* IE6-9 */
+    }
+    .right-section {
+      right: -23px;
+      width: 23px;
+    }
+    span[id^=fill] {
+      background: #bf2c2b; /* Old browsers */
+      background: -moz-linear-gradient(top,  #bf2c2b 0%, #f14e4e 10%, #bf2c2b 20%, #590404 80%, #bf2c2b 100%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(top,  #bf2c2b 0%,#f14e4e 10%,#bf2c2b 20%,#590404 80%,#bf2c2b 100%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to bottom,  #bf2c2b 0%,#f14e4e 10%,#bf2c2b 20%,#590404 80%,#bf2c2b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bf2c2b', endColorstr='#bf2c2b',GradientType=0 ); /* IE6-9 */
+    }
+  }
+  &.whale {
+    .left-section, .right-section,
+    #fill-20 {
+      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#c1981b+0,f0d18d+10,c1981b+20,965312+80,c1981b+100 */
+      background: #c1981b; /* Old browsers */
+      background: -moz-linear-gradient(top,  #c1981b 0%, #f0d18d 10%, #c1981b 20%, #965312 80%, #c1981b 100%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(top,  #c1981b 0%,#f0d18d 10%,#c1981b 20%,#965312 80%,#c1981b 100%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to bottom,  #c1981b 0%,#f0d18d 10%,#c1981b 20%,#965312 80%,#c1981b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c1981b', endColorstr='#c1981b',GradientType=0 ); /* IE6-9 */
+    }
+    .bar {
+      #fill-0, span[id^=fill] {
+        width:100%;
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#c1981b+0,f0d18d+10,c1981b+20,965312+80,c1981b+100 */
+        background: #c1981b; /* Old browsers */
+        background: -moz-linear-gradient(top,  #c1981b 0%, #f0d18d 10%, #c1981b 20%, #965312 80%, #c1981b 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top,  #c1981b 0%,#f0d18d 10%,#c1981b 20%,#965312 80%,#c1981b 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom,  #c1981b 0%,#f0d18d 10%,#c1981b 20%,#965312 80%,#c1981b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c1981b', endColorstr='#c1981b',GradientType=0 ); /* IE6-9 */
+      }
+    }
+    #fill-0, #fill-1, #fill-2, #fill-3, #fill-4, #fill-5, #fill-6, #fill-7, #fill-8, #fill-9, #fill-10, #fill-11, #fill-12, #fill-13, #fill-14, #fill-15, #fill-16, #fill-17, #fill-18, #fill-19, #fill-20 {
+      width:100%;
+      &:before {
+        content: '';
+        display: inline-block;
+        height: 23px;
+        width:26px;
+        position: relative;
+        left: -26px;
+        background: #c1981b; /* Old browsers */
+        background: -moz-linear-gradient(top,  #c1981b 0%, #f0d18d 10%, #c1981b 20%, #965312 80%, #c1981b 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top,  #c1981b 0%,#f0d18d 10%,#c1981b 20%,#965312 80%,#c1981b 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom,  #c1981b 0%,#f0d18d 10%,#c1981b 20%,#965312 80%,#c1981b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c1981b', endColorstr='#c1981b',GradientType=0 ); /* IE6-9 */
+      }
+    }
+  }
+}
+
+
+// anniversary progress bar is yellow
+.anniversary .purchased {
+  .bar {
+    .left-section, .right-section {
+      position: absolute;
+      top: 0;
+      height: 23px;
+    }
+    .left-section {
+      left: -26px;
+      width: 26px;
+      background: #bf2c2b; /* Old browsers */
+      background: -moz-linear-gradient(top,  #bf2c2b 0%, #f14e4e 10%, #bf2c2b 20%, #590404 80%, #bf2c2b 100%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(top,  #bf2c2b 0%,#f14e4e 10%,#bf2c2b 20%,#590404 80%,#bf2c2b 100%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to bottom,  #bf2c2b 0%,#f14e4e 10%,#bf2c2b 20%,#590404 80%,#bf2c2b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bf2c2b', endColorstr='#bf2c2b',GradientType=0 ); /* IE6-9 */
+    }
+    .right-section {
+      right: -23px;
+      width: 23px;
+    }
+    span[id^=fill] {
+      background: #ffae00; /* Old browsers */
+      background: -moz-linear-gradient(top,  #ffda2b 0%, #fff547 10%, #ffbb0c 20%, #ffb90a 80%, #ffd223 100%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(top,  #ffda2b 0%, #fff547 10%, #ffbb0c 20%, #ffb90a 80%, #ffd223 100%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to bottom,  #ffda2b 0%, #fff547 10%, #ffbb0c 20%, #ffb90a 80%, #ffd223 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffae00', endColorstr='#bf2c2b',GradientType=0 ); /* IE6-9 */
+    }
+  }
+  &.whale {
+    .left-section, .right-section,
+    #fill-20 {
+      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#c1981b+0,f0d18d+10,c1981b+20,965312+80,c1981b+100 */
+      background: #ffae00; /* Old browsers */
+      background: -moz-linear-gradient(top,  #ffda2b 0%, #fff547 10%, #ffbb0c 20%, #ffb90a 80%, #ffd223 100%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(top,  #ffda2b 0%, #fff547 10%, #ffbb0c 20%, #ffb90a 80%, #ffd223 100%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to bottom,  #ffda2b 0%, #fff547 10%, #ffbb0c 20%, #ffb90a 80%, #ffd223 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffae00', endColorstr='#bf2c2b',GradientType=0 ); /* IE6-9 */
+    }
+    .bar {
+      #fill-0, span[id^=fill] {
+        width:100%;
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#c1981b+0,f0d18d+10,c1981b+20,965312+80,c1981b+100 */
+        background: #ffae00; /* Old browsers */
+      background: -moz-linear-gradient(top,  #ffda2b 0%, #fff547 10%, #ffbb0c 20%, #ffb90a 80%, #ffd223 100%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(top,  #ffda2b 0%, #fff547 10%, #ffbb0c 20%, #ffb90a 80%, #ffd223 100%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to bottom,  #ffda2b 0%, #fff547 10%, #ffbb0c 20%, #ffb90a 80%, #ffd223 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffae00', endColorstr='#bf2c2b',GradientType=0 ); /* IE6-9 */
+      }
+    }
+    #fill-0, #fill-1, #fill-2, #fill-3, #fill-4, #fill-5, #fill-6, #fill-7, #fill-8, #fill-9, #fill-10, #fill-11, #fill-12, #fill-13, #fill-14, #fill-15 {
+      width:100%;
+      &:before {
+        content: '';
+        display: inline-block;
+        height: 23px;
+        width:26px;
+        position: relative;
+        left: -26px;
+        background: #ffae00; /* Old browsers */
+      background: -moz-linear-gradient(top,  #ffda2b 0%, #fff547 10%, #ffbb0c 20%, #ffb90a 80%, #ffd223 100%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(top,  #ffda2b 0%, #fff547 10%, #ffbb0c 20%, #ffb90a 80%, #ffd223 100%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to bottom,  #ffda2b 0%, #fff547 10%, #ffbb0c 20%, #ffb90a 80%, #ffd223 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffae00', endColorstr='#bf2c2b',GradientType=0 ); /* IE6-9 */
+      }
+    }
+  }
+  #fill-16, #fill-17, #fill-18, #fill-19, #fill-20 {
+    width:103%;
+  }
+}
+
+
+// Vday progress bar is pink
+.vday .purchased {
+  .bar {
+    span[id^=fill] {
+      background: $lightPink;
+      @include background-image(linear-gradient(left, $darkPink, $lightPink, $darkPink));
+    }
+  }
+  &.whale {
+    #fill-20,  { @include background-image(linear-gradient(left, $darkRed, $lightRed, $darkRed)); }
+  }
+}
+
+.gifting, .restrictions { padding-left: 10px; }
+#inventory, #history {
+  width: 100%;
+  article {
+    *zoom:1;
+    &:before, &:after { content: " "; display: table; }
+    &:after { clear: both; }
+    float: none;
+    padding: 10px;
+    .gift-tag {
+      background: image-url('gifting/gift-tag.png') no-repeat 0 0;
+      width: 328px;
+      height: 143px;
+      padding: 10px 10px 10px 50px;
+      color: $black;
+      font-weight: bold;
+      li {
+        height: 60px;
+        word-break: break-all;
+        padding: 5px;
+      }
+      a { padding: 10px 30px; }
+    }
+    .last { padding-top: 42px; }
+    .button-primary {
+      background: #b26a0c;
+      @include background-image(linear-gradient($lightGold, $midGold));
+      border-top: 1px solid $lightGold;
+      padding: 10px 30px;
+      font-weight: bold;
+      &:hover {
+        @include background-image(linear-gradient(lighten($lightGold, 10%), lighten($midGold, 10%)));
+        border-top:1px solid $midGold;
+      }
+      &:active {
+        @include background-image(linear-gradient($midGold, $darkGold));
+        border-top:1px solid $midGold;
+        border-bottom: 1px solid $darkGold;
+      }
+    }
+    .buy-more {
+      color: $txtColor;
+      .blue { color: $lightBlue; }
+      .button-secondary {
+        display: inline-block;
+        padding: 5px 25px;
+        margin: 45px 36px 0 0;
+        font-size: 22px;
+        font-weight: bold;
+        float: right;
+      }
+      &:hover .ellipses span {
+        -webkit-transform:rotate(360deg);
+        -moz-transform:rotate(360deg);
+        -o-transform:rotate(360deg);
+      }
+      .copy {
+        display: table-cell;
+        vertical-align: middle;
+        height: 120px;
+        p { margin: 0 0 0 10px; }
+      }
+    }
+  }
+
+  article:nth-child(even) { background: rgba($darkGray, 0.8); }
+  article:nth-child(odd) { background: rgba($midGray, 0.8); }
+}
+#history { display: none; }
+#inventory, #history, #gift-sent {
+  .gift-card {
+    @include border-radius(10px);
+    @include box-shadow(rgba($white, 0.8) 0 0 30px);
+    position: relative;
+    background: image-url('gifting/#{$campaign}/gift-bg.jpg') no-repeat 0 0;
+    width: 207px;
+    height: 136px;
+    border: 1px solid $black;
+    margin-right: 10px;
+    &:after {
+      content: "";
+      @include border-radius(12px);
+      position: absolute;
+      z-index: 1;
+      top: -3px;
+      right: -3px;
+      bottom: -3px;
+      left: -3px;
+      border: 2px solid $lightGray;
+    }
+    &:before {
+      content: "";
+      @include border-radius(14px);
+      position: absolute;
+      z-index: 1;
+      top: -5px;
+      right: -5px;
+      bottom: -5px;
+      left: -5px;
+      border: 1px solid $black;
+    }
+    .ribbon {
+      @include box-shadow(rgba($black, 0.8) -1px 1px 1px, rgba($white, 0.8) -1px 1px 2px 0px inset);
+      position: absolute;
+      display: block;
+      background: $lightRed;
+    }
+    .ribbon.hoz {
+      z-index: 5;
+      left: -6px;
+      bottom: 15px;
+      width: 220px;
+      height: 25px;
+    }
+    .ribbon.vert {
+      z-index: 4;
+      top: -6px;
+      right: 15px;
+      width: 25px;
+      height: 145px;
+    }
+    &.empty { background-position: 0px -138px; }
+    &.white { background-position: 0px -274px; }
+  }
+}
+#send-gift {
+  h3 { text-align: center; }
+  .selector {
+    position: relative;
+    z-index: 45;
+    text-align: center;
+    li {
+      @include border-radius(10px);
+      border: 3px solid $midGray;
+      display: inline-block;
+      width: 208px;
+      height: 100px;
+      margin: 50px 30px 10px;
+      font-weight: bold;
+      color: $white;
+      a {
+        color: $white;
+        &:hover { text-decoration: none; }
+      }
+      .inner {
+        background: #30343b;
+        @include background(linear-gradient($midGray, darken($darkGray, 10%)));
+        @include border-radius(6px);
+        @include transition-property(all);
+        @include transition-duration(0.5s);
+        position: relative;
+        border: 2px solid $lightGray;
+        width: 202px;
+        height: 94px;
+        padding: 10px;
+        display: table-cell;
+        vertical-align: middle;
+        color: $lightBlue;
+        font-size: 22px;
+        &:hover {
+          @include background(linear-gradient($midGray, $darkGray));
+          @include box-shadow(0px 0px 50px rgba($lightGray, 1));
+          border-color: $lightBlue;
+          color: $white;
+        }
+      }
+      &.selected .inner {
+        color: $white;
+        border-color: $white;
+      }
+    }
+  }
+  .messages, #charName, #email {
+    display: none;
+    position: relative;
+    z-index: 45;
+    width: 475px;
+    margin: 0 auto;
+  }
+  .messages {
+    &> div { position: relative; }
+    span.error {
+      display: none;
+      position: absolute;
+      right: -193px;
+      top: 0;
+      background: #820707;
+      background: $lightRed;
+      border: 1px solid $midRed;
+      padding: 1px 5px 0;
+      &:before {
+        content: "";
+        position: absolute;
+        left: -29px;
+        top: -1px;
+        border: solid 14px;
+        border-color: transparent $midRed transparent transparent;
+      }
+    }
+  }
+  #email { margin-bottom: 10px; }
+  #charName {
+    margin-bottom: 0;
+    .charInfo { margin-bottom: 0; }
+    ul { margin: 0; }
+  }
+  .error-alert {
+    display: none;
+    padding: 10px 10px 05px;
+    width: 475px;
+  }
+  div {
+    *zoom:1;
+    &:before, &:after { content: " "; display: table; }
+    &:after { clear: both; }
+    margin: 10px auto;
+  }
+  .charInfo { display: none; }
+  .button-secondary {
+    float: right;
+    font-size: 22px;
+    padding: 4px 30px;
+  }
+  .actions {
+    position: relative;
+    z-index: 45;
+    display: none;
+    text-align: center;
+    font-size: 22px;
+    margin: 20px auto;
+    a { margin: 0 10px; }
+  }
+  .button-primary {
+    padding: 5px 30px;
+
+    &.disabled {
+      background: #30343b;
+      @include background(linear-gradient($lightGray, $midGray));
+      border: 1px solid $darkGray;
+      &:hover { @include background(linear-gradient($lightGray, $midGray)); }
+      &:active { @include background(linear-gradient($lightGray, $midGray)); }
+    }
+  }
+  input[name=character], input[type=email], input[name=from], input[name=to], textarea {
+    width: 100%;
+    font-size: 22px;
+    padding: 2px 5px;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+  }
+  input[type=email] {
+    width: 300px;
+    float: left;
+  }
+  input[name=character] {
+    width: 200px;
+    float: left;
+    margin: 0 5px;
+  }
+  select {
+    border: 0;
+    margin: 0;
+    @include border-radius(10px);
+    font-size: 23px;
+    border: 2px solid $txtColor;
+    width: 120px;
+    float: left;
+    color: black;
+  }
+  .messages {
+    display: none;
+    small{ float: right; }
+  }
+}
+
+#gift-sent {
+  h3 { text-align: center; }
+  hr { border-style: dashed; }
+  p {
+    text-align: center;
+    position: relative;
+    z-index: 45;
+  }
+  .gift-card { margin: 30px auto 10px; }
+  #gift-count { padding: 0 10px; }
+}
+
+#gift-claim {
+  width: 840px;
+  margin-left: -420px;
+  h2 { text-align: center; }
+  &> div, &> p {
+    position: relative;
+    z-index: 45;
+    padding: 10px;
+  }
+  .claim-copy{ height: 125px; }
+  .grats { display: none; }
+  &> a { text-align: center; }
+  .account {
+    width: 375px;
+    height: 35px;
+    margin: 0 auto;
+    p {
+      margin: 0;
+      float: left;
+    }
+    select {
+      -webkit-appearance: menulist-button;
+      font-size: 16px;
+      line-height: 1;
+      height: 28px;
+      width: 200px;
+      padding-top: 2px;
+      float: right;
+      color: black;
+    }
+  }
+  .error-alert {
+    display:none;
+    margin: 10px;
+  }
+  .content-block {
+    margin: 10px;
+    background: image-url('gifting/#{$campaign}/table-bg.jpg') no-repeat 0 0;
+    width: 815px;
+    height: 535px;
+    text-align: center;
+    padding: 30px 10px;
+    position: relative;
+    outline: none;
+    #gifts-cover {
+      display: none;
+      @include background(rgba(0,0,0,0.5));
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 50;
+      width: 815px;
+      height: 535px;
+    }
+  }
+  .gift {
+    @include transition-property(all);
+    @include transition-duration(0.5s);
+    position: relative;
+    z-index: 45;
+    -webkit-perspective: 1000;
+    -moz-perspective: 1000;
+    perspective: 1000;
+    width: 314px;
+    height: 211px;
+    display: inline-block;
+    margin: 12px 15px;
+    &.flipped .flipper {
+      -webkit-transform: rotateY(180deg);
+      -moz-transform: rotateY(180deg);
+      transform: rotateY(180deg);
+      .back {
+        backface-visibility: visible;
+      }
+    }
+    .flipper {
+      width: 314px;
+      height: 211px;
+      -webkit-perspective: 1000;
+      -moz-perspective: 1000;
+      perspective: 1000;
+      -webkit-transition: 0.8s;
+      -webkit-transform-style: preserve-3d;
+      -moz-transition: 0.8s;
+      -moz-transform-style: preserve-3d;
+      transition: 0.8s;
+      transform-style: preserve-3d;
+    }
+    .front, .back {
+      @include transition-property(all);
+      @include transition-duration(0.5s);
+      width: 314px;
+      height: 211px;
+      -webkit-backface-visibility: hidden;
+      -moz-backface-visibility: hidden;
+      backface-visibility: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+      @include border-radius(14px);
+      &:after {
+        content: "";
+        @include border-radius(16px);
+        position: absolute;
+        z-index: 1;
+        top: -2px;
+        right: -2px;
+        bottom: -2px;
+        left: -2px;
+        border: 2px solid $lightGray;
+      }
+      &:before {
+        content: "";
+        @include border-radius(16px);
+        position: absolute;
+        z-index: 1;
+        top: -3px;
+        right: -3px;
+        bottom: -3px;
+        left: -3px;
+        border: 1px solid $black;
+      }
+    }
+    .front {
+      background: image-url('gifting/#{$campaign}/gift.png') no-repeat 0 0;
+      background-size: 100% 100%;
+      border: 1px solid $black;
+      z-index: 2;
+      &:hover {
+        width: 324px;
+        height: 221px;
+        top: -5px;
+        left: -5px;
+        @include box-shadow(rgba($white, 0.8) 0 0 30px);
+      }
+    }
+    .back {
+      background: image-url('gifting/#{$campaign}/flipped.png') no-repeat top center;
+      background-size: 100% 100%;
+      -webkit-transform: rotateY(180deg);
+      -moz-transform: rotateY(180deg);
+      transform: rotateY(180deg);
+      .prize {
+        background-image: image-url('gifting/product-placeholder.png');
+        background-repeat: no-repeat;
+        background-position: 0 -75px;
+        width: 249px;
+        height: 170px;
+        margin: 5px auto;
+      }
+      .title {
+        font-weight: bold;
+        color: $black;
+        font-size:14px;
+      }
+    }
+    &.chosen {
+      z-index: 51;
+      .back {
+        width: 382px;
+        height: 257px;
+        top: -23px;
+        left: -34px;
+      }
+      .prize { height: 200px; }
+    }
+  }
+}
+.modal-cover {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}

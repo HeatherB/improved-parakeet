@@ -1,0 +1,48 @@
+<div id="class-info">
+  <div id="slayer-icon"></div>
+  <h2>Slayer</h2>
+  <p>Role: Melee Burst DPS. Slayers are mobile damage dealers.</p>
+</div>
+<% if @level <= 29 %>
+  <div id="skills">
+    <div class="skill">
+      <span class="icon evasive-roll"></span>
+      <p>Evasive Roll</p>
+      <p>Dodge your enemy's attack.</p>
+    </div>
+    <div class="skill">
+      <span class="icon knockdown-strike"></span>
+      <p>Knockdown Strike</p>
+      <p>Bowl your enemy over with the mighty swing of your sword.</p>
+    </div>
+    <div class="skill">
+      <span class="icon whirlwind"></span>
+      <p>Whirlwind</p>
+      <p>Spin with your sword, hitting targets within 3m.</p>
+    </div>
+    <div class="skill">
+      <span class="icon overhand-strike"></span>
+      <p>Overhand Strike</p>
+      <p>Swing downward for a massive blow.</p>
+    </div>
+  </div>
+<% else %>
+  <div id="crystals">
+    <div class="pve">
+      <h3>PvE Crystals</h3>
+      <ul>
+        <li class="red-crystal">Bitter, savage, focused, pounding</li>
+        <li class="blue-crystal">Hardy</li>
+        <li class="green-crystal">Carving, powerful</li>
+      </ul>
+    </div>
+    <div class="pvp">
+      <h3>PvP Crystals</h3>
+      <ul>
+        <li class="red-crystal">Savage, salivating, forceful, cruel</li>
+        <li class="blue-crystal">Relentless, grieving</li>
+        <li class="green-crystal">Griefing</li>
+      </ul>
+    </div>
+  </div>
+<% end %>

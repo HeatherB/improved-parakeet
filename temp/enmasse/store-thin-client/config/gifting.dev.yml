@@ -1,0 +1,12 @@
+gifting:
+  url: "https://account-edge.enmasse.com"
+  ssl: true
+  name: "Gifting"
+  auth_key: "Token token=ef29bf65f9096bf682ddadff868ca14b"
+  use_memcache: false
+  memcache_hosts:
+    - "localhost:11211"
+  cache_prefix: "gifting-dev"
+  promotion_id: 268
+  gift_kind_id: 4
+  type: json

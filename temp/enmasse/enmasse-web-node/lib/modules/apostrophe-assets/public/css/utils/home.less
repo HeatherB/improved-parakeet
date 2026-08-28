@@ -1,0 +1,779 @@
+.action a.btn {
+	display:block;
+	width: 175px; 
+	height: 45px;
+	position: relative;
+	z-index: 5;
+}
+.action a.btn span {
+	border-radius: 5px;
+	display:block;
+	border: 3px solid @btnblue;
+	box-shadow: 0px 0px 10px rgba(0,0,0,0.15);
+	background: rgb(0,199,250);
+	background: rgba(0,199,250,0.2);
+	text-align:center;
+	color:@white;
+	text-transform: uppercase;
+	font-family: 'Titillium Web', sans-serif;
+	font-weight: 700;
+	box-sizing: border-box;
+	padding: 5px 34px;
+	line-height:1.75;
+	width: 175px;
+	height: 45px;
+}
+/* rewrite download button for editing pane */
+.action #homepage_download {
+	display:block;
+	width: 175px; 
+	height: 45px;
+	position: relative;
+	z-index: 5;
+	text-align:center;
+	margin:0 auto;
+}
+.action #homepage_download a {
+	border-radius: 5px;
+	display:block;
+	border: 3px solid @btnblue;
+	box-shadow: 0px 0px 10px rgba(0,0,0,0.15);
+	background: rgb(0,199,250);
+	background: rgba(0,199,250,0.2);
+	text-align:center;
+	color:@white;
+	text-transform: uppercase;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 700;
+	box-sizing: border-box;
+	padding: 5px 34px;
+	line-height:1.75;
+	width: 175px;
+	height: 45px;
+	transition:500ms background;
+	&:hover {
+		background: @btnblue;
+	}
+}
+/* rewrite for editing pane */
+.action .btn_wrapper {
+	display:block;
+	width: 175px; 
+	height: 45px;
+	position: relative;
+	z-index: 5;
+	margin:0 auto;
+}
+.action .btn_wrapper a {
+	border-radius: 5px;
+	display:block;
+	border: 3px solid @btnblue;
+	box-shadow: 0px 0px 10px rgba(0,0,0,0.15);
+	background: rgb(0,199,250);
+	background: rgba(0,199,250,0.2);
+	text-align:center;
+	color:@white;
+	text-transform: uppercase;
+	font-family: 'Titillium Web', sans-serif;
+	font-weight: 700;
+	box-sizing: border-box;
+	padding: 5px 34px;
+	line-height:1.75;
+	width: 175px;
+	height: 45px;
+	margin:0 auto;
+	transition:500ms background;
+	&:hover {
+		background: @btnblue;
+	}
+} 
+.sleeve .action {
+	margin-top: 20px;
+	margin-bottom: 40px;
+}
+#get-launcher {
+	//background: url(https://eme04.enmasse-game.com/images/enm/bgs/blue_check.jpg), url(https://eme04.enmasse-game.com/images/enm/bgs/texture_tile.png), -webkit-linear-gradient(right, #0a1528, #142a50, #0a1528);
+	//background: url(https://eme04.enmasse-game.com/images/enm/bgs/blue_check.jpg), url(https://eme04.enmasse-game.com/images/enm/bgs/texture_tile.png), linear-gradient(to right, #0a1528, #142a50, #0a1528);
+	background: url(https://eme04.enmasse-game.com/images/enm/bgs/dot-narrow.jpg), url(https://eme04.enmasse-game.com/images/enm/bgs/dot-tiler-narrow.png);
+	background: url(https://eme04.enmasse-game.com/images/enm/bgs/dot-narrow.jpg), url(https://eme04.enmasse-game.com/images/enm/bgs/dot-tiler-narrow.png);
+	background-position: top center, top center;
+	background-repeat: no-repeat, repeat-y;
+}
+#get-launcher .action a.btn span {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 700;
+}
+#get-launcher .sleeve {
+	padding-bottom: 0;
+	position: relative;
+	text-align:center;
+	max-width:1366px;
+}
+#get-launcher .sleeve:before, #get-launcher .sleeve:after {
+	content: '';
+	display: block;
+	position: absolute;
+	top:0;
+	width: 100px;
+	height: 100%;
+}
+#get-launcher .sleeve:before {
+	left:0;
+	background: -webkit-linear-gradient(left, rgba(10,21,39,1) 0%, rgba(10,21,39,0) 100%);
+    background: linear-gradient(to right, rgba(10,21,39,1) 0%, rgba(10,21,39,0) 100%);
+}
+#get-launcher .sleeve:after {
+	right:0;
+	background: -webkit-linear-gradient(left, rgba(10,21,39,0) 0%, rgba(10,21,39,1) 100%);
+    background: linear-gradient(to right, rgba(10,21,39,0) 0%, rgba(10,21,39,1) 100%);
+}
+#get-launcher .sleeve .action {
+	text-align:center;
+}
+#get-launcher .sleeve .action a.btn {
+	margin:0 auto;
+}
+#game-tiles_wrapper {
+	overflow:hidden;
+	//height:387px;
+	height:auto;
+	padding-bottom: 10px;
+}
+#tile-ctrl {
+	display: none;
+	width:80%;
+	height:3px;
+	background: @btnblue;
+    background: -webkit-linear-gradient(left, rgba(0,204,255,0) 0%, rgba(0,204,255,1) 20%, rgba(0,204,255,1) 80%, rgba(0,204,255,0) 100%);
+    background: linear-gradient(to right, rgba(0,204,255,0) 0%, rgba(0,204,255,1) 20%, rgba(0,204,255,1) 80%, rgba(0,204,255,0) 100%);
+	margin:0 auto;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: calc(100% - 3px);
+	z-index:10;
+}
+#tile-ctrl button {
+	border: 2px solid @btnblue;
+	background: rgb(0,199,250);
+	background: rgba(0,199,250,0.6);
+	border-radius: 0px 0px 5px 5px;
+	color:@white;
+	font-family: 'Titillium Web', sans-serif;
+	font-weight: 700;
+	position: relative;
+	z-index:20;
+	padding: 10px 20px;
+	outline: none;
+	cursor: pointer;
+}
+#tile-ctrl button span {
+	text-indent: -9999em;
+	border-top: 10px solid @white;
+	border-right: 10px solid transparent;
+	border-left: 10px solid transparent;
+	position: absolute;
+	left: 10px;
+	top: 5px;
+}
+#tile-ctrl button.collapse span {
+	border-bottom: 10px solid @white;
+	border-top: none;
+	top:auto;
+	bottom: 5px;
+}
+.game-tiles {
+	display: -webkit-box;           /* OLD - iOS 6-, Safari 3.1-6 */
+	display: -moz-box;              /* OLD - Firefox 19- (doesn't work very well) */
+	display: -ms-flexbox;           /* TWEENER - IE 10 */
+	display: -webkit-flex;          /* NEW - Chrome */
+	display: flex;                  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+.game-tiles li {
+	width: 275px;
+	text-align: left;
+}
+.game-tiles .img_wrap {
+	display: block;
+	width: 100%;
+	height: 175px;
+	box-shadow: 0px 0px 10px rgba(0,0,0,0.6);
+	background-image: url(https://eme04.enmasse-game.com/images/enm/enmasse_sprite_0719.png);
+	position: relative;
+}
+.game-tiles p {
+	color:@skyblue;
+	margin: 15px 0 15px;
+}
+.game-tiles a.btn-link {
+	color:@btnblue;
+	display: block;
+	margin-bottom: 30px;
+	font-weight:700;
+	cursor: pointer;
+	transition: 250ms;
+}
+.game-tiles a.btn-link:hover {
+	color:@white;
+}
+.game-tiles a.btn-link:after {
+	content: '>';
+	display: inline-block;
+	vertical-align:top;
+    padding-left:3px;
+}
+.tile-tera .img_wrap, .tile-Tera .img_wrap, .tile-TERA .img_wrap {
+	background-position: 0 -1404px;
+}
+.tile-darkcrystal .img_wrap, .tile-Darkcrystal .img_wrap {
+	background-image: url(https://eme04.enmasse-game.com/images/enm/enmasse_sprite_0719.png);
+	background-position: 0 -1054px;
+}
+.tile-closers .img_wrap, .tile-Closers .img_wrap {
+	background-position: 0 -879px;
+}
+.tile-strangerthings3 .img_wrap, .tile-Strangerthings3 .img_wrap {
+	background-image: url(https://eme04.enmasse-game.com/images/enm/enmasse_sprite_0719.png);
+	background-position: 0 -1229px;
+}
+.tile-mistover .img_wrap, .tile-Mistover .img_wrap {
+	background-position: 0 -1229px;
+}
+.img_wrap span {
+	display: inline-block;
+	vertical-align: top;
+}
+.platicons {
+	position: absolute;
+	bottom:0;
+	right:5px;
+}
+.platicon {
+	background-image: url(https://eme04.enmasse-game.com/images/enm/enmasse_sprite_0719.png);
+	background-repeat: no-repeat;
+	text-indent: -9999em;
+	-webkit-filter: drop-shadow(0 0 3px #000000);
+	filter: drop-shadow(0 0 3px #000000);
+	margin: 5px 2px;
+}
+.platform_xbox {
+	background-position: 0 -860px;
+	width:19px;
+	height:19px;
+}
+.platform_ps {
+	background-position: 0 -808px;
+	width:22px;
+	height:18px;
+}
+.platform_windows {
+	background-position: 0 -843px;
+	width:17px;
+	height:17px;
+}
+.platform_mac {
+	background-image: url(https://eme04.enmasse-game.com/images/enm/enmasse_sprite_0719.png);
+    background-position: -22px -826px;
+    height: 21px;
+    width: 19px;
+}
+.platform_switch {
+	background-position: 0 -826px;
+	width:17px;
+	height:17px;
+}
+
+#dev-tools {
+	//background: url(https://eme04.enmasse-game.com/images/enm/bgs/orange.jpg) top center no-repeat #702f2d;
+	//background: url(https://eme04.enmasse-game.com/images/enm/bgs/home_orange.jpg) top center no-repeat, -webkit-linear-gradient(right, @homebrownleft 50%, @homebrownright 50%);
+    //background: url(https://eme04.enmasse-game.com/images/enm/bgs/home_orange.jpg) top center no-repeat, linear-gradient(to right, @homebrownleft 50%, @homebrownright 50%);
+    background: url(https://eme04.enmasse-game.com/images/enm/bgs/brown_tall.jpg) top center no-repeat, -webkit-linear-gradient(top, @homebrowntop 0%, @homebrownbottom 100%);
+    background: url(https://eme04.enmasse-game.com/images/enm/bgs/brown_tall.jpg) top center no-repeat, linear-gradient(to bottom, @homebrowntop 0%, @homebrownbottom 100%);
+}
+#become-partner {
+	//background: url(https://eme04.enmasse-game.com/images/enm/bgs/purple.jpg) top center no-repeat #4d2a79;
+	background: url(https://eme04.enmasse-game.com/images/enm/bgs/purple_tall.jpg) top center no-repeat, -webkit-linear-gradient(top, @homepurpletop 0%, @homepurplebottom 90%);
+    background: url(https://eme04.enmasse-game.com/images/enm/bgs/purple_tall.jpg) top center no-repeat, linear-gradient(to bottom, @homepurpletop 0%, @homepurplebottom 90%);
+}
+#work-us {
+	//background: url(https://eme04.enmasse-game.com/images/enm/bgs/teal.jpg) top center no-repeat #283978;
+	background: url(https://eme04.enmasse-game.com/images/enm/bgs/teal_tall.jpg) top center no-repeat, -webkit-linear-gradient(top, @homebluetop 0%, @homebluebottom 100%);
+    background: url(https://eme04.enmasse-game.com/images/enm/bgs/teal_tall.jpg) top center no-repeat, linear-gradient(to bottom, @homebluetop 0%, @homebluebottom 100%);
+}
+#social-ankle {
+	background: url(https://eme04.enmasse-game.com/images/enm/bgs/home_slate.jpg) top center no-repeat, -webkit-linear-gradient(top, @homeslatetop 0%, @homeslatebottom 24%);
+    background: url(https://eme04.enmasse-game.com/images/enm/bgs/home_slate.jpg) top center no-repeat, linear-gradient(to bottom, @homeslatetop 0%, @homeslatebottom 24%);
+}
+
+#dev-tools h3, #become-partner h3, #work-us h3, #social-ankle h3 {
+	position: relative;
+	letter-spacing: 0.006em;
+	font-size:24px;
+}
+#dev-tools h3 span, #become-partner h3 span, #work-us h3 span, #social-ankle h3 span {
+	position: relative;
+	z-index:5;
+}
+#dev-tools p, #become-partner p, #work-us p, #social-ankle p {
+	position: relative;
+	z-index:8;
+	margin:20px 0;
+	max-width:611px;
+	width: 100%;
+}
+/* hide the image shaodws so we can try on css versions */
+/*#dev-tools h3:before, #become-partner h3:before, #work-us h3:before {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 0.13em;
+	left: -1.45em;
+	z-index: -1;
+}
+#dev-tools h3:before {
+	background: url(https://eme04.enmasse-game.com/images/enm/bgs/orange_drop.png) top center no-repeat;
+	width:283px;
+	height:121px;
+	background-size: cover;
+}
+#become-partner h3:before {
+	background: url(https://eme04.enmasse-game.com/images/enm/bgs/purple_drop.png) top center no-repeat;
+	width:300px;
+	height:117px;
+	background-size: cover;
+}
+#work-us h3:before {
+	background: url(https://eme04.enmasse-game.com/images/enm/bgs/teal_drop.png) top center no-repeat;
+	width:236px;
+	height:127px;
+	background-size: cover;
+}*/
+
+#dev-tools .sleeve {
+	padding-top: 40px;
+}
+
+#social-ankle {
+	//overflow: hidden;
+	.social li {
+		display: inline-block;
+		vertical-align:top;
+		p {
+			max-width:auto;
+			margin: 0;
+		}
+		a {
+			display: block;
+			width:44px;
+			height:44px;
+		}
+	}
+
+	.icon_facebook, .icon_instagram, .icon_youtube, .icon_twitter, .icon_linkedin, .icon_discord, .icon_twitch, .icon_forums {
+		background-image: url(https://eme04.enmasse-game.com/images/enm/enmasse_sprite_0719.png);
+		background-repeat: no-repeat;
+		width: 44px;
+		height: 44px;
+		display: block;
+		text-indent: -9999em;
+	}
+	.icon_facebook {
+		background-position: 0 0;
+	}
+	.icon_instagram {
+		background-position: 0 -44px;
+	}
+	.icon_youtube {
+		background-position: 0 -175px;
+	}
+	.icon_twitter {
+		background-position: 0 -131px;
+	}
+	.icon_linkedin {
+		background-position: 0 -88px;
+	}
+	.icon_discord {
+		background-position: -50px 0;
+	}
+	.icon_twitch {
+		background-position: -50px -44px;
+	}
+	.icon_forums {
+		background-position: -50px -88px;
+	}
+}
+
+
+
+@media all and (min-width: 768px) {
+	/*.game-tiles {
+		justify-content: space-between;
+	}*/
+	#become-partner .sleeve, #dev-tools .sleeve, #work-us .sleeve, #social-ankle .sleeve {
+		position: relative;
+	}
+	/* trying wider layout on homepage, probably rework all this */
+	/*#become-partner .sleeve:after {
+		content: '';
+		display: block;
+		position: absolute;
+		right:0;
+		top:0;
+		width: 70px;
+		height: 100%;
+		background: -webkit-linear-gradient(left, rgba(176,69,173,0) 0%, rgba(176,69,173,1) 100%);
+	    background: linear-gradient(to right, rgba(176,69,173,0) 0%, rgba(176,69,173,1) 100%);
+	}
+	#dev-tools .sleeve:after {
+		content: '';
+		display: block;
+		position: absolute;
+		right:0;
+		top:0;
+		width: 70px;
+		height: 100%;
+		background: -webkit-linear-gradient(left, rgba(230,129,61,0) 0%, rgba(230,129,61,1) 100%);
+	    background: linear-gradient(to right, rgba(230,129,61,0) 0%, rgba(230,129,61,1) 100%);
+	}
+	#work-us .sleeve:after {
+		content: '';
+		display: block;
+		position: absolute;
+		right:0;
+		top:0;
+		width: 70px;
+		height: 100%;
+		background: -webkit-linear-gradient(left, rgba(29,103,125,0) 0%, rgba(29,103,125,1) 100%);
+	    background: linear-gradient(to right, rgba(29,103,125,0) 0%, rgba(29,103,125,1) 100%);
+	}*/
+	.action .btn_wrapper {
+		margin:0;
+	}
+}
+@media all and (min-width: 1024px) {
+	#game-tiles_wrapper {
+		//max-width:700px;
+		//max-width:950px;
+		max-width:1220px;
+		width:100%;
+		margin:0 auto;
+	}
+	.home-page {
+	    .sleeve {
+	    	background: none;
+	    }
+	}
+	.sleeve .action {
+    	margin-top: 40px;
+    	margin-bottom: 0px;
+  	}
+  	#become-partner .sleeve, #dev-tools .sleeve, #work-us .sleeve, #social-ankle .sleeve {
+		max-width:1366px;
+		padding-left:80px;
+	}
+  	#get-launcher {
+  		position: relative;
+  		z-index:35; /* make sure gametiles arrow is not cutoff */
+  	}
+	#get-launcher .sleeve {
+		padding-top:84px;
+		//padding-bottom: 0;
+		//position: relative;
+	}
+	#get-launcher .sleeve h2 {
+		font-size:60px;
+	}
+	#get-launcher .sleeve .action {
+		margin-bottom: 60px;
+	}
+	#get-launcher .action a.btn {
+		width:308px;
+		height:65px;
+		font-size:30px;
+		margin:0 auto;
+	}
+	#get-launcher .action a.btn span {
+		width:308px;
+		height:65px;
+	}
+	/* rewrite download button for editing pane */
+	.action #homepage_download {
+		width:308px;
+		height:65px;
+		margin:0 auto;
+	}
+	.action #homepage_download a {
+		width:308px;
+		height:65px;
+		font-size:30px;
+	}
+	/*.game-tiles {
+		justify-content: space-between;
+	}*/
+	#dev-tools {
+		position: relative;
+		z-index:25; /* make sure leading h3 shadow is cutoff */
+		.sleeve:after {
+			content: '';
+			display: block;
+			position: absolute;
+			right:0;
+			top:0;
+			width: 150px;
+			height: 100%;
+			background: -webkit-linear-gradient(left, rgba(172,101,59,0) 0%, @homebrownright 100%);
+		    background: linear-gradient(to right, rgba(172,101,59,0) 0%, @homebrownright 100%);
+		}
+		&:before {
+		  content: '';
+	      position: absolute;
+	      right: calc(100% - ((100% - 1366px) / 2));
+	      top: 0;
+	      background: @homebrownleft;
+	      background: -webkit-linear-gradient(top, @homebrowntop 0%, @homebrownbottom 100%);
+    	  background: linear-gradient(to bottom, @homebrowntop 0%, @homebrownbottom 100%);
+	      display: block;
+	      height: 100%;
+	      width:100%;
+	      z-index: -1;
+		}
+		&:after {
+		  content: '';
+	      position: absolute;
+	      left: calc(100% - ((100% - 1366px) / 2));
+	      top: 0;
+	      background: @homebrownright;
+	      display: block;
+	      height: 100%;
+	      width:100%;
+	      z-index: 100;
+		}
+		/*&:before, &:after {
+	      content: '';
+	      background: @homebrown;
+	      background: -webkit-linear-gradient(top, @homebrowntop 0%, @homebrown 24%);
+    	  background: linear-gradient(to bottom, @homebrowntop 0%, @homebrown 24%);
+
+	      display: block;
+
+	      height: 100%;
+	      width:100%;
+	      z-index: 100;
+	    }
+	    &:before {
+	      position: absolute;
+	      left: -100%;
+	      top:0;
+	    }
+	    &:after {
+	      position: absolute;
+	      left: 100%;
+	      top: 0;
+	      background: @homebrownright;
+	    }*/
+	}
+	#dev-tools h3, #become-partner h3, #work-us h3, #social-ankle h3 {
+		font-size: 60px;
+		position: relative;
+		letter-spacing: 0.006em;
+	}
+	#dev-tools h3 span, #become-partner h3 span, #work-us h3 span, #social-ankle h3 span {
+		position: relative;
+		z-index:5;
+	}
+	#dev-tools h3:before, #become-partner h3:before, #work-us h3:before, #social-ankle h3:before {
+		top: 0.13em;
+		left: -1.38em;
+	}
+	#dev-tools h3:before {
+		width:701px;
+		height:299px;
+	}
+	#become-partner {
+		position: relative;
+		z-index:35; /* make sure leading h3 shadow is cutoff */
+		.sleeve:after {
+			content: '';
+			display: block;
+			position: absolute;
+			right:0;
+			top:0;
+			width: 150px;
+			height: 100%;
+			background: -webkit-linear-gradient(left, rgba(142,69,148,0) 0%, @homepurpleright 100%);
+		    background: linear-gradient(to right, rgba(142,69,148,0) 0%, @homepurpleright 100%);
+		}
+		&:before {
+		  content: '';
+	      position: absolute;
+	      right: calc(100% - ((100% - 1366px) / 2));
+	      top: 0;
+	      background: @homepurpleleft;
+	      background: -webkit-linear-gradient(top, @homepurpletop 0%, @homepurplebottom 100%);
+    	  background: linear-gradient(to bottom, @homepurpletop 0%, @homepurplebottom 100%);
+	      display: block;
+	      height: 100%;
+	      width:100%;
+	      z-index: -1;
+		}
+		&:after {
+		  content: '';
+	      position: absolute;
+	      left: calc(100% - ((100% - 1366px) / 2));
+	      top: 0;
+	      background: @homepurpleright;
+	      display: block;
+	      height: 100%;
+	      width:100%;
+	      z-index: 100;
+		}
+		/*&:before, &:after {
+	      content: '';
+	      background: @homepurple;
+	      background: -webkit-linear-gradient(top, @homepurpletop 0%, @homepurple 24%);
+    	  background: linear-gradient(to bottom, @homepurpletop 0%, @homepurple 24%);
+
+	      display: block;
+
+	      height: 100%;
+	      width:100%;
+	      z-index: 100;
+	    }
+	    &:before {
+	      position: absolute;
+	      left: -100%;
+	      top:0;
+	    }
+	    &:after {
+	      position: absolute;
+	      left: 100%;
+	      top: 0;
+	      background: @homepurplelight;
+	    }*/
+	}
+	#become-partner h3:before {
+		width:743px;
+		height:290px;
+	}
+	#work-us {
+		position: relative;
+		z-index:45; /* make sure leading h3 shadow is cutoff */
+		.sleeve:after {
+			content: '';
+			display: block;
+			position: absolute;
+			right:0;
+			top:0;
+			width: 150px;
+			height: 100%;
+			background: -webkit-linear-gradient(left, rgba(142,69,148,0) 0%, @homeblueright 100%);
+		    background: linear-gradient(to right, rgba(142,69,148,0) 0%, @homeblueright 100%);
+		}
+		&:before {
+		  content: '';
+	      position: absolute;
+	      right: calc(100% - ((100% - 1366px) / 2));
+	      top: 0;
+	      background: @homeblueleft;
+	      background: -webkit-linear-gradient(top, @homebluetop 0%, @homebluebottom 100%);
+    	  background: linear-gradient(to bottom, @homebluetop 0%, @homebluebottom 100%);
+	      display: block;
+	      height: 100%;
+	      width:100%;
+	      z-index: -1;
+		}
+		&:after {
+		  content: '';
+	      position: absolute;
+	      left: calc(100% - ((100% - 1366px) / 2));
+	      top: 0;
+	      background: @homeblueright;
+	      display: block;
+	      height: 100%;
+	      width:100%;
+	      z-index: 100;
+		}
+		/*&:before, &:after {
+	      content: '';
+	      background: @homeblue;
+	      background: -webkit-linear-gradient(top, @homebluetop 0%, @homeblue 24%);
+    	  background: linear-gradient(to bottom, @homebluetop 0%, @homeblue 24%);
+
+	      display: block;
+
+	      height: 100%;
+	      width:100%;
+	      z-index: 100;
+	    }
+	    &:before {
+	      position: absolute;
+	      left: -100%;
+	      top:0;
+	    }
+	    &:after {
+	      position: absolute;
+	      left: 100%;
+	      top: 0;
+	      background: @homebluelight;
+	    }*/
+	}
+	#work-us h3:before {
+		width:586px;
+		height:313px;
+	}
+	#social-ankle {
+		position: relative;
+		z-index: 55;
+		.sleeve:after {
+			content: '';
+			display: block;
+			position: absolute;
+			right:0;
+			top:0;
+			width: 150px;
+			height: 100%;
+			background: -webkit-linear-gradient(left, rgba(142,69,148,0) 0%, @homeslateright 100%);
+		    background: linear-gradient(to right, rgba(142,69,148,0) 0%, @homeslateright 100%);
+		}
+		&:before {
+		  content: '';
+	      position: absolute;
+	      right: calc(100% - ((100% - 1366px) / 2));
+	      top: 0;
+	      background: @homeslate;
+	      background: -webkit-linear-gradient(top, @homeslatetop 0%, @homeslatebottom 100%);
+    	  background: linear-gradient(to bottom, @homeslatetop 0%, @homeslatebottom 100%);
+	      display: block;
+	      height: 100%;
+	      width:100%;
+	      z-index: -1;
+		}
+		&:after {
+		  content: '';
+	      position: absolute;
+	      left: calc(100% - ((100% - 1366px) / 2));
+	      top: 0;
+	      background: @homeslateright;
+	      display: block;
+	      height: 100%;
+	      width:100%;
+	      z-index: 100;
+		}
+	}
+}
+
+/* test thing - probably changing to though */
+main.home-page {
+	max-width:2000px;
+}
+/* end test thing */
+
+/* should not have to add this here, but it isnt being obeyed */
+body.admin_pane #dev-tools h3:before, 
+body.admin_pane #become-partner h3:before, 
+body.admin_pane #work-us h3:before {
+	display: none;
+}

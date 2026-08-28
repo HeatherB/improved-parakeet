@@ -1,0 +1,222 @@
+#hero.partnerprogram-pages h3 {
+	position: relative;
+	letter-spacing: 0.006em;
+	font-size:36px;
+}
+#hero.partnerprogram-pages h3 span {
+	position: relative;
+	z-index:5;
+}
+.partnerprogram-pages {
+	/*#hero h3 {
+		position: relative;
+		letter-spacing: 0.006em;
+		font-size:36px;
+	}
+	#hero h3 span {
+		position: relative;
+		z-index:5;
+	}*
+	/*#hero h3:before {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0.13em;
+		left: -1.45em;
+		z-index: -1;
+	}
+	#hero h3:before {
+		background: url(https://eme04.enmasse-game.com/images/enm/bgs/partnerprogram_hero_drop.png) top center no-repeat;
+		width:283px;
+		height:183px;
+		background-size: cover;
+	}*/
+	
+	section {
+		&:after {
+			content:'';
+			height:1px;
+			display: block;
+			width: 100%;
+			background: @btnblue;
+    		background: -webkit-linear-gradient(left, rgba(0,204,255,0) 0%, rgba(0,204,255,1) 20%, rgba(0,204,255,1) 80%, rgba(0,204,255,0) 100%);
+    		background: linear-gradient(to right, rgba(0,204,255,0) 0%, rgba(0,204,255,1) 20%, rgba(0,204,255,1) 80%, rgba(0,204,255,0) 100%);
+		}
+		&:last-child:after {
+			display: none;
+		}
+	}
+	section.becomePartner {
+		ul {
+			list-style-type: none;
+			padding-left: 10px;
+			li {
+				position: relative;
+				padding-left: 20px;
+				line-height:2;
+				color:@copyblue;
+				&:before {
+					content:'';
+					display: block;
+					position: absolute;
+					top:40%;
+					left:0;
+					background:@bulletblue;
+					border-radius: 50%;
+					width:7px;
+					height:7px;
+				}
+				&:nth-child(6n), &:nth-child(7n) {
+					&:before {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+	.contactUs {
+		h4 {
+			text-align:left;
+			a {
+				color:@white;
+				text-decoration:none;
+				font-size:24px;
+				transition: 500ms color;
+				&:hover {
+					color: @bulletblue;
+				}
+			}
+		}
+		.action .btn_wrapper {
+			margin:0 auto;
+		}
+	}
+	/*section.contactUs {
+		background: url(https://eme04.enmasse-game.com/images/enm/bgs/blue_check.jpg), url(https://eme04.enmasse-game.com/images/enm/bgs/texture_tile.png), -webkit-linear-gradient(right, #0a1528, #142a50, #0a1528);
+		background: url(https://eme04.enmasse-game.com/images/enm/bgs/blue_check.jpg), url(https://eme04.enmasse-game.com/images/enm/bgs/texture_tile.png), linear-gradient(to right, #0a1528, #142a50, #0a1528);
+		background-position: top center, top center;
+		background-repeat: no-repeat, repeat-y;
+	}*/
+}
+
+@media all and (min-width: 768px) {
+	#hero.partnerprogram-pages h3 {
+		font-size: 42px;
+	}
+	#hero.partnerprogram-pages h3 span {
+		position: relative;
+		z-index:5;
+	}
+	.partnerprogram-pages  {
+		/*#hero h3 {
+			font-size: 69px;
+			position: relative;
+			letter-spacing: 0.006em;
+			//width:550px;
+			width:760px;
+		}
+		#hero h3 span {
+			position: relative;
+			z-index:5;
+		}*/
+		/*#hero h3:before {
+			top: 0.13em;
+			left: -1.2em;
+		}
+		#hero h3:before {
+			width:462px;
+			height:298px;
+		}*/
+		.leftCol {
+			width:calc(100% - 330px);
+		}
+		.rightCol {
+			margin-left:2%;
+			width:300px;
+		}
+	}
+}
+
+@media all and (min-width:1024px) {
+	/*#hero.partnerprogram-pages h3 {
+		font-size: 69px;
+		position: relative;
+		letter-spacing: 0.006em;
+		//width:550px;
+		width:760px;
+	}*/
+	.partnerprogram-pages  {
+		.contactUs {
+			.action .btn_wrapper {
+				width:308px;
+				height:65px;
+				margin:0 auto;
+				a {
+					width:308px;
+					height:65px;
+					font-size:30px;
+				}
+			}
+		}
+	}
+}
+
+@media all and (min-width: 1366px) {
+	#hero.partnerprogram-pages h3 {
+		font-size: 69px;
+		position: relative;
+		letter-spacing: 0.006em;
+		//width:550px;
+		width:760px;
+	}
+}
+
+@media all and (min-width: 1579px) {
+	/*#hero.partnerprogram-pages h3 {
+		font-size: 69px;
+		position: relative;
+		letter-spacing: 0.006em;
+		//width:550px;
+		width:760px;
+	}*/
+	#hero.partnerprogram-pages {
+		height:508px;
+		/*.sleeve:after {
+			content: '';
+			display: block;
+			position: absolute;
+			right:0;
+			top:0;
+			width: 150px;
+			height: 100%;
+		}*/
+		&:before {
+			content: '';
+	    	position: absolute;
+	    	right: calc(100% - ((100% - 1579px) / 2));
+	    	top: 0;
+	   		background: #4b2976;
+	   		background: -webkit-linear-gradient(top, #673688 0%, #4b2976 40%);
+    		background: linear-gradient(to bottom, #673688 0%, #4b2976 40%);
+	    	display: block;
+	    	height: 100%;
+	    	width:100%;
+	    	z-index: 100;
+		}
+		&:after {
+			content: '';
+	    	position: absolute;
+	    	left: calc(100% - ((100% - 1579px) / 2));
+	    	top: 0;
+	   		background: #57347e;
+	    	display: block;
+	    	height: 100%;
+	    	width:100%;
+	    	z-index: 100;
+		}
+	}
+}
+
+
+
+

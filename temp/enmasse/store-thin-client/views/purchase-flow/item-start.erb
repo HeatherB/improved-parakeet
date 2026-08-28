@@ -1,0 +1,85 @@
+<section id="wide_body" class="row">
+  <div class="content-block content-head">
+    <div class="content" style="color: white;">
+      <h2><%= @item.name %></h2>
+      <p><%= @item.long_description %></p>
+      <p>$<%= @item.price %>
+    </div>
+  </div>
+
+  <% if !session[:account_id] # IF NOT LOGGED IN %>
+    <div class="register">
+      <p><strong>Prices do not include tax.</strong> To see the final price and make a purchase, you must log in.</p>
+      <%= erb :"shared/login-form" %>
+    </div>
+  <% else %>
+    <form id="purchase" action="/<%= @game %>/item-confirm/<%= @item.id %>/" method="post">
+      <div id="select-payment">
+        <div class="content-block rounded">
+          <div class="purchase-tracker">
+            <ul>
+              <li class="num lightup"><span>1</span>Choose Products</li>
+              <li class="arrow lightup">&rarr;</li>
+              <li class="num"><span>2</span>Review Order</li>
+              <li class="arrow">&rarr;</li>
+              <li class="num"><span>3</span>Enter Payment Details</li>
+              <li class="arrow">&rarr;</li>
+              <li class="num"><span>4</span>View Receipt</li>
+            </ul>
+          </div>
+
+          <% if @billing.errors.any? && @show_errors %>
+            <div id="error-explanation">
+              <div class="error">
+                <% @billing.errors.full_messages.each do |msg| %>
+                  <article><%= msg %></article>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+
+          <div id="paymentList">
+            <a name="paymentList"></a>
+              <h2>Select Payment Method</h2>
+              <% if @previous_cc %>
+                <input id="prev" type="radio" name="payment_method" value="token" data-name="<%= @previous_cc['USERNAME'] %>" data-address="<%= @previous_cc['ADDRESS'] %>" data-zip="<%= @previous_cc['ZIPCODE'] %>" data-city="<%= @previous_cc['CITY'] %>" data-country="<%= @previous_cc['COUNTRY'] %>" data-state="<%= @previous_cc['STATE'] %>" data-phone="<%= @previous_cc['PHONE'] %>" />
+                <label for="prev" class="prev">
+                  <div class="inner">
+                    <h4>Use Previous Card</h4>
+                    <ul>
+                      <li><span>Credit Card</span> - <%= @previous_cc['CCTYPE'] %></li>
+                      <li>************<%= @previous_cc['CCACCT'] %></li>
+                      <li><span>Expires:</span> <%= @previous_cc['CCEXPDATE'].slice(0,2)  %>/<%= @previous_cc['CCEXPDATE'].slice(2,2)  %></li>
+                    </ul>
+                  </div>
+                </label>
+              <% end %>
+              
+              <% @cash_pay_types.collect{|pt| pt.pg_code }.each do |pay_type| %>
+                <% pay_type_clean = pay_type.gsub(/_DIRECT/, '').gsub(" ", "").downcase %>
+                <input id="cpg<%= pay_type_clean %>" type="radio" name="payment_method" value="<%= pay_type.gsub(" ", "").downcase %>" />
+                <label for="cpg<%= pay_type_clean %>" class="paymentOption">
+                  <div class="inner">
+                    <% if /^CREDITCARD/ =~ pay_type %>
+                      <h4><% if @previous_cc %> New <% end %>Credit Card</h4>
+                    <% elsif /^PAYPAL/ =~ pay_type %>
+                      <span></span>
+                    <% else %>
+                      <span><%= pay_type %></span>
+                    <% end %>
+                    <div id="sprite_<%= pay_type_clean %>"></div>
+                  </div>
+                </label>
+              <% end %>
+              
+            <%= erb :"purchase-flow/billing-form" %>
+          </div>
+
+          <div class="text-align-center">
+            <input type="submit" class="button-secondary confirm" value="Review Order">
+          </div>
+        </div>
+      </div>
+    </form>
+  <% end %>
+</section>

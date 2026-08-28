@@ -1,0 +1,898 @@
+/* outer template overwrites */
+body.internal {
+	&.seth {
+		main {
+			background-image: url(/assets/bgs/blue-content-bg.png);
+			padding-bottom: 0;
+			margin-bottom: -50px;
+			padding-bottom: 20px;
+			max-width:1086px !important;
+			&:before {
+				display: none;
+			}
+			#bgvid {
+				display: none;
+			}
+		}
+		#main-wrapper {
+			background: none;
+			margin:0 auto;
+			width:100%;
+			box-shadow: none;
+			padding: 0;
+		}
+		#content_article_header {
+			z-index: 6;
+		}
+		#content_side_body, #content_body {
+			display: none;
+		}
+	}
+}
+#content_article_header {
+	.seth_soon {
+		//background: url(https://eme02.enmasse-game.com/images/closers/bai/bg_bai_header.jpg) top left no-repeat;
+		background: url(https://eme02.enmasse-game.com/images/closers/seth-release/hero-vid-bg.jpg) top left no-repeat;
+		//max-width: 1021px;
+		margin:0 auto;
+		/*background-size:cover;
+		min-height: 280px;*/
+		height:590px;
+		position: relative;
+		.video-wrapper#intro-video {
+		    width:320px;
+		    margin:10px auto 0;
+		    position: relative;
+		    top:170px;
+		    .video-inner {
+		    	position: relative;
+		    }
+		    iframe, img {
+		      width:100%;
+		      height:auto;
+		    }
+		}
+	}
+}
+/* end outer template overwrite */
+#seth-bg-vid {
+	@include fontTeko;
+	text-align: right;
+	position: absolute;
+	right:0;
+	bottom:3px;
+	background-image: url(https://eme02.enmasse-game.com/images/closers/seth-release/svg/yellow_hero_block.svg);
+	width: 100%;
+	 background-size: cover;
+	 height: 0;
+	 padding: 0; /* reset */
+	 padding-bottom: calc(100% * 210 / 1084);
+	 box-sizing: content-box;
+	&:before {
+		content:'';
+		display: block;
+		position: absolute;
+		right:0;
+	    bottom:-3px;
+	    background-image: url(https://eme02.enmasse-game.com/images/closers/seth-release/svg/black_hero_block.svg);
+	    width: 100%;
+		background-size: cover;
+		height: 0;
+		padding: 0; /* reset */
+		padding-bottom: calc(100% * 210 / 1084);
+		box-sizing: content-box;
+	}
+	.inner {
+		text-align:center;
+		//max-width:300px;
+		max-width: 140px;
+		width:100%;
+		position: absolute;
+		right:0;
+	}
+	h1 {
+		color:#ffffff;
+		line-height:1;
+		font-weight: 400;
+		margin-bottom: 0;
+		span {
+			display: block;
+			font-weight: 700;
+			color:#ffd102;
+			text-transform:uppercase;
+		}
+		a {
+			color:#ffffff;
+			text-decoration: none;
+			span {
+				color:#ffd102;
+			}
+			&:hover {
+				color:#c6ff00;
+				span {
+					color:#c6ff00;
+				}
+			}
+		}
+	}
+	h2 {
+		line-height:1;
+		color:#ffffff;
+		font-weight: 400;
+		margin-top: 0;
+	}
+}
+.seth-reveal {
+	@include fontTeko;
+	.inset {
+		background: -moz-linear-gradient(bottom, rgba(72,88,37, 1), rgba(72,88,37, 0)), url(https://eme02.enmasse-game.com/images/closers/seth-release/green-splatter-bg_gradient.jpg) top center no-repeat #485825;
+		background: -webkit-linear-gradient(bottom, rgba(72,88,37, 1), rgba(72,88,37, 0)), url(https://eme02.enmasse-game.com/images/closers/seth-release/green-splatter-bg_gradient.jpg) top center no-repeat #485825;
+		background: linear-gradient(to top, rgba(72,88,37, 1), rgba(72,88,37, 0)), url(https://eme02.enmasse-game.com/images/closers/seth-release/green-splatter-bg_gradient.jpg) top center no-repeat #485825;
+		//background: #5a8300;
+		padding: 40px 20px 0;
+		//max-width: 987px;
+		max-width:1018px;
+		width:100%;
+		margin:0 auto;
+	}
+	h2 {
+		font-size:48px;
+		color:#c6ff00;
+		background: #000000;
+        background: -moz-linear-gradient(114deg, #000000 55%, #c6ff00 55%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(114deg, #000000 55%, #c6ff00 55%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(114deg, #000000 55%, #c6ff00 55%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		padding:10px 20px;
+		margin:0;
+	}
+	a {
+		color:#ffd100;
+		text-decoration: none;
+		&:hover {
+			color:#c6ff00;
+		}
+	}
+	a.yellowBTN {
+		color:#000000;
+		&:hover {
+			color:#000000;
+		}
+	}
+	.wrap {
+		border-right: 5px solid #000000;
+		border-bottom: 5px solid #000000;
+		border-left: 5px solid #000000;
+		padding:15px;
+		box-sizing: border-box;
+	}
+	.about-block {
+		/*border-top: 10px solid #000000;
+		box-shadow: 0px -5px 0px #ffd102;
+		padding-bottom: 5px;
+		background: -moz-linear-gradient(left, rgba(17,30,7,0.2), rgba(17,30,7,0.8)); 
+	    background: -webkit-linear-gradient(left, rgba(17,30,7,0.2), rgba(17,30,7,0.8)); 
+	    background: linear-gradient(to left, rgba(17,30,7,0.2), rgba(17,30,7,0.8)); */
+		.heading {
+			h3 {
+				color: #ffd102;
+				text-transform: uppercase;
+				margin: 0;
+				line-height:1;
+				font-size:48px;
+			}
+			h4 {
+				color: #ffd102;
+				text-transform: uppercase;
+				margin: 0;
+				line-height:1;
+				font-size:24px;
+				padding-left: 20px;
+			}
+			h5 {
+				color:#ffffff;
+				line-height:1;
+				font-size:20px;
+				padding-left: 20px;
+			}
+		}
+		p {
+			color:#ffffff;
+			font-family: 'Roboto', sans-serif;
+			font-size:14px;
+			padding: 10px 20px 0;
+			width:100%;
+			&:last-child {
+				padding-top:0px;
+				padding-bottom: 30px;
+			}
+		}
+		ul {
+			padding-left: 10px;
+		}
+		li {
+			color:#ffffff;
+			position: relative;
+			font-size: 20px;
+			text-shadow: 1px 1px 5px #000000;
+			span {
+				width: 0;
+			    height: 0;
+			    border: 5px solid transparent;
+			    border-bottom-color: #ffd102;
+			    position: relative;
+			    top: -21px;
+			    margin-right:10px;
+			}
+			span:after {
+		      content: '';
+		      position: absolute;
+		      left: -5px;
+		      top: 34px;
+		      width: 0;
+		      height: 0;
+		      border: 5px solid transparent;
+		      border-top-color: #ffd102;
+		    }
+		}
+		
+	}
+}
+.seth-reveal#bio-block {
+	.heading_wrapper {
+		width: 100%;
+		max-width:300px;
+		overflow:hidden;
+	}
+	.heading {
+		width: 100%;
+		background-size: 97%;
+		height: 0;
+		padding: 0; /* reset */
+		padding-bottom: calc(100% * 102 / 299);
+		box-sizing: content-box;
+		background-repeat: no-repeat;
+		h3 {
+			padding-left: 20px;
+		}
+	}
+	.about-block {
+		//border-top: 10px solid #000000;
+		box-shadow: 0px -5px 0px #ffd102;
+		padding-bottom: 5px;
+		background: -moz-linear-gradient(left, rgba(17,30,7,0.2), rgba(17,30,7,0.8)); 
+	    background: -webkit-linear-gradient(left, rgba(17,30,7,0.2), rgba(17,30,7,0.8)); 
+	    background: linear-gradient(to left, rgba(17,30,7,0.2), rgba(17,30,7,0.8)); 
+		.img-wrap {
+			width: 100%;
+			background-size: cover;
+			height: 0;
+			padding: 0;  /*reset */
+			padding-bottom: calc(100% * 261 / 476);
+			box-sizing: content-box;
+			background-repeat: no-repeat;
+			img {
+				width:100%;
+				max-width:90%;
+				position: relative;
+				top:19px;
+			}
+		}
+		&:nth-child(odd) {
+			&:before {
+		    	content:'';
+		    	background-image: url(https://eme02.enmasse-game.com/images/closers/seth-release/svg/black_bar_one.svg);
+		        width: 100%;
+		    	background-size: cover;
+		    	height: 0;
+		    	padding: 0; /* reset */
+		    	padding-bottom: calc(100% * 26 / 938);
+		    	box-sizing: content-box;
+		    	display: block;
+		    }
+			.heading {
+				background-image: url(https://eme02.enmasse-game.com/images/closers/seth-release/svg/black_left_name.svg);
+				background-position: 0 0px;
+				filter: drop-shadow(11px -6px 0px #ffd102);
+			}
+			.img-wrap {
+				text-align: right;
+				background-image: url(https://eme02.enmasse-game.com/images/closers/seth-release/svg/black_right_image_bg.svg);
+			}
+			.leftCol {
+				margin-top:-4px;
+			}
+		}
+		&:nth-child(even) {
+			display: grid;
+			grid-template-areas:
+			                 "headerbar" 
+                             "packdetails"
+                             "packimage";
+            &:before {
+            	grid-area: headerbar;
+		    	content:'';
+		    	background-image: url(https://eme02.enmasse-game.com/images/closers/seth-release/svg/black_bar_two.svg);
+		        width: 100%;
+		    	background-size: cover;
+		    	height: 0;
+		    	padding: 0; /* reset */
+		    	padding-bottom: calc(100% * 26 / 938);
+		    	box-sizing: content-box;
+		    	display: block;
+		    }
+            .leftCol {
+            	grid-area: packimage;
+            }
+            .rightCol {
+            	grid-area: packdetails;
+            	margin-top:-5px;
+            }
+            .heading_wrapper {
+            	position: relative;
+            	left: calc(100% - 300px);
+            }
+			.heading {
+				background-image: url(https://eme02.enmasse-game.com/images/closers/seth-release/svg/black_right_name.svg);
+				background-position: top right;
+				text-align: right;
+				filter: drop-shadow(-11px -6px 0px #ffd102);
+				h4, h5 {
+					padding-right: 20px;
+				}
+			}
+			.img-wrap {
+				text-align: left;
+				background-image: url(https://eme02.enmasse-game.com/images/closers/seth-release/svg/black_left_image_bg.svg);
+				img {
+					top:22px;
+				}
+			}
+		}
+		&:nth-child(3){
+			padding-bottom: 0;
+		}
+	}
+}
+.seth-reveal#prelease-pack {
+	h2 {
+		font-size: 42px;
+		background: #000000;
+        background: -moz-linear-gradient(114deg, #000000 75%, #c6ff00 75%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(114deg, #000000 75%, #c6ff00 75%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(114deg, #000000 75%, #c6ff00 75%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	}
+	.about-block {
+		background: #000000;
+		padding: 20px 20px 40px 20px;
+		position: relative;
+	}
+	.leftCol {
+		position: relative;
+		z-index:1;
+		background: rgba(0,0, 0,0.4);
+	}
+	.rightCol {
+		position: absolute;
+		bottom:0;
+		right:0;
+		z-index:0;
+	}
+	.action {
+		h3 {
+			@include fontTeko;
+			text-align:center;
+			font-size:83px;
+			color:#ffd100;
+			text-transform:uppercase;
+			line-height:1;
+			padding:0;
+			margin:0 auto;
+		}
+		.yellowBTN {
+			width:200px;
+			height:53px;
+			text-shadow: none;
+			line-height:1.7;
+			&:before {
+				background:#ffd100;
+				width:200px;
+				height:53px;
+			}
+			&:hover {
+				&:before {
+					background: #c6ff00;
+				}
+			}
+		}
+	}
+}
+.seth-reveal#mo-stuff {
+	.about-block {
+		text-align: right;
+		background: #000000;
+		padding: 20px 20px 40px 20px;
+		position: relative;
+		.heading {
+			h4 {
+				text-transform: none;
+			}
+		}
+		p {
+			@include fontTeko;
+			padding-right:0;
+			color:#ffffff;
+			position: relative;
+			text-shadow: 1px 1px 5px #000000;
+		}
+	}
+	.rightCol {
+		position: relative;
+		z-index:1;
+		background: rgba(0,0, 0,0.4);
+	}
+	.leftCol {
+		position: absolute;
+		bottom:0;
+		left:0;
+		z-index:0;
+		max-width:200px;
+		img {
+			width:100%;
+			max-width:100%;
+		}
+	}
+}
+.seth-reveal#dev-spotlight {
+	.about-block {
+		background: url(https://eme02.enmasse-game.com/images/closers/seth-release/mr_yu.jpg) bottom right no-repeat #0f1804;
+		background: url(https://eme02.enmasse-game.com/images/closers/seth-release/mr_yu.jpg) bottom right no-repeat, -moz-linear-gradient(right, #0f1804, #1a2702); /* FF3.6-15 */
+        background: url(https://eme02.enmasse-game.com/images/closers/seth-release/mr_yu.jpg) bottom right no-repeat, -webkit-linear-gradient(right, #0f1804, #1a2702); /* Chrome10-25,Safari5.1-6 */
+        background: url(https://eme02.enmasse-game.com/images/closers/seth-release/mr_yu.jpg) bottom right no-repeat, linear-gradient(to right, #0f1804, #1a2702); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		background-size:70%;
+		padding-bottom:70px;
+		.heading {
+			h3 {
+				font-size:24px;
+				padding: 10px 0 0 20px;
+				max-width:250px;
+				width:100%;
+			}
+		}
+		p {
+			@include fontTeko;
+			padding: 0 0 0 20px;
+			max-width:200px;
+			width:100%;
+		}
+		.action {
+			a {
+				padding-left: 20px;
+			}
+		}
+	}
+	.leftCol {
+		background-image: url(https://eme02.enmasse-game.com/images/closers/seth-release/svg/dev_bg.svg);
+		width: 320px;
+	 	background-size: 100%;
+	 	background-repeat:no-repeat;
+	 	height: 0;
+	 	padding: 0; /* reset */
+	 	padding-bottom: calc(100% * 219 / 558);
+	 	box-sizing: content-box;
+	 	filter: drop-shadow(3px 8px 0px #ffd102);
+	}
+}
+.seth-reveal#ankle {
+	.inset {
+		padding:75px 20px;
+		text-align:center;
+	}
+	.action {
+		a {
+			background: url(https://eme02.enmasse-game.com/images/closers/seth-release/register_btn.png) top center no-repeat;
+			width:350px;
+			height:128px;
+			background-size: cover;
+			text-indent: -9999em;
+			margin:0 auto;
+			display: block;
+			&:hover {
+				background-position: 50% -128px;
+			}
+		}
+	}
+}
+
+@media all and (min-width: 600px) {
+	#seth-bg-vid {
+		.inner {
+			right: 20px;
+			bottom: 10px;
+		}
+	}
+}
+@media all and (min-width: 700px) {
+	#content_article_header {
+		.seth_soon {
+			.video-wrapper#intro-video {
+				position: absolute;
+				right: 20px;
+				top: 200px;
+				width:413px;
+			}
+		}
+	}
+	#seth-bg-vid {
+		.inner {
+			bottom: 5px;
+			max-width:180px;
+		}
+		h1 {
+			font-size:40px;
+		}
+		h2 {
+			font-size: 30px;
+		}
+	}
+	.seth-reveal#mo-stuff {
+		.rightCol {
+			background: none;
+			padding-left: 160px;
+		}
+	}
+	.seth-reveal#dev-spotlight {
+		.leftCol {
+			width:428px;
+		}
+		.about-block {
+			.heading {
+				h3 {
+					font-size:36px;
+					max-width:350px;
+					a {
+						font-size:36px;
+					}
+				}
+			}
+			p {
+				max-width:300px;
+				font-size:17px;
+			}
+			a {
+				font-size:17px;
+			}
+		}
+	}
+	.seth-reveal#ankle {
+		.action {
+			a {
+				width:500px;
+				height:183px;
+				&:hover {
+					background-position: 50% -183px;
+				}
+			}
+		}
+	}
+}
+
+@media all and (min-width: 820px) {
+	/*#content_article_header {
+		.seth_soon {
+			.video-wrapper#intro-video {
+				top: 337px;
+				right: 80px;
+
+				top: 257px;
+				right: 10px;
+			}
+		}
+	}*/
+	#seth-bg-vid {
+		.inner {
+			max-width:200px;
+			bottom: 0;
+		}
+		h1 {
+			font-size:50px;
+		}
+		h2 {
+			font-size: 40px;
+		}
+	}
+}
+@media all and (min-width: 940px) {
+	#content_article_header {
+		.seth_soon {
+			.video-wrapper#intro-video {
+				top: 150px;
+			}
+		}
+	}
+	#seth-bg-vid {
+		.inner {
+			max-width:250px;
+			bottom: 0;
+			right: 0;
+		}
+		h1 {
+			font-size:58px;
+		}
+		h2 {
+			font-size: 44px;
+		}
+	}
+	.seth-reveal#bio-block {
+		.about-block {
+			display: -webkit-box;           /* OLD - iOS 6-, Safari 3.1-6 */
+			display: -moz-box;              /* OLD - Firefox 19- (doesn't work very well) */
+			display: -ms-flexbox;           /* TWEENER - IE 10 */
+			display: -webkit-flex;          /* NEW - Chrome */
+			display: flex;                  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			p {
+				max-width:383px;
+				padding: 10px 0px 0px 20px;
+				width:100%;
+				font-size:13px;
+				&:last-child {
+					padding-bottom: 0;
+				}
+			}
+			.img-wrap {
+				margin-top:-11px;
+				img {
+					top: 10px;
+				}
+			}
+		}
+		.about-block:nth-child(even) {
+			display: -webkit-box;           /* OLD - iOS 6-, Safari 3.1-6 */
+			display: -moz-box;              /* OLD - Firefox 19- (doesn't work very well) */
+			display: -ms-flexbox;           /* TWEENER - IE 10 */
+			display: -webkit-flex;          /* NEW - Chrome */
+			display: flex;                  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			p {
+				text-align: right;
+				max-width:383px;
+				padding: 10px 20px 0px 0px;
+				width:100%;
+				font-size:13px;
+				&:last-child {
+					padding-bottom: 0;
+				}
+			}
+			.img-wrap {
+				margin-top:-16px;
+				img {
+					top: 10px;
+				}
+			}
+		}
+		.about-block {
+			.img-wrap {
+				width: 477px;
+				background-size: cover;
+				height: 0;
+				padding: 0;  /*reset */
+				padding-bottom: calc(100% * 261 / 476);
+				box-sizing: content-box;
+				background-repeat: no-repeat;
+				img {
+					width:100%;
+					max-width:450px;
+					position: relative;
+					top:0px;
+				}
+			}
+		}		
+	}
+	.seth-reveal#prelease-pack {
+		.about-block {
+			background: rgb(0,0,0);
+			background:  -moz-linear-gradient(17deg, #000000 58%, #ffd100 58%, #ffd100 59%, rgba(0,0,0, 0) 59%), -moz-linear-gradient(to right, rgba(0,0,0, 0), rgba(0,0,0, 0.6)), -moz-linear-gradient(to top, rgba(0,0,0, 0), rgba(0,0,0, 0.6)), rgba(0,0,0, 0.3); /* FF3.6-15 */
+        	background:  -webkit-linear-gradient(17deg, #000000 58%, #ffd100 58%, #ffd100 59%, rgba(0,0,0, 0) 59%), -webkit-linear-gradient(right, rgba(0,0,0, 0), rgba(0,0,0, 0.6)), -webkit-linear-gradient(top, rgba(0,0,0, 0), rgba(0,0,0, 0.6)), rgba(0,0,0, 0.3); /* Chrome10-25,Safari5.1-6 */
+        	background: linear-gradient(17deg, #000000 58%, #ffd100 58%, #ffd100 59%, rgba(0,0,0, 0) 59%), linear-gradient(right, rgba(0,0,0, 0), rgba(0,0,0, 0.6)), linear-gradient(top, rgba(0,0,0, 0), rgba(0,0,0, 0.6)), rgba(0,0,0, 0.3); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			.heading {
+				h3 {
+					width:100%;
+					max-width:390px;
+					margin-bottom:20px;
+				}
+			}
+			.action {
+				max-width:550px;
+				width:100%;
+				display: -webkit-box;           /* OLD - iOS 6-, Safari 3.1-6 */
+				display: -moz-box;              /* OLD - Firefox 19- (doesn't work very well) */
+				display: -ms-flexbox;           /* TWEENER - IE 10 */
+				display: -webkit-flex;          /* NEW - Chrome */
+				display: flex;                  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+				flex-direction: row;
+				flex-wrap: wrap;
+				justify-content: space-between;
+				.yellowBTN {
+					margin-top:-16px;
+				}
+			}
+		}
+		.leftCol {
+			background: none;
+			/*background-image: url(https://eme02.enmasse-game.com/images/closers/seth-release/svg/pack_bg_black.svg);
+			width: 100%;
+			background-size: cover;
+			height: 0;
+			padding: 0; 
+			padding-bottom: calc(100% * 630 / 642);
+			box-sizing: content-box;
+			&:before {
+				content:'';
+				display: block;
+				position: absolute;
+				background-image: url(https://eme02.enmasse-game.com/images/closers/seth-release/svg/pack_bg_yellow.svg);
+				width: 100%;
+				background-size: cover;
+				height: 0;
+				padding: 0; 
+				padding-bottom: calc(100% * 630 / 642);
+				box-sizing: content-box;
+			}*/
+		}
+		h2 {
+			font-size:48px;
+			background: #000000;
+        	background: -moz-linear-gradient(114deg, #000000 55%, #c6ff00 55%); /* FF3.6-15 */
+        	background: -webkit-linear-gradient(114deg, #000000 55%, #c6ff00 55%); /* Chrome10-25,Safari5.1-6 */
+        	background: linear-gradient(114deg, #000000 55%, #c6ff00 55%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		}
+	}
+	.seth-reveal#mo-stuff {
+		.about-block {
+			background: -moz-linear-gradient(bottom, rgba(17,30,7,0.2), rgba(17,30,7,0.8)), -moz-linear-gradient(left, rgba(17,30,7,0.2), rgba(17,30,7,0.8)); 
+			background: -webkit-linear-gradient(bottom, rgba(17,30,7,0.2), rgba(17,30,7,0.8)), -webkit-linear-gradient(left, rgba(17,30,7,0.2), rgba(17,30,7,0.8)); 
+			background: linear-gradient(to bottom, rgba(17,30,7,0.2), rgba(17,30,7,0.8)), linear-gradient(to left, rgba(17,30,7,0.2), rgba(17,30,7,0.8)); 
+			.heading {
+				margin-left:280px;
+				h3 {
+					padding: 20px 20px 20px 0;
+				}
+				h4 {
+					padding: 0 20px 20px 0;
+				}
+			}
+			p {
+				font-size: 20px;
+				width:100%;
+				max-width:500px;
+				left: -11%;
+			}
+			a {
+				padding: 0 20px 0px 0;
+				font-size: 20px;
+			}
+		}
+		.leftCol {
+			max-width: 475px;
+			background: none;
+			z-index:2;
+			left: 20px;
+			bottom:-8px;
+		}
+		.rightCol {
+			//background: #000000;
+			background: none;
+			background-image: url(https://eme02.enmasse-game.com/images/closers/seth-release/svg/mo_bg_black.svg);
+			width: 80%;
+			background-size: cover;
+			height: 0;
+			padding: 0; /* reset */
+			padding-bottom: calc(100% * 282 / 678);
+			box-sizing: content-box;
+			position: relative;
+			right: -192px;
+			filter: drop-shadow(-2px 10px 0px #ffd102);
+			p {
+				text-shadow: none;
+				filter: none;
+				padding-bottom: 20px;
+			}
+		}
+	}
+	.seth-reveal#dev-spotlight {
+		.leftCol {
+			width:558px;
+			background-size: 100%;
+		}
+		.about-block {
+			.heading {
+				h3 {
+					font-size:48px;
+					padding-top:30px;
+					padding-left:30px;
+					max-width: 440px;
+					a {
+						font-size:48px;
+					}
+				}
+				p {
+					font-size:20px;
+					padding: 10px 0 10px 30px;
+					max-width:380px;
+				}
+			}
+			.action {
+				a {
+					font-size: 20px;
+					padding-left:30px;
+				}
+			}
+		}
+	}
+	.seth-reveal#ankle {
+		.action {
+			a {
+				width:854px;
+				height:312px;
+				&:hover {
+					background-position: 50% -312px;
+				}
+			}
+		}
+	}
+
+}
+@media all and (min-width: 1024px) {
+	body.internal {
+		&.seth {
+			main.plusvid {
+				#bgvid {
+				    display: block;
+				    position: absolute;
+				    top: 0;
+				    left: 0;
+				    z-index: 5;
+				    width:100%;
+				    height:590px;
+				    height:611px;
+				}
+				#content_article_header {
+					.seth_soon {
+						background: none;
+					}
+				}
+			}
+		}
+	}
+	#seth-bg-vid {
+		bottom: -19px;
+		.inner {
+			max-width:300px;
+			bottom: 0;
+			right: 0;
+		}
+		h1 {
+			font-size:65px;
+		}
+		h2 {
+			font-size: 48px;
+		}
+	}
+	.seth-reveal#bio-block {
+		.about-block {
+			p {
+				max-width:460px;
+				width:100%;
+			}
+			&:nth-child(even) {
+				p {
+					max-width:453px;
+				}
+			}
+		}
+	}
+}

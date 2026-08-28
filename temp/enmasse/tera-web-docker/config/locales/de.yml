@@ -1,0 +1,113 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+de:
+  hello: "Hallo"
+  en: "English"
+  fr: "Français"
+  de: "Deutsch"
+  es: "Español"
+  platform_all: "Alle"
+  platform_windows: "PC"
+  platform_playstation: "PS4"
+  platform_xbox: "XBOX ONE"
+  btn_readmore: "Mehr erfahren"
+  btn_seemore: "Mehr ansehen"
+  btn_learnmore: "Mehr lernen"
+  btn_seefewer: "Weniger ansehen"
+  btn_allnews: "Alle Neuigkeiten"
+  play_windows: "Auf PC spielen"
+  play_playstation: "Auf PS4 spielen"
+  play_xbox: "Auf Xbox One spielen"
+  buy_windows: "Kaufen für PC"
+  buy_playstation: "Kaufen für PS4"
+  buy_xbox: "Kaufen für XBOX ONE"
+  learn_more: "Mehr lernen"
+  twitter: "twitter"
+  facebook: "facebook"
+  twitch: "twitch"
+  discord: "discord"
+  youtube: "youtube"
+  legal: "Rechtliche Hinweise"
+  no_blog_articles_yet: "no blog articles yet"
+  end_user_license_agreement: "Endbenutzer-Lizenzvereinbarung"
+  player_created_content: "Von Spielern erstellte Inhalte"
+  privacypolicy: "Datenschutzrichtlinie"
+  termsofservice: "Nutzungsbedingungen"
+  jobs: "Karriere"
+  rulesofconduct: "Verhaltensregeln"
+  eula: "EULA"
+  contactus: "Kontakt"
+  enmasse: "En Masse"
+  bluehole: "Bluehole"
+  krafton: "Krafton"
+  copyright: "Copyright Krafton, Inc. Alle Rechte vorbehalten. Die Nutzung dieses Produkts unterliegt den Bestimmungen des Lizenzvertrags, den du auf tera.enmasse.com einsehen kannst. TERA und TERA: The Exiled Realm of Arborea sind Markennamen von Krafton, Inc.  Alle anderen Marken sind das alleinige Eigentum der jeweiligen Markeninhaber."
+  ankle_copy: "TERA ist ein fantastisches Fantasy-MMO, das rasante Action-Kämpfe bietet. eine riesige, wunderschöne Welt; und hochgradig anpassbare Charaktere. Das Beste von allem, TERA ist kostenlos zu spielen!"
+  partners: "PARTNER"
+  streamers: "STREAMER"
+  media_label: "Medien"
+  video_label: "Video"
+  playlist_label: "Wiedergabeliste"
+  screenshots_label: "Screenshots"
+  concepts_label: "Illustrationen & Bilder"
+  home: "Pos1"
+  page_not_found: "Seite nicht gefunden"
+  events: "Events"
+  game: "Spiel"
+  what_is_tera: "Was ist TERA?"
+  console_first_look: "Konsole: Erste Eindrücke"
+  races: "Volk"
+  aman: "Aman"
+  baraka: "Baraka"
+  castanic: "Castanic"
+  elin: "Elin"
+  high_elf: "Hochelf"
+  human: "Mensch"
+  popori: "Popori"
+  classes: "Klasse"
+  archer: "Bogenschütze"
+  berserker: "Berserker"
+  lancer: "Lanzer"
+  mystic: "Mystiker"
+  valkyrie: "Walküre"
+  priest: "Priester"
+  slayer: "Zerstörer"
+  sorcerer: "Zauberer"
+  warrior: "Krieger"
+  reaper: "Klingentänzerin"
+  gunner: "Arkaningenieurin"
+  brawler: "Sturmfurie"
+  ninja: "Ninja"
+  news: "Neuigkeiten"
+  community: "Community"
+  support: "Support"
+  store: "Shop"
+  tera_store_for_pc: "TERA-Shop für PC"
+  elite_status: "Elitestatus"
+  emp_for_pc: "TERA-Taler für PC"
+  download: "Herunterladen"
+  play_free: "Kostenlos spielen"
+  xbox_one: "XBOX ONE"
+  ps4: "PLAYSTATION 4"
+  eu: "EU"
+  na: "NA"
+  ps4_na_link: "Links to Playstation Store, North America"
+  ps4_eu_link: "Links to Playstation Store, Europe"

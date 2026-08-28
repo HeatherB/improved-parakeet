@@ -1,0 +1,27 @@
+<% prams = request.query_string.gsub(/page=\d+/, '')
+   prams = prams.gsub(/&&/, '&').gsub(/&$/, '')
+   prams = '?' + prams if prams.length > 2 %>
+<header id="header" class="row">
+    <div class="three columns">
+        <a href="http://tera.enmasse.com" id="header-logo"></a>
+    </div>
+    <nav id="menu" class="nine columns">
+        <ul class="nav-bar">
+            <li id="news" class="first has-flyout">
+                <a href="http://tera.enmasse.com/news/categories/all">News</a>
+            </li>
+            <li id="game-guide" class="has-flyout">
+                <a href="http://tera.enmasse.com/game/what-is-tera-page">Game Guide</a>
+            </li>
+            <li id="community" class="has-flyout">
+                <a href="https://forums.enmasse.com/tera/">Forum</a>
+            </li>
+            <li id="support" class="has-flyout">
+                <a href="https://support.enmasse.com/hc/en-us">Support</a>
+            </li>
+            <li id="store" class="last has-flyout">
+                <a href="/tera<%= prams %>">Store</a>
+            </li>
+        </ul>
+    </nav>
+</header>

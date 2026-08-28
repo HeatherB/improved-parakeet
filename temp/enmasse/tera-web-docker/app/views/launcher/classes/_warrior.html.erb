@@ -1,0 +1,48 @@
+<div id="class-info">
+  <div id="warrior-icon"></div>
+  <h2>Warrior</h2>
+  <p>Role: Evasion Tank or Sustained DPS. Warriors have quick attacks and high mobilty.</p>
+</div>
+<% if @level <= 29 %>
+  <div id="skills">
+    <div class="skill">
+      <span class="icon evasive-roll"></span>
+      <p>Evasive Roll</p>
+      <p>Dodge your enemy's attack.</p>
+    </div>
+    <div class="skill">
+      <span class="icon combative-strike"></span>
+      <p>Combative Strike</p>
+      <p>Sacrifice HP to deal a decisive attack, weakening the Endurance of your targets</p>
+    </div>
+    <div class="skill">
+      <span class="icon rain-of-blows"></span>
+      <p>Rain of Blows</p>
+      <p>Execute a flurry of swings while advancing on your foe.</p>
+    </div>
+    <div class="skill">
+      <span class="icon traverse-cut"></span>
+      <p>Traverse Cut</p>
+      <p>Make 3 quick lunging attacks. Combine it with Pounce or Combative strike to activate faster, and more often.</p>
+    </div>
+  </div>
+<% else %>
+  <div id="crystals">
+    <div class="pve">
+      <h3>PvE Crystals</h3>
+      <ul>
+        <li class="red-crystal">Bitter, savage, focused, forceful</li>
+        <li class="blue-crystal">Hardy</li>
+        <li class="green-crystal">Carving, powerful</li>
+      </ul>
+    </div>
+    <div class="pvp">
+      <h3>PvP Crystals</h3>
+      <ul>
+        <li class="red-crystal">Savage, forceful, salivating, cruel</li>
+        <li class="blue-crystal">Relentless, warding</li>
+        <li class="green-crystal">Griefing</li>
+      </ul>
+    </div>
+  </div>
+<% end %>

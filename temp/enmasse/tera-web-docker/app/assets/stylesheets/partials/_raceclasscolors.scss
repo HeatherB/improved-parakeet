@@ -1,0 +1,1159 @@
+$ricons: popori human elf elin castanic baraka aman;
+$cicons: valkyrie ninja brawler gunner reaper warrior sorcerer slayer priest mystic lancer berserker archer;
+
+@mixin race-icons {
+	@each $ricon in $ricons {
+  		
+  			#race_hero_wrapper, #content_article_header {
+  				.#{$ricon}_wrapper {
+	  				.nameplate {
+	  					.icon {
+	  						background: url(https://eme01.enmasse-game.com/images/tera/race-class/racepage/race_header_icon_#{$ricon}.png) 0px 0px no-repeat;
+	  					}
+	  				}
+	  			}
+  			}
+			#race_overview_wrapper, #content_wide_body {
+				.#{$ricon}_wrapper {
+					.highlights {
+						background: url(https://eme01.enmasse-game.com/images/tera/race-class/racepage/race_highlight_icon_#{$ricon}.png) -5px 5px no-repeat;
+					}
+				}
+			}
+		
+	}
+}
+@mixin class-icons {
+	@each $cicon in $cicons {
+  			#class_hero_wrapper, #content_article_header {
+  				.#{$cicon}_wrapper  {
+	  				.nameplate {
+	  					.icon {
+	  						background: url(https://eme01.enmasse-game.com/images/tera/race-class/classpage/class_header_icon_#{$cicon}.png) 0px 0px no-repeat;
+	  					}
+	  				}
+	  			}
+  			}
+			#class_overview_wrapper, #content_wide_body {
+				.#{$cicon}_wrapper  {
+					.highlights {
+						background: url(https://eme01.enmasse-game.com/images/tera/race-class/classpage/class_highlight_icon_#{$cicon}.png) -5px 5px no-repeat;
+					}
+				}
+			}
+			#class_skill_wrapper, #content_side_body {
+				.#{$cicon}_wrapper  {
+					.skill_icon {
+						span {
+							background-image: url(https://eme01.enmasse-game.com/images/tera/race-class/classpage/class_skill_icons_#{$cicon}.png);
+						}
+					}
+				}
+			}
+	}
+}
+
+/* final fix for that damn high elf page */
+//body.high-elf, body.high-elf-page  {
+		#race_hero_wrapper, #content_article_header {
+			.high-elf_wrapper  {
+				.nameplate {
+					.icon {
+						background: url(https://eme01.enmasse-game.com/images/tera/race-class/racepage/race_header_icon_elf.png) -5px 5px no-repeat;
+					}
+				}
+			}
+		}
+	#race_overview_wrapper, #content_wide_body {
+		.high-elf_wrapper  {
+			.highlights {
+				background: url(https://eme01.enmasse-game.com/images/tera/race-class/racepage/race_highlight_icon_elf.png) -5px 5px no-repeat;
+			}
+		}
+	}
+//}
+//body.high-elf, body.high-elf-page  {
+	#class_hero_wrapper, #content_article_header {
+		.high-elf_wrapper  {
+			.nameplate {
+				.icon {
+					background: url(https://eme01.enmasse-game.com/images/tera/race-class/racepage/race_header_icon_high-elf.png) -5px 5px no-repeat;
+				}
+			}
+		}
+	}
+	#class_overview_wrapper, #content_wide_body {
+		.high-elf_wrapper  {
+			.highlights {
+				background: url(https://eme01.enmasse-game.com/images/tera/race-class/racepage/race_highlight_icon_elf.png) -5px 5px no-repeat;
+			}
+		}
+	}
+	#class_skill_wrapper, #content_side_body {
+		.high-elf_wrapper  {
+			.skill_icon {
+				span {
+					background-image: url(https://eme01.enmasse-game.com/images/tera/race-class/racepage/race_skill_icons_elf.png);
+				}
+			}
+		}
+	}
+//}
+
+@include race-icons;
+@include class-icons;
+
+/* if only key value maps worked properly */
+/* these are the color assignments for the race pages, they need to load before the page styles so hovers work */
+body.race_guide {
+	#main-nav ul.nav-page a:hover {
+	    border-bottom: 4px solid $mainRaceColor;
+	}
+	#main-nav ul.nav-page a.active {
+	    border-bottom: 4px solid $mainRaceColor;
+	}
+	#share-facebook, #share-twitter {
+		&:after {
+			background-color: $mainRaceColor;
+		}
+	}
+	#race_overview_wrapper, #race_video_wrapper, #race_lore_wrapper,
+	#content_wide_body, #content_body, #content_side_body {
+		.nameplate {
+			background: $mainRaceColor;
+		}
+	}
+	#race_video_wrapper, #content_body {
+		.trailer {
+		    border: 6px solid $mainRaceColor;
+		}
+	}
+	footer {
+		.social-block {
+			li {
+				&:after {
+					background-color: $mainRaceColor;
+				}
+			}
+		}
+	}
+}
+
+body.popori {
+	#main-nav ul.nav-page a:hover {
+	    border-bottom: 4px solid $poporiRaceColor;
+	}
+	#main-nav ul.nav-page a.active {
+	    border-bottom: 4px solid $poporiRaceColor;
+	}
+	#share-facebook, #share-twitter {
+		&:after {
+			background-color: $poporiRaceColor;
+		}
+	}
+	#race_overview_wrapper, #race_video_wrapper, #race_lore_wrapper,
+	#content_wide_body, #content_body, #content_side_body {
+		.nameplate {
+			background: $poporiRaceColor;
+		}
+	}
+	#race_video_wrapper, #content_body {
+		.trailer {
+		    border: 6px solid $poporiRaceColor;
+		}
+	}
+	footer {
+		.social-block {
+			li {
+				&:after {
+					background-color: $poporiRaceColor;
+				}
+			}
+		}
+	}
+}
+
+body.human {
+	#main-nav ul.nav-page a:hover {
+	    border-bottom: 4px solid $humanRaceColor;
+	}
+	#main-nav ul.nav-page a.active {
+	    border-bottom: 4px solid $humanRaceColor;
+	}
+	#share-facebook, #share-twitter {
+		&:after {
+			background-color: $humanRaceColor;
+		}
+	}
+	#race_overview_wrapper, #race_video_wrapper, #race_lore_wrapper,
+	#content_wide_body, #content_body, #content_side_body {
+		.nameplate {
+			background: $humanRaceColor;
+		}
+	}
+	#race_video_wrapper, #content_body {
+		.trailer {
+		    border: 6px solid $humanRaceColor;
+		}
+	}
+	footer {
+		.social-block {
+			li {
+				&:after {
+					background-color: $humanRaceColor;
+				}
+			}
+		}
+	}
+}
+
+body.elf, body.high-elf, body.high-elf-page {
+	#main-nav ul.nav-page a:hover {
+	    border-bottom: 4px solid $highelfRaceColor;
+	}
+	#main-nav ul.nav-page a.active {
+	    border-bottom: 4px solid $highelfRaceColor;
+	}
+	#share-facebook, #share-twitter {
+		&:after {
+			background-color: $highelfRaceColor;
+		}
+	}
+	#race_overview_wrapper, #race_video_wrapper, #race_lore_wrapper,
+	#content_wide_body, #content_body, #content_side_body {
+		.nameplate {
+			background: $highelfRaceColor;
+		}
+	}
+	#race_video_wrapper, #content_body {
+		.trailer {
+		    border: 6px solid $highelfRaceColor;
+		}
+	}
+	footer {
+		.social-block {
+			li {
+				&:after {
+					background-color: $highelfRaceColor;
+				}
+			}
+		}
+	}
+}
+
+body.elin {
+	#main-nav ul.nav-page a:hover {
+	    border-bottom: 4px solid $elinRaceColor;
+	}
+	#main-nav ul.nav-page a.active {
+	    border-bottom: 4px solid $elinRaceColor;
+	}
+	#share-facebook, #share-twitter {
+		&:after {
+			background-color: $elinRaceColor;
+		}
+	}
+	#race_overview_wrapper, #race_video_wrapper, #race_lore_wrapper,
+	#content_wide_body, #content_body, #content_side_body {
+		.nameplate {
+			background: $elinRaceColor;
+		}
+	}
+	#race_video_wrapper, #content_body {
+		.trailer {
+		    border: 6px solid $elinRaceColor;
+		}
+	}
+	footer {
+		.social-block {
+			li {
+				&:after {
+					background-color: $elinRaceColor;
+				}
+			}
+		}
+	}
+}
+
+body.castanic {
+	#main-nav ul.nav-page a:hover {
+	    border-bottom: 4px solid $castanicRaceColor;
+	}
+	#main-nav ul.nav-page a.active {
+	    border-bottom: 4px solid $castanicRaceColor;
+	}
+	#share-facebook, #share-twitter {
+		&:after {
+			background-color: $castanicRaceColor;
+		}
+	}
+	#race_overview_wrapper, #race_video_wrapper, #race_lore_wrapper,
+	#content_wide_body, #content_body, #content_side_body {
+		.nameplate {
+			background: $castanicRaceColor;
+		}
+	}
+	#race_video_wrapper, #content_body {
+		.trailer {
+		    border: 6px solid $castanicRaceColor;
+		}
+	}
+	footer {
+		.social-block {
+			li {
+				&:after {
+					background-color: $castanicRaceColor;
+				}
+			}
+		}
+	}
+}
+
+body.baraka {
+	#main-nav ul.nav-page a:hover {
+	    border-bottom: 4px solid $barakaRaceColor;
+	}
+	#main-nav ul.nav-page a.active {
+	    border-bottom: 4px solid $barakaRaceColor;
+	}
+	#share-facebook, #share-twitter {
+		&:after {
+			background-color: $barakaRaceColor;
+		}
+	}
+	#race_overview_wrapper, #race_video_wrapper, #race_lore_wrapper,
+	#content_wide_body, #content_body, #content_side_body {
+		.nameplate {
+			background: $barakaRaceColor;
+		}
+	}
+	#race_video_wrapper, #content_body {
+		.trailer {
+		    border: 6px solid $barakaRaceColor;
+		}
+	}
+	footer {
+		.social-block {
+			li {
+				&:after {
+					background-color: $barakaRaceColor;
+				}
+			}
+		}
+	}
+}
+
+body.aman {
+	#main-nav ul.nav-page a:hover {
+	    border-bottom: 4px solid $amanRaceColor;
+	}
+	#main-nav ul.nav-page a.active {
+	    border-bottom: 4px solid $amanRaceColor;
+	}
+	#share-facebook, #share-twitter {
+		&:after {
+			background-color: $amanRaceColor;
+		}
+	}
+	#race_overview_wrapper, #race_video_wrapper, #race_lore_wrapper,
+	#content_wide_body, #content_body, #content_side_body {
+		.nameplate {
+			background: $amanRaceColor;
+		}
+	}
+	#race_video_wrapper, #content_body {
+		.trailer {
+		    border: 6px solid $amanRaceColor;
+		}
+	}
+	footer {
+		.social-block {
+			li {
+				&:after {
+					background-color: $amanRaceColor;
+				}
+			}
+		}
+	}
+}
+
+/* classes */
+body.class_guide {
+	#main-nav ul.nav-page a:hover {
+	    border-bottom: 4px solid $mainClassColor;
+	}
+	#main-nav ul.nav-page a.active {
+	    border-bottom: 4px solid $mainClassColor;
+	}
+	#share-facebook, #share-twitter {
+		&:after {
+			background-color: $mainClassColor;
+		}
+	}
+	#class_overview_wrapper, #class_video_wrapper, #class_skill_wrapper,
+	#content_wide_body, #content_body, #content_side_body {
+		.nameplate {
+			background: $mainClassColor;
+		}
+	}
+	#class_video_wrapper, #content_body {
+		.trailer {
+		    border: 6px solid $mainClassColor;
+		}
+	}
+	footer {
+		.social-block {
+			li {
+				&:after {
+					background-color: $mainClassColor;
+				}
+			}
+		}
+	}
+}
+
+body.archer {
+	#main-nav ul.nav-page a:hover {
+	    border-bottom: 4px solid $archerClassColor;
+	}
+	#main-nav ul.nav-page a.active {
+	    border-bottom: 4px solid $archerClassColor;
+	}
+	#share-facebook, #share-twitter {
+		&:after {
+			background-color: $archerClassColor;
+		}
+	}
+	#class_overview_wrapper, #class_video_wrapper, #class_skill_wrapper,
+	#content_wide_body, #content_body, #content_side_body {
+		.nameplate {
+			background: $archerClassColor;
+		}
+	}
+	#class_video_wrapper, #content_body {
+		.trailer {
+		    border: 6px solid $archerClassColor;
+		}
+	}
+	footer {
+		.social-block {
+			li {
+				&:after {
+					background-color: $archerClassColor;
+				}
+			}
+		}
+	}
+}
+
+body.berserker {
+	#main-nav ul.nav-page a:hover {
+	    border-bottom: 4px solid $berserkerClassColor;
+	}
+	#main-nav ul.nav-page a.active {
+	    border-bottom: 4px solid $berserkerClassColor;
+	}
+	#share-facebook, #share-twitter {
+		&:after {
+			background-color: $berserkerClassColor;
+		}
+	}
+	#class_overview_wrapper, #class_video_wrapper, #class_skill_wrapper,
+	#content_wide_body, #content_body, #content_side_body {
+		.nameplate {
+			background: $berserkerClassColor;
+		}
+	}
+	#class_video_wrapper, #content_body {
+		.trailer {
+		    border: 6px solid $berserkerClassColor;
+		}
+	}
+	footer {
+		.social-block {
+			li {
+				&:after {
+					background-color: $berserkerClassColor;
+				}
+			}
+		}
+	}
+}
+
+body.brawler {
+	#main-nav ul.nav-page a:hover {
+	    border-bottom: 4px solid $brawlerClassColor;
+	}
+	#main-nav ul.nav-page a.active {
+	    border-bottom: 4px solid $brawlerClassColor;
+	}
+	#share-facebook, #share-twitter {
+		&:after {
+			background-color: $brawlerClassColor;
+		}
+	}
+	#class_overview_wrapper, #class_video_wrapper, #class_skill_wrapper,
+	#content_wide_body, #content_body, #content_side_body {
+		.nameplate {
+			background: $brawlerClassColor;
+		}
+	}
+	#class_video_wrapper, #content_body {
+		.trailer {
+		    border: 6px solid $brawlerClassColor;
+		}
+	}
+	footer {
+		.social-block {
+			li {
+				&:after {
+					background-color: $brawlerClassColor;
+				}
+			}
+		}
+	}
+}
+
+body.gunner {
+	#main-nav ul.nav-page a:hover {
+	    border-bottom: 4px solid $gunnerClassColor;
+	}
+	#main-nav ul.nav-page a.active {
+	    border-bottom: 4px solid $gunnerClassColor;
+	}
+	#share-facebook, #share-twitter {
+		&:after {
+			background-color: $gunnerClassColor;
+		}
+	}
+	#class_overview_wrapper, #class_video_wrapper, #class_skill_wrapper,
+	#content_wide_body, #content_body, #content_side_body {
+		.nameplate {
+			background: $gunnerClassColor;
+		}
+	}
+	#class_video_wrapper, #content_body {
+		.trailer {
+		    border: 6px solid $gunnerClassColor;
+		}
+	}
+	footer {
+		.social-block {
+			li {
+				&:after {
+					background-color: $gunnerClassColor;
+				}
+			}
+		}
+	}
+}
+
+body.lancer {
+	#main-nav ul.nav-page a:hover {
+	    border-bottom: 4px solid $lancerClassColor;
+	}
+	#main-nav ul.nav-page a.active {
+	    border-bottom: 4px solid $lancerClassColor;
+	}
+	#share-facebook, #share-twitter {
+		&:after {
+			background-color: $lancerClassColor;
+		}
+	}
+	#class_overview_wrapper, #class_video_wrapper, #class_skill_wrapper,
+	#content_wide_body, #content_body, #content_side_body {
+		.nameplate {
+			background: $lancerClassColor;
+		}
+	}
+	#class_video_wrapper, #content_body {
+		.trailer {
+		    border: 6px solid $lancerClassColor;
+		}
+	}
+	footer {
+		.social-block {
+			li {
+				&:after {
+					background-color: $lancerClassColor;
+				}
+			}
+		}
+	}
+}
+
+body.mystic {
+	#main-nav ul.nav-page a:hover {
+	    border-bottom: 4px solid $mysticClassColor;
+	}
+	#main-nav ul.nav-page a.active {
+	    border-bottom: 4px solid $mysticClassColor;
+	}
+	#share-facebook, #share-twitter {
+		&:after {
+			background-color: $mysticClassColor;
+		}
+	}
+	#class_overview_wrapper, #class_video_wrapper, #class_skill_wrapper,
+	#content_wide_body, #content_body, #content_side_body {
+		.nameplate {
+			background: $mysticClassColor;
+		}
+	}
+	#class_video_wrapper, #content_body {
+		.trailer {
+		    border: 6px solid $mysticClassColor;
+		}
+	}
+	footer {
+		.social-block {
+			li {
+				&:after {
+					background-color: $mysticClassColor;
+				}
+			}
+		}
+	}
+}
+
+body.ninja {
+	#main-nav ul.nav-page a:hover {
+	    border-bottom: 4px solid $ninjaClassColor;
+	}
+	#main-nav ul.nav-page a.active {
+	    border-bottom: 4px solid $ninjaClassColor;
+	}
+	#share-facebook, #share-twitter {
+		&:after {
+			background-color: $ninjaClassColor;
+		}
+	}
+	#class_overview_wrapper, #class_video_wrapper, #class_skill_wrapper,
+	#content_wide_body, #content_body, #content_side_body {
+		.nameplate {
+			background: $ninjaClassColor;
+		}
+	}
+	#class_video_wrapper, #content_body {
+		.trailer {
+		    border: 6px solid $ninjaClassColor;
+		}
+	}
+	footer {
+		.social-block {
+			li {
+				&:after {
+					background-color: $ninjaClassColor;
+				}
+			}
+		}
+	}
+}
+
+body.priest {
+	#main-nav ul.nav-page a:hover {
+	    border-bottom: 4px solid $priestClassColor;
+	}
+	#main-nav ul.nav-page a.active {
+	    border-bottom: 4px solid $priestClassColor;
+	}
+	#share-facebook, #share-twitter {
+		&:after {
+			background-color: $priestClassColor;
+		}
+	}
+	#class_overview_wrapper, #class_video_wrapper, #class_skill_wrapper,
+	#content_wide_body, #content_body, #content_side_body {
+		.nameplate {
+			background: $priestClassColor;
+		}
+	}
+	#class_video_wrapper, #content_body {
+		.trailer {
+		    border: 6px solid $priestClassColor;
+		}
+	}
+	footer {
+		.social-block {
+			li {
+				&:after {
+					background-color: $priestClassColor;
+				}
+			}
+		}
+	}
+}
+
+body.reaper {
+	#main-nav ul.nav-page a:hover {
+	    border-bottom: 4px solid $reaperClassColor;
+	}
+	#main-nav ul.nav-page a.active {
+	    border-bottom: 4px solid $reaperClassColor;
+	}
+	#share-facebook, #share-twitter {
+		&:after {
+			background-color: $reaperClassColor;
+		}
+	}
+	#class_overview_wrapper, #class_video_wrapper, #class_skill_wrapper,
+	#content_wide_body, #content_body, #content_side_body {
+		.nameplate {
+			background: $reaperClassColor;
+		}
+	}
+	#class_video_wrapper, #content_body {
+		.trailer {
+		    border: 6px solid $reaperClassColor;
+		}
+	}
+	footer {
+		.social-block {
+			li {
+				&:after {
+					background-color: $reaperClassColor;
+				}
+			}
+		}
+	}
+}
+
+body.sorcerer {
+	#main-nav ul.nav-page a:hover {
+	    border-bottom: 4px solid $sorcererClassColor;
+	}
+	#main-nav ul.nav-page a.active {
+	    border-bottom: 4px solid $sorcererClassColor;
+	}
+	#share-facebook, #share-twitter {
+		&:after {
+			background-color: $sorcererClassColor;
+		}
+	}
+	#class_overview_wrapper, #class_video_wrapper, #class_skill_wrapper,
+	#content_wide_body, #content_body, #content_side_body {
+		.nameplate {
+			background: $sorcererClassColor;
+		}
+	}
+	#class_video_wrapper, #content_body {
+		.trailer {
+		    border: 6px solid $sorcererClassColor;
+		}
+	}
+	footer {
+		.social-block {
+			li {
+				&:after {
+					background-color: $sorcererClassColor;
+				}
+			}
+		}
+	}
+}
+
+body.slayer {
+	#main-nav ul.nav-page a:hover {
+	    border-bottom: 4px solid $slayerClassColor;
+	}
+	#main-nav ul.nav-page a.active {
+	    border-bottom: 4px solid $slayerClassColor;
+	}
+	#share-facebook, #share-twitter {
+		&:after {
+			background-color: $slayerClassColor;
+		}
+	}
+	#class_overview_wrapper, #class_video_wrapper, #class_skill_wrapper,
+	#content_wide_body, #content_body, #content_side_body {
+		.nameplate {
+			background: $slayerClassColor;
+		}
+	}
+	#class_video_wrapper, #content_body {
+		.trailer {
+		    border: 6px solid $slayerClassColor;
+		}
+	}
+	footer {
+		.social-block {
+			li {
+				&:after {
+					background-color: $slayerClassColor;
+				}
+			}
+		}
+	}
+}
+
+body.classes_page.valkyrie {
+	#main-nav ul.nav-page a:hover {
+	    border-bottom: 4px solid $valkyrieClassColor;
+	}
+	#main-nav ul.nav-page a.active {
+	    border-bottom: 4px solid $valkyrieClassColor;
+	}
+	#share-facebook, #share-twitter {
+		&:after {
+			background-color: $valkyrieClassColor;
+		}
+	}
+	#class_overview_wrapper, #class_video_wrapper, #class_skill_wrapper,
+	#content_wide_body, #content_body, #content_side_body {
+		.nameplate {
+			background: $valkyrieClassColor;
+		}
+	}
+	#class_video_wrapper, #content_body {
+		.trailer {
+		    border: 6px solid $valkyrieClassColor;
+		}
+	}
+	footer {
+		.social-block {
+			li {
+				&:after {
+					background-color: $valkyrieClassColor;
+				}
+			}
+		}
+	}
+}
+
+body.classes_page.warrior {
+	#main-nav ul.nav-page a:hover {
+	    border-bottom: 4px solid $warriorClassColor;
+	}
+	#main-nav ul.nav-page a.active {
+	    border-bottom: 4px solid $warriorClassColor;
+	}
+	#share-facebook, #share-twitter {
+		&:after {
+			background-color: $warriorClassColor;
+		}
+	}
+	#class_overview_wrapper, #class_video_wrapper, #class_skill_wrapper,
+	#content_wide_body, #content_body, #content_side_body {
+		.nameplate {
+			background: $warriorClassColor;
+		}
+	}
+	#class_video_wrapper, #content_body {
+		.trailer {
+		    border: 6px solid $warriorClassColor;
+		}
+	}
+	footer {
+		.social-block {
+			li {
+				&:after {
+					background-color: $warriorClassColor;
+				}
+			}
+		}
+	}
+}
+
+/* and the query versions, goodness */
+@include breakpoint(tablet) {
+	body.race_guide {
+		#race_overview_wrapper, #race_video_wrapper, #race_lore_wrapper,
+		#content_wide_body, #content_body, #content_side_body {
+			.nameplate {
+				&:before {
+					background: 
+					url(https://eme01.enmasse-game.com/images/tera/race-class/whiteSheerAngleR.png) -1% 50% no-repeat, 
+					url(https://eme01.enmasse-game.com/images/tera/race-class/whiteSheerAngle.png) 101% 50% no-repeat, 
+					linear-gradient(to bottom,  #ffffff 30%, $mainRaceColor 100%); /* W3C */
+				}
+			}
+		}
+	}
+
+	body.popori {
+		#race_overview_wrapper, #race_video_wrapper, #race_lore_wrapper,
+		#content_wide_body, #content_body, #content_side_body {
+			.nameplate {
+				&:before {
+					background: 
+					url(https://eme01.enmasse-game.com/images/tera/race-class/whiteSheerAngleR.png) -1% 50% no-repeat, 
+					url(https://eme01.enmasse-game.com/images/tera/race-class/whiteSheerAngle.png) 101% 50% no-repeat, 
+					linear-gradient(to bottom,  #ffffff 30%, $poporiRaceColor 100%); /* W3C */
+				}
+			}
+		}
+	}
+
+	body.human {
+		#race_overview_wrapper, #race_video_wrapper, #race_lore_wrapper,
+		#content_wide_body, #content_body, #content_side_body {
+			.nameplate {
+				&:before {
+					background: 
+					url(https://eme01.enmasse-game.com/images/tera/race-class/whiteSheerAngleR.png) -1% 50% no-repeat, 
+					url(https://eme01.enmasse-game.com/images/tera/race-class/whiteSheerAngle.png) 101% 50% no-repeat, 
+					linear-gradient(to bottom,  #ffffff 30%, $humanRaceColor 100%); /* W3C */
+				}
+			}
+		}
+	}
+
+	body.elf, body.high-elf, body.high-elf-page {
+		#race_overview_wrapper, #race_video_wrapper, #race_lore_wrapper,
+		#content_wide_body, #content_body, #content_side_body {
+			.nameplate {
+				&:before {
+					background: 
+					url(https://eme01.enmasse-game.com/images/tera/race-class/whiteSheerAngleR.png) -1% 50% no-repeat, 
+					url(https://eme01.enmasse-game.com/images/tera/race-class/whiteSheerAngle.png) 101% 50% no-repeat, 
+					linear-gradient(to bottom,  #ffffff 30%, $highelfRaceColor 100%); /* W3C */
+				}
+			}
+		}
+	}
+
+	body.elin {
+		#race_overview_wrapper, #race_video_wrapper, #race_lore_wrapper,
+		#content_wide_body, #content_body, #content_side_body {
+			.nameplate {
+				&:before {
+					background: 
+					url(https://eme01.enmasse-game.com/images/tera/race-class/whiteSheerAngleR.png) -1% 50% no-repeat, 
+					url(https://eme01.enmasse-game.com/images/tera/race-class/whiteSheerAngle.png) 101% 50% no-repeat, 
+					linear-gradient(to bottom,  #ffffff 30%, $elinRaceColor 100%); /* W3C */
+				}
+			}
+		}
+	}
+
+	body.castanic {
+		#race_overview_wrapper, #race_video_wrapper, #race_lore_wrapper,
+		#content_wide_body, #content_body, #content_side_body {
+			.nameplate {
+				&:before {
+					background: 
+					url(https://eme01.enmasse-game.com/images/tera/race-class/whiteSheerAngleR.png) -1% 50% no-repeat, 
+					url(https://eme01.enmasse-game.com/images/tera/race-class/whiteSheerAngle.png) 101% 50% no-repeat, 
+					linear-gradient(to bottom,  #ffffff 30%, $castanicRaceColor 100%); /* W3C */
+				}
+			}
+		}
+	}
+
+	body.baraka {
+		#race_overview_wrapper, #race_video_wrapper, #race_lore_wrapper,
+		#content_wide_body, #content_body, #content_side_body {
+			.nameplate {
+				&:before {
+					background: 
+					url(https://eme01.enmasse-game.com/images/tera/race-class/whiteSheerAngleR.png) -1% 50% no-repeat, 
+					url(https://eme01.enmasse-game.com/images/tera/race-class/whiteSheerAngle.png) 101% 50% no-repeat, 
+					linear-gradient(to bottom,  #ffffff 30%, $barakaRaceColor 100%); /* W3C */
+				}
+			}
+		}
+	}
+
+	body.aman {
+		#race_overview_wrapper, #race_video_wrapper, #race_lore_wrapper,
+		#content_wide_body, #content_body, #content_side_body {
+			.nameplate {
+				&:before {
+					background: 
+					url(https://eme01.enmasse-game.com/images/tera/race-class/whiteSheerAngleR.png) -1% 50% no-repeat, 
+					url(https://eme01.enmasse-game.com/images/tera/race-class/whiteSheerAngle.png) 101% 50% no-repeat, 
+					linear-gradient(to bottom,  #ffffff 30%, $amanRaceColor 100%); /* W3C */
+				}
+			}
+		}
+	}
+
+
+
+
+
+/* classes */
+	body.classes {
+		#class_overview_wrapper, #class_video_wrapper, #class_skill_wrapper,
+		#content_wide_body, #content_body, #content_side_body {
+			.nameplate {
+				&:before {
+					background: url(https://eme01.enmasse-game.com/images/tera/race-class/whiteSheerAngleR.png) -1% 50% no-repeat, 
+					url(https://eme01.enmasse-game.com/images/tera/race-class/whiteSheerAngle.png) 101% 50% no-repeat, 
+					linear-gradient(to bottom,  #ffffff 30%, $mainRaceColor 100%); /* W3C */
+				}
+			}
+		}
+	}
+
+	body.archer {
+		#class_overview_wrapper, #class_video_wrapper, #class_skill_wrapper,
+		#content_wide_body, #content_body, #content_side_body {
+			.nameplate {
+				&:before {
+					background: url(https://eme01.enmasse-game.com/images/tera/race-class/whiteSheerAngleR.png) -1% 50% no-repeat, 
+					url(https://eme01.enmasse-game.com/images/tera/race-class/whiteSheerAngle.png) 101% 50% no-repeat, 
+					linear-gradient(to bottom,  #ffffff 30%, $archerClassColor 100%); /* W3C */
+				}
+			}
+		}
+	}
+
+	body.berserker {
+		#class_overview_wrapper, #class_video_wrapper, #class_skill_wrapper,
+		#content_wide_body, #content_body, #content_side_body {
+			.nameplate {
+				&:before {
+					background: url(https://eme01.enmasse-game.com/images/tera/race-class/whiteSheerAngleR.png) -1% 50% no-repeat, 
+					url(https://eme01.enmasse-game.com/images/tera/race-class/whiteSheerAngle.png) 101% 50% no-repeat, 
+					linear-gradient(to bottom,  #ffffff 30%, $berserkerClassColor 100%); /* W3C */
+				}
+			}
+		}
+	}
+
+	body.brawler {
+		#class_overview_wrapper, #class_video_wrapper, #class_skill_wrapper,
+		#content_wide_body, #content_body, #content_side_body {
+			.nameplate {
+				&:before {
+					background: url(https://eme01.enmasse-game.com/images/tera/race-class/whiteSheerAngleR.png) -1% 50% no-repeat, 
+					url(https://eme01.enmasse-game.com/images/tera/race-class/whiteSheerAngle.png) 101% 50% no-repeat, 
+					linear-gradient(to bottom,  #ffffff 30%, $brawlerClassColor 100%); /* W3C */
+				}
+			}
+		}
+	}
+
+	body.gunner {
+		#class_overview_wrapper, #class_video_wrapper, #class_skill_wrapper,
+		#content_wide_body, #content_body, #content_side_body {
+			.nameplate {
+				&:before {
+					background: url(https://eme01.enmasse-game.com/images/tera/race-class/whiteSheerAngleR.png) -1% 50% no-repeat, 
+					url(https://eme01.enmasse-game.com/images/tera/race-class/whiteSheerAngle.png) 101% 50% no-repeat, 
+					linear-gradient(to bottom,  #ffffff 30%, $gunnerClassColor 100%); /* W3C */
+				}
+			}
+		}
+	}
+
+	body.lancer {
+		#class_overview_wrapper, #class_video_wrapper, #class_skill_wrapper,
+		#content_wide_body, #content_body, #content_side_body {
+			.nameplate {
+				&:before {
+					background: url(https://eme01.enmasse-game.com/images/tera/race-class/whiteSheerAngleR.png) -1% 50% no-repeat, 
+					url(https://eme01.enmasse-game.com/images/tera/race-class/whiteSheerAngle.png) 101% 50% no-repeat, 
+					linear-gradient(to bottom,  #ffffff 30%, $lancerClassColor 100%); /* W3C */
+				}
+			}
+		}
+	}
+
+	body.mystic {
+		#class_overview_wrapper, #class_video_wrapper, #class_skill_wrapper,
+		#content_wide_body, #content_body, #content_side_body {
+			.nameplate {
+				&:before {
+					background: url(https://eme01.enmasse-game.com/images/tera/race-class/whiteSheerAngleR.png) -1% 50% no-repeat, 
+					url(https://eme01.enmasse-game.com/images/tera/race-class/whiteSheerAngle.png) 101% 50% no-repeat, 
+					linear-gradient(to bottom,  #ffffff 30%, $mysticClassColor 100%); /* W3C */
+				}
+			}
+		}
+	}
+
+	body.ninja {
+		#class_overview_wrapper, #class_video_wrapper, #class_skill_wrapper,
+		#content_wide_body, #content_body, #content_side_body {
+			.nameplate {
+				&:before {
+					background: url(https://eme01.enmasse-game.com/images/tera/race-class/whiteSheerAngleR.png) -1% 50% no-repeat, 
+					url(https://eme01.enmasse-game.com/images/tera/race-class/whiteSheerAngle.png) 101% 50% no-repeat, 
+					linear-gradient(to bottom,  #ffffff 30%, $ninjaClassColor 100%); /* W3C */
+				}
+			}
+		}
+	}
+
+	body.priest {
+		#class_overview_wrapper, #class_video_wrapper, #class_skill_wrapper,
+		#content_wide_body, #content_body, #content_side_body {
+			.nameplate {
+				&:before {
+					background: url(https://eme01.enmasse-game.com/images/tera/race-class/whiteSheerAngleR.png) -1% 50% no-repeat, 
+					url(https://eme01.enmasse-game.com/images/tera/race-class/whiteSheerAngle.png) 101% 50% no-repeat, 
+					linear-gradient(to bottom,  #ffffff 30%, $priestClassColor 100%); /* W3C */
+				}
+			}
+		}
+	}
+
+	body.reaper {
+		#class_overview_wrapper, #class_video_wrapper, #class_skill_wrapper,
+		#content_wide_body, #content_body, #content_side_body {
+			.nameplate {
+				&:before {
+					background: url(https://eme01.enmasse-game.com/images/tera/race-class/whiteSheerAngleR.png) -1% 50% no-repeat, 
+					url(https://eme01.enmasse-game.com/images/tera/race-class/whiteSheerAngle.png) 101% 50% no-repeat, 
+					linear-gradient(to bottom,  #ffffff 30%, $reaperClassColor 100%); /* W3C */
+				}
+			}
+		}
+	}
+
+	body.sorcerer {
+		#class_overview_wrapper, #class_video_wrapper, #class_skill_wrapper,
+		#content_wide_body, #content_body, #content_side_body {
+			.nameplate {
+				&:before {
+					background: url(https://eme01.enmasse-game.com/images/tera/race-class/whiteSheerAngleR.png) -1% 50% no-repeat, 
+					url(https://eme01.enmasse-game.com/images/tera/race-class/whiteSheerAngle.png) 101% 50% no-repeat, 
+					linear-gradient(to bottom,  #ffffff 30%, $sorcererClassColor 100%); /* W3C */
+				}
+			}
+		}
+	}
+
+	body.slayer {
+		#class_overview_wrapper, #class_video_wrapper, #class_skill_wrapper,
+		#content_wide_body, #content_body, #content_side_body {
+			.nameplate {
+				&:before {
+					background: url(https://eme01.enmasse-game.com/images/tera/race-class/whiteSheerAngleR.png) -1% 50% no-repeat, 
+					url(https://eme01.enmasse-game.com/images/tera/race-class/whiteSheerAngle.png) 101% 50% no-repeat, 
+					linear-gradient(to bottom,  #ffffff 30%, $slayerClassColor 100%); /* W3C */
+				}
+			}
+		}
+	}
+
+	body.valkyrie {
+		#class_overview_wrapper, #class_video_wrapper, #class_skill_wrapper,
+		#content_wide_body, #content_body, #content_side_body {
+			.nameplate {
+				&:before {
+					background: url(https://eme01.enmasse-game.com/images/tera/race-class/whiteSheerAngleR.png) -1% 50% no-repeat, 
+					url(https://eme01.enmasse-game.com/images/tera/race-class/whiteSheerAngle.png) 101% 50% no-repeat, 
+					linear-gradient(to bottom,  #ffffff 30%, $valkyrieClassColor 100%); /* W3C */
+				}
+			}
+		}
+	}
+
+	body.warrior {
+		#class_overview_wrapper, #class_video_wrapper, #class_skill_wrapper,
+		#content_wide_body, #content_body, #content_side_body {
+			.nameplate {
+				&:before {
+					background: url(https://eme01.enmasse-game.com/images/tera/race-class/whiteSheerAngleR.png) -1% 50% no-repeat, 
+					url(https://eme01.enmasse-game.com/images/tera/race-class/whiteSheerAngle.png) 101% 50% no-repeat, 
+					linear-gradient(to bottom,  #ffffff 30%, $warriorClassColor 100%); /* W3C */
+				}
+			}
+		}
+	}
+} // end tablet stuff
+
+

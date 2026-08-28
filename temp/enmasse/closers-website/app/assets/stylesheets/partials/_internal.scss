@@ -1,0 +1,77 @@
+body.internal {
+	main {
+		max-width:1083px;
+		background: url("/assets/bgs/full_bg.jpg") top center repeat-y;
+		padding-bottom:100px;
+		&:before {
+			content: "";
+			background: url("/assets/bgs/accents.png") top center no-repeat;
+			width:100%;
+			height:620px;
+			display: block;
+			position: absolute;
+			top:160px;
+			right:0;
+			left:0;
+			z-index:1;
+		}
+	}
+	#main-wrapper {
+		background: $white;
+		margin:-15px auto 0;
+		padding: 20px;
+		width:95%;
+		box-shadow: 0px 0px 2px rgba(0,0,0,0.75);
+		position: relative;
+		z-index:4;
+		filter: brightness(100%);
+		h1 {
+			text-align:center;
+			margin: 0;
+		}
+	}
+	#content_article_header {
+		position: relative;
+		z-index:3;
+		width:100%;
+		height:auto;
+		//left: calc((1083px / -2) + 50%);
+		img {
+			width:100%;
+		}
+	}
+	#content_side_body, #content_body, #content_wide_body, #content_article_footer {
+		display: block;
+	}
+	
+} // end mobile and all sizes
+
+@include breakpoint(tablet) {
+	body.internal {
+		#main-wrapper {
+			//font-size:0;
+		}
+		#content_side_body, #content_body {
+			display: inline-block;
+			vertical-align: top;
+			font-size:14px;
+		}
+		#content_side_body {
+			width:28%;
+		}
+		#content_body {
+			width:70%;
+		}
+	}
+}
+
+@include breakpoint(sleevebreak) {
+	body.internal {
+		#content_side_body {
+			width:270px;
+		}
+		#content_body {
+			width:700px;
+		}
+	}
+}

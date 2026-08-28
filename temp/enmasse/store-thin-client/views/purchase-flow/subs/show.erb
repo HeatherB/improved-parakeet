@@ -1,0 +1,150 @@
+<%
+  @elitePromo_end = Time.new(2016, 3, 22, 10, 00, 00, "-07:00")
+%>
+
+<section id="wide_body" class="subscription">
+
+  <% if @game_accounts.nil? %>
+    <!-- new elite -->
+    <div id="header" class="section">
+      <h1 class="wordmark">Elite Status</h1>
+      <h2>Please sign into your En Masse account to check or purchase Elite Status for PC.</h2>
+      <button type="button" class="login-popup-link button-secondary get-elite-btn"/>
+      Sign In</button>
+      <p>Learn more about <a href="http://tera.enmasse.com/store/elite-status">Elite Status Benefits.</a></p>
+      <p>Or, <a href="https://account.enmasse.com/tera/sign-up" class="create">Create an Account.</a></p>
+    </div><!-- end of header -->
+    <!-- end new elite -->
+  <% else %>
+    <% if @game_accounts.length > 0 %>
+      <form class="accounts" method="POST" action="/<%= @game %>/elite-status">
+        <% if @game_accounts.length > 1 %>
+          <select id="game_account_id" class="game-account-selector" name="game_account_id">
+            <% @game_accounts.each do |ga| %>
+              <option value="<%= ga["id"] %>" data-active="<%= ga["subscription_active"] %>"><%= ga["name"] %></option>
+            <% end %>
+          </select>
+        <% else %>
+          <input type="hidden" name="game_account_id" value="<%= @game_accounts[0]["id"] %>" data-active="<%= @game_accounts[0]["subscription_active"] %>"/>
+        <% end %>
+
+        <% if @game_accounts.length > 0 %>
+          <% @game_accounts.each_with_index do |ga, ga_index| %>
+            <% @existing_sub = ga['subscription'] %>
+
+            <div id="elite_frame_<%= ga['id'] %>"
+                 class="elite_frame"
+                 data-subscription-active="<%= @existing_sub ? 'true' : 'false' %>"
+                 data-subscription-id="<%= @existing_sub ? @existing_sub['id'] : '' %>"
+                 <% if ga_index > 0 %>
+                 style="display:none"
+                 <% end %>
+                 >
+              <div id="manage_elite1">
+                <div class="sleeve left">
+                  <div class="sleeve_inner">
+                    <h1 class="wordmark">Elite Status</h1>
+                    <h4>For PC</h4>
+                    <% if @existing_sub %>
+                      <h2>Your Elite Status is
+                        <span class="elite_active"><!--Active--> <%= @existing_sub["state"].capitalize %></span></h2>
+                      <% if @existing_sub && !@existing_sub["recurring"] %>
+                        <h2>You have
+                          <span class="elite_active_length danger"><!-- 36 days --><%= @existing_sub['remaining_time'] %></span>
+                          remaining.
+                        </h2>
+                        <p>Your Elite Status will expire on
+                          <span class="elite_renew"><!--Apr 14, 2036--> <%= Time.parse(@existing_sub["ended_at"]).strftime("%b %d, %Y") %>
+                            .</span> <!--for <span class="elite_renew_price">--><!--$14.99--> <%#= @billing.previous_price %></span>
+                        </p>
+                      <% else %>
+                        <h2>You have
+                          <span class="elite_active_length"><!-- 36 days --><%= @existing_sub['remaining_time'] %></span>
+                          remaining.</h2>
+                        <p>Your subscription is set to renew on
+                          <span class="elite_renew"><!--Apr 14, 2036--> <%= Time.parse(@existing_sub["ended_at"]).strftime("%b %d, %Y") %>
+                            .</span> <!--for <span class="elite_renew_price">--><!--$14.99--> <%#= @billing.previous_price %></span>
+                        </p>
+                      <% end %>
+                    <% else %>
+                      <h2>You do not have Elite Status.</h2>
+                    <% end %>
+                  </div>
+                </div>
+                <% if @existing_sub && !@existing_sub["recurring"] %>
+                  <div class="sleeve right danger">
+                    <!-- have a subscription account but not set to renew -->
+                    <h2>You have some Elite Status time but no active subscription. To start one click the button
+                      below:</h2>
+                    <button type="submit" class="button-secondary go-button manage-elite-btn" value="Subscribe" onclick="_gaq.push(['_trackEvent', 'Purchase Funnels', 'Click Subscribe ELITE', 'Subscription']);">Subscribe</button>
+                    <!--<p>Need help? Click here to <a href="http://support.enmasse.com/tera/how-do-i-change-or-cancel-my-elite-subscription">Elite Status FAQ.</a> Or contact <a href="http://support.enmasse.com/tera">Customer Service.</a></p>-->
+                  </div>
+                <% elsif @existing_sub && @existing_sub["recurring"] %>
+                  <div class="sleeve right">
+                    <!-- have a subscription account and is set to renew -->
+                    <h2>If your billing information has changed please click the button below:</h2>
+                    <button type="submit" class="button-secondary go-button manage-elite-btn" value="Update Billing Info" onclick="_gaq.push(['_trackEvent', 'Purchase Funnels', 'Update Billing Info Button', 'Subscription']);">Update
+                      Billing Info
+                    </button>
+                    <p>If you no longer wish to continue your subscription,
+                      <span><a href="#" id="cancel" onclick="_gaq.push(['_trackEvent', 'Purchase Funnels', 'Click Cancel Subscription Link', 'Subscription']);">click here to cancel.</a></span>
+                    </p>
+                    <!--<p>Need help? Please contact our <a href="http://support.enmasse.com/tera">Customer Support</a> team.</p>-->
+                  </div>
+                <% else %>
+                  <div class="sleeve right">
+                    <!-- have no subscription -->
+                    <h2>Upgrade your account to Elite for PC.</h2>
+                    <button type="submit" class="button-secondary go-button manage-elite-btn" value="Update Billing Info" onclick="_gaq.push(['_trackEvent', 'Purchase Funnels', 'Update Billing Info Button', 'Subscription']);">Upgrade
+                      to Elite
+                    </button>
+                    <!--<p>Need help? Please contact our <a href="http://support.enmasse.com/tera">Customer Support</a> team.</p>-->
+                    <p>Check out the benefits of <a href="http://tera.enmasse.com/store/elite-status">Elite Status</a>
+                      for
+                      PC.</p>
+                  </div>
+                <% end %>
+
+              </div><!-- end of manage elite 1 -->
+            </div>
+            <!--<p class="elite-now"><input type="submit" class="button-secondary go-button manage-elite-btn" value="MANAGE ELITE STATUS!" onclick="_gaq.push(['_trackEvent', 'Purchase Funnels', 'Click MANAGE ELITE STATUS! Button', 'Subscription']);" /></p>-->
+          <% end %>
+        <% else %>
+          <p class="elite-now">
+            <input type="submit" class="button-secondary go-button get-elite-btn" value="GO ELITE NOW" onclick="_gaq.push(['_trackEvent', 'Purchase Funnels', 'Click GO ELITE NOW', 'Subscription']);"/>
+          </p>
+        <% end %>
+
+      </form>
+    <% end %>
+  <% end %>
+
+  <script type="text/javascript">
+    window.onload = function () {
+      $('.game-account-selector').change(function () {
+        $('.elite_frame').hide();
+        elite_frame = $('#elite_frame_' + $("#game_account_id").val());
+        elite_frame.show();
+        if (elite_frame.attr("data-subscription-active") == "true")
+          _gaq.push(['_trackEvent', 'Purchase Funnels', 'View Active Subscription Info', 'Subscription']);
+        else
+          _gaq.push(['_trackEvent', 'Purchase Funnels', 'View Product Info', 'Subscription']);
+        $('#eliteCancelSubscriptionId').val(elite_frame.attr("data-subscription-id"));
+        $('.game-account-selector').css('border', 'none');
+      });
+      $('.game-account-selector').trigger("change");
+      $('.go-button').on('click', function (e) {
+        e.preventDefault();
+        if (($('.game-account-selector') && $.isNumeric($('.game-account-selector').val())) || !$('.game-account-selector').length) {
+          $('.accounts').submit();
+        } else {
+          alert('Please select an account.')
+          $('.game-account-selector').css('border', '1px solid red');
+        }
+      });
+    }
+  </script>
+
+</section>
+
+<%= erb :"purchase-flow/subs/cancel-modal" %>

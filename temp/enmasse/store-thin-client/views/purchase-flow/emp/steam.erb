@@ -1,0 +1,89 @@
+<section id="wide_body" class="row">
+  <% if !session[:account_id] # IF NOT LOGGED IN %>
+    SHOW ERROR STUFFS
+  <% else %>
+    <div class="wrapper">
+      <div class="content">
+        <div class="emp-header">
+          <div class="emp-logo"></div>
+        </div>
+        <div class="copy">
+          <div class="alert">
+            <p>Please Select an amount.</p>
+
+          </div>
+
+          <p class="C8C6BD">What Is EMP?</p>
+
+          <% if @game == 'tera' %>
+            <p>En Masse Points (EMP) let you buy</p>
+            <ul>
+              <li>- <strong>Convenient improvements</strong> like character slots, XP boosts, and strongbox keys</li>
+              <li>- <strong>Customized looks</strong> like weapon skins&#8218; costumes&#8218; mounts&#8218; and more</li>
+            </ul>
+          <% elsif @game == 'zmr' %>
+            <p>En Masse Points (EMP) let you buy things from the ZMR in-game store including:</p>
+            <ul>
+              <li>Useful new weapons and equipment.</li>
+              <li>Costumes and gear that customize your appearance.</li>
+              <li>Consumable turrets, key cards, and revive tokens.</li>
+            </ul>
+          <% elsif @game == 'ava' %>
+            <p>En Masse Points (EMP) let you buy things from the AVA in-game store</p>
+            <!--<ul>
+              <li>- <strong>Convenient improvements</strong> like character slots, XP boosts, and strongbox keys</li>
+              <li>- <strong>Customized looks</strong> like weapon skins&#8218; costumes&#8218; and more</li>
+            </ul>-->
+          <% end %>
+
+          <div class="steps">
+            <span class="hr"></span>
+            <ul>
+              <li class="one light">1.) Choose Products</li>
+              <li class="two">2.) Edit Payment Details</li>
+              <li class="three">3.) View Receipt</li>
+            </ul>
+            <span class="hr"></span>
+          </div>
+
+          <p class="C8C6BD">Select Amount</p>
+
+          <form id="purchase" action="/<%= @game %>/steam-emp/purchase/" method="post">
+            <ul class="select-emp">
+              <% @virtual_currencies.currencies_by_payment_type("STEAM").each do |cur| %>
+              <li>
+                <input type="radio" name="amount_id" id="cur-<%= cur.id %>" value="<%= cur.id %>" payment_type="<%= cur.payment_type %>" />
+                <label for="cur-<%= cur.id %>" class="amount-<%= cur.position %>">
+                  <div class="inner">
+                    <ul>
+                      <li class="emp-count"><%= cur.purchase_amount_total %></li>
+                      <li class="bonus"><%= cur.bonus == 0 ? "NO " : "<span>#{cur.bonus}%</span>" %>BONUS</li>
+                      <li class="emp-price"><sup>$</sup><%= cur.cost %></li>
+                    </ul>
+                  </div>
+                </label>
+              </li>
+              <% end %>
+            </ul>
+
+            <span class="hr"></span>
+            <div class="text-align-center">
+              <input type="submit" class="confirm" id="emp-submit-btn" value="REVIEW ORDER">
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="side-bar">
+        <div class="steam-logo"></div>
+
+        <div class="side-content">
+          <h5>About En Masse Entertainment</h5>
+          <p>Based in Seattle, Washington, the company’s mission is to publish great games and provide the best service. En Masse successfully brought its inaugural title, TERA—a revolutionary action-combat MMO—to western audiences in 2012, followed by the online shooters ZMR (Zombies Monsters Robots) and AVA (Alliance of Valiant Arms), and the 2017 release of Kritika Online, a hyper-stylish anime brawler. But "Great Games" aren't limited by platform; En Masse announced its expansion of TERA onto PlayStation® and XBox with console ports in 2017.</p>
+          <p>At En Masse Entertainment, we believe everyone should follow their passion, and our passion is great games.</p>
+          <div class="bar"></div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</section>

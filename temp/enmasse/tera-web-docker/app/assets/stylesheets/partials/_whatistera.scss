@@ -1,0 +1,964 @@
+//.what_is_tera_wrapper {
+
+	/*main {
+		background-color:$black;
+	}*/
+	.whatistera_page {
+		#content_side_body {
+			background: $black;
+			padding: 0;
+		}
+	}
+	section {
+		&.hero.what_is_tera_wrapper, 
+		&.mmo-video.what_is_tera_wrapper, 
+		&.characters-section.what_is_tera_wrapper, 
+		&.encounters-section.what_is_tera_wrapper, 
+		&.fantasy-world.what_is_tera_wrapper, 
+		&.fellows.what_is_tera_wrapper, 
+		&.retooled.what_is_tera_wrapper, 
+		&.no-restrictions.what_is_tera_wrapper {
+			display: block;
+			position: relative;
+			border-top: 4px solid #555555;
+			border-bottom: 2px solid #353535;
+			//border-bottom: 10px solid $black;
+			box-shadow: 0px 10px 0px $black;
+			margin-bottom: 10px;
+		}
+	}
+		.hero.what_is_tera_wrapper {
+		
+			display: block;
+			position: relative;
+			border-top: 4px solid #555555;
+			border-bottom: 2px solid #353535;
+			//border-bottom: 10px solid $black;
+			box-shadow: 0px 10px 0px $black;
+			margin-bottom: 10px;
+
+			background: url(https://eme01.enmasse-game.com/images/tera_pc/whatistera/bgs/hero.png) top center no-repeat $black;
+			text-align:center;
+			padding-top:360px;
+			img {
+				max-width: 90%;
+			}
+			h2 {
+				text-transform: uppercase;
+				color: $white;
+				font-size:24px;
+				font-weight: normal;
+				margin:0 auto;
+				padding: 20px 0;
+			}
+			.actions {
+				li {
+					width: calc(100% - 40px);
+	    			margin: 0 auto;
+	    			max-width:330px;
+					a {
+						width: 100%;
+					}
+				}
+			}
+		}
+	
+		
+	.what-block {
+		background: rgb(0,0,0);
+		background: rgba(0,0,0,0.8);
+		padding: 20px 30px 30px;
+		h3 {
+			text-transform: uppercase;
+			color: $white;
+			margin-bottom: 20px;
+		}
+		p {
+			color: $white;
+			font-size:16px;
+			line-height:24px;
+		}
+	}
+	#mmo-video.what_is_tera_wrapper {
+		padding-top:20px;
+		background: url(https://eme01.enmasse-game.com/images/tera_pc/whatistera/bgs/horse.jpg) top left no-repeat;
+		.emelightbox-pop {
+			width:100%;
+			max-width: 100%;
+			border: 2px solid $teal;
+			border-radius: 3px;
+			line-height: 0;
+			overflow:hidden;
+			img, video {
+				width:100%;
+				max-width: 100%;
+				border: 2px solid $black;
+				border-radius: 3px;
+			}
+		}
+		#mmo_vid {
+			/* image play button and lightbox url holder */
+			display: block;
+			position: absolute;
+			top:0;
+			left: 0;
+			width:200%;
+			max-width:200%;
+			&:hover {
+				top: 0;
+				left:-100%;
+			}
+		}
+		.video-wrapper {
+			position: relative;
+		}
+		.what-block {
+			padding-bottom: 60px;
+		}
+	}
+
+.what_is_tera_wrapper {
+	#character-blocks {
+	    width: auto;
+	    display: block;
+	    margin-bottom: 20px;
+	    .character-block {
+	      position: absolute;
+	      opacity: 0;
+	      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	      z-index: 100;
+	      &.active {
+	        opacity: 1;
+	        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	      }
+	      
+	    }
+	}
+}
+	.characters-section.what_is_tera_wrapper {
+		background: url(https://eme01.enmasse-game.com/images/tera_pc/whatistera/bgs/grey.jpg) top left no-repeat;
+		padding-top:230px;
+		overflow: hidden;
+		height: 710px;
+		
+		.what-block {
+			position: relative;
+			z-index: 10;
+			margin:0 auto;
+			height: auto;
+			&.transitioning {
+				-webkit-animation: fadeOutIn 500ms ease-in-out;
+    			-moz-animation: fadeOutIn 500ms ease-in-out;
+    			-o-animation: fadeOutIn 500ms ease-in-out;
+				animation: fadeOutIn 500ms ease-in-out;
+			}
+			&.transit {
+				-webkit-animation: fadeInOut 500ms ease-in-out;
+    			-moz-animation: fadeInOut 500ms ease-in-out;
+    			-o-animation: fadeInOut 500ms ease-in-out;
+				animation: fadeInOut 500ms ease-in-out;
+			}
+		}
+		#highlight-character {
+			display: block;
+			height: 650px;
+			width: 100%;
+			position: absolute;
+			top: 0;
+			z-index: 1;
+			span {
+				background-position: center left;
+				background-repeat: no-repeat;
+				display: block;
+				height: 100%;
+				position: relative;
+				text-indent: -9999em;
+				&.transitioning {
+					-webkit-animation: slide-out 250ms forwards;
+	    			-moz-animation: slide-out 250ms forwards;
+	    			-o-animation: slide-out 250ms forwards;
+					animation: slide-out 250ms forwards;
+				}
+				&.transit {
+					-webkit-animation: slide-in 250ms forwards;
+	    			-moz-animation: slide-in 250ms forwards;
+	    			-o-animation: slide-in 250ms forwards;
+					animation: slide-in 250ms forwards;
+				}
+			}
+		
+		&.archer {
+			span {
+				
+				background-image: url(https://eme01.enmasse-game.com/images/tera_pc/whatistera/char_alts/archer.png);
+				background-position: 83% 37%;
+			}
+		}
+		&.berserker {
+			span {
+				background-image: url(https://eme01.enmasse-game.com/images/tera_pc/whatistera/char_alts/berserker.png);
+				background-position: 83% 27%;
+			}
+		}
+		&.lancer {
+			span {
+				background-image: url(https://eme01.enmasse-game.com/images/tera_pc/whatistera/char_alts/lancer.png);
+				background-position: 93% 40%;
+			}
+		}
+		&.mystic {
+			span {
+				background-image: url(https://eme01.enmasse-game.com/images/tera_pc/whatistera/char_alts/mystic.png);
+				background-position: 83% 27%;
+			}
+		}
+		&.priest {
+			span {
+				background-image: url(https://eme01.enmasse-game.com/images/tera_pc/whatistera/char_alts/priest.png);
+				background-position: 68% 25%;
+			}
+		}
+		&.slayer, &.all {
+			span {
+				background-image: url(https://eme01.enmasse-game.com/images/tera_pc/whatistera/char_alts/slayer.png);
+				background-position: 80% 30%;
+			}
+		}
+		&.warrior {
+			span {
+				background-image: url(https://eme01.enmasse-game.com/images/tera_pc/whatistera/char_alts/warrior.png);
+				background-position: 83% 36%;
+			}
+		}
+		&.sourcerer {
+			span {
+				background-image: url(https://eme01.enmasse-game.com/images/tera_pc/whatistera/char_alts/sorcerer.png);
+				background-position: 83% 37%;
+			}
+		}
+		&.reaper {
+			span {
+				background-image: url(https://eme01.enmasse-game.com/images/tera_pc/whatistera/char_alts/reaper.png);
+				background-position: 76% 37%;
+			}
+		}
+		&.gunner {
+			span {
+				background-image: url(https://eme01.enmasse-game.com/images/tera_pc/whatistera/char_alts/gunner.png);
+				background-position: 83% 29%;
+			}
+		}
+		&.brawler {
+			span {
+				background-image: url(https://eme01.enmasse-game.com/images/tera_pc/whatistera/char_alts/brawler.png);
+				background-position: 83% 28%;
+			}
+		}
+		&.ninja {
+			span {
+				background-image: url(https://eme01.enmasse-game.com/images/tera_pc/whatistera/char_alts/ninja.png);
+				background-position: 70% 32%;
+			}
+		}
+	}
+		#nav-scrubber-right {
+			position: absolute;
+			z-index:250;
+			right:0;
+			bottom:0;
+			height: 108px;
+			width:30px;
+			background: $darkgrey;
+			padding-top:40px;
+			display: block;
+			cursor: pointer;
+		    .icon {
+		    	padding: 0 7px 0 0;
+		    	position: relative;
+		    	left: calc(100% - 20px);
+		    	width: 0;
+		    	height: 0;
+		    	border-top: 15px solid transparent;
+		    	border-bottom: 15px solid transparent;
+		    	border-left: 15px solid #0fb8d8;
+		    }
+		}
+		#nav-scrubber-left {
+			position: absolute;
+			z-index:250;
+			left:0;
+			bottom:0;
+			height: 108px;
+			width:30px;
+			background: $darkgrey;
+			padding-top:40px;
+			display: none;
+			cursor: pointer;
+    		.icon {
+    			padding: 0 0 0 7px;
+    			width: 0;
+    			height: 0;
+    			border-top: 15px solid transparent;
+    			border-bottom: 15px solid transparent;
+    			border-right: 15px solid #0fb8d8;
+    		}
+		}
+		#character-nav {
+			height: 108px;
+			height: 125px;
+			position: relative;
+			width:100%;
+			overflow-x: scroll;
+			background-color: rgb(0,0,0);
+			background-color: rgba(0,0,0,0.8);
+			z-index: 200;
+
+			top: calc(100% - 128px);
+			ul {
+				font-size:0;
+				width:1600px;
+			}
+			li {
+				display: inline-block;
+				vertical-align: top;
+				width:115px;
+				height: 108px;
+				font-size:16px;
+				text-indent: -9999em;
+				cursor: pointer;
+				&.and-more {
+					text-indent: 0;
+					line-height: 1;
+				}
+				a {
+					text-align: center;
+					display: block;
+					width: 100%;
+					height: 100%;
+					color: $white;
+					padding-top:30px;
+				}
+				span {
+					display: block;
+					width: 100%;
+					height: 100%;
+				}
+				&[data-select='all'] {
+					padding-top:30px;
+					text-align: center;
+				}
+				&[data-select='all'], &.and-more  {
+					text-indent: 0;
+					color: $white;
+					font-size:21px;
+					text-transform: uppercase;
+					width:98px;
+				}
+				&[data-select='archer']  {
+					span {
+						background-image: url(https://eme01.enmasse-game.com/images/tera_pc/whatistera/characters/character-icons.png);
+						background-position: 24px 15px;
+						background-repeat: no-repeat;
+					}
+				}
+				&[data-select='berserker']  {
+					span {
+						background-image: url(https://eme01.enmasse-game.com/images/tera_pc/whatistera/characters/character-icons.png);
+						background-position: -91px 15px;
+						background-repeat: no-repeat;
+					}
+				}
+				&[data-select='brawler']  {
+					span {
+						background-image: url(https://eme01.enmasse-game.com/images/tera_pc/whatistera/characters/character-icons.png);
+						background-position: -1110px 15px;
+						background-repeat: no-repeat;
+					}
+				}
+				&[data-select='gunner']  {
+					span {
+						background-image: url(https://eme01.enmasse-game.com/images/tera_pc/whatistera/characters/character-icons.png);
+						background-position: -1000px 15px;
+						background-repeat: no-repeat;
+					}
+				}
+				&[data-select='lancer']  {
+					span {
+						background-image: url(https://eme01.enmasse-game.com/images/tera_pc/whatistera/characters/character-icons.png);
+						background-position: -202px 15px;
+						background-repeat: no-repeat;
+					}
+				}
+				&[data-select='mystic']  {
+					span {
+						background-image: url(https://eme01.enmasse-game.com/images/tera_pc/whatistera/characters/character-icons.png);
+						background-position: -317px 15px;
+						background-repeat: no-repeat;
+					}
+				}
+				&[data-select='ninja']  {
+					span {
+						background-image: url(https://eme01.enmasse-game.com/images/tera_pc/whatistera/characters/character-icons.png);
+						background-position: -1232px 15px;
+						background-repeat: no-repeat;
+					}
+				}
+				&[data-select='priest']  {
+					span {
+						background-image: url(https://eme01.enmasse-game.com/images/tera_pc/whatistera/characters/character-icons.png);
+						background-position: -431px 15px;
+						background-repeat: no-repeat;
+					}
+				}
+				&[data-select='reaper']  {
+					span {
+						background-image: url(https://eme01.enmasse-game.com/images/tera_pc/whatistera/characters/character-icons.png);
+						background-position: -891px 15px;
+						background-repeat: no-repeat;
+					}
+				}
+				&[data-select='slayer']  {
+					span {
+						background-image: url(https://eme01.enmasse-game.com/images/tera_pc/whatistera/characters/character-icons.png);
+						background-position: -546px 15px;
+						background-repeat: no-repeat;
+					}
+				}
+				&[data-select='sourcerer']  {
+					span {
+						background-image: url(https://eme01.enmasse-game.com/images/tera_pc/whatistera/characters/character-icons.png);
+						background-position: -775px 15px;
+						background-repeat: no-repeat;
+					}
+				}
+				&[data-select='warrior']  {
+					span {
+						background-image: url(https://eme01.enmasse-game.com/images/tera_pc/whatistera/characters/character-icons.png);
+						background-position: -661px 15px;
+						background-repeat: no-repeat;
+					}
+				}
+				&:hover, &.active {
+					background-color: $teal;
+				}
+			}
+		}
+	}
+
+	.what_is_tera_wrapper {
+		.encounter-block, .fantasy-block {
+
+			padding-top:300px;
+			
+		}
+	}
+	.encounters-section.what_is_tera_wrapper {
+		//height: 505px;
+		height: 575px;
+	}
+	.fantasy-world.what_is_tera_wrapper {
+		//height: 560px;
+		height: 646px;
+	}
+	.encounters-section.what_is_tera_wrapper, .fantasy-world.what_is_tera_wrapper {
+		background-repeat: no-repeat;
+		background-position: 33% 0%;
+		background-color: $black;
+		.label {
+			display: none;
+		}
+		.fantasy-block {
+			background-repeat: no-repeat;
+			background-position: top right;
+		}
+		.eme_slide {
+			top:0;
+	  		left:0;
+	  		z-index: 6;
+			position: absolute;
+			opacity: 0;
+		    transition: opacity .5s ease-in-out;
+		    -moz-transition: opacity .5s ease-in-out;
+		    -webkit-transition: opacity .5s ease-in-out;
+		    .what-block, .label {
+		      	opacity: 1;
+		    }.label {
+		      	opacity: 0;
+		    	transition: opacity 3s ease-in-out;
+		        -moz-transition: opacity 3s ease-in-out;
+		        -webkit-transition: opacity 3s ease-in-out;
+		    }
+		    &.active {
+		      opacity: 1;
+		      left:0;
+		      top:0;
+		      z-index: 7;
+		      position: relative;
+		      .what-block, .label {
+		      	opacity: 1;
+		    	
+		      }
+		    }
+		}
+		.buttons {
+			top: 310px;
+			z-index: 100;
+			width:100%;
+    		position: absolute;
+			button {
+				border: none;
+				outline: none;
+				background: none;
+				span {
+					text-indent: -9999em;
+				}
+			}
+			.next {
+				padding: 0 7px 0 0;
+				position: relative;
+				left: calc(100% - 45px);
+				width: 0; 
+				height: 0; 
+				border-top: 15px solid transparent;
+				border-bottom: 15px solid transparent;
+				  
+				border-left: 15px solid $teal;
+			}
+			.prev {
+				padding: 0 0 0 7px;
+				width: 0; 
+				height: 0; 
+				border-top: 15px solid transparent;
+				border-bottom: 15px solid transparent;
+				  
+				border-right: 15px solid $teal;
+			}
+		}
+		.pagers {
+			position: absolute;
+		    left: 0;
+		    right: 0;
+		    text-align:center;
+		    bottom: 15px;
+		    width:auto;
+		    z-index:8;
+		    .carouselpager {
+		      display:inline-block;
+		      position: relative;
+		      background:$black;
+		      border: 1px solid $white;
+		      border-radius: 50%;
+		      height:22px;
+		      width:22px;
+		      margin:0 7px;
+		      &:before {
+		      	content: '';
+		      	position: absolute; 
+		      	display: block;
+    			border: 1px solid $black;
+    			border-radius: 50%;
+    			height: 100%; 
+    			width: 100%;
+    			box-sizing: border-box;
+		      }
+		      &.active, &:hover {
+		        background:$white;
+		      }
+		    }
+		}
+	}
+	.fellows.what_is_tera_wrapper {
+		background: url(https://eme01.enmasse-game.com/images/tera_pc/whatistera/bgs/group.jpg) top center no-repeat;
+		padding-top:300px;
+	}
+	.retooled.what_is_tera_wrapper {
+		background: url(https://eme01.enmasse-game.com/images/tera_pc/whatistera/bgs/inventory.jpg) 65% 0%  no-repeat;
+		padding-top:300px;
+	}
+	.no-restrictions.what_is_tera_wrapper {
+		background: url(https://eme01.enmasse-game.com/images/tera_pc/whatistera/bgs/castle.png) 33% 0% no-repeat;
+		padding-top:300px;
+	}
+	.what_is_tera_wrapper {
+		section#ankle {
+			background: url(https://eme01.enmasse-game.com/images/tera_pc/whatistera/bgs/ankle.png) top left no-repeat;
+			padding-top:150px;
+			padding-bottom: 20px;
+			p {
+				display: none;
+			}	
+		}
+	}
+	
+//
+
+@keyframes slide-out {
+	0%   { transform: translateX(0%); opacity: 1;}
+	50%  { opacity: 0; }
+    100% { transform: translateX(50%); opacity: 0;}
+}
+
+@-webkit-keyframes slide-out {
+	0%   { transform: translateX(0%); opacity: 1;}
+	50%  { opacity: 0; }
+    100% { -webkit-transform: translateX(50%); opacity: 0;}
+}
+
+@keyframes slide-in {
+	0%   { transform: translateX(50%); opacity: 0; }
+	50%  { opacity: 1; }
+    100% { transform: translateX(0%); opacity: 1; }
+}
+
+@-webkit-keyframes slide-in {
+	0%   { transform: translateX(50%); opacity: 0;}
+	50%  { opacity: 1; }
+    100% { -webkit-transform: translateX(0%); opacity: 1;}
+}
+
+
+@include breakpoint(tablet) {
+	.what_is_tera_wrapper {
+		.what-block {
+			padding: 30px 30px 70px 30px;
+			width: 45%;
+		}
+	}
+		
+		.hero.what_is_tera_wrapper {
+			img {
+				max-width: 730px;
+			}
+			.actions {
+				li {
+					width: auto;
+					margin:10px;
+				}
+			}
+		}
+
+		#mmo-video.what_is_tera_wrapper {
+			padding-top: 80px;
+			padding-bottom: 80px;
+			padding-left: 20px;
+			//.video-wrapper {
+		    .emelightbox-pop, .what-block {
+				display: inline-block;
+    			vertical-align: middle;
+			}
+			//.video-wrapper {
+		    .emelightbox-pop {
+				max-width:45%;
+			}
+			.what-block {
+				width: calc(100% - 46%);
+			}
+		}
+		.what_is_tera_wrapper {
+			#character-blocks {
+				margin-bottom: 0;
+			}
+		}
+		.characters-section.what_is_tera_wrapper {
+			height: 500px;
+			padding-top: 80px;
+			padding-bottom: 80px;
+			.what-block {
+				margin: 0;
+				padding-bottom: 70px;
+			}
+			#character-nav {
+				top: calc(100% - 28px);
+				margin:0;
+			}
+			#highlight-character {
+				&.priest {
+					span {
+						background-position: 33% 25%;
+					}
+				
+				}
+				&.reaper {
+					span {
+						background-position: 83% 37%;
+					}
+				}
+				&.ninja {
+					span {
+						background-position: 25% 32%;
+					}
+				}
+			}
+		}
+				
+		.encounters-section.what_is_tera_wrapper, .fantasy-world.what_is_tera_wrapper {
+			height: 100%;
+		}
+		.encounters-section.what_is_tera_wrapper {
+			.buttons {
+				width: 45%;
+    			top: 119px;
+    			left: calc(55%);
+			}
+		}
+		.fantasy-world.what_is_tera_wrapper {
+			.buttons {
+				width: 45%;
+    			top: 119px;
+			}
+		}
+		.what_is_tera_wrapper {
+			.encounter-block, .fantasy-block {
+				padding-top:100px;
+				padding-bottom: 100px;
+			}
+		}
+		.fellows.what_is_tera_wrapper, .retooled.what_is_tera_wrapper, .no-restrictions.what_is_tera_wrapper {
+			padding-top:100px;
+			padding-bottom: 100px;
+		}
+		.what_is_tera_wrapper {
+			.encounter-block {
+				.what-block {
+					left: calc(55%);
+	    			position: relative;
+				}
+				.label {
+					display: block;
+					font-style: italic;
+	    	    	color: #cfcfcf;
+	    	    	position: relative;
+	    	    	top: 100px;
+	    	    	background: -webkit-linear-gradient(left, rgba(0,0,0,1), rgba(0,0,0,0));
+    	    		background: linear-gradient(left, rgba(0,0,0,1), rgba(0,0,0,0));
+    	    		text-align:left;
+    	    		padding: 20px 0px 20px 40px;
+				}
+			}
+		}
+		.fellows.what_is_tera_wrapper, .no-restrictions.what_is_tera_wrapper {
+			.what-block {
+				left: calc(55%);
+    			position: relative;
+			}
+		}
+		.what_is_tera_wrapper .fantasy-block {
+			.label {
+				display: block;
+				font-style: italic;
+    	    	color: #cfcfcf;
+    	    	position: relative;
+    	    	top: 100px;
+    	    	background: -webkit-linear-gradient(right, rgba(0,0,0,1), rgba(0,0,0,0));
+    	    	background: linear-gradient(right, rgba(0,0,0,1), rgba(0,0,0,0));
+    	    	text-align:right;
+    	    	padding: 20px 40px 20px 0px;
+			}
+		}
+		
+		.what_is_tera_wrapper {
+			section#ankle {
+				min-height: auto;
+				padding: 40px 0;
+				.inner_wrapper {
+					padding: 0;
+				}
+				.actions {
+					left: 0;
+					right: 0;
+					margin:0 auto;
+				}
+			}
+		}
+	//}	
+}
+
+@include breakpoint(desktop) {
+	//.what_is_tera_wrapper {
+		
+		.hero.what_is_tera_wrapper {
+			height: 822px;
+			h2 {
+				margin: -60px auto 20px;
+			}
+		}
+		.what_is_tera_wrapper {
+			.what-block {
+				//width:730px;
+				height:350px;
+
+				width: 550px;
+				padding:50px 30px 0;
+			}
+		}
+		#mmo-video.what_is_tera_wrapper {
+			//.video-wrapper {
+			.emelightbox-pop{
+				width:100%;
+				max-width: 740px;
+				height: 420px;
+				left: 20px;
+				position: relative;
+				z-index:3;
+			}
+			.what-block {
+				max-width:730px;
+				width: calc(100% - 745px);
+				position: relative;
+				z-index:2;
+				padding-left: 50px;
+				padding-right: 20px;
+			}
+		}
+		.characters-section.what_is_tera_wrapper {
+			height: 640px;
+			padding: 100px 0;
+			#character-nav {
+				top: calc(100% - 8px);
+			}
+		}
+		.encounters-section.what_is_tera_wrapper {
+			.buttons {
+				width: 550px;
+    			top: 140px;
+    			left: auto;
+    			right: 0;
+			}
+		}
+		.fantasy-world.what_is_tera_wrapper {
+			.buttons {
+				width: 550px;
+    			top: 140px;
+			}
+		}
+		.what_is_tera_wrapper .encounter-block {
+			.what-block {
+				left: calc(100% - 550px);
+				padding:50px 50px 0 30px;
+			}
+			.label {
+				width:43%;
+			}
+		}
+		.fellows.what_is_tera_wrapper, .no-restrictions.what_is_tera_wrapper {
+			.what-block {
+				left: calc(100% - 550px);
+				padding:50px 50px 0 30px;
+			}
+		}
+		.what_is_tera_wrapper {
+			.fantasy-block {
+				.label {
+					width:43%;
+					left: 57%;
+				}
+			}
+		}
+		.what_is_tera_wrapper {
+			section#ankle {
+				padding-top: 80px;
+				padding-bottom: 80px;
+			}
+		}
+	//}
+		
+}
+
+@include breakpoint(finallayout) {
+	.what_is_tera_wrapper {
+		.what-block {
+			width:730px;
+		}
+	}
+		#mmo-video.what_is_tera_wrapper {
+			.emelightbox-pop {
+				left: 90px;
+			}
+			.what-block {
+				padding: 35px 100px 0 135px;
+			}
+		}
+		.characters-section.what_is_tera_wrapper {
+			#character-nav {
+				overflow:visible;
+			}
+			#nav-scrubber-right, #nav-scrubber-left {
+				display: none !important;
+			}
+		}
+		.encounters-section.what_is_tera_wrapper, .fantasy-world.what_is_tera_wrapper {
+			height:635px;
+			.buttons {
+				width: 100%;
+    			top: 287px;
+    			left: auto;
+    			right: auto;
+    			button {
+    				&:before {
+    					content: "";
+    					display: block;
+    					height: 635px;
+    					width:50px;
+    					background: rgb(0,0,0);
+    					background: rgba(0,0,0,0.8);
+    					position: absolute;
+    					z-index: -1;
+    				}
+    				&.prev {
+    					&:before {
+    						top:-287px;
+    						left: 0;
+    					}
+    				}
+    				&.next {
+    					&:before {
+    						top: -310px;
+    						right: 0;
+    					}
+    				}
+    			}
+			}
+		}
+		.what_is_tera_wrapper {
+			.encounter-block, .fantasy-block {
+				padding: 0;
+				width:100%;
+				height: 635px;
+				.what-block {
+					position: relative;
+					top:100px;
+				}
+			}
+		}
+		.what_is_tera_wrapper .encounter-block, .fellows.what_is_tera_wrapper, .no-restrictions.what_is_tera_wrapper {
+			.what-block {
+				left: calc(100% - 730px);
+			}
+		}
+		.encounters-section.what_is_tera_wrapper {
+			.what-block {
+				padding: 35px 100px 0 35px;
+			}
+			.label {
+				position: absolute;
+				bottom: 0;
+				top: auto;
+				height: 69px;
+				padding-left: 100px;
+			}
+		}
+		.fantasy-world.what_is_tera_wrapper {
+			.what-block {
+				padding: 35px 35px 0 100px;
+			}
+			.label {
+				position: absolute;
+				bottom: 0;
+				top: auto;
+				height: 69px;
+				padding-right: 100px;
+			}
+		}
+	//}
+		
+}

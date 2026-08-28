@@ -1,0 +1,337 @@
+<%
+  @empKey_start = Time.new(2019,  8, 28, 10, 00, 00, "-08:00")
+  @empKey_end =   Time.new(2019,  9, 17, 12, 59, 00, "-08:00")
+
+  @empKey = ((Time.now > @empKey_start) && (Time.now < @empKey_end))
+%>
+<%
+  @blackFridayTera_start = Time.new(2018,  11, 23, 10, 00, 00, "-08:00")
+  @blackFridayTera_end =   Time.new(2018,  11, 26, 24, 00, 00, "-08:00")
+
+  @blackFridayTera = ((Time.now > @blackFridayTera_start) && (Time.now < @blackFridayTera_end))
+%>
+<%
+  @blackFridayOther_start = Time.new(2018,  11, 21, 10, 00, 00, "-08:00")
+  @blackFridayOther_end =   Time.new(2018,  11, 27, 10, 00, 00, "-08:00")
+
+  @blackFridayOther = ((Time.now > @blackFridayOther_start) && (Time.now < @blackFridayOther_end))
+%>
+<% if @blackFridayTera %>
+    <style type="text/css">
+      #page-content {
+        background-color: #161616;
+        background-image: url(https://eme02.enmasse-game.com/images/store/black_friday_bgs/wing-left.jpg), url(https://eme02.enmasse-game.com/images/store/black_friday_bgs/wing-right.jpg);
+        background-position: calc((100% - 1480px) / 2) 0, calc((100% + 1480px) / 2) 0;
+        background-repeat: repeat-y;
+      }
+    </style>
+<% end %>
+<% if @blackFridayOther %>
+    <style type="text/css">
+      #page-content {
+        background-color: #161616;
+        background-image: url(https://eme02.enmasse-game.com/images/store/black_friday_bgs/wing-left.jpg), url(https://eme02.enmasse-game.com/images/store/black_friday_bgs/wing-right.jpg);
+        background-position: calc((100% - 1480px) / 2) 0, calc((100% + 1480px) / 2) 0;
+        background-repeat: repeat-y;
+      }
+      .page_container.closers {
+        background-image: url(https://eme02.enmasse-game.com/images/closers/news/2018_11_black_friday/emp_Page_Banner.jpg);
+        background-position: top center;
+        background-repeat: no-repeat;
+        padding-top: 210px;
+      }
+      .page_container.kritika {
+        background-image: url(https://eme02.enmasse-game.com/images/kritika/newsposts/2018_11_blackFriday/EMP_Page_Banner.jpg);
+        background-position: top center;
+        background-repeat: no-repeat;
+        padding-top: 210px;
+      }
+    </style>
+<% end %>
+  <div class="page_container <%= @game if defined?(@game) %> <%= 'selection_view' if session[:account_id] %>">
+        <% if !session[:account_id] # IF NOT LOGGED IN %>
+        <div class="header">
+          <% if @game %>
+          <div class="game-logo">
+            <img src="<%= img_url("emp/#{@game}-logo.png") %>" alt="<%= @game %>" />
+          </div>
+          <% else %>
+          <div class="game-logo">
+            <img src="<%= img_url('emp/enmasse-logo.png') %>" class="eme" alt="en masse" />
+          </div>
+          <% end %>
+        </div><!-- end of header -->
+        <div class="note">
+          <p>To purchase EMP, you need to sign into your En Masse Account.</p>
+          <p>To create an En Masse Account for free, <a href="https://account.enmasse.com/sign-up">click here.</a></p>
+        </div><!-- end of note -->
+        <div class="loginBTN">
+          <a href='/' class="sign-in login-popup-link">SIGN IN</a>
+        </div>
+        <% else %>
+
+        <% if @game.downcase == "enmasse" %>
+          <div class="title-selector">
+            <div class="heading">
+              <h1>Please select which game you would like to purchase EMP for:</h1>
+            </div>
+            <div class="emp-by-title-options">
+              <div class="select-emp by-tera">
+                <span class="by-title-img"></span>
+                <a href="/tera/emp">Buy EMP</a>
+              </div>
+              <div class="select-emp by-closers">
+                <span class="by-title-img"></span>
+                <a href="/closers/emp">Buy EMP</a>
+              </div>
+            </div>
+          </div>
+        <% else %>
+          
+        
+
+        <div class="header">
+          <div class="game-logo">
+            <img src="<%= img_url("emp/#{@game}-logo.png") %>" alt="tera" />
+          </div>
+          <div class="steps_progress">
+            <img src="<%= img_url('emp/steps_first.png') %>" alt="select" />
+          </div>
+        </div><!-- end of header -->
+
+        <% if @empKey %>
+          <div class="empKey">
+           <img src="http://download.enmasse.com/images/store/bts/gift_with_EMP_Banner.jpg" alt="Purchase EMP and a gift!" />
+            <div id="countdown"></div>
+          </div>
+          <% if @game.downcase == 'tera' %>
+            <div class="after tera">
+              <p>Receive a bonus gift with your first purchase of EMP for <em>TERA</em> during the Back to School promotional period.</p>
+              <table>
+                <tr>
+                  <th><em>TERA</em> Gift</th>
+                </tr>
+                <tr>
+                  <td>Castanica Demons Smart Box</td>
+                </tr>
+                <tr>
+                  <td>Footsteps: Lucky Pupper</td>
+                </tr>
+              </table>
+            </div>
+          <% end %>
+          <% if @game.downcase == 'closers' %>
+            <div class="after closers">
+              <p>Receive a bonus gift with your first purchase of EMP for <em>Closers</em> during the Back to School promotional period.</p>
+              <table>
+                <tr>
+                  <th><em>Closers</em> Gift</th>
+                </tr>
+                <tr>
+                  <td>All-in-One Pet Package</td>
+                </tr>
+                <tr>
+                  <td>Elegant / Superfan Feature 12-Piece Bundle</td>
+                </tr>
+              </table>
+            </div>
+          <% end %>
+        <% end %>
+
+        <div class="note">
+          <p>En Masse Points (EMP) allow you to buy items in any PC game En Masse publishes.</p>
+        </div><!-- end of note -->
+
+        <form id="purchase" action="/<%= @game %>/confirm/" method="post">
+
+          <% if @billing.errors.any? && @show_errors %>
+            <div id="error-explanation">
+              <div class="error">
+                <% @billing.errors.full_messages.each do |msg| %>
+                  <article><%= msg %></article>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+
+          <section id="select-payment" class="active">
+            <h2 class="first">Please Select a Payment Method</h2>
+            <div class="payee-methods" id="paymentList">
+              <a name="paymentList"></a>
+              <% if @virtual_currencies.display_payment_types.length > 1 %>
+              <ul>
+                <!-- previous card type -->
+                <% if @previous_cc %>
+                <li class="payee disabled prev_cc">
+                  <input id="token" type="radio" name="payment_method" value="token" data-name="<%= @previous_cc['USERNAME'] %>" data-address="<%= @previous_cc['ADDRESS'] %>" data-zip="<%= @previous_cc['ZIPCODE'] %>" data-city="<%= @previous_cc['CITY'] %>" data-country="<%= @previous_cc['COUNTRY'] %>" data-state="<%= @previous_cc['STATE'] %>" data-phone="<%= @previous_cc['PHONE'] %>" />
+                  <label class="token paymentOption">
+                    <span class="inner">
+                      <h4>Use Previous Card</h4>
+                      <ul>
+                        <li><%= @previous_cc['CCTYPE'] %></li>
+                        <li>************<%= @previous_cc['CCACCT'] %></li>
+                        <li><span>Expires:</span> <%= @previous_cc['CCEXPDATE'].slice(0,2)  %>/<%= @previous_cc['CCEXPDATE'].slice(2,2)  %></li>
+                      </ul>
+                    </span>
+                  </label>
+                </li>
+              <% end %>
+                <!-- end previous card -->
+                <% @virtual_currencies.display_payment_types.each_with_index do |pay_type, index| %>
+                 <li class="payee disabled">
+                  <input id="cpg<%= pay_type.gsub(" ", "").downcase %>" type="radio" name="payment_method" value="<%= pay_type.gsub(" ", "").downcase %>" />
+                  <label class="paymentOption">
+                    <span class="logo-<%= pay_type.gsub(" ", "").downcase %>"><%= pay_type %></span>
+                  </label>
+                </li>
+                <% end %>
+
+              <% elsif @virtual_currencies.display_payment_types.length == 1 %>
+              <li class="payee">
+                <input id="cpg<%= @virtual_currencies.payment_types[0].gsub(" ", "").downcase %>" type="radio" name="payment_method" value="<%= @virtual_currencies.payment_types[0].gsub(" ", "").downcase %>" checked="checked" />
+                 <label class="paymentOption">
+                    <span class="logo-<%= @virtual_currencies.payment_types[0].gsub(" ", "").downcase %>"><%= @virtual_currencies.payment_types[0] %></span>
+                  </label>
+              </li>
+              <% else %>
+                <p>System is currently down. [error PG0].</p>
+              <% end %>
+              </ul>
+              <a href="/" class="backBTN"><span>Re-select Payment</span></a>
+            </div>
+          </section>
+
+          <section id="select-emp">
+            <h2 class="heading second">Select an EMP Amount</h2>
+
+            <% if @virtual_currencies.payment_types.length > 0 %>
+              <% @virtual_currencies.payment_types.each_with_index do |pay_type, index|  %>
+                  <div class="select-emp" id="<%= pay_type.gsub(" ", "").downcase %>">
+                  <div class="sleeve">
+                    <!-- tera black friday gwp -->
+        <% if @blackFridayTera && @game.downcase == 'tera' %>
+          <h4 style="color:#ffffff;">Earn Gifts for every purchase during <em>TERA's</em> Black Friday Sale!</h4>
+        <% end %>
+        <!-- end tera black friday gwp -->
+
+                    <% @virtual_currencies.currencies_by_payment_type(pay_type).each do |cur| %>
+
+                      <% if cur.purchase_amount == 500 %>
+                        <% if @game.downcase == 'kritika' %>
+                          <div class="currency-by-payment">
+                            <input type="radio" name="amount_id" id="cur-<%= cur.id %>" value="<%= cur.id %>" payment_type="<%= cur.payment_type %>" />
+                            <label>
+                              <div class="inner">
+                                <div class="emp-count"><span class="emp-icon"></span><span><%= cur.purchase_amount_total %></span></div>
+                                <div class="emp-price">
+                                  <p>$<%= cur.cost %><span> USD</span></p>
+                                </div>
+                                <% if cur.bonus == 0 %>
+                                <% else %>
+                                <div class="bonus">
+                                  <span><%= cur.bonus %> &#37;</span>
+                                  BONUS
+                                </div>
+                                <% end %>
+                              </div>
+                            </label>
+                          </div>
+                        <% else %>
+                        <% end %>
+                      <% else %>
+                        <div class="currency-by-payment <%= 'bf_note' if @blackFridayTera && @game.downcase == 'tera' %>">
+                          <input type="radio" name="amount_id" id="cur-<%= cur.id %>" value="<%= cur.id %>" payment_type="<%= cur.payment_type %>" />
+                          <label>
+                            <div class="inner">
+                              <div class="emp-count"><span class="emp-icon"></span><span><%= cur.purchase_amount_total %></span></div>
+                              <div class="emp-price <%= 'bf_note' if @blackFridayTera && @game.downcase == 'tera' %>">
+                                <!-- tera black friday gwp -->
+                                <% if @blackFridayTera && @game.downcase == 'tera' %>
+                                  <p class="bonus-note">
+                                    <% if cur.cost == 10 %>
+                                      1 Stormy Weather Loot Box 
+                                      <span>(with a chance at Stormscale mount)</span>
+                                    <% end %>
+                                    <% if cur.cost == 20 %>
+                                      3 Stormy Weather Loot Boxes 
+                                      <span>(with a chance at Stormscale mount)</span>
+                                    <% end %>
+                                    <% if cur.cost == 40 %>
+                                      7 Stormy Weather Loot Boxes 
+                                      <span>(with a chance at Stormscale mount)</span>
+                                    <% end %>
+                                    <% if cur.cost == 100 %>
+                                      20 Stormy Weather Loot Boxes 
+                                      <span>(with a chance at Stormscale mount)</span>
+                                    <% end %>
+                                    <% if cur.cost == 250 %>
+                                       Stormscale
+                                       <span>&nbsp;</span>
+                                    <% end %>
+                                  </p>
+                                <% end %>
+                                <!-- end tera black friday gwp -->
+                                <p>$<%= cur.cost %><span> USD</span></p>
+                              </div>
+                              <% if cur.bonus == 0 %>
+                              <% else %>
+                              <div class="bonus">
+                                <span><%= cur.bonus %> &#37;</span>
+                                BONUS
+                              </div>
+                              <% end %>
+                            </div>
+                          </label>
+                        </div>
+                      <% end %>
+
+                        <!--<div class="currency-by-payment">
+                          <input type="radio" name="amount_id" id="cur-<%#= cur.id %>" value="<%#= cur.id %>" payment_type="<%#= cur.payment_type %>" />
+                          <label for="cur-<%#= cur.id %>">
+                            <div class="inner">
+                              <div class="emp-count"><span class="emp-icon"></span><span><%#= cur.purchase_amount_total %></span></div>
+                              <div class="emp-price"><p>$<%#= cur.cost %><span> USD</span></p></div>
+                              <%# if cur.bonus == 0 %>
+                              <%# else %>
+                              <div class="bonus">
+                                <span><%#= cur.bonus %> &#37;</span>
+                                BONUS
+                              </div>
+                              <%# end %>
+                            </div>
+                          </label>
+                        </div>-->
+                  <% end %>
+
+                  </div><!-- end of sleeve -->
+                </div><!-- end of select emp -->
+              <% end %>
+            <% else %>
+            <p>Something done gone wrong</p>
+            <% end %>
+
+          </section>
+
+        <script type="text/javascript">
+          window.onload = function(){
+            _gaq.push(['_trackEvent', 'Purchase Funnels', 'View Product Info', 'Virtual Currency']);
+          }
+        </script>
+        <script type="text/javascript">
+          window.onload = function(){
+            _gaq.push(['_trackEvent', 'Purchase Funnels', 'View Product Info', 'Virtual Currency']);
+          }
+        </script>
+
+          <section id="billing-form">
+            <h2 class="heading third">Enter Billing Info</h2>
+            <%= erb :"purchase-flow/billing-form" %>
+            <div class="submitBTN">
+              <input type="submit" class="button-secondary confirm disabled" value="Review Order" onclick="_gaq.push(['_trackEvent', 'Purchase Funnels', 'Submit Product/Billing Info', 'Virtual Currency']);">
+            </div>
+          </section>
+        </form>
+        <!-- end of logged in area -->
+        <% end %>
+        <% end %>
+      </div><!-- end of page container -->

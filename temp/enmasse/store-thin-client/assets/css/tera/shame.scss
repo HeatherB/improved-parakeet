@@ -1,0 +1,397 @@
+.ankle#register input[type=email], 
+#register input[type=password], 
+.register input[type=email], 
+.register input[type=password] {
+    color: #000;
+    width: 160px;
+}
+// this is set to 60% in global and needs to be changed.=
+small { font-size: 14px; }
+
+#register > p { line-height:40px; }
+.breadcrumb { margin: 8px 0 7px -1px; }
+
+#wide_body .register {
+    float: none;
+    width: 800px;
+    margin: 0 auto;
+    form {
+        float:none;
+        margin: 0 auto;
+    }
+}
+#header > div.three {
+    padding: 0 10px;
+}
+#store-home .header-news-promo {
+    background: none;
+    padding: 0;
+    min-height: 300px;
+}
+
+/* the stylesheets in this project are out of control */
+/* make a pass to correct them but shoehorn this fix in for now */
+footer p, footer li {
+  font-family: "Exo 2", sans-serif;
+}
+
+/* This is 10px offcenter due to the 10px margin-left, should be taken out completely. */
+/* line 157, ../../../app/assets/stylesheets/foundation/override/common/_globals.scss */
+#page_container #wide_body { padding: 10px; }
+
+.article_header.row > .four.screen {
+  -webkit-transform: translate3d(0, 0, 0);
+}
+
+/* This section is adding in stles that the store needs that we removed when we started
+removing the foundation framework */
+label {
+  cursor: pointer;
+  display: block;
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=email]:focus,
+textarea:focus {
+  background: none repeat scroll 0% 0% rgb(250,250,250);
+  outline: medium none !important;
+  border-color: rgb(179,179,179);
+}
+
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=tel],
+textarea {
+  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1) inset;
+  -webkit-transition: all 0.15s linear 0s;
+  -moz-transition: all 0.15s linear 0s;
+  -o-transition: all 0.15s linear 0s;
+  transition: all 0.15s linear 0s;
+  border: 2px solid rgb(187, 187, 187);
+  display:block;
+  font-size: 16px;
+  margin: 0 0 1.6em;
+  padding: 0;
+  -webkit-border-radius: 2px 2px 2px 2px;
+  -moz-border-radius: 2px 2px 2px 2px;
+  border-radius: 2px 2px 2px 2px;
+}
+
+.item-info p {
+  -webkit-transform: translate3d(0, 0, 0);
+}
+
+/* Fix padding issue with firefox buttons */
+/* Don't use native buttons on iOS */
+input[type=submit].button, button.button { -webkit-appearance: none; }
+  @media only screen and (max-width: 767px) {
+  .button { display: block; }
+  button.button, input[type="submit"].button { width: 100%; padding-left: 0; padding-right: 0; }
+}
+
+/* Correct FF button padding */
+@-moz-document url-prefix() {
+button::-moz-focus-inner, input[type="reset"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner, input[type="submit"]::-moz-focus-inner, input[type="file"] > input[type="button"]::-moz-focus-inner { border: none; padding: 0;  }
+  input[type="submit"].tiny.button    { padding: 3px 10px 4px; }
+  input[type="submit"].small.button   { padding: 5px 14px 6px; }
+  input[type="submit"].button, input[type=submit].medium.button { padding: 8px 20px 9px }
+  input[type="submit"].large.button   { padding: 13px 30px 14px; }
+}
+
+@media only screen and (max-width: 767px) {
+  .columns {width: auto !important;}
+}
+
+@media only screen and (max-width: 1154px) {
+  nav#menu {display:none;}
+  #eme-bar-wrapper {
+    width: 100%;
+  }
+  #header .three.columns {
+    width: 100%;
+  }
+  #header a#header-logo {
+    margin: 0 auto;
+  }
+
+}
+
+a.button-primary.elite-callout {
+  font-size: 24px;
+  width: 210px;
+  display: block;
+  margin: 5px auto;
+}
+
+/* standardize iframes */
+#ffg-frame {
+  width: 1140px;
+  margin: 0;
+  padding: 0;
+
+  iframe {
+  width: 1140px;
+  border: none;
+  margin: 0 auto;
+  }
+  &.emp iframe#ffg { height: 972px; }
+  &.elite iframe#ffg { height: 840px; }
+  &.transactions iframe#ffg { height: 618px; }
+}
+
+
+.full-price {
+  color: #BBBBBB;
+  font-size: 20px;
+  text-decoration: line-through;
+  margin-left: -12px;
+}
+
+/* changing modal-warn to modal-warning */
+.item-modal #modal-error, .item-modal #modal-warning {
+  margin: 10px;
+}
+
+footer {
+  -webkit-transform: translate3d(0, 0, 0);
+}
+
+
+
+/* MEDIA *********************** */
+@media screen and (max-width: 768px) {
+  #page_container,
+  .tera #page_container { width: 100%; }
+  #page_container .takeover {
+    position:relative;
+    right: auto;
+    top: auto;
+    text-align: center;
+  }
+  #register {
+    float: none;
+    #email-cont, #password-cont {
+      float:none;
+      width: 250px;
+      margin: 0 auto;
+      input {
+        float: right;
+        margin: 3px;
+      }
+    }
+    ul {
+      float: none;
+      // width: 175px;
+      margin: 0 auto;
+      li { margin: 10px 0; }
+      li:first-child {margin-right:3px;}
+    }
+  }
+  ul.login-buttons {
+    width: 170px;
+  }
+  .wallet-wrapper p { display: none; }
+
+  #header a#header-logo { margin: 0 auto; }
+  .filters {
+    height: auto;
+    width: 100%;
+  }
+  .welcome {
+    font-size: 12px;
+  }
+}
+
+#blackout {
+  position: fixed;
+  top:0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 200;
+  background: #000;
+}
+
+#login-box {
+  width: 410px;
+  height: 410px;
+  left: 50%;
+  top:50%;
+  margin-left: -205px;
+  margin-top: -205px;
+  z-index: 202;
+  position: fixed;
+  display: none;
+}
+
+#login-box iframe {
+  width: 400px;
+  height: 400px;
+  border: none;
+}
+
+.login-buttons {
+  float: right;
+  margin-right: 0px;
+  margin-bottom: 5px;
+  margin-top: 8px;
+  z-index: 10;
+}
+.login-buttons li {
+  float: left;
+  margin-right: 3px;
+  font-size: 14px;
+  list-style-type: none;
+}
+.login-buttons .login-popup-link {
+  border-radius: 5px 0 0 5px;
+  color: #FFFFFF;
+  text-decoration:none;
+  display: block;
+  height: 27px;
+  line-height: 17px;
+}
+.login-buttons .new-user {border-radius: 0 5px 5px 0; color: #FFFFFF; text-decoration:none; line-height: 16px; display:block;}
+.register #login-wrapper {
+  margin: 0 auto;
+  width:200px;
+}
+#login-wrapper a:hover {
+  color: #ffffff; text-decoration:none;
+}
+
+.article_header.row .double .caption, .article_header.row .single .caption {
+  height: 80px;
+}
+
+@media screen and (max-width: 1139px) {
+  #header a#header-logo { margin: 0 auto; }
+  .article_header.row .caption h3 {font-size: 21px;}
+  .tera #page_container, .tera #page_container #wide_body {width: 100%; min-width: 100%;}
+}
+@media screen and (max-width: 768px) {
+  #header a#header-logo { clear: both;}
+}
+
+// reduced bottom padding for new ankel with global footer
+#page_container { padding-bottom: 26px; }
+.ankle {
+  /*zoom:1;*/
+  &:before, &:after { content: " "; display: table; }
+  &:after { clear: both; }
+  max-width: 1140px;
+  margin: 0 auto 20px;
+  text-align: center;
+  h3 {
+    font-family: "serif6_beta_rgbold",Times,serif;
+    font-size: 21px;
+  }
+  h3, p {padding: 5px 0;}
+}
+
+// Subscriptions
+  #activate_elite_status {
+    &> div {
+      border-top: 1px solid #2a2d32;
+      margin: 5px 0 15px;
+      &:first-child { border-top: none; }
+    }
+    h2 {
+      font-size: 32px;
+      color: #dedddb;
+      font-weight: bold;
+      margin: 5px 10px;
+    }
+    p { margin: 5px 10px; }
+    .row { width: 100%;min-width: 100%; }
+    #select-payment #paymentList > input[type=radio] {
+      left: -9999px;
+      &#cpgsubscription_cc + label, #subscription_cc { display: inline-block; }
+      &#cpgsubscription_ec + label, #subscription_ec { display: inline-block; }
+    }
+    input[type=text] {
+      margin: 0;
+      height: 30px;
+      display: inline-block;
+      border: 2px solid #5c5d61;
+      padding: 0 3px;
+    }
+    #billing-info { display: block; }
+
+    
+  }
+
+// black friday banners
+.fridayAlert {
+  display: none;
+  &.active {
+    display:block;
+    background: #e83a85;
+    // THIS IS BREAKING COMPASS!?!
+    // @include background(linear-gradient(top, #e83a85, #e82a7a));
+    color: #FFFFFF;
+    padding: 10px;
+    margin-bottom: 10px;
+    line-height: 1.2em;
+    border: 1px solid #e21d67;
+  }
+}
+
+// compass is currently busted, but i need the navigation bar to match our global propertires
+@media (min-width: 72.5em) {
+  .eme-menu {
+    //padding-left: calc((100% - 880px) / 2);
+  }
+}
+.eme a {
+  background: image-url('eme-bar/eme-bar-sprite.png') no-repeat -39px -531px;
+}
+#eme-bar #games .trigger span:after {
+  background-image: image-url('eme-bar/eme-bar-sprite.png');
+}
+.games-link.tera {
+    background-image: image-url('eme-bar/games/games_thumb_tera@2x.jpg');
+}
+.games-link.zmr {
+    background-image: image-url('eme-bar/games/games_thumb_zmr@2x.jpg');
+}
+.games-link.ava {
+    background-image: image-url('eme-bar/games/games_thumb_ava@2x.jpg');
+}
+.games-link.battleplans {
+    background-image: image-url('eme-bar/games/games_thumb_battleplans@2x.jpg');
+}
+.games-link.fruit-attacks {
+    background-image: image-url('eme-bar/games/games_thumb_fruitattacks@2x.jpg');
+}
+.games-link.kritika {
+    background-image:image-url('eme-bar/games/games_thumb_kritika@2x.jpg');
+}
+.games-link.closers {
+    background-image:image-url('eme-bar/games/closers_fornav_withoutzmr.jpg');
+}
+.games-link.breach {
+    background-image:image-url('eme-bar/games/games_thumb_breach@2x.jpg');
+}
+footer .clogo-enmasse-lightbg, 
+footer .clogo-naddic, 
+footer .clogo-naddic-colored, 
+footer .clogo-allm,
+footer .clogo-redduck,
+footer .clogo-enmasse-darkbg,
+footer .clogo-enmasse-white,
+footer .clogo-bluehole
+{
+  background-image: image-url('eme-bar/ft-logo-sprite.png');
+}
+
+// global files provide for smallest width of 320px - we need to go down to only 300px
+#eme-bar .wrapper {
+  min-width:300px;
+}

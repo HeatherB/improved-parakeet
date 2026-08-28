@@ -1,0 +1,566 @@
+@import url('https://fonts.googleapis.com/css?family=Exo+2&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Abel&display=swap');
+body {
+	width:100%;
+	height:100%;
+	color:$black;
+	font: normal 1.313em/1.500em 'Exo 2', sans-serif; /* 21px over 24 */
+	//background: url(/assets/bgs/dot-bg.jpg) top center fixed $red;
+	background-image: url(/assets/bgs/bg_dial.png);
+	background-position: top center;
+	background-repeat: no-repeat;
+	background-color: $bg_all_red;
+	/*#filter-bar {
+		span {
+			&[data-platform="all"] {
+				background: $all_red;
+				color: $white;
+				a {
+					color: $white;
+				}
+			}
+		}
+	}*/
+	
+	p, li, td {
+		font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
+	}
+	#navigation, #navigation li,
+	.actions p, .actions li,
+	th {
+		font-family: 'Exo 2', sans-serif;
+	}
+	&.view-all, &[data-filter='all'] {
+		background-color: $bg_all_red;
+		#filter-bar {
+			span {
+				&[data-platform="all"] {
+					background: $all_red;
+					color: $white;
+					a {
+						color: $white;
+					}
+				}
+			}
+		}
+	}
+	&.view-windows, &[data-filter='windows'] {
+		background-color: $bg_windows_blue;
+		#filter-bar {
+			span {
+				&[data-platform="windows"] {
+					background: $bg_windows_blue;
+					color: $white;
+					a {
+						color: $white;
+					}
+				}
+				
+			}
+		}
+	}
+	&.view-playstation, &[data-filter='playstation'] {
+		background-color: $bg_ps_blue;
+		#filter-bar {
+			span {
+				&[data-platform="playstation"] {
+					background: $bg_ps_blue;
+					color: $white;
+					a {
+						color: $white;
+					}
+				}
+				
+			}
+		}
+	}
+	&.view-xbox, &[data-filter='xbox'] {
+		background-color: $bg_xbox_green;
+		#filter-bar {
+			span {
+				&[data-platform="xbox"] {
+					background: $bg_xbox_green;
+					color: $white;
+					a {
+						color: $white;
+					}
+				}
+				
+			}
+		}
+	}
+}
+#locale_listing {
+	display: none;
+}
+body.preload *{
+	animation-duration: 0s !important;
+	-webkit-animation-duration: 0s !important;
+	transition:background-color 0s, opacity 0s, color 0s, width 0s, height 0s, padding 0s, margin 0s !important;
+}
+section {
+	width:100%;
+	display: block;
+}
+a {
+	text-decoration: none;
+	cursor: pointer;
+	color: $anchortag;
+}
+h1, h2, h3, h4, h5, h6 {
+	line-height: 1;
+	margin-top: 0;
+}
+h3 {
+	font-size:24px;
+}
+p {
+	margin-bottom: 0;
+	font-size: 15px;
+	line-height: 21px;
+}
+.alone {
+	padding: 20px 0;
+    font-size: 21px;
+    text-transform: capitalize;
+}
+ul {
+	margin-bottom: 0;
+	li {
+		 ul, ol {
+		 	margin: 0;
+		 }
+	}
+}
+
+.leftCol, .rightCol {
+	display:block;
+	margin:0 auto;
+}
+img {
+	width: 100%;
+	max-width: 100%;
+	height: auto;
+	vertical-align:middle;
+}
+main, footer .wrapper {
+	margin: 0 auto;
+	width: 100%;
+	max-width: $sleeve;
+}
+main {
+	background-color: $white;
+}
+.inner_wrapper {
+	padding: 0 20px;
+	margin:0 auto;
+}
+/* responsive video embed */
+.videoWrapper {
+ 	position: relative;
+ 	padding-bottom: 56.25%; /* 16:9 */
+ 	padding-top: 25px;
+ 	height: 0;
+ }
+ .videoWrapper iframe,
+ .videoWrapper object,
+ .videoWrapper embed {
+ 	position: absolute !important;
+ 	top: 0;
+ 	left: 0;
+ 	width: 100%;
+ 	height: 100%;
+ }
+.video-sleeve {
+  width:100%;
+  max-width:80%;
+  margin:0 auto;
+  /*position: absolute;
+  top:150px;*/
+  position: fixed;
+  z-index: 9999;
+  left:0;
+  right:0;
+  top:50px;
+  display:none;
+}
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0; 
+  //overflow: hidden;
+  box-shadow: 0px 0px 0px 2px $black;
+  border: 1px solid  $black;
+  background-color: $black;
+}
+.video-container iframe,
+.video-container object,
+.video-container embed,
+.video-container #lightbox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.video-wrapper {
+	text-align:center;
+}
+
+/* ie grey backgroudn with videos fix */
+.brightness {
+    filter: brightness(108.5%);
+    -webkit-filter: brightness(108.5%);
+}
+
+/* usage */
+/*<div class="videoWrapper">
+    <!-- Copy & Pasted from YouTube -->
+    <iframe width="560" height="349" src="http://www.youtube.com/embed/n_dZNLr2cME?rel=0&hd=1" frameborder="0" allowfullscreen></iframe>
+</div>*/
+
+/* flexbox things */
+.flexbox-content-center {
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+
+	align-items: center;
+}
+
+.flexbox-grid {
+	display: -webkit-box;           /* OLD - iOS 6-, Safari 3.1-6 */
+	display: -moz-box;              /* OLD - Firefox 19- (doesn't work very well) */
+	display: -ms-flexbox;           /* TWEENER - IE 10 */
+	display: -webkit-flex;          /* NEW - Chrome */
+	display: flex;                  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	&:after {
+		content: "";
+		width:330px;
+		/* allow last row of two to have proper spacing */
+	}
+}
+
+/* tooltip style hover reveal */
+.hover-info {
+	position: relative;
+	cursor: pointer;
+	color: red;
+	.hover-reveal {
+		position: absolute;
+		left: -9999em;
+		background: rgba(0,0,0,0.8);
+		display: block;
+		padding: 10px;
+		color:$white;
+		text-transform: none;
+		z-index: 2;
+		width: auto;
+		max-width: 500px;
+		opacity: 0;
+		transition: 250ms;
+	}
+	&:hover {
+		.hover-reveal {
+			opacity: 1;
+			left: auto;
+			right: 0px;
+		}
+	}
+}
+
+/* play on your platform buttons */
+.actions {
+	li {
+		list-style-type: none;
+		display:inline-block;
+		box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+		margin:0 10px;
+		a, div {
+			display: table;
+			height: 75px;
+			padding: 5px 10px 5px 5px;
+			.icon, h6 {
+				display: table-cell;
+				vertical-align:middle;
+			}
+			h6 {
+				color:$white;
+				text-transform: uppercase;
+				text-shadow: 0px 0px 5px rgba(0,0,0,0.4);
+				font-weight: lighter;
+				font-size:21px;
+				line-height:1.2;
+				display: table-cell;
+				vertical-align:middle;
+				padding-left: 55px;
+			}
+		}
+		&.play-xbox {
+			div, a {
+				background: url(/assets/icons/logo-xbox.png) 10px 50% no-repeat, -webkit-linear-gradient(bottom, #007708, #4adf4e);
+  				background: url(/assets/icons/logo-xbox.png) 10px 50% no-repeat, linear-gradient(to bottom, #007708, #4adf4e);
+			}
+		}
+		&.play-ps {
+			div, a {
+				background: url(/assets/icons/logo-playstation.png) 10px 50% no-repeat, -webkit-linear-gradient(bottom, #110b8b, #7ba6ff);
+  				background: url(/assets/icons/logo-playstation.png) 10px 50% no-repeat, linear-gradient(to bottom, #110b8b, #7ba6ff);
+  				h6 {
+  					padding-left: 65px;
+  				}
+			}
+		}
+		&.play-windows {
+			div, a {
+				background: url(/assets/icons/logo-windows.png) 10px 50% no-repeat, -webkit-linear-gradient(bottom, #04788d, #62e0ff);
+  				background: url(/assets/icons/logo-windows.png) 10px 50% no-repeat, linear-gradient(to bottom, #04788d, #62e0ff);
+			}
+		}
+		span.soon {
+			display: block;
+			font-size:12px;
+		}
+	}
+}
+
+/* generic table styling */
+table {
+	text-align:left;
+	tr {
+    	background-color: #c8d9e1;
+		color:#474a50;
+		border-bottom: solid 1px white;
+		padding-left: 20px;
+		&:hover {
+			background: #aac5d2;
+		}
+	}
+	th {
+		background: black;
+		color: white;
+		font-weight: normal;
+		padding: 20px;
+	}
+	th, td {
+		text-align:left;
+		padding: 10px;
+		&:first-child {
+			padding-left: 20px;
+		}
+	}
+}
+
+/* platform filters */
+#filter-bar {
+	display:block;
+	margin: 0 auto;
+    padding: 1em 0;
+    position: relative;
+    z-index: 8;
+	span {
+		display:inline-block;
+		vertical-align:top;
+		font-size:16px;
+		padding: 0;
+		cursor: pointer;
+		&.interiorfilter {
+			padding: 10px;
+		}
+		a {
+			padding: 10px;
+			display: block;
+		}
+		&.filter-all, &[data-platform="all"] {
+			border: 1px solid $all_red;
+			color: $all_red;
+			a {
+				color: $all_red;
+			}
+			&.selected, &:hover {
+				background: $all_red;
+				color: $white;
+				a {
+					color: $white;
+				}
+			}
+		}
+		&.filter-windows, &[data-platform="windows"] {
+			border: 1px solid $windows_blue;
+			color: $windows_blue;
+			a {
+				color: $windows_blue;
+			}
+			&.selected, &:hover {
+				background: $windows_blue;
+				color: $white;
+				a {
+					color: $white;
+				}
+			}
+		}
+		&.filter-playstation, &[data-platform="playstation"] {
+			border: 1px solid $ps_blue;
+			color: $ps_blue;
+			a {
+				color: $ps_blue;
+			}
+			&.selected, &:hover {
+				background: $ps_blue;
+				color: $white;
+				a {
+					color: $white;
+				}
+			}
+		}
+		&.filter-xbox, &[data-platform="xbox"] {
+			border: 1px solid $xbox_green;
+			color: $xbox_green;
+			a {
+				color: $xbox_green;
+			}
+			&.selected, &:hover {
+				background: $xbox_green;
+				color: $white;
+				a {
+					color: $white;
+				}
+			}
+		}
+	}
+}
+#locale {
+	margin-top:10px;
+	//left: calc(100% - 300px);
+	position: relative;
+	z-index: 1;
+	.wrap {
+		position: absolute;
+		width:100%;
+	}
+	span {
+		border: 1px solid #6f6f6f;
+		//padding: 10px 20px 10px 60px;
+		font-size:18px;
+		display: none;
+		color: $black;
+		padding: 0;
+		height: 51px;
+		background-color: $white;
+		position: relative;
+		&.selected {
+			display: block;
+			padding: 10px 20px 10px 60px;
+		}
+		a {
+			color: $black;
+			padding: 10px 20px 10px 60px;
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			padding: 9px 0 0 60px;
+		}
+		&.en {
+			background: url(/assets/icons/flags/en_euro.png) 10px 50% no-repeat $white;
+		}
+		&.fr {
+			background: url(/assets/icons/flags/fr.png) 10px 50% no-repeat $white;
+		}
+		&.de {
+			background: url(/assets/icons/flags/de.png) 10px 50% no-repeat $white;
+		}
+	}
+}
+
+/* default state */
+.state-indicator {
+	position: absolute;
+	top: -9999em;
+	left: -9999em;
+	z-index:1;
+}
+/* tablet size */
+@include breakpoint(tablet) {
+	.state-indicator {
+		z-index: 2;
+	}
+}
+/* small desktop */
+@include breakpoint(desktop) {
+	.state-indicator {
+		z-index: 3;
+	}
+}
+/* regular desktop */
+@include breakpoint(lrgdesk) {
+	.state-indicator {
+		z-index: 4;
+	}
+}
+/* end default state */
+
+
+@include breakpoint(tablet) {
+	.sixteen-nine {
+	  @include aspect-ratio(16, 9);
+	}
+	.leftCol, .rightCol {
+		display: inline-block;
+		width:49%;
+		vertical-align: top;
+	}
+	.inner_wrapper {
+		padding: 0 40px;
+		margin:0 auto;
+	}
+	#filter-bar {
+		.inner_wrapper {
+			display: -webkit-box;           /* OLD - iOS 6-, Safari 3.1-6 */
+			display: -moz-box;              /* OLD - Firefox 19- (doesn't work very well) */
+			display: -ms-flexbox;           /* TWEENER - IE 10 */
+			display: -webkit-flex;          /* NEW - Chrome */
+			display: flex;                  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+		span {
+			font-size:21px;
+			&.interiorfilter {
+				padding: 10px 15px;
+			}
+			a {
+				padding: 10px 15px;
+			}
+		}
+	}
+	#locale {
+		width:calc(1000px - 750px);
+		left: calc(100% - 210px);
+		margin: 0;
+		span {
+			font-size:21px;
+			&.selected {
+				padding: 10px 60px;
+			}
+			a {
+				padding: 9px 0 0 60px;
+			}
+		}
+	}
+	/* special case for when siblings */
+	#filter-platform + #locale {
+		left: auto;
+	}
+}

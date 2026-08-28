@@ -1,0 +1,62 @@
+#error-explanation {
+  .error {
+    width: 100%;
+    background: #820707;
+    @include background(linear-gradient($darkRed, $midRed));
+    border: 1px solid $lightRed;
+    padding: 10px;
+    text-align: center;
+    color:$white;
+  }
+  .warning {
+    width: 100%;
+    background: #ee7600;
+    @include background(linear-gradient($darkorange, $lightorange));
+    border: 1px solid #cd6600;
+    padding: 10px;
+    text-align: center;
+    color:$white;
+  }
+}
+
+span.error {
+  @include background($lightRed);
+  @include box-shadow(0px 0px 15px rgba($lightRed, 1));
+  @include border-radius(10px);
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 25%;
+  border: 2px solid $midRed;
+  white-space: nowrap;
+  padding: 0 5px;
+  color: $white;
+  &:before {
+    @include cssTriangle(6px, $midRed, right);
+    content: "";
+    position: absolute;
+    top: 25%;
+    left: -14px;
+  }
+}
+
+input[type="text"].error+span.error, 
+input[type="email"].error+span.error, 
+input[type="tel"].error+span.error {
+    display: block;
+    z-index: 9999;
+}
+
+.styled-select.hidden {
+  display: none;
+}
+
+
+// tablet styles
+//@media only screen and (min-width: 768px) {
+@include breakpoint(tablet) {
+  span.error {
+    top: 5px;
+    left: 100%;
+  }
+}

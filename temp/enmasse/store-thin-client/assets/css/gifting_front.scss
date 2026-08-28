@@ -1,0 +1,239 @@
+body {
+    background: url(http://tera-cdn0.enmasse-game.com/assets/bg-white-7ad71e561c30ead98f9a324fa4c21f4f.jpg) repeat-y top center #fff;
+}
+
+.header {
+    z-index: 2;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+}
+
+main {
+    background: white;
+    width: 1110px;
+    height: 815px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    z-index: 1;
+    margin-top: -5px;
+    padding: 40px 50px;
+    text-align: center;
+    h1 {
+        margin: 0;
+        margin-bottom: 20px;
+        text-align: left;
+    }
+    .gift {
+        width: 320px;
+        display: inline-block;
+        vertical-align: top;
+        margin: 0 5px;
+        img {
+            max-width: 100%;
+        }
+        .info {
+            background: #2e2e2e;
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+            margin-top: -6px;
+            text-align: center;
+            h2 {
+                font-size: 38px;
+                height: 38px;
+                line-height: 38px;
+                color: white;
+                width: 100%;
+                text-align: center;
+                margin: 20px 0;
+            }
+            .emp {
+                width: 175px;
+                height: 60px;
+                background: #4e4e4e;
+                font-size: 32px;
+                color: white;
+                line-height: 55px;
+                text-align: center;
+                position: relative;
+                margin: 0 auto;
+                &:before {
+                    content: url(https://static.enmasse.com/images/Gifting/emp-icon.png);
+                    margin-right: 10px;
+                    position: relative;
+                    vertical-align: middle;
+                }
+                &.save10 {
+                    &:after {
+                        content: url(https://static.enmasse.com/images/Gifting/save10-2.png);
+                        position: absolute;
+                        right: -70px;
+                        top: -30px;
+                    }
+                }
+                &.save20 {
+                    &:after {
+                        content: url(https://static.enmasse.com/images/Gifting/save20-2.png);
+                        position: absolute;
+                        right: -70px;
+                        top: -30px;
+                    }
+                }
+            }
+            button {
+                background: #ffa921;
+                border: 0;
+                padding: 20px 25px;
+                text-transform: uppercase;
+                font-size: 28px;
+                border-radius: 0;
+                margin-top: 10px;
+                border-radius: 2px;
+                box-shadow: 0px 2px 0px 0px #9d210d;
+                &.closers {
+                    background: #ffeb00;
+                    box-shadow: 0px 2px 0px 0px black;
+                }
+            }
+        }
+    }
+    h4 {
+        width: 100%;
+        font-size: 24px;
+        margin-top: 40px;
+    }
+    .learn {
+        background: #ffa921;
+        border: 0;
+        padding: 20px 25px;
+        text-transform: uppercase;
+        font-size: 28px;
+        border-radius: 0;
+        margin-top: 10px;
+        border-radius: 2px;
+        box-shadow: 0px 2px 0px 0px #9d210d;
+        display: inline-block;
+        text-decoration: none;
+        color: black;
+        &.closers {
+            background: #ffeb00;
+            box-shadow: 0px 2px 0px 0px black;
+        }
+    }
+    small {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-top: 20px;
+        a {
+            text-decoration: none;
+        }
+    }
+}
+
+#confirmation {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: rgba(0,0,0,.75);
+    top: 0;
+    left: 0;
+    display: none;
+    z-index: 999999;
+    .box {
+        width: 830px;
+        height: 330px;
+        background: white;
+        position: relative;
+        margin: 0 auto;
+        top: 200px;
+        border-radius: 1px;
+        box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.75);
+        display: none;
+        h3 {
+            width: 100%;
+            text-align: center;
+            height: 40px;
+            font-size: 24px;
+            color: white;
+            position: relative;
+            font-weight: normal;
+            .close {
+                background: #4e4e4e;
+                display: block;
+                position: absolute;
+                top: 0;
+                right: 0;
+                height: 100%;
+                width: 55px;
+                &:hover {
+                    cursor: pointer;
+                    font-size: 26px;
+                    transition: 250ms;
+                }
+            }
+        }
+        .wrap {
+            padding: 25px;
+        }
+        img {
+            margin-right: 20px;
+        }
+        .info {
+            font-size: 16px;
+            width: 510px;
+            display: inline-block;
+            vertical-align: top;
+            padding-bottom: 45px;
+            min-height: 240px;
+            position: relative;
+            ul {
+                width: 100%;
+                text-align: right;
+                margin-top: 20px;
+                li {
+                    img {
+                        width: 20px;
+                        height: 20px;
+                        vertical-align: middle;
+                        margin-right: 0px;
+                        margin-left: 2px;
+                        top: -1px;
+                        position: relative;
+                    }
+                    div {
+                        width: 40px;
+                        display: inline-block;
+                    }
+                }
+            }
+            .button-group {
+                width: 100%;
+                text-align: right;
+                position: absolute;
+                bottom: 0px;
+                button {
+                    width: 130px;
+                    height: 40px;
+                    display: inline-block;
+                    color: white;
+                    background: #5c5c5c;
+                    box-shadow: 0px 3px 0px 0px #525252;
+                    border: none;
+                    border-radius: 2px;
+                    margin: 0 2px;
+                    text-transform: uppercase;
+                    &.blue {
+                        background: #2c8bc9;
+                        box-shadow: 0px 3px 0px 0px #1e70a6;
+                    }
+                    &.disabled {
+                        opacity: .7;
+                        pointer-events: none;
+                    }
+                    &:focus {
+                        outline: none;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,30 @@
+$body-background: image-url('background-slate.jpg');
+$background-takeover: image-url('bg-takeover.jpg');
+
+// Global images
+$image-sprite: image-url('image-sprite.png');
+
+// Item Sprite
+$item-icons: image-url('item-icons.jpg');
+
+// Store Sprite
+$store-sprite: image-url('store-sprite.jpg');
+
+// Misc
+$icon-loading: image-url('loading.gif');
+
+// Color Fallbacks
+$black-px: image-url('colors/black.png');
+$white-px: image-url('colors/white.png');
+$gray-px: image-url('colors/gray.png');
+$blue-px: image-url('colors/blue.png');
+$gold-px: image-url('colors/gold.png');
+$green-px: image-url('colors/green.png');
+$red-px: image-url('colors/red.png');
+$orange-px: image-url('colors/orange.png');
+$babyblue-px: image-url('colors/babyblue.png');
+$purple-px: image-url('colors/purple.png');
+$peach-px: image-url('colors/peach.png');
+
+// Gradient Fallbacks
+$blue-grad: image-url('colors/blue-grad.png');

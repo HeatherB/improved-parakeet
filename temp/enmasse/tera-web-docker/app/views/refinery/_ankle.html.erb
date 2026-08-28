@@ -1,0 +1,24 @@
+<section id="ankle">
+	<div class="inner_wrapper">
+		<p><%=t :ankle_copy %></p>
+		<ul class="actions">
+			<li class="play-windows">
+				<%= link_to ('/' + locale.to_s + '/download') do %>
+  					<%= content_tag :h6, "#{t "play_windows"}" %>
+				<% end %>
+			</li>
+
+			<li class="play-ps">
+				<a href="https://store.playstation.com/en-us/product/UP2492-CUSA06412_00-APP0000000314287" target="_blank">
+					<h6><%=t :play_playstation %></h6>
+				</a>
+			</li>
+
+			<li class="play-xbox">
+				<a href="https://www.microsoft.com/en-us/store/p/tera/bs70zcl9nz9n" target="_blank">
+					<h6><%=t :play_xbox %></h6>
+				</a>
+			</li>
+		</ul>
+	</div><!-- end of inner wrapper -->
+</section>

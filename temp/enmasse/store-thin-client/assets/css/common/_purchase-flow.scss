@@ -1,0 +1,727 @@
+// This needs to replace global content block styles in tera master !!
+.content-block {
+  @include box-shadow(none);
+  @include background(linear-gradient($midGray, darken($darkGray, 10%)));
+  position: relative;
+  border: 1px solid $black;
+  *zoom: 1;
+  margin: 10px 0;
+
+  &:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -4px;
+    right: -4px;
+    bottom: -4px;
+    left: -4px;
+    border: 1px solid $black;
+    display: inline;
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -3px;
+    right: -3px;
+    bottom: -3px;
+    left: -3px;
+    border: 2px solid $midGray;
+    display: inline;
+  }
+  &.rounded {
+    @include border-radius(8px);
+    &:after, &:before {
+      @include border-radius(10px);
+    }
+  }
+}
+
+.inner {
+  input[type=radio] {
+    visibility: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+    left: 0;
+    top: 0;
+  }
+}
+
+
+.content-head.content-block {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  .emp-header {
+      background: image-url('product-header.png') no-repeat 0 0;
+      float: left;
+      width: 400px;
+      height: 142px;
+  }
+  .elite-header {
+      background: image-url('product-header.png') no-repeat 0 -150px;
+      float: left;
+      width: 400px;
+      height: 130px;
+  }
+
+  .content {
+    min-height: 113px;
+    margin: 0 0 0 400px;
+    padding: 0;
+    h2 { margin-top: 0; }
+  }
+  ul { margin-bottom: 0; }
+}
+
+#select-payment {
+  #paymentList {
+    text-align: center;
+    margin: 10px;
+    *zoom:1;
+    &:before, &:after { content: " "; display: table; }
+    &:after { clear: both; }
+    .select-emp { display: none; }
+    &> .paymentOption {
+      @include border-radius(10px);
+      display: inline-block;
+      vertical-align: top;
+      border: 3px solid;
+      width: 283px;
+      height: 126px;
+      margin: 10px;
+      border-color: $midGray;
+      .inner {
+        position: relative;
+        @include border-radius(6px);
+        @include transition-property(all);
+        @include transition-duration(0.5s);
+        position: relative;
+        border: 2px solid;
+        width: 277px;
+        height: 120px;
+        padding: 10px;
+        background: $darkGray;
+        @include background(linear-gradient($midGray, darken($darkGray, 10%)));
+        border-color: $lightGray;
+        text-align: center;
+        &:hover {
+          @include background(linear-gradient($midGray, $darkGray));
+          @include box-shadow(0px 0px 40px rgba($lightGray, 1));
+          border-color: $lightBlue;
+        }
+        h4 { margin: 0; }
+        &> div {
+          margin: 0 auto;
+          
+          background: image-url('payment-sprite.png') no-repeat 0 0;
+
+          &#sprite_creditcard, &#sprite_subscription_cc {
+            background-position: -10px -105px;
+            width: 78px;
+            height: 57px;
+            margin-top: 5px;
+          }
+          &#sprite_paypal, &#sprite_subscription_ec {
+            background-position: -10px -46px;
+            width: 180px;
+            height: 55px;
+            margin: 22px 0 0 42px;
+          }
+          &#sprite_xsolla {
+            background-position: 0px -216px;
+            width: 206px;
+            height: 76px;
+            margin: 10px 0 0 20px;
+          }
+          &#sprite_safecard {
+            background-position: -10px -10px;
+            width: 180px;
+            height: 30px;
+            margin: 22px auto;
+          }
+        }
+      }
+      &.token .inner {
+        ul {
+          margin: 0;
+          line-height: 1.4em;
+          span { color: $lightOranges; }
+        }
+      }
+    }
+    label .selected {
+      @include background(linear-gradient($darkGray, $midGray));
+      @include box-shadow(0px 0px 50px rgba($white, 1));
+      border-color: $white;
+    }
+    &> input[type=radio] {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0px;
+      opacity: 0;
+      z-index: 9;
+      &:hover {
+        cursor: pointer;
+      }
+      &#cpgamazon + label, #amazon { display: none; }
+      &#cpgsteam + label, #steam { display: none; }
+      &#cpgsubscription_cc + label, #subscription_cc { display: none; }
+      &#cpgsubscription_ec + label, #subscription_ec { display: none; }
+      &#cpglevelup + label, #levelup { display: none; }
+      &#cpgcreditcard:checked ~ .select-emp#creditcard { display: block; }
+      &#token:checked ~ .select-emp#creditcard { display: block; }
+      &#cpgpaypal:checked ~ .select-emp#paypal { display: block; }
+      &#cpgsafecard:checked ~ .select-emp#safecard { display: block; }
+    }
+    .select-emp {
+      *zoom:1;
+      &:before, &:after { content: " "; display: table; }
+      &:after { clear: both; }
+      margin: 0 auto;
+      width: 100%;
+      padding-bottom: 15px;
+      label {
+        @include border-radius(10px);
+        display: inline-block;
+        border: 3px solid;
+        width: 206px;
+        height: 126px;
+        margin: 10px;
+        border-color: $midBlue;
+        .inner {
+          @include border-radius(6px);
+          @include transition-property(all);
+          @include transition-duration(0.5s);
+          position: relative;
+          border: 2px solid;
+          width: 200px;
+          height: 120px;
+          padding: 10px;
+          text-align: right;
+          background: #4387ed;
+          @include background(linear-gradient($midBlue, darken($darkBlue, 10%)));
+          border-color: $lightBlue;
+          &:hover {
+            @include background(linear-gradient($midBlue, $darkBlue));
+            @include box-shadow(0px 0px 40px rgba($lightBlue, 1));
+            border-color: $lightBlue;
+          }
+          input[type=radio] {
+            width:0;height:0;
+            position: absolute;
+            webkit-appearance: none;
+            z-index: -1;
+          }
+        }
+        .fed-bucks {
+          display: inline-block;
+          margin: 15px 0;
+        }
+        p { margin: 0; }
+        .emp-count {
+          color: $white;
+          font-size: 48px;
+          line-height: 48px;
+        }
+        .emp-price {
+          color: $white;
+          font-size: 32px;
+        }
+        .bonus {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          z-index: 90;
+          text-align: center;
+          padding: 3px 25px;
+          width:130px;
+          height:40px;
+
+          .ribbon-wrapper {
+            width: 92px;
+            height: 92px;
+            overflow: hidden;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+          }
+
+          .ribbon {
+            background: $midRed;
+            @include background-image(linear-gradient(center top, $lightRed, $midRed));
+            @include box-shadow(rgba($black, 0.3) 0px 0px 3px);
+            font: bold 15px Sans-Serif;
+            color: $white;
+            text-align: center;
+            -webkit-transform: rotate(45deg);
+            -moz-transform:    rotate(45deg);
+            -ms-transform:     rotate(45deg);
+            -o-transform:      rotate(45deg);
+            position: relative;
+            padding: 7px 0;
+            left: -30px;
+            top: 41px;
+            width: 130px;
+          }
+        }
+        &:first-child .bonus .ribbon {
+          @include background-image(linear-gradient($lightGray, $midGray));
+        }
+      }
+      &> input[type=radio] {
+        width:0;height:0;
+        position: absolute;
+        webkit-appearance: none;
+        top:-9999px;
+        &:checked + label .inner {
+          background: $darkBlue;
+          @include background(linear-gradient($darkBlue, $midBlue));
+          @include box-shadow(0px 0px 50px rgba($white, 1));
+          border-color: $white;
+        }
+      }
+      label .selected {
+        background: $darkBlue;
+        @include background(linear-gradient($darkBlue, $midBlue));
+        @include box-shadow(0px 0px 50px rgba($white, 1));
+        border-color: $white;
+      }
+    }
+  }
+}
+#activate_elite_status {
+  #billing-form { display: none; }
+}
+
+
+@keyframes pulse {
+  0%    { border-color: $txtColor; }
+  50%   { border-color: $lightBlue; }
+  100%  { border-color: $txtColor; }
+}
+@-webkit-keyframes pulse {
+  0%    { border-color: $txtColor; }
+  50%   { border-color: $lightBlue; }
+  100%  { border-color: $txtColor; }
+}
+
+#billing-info {
+  width: 545px;
+  margin: 0 auto 10px;
+  text-align: left;
+  display: none;
+
+  .hiddenLabel {
+    display: none;
+    &.show {
+      display: block;
+    }
+  }
+
+  span.error {
+    @include background($lightRed);
+    @include box-shadow(0px 0px 15px rgba($lightRed, 1));
+    @include border-radius(10px);
+    display: none;
+    position: absolute;
+    top: 5px;
+    left: 100%;
+    border: 2px solid $midRed;
+    white-space: nowrap;
+    padding: 0 5px;
+    color: $white;
+    &:before {
+      @include cssTriangle(6px, $midRed, right);
+      content: "";
+      position: absolute;
+      top: 25%;
+      left: -14px;
+    }
+  }
+  & > div {
+    position: relative;
+    padding: 5px 0;
+  }
+  .sleeve {
+    & > div {
+      position: relative;
+      padding: 5px 0;
+    }
+  }
+  h2 {
+    text-align: center;
+    margin-bottom: 25px;
+  }
+  & > div.text-align-center { width: 100%; }
+  label {
+    width: 130px;
+    display: inline-block;
+  }
+  input[type="text"], input[type="email"], input[type="tel"] {
+    display: inline-block;
+    width: 410px;
+    height: 30px;
+    padding-left: 3px;
+    margin: 0;
+    color: black;
+    &.error {
+      border-color: $lightRed;
+      &+ span.error {
+        display: block;
+      }
+    }
+    &:focus {
+      animation: pulse 2s;
+      animation-iteration-count:infinite;
+      -webkit-animation: pulse 2s;
+      -webkit-animation-iteration-count:infinite;
+    }
+  }
+  
+  select {
+    border: 0;
+    font-size: 18px;
+    height: 30px;
+    border: 2px solid $txtColor;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 33%;
+    color: black;
+  }
+  input[name=state], select[name=state] {
+    width: 33%;
+    float: right;
+  }
+  .styled-select {
+    border: 0;
+    font-size: 18px;
+    height: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 33%;
+    color: black;
+    display:inline-block;
+    select {
+      width:100%;
+      border: 2px solid $txtColor;
+    }
+    &.state {
+      float:right;
+    }
+    input[name=state], select[name=state] {
+      width: 100%;
+      float: none;
+    }
+  }
+}
+
+#billing-confirmation, #purchase-confirmation, #purchase-receipt {
+  input[type=submit].edit {
+    background: none;
+    border: none;
+    font-size: 14px;
+    color: $lightBlue;
+    &:hover {
+      background: none;
+      border: none;
+      font-size: 14px;
+      color: lighten($lightBlue, 10%);
+      box-shadow: none;
+    }
+  }
+  .content {
+    padding: 0 10px;
+
+    .content-block {
+      z-index: 0;
+      padding: 10px;
+      &> div { margin: 0; }
+      &.product, &.billing {
+        @include background(linear-gradient($midGray, darken($darkGray, 10%)));
+        ul { margin: 0; }
+      }
+      &.billing, &.payment {
+        .title-bar-dark { margin: -10px -10px 10px; }
+      }
+      &.product {
+        height: 120px;
+        table {
+          tr { background: none; }
+          td {
+            padding: 3px 5px;
+            text-align: right;
+          }
+        }
+        .product-thumb {
+          position: relative;
+          z-index: 2;
+          border: 1px solid $black;
+          background: image-url('product-thumb.png') no-repeat 0 0;
+          width: 115px;
+          height: 95px;
+          float: left;
+          margin-right: 10px;
+          &:after {
+            @include border-radius(5px);
+            content: "";
+            position: absolute;
+            z-index: 1;
+            top: -3px;
+            right: -3px;
+            bottom: -3px;
+            left: -3px;
+            border: 2px solid $midGray;
+          }
+          &.emp { background-position: 0 0; }
+          &.elite { background-position: 0 -95px;; }
+        }
+      }
+      &.payment {
+        .paypal-logo {
+          background: image-url('payment-sprite.png') no-repeat 0 0;
+          background-position: -10px -46px;
+          width: 180px;
+          height: 55px;
+          margin-top: 14px;
+        }
+        .xsolla-logo {
+          background: image-url('payment-sprite.png') no-repeat 0 0;
+          background-position: 0px -216px;
+          width: 206px;
+          height: 76px;
+          margin: 10px 0 0 20px;
+          text-indent:-9999em;
+        }
+      }
+    }
+    &> .pricing {
+      hr { margin: 5px 0; }
+
+      table {
+        margin: 0 5px;
+          tr { background: none; }
+          td {
+            padding: 3px 5px;
+            text-align: right;
+          }
+        }
+
+      .symbol { margin-right: -13px; }
+    }
+  }
+  .button-secondary {
+    display: inline-block;
+    margin: 2px auto 10px;
+  }
+}
+#purchase-receipt .content { padding-bottom: 10px; }
+#purchase, #purchase-confirmation, .purchase-failure {
+  input[type=submit] {
+    @include transition-property(all);
+    @include transition-duration(0.2s);
+    background: $midBlue;
+    border: 2px solid $darkBlue;
+    font-size: 21px;
+    color: $strongColor;
+    margin: 20px auto;
+    display: inline-block;
+    outline: none;
+    &:hover {
+      box-shadow: 0px 0px 15px $lightBlue;
+      background: $lightBlue;
+      border: 2px solid $midBlue;
+      color: $white;
+    }
+    &.disabled {
+      background: $lightGray;
+      border: 2px solid $midGray;
+      cursor: default;
+      pointer-events: none;
+      &:hover {
+        box-shadow: none;
+        border: 2px solid $darkGray;
+      }
+    }
+  }
+  #error-explanation .error {
+    width: 100%;
+    background: #820707;
+    @include background(linear-gradient($darkRed, $midRed));
+    border: 1px solid $lightRed;
+    padding: 10px;
+    text-align: center;
+  }
+  .processing { display: none; }
+}
+
+#purchase-receipt {
+  .content {
+    *zoom:1;
+    &:before, &:after { content: " "; display: table; }
+    &:after { clear: both; }
+    .billing, .payment {
+      width: 49%;
+      float: left;
+      margin: 20px 10px 0;
+      height: 190px;
+    }
+    .billing { margin-left: 0; }
+    .payment { margin-right: 0; }
+    .text-align-center p {
+      clear: both;
+      padding-top: 30px;
+    }
+  }
+}
+
+#cancelModal {
+  display: none;
+  position: absolute;
+  z-index: 45;
+  top: 0;
+  left: 50%;
+  margin-left: -250px;
+  width: 500px;
+  padding: 10px;
+  hr { margin: 0 -10px 10px; }
+  .close-reveal-modal {
+    position: relative;
+    top: auto;
+    right: auto;
+    border: none;
+    font-size: 16px;
+    font-weight: normal;
+    color: $lightBlue;
+    &:hover { text-decoration: underline; }
+  }
+  #eliteCancelStateBtn {
+    @include background(linear-gradient($lightRed, $midRed));
+    border: $lightRed;
+    border-bottom: $darkRed;
+    &:hover {
+      box-shadow: 0px 0px 15px $lightRed;
+    }
+  }
+  a {
+    position: relative;
+    z-index: 45;
+    cursor: pointer; cursor: hand;
+  }
+}
+
+#warningModal {
+  .padding {padding: 10px;}
+}
+
+@media #{$small} {
+  #purchase {
+    #paymentList {
+      .select-emp {
+        width: 300px;
+      }
+    }
+  }
+  #billing-info {
+    width: 375px;
+    label { display: block; }
+    input[type="text"], input[type="email"], input[type="tel"] { width: 350px; }
+    input#name { float: right; }
+  }
+  #purchase, #purchase-confirmation, #purchase-receipt {
+    .content-block {
+      .emp-header { display: none; }
+      .content { margin-left: 0; }
+    }
+  }
+  #purchase-confirmation, #purchase-receipt {
+    .content-block {
+      display: block;
+      width: auto;
+    }
+  }
+
+}
+@media #{$medium} {
+  #purchase {
+    #paymentList {
+      .select-emp {
+        width: 500px;
+      }
+    }
+  }
+}
+
+// subscriptions
+.subs {
+  li.content-block {
+    width: 540px;
+    height: 170px;
+    float: left;
+    margin-left: 10px;
+    &:first-child {margin-left: 0;}
+    &:last-child {float:right;}
+    h3 { margin: 0; }
+  }
+}
+
+#cbox_AcceptTerms {
+  .error {
+    display: none;
+    background: #4c0609;
+    background: rgba(#960909, 0.5);
+    border:1px solid  #820707;
+    color: #FFFFFF;
+    padding: 10px;
+    margin: 23px 0 10px 0;
+    line-height: 1.2em;
+  }
+}
+
+#eliteCancelStateBtn {
+  display: block;
+  font-size: 20px;
+  text-shadow: none;
+  font-weight: normal;
+  margin: 10px auto;
+  border-top: 2px solid #d4383b;
+  border-bottom: 2px solid #42292c;
+  background: #b22727;
+  @include background(linear-gradient(#b22727, #5d1516));
+}
+
+#gofillup-screen {
+  position:fixed;
+  top:50%;
+  left:0;
+  right:0;
+  width:750px;
+  height:810px;
+  margin-top: -350px;
+  margin-left: auto;
+  margin-right: auto;
+  z-index:100;
+  background: rgb(255, 255, 255);
+
+  .close {
+    background: #606061;
+    color: #FFFFFF;
+    line-height: 25px;
+    position: absolute;
+    right: -12px;
+    text-align: center;
+    top: -10px;
+    width: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    box-shadow: 1px 1px 3px #000;
+  }
+  .close:hover {
+    background: #00d9ff;
+  }
+}

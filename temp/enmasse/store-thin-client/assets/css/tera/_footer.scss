@@ -1,0 +1,132 @@
+footer {
+    text-align: center;
+    display: block;
+    font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
+    letter-spacing: -.8px;
+    .wrapper {
+        padding: 20px;
+        margin: 0 auto;
+        background-color: #000000;
+        width: 100%;
+        max-width: 1600px;
+        ul {
+            margin-bottom: 0;
+            line-height: 1.6em;
+            list-style-position: inside;
+        }
+    }
+    .ft-social li {
+        display: inline-block;
+        margin: 10px;
+        a {
+            display: block;
+            background-image: url(http://tera.enmasse.com/assets/icons/social-white.png);
+            height: 68px;
+            text-indent: -9999em;
+            &.twitter {
+                background-position: 0 0;
+                width: 74px;
+            }
+            &.facebook {
+                background-position: -93px 0;
+                width: 63px;
+            }
+            &.twitch {
+                background-position: -185px 0;
+                width: 72px;
+            }
+            &.discord {
+                background-position: -278px 0;
+                width: 92px;
+            }
+            &.youtube {
+                background-position: -392px 0;
+                width: 79px;
+            }
+        }
+    }
+    .ft-nav {
+        margin: 40px auto 0;
+        li {
+            display: inline-block;
+            border-right: 1px solid #e5e5e5;
+            line-height: 1.4em;
+            &.last {
+                border-right: none;
+            }
+            a {
+                font-size: 24px;
+                color: #e5e5e5;
+                padding: 0 16px 0 13px;
+                text-decoration: none;
+                font-weight: bold;
+            }
+        }
+    }
+    .ft-logos {
+        display: block;
+        margin: 1em auto;
+        div {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        a {
+            text-indent: -9999em;
+            display: block;
+        }
+        .k_union-sprite, .k_union-grey-enmasse, .k_union-grey-krafton, .k_union-grey-krafton_tall,
+        .logo_grey-enmasse a, .logo_grey-bluehole a {
+          background-image: url(https://eme03.enmasse-game.com/images/global_assets/logos/k_union-sprite.png);
+          background-repeat: no-repeat;
+        }
+        /*.logo_grey-enmasse {
+            float: left;
+            padding-top: 100px;
+            a {
+                background: url(http://tera.enmasse.com/assets/ft/grey-enmasse.png) top center no-repeat;
+                width: 218px;
+                height: 31px;
+            }
+        }
+        .logo_grey-bluehole {
+            float: right;
+            padding-top: 100px;
+            a {
+                background: url(http://tera.enmasse.com/assets/ft/grey-bluehole.png) top center no-repeat;
+                width: 125px;
+                height: 89px;
+            }
+        }*/
+        .logo_grey-enmasse {
+            float: left;
+            padding-top: 100px;
+            a {
+                background-position: 0 0;
+                width: 218px;
+                height: 31px;
+            }
+        }
+        .logo_grey-bluehole {
+            float: right;
+            padding-top: 100px;
+            a {
+                background-position: 0 -31px;
+                width: 125px;
+                height: 89px;
+            }
+        }
+    }
+    .ft-copyright {
+        margin: 100px auto;
+        display: block;
+        max-width: 900px;
+        p {
+            font-size: 18px;
+            color: #e5e5e5;
+            font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
+            line-height: 21px;
+            font-weight: bold;
+            letter-spacing: -.8px;
+        }
+    }
+}

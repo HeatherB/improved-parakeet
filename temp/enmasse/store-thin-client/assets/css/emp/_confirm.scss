@@ -1,0 +1,107 @@
+.confirm {
+  section {
+    background:$bgcontainer;
+    color:$white;
+    position: relative;
+    margin-bottom: 0;
+    h2 {
+      &.heading {
+        background:$bgaccent;
+        color:$white;
+        box-sizing: border-box;
+        padding-left: 45px;
+      }
+    }
+    &.disabled {
+      background: gray;
+      pointer-events: none;
+    }
+  }
+  .editBTN {
+    position: absolute;
+    top:7px;
+    left: 200px;
+    a {
+      @include blueBTN();
+      width:80px;
+      height:27px;
+      color:$white;
+      display:block;
+      text-align:center;
+      &:hover {
+        background: $internetbluehover;
+        cursor: pointer;
+      }
+    }
+  }
+  .ellipses {
+    border-bottom: 2px dashed $white;
+    height:10px;
+    margin-bottom: 10px;
+    width:100%;
+    display:block;
+  }
+  .left-col, .right-col {
+    display:block;
+    width:100%;
+    text-align:left;
+    span {
+      display: block;
+    }
+  }
+  .receipt-info {
+    font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
+    font-size:20px;
+    box-sizing:border-box;
+    padding: 40px 50px 70px;
+    .receipt-emp, .receipt-total {
+      font-weight:bold;
+    }
+  }
+  .submitBTN {
+    display:block;
+    transition: 250ms ease-in-out;
+    input[type="submit"] {
+      padding: 18px;
+      margin-bottom:20px;
+    }
+    p {
+      width:100%;
+      max-width:615px;
+      text-align:center;
+      margin:0 auto;
+    }
+  }
+  #billing-info {
+    box-sizing: border-box;
+    padding-bottom: 30px;
+    .receipt-info  {
+      padding: 20px 50px;
+    }
+  }
+
+} // end confirm
+
+// tablet styles
+//@media only screen and (min-width: 768px) {
+@include breakpoint(tablet) {
+  .confirm {
+    .editBTN {
+      top:12px;
+    }
+    .left-col, .right-col {
+      display:inline-block;
+      vertical-align:top;
+      width:49%;
+    }
+    .left-col {
+      text-align:left;
+    }
+    .right-col {
+      text-align:right;
+    }
+  } // end of confirm
+}
+
+
+

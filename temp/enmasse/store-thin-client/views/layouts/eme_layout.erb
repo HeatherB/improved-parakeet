@@ -1,0 +1,117 @@
+<% skip_sub_menu = defined?(skip_sub_menu) ? skip_sub_menu : false %>
+<!doctype html>
+
+<%
+  @takeover_start = Time.new(2014, 12, 11, 13, 00, 00, "-07:00")
+  @takeover_end   = Time.new(2015, 1,   6, 11, 00, 00, "-07:00")
+%>
+
+<%
+  @fridayAlert_start = Time.new(2016, 11, 25, 10, 00, 00, "-08:00")
+  @fridayAlert_end   = Time.new(2016, 11, 29, 10, 00, 00, "-08:00")
+%>
+
+<%
+  @bestSellers_start = Time.new(2017, 5, 25, 10, 00, 00, "-07:00")
+  @bestSellers_end   = Time.new(2017, 5, 30, 8, 00, 00, "-07:00")
+%>
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]> <html dir="ltr" lang="en-US"class="no-js iem7"> <![endif]-->
+<!--[if lt IE 7 ]> <html dir="ltr" lang="en-US" class="no-js ie6 oldie"> <![endif]-->
+<!--[if IE 7 ]>    <html dir="ltr" lang="en-US" class="no-js ie7 oldie"> <![endif]-->
+<!--[if IE 8 ]>    <html dir="ltr" lang="en-US" class="no-js ie8 oldie"> <![endif]-->
+<!--[if (gte IE 9)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html dir="ltr" lang="en-US" class="no-js"><!--<![endif]-->
+  <head>
+    <title><%= @title %></title>
+    <% if @item %>
+    <link rel="canonical" href="<%= request.base_url %><%= @item.link %>"/>
+    <% end %>
+    <link rel="image_src" href="<%= img_url('ico_store.png') %>">
+    <link rel="icon" href="https://eme01.enmasse-game.com/images/global_assets/globalfav.ico" sizes="32x32">
+    <link rel="apple-touch-icon" href="<%= img_url('icons/apple-touch-icon-57x57.png') %>" sizes="57x57">
+    <link rel="apple-touch-icon" href="<%= img_url('icons/apple-touch-icon-72x72.png') %>" sizes="72x72">
+    <link rel="apple-touch-icon" href="<%= img_url('icons/apple-touch-icon-76x76.png') %>" sizes="76x76">
+    <link rel="apple-touch-icon" href="<%= img_url('icons/apple-touch-icon-114x114.png') %>" sizes="114x114">
+    <link rel="apple-touch-icon" href="<%= img_url('icons/apple-touch-icon-120x120.png') %>" sizes="120x120">
+    <link rel="apple-touch-icon" href="<%= img_url('icons/apple-touch-icon-144x144.png') %>" sizes="144x144">
+    <link rel="apple-touch-icon" href="<%= img_url('icons/apple-touch-icon-152x152.png') %>" sizes="152x152">
+    <link rel="apple-touch-icon" href="<%= img_url('icons/apple-touch-icon-180x180.png') %>" sizes="180x180">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%= erb :"shared/google-analytics" %>
+    <style type="text/css">
+      @font-face {
+          font-family: 'serif6_beta_rgbold';
+          src: url('/fonts/serif6beta-bold-webfont.eot');
+          src: url('/fonts/serif6beta-bold-webfont.eot?#iefix') format('embedded-opentype'),
+               url('/fonts/serif6beta-bold-webfont.woff') format('woff'),
+               url('/fonts/serif6beta-bold-webfont.ttf') format('truetype'),
+               url('/fonts/serif6beta-bold-webfont.svg#serif6_beta_rgbold') format('svg');
+          font-weight: bold;
+          font-style: normal;
+      }
+      @font-face {
+          font-family: 'serif6_beta_rgitalic';
+          src: url('/fonts/serif6beta-italic-webfont.eot');
+          src: url('/fonts/serif6beta-italic-webfont.eot?#iefix') format('embedded-opentype'),
+               url('/fonts/serif6beta-italic-webfont.woff') format('woff'),
+               url('/fonts/serif6beta-italic-webfont.ttf') format('truetype'),
+               url('/fonts/serif6beta-italic-webfont.svg#serif6_beta_rgitalic') format('svg');
+          font-weight: normal;
+          font-style: italic;
+      }
+    </style>
+    <%= css :eme, :media => 'screen' %>
+
+    <!--[if lt IE 9]>
+      <script>
+        document.createElement('header');
+        document.createElement('nav');
+        document.createElement('section');
+        document.createElement('article');
+        document.createElement('aside');
+        document.createElement('footer');
+        document.createElement('hgroup');
+      </script>
+    <![endif]-->
+  </head>
+  <body class="no-js <%= @page_name if @page_name %>">
+    <%= EMEGlobalAssets.snippet("eme-bar", {:create_link => "#{SimpleSSO::ACCOUNT_SERVER_SECURE_URL}/#{@game}/sign-up" }) %>
+    <div id="page-content">
+      <div class="site-alert alert-block">
+      <% if flash[:error] %>
+        <div class="error"><span class="icon"></span><span class="alert-msg"><%= flash[:error] %></span></div>
+      <% end %>
+      <% if flash[:warn] %>
+        <div class="warning"><span class="icon"></span><span class="alert-msg"><%= flash[:warn] %></span></div>
+      <% end %>
+      <% if flash[:message] %>
+        <div class="info"><span class="icon"></span><span class="alert-msg"><%= flash[:message] %></span></div>
+      <% end %>
+     </div>
+
+      <%= yield %>
+       
+
+      <div id="gofillup-screen" style="display:none;">
+        <a href="#close" id="gofillup-screen-close" title="Close" class="close">X</a>
+        <iframe width="100%" height="100%" name="gofillup-iframe" id="gofillup-iframe"></iframe>
+      </div>
+    </div><!-- end of page content -->
+
+  <%= EMEGlobalAssets.snippet("footer") %>
+
+
+    <%= js  :app %>
+
+    <%= erb :reloader if ENV['RACK_ENV'] != 'deployment' %>
+
+    <script>
+      document.body.className = document.body.className.replace("no-js","js");
+    </script>
+    <%= EMEGlobalAssets.snippet("sso-init", {:account_server => SimpleSSO::ACCOUNT_SERVER}) %>
+
+  </body>
+</html>

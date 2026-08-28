@@ -1,0 +1,17 @@
+eme_subscription:
+  url: "<%= "#{fetch(:subscription_url)}" %>"
+  ssl: <%= "#{fetch(:subscription_use_ssl)}" %>
+  name: <%= "#{fetch(:subscription_name)}" %>
+  use_memcache: <%= "#{fetch(:subscription_use_memcache)}" %>
+  api_key: <%= "#{fetch(:subscription_api_key)}" %>
+  memcache_hosts: 
+  <% fetch(:subscription_memcached_hosts).each do |memsrv| %>
+    - <%= memsrv %>
+  <% end %>
+  cache_prefix: <%= "#{fetch(:subscription_cache_prefix)}" %>
+  type: <%= "#{fetch(:subscription_type)}" %>
+  log_level: <%= "#{fetch(:subscription_log_level)}" %>
+  subscription_item_id: <%= "#{fetch(:subscription_item_id)}" %>
+  <% if fetch(:subscription_promo_price) %>
+  promo_price: "<%= fetch(:subscription_promo_price) %>"
+  <% end %>

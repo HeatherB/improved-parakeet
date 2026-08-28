@@ -1,0 +1,48 @@
+<div id="class-info">
+  <div id="brawler-icon"></div>
+  <h2>Brawler</h2>
+  <p>Role: In-your-face Tank. Dishes out heavy damage as easily as she blocks directed attacks.</p>
+</div>
+<% if @level <= 29 %>
+  <div id="skills">
+    <div class="skill">
+      <span class="icon punch-counter"></span>
+      <p>Punch, then Counter</p>
+      <p>Punch and Counter are your bread-and-butter. Every Punch landed increases the hit counter and alters the Counter effect.</p>
+    </div>
+    <div class="skill">
+      <span class="icon haymaker"></span>
+      <p>Haymaker</p>
+      <p>Lockdown your enemies with devastating damage.</p>
+    </div>
+    <div class="skill">
+      <span class="icon bull-rush"></span>
+      <p>Bull Rush</p>
+      <p>Plow forward through your targets, gathering them together for a finishing move.</p>
+    </div>
+    <div class="skill">
+      <span class="icon rampage"></span>
+      <p>Rampage</p>
+      <p>Master your timing for Perfect Defense, earning rage and returning crit damage to your foe.</p>
+    </div>
+  </div>
+<% else %>
+  <div id="crystals">
+    <div class="pve">
+      <h3>PvE Crystals</h3>
+      <ul>
+        <li class="red-crystal">Threatening, focused</li>
+        <li class="blue-crystal">Hardy, poised</li>
+        <li class="green-crystal">Threatening, power</li>
+      </ul>
+    </div>
+    <div class="pvp">
+      <h3>PvP Crystals</h3>
+      <ul>
+        <li class="red-crystal">Savage, forceful, salivating, cruel</li>
+        <li class="blue-crystal">Relentless, resolute</li>
+        <li class="green-crystal">Griefing</li>
+      </ul>
+    </div>
+  </div>
+<% end %>

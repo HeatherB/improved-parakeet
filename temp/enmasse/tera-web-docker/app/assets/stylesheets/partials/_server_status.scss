@@ -1,0 +1,534 @@
+#content_article_header {
+	&.serverstatuses {
+		.inner {
+			background: url(/assets/status_icons/ki_bg.jpg) top center no-repeat;
+			background-size: cover;
+			padding: 0px;
+			padding: 20px;
+		}
+		h2 {
+			color: $white;
+			text-transform: uppercase;
+			font-size: 40px;
+			text-align:right;
+		}
+		h3 {
+			color: $white;
+			text-transform: uppercase;
+			font-size: 32px;
+			text-align:right;
+		}
+		h6 {
+			color: $white;
+			text-align:right;
+			font-size: 18px;
+			text-align:right;
+		}
+		#ss_known_issues {
+			width:100%;
+			max-width:640px;
+			ul {
+				list-style-type: none;
+				li {
+					margin-bottom: 10px;
+					background: -webkit-linear-gradient(bottom, rgba(0,0,0,0), rgba(0,0,0,1));
+					background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,1));
+				}
+			}
+			.date_plat_block, a.ss_known_issue_link, div.ss_known_issue {
+				display: inline-block;
+				vertical-align: middle;
+			}
+			.date_plat_block {
+				background: $white;
+				text-align:center;
+				padding: 0 20px;
+				font-family: 'Exo 2', sans-serif;
+				//height:100%;
+				//min-height:71px;
+				width: 100%;
+				position: relative;
+				z-index:5;
+				span {
+					display: inline-block;
+					vertical-align:top;
+					padding: 3px 5px;
+					&.signature_plat {
+						color: $white;
+						font-size:16px;
+						&.all {
+							background: $all_red;
+						}
+						&.ps {
+							background: $ps_blue;
+						}
+						&.xbox {
+							background: $xbox_green;
+						}
+						&.pc {
+							background: $windows_blue;
+						}
+					}
+					&.signature_date {
+						color:$black;
+						font-size:18px;
+					}
+					&.signature_state {
+						&.open, &.resolved {
+							background: #adadad;
+							color:$white;
+							font-size:16px;
+							text-transform: uppercase;
+						}
+					}
+				}
+			}
+			div.ss_known_issue {
+				width:100%;
+				border: 1px solid $white;
+				position: relative;
+				z-index:4;
+				margin-top:-1px;
+				p, .goto_icon {
+					/*display: inline-block;
+					vertical-align:middle;*/
+					display: block;
+				}
+			}
+			a.ss_known_issue_link {
+				width:100%;
+				border: 1px solid $white;
+				position: relative;
+				z-index:4;
+				margin-top:-1px;
+				&:hover {
+					background: rgba(255,255,255,0.3);
+				}
+				p, .goto_icon {
+					display: inline-block;
+					vertical-align:middle;
+				}
+				.goto_icon {
+					//background: url(/assets/status_icons/goto_icon.png) top center no-repeat;
+					background-image: url(https://eme01.enmasse-game.com/images/tera/serverstatus/serverstatus_icons.png);
+					background-position: 0 -55px;
+					background-repeat: no-repeat;
+				}
+			}
+			p {
+				text-align:left;
+				font-size: 18px;
+				color: $white;
+				padding: 14px;
+				max-width:450px;
+				width:100%;
+			}
+			.goto_icon {
+				width:27px;
+				height:27px;
+				float: right;
+    			margin-right: 10px;
+    			margin-bottom: 10px;
+    			margin-top: 10px;
+			}
+		}
+	}
+}
+#main-wrapper {
+	&.serverstatuses {
+		.inner {
+			padding: 10px;
+		}
+	}
+}
+.serverstatuses {
+	#content_wide_body {
+		.server_stat_block {
+			width:100%;
+			max-width:1532px;
+			margin-left: auto;
+			margin-right: auto;
+			display:block;
+			padding: 20px;
+			margin-bottom: 24px;
+			//background-image: url(/assets/status_icons/ss_bg.png);
+			background-position: top center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			text-align:center;
+			&.ps {
+				background-image: url(/assets/status_icons/ss_bg_psblue.jpg);
+				.server_plat {
+					//background-image: url(/assets/status_icons/playstation_icon.png);
+					background-image: url(https://eme01.enmasse-game.com/images/tera/serverstatus/serverstatus_icons.png);
+					//background-position: 0 -82px;
+					background-position: 0 -63px;
+					background-repeat: no-repeat;
+					//width: 306px;
+					//height: 236px;
+
+					width:247px;
+					height:193px;
+					background-size:cover;
+					position: relative;
+					&.us {
+						&:after {
+							content:'';
+							display: block;
+							position: absolute;
+							//background: url(/assets/status_icons/us_flag_icon.png) top center no-repeat;
+							background-image: url(https://eme01.enmasse-game.com/images/tera/serverstatus/serverstatus_icons.png);
+							background-position: 0 -318px;
+							background-repeat: no-repeat;
+
+							width: 56px;
+							height: 55px;
+							right: 0;
+						}
+					}
+					&.gb {
+						&:after {
+							content:'';
+							display: block;
+							position: absolute;
+							//background: url(/assets/status_icons/gb_flag_icon.png) top center no-repeat;
+							background-image: url(https://eme01.enmasse-game.com/images/tera/serverstatus/serverstatus_icons.png);
+							background-position: 0 0;
+							background-repeat: no-repeat;
+							width: 56px;
+							height: 55px;
+							right: 0;
+						}
+					}
+				}
+			}
+			&.pc {
+				background-image: url(/assets/status_icons/ss_bg_pcblue.jpg);
+				.server_plat {
+					//background-image: url(/assets/status_icons/windows_icon.png);
+					background-image: url(https://eme01.enmasse-game.com/images/tera/serverstatus/serverstatus_icons.png);
+					background-position: 0 -373px;
+					background-repeat: no-repeat;
+
+					width: 247px;
+					height: 247px;
+				}
+			}
+			&.xbox {
+				background-image: url(/assets/status_icons/ss_bg_xboxgreen.jpg);
+				.server_plat {
+					//background-image: url(/assets/status_icons/xbox_icon.png);
+					background-image: url(https://eme01.enmasse-game.com/images/tera/serverstatus/serverstatus_icons.png);
+					//width: 243px;
+					//height: 243px;
+					background-position: 22px -445px;
+					background-repeat: no-repeat;
+
+					width:220px;
+					height:190px;
+					background-size: cover;
+					position: relative;
+					&.us {
+						&:after {
+							content:'';
+							display: block;
+							position: absolute;
+							//background: url(/assets/status_icons/us_flag_icon.png) top center no-repeat;
+							background-image: url(https://eme01.enmasse-game.com/images/tera/serverstatus/serverstatus_icons.png);
+							background-position: 0 -318px;
+							background-repeat: no-repeat;
+
+							width: 56px;
+							height: 55px;
+							right: -40px;
+						}
+					}
+					&.gb {
+						&:after {
+							content:'';
+							display: block;
+							position: absolute;
+							//background: url(/assets/status_icons/gb_flag_icon.png) top center no-repeat;
+							background-image: url(https://eme01.enmasse-game.com/images/tera/serverstatus/serverstatus_icons.png);
+							background-position: 0 0;
+							background-repeat: no-repeat;
+							width: 56px;
+							height: 55px;
+							right: -40px;
+						}
+					}
+				}
+			}
+			.server_plat, .server_stat {
+				display: inline-block;
+				vertical-align: top;
+			}
+			.server_stat {
+				text-align:left;
+				padding-top: 20px;
+				h2 {
+					font-size:28px;
+				}
+				h3 {
+					color: $white;
+					text-transform: uppercase;
+					//font-size:32px;
+					font-size:21px;
+				}
+				h6 {
+					font-size:14px;
+				}
+				table {
+					/* blank out exisitng */
+					background: none;
+					th, tr, td {
+						background: none;
+						border: none;
+						padding: 0;
+					}
+					/* end blank out */
+					th {
+						color: $white;
+						font-weight: bold;
+						text-transform: uppercase;
+						//font-size:19px;
+						font-size:14px;
+						text-align:left;
+						padding: 10px 10px 10px 0;
+						/*&:first-child {
+							width:90px;
+						}*/
+						&:nth-child(4n) {
+							text-align:right;
+							text-transform: capitalize;
+						}
+					}
+					td {
+						color:$white;
+						font-weight: normal;
+						//font-size:19px;
+						font-size:14px;
+						text-align:left;
+						padding: 10px 10px 10px 0;
+						&:nth-child(4n) {
+							text-align:right;
+						}
+						.status_standing {
+							background: $white;
+							padding: 3px 5px;
+							line-height: 1;
+							width:90px;
+							text-transform: uppercase;
+							.dot {
+								border-radius: 50%;
+								width:20px;
+								height:20px;
+								display: inline-block;
+								vertical-align: middle;	
+							}
+							&.up {
+								color:#13a400;
+								.dot {
+									background: radial-gradient(#26ff00 0%, #26ff00 30%, #1fa90d 65%);
+								}
+							}
+							&.down {
+								color:#d40000;
+								.dot {
+									//background: radial-gradient(#ff0000, #b10d0d);
+									background: radial-gradient(#ff0000 0%, #ff0000 30%, #b10d0d 65%);
+								}
+							}
+							&.warn {
+								color:#d46d00;
+								.dot {
+									//background: radial-gradient(#ffe000, #db770d);
+									background: radial-gradient(#ffe000 0%, #ffe000 30%, #db770d 65%);
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@include breakpoint(tablet) {
+	#content_article_header {
+		&.serverstatuses {
+			.inner {
+				margin: 0 20px;
+				width: calc(100% - 40px);
+			}
+			h2 {
+				font-size:46px;
+			}
+			h3 {
+				text-align:right;
+				font-size:40px;
+				padding-bottom: 30px;
+			}
+			#ss_known_issues {
+				width:640px;
+				position: relative;
+				left: calc(100% - 640px);
+				ul {
+					li {
+						display: -webkit-box;           /* OLD - iOS 6-, Safari 3.1-6 */
+						display: -moz-box;              /* OLD - Firefox 19- (doesn't work very well) */
+						display: -ms-flexbox;           /* TWEENER - IE 10 */
+						display: -webkit-flex;          /* NEW - Chrome */
+						display: flex;                  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+						flex-direction: row;
+						flex-wrap: wrap;
+						justify-content: space-between;
+						height: 77px;
+						background: none;
+					}
+				}
+				.date_plat_block {
+					width: 140px;
+					span {
+						width: 100%;
+						display: block;
+						line-height:1;
+						&.signature_date {
+							padding: 7px 5px 8px;
+						}
+					}
+				}
+				a.ss_known_issue_link, div.ss_known_issue {
+					width: calc(100% - 140px);
+					margin-top:0;
+					p {
+						height: 100%;
+					}
+				}
+				.goto_icon {
+					float:none;
+					margin: 0;
+					position: absolute;
+    				right: 10px;
+    				bottom: 10px;
+				}
+			}
+		}
+	}
+	.serverstatuses {
+		#content_wide_body {
+			.server_stat_block {
+				display: -webkit-box;           /* OLD - iOS 6-, Safari 3.1-6 */
+				display: -moz-box;              /* OLD - Firefox 19- (doesn't work very well) */
+				display: -ms-flexbox;           /* TWEENER - IE 10 */
+				display: -webkit-flex;          /* NEW - Chrome */
+				display: flex;                  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+				flex-direction: row;
+				flex-wrap: wrap;
+				justify-content: space-between;
+				align-items: center;
+				padding: 40px 20px;
+				.server_stat {
+					width: calc(100% - 287px);
+					max-width: 1060px;
+					table {
+						width: 100%;
+						th {
+							width:25%;
+						}
+					}
+				}
+			}
+		}
+	}
+	#main-wrapper {
+		&.serverstatuses {
+			padding: 20px;
+		}
+	}
+}
+
+@include breakpoint(desktop) {
+	#content_article_header {
+		&.serverstatuses {
+			.inner {
+				max-width: 1532px;
+		    	width: 100%;
+		    	min-height:330px;
+		    	margin-left: auto;
+		    	margin-right: auto;
+			}
+		}
+	}
+	.serverstatuses {
+		#content_wide_body {
+			.server_stat_block {
+				.server_stat {
+					h3 {
+						font-size: 32px;
+					}
+					table {
+						th {
+							font-size: 19px;
+						}
+						td {
+							font-size: 19px;
+							.status_standing {
+								font-size:16px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@include breakpoint(meddesk) {
+	.serverstatuses {
+		#content_wide_body {
+			.server_stat_block {
+				.server_plat {
+					margin-left: 2%;
+				}
+			}
+		}
+	}
+
+}
+
+@include breakpoint(finallayout) {
+	#content_article_header {
+		&.serverstatuses {
+			.inner {
+				padding: 35px 45px 40px 0;
+			}
+		}
+	}
+	.serverstatuses {
+		#content_wide_body {
+			.server_stat_block {
+				.server_plat {
+					margin-left: 5%;
+				}
+				&.ps {
+					.server_plat {
+						width: 306px;
+						height: 238px;
+						margin-left: 2%;
+						background-position: 0 -80px;
+					}
+				}
+				&.xbox {
+					.server_plat {
+						width: 243px;
+						height: 200pxpx;
+						margin-left: 4%;
+						background-position: 22px -492px;
+					}
+				}
+			}
+		}
+	}
+}
+

@@ -1,0 +1,839 @@
+main#quiz {
+	background:#0b172c;
+	h1 {
+		background-image:url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/jan_sprite.png);
+		background-repeat:no-repeat;
+		/*background-position: -9px -1893px;
+		width: 343px;
+		height: 294px;*/
+
+		background-position: 26px -1251px;
+		width: 300px;
+		height: 220px;
+		background-size:300%;
+
+		margin:0 auto;
+		text-indent: -9999em;
+	}
+	h2 {
+		font-family: 'PT Serif', serif;
+	    font-weight:700;
+	    text-transform:uppercase;
+	    font-style:italic;
+	    text-shadow:0px 0px 6px rgba(0,0,0,0.8);
+	    color:#ffffff;
+	    font-size:28px;
+	    line-height:1;
+	    text-align:center;
+	    width:100%;
+	    max-width: 600px;
+	    margin:0 auto;
+	    /*padding-top:6rem;*/
+	    padding-top:1rem;
+	    position: relative;
+	    z-index:22;
+	}
+	.icon_grid {
+		background-image:url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/jan_sprite.png);
+		background-repeat:no-repeat;
+		background-position: 0 0;
+		background-size: 100%;
+		padding-top:50%;
+		margin:0 auto;
+		position: relative;
+		z-index:20;
+		li {
+			text-indent: -9999em;
+		}
+	}
+	.about {
+		color:#ffffff;
+		text-align:center;
+		width:100%;
+		max-width: 768px;
+		margin:0 auto;
+		line-height:30px;
+		font-family: 'Titillium Web', sans-serif;
+		text-shadow: 0px 0px 36px rgba(0,0,0,0.8);
+		position: relative;
+		z-index:25;
+
+		box-sizing: border-box;
+		padding: 2rem;
+		font-size:18px;
+	}
+	.btn_purple, #move_on {
+		background: none;
+		background-image:url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/jan_sprite.png);
+		background-position: -1093px -880px;
+		background-repeat: no-repeat;
+	    display: block;
+	    height: 42px;
+	    width: 250px;
+	    color:#ffffff;
+	    font-size:21px;
+	    text-align:center;
+	    text-transform: uppercase;
+	    border: none;
+	    outline:none;
+	    margin:1rem auto 0;
+	    cursor:pointer;
+	}
+	.videoWrapper {
+	 	position: relative;
+	 	/*padding-top: 62.32%; video allotment */
+	 	/*padding-top:100%;
+	 	height: 0;*/
+	 	cursor: pointer;
+	 	padding-bottom:calc(100% - 25px);
+	 	padding-top:25px;
+		img, video {
+		 	position: absolute !important;
+		 	/*top: 10px;
+		 	right: 10px;*/
+		 	top:0;
+		 	width: 100%;
+		 	max-width: 525px;
+		 	margin:0 auto;
+		 	left:0;
+		 	right:0;
+		}
+	}
+}
+#quiz_form {
+	width:100%;
+	max-width: 1121px;
+	margin:0 auto;
+	position: relative;
+	z-index: 100;
+	display: none;
+	p {
+		text-align:center;
+		font-family: 'Titillium Web', sans-serif;
+		color: #ffffff;
+		/*font-size:22px;*/
+		font-weight: bold;
+		text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+
+		border: 2px solid;
+		border-image-source: linear-gradient(45deg, #3a1e6d, #7424c7);
+		border-image-slice: 1;
+
+		background: linear-gradient(to bottom, #240e43, #240e43);
+		box-sizing: border-box;
+		/*padding: 30px 15%;*/
+
+		font-size: 18px;
+		line-height:1.6;
+		padding: 2rem;
+		margin-bottom: 0;
+	}
+	figure {
+		border: 2px solid;
+		border-image-source: linear-gradient(45deg, #3a1e6d, #7424c7);
+		border-image-slice: 1;
+		border-bottom: none;
+		/* this is the full desktop size */
+		/*width:calc(100% - 4px);*/ /* strip border off */
+		/*height:630px;
+		padding:0;*/
+		width:100%;
+		max-width:calc(100% - 4px);
+		padding-top: 56%;
+		background-size:cover;
+
+		background-repeat: no-repeat;
+		background-position: top center;
+		margin:30px 0 0 0;
+		display: block;
+		&[data-scene="scenario"] {
+			background: linear-gradient(to bottom, #3a1e6d, #7424c7);
+		}
+		&[data-scene="gobbles_01"] {
+			background-image: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/scenes/gobbles_01.png);
+		}
+		&[data-scene="gobbles_02"] {
+			background-image: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/scenes/gobbles_02.png);
+		}
+		&[data-scene="gobbles_03"] {
+			background-image: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/scenes/gobbles_03.png);
+		}
+		&[data-scene="gobbles_04"] {
+			background-image: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/scenes/gobbles_04.png);
+		}
+		&[data-scene="podling_tavern_01"] {
+			background-image: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/scenes/podling_tavern_01.png);
+		}
+		&[data-scene="podling_tavern_02"] {
+			background-image: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/scenes/podling_tavern_02.png);
+		}
+		&[data-scene="podling_tavern_03"] {
+			background-image: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/scenes/podling_tavern_03.png);
+		}
+		&[data-scene="crystal_01"] {
+			background-image: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/scenes/crystal_01.png);
+		}
+		&[data-scene="crystal_02"] {
+			background-image: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/scenes/crystal_02.png);
+		}
+		&[data-scene="crystal_03"] {
+			background-image: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/scenes/crystal_03.png);
+		}
+		&[data-scene="crystal_04"] {
+			background-image: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/scenes/crystal_04.png);
+		}
+		&[data-scene="forest_01"] {
+			background-image: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/scenes/forest_01.png);
+		}
+		&[data-scene="forest_02"] {
+			background-image: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/scenes/forest_02.png);
+		}
+		&[data-scene="forest_03"] {
+			background-image: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/scenes/forest_03.png);
+		}
+		&[data-scene="forest_04"] {
+			background-image: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/scenes/forest_04.png);
+		}
+		&[data-scene="boss_01"] {
+			background-image: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/scenes/boss_01.png);
+		}
+		&[data-scene="boss_02"] {
+			background-image: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/scenes/boss_02.png);
+		}
+		&[data-scene="boss_03"] {
+			background-image: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/scenes/boss_03.png);
+		}
+		&[data-scene="boss_04"] {
+			background-image: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/scenes/boss_04.png);
+		}
+		&[data-scene="boss_05"] {
+			background-image: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/scenes/boss_05.png);
+		}
+		&[data-scene="boss_06"] {
+			background-image: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/scenes/boss_06.png);
+		}
+		&[data-scene="boss_07"] {
+			background-image: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/scenes/boss_07.png);
+		}
+	}
+	label {
+		display: block;
+		width:100%;
+
+		border: 2px solid;
+		border-image-source: linear-gradient(45deg, #1e4b6d, #21769f);
+		border-image-slice: 1;
+		border-top: none;
+
+		background: #0b172b;
+		box-sizing: border-box;
+		padding: 30px 20px 30px 70px;
+
+		color:#ffffff;
+		text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+		/*font-size:22px;*/
+		font-size:18px;
+		font-family: 'Titillium Web', sans-serif;
+		position: relative;
+		cursor: pointer;
+		&:hover {
+			background: #123b69;
+		}
+		&:before {
+			content:'';
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: block;
+			width:100px;
+			/*height: 100%;*/
+			height: 80px;
+			background-image:url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/jan_sprite.png);
+			background-position: -546px -867px;
+			background-repeat: no-repeat;
+		}
+		span {
+			padding-left: 30px;
+			display: inline-block;
+		}
+	}
+	input[type="radio"] {
+		display: none;
+	}
+	input[type="radio"]:checked + label {
+		background: #123b69;
+	}
+	input[type="radio"]:checked + label:before {
+		background-position: -675px -866px;
+	}
+}
+#dc_job_quiz {
+	display: block;
+	width:100%;
+	max-width:1600px;
+	margin:0 auto;
+	background: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/bg_nostars.jpg) top center no-repeat;
+	min-height:755px;
+	position: relative;
+	&:before {
+		content:'';
+		display: block;
+		width:100%;
+		max-width:1600px;
+		margin:0 auto;
+		background: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/stars.png) top center no-repeat;
+		min-height:755px;
+		position: absolute;
+		top:0;
+		left:0;
+	}
+	.inner {
+		padding-bottom: 200px;
+		#quiz_form {
+			display: block;
+		}
+		#suggestion_block, #subgestion_block {
+			display: block;
+			position: relative;
+			z-index: 10;
+		}
+	}
+	/* final page, job reveal */
+	&.suggesting {
+		figure {
+			border: 2px solid;
+			border-image-source: linear-gradient(45deg, #3fc724, #3fc724);
+			border-image-slice: 1;
+			border-bottom: none;
+			/* this is the full desktop size */
+			width:100%;
+			/*max-width:1117px;
+			height:630px;*/
+			//max-width:calc(100% - 4px);
+			max-width:100%;
+			background-size: cover;
+			padding-top:56%;
+
+			background-repeat: no-repeat;
+			background-position: top center;
+			margin:30px auto 0;
+			/*padding:0;*/
+			display: block;
+			a {
+				display: block;
+				width:100%;
+				height:100%;
+				cursor: pointer;
+			}
+		}
+		figure[data-scene="suggested"] {
+			background: linear-gradient(to bottom, #3fc724, #3fc724);
+		}
+		figure[data-scene="gelfling_soldier"] {
+			background-image: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/jobs/gelfling_soldier.jpg);
+		}
+		figure[data-scene="gelfling_paladin"] {
+			background-image: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/jobs/gelfling_paladin.jpg);
+		}
+		figure[data-scene="stone_warden"] {
+			background-image: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/jobs/stone_warden.jpg);
+		}
+		figure[data-scene="grave_dancer"] {
+			background-image: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/jobs/grave_dancer.jpg);
+		}
+		figure[data-scene="scout"] {
+			background-image: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/jobs/scout.jpg);
+		}
+		figure[data-scene="thief"] {
+			background-image: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/jobs/thief.jpg);
+		}
+		figure[data-scene="tracker"] {
+			background-image: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/jobs/tracker.jpg);
+		}
+		figure[data-scene="strategist"] {
+			background-image: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/jobs/strategist.jpg);
+		}
+		figure[data-scene="mender"] {
+			background-image: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/jobs/mender.jpg);
+		}
+		figure[data-scene="bramble_sage"] {
+			background-image: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/jobs/bramble_sage.jpg);
+		}
+		figure[data-scene="adept"] {
+			background-image: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/jobs/adept.jpg);
+		}
+		figure[data-scene="song_teller"] {
+			background-image: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/jobs/song_teller.jpg);
+		}
+		figure[data-scene="podling_paladin"] {
+			background-image: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/jobs/podling_paladin.jpg);
+		}
+		figure[data-scene="musician"] {
+			background-image: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/jobs/musician.jpg);
+		}
+		figure[data-scene="cook"] {
+			background-image: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/jobs/cook.jpg);
+		}
+		figure[data-scene="potion_master"] {
+			background-image: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/jobs/potion_master.jpg);
+		}
+		figure[data-scene="tamer"] {
+			background-image: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/jobs/tamer.jpg);
+		}
+		figure[data-scene="medic"] {
+			background-image: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/jobs/medic.jpg);
+		}
+		figure[data-scene="herder"] {
+			background-image: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/jobs/herder.jpg);
+		}
+		.about, .media {
+			display: block;
+			width:100%;
+			max-width: 1121px;
+			margin:0 auto;
+
+			border: 2px solid;
+			border-image-slice: 1;
+			border-top: none;
+
+			box-sizing: border-box;
+			/*padding: 30px 20px 30px 70px;*/
+			padding: 30px;
+
+			color:#ffffff;
+			text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+			/*font-size:22px;*/
+			font-size: 18px;
+			font-family: 'Titillium Web', sans-serif;
+			position: relative;
+		}
+		.about {
+			&.primary {
+				border-image-source: linear-gradient(45deg, #3fc724, #3fc724);
+				background: linear-gradient(to bottom, #0d230a, #0e4312);
+				font-weight: bold;
+			}
+			&.secondary {
+				border-image-source: linear-gradient(45deg, #1e4b6d, #21769f);
+				background: linear-gradient(to bottom, #0b162b 20%, #050d1a);
+			}
+		}
+		.media {
+			padding: 0 0 1rem 0;
+			border-image-source: linear-gradient(45deg, #1e4b6d, #21769f);
+			background: linear-gradient(to bottom, #0b162b 10%, #050d1a 10%, #050d1a);
+			/*background: linear-gradient(to bottom, #0b162b 20%, #050d1a 20%, #050d1a);*/
+			h3 {
+				font-family: 'PT Serif', serif;
+			    font-weight:700;
+			    font-style: italic;
+			    text-shadow:0px 0px 6px rgba(0,0,0,0.8);
+				text-align:center;
+				background: #0b162b;
+				color:#ffffff;
+				font-size:44px;
+				box-sizing: border-box;
+				padding: 30px 0;
+			}
+			ul {
+				list-style-type: none;
+				margin:1rem auto 0;
+				padding: 0;
+				width: 100%;
+				max-width: 400px;
+			}
+			li {
+				display: block;
+				box-sizing: border-box;
+				padding: 20px 0;
+			}
+			strong {
+				font-weight: bold;
+			}
+		}
+	}
+}
+
+.dc_quiz_share {
+	display: block;
+	margin: 40px auto;
+	width: 100%;
+	max-width: 800px;
+	text-align:center;
+	.share_btn {
+		border: none;
+		outline: none;
+		width:250px;
+		height:80px;
+		background: none;
+		cursor: pointer;
+		/*display: inline-block;
+	    vertical-align: middle;*/
+	    display: block;
+	    margin:0 auto;
+	    a {
+	    	display: block;
+	    	width:100%;
+	    	height:100%;
+	    	text-indent: -9999em;
+	    }
+	}
+	#share_facebook {
+		background-image: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/jan_sprite.png);
+		background-repeat: no-repeat;
+		background-position: -594px -950px;
+	}
+	#share_instagram {
+		background-image: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/jan_sprite.png);
+		background-repeat: no-repeat;
+		background-position: -842px -950px;
+	}
+	#share_twitter {
+		background-image: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/jan_sprite.png);
+		background-repeat: no-repeat;
+		background-position: -1096px -950px;
+		text-indent: -9999em;
+	}
+}
+.dc_quiz_pre {
+	text-align:center;
+	a.btn_purple {
+		line-height: 2;
+	}
+}
+
+#dc_job_quiz_results {
+	display: none;
+}
+#video_popup {
+	display: none;
+}
+body.vid_open {
+	&:after {
+		content:'';
+		background: rgb(0,0,0);
+		background: rgba(0,0,0,0.8);
+		position: fixed;
+		top:0;
+		right:0;
+		left:0;
+		bottom:0;
+		height:100%;
+		width:100%;
+		z-index: 120;
+	}
+	#video_popup {
+		display: block;
+		position: absolute;
+		width:100%;
+		max-width:80%;
+		left:0;
+		right:0;
+		top:50%;
+		margin:0 auto;
+		z-index: 150;
+		text-align: center;
+		.inner {
+			padding-top: 56.25%;
+			position: relative;
+		}
+		iframe {
+			border: 0;
+			height: 100%;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 100%;
+		}
+	}
+	#close_video_popup {
+		position: absolute;
+		z-index: 200;
+	    top: -15px;
+		right: -15px;
+	    width: 30px;
+	    height: 30px;
+	    background: #ffffff;
+	    border-radius: 50%;
+	    padding-top: 7px;
+	    box-sizing: border-box;
+	    cursor:pointer;
+	}
+}
+#selected_answer {
+	display: none;
+}
+
+@media all and (min-width: 768px) {
+	main#quiz {
+		h1 {
+			position: absolute;
+			top: 4rem;
+			left: -1rem;
+
+			width: 240px;
+			background-position: 26px -974px;
+		}
+		h2 {
+			font-size: 48px;
+			max-width: 430px;
+			padding-top: 5rem;
+		}
+		.icon_grid {
+			margin: 0 0 0 4%;
+			padding-top: 55%;
+			top: -40px;
+			left: 6%;
+		}
+		.about {
+	    	font-size:22px;
+			padding:0;
+			margin-top: -50px;
+	    }
+	    .btn_purple, #move_on {
+	    	background-position: 6px -883px;
+		    height: 64px;
+		    width: 398px;
+		    font-size: 26px;
+	    }
+	}
+	#dc_job_quiz {
+		&:before {
+			top:3rem;
+		}
+		.inner {
+			position: relative;
+			max-width:1346px;
+			width:100%;
+			margin:0 auto;
+			z-index: 10;
+			&:before, &:after {
+				content: '';
+				display: block;
+				background-image: url(https://eme03.enmasse-game.com/images/dark_crystal_tactics/quiz/jan_sprite.png);
+				background-repeat: no-repeat;
+				position: absolute;
+				top:4.5rem;
+				padding-top:76%;
+				width:50%;
+			}
+			&:before {
+				background-position: 0 -1079px;
+				left:0;
+			}
+			&:after {
+				background-position: right -1079px;
+				right:0;
+			}
+		}
+		/* final job reveal page */
+		&.suggesting {
+			.media {
+		    	display: -webkit-box;
+				display: -moz-box;
+				display: -ms-flexbox;
+				display: -webkit-flex;
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+				justify-content: space-between;
+				ul {
+			    	padding: 0;
+			    	box-sizing: border-box;
+			    }
+			    .col {
+			    	width:50%;
+			    }
+		    }
+		}
+	}
+	
+	.dc_quiz_share .share_btn {
+    	display: inline-block;
+    	vertical-align: middle;
+    }
+}
+
+@media all and (min-width: 1024px) {
+	#dc_job_quiz {
+		&:before {
+			-webkit-animation: bloom 45s normal infinite;
+	        -moz-animation: bloom 45s normal infinite;
+	        -o-animation: bloom 45s normal infinite;
+	        animation: bloom 45s normal infinite;
+	        top:7rem;
+	    }
+	    .inner {
+	    	&:before, &:after {
+				padding-top: 62%;
+			}
+		}
+		&.suggesting {
+			.about {
+				padding: 30px 20px 30px 70px;
+				font-size:22px;
+				p {
+					font-size:22px;
+					line-height:1.2;
+				}
+			}
+			.media {
+				background: linear-gradient(to bottom, #0b162b 20%, #050d1a 20%, #050d1a);
+				font-size:22px;
+			}
+		}
+	}
+	main#quiz {
+		h1 {
+			background-position: 0 -1286px;
+	    	width: 308px;
+	    	left: 2rem;
+	    	top: 2rem;
+		}
+		h2 {
+			font-size: 48px;
+			max-width: 430px;
+			padding-top: 5rem;
+		}
+		.icon_grid {
+			margin: 0 0 0 4%;
+			padding-top: 55%;
+			width: 100%;
+			max-width: 1218px;
+			top: -80px;
+			left: 3%;
+		}
+		.about {
+			margin-top:-15%;
+		}
+		.btn_purple, #move_on {
+			margin-top: 2rem;
+		}
+	}
+	
+	
+	#quiz_form {
+		p {
+			font-size:22px;
+			padding: 30px 15%;
+		}
+		label {
+			font-size:22px;
+		}
+	}
+
+	.dc_quiz_share {
+		#share_instagram {
+			display: none;
+		}
+	}
+	.dc_quiz_pre {
+		a.btn_purple {
+			line-height: 2.5;
+		}
+	}
+}
+
+@media all and (min-width: 1118px) {
+	#dc_job_quiz {
+		&.suggesting {
+			figure {
+				/* this is the full desktop size */
+				width:100%;
+				max-width:1121px;
+				height:630px;
+				padding:0;
+		    }
+		    .media {
+		    	ul {
+		    		padding: 0 0 1rem 0;
+		    	}
+		    }
+		}
+	}
+	#quiz_form {
+		figure {
+			max-width:1121px;
+		}
+	}
+	main#quiz {
+	    .videoWrapper {
+	    	img, iframe, object, embed {
+			 	top: 10px;
+			 	right: 10px;
+			 	left: auto;
+			}
+		}
+	}
+}
+
+@media all and (min-width: 1240px) {
+	main#quiz {
+		h1 {
+			background-position: -7px -1440px;
+		    width: 347px;
+		    height: 294px;
+		}
+		h2 {
+			font-size:66px;
+			max-width: 600px;
+		}
+		.icon_grid {
+			margin: 0;
+			padding-top: 65%;
+			width: 100%;
+			max-width: 1260px;
+			background-size:auto;
+			top: -136px;
+			left: calc(100% - 1232px);
+		}
+		.about {
+			margin-top:-25%;
+		}
+	}
+}
+@media all and (min-width: 1300px) {
+	#dc_job_quiz {
+		.inner {
+			&:before, &:after {
+				padding-top: 50%;
+			}
+		}
+	}
+}
+
+@media all and (min-width: 1400px) {
+	main#quiz {
+		h1 {
+			background-position: -9px -1893px;
+			background-size:auto;
+			width: 343px;
+			height: 294px;
+			padding-top: 4rem;
+		}
+		.icon_grid {
+			top: -140px;
+			left: calc(100% - 1197px);
+		}
+	}
+}
+
+@keyframes appear {
+    0%   { opacity: 0; transform: scale(0.95) }
+    100% { opacity: 100%; transform: scale(1) }
+}
+@keyframes rise {
+    0%   { top: 0; }
+    100% { top: -100px; }
+}
+@keyframes bloom {
+  0% {
+    transform:scale(1);
+  }
+  50% {
+    transform:scale(1.2);
+  }
+  100% {
+    transform:scale(1);
+  }
+}

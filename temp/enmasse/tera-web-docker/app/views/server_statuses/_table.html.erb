@@ -1,0 +1,234 @@
+<% if @servers['PC'].length > 0 %>
+<div class="server_stat_block pc" data-filter-platform="windows">
+  <span class="server_plat"></span>
+  <span class="server_stat">
+    <h3>PC Server Status</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Status</th>
+          <th>Server</th>
+          <th>Type</th>
+          <th>Population</th>
+        </tr>
+      </thead>
+      <tbody>
+
+      <% @servers['PC'].each do |server| %>
+        <tr>
+          <td>
+          <% if server['maintenance'] %>
+            <div class="maint">
+              <span class="dot"></span> 
+              Under Maintenance
+            </div>
+          <% else %>
+            <div class="status_standing <%= server['running'] ? 'up' : 'down' %>">
+              <span class="dot"></span> 
+              <%= server['running'] ? 'UP' : 'DOWN' %>
+            </div>
+          <% end %>
+          </td>
+          <td><%= server['name'] %></td>
+          <td><%= server['category'] %></td>
+          <% 
+            if server['current_ccu_threshold_key'] === nil
+              ccu_threshold = "low"
+            else
+              ccu_threshold_key = server['current_ccu_threshold_key'].to_s
+              ccu_threshold = ccu_threshold_key.gsub(/ccu_threshold_/, '')
+            end
+          %>
+          <td>
+            <% if server['maintenance'] %>
+            <% else %>
+              <%= ccu_threshold %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+      
+      </tbody>
+    </table>
+  </span>
+</div>
+<% end %>
+
+<% if @servers['PS_NA'].length > 0 %>
+<div class="server_stat_block ps" data-filter-platform="playstation">
+  <span class="server_plat us"></span>
+  <span class="server_stat">
+    <h3>PS4 (US) Server Status</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Status</th>
+          <th>Server</th>
+          <th>Type</th>
+          <th>Population</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <% @servers['PS_NA'].each do |server| %>
+        <tr>
+          <td>
+            <div class="status_standing <%= server['running'] ? 'up' : 'down' %>">
+              <span class="dot"></span> 
+              <%= server['running'] ? 'UP' : 'DOWN' %>
+            </div>
+          </td>
+          <td><%= server['name'] %></td>
+          <td><%= server['category'] %></td>
+          <% 
+            if server['current_ccu_threshold_key'] === nil
+              ccu_threshold = "low"
+            else
+              ccu_threshold_key = server['current_ccu_threshold_key'].to_s
+              ccu_threshold = ccu_threshold_key.gsub(/ccu_threshold_/, '')
+            end
+          %>
+          <td><%= ccu_threshold %></td>
+        </tr>
+      <% end %>
+
+      </tbody>
+    </table>
+  </span>
+</div>
+<% end %>
+
+<% if @servers['PS_EU'].length > 0 %>
+<div class="server_stat_block ps" data-filter-platform="playstation">
+  <span class="server_plat gb"></span>
+  <span class="server_stat">
+    <h3>PS4 (EU) Server Status</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Status</th>
+          <th>Server</th>
+          <th>Type</th>
+          <th>Population</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <% @servers['PS_EU'].each do |server| %>
+        <tr>
+          <td>
+            <div class="status_standing <%= server['running'] ? 'up' : 'down' %>">
+              <span class="dot"></span> 
+              <%= server['running'] ? 'UP' : 'DOWN' %>
+            </div>
+          </td>
+          <td><%= server['name'] %></td>
+          <td><%= server['category'] %></td>
+          <% 
+            if server['current_ccu_threshold_key'] === nil
+              ccu_threshold = "low"
+            else
+              ccu_threshold_key = server['current_ccu_threshold_key'].to_s
+              ccu_threshold = ccu_threshold_key.gsub(/ccu_threshold_/, '')
+            end
+          %>
+          <td><%= ccu_threshold %></td>
+        </tr>
+      <% end %>
+
+      </tbody>
+    </table>
+  </span>
+</div>
+<% end %>
+
+<% if @servers['XB_NA'].length > 0 %>
+<div class="server_stat_block xbox" data-filter-platform="xbox">
+  <span class="server_plat us"></span>
+  <span class="server_stat">
+    <h3>XBOX (US) Server Status</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Status</th>
+          <th>Server</th>
+          <th>Type</th>
+          <th>Population</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <% @servers['XB_NA'].each do |server| %>
+        <tr>
+          <td>
+            <div class="status_standing <%= server['running'] ? 'up' : 'down' %>">
+              <span class="dot"></span> 
+              <%= server['running'] ? 'UP' : 'DOWN' %>
+            </div>
+          </td>
+          <td><%= server['name'] %></td>
+          <td><%= server['category'] %></td>
+          <% 
+            if server['current_ccu_threshold_key'] === nil
+              ccu_threshold = "low"
+            else
+              ccu_threshold_key = server['current_ccu_threshold_key'].to_s
+              ccu_threshold = ccu_threshold_key.gsub(/ccu_threshold_/, '')
+            end
+          %>
+          <td><%= ccu_threshold %></td>
+        </tr>
+      <% end %>
+
+      </tbody>
+    </table>
+  </span>
+</div>
+<% end %>
+
+
+<% if @servers['XB_EU'].length > 0 %>
+<div class="server_stat_block xbox" data-filter-platform="xbox">
+  <span class="server_plat gb"></span>
+  <span class="server_stat">
+    <h3>XBOX (EU) Server Status</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Status</th>
+          <th>Server</th>
+          <th>Type</th>
+          <th>Population</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <% @servers['XB_EU'].each do |server| %>
+        <tr>
+          <td>
+            <div class="status_standing <%= server['running'] ? 'up' : 'down' %>">
+              <span class="dot"></span> 
+               <%= server['running'] ? 'UP' : 'DOWN' %>
+            </div>
+          </td>
+          <td><%= server['name'] %></td>
+          <td><%= server['category'] %></td>
+          <% 
+            if server['current_ccu_threshold_key'] === nil
+              ccu_threshold = "low"
+            else
+              ccu_threshold_key = server['current_ccu_threshold_key'].to_s
+              ccu_threshold = ccu_threshold_key.gsub(/ccu_threshold_/, '')
+            end
+          %>
+          <td><%= ccu_threshold %></td>
+        </tr>
+      <% end %>
+
+        
+        
+      </tbody>
+    </table>
+  </span>
+</div>
+<% end %>

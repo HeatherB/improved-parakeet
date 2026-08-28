@@ -1,0 +1,11 @@
+billing_adapter_interface:
+  url: "http://billing.service.edge.enmasse.com:5000"
+  ssl: false
+  name: "BillingAdapterInterface"
+  use_memcache: true
+  memcache_hosts:
+    - "localhost:11211"
+  cache_prefix: "bai-dev"
+  type: json
+  purchase_url: "http://edge.billing.enmasse.com/payment.aspx"
+  purchase_item_url: "http://edge.billing.enmasse.com/payment_direct.aspx"

@@ -1,0 +1,50 @@
+<div id='blackout' style='display:none;'>
+  <div id='login-box'><iframe></iframe></div>
+</div>
+<div id="eme-header">
+  <div class="page-width">
+    <a href="http://www.enmasse.com">
+      <div class="logo"></div>
+    </a>
+    <div class="login-buttons">
+      <a href="#" class="login-popup-link">Login</a> |
+      <a href="<%= ACCOUNT_SERVER_SECURE_URL %>">Register</a>
+    </div>
+  </div>
+  <noscript>JavaScript is required to login.</noscript>
+</div>
+<%# <script src="https://localhost:3001/eme_login.js"></script> %>
+<div id="fb-root"></div>
+<script type="text/javascript">
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId  : "596900830367778",
+      status : true,
+      cookie : true,
+      xfbml  : true
+    });
+
+    var permissions = 'email,user_birthday,user_friends';
+
+    $('.login-facebook-link').click(function(e) {
+      e.preventDefault();
+
+      _gaq.push(['_trackEvent', 'Accounts', 'Start Facebook Connect Process','login']);
+
+      FB.login(function(response) {
+        if (response.authResponse) {
+          handleFacebookLogin(false);
+        }
+      }, { scope: permissions });
+    });
+
+    $(document).trigger('fbInit');
+  };
+
+  (function(d) {
+    var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+    js = d.createElement('script'); js.id = id; js.async = true;
+    js.src = "//connect.facebook.net/en_US/all.js";
+    d.getElementsByTagName('head')[0].appendChild(js);
+  }(document));
+</script>

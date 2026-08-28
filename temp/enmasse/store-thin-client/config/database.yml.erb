@@ -1,0 +1,13 @@
+<%= "#{fetch(:rack_env)}" %>:
+  adapter: <%= "#{fetch(:db_adapter)}" %>
+  database: <%= "#{fetch(:appdb)}_#{fetch(:stage)}" %>
+  username: 
+  password: 
+  host: <%= "#{fetch(:db_hostname)}" %>
+
+<%= "#{fetch(:rails_env)}" %>:
+  adapter: <%= "#{fetch(:db_adapter)}" %>
+  database: <%= "#{fetch(:appdb)}_#{fetch(:stage)}" %>
+  username: 
+  password: 
+  host: <%= "#{fetch(:db_hostname)}" %>

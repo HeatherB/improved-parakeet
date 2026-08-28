@@ -1,0 +1,30 @@
+<% if !defined?(@skip_filter) || !@skip_filter %>
+  <div class="filters title-bar-dark row closed">
+    <div class="filter-trigger">Filters <strong><% if(  (params[:race] && params[:race] != 'all') || (params[:class] && params[:class] != 'all') ) %>On<% else %>Off<% end %></strong><span></span></div>
+    
+    <div class="filter-wrapper">
+      <form id="race-class-filters">
+        <div>
+          <label for="race">Race:</label>
+          <select id="race" name="race">
+            <option value='all'>All</option>
+            <%= TeraItem::RACES.collect{|r| "<option value='#{r.downcase.gsub(/\s/, '_')}'#{ ' selected' if params[:race] && params[:race].downcase == r.gsub(/\s/, '_').downcase}>#{r}</option>"}.join("") %>
+          </select>
+        </div>
+
+        <div>
+          <label for="class">Class:</label>
+          <select id="class" name="class">
+            <option value='all'>All</option>
+            <%= TeraItem::CLASSES.collect{|c| "<option value='#{c.downcase}'#{ ' selected' if params[:class] && params[:class].downcase == c.downcase}>#{c}</option>"} %>
+          </select>
+        </div>
+
+        <div>
+          <input type="submit" value="Filter">
+          <a id="filter-reset" href="#">clear filters</a>
+        </div>
+      </form>
+    </div>
+  </div>
+<% end %>

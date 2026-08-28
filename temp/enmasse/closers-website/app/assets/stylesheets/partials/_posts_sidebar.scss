@@ -1,0 +1,111 @@
+body.post {
+	#show_blog_post {
+		#posts_sidebar {
+			font-size: 0;
+			background:$sidebarGrey;
+			width:calc(100% - 20px);
+			max-width:228px;
+			margin: 10px;
+			position: relative;
+			h4 {
+				text-transform: uppercase;
+				color:$yellow;
+				width:100%;
+				padding: 5px 0;
+				font-size:24px;
+				text-align: center;
+				margin:0;
+				border-bottom: 1px solid $grey;
+			}
+			article {
+				height: 50px;
+				position: relative;
+				border-bottom: 1px solid $grey;
+				padding: 3px 0 0 35px;
+				.icon {
+					background: url("/assets/bgs/roadmap_sprite.png") 0 -153px no-repeat;
+					display: inline-block;
+    				width: 20px;
+    				height: 17px;
+    				position: absolute;
+    				left: 10px;
+    				top: 11px;
+				}
+				img {
+					display: none;
+				}
+				h3 {
+					color:$white;
+					font-family: 'Roboto', sans-serif;
+					text-transform: capitalize;
+					font-size: 14px;
+					line-height:18px;
+					text-decoration: none;
+					padding: 0;
+				}
+			}
+			.sidebar_post_link {
+				text-decoration:none;
+				display: block;
+				&:hover {
+					article {
+						background: $yellow;
+						color:$black;
+						.icon {
+							background: url("/assets/bgs/roadmap_sprite.png") 0 -175px no-repeat;
+						}
+						h3 {
+							color:$black;
+						}
+					}
+				}
+			}
+			.description {
+				display: none;
+			}
+			.btn {
+				//display: none;
+				/*width:95px;
+				height:25px;
+				background: $black;
+				text-transform:uppercase;
+				box-shadow: none;
+				position: absolute;
+				bottom: 10px;
+				right:10px;
+				a {
+					font-size:12px;
+					text-shadow:none;
+					color:$white;
+				}*/
+				a {
+					display: block;
+					width:100%;
+					height:100%;
+					position:absolute;
+					top: 0;
+					left: 0;
+				}
+			}
+		}	
+	}
+}
+@include breakpoint(tablet) {
+	body.post {
+		#show_blog_post {
+			#posts_sidebar {
+				margin: 10px 10px 10px 0;
+				#content_body {
+					.blog-post.content {
+						ul {
+							left: -30px;
+							ul {
+								left: 10px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

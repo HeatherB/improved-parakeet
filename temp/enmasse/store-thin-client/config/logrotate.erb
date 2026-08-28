@@ -1,0 +1,9 @@
+<%= "#{fetch(:logrotate_path)}" %> {
+  <%= "#{fetch(:logrotate_frequency)}" %>
+  <%= "#{fetch(:logrotate_missingok)}" %>
+  <%= "#{fetch(:logrotate_rotate)}" %> <%= "#{fetch(:logrotate_rotate_lifespan)}" %>
+  <%= "#{fetch(:logrotate_compress)}" %>
+  <%= "#{fetch(:logrotate_compress_mode)}" %>
+  <%= "#{fetch(:logrotate_notifempty)}" %>
+  <%= "#{fetch(:logrotate_mode)}" %>
+}

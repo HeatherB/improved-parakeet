@@ -1,0 +1,197 @@
+@mixin standardBorder {
+  @include box-shadow(0px 0px 5px rgba($lightGray,0.25) inset, 0 2px 5px $lightGray inset, 0 2px 5px $darkGray);
+
+  border: 2px solid $lightGray;
+  position: relative;
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -3px;
+    right: -3px;
+    bottom: -3px;
+    left: -3px;
+    border: 2px solid $black;
+  }
+}
+
+@mixin shimmer($passed_shim) {
+  background: $passed_shim -webkit-gradient(linear, 100% 0, 0 0, from(transparent), color-stop(0.5, $white), to(transparent));
+
+  -webkit-animation: shimmer 2.2s linear infinite normal;
+    -moz-animation: shimmer 2.2s linear infinite normal;
+    -o-animation: shimmer 2.2s linear infinite normal;
+    animation: shimmer 2.2s linear infinite normal;
+
+  @keyframes shimmer {
+    0%   { background-position: -4rem top; }
+    100% { background-position: 18rem top; }
+  }
+}
+
+/* https://www.sitepoint.com/building-linear-gradient-mixin-sass/ */
+/// Mixin printing a linear-gradient
+/// as well as a plain color fallback
+/// and the `-webkit-` prefixed declaration
+/// @access public
+/// @param {Keyword | Angle} $direction - Linear gradient direction
+/// @param {Arglist} $color-stops - List of color-stops composing the gradient
+@mixin linear-gradient($direction, $color-stops...) {
+  // Direction has been omitted and happens to be a color-stop
+  @if is-direction($direction) == false {
+    $color-stops: $direction, $color-stops;
+    $direction: 180deg;
+  }
+
+  background: nth(nth($color-stops, 1), 1);
+  background: linear-gradient($direction, $color-stops);
+}
+
+/* example usage */ 
+// @include linear-gradient(#31B7D7, #EDAC7D);
+// @include linear-gradient(to right, #E47D7D 0%, #C195D3 50%, #4FB4E8 100%);
+// @include linear-gradient(42deg, #B58234 0%, #D2B545 50%, #D7C04D 50.01%, #FFFFFF 100%);
+
+@mixin cssTriangle($triangleSize, $triangleColor, $triangleDirection) {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border: solid $triangleSize;
+  @if ($triangleDirection == top) {
+    border-color: $triangleColor transparent transparent transparent;
+  }
+  @if ($triangleDirection == bottom) {
+    border-color: transparent transparent $triangleColor transparent;
+  }
+  @if ($triangleDirection == left) {
+    border-color: transparent transparent transparent $triangleColor;
+  }
+  @if ($triangleDirection == right) {
+    border-color: transparent $triangleColor transparent transparent;
+  }
+  // .example { @include cssTriangle(5px, #fff, bottom); }
+}
+
+@mixin clearfix() { *zoom:1;
+  &:before, &:after { content: " "; display: table; }
+  &:after { clear: both; }
+}
+
+@mixin alertbox {
+  display: block;
+  position: relative;
+  //border-color: $periwinkle;
+  //border: 2px solid $periwinkle;
+  background: $white;
+  color:$black;
+  //box-sizing: border-box;
+  //padding: 15px 20px 15px 35px;
+  /*&:before {
+    content: '';
+    display: inline-block;
+    vertical-align: top;
+    position: absolute;
+    top:-2px;
+    left:-2px;
+    height:calc(100% + 4px);
+    border-radius: 4px 0 0 4px;
+  }*/
+  a {
+    color: $internetblue;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+@mixin button($nBG, $nC, $nS, $hBG, $hC, $hS) {
+  font-family: 'Exo 2', sans-serif;
+  display: block;
+  box-sizing: border-box;
+  padding: 8px 35px;
+  margin: 0;
+  background: $nBG;
+  color: $nC;
+  font-size:19px;
+  text-align:center;
+  width:auto;
+  height:100%;
+  text-decoration: none;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 4px 0 $nS;
+  &:hover {
+    border: none;
+    text-decoration: none;
+    background: $hBG;
+    color: $hC;
+    box-shadow: 0 4px 0 $hS;
+  }
+}
+@mixin gradientBTN($color-stop1, $color-stop2, $gC, $gB, $hgBG, $hgC) {
+  font-family: 'Exo 2', sans-serif;
+  display: block;
+  box-sizing: border-box;
+  padding: 8px 35px;
+  margin: 0;
+  background:$color-stop1;
+  background: -webkit-linear-gradient(bottom, $color-stop1, $color-stop2);
+  background: linear-gradient(bottom, $color-stop1, $color-stop2);
+  color: $gC;
+  font-size:19px;
+  text-align:center;
+  width:auto;
+  height:100%;
+  text-decoration: none;
+  border: none;
+  border-radius: 3px;
+  text-shadow: none;
+  &:hover {
+    text-decoration: none;
+    background: $hgBG;
+    color: $hgC;
+    border: none;
+  }
+}
+@mixin linear-slant-btn($background, $background2, $color) {
+  padding: 0;
+  width:100%;
+  display: block;
+  margin:20px auto;
+  box-sizing: border-box;
+  padding-top:24px;
+  color:$color;
+  font-size:36px;
+  text-transform:uppercase;
+  background: $background;
+  background: -moz-linear-gradient(top, $background 0%, $background2 70%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, $background), color-stop(70%, $background2));
+  background: -webkit-linear-gradient(top, $background 0%, $background2 70%);
+  background: -o-linear-gradient(top, $background 0%, $background2 70%);
+  background: -ms-linear-gradient(top, $background 0%, $background2 70%);
+  background: linear-gradient(to bottom, $background 0%,$background2 70%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$background', endColorstr='$background2',GradientType=0 );
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+  transform: skew(-20deg);
+  -webkit-transform: skew(-20deg);
+  -moz-transform: skew(-20deg);
+  -o-transform: skew(-20deg);
+  -ms-transform: skew(-20deg);
+  text-decoration: none;
+  outline:none;
+  span {
+    transform: skew(20deg);
+    -webkit-transform: skew(20deg);
+    -moz-transform: skew(20deg);
+    -o-transform: skew(20deg);
+    -ms-transform: skew(20deg);
+    display: block;
+  }
+  &:hover, &.hover {
+    background: $color;
+    filter: none;
+    color: $background;
+  }
+}

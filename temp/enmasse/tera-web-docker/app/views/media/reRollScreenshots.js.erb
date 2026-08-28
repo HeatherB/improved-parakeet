@@ -1,0 +1,3 @@
+$("#screenshot_grid").html("<%= escape_javascript(render partial: 'screenshot_list', locals: { screenshot_images: @moreScreens } ) %>"); 
+
+$(document).trigger('screenshot_grid:mytrigger');

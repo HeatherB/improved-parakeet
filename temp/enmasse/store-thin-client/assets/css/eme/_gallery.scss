@@ -1,0 +1,69 @@
+.emeslides {
+  width: 100%;
+  height:100%;
+  overflow:hidden;
+  margin:0;
+  padding:0;
+  position: relative;
+  :nth-child(1) {
+    height:100%;
+  }
+}
+.buttons {
+  position: absolute;
+  top:50%;
+  width:100%;
+  z-index:8;
+  display:none;
+  &.prev {
+    float:left;
+  }
+  &.next {
+    float:right;
+  }
+}
+.pagers {
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align:center;
+  bottom: 103px;
+  width:auto;
+  z-index:8;
+  .carouselpager {
+    display:inline-block;
+    vertical-align:middle;
+    position: relative;
+    margin:0 4px;
+    width:19px;
+    height:19px;
+    background: $black;
+    border: 2px solid $white;
+    border-radius: 50%;
+    &.active, &:hover {
+      width:19px;
+      height:19px;
+      background: $white;
+      border: 2px solid $black;
+      box-shadow: 0px 0px 0px 1px $white;
+    }
+    span {
+      display: none;
+    }
+  }
+}
+.eme_slide {
+  position: absolute;
+  width:100%;
+  height:100%;
+  left:-9999em;
+  z-index:6;
+  display:none;
+  &.active {
+    display:block;
+    left:0;
+    top:0;
+    position: relative;
+  }
+}
+

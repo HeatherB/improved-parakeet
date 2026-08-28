@@ -1,0 +1,45 @@
+<% content_for :currPageCallout do %>
+  <body class="home">
+<% end %>
+
+<div id="home-content">
+  <section id="content_article_header" class="internal">
+    <%= raw @page.content_for(:article_header) || yield(:article_header) %>
+  </section>
+  <section id="content_body" class="internal">
+    <%= raw @page.content_for(:body) || yield(:body) %>
+  </section>
+  <section id="content_side_body" class="internal">
+      <div id="news-posts">
+        <h2>News &amp; Announcements</h2>
+        <% if @postshome && @postshome.any? %>
+          <%= render :partial => "/refinery/blog/shared/post", :collection => @postshome %>
+        <% else %>
+          <p><%= t('.no_blog_articles_yet') %></p>
+        <% end %>
+        <a href="/news" class="more-btn">More News</a>
+      </div>
+      <%= raw @page.content_for(:side_body) || yield(:side_body) %>
+  </section>
+  <section id="content_wide_body" class="internal">
+    <%= raw @page.content_for(:wide_body) || yield(:wide_body) %>
+  </section>
+  <section id="content_article_footer" class="internal">
+    <%= raw @page.content_for(:article_footer) || yield(:article_footer) %>
+  </section>
+</div>
+
+<% content_for :bodyscripts do %>
+<script type='text/javascript'>
+var ebSession = '[SessionID]';
+var ebRand = Math.random()+'';
+ebRand = ebRand * 1000000;
+//<![CDATA[ 
+document.write('<scr'+'ipt src="HTTPS://bs.serving-sys.com/Serving/ActivityServer.bs?cn=as&amp;ActivityID=1101309&amp;rnd=' + ebRand + '&amp;Session='+ebSession+'"></scr' + 'ipt>');
+//]]>
+</script>
+<noscript>
+<img width="1" height="1" style="border:0" src="HTTPS://bs.serving-sys.com/Serving/ActivityServer.bs?cn=as&amp;ActivityID=1101309&amp;Session=[SessionID]&amp;ns=1"/>
+</noscript>
+
+<% end %>

@@ -1,0 +1,64 @@
+<div class="bundle secondary">
+   <div class="inner">
+      <div class="bundle_heading">
+         <div class="bundle_title">
+            <% if !session[:account_id] # IF NOT LOGGED IN     %>
+               <h3>
+                  <span>Purchase Closers Packs</span>
+               </h3>
+            <% else %>
+               <h3>
+                  <span>Confirm your Purchase</span>
+               </h3>
+            <% end %>
+         </div>
+      </div>
+      <div class="bundle_content">
+         <% if !session[:account_id] # IF NOT LOGGED IN     %>
+            <p>To purchase Closers Packs, you need to sign into your En Masse Account.</p>
+            <p>To create an En Masse Account for free, <a href="https://account.enmasse.com/closers/sign-up">click here.</a></p>
+             <div class="login-plate">
+                 <a href='/' class="sign-in login-popup-link">SIGN IN to purchase</a>
+             </div>
+         <% else %>
+          <div id="purchase-confirmation">
+              <form id="payform" name="payform">
+                <div id="hidden-fields" data-action-url="<%= @billing.payment_url %>"></div>
+                <div id="selected-amt">
+                  <h3>Closers Packs</h3>
+                  <p><!--Essential Starter Pack--><%= @billing.name %></p>
+                </div>
+                <div id="selected-amt-price">
+                  <p>$<span><!--14.99--><%= sprintf "%.2f", @billing.price %></span> USD</p>
+                </div>
+                <% if @billing.errors.any? && @show_errors %>
+                  <div id="error-explanation">
+                    <div class="error">
+                      <% @billing.errors.full_messages.each do |msg| %>
+                        <article><%= msg %></article>
+                      <% end %>
+                    </div>
+                  </div>
+                <% end %>
+
+                <div class="submitBTN">
+                  <input type="submit" class="button-secondary confirm" value="Confirm Order" onclick="_gaq.push(['_trackEvent', 'Purchase Funnels', 'Submit Order Review', 'Closers Packs']);"/>
+                </div>
+                <small class="popup-info">This button opens a pop-up window for your chosen payment method. If you have a pop-up blocker installed,
+                  please temporarily disable it to allow the window to open so you may complete your purchase.</small>
+
+              </form>
+            </div>
+         <% end %>
+      </div>
+   </div>
+</div>
+
+
+
+
+<script type="text/javascript">
+  window.onload = function () {
+    _gaq.push(['_trackEvent', 'Purchase Funnels', 'View Order Review Screen', 'Closers Packs']);
+  }
+</script>

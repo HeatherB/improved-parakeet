@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:400,400i,700');
+footer {
+  .inner {
+      max-width:550px;
+  }
+  .logo_krafton {
+      background-image: url(https://eme04.enmasse-game.com/images/enm/enmasse_sprite_0719.png);
+      background-repeat: no-repeat;
+      background-position: -174px -730px;
+      width: 100px;
+      height: 78px;
+      display: block;
+      text-indent: -9999em;
+      margin:0 auto;
+  }
+  .legal {
+      width:calc(100% - 125px);
+      text-align: left;
+  }
+  h4 {
+      font-size:30px;
+  }
+  nav {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: bold;
+      font-size:14px;
+      a {
+          font-size: 12px;
+          font-weight: 700;
+          padding: 0 15px;
+          color: $white;
+          transition: 250ms;
+          line-height: 1.75;
+          &:hover {
+              color: $lightblue;
+          }
+      }
+  }
+}

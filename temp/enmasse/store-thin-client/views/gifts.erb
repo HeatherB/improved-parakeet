@@ -1,0 +1,751 @@
+<%
+  @holiday = 'wintera'
+%>
+<section id="wide_body" class="row <%= @holiday %>">
+  <span id="possible" class="hidden" data-possible='<%= @possible.to_json.gsub("'", "&apos;") %>'></span>
+
+  <% if @game_accounts && @game_accounts.empty? %>
+    <div class="warn-alert">
+      <span class="icon"></span>Please add <em><%= @game %></em> to your En Masse account via your <a href="<%= SimpleSSO::ACCOUNT_SERVER_SECURE_URL %>">Account Overview</a> page.
+    </div>
+  <% end %>
+
+  <div class="gifting">
+
+    <div class="reminder">
+      <h3>Last chance to purchase golden gift boxes, sales end on January 3rd, 2019!</h3>
+      <h4>Gifting shuts down until next year in...</h4>
+      <div id="countdown">
+        <div class="timer" id="hours">54</div>
+        <div class="timer" id="minutes">5</div>
+        <div class="timer" id="seconds">12</div>
+      </div>
+    </div>
+
+    <% if @holiday === 'anniversary' %>
+      <h1 class="text-align-center">Welcome to the <em><%= @game %></em> Sixth Anniversary—Celebration of Giving!</h1>
+    <% end %>
+
+    <% if @holiday === 'wintera' %>
+      <div class="inner intro">
+        <p>Welcome to the Gifting Center for <em><% if @game.capitalize != "Kritika" %><%= @game.upcase %><% else %><em>Kritika Online</em><% end %></em>. The holiday season is upon us and the spirit of giving is in the air. What better way to celebrate than by earning some of 
+        <% if @game.capitalize == "Kritika" %>
+          <a href="https://kritika.enmasse.com/news/posts/golden-gift-box-2018">
+        <% elsif @game.capitalize == "Closers" %>
+          <a href="https://closers.enmasse.com/news/posts/golden-gift-boxes-2018">
+        <% elsif @game.capitalize == "Tera" %>
+          <a href="http://tera.enmasse.com/news/posts/golden-gift-boxes-are-back-for-the-holidays">
+        <% end %>
+        this year’s most popular <% if @game.capitalize != "Kritika" %><em><%= @game.upcase %></em><% else %><em>Kritika Online</em><% end %> items
+        </a>
+        by buying and sending golden gift boxes to your friends?</p>
+        <% if @game.downcase == 'tera' %>
+          <a href="/tera" class="colorbtn">Buy More Gift Boxes</a>
+        <% end %>
+        <% if @game.downcase == 'closers' %>
+          <a href="/closers/items" class="colorbtn">Buy More Gift Boxes</a>
+        <% end %>
+        <% if @game.downcase == 'kritika' %>
+          <a href="/kritika/items" class="colorbtn">Buy More Gift Boxes</a>
+        <% end %>
+        <a href="#" class="colorbtn gifting-faq">See How Gifting Works</a>
+      </div>
+      <div class="heading">
+        <h2>Gifting Rewards</h2>
+        <p>Checkout the great rewards you get for gifting this season:</p>
+      </div>
+    <% elsif @holiday === 'anniversary' %>
+      <h1><em><%= game %>'</em>s got a lot going on this month, celebrating all the cool things we've done together over the last five years. And what better way to celebrate than with free stuff?</h1>
+      <h2>Here's how it works:</h2>
+      <ol>
+        <li>1) Buy Fifth Anniversary gift boxes in the <a href="/<%= @game %>#wide_body"><em><% if @game.capitalize != "Kritika" %><%= @game.upcase %><% else %>Kritika Online<% end %></em> store.</a></li>
+        <li>2) You can open a box for yourself to find one of dozens of prizes, such as valuable consumables, inner armor, mounts, costumes, or even EMP jackpots; or </li>
+        <li>3) You can give boxes to your friends and earn special rewards, depending on how many gifts you send:
+          <ul class="circle">
+            <li>Send 1 box to a friend, and you receive Kelsaik's Crown (a permanent cosmetic accessory for use by a single character).</li>
+            <li>Send 3 boxes, and you receive a 30-day Elite Status voucher!</li>
+            <li>Send 5 boxes, and you earn a Fiery Halo (a permanent cosmetic accessory for use by a single character).</li>
+            <li>Send 10 boxes, and you earn an account-bound, permanent Cheeks pet. This fan-favorite companion gives all of your characters a special popo-pocket of 72 extra inventory slots!</li>
+            <li>Send 15 boxes, and you earn an account-bound Ultraplasm weapon skin. This out-of-this-world item gives any weapon you equip a menacing crimson glow. (Note: this weapon skin does not work on runeglaives.)</li>
+          </ul>
+        </li>
+      </ol>
+    <% else %>
+      <h1>Give a Sweet Gift of Surprise!</h1>
+
+      <ul class="disc">
+        <li>Buy a <a href="/<%= @game %>/item/blackbox/black-velvet-party-box">Black Velvet party box</a> or <a href="/<%= @game %>/item/whitebox/white-satin-party-box">White Satin party box</a></li>
+        <li>The box will appear in the gifting center (below).</li>
+        <li>Give party boxes to friends or open them for yourself—everyone loves gifts!</li>
+        <li>Earn rewards by sending party boxes to friends and sweethearts.</li>
+      </ul>
+
+      <p>You can earn dyeable Princess Rida maid uniforms (one for every five gifts you send!), an Ember mount, and a Cheeks pet! It’s a great way to show people you care—and get something for yourself out of the deal, too!</p>
+      <p>Hurry! You can only purchase party boxes until February 18 at 11 a.m. PST. You'll still be able to gift or open any gifts you've purchased or received, but the chance to buy more will be gone.</p>
+    <% end %>
+
+  </div>
+
+  <% if @holiday === 'wintera' %>
+    <ul id="rewards_carousel" class="emeslides">
+      <li data-label="1">
+        <img src="http://download.enmasse.com/store/<%= @game %>/2018-gifting/Rewards/Reward_1.jpg" alt="Gifting Reward" />
+
+        <% if @game.downcase == 'tera' %>
+          <div class="carousel_about">
+            <div class="heading">
+              <span class="icon first"></span>
+              <h3>
+                <span class="label">1&mdash;Box Reward:</span> 
+                Santa Suit and Santa Cap
+              </h3>
+            </div>
+            <div class="copy">
+              <p>If you’re going to play Santa Claus, why not look the part?</p>
+            </div>
+          </div>
+        <% elsif @game.downcase == 'closers' %>
+          <div class="carousel_about">
+            <div class="heading">
+              <span class="icon first"></span>
+              <h3>
+                <span class="label">1&mdash;Box Reward:</span> 
+                Red Holiday Costume Set x2
+              </h3>
+            </div>
+            <div class="copy">
+              <p>A delightful plaid outfit that’s perfect for the holiday season.</p>
+            </div>
+          </div>
+        <% elsif @game.downcase == 'kritika' %>
+          <div class="carousel_about">
+            <div class="heading">
+              <span class="icon tenth"></span>
+              <h3>
+                <span class="label">1&mdash;Box Reward:</span> 
+                Mysterious Key Bundle
+              </h3>
+            </div>
+            <div class="copy">
+              <p>Opens a sealed Mysterious Box.</p>
+            </div>
+          </div>
+        <% end %>
+      </li>
+
+      <li data-label="5">
+        <img src="http://download.enmasse.com/store/<%= @game %>/2018-gifting/Rewards/Reward_5.jpg" alt="Gifting Reward" />
+
+        <% if @game.downcase == 'tera' %>
+          <div class="carousel_about">
+            <div class="heading">
+              <span class="icon fifth"></span>
+              <h3>
+                <span class="label">5&mdash;Box Reward:</span> 
+                Skull Santa Hat and Winter Wonder Footsteps
+              </h3>
+            </div>
+            <div class="copy">
+              <p>You’ll be walking in a winter wonderland with these brand-new holiday-themed footsteps…and also bringing the kids a surprise they’ll never forget.</p>
+            </div>
+          </div>
+        <% elsif @game.downcase == 'closers' %>
+          <div class="carousel_about">
+            <div class="heading">
+              <span class="icon fifth"></span>
+              <h3>
+                <span class="label">5&mdash;Box Reward:</span> 
+                Gardening Voucher (30-Day) x2 and Maid Service Voucher (30-Day) x2
+              </h3>
+            </div>
+            <div class="copy">
+              <p>Unlocks bonuses for your in-game house and garden for 60 days each!</p>
+            </div>
+          </div>
+        <% elsif @game.downcase == 'kritika' %>
+          <div class="carousel_about">
+            <div class="heading">
+              <span class="icon fifth"></span>
+              <h3>
+                <span class="label">5&mdash;Box Reward:</span> 
+                Icicle Weapon Crate Bundle
+              </h3>
+            </div>
+            <div class="copy">
+              <p>Contains an Icicle weapon skin suitable for your class, and 11 Mysterious Keys.</p>
+            </div>
+          </div>
+        <% end %>
+      </li>
+
+      <li data-label="10">
+        <img src="http://download.enmasse.com/store/<%= @game %>/2018-gifting/Rewards/Reward_10.jpg" alt="Gifting Reward" />
+
+        <% if @game.downcase == 'tera' %>
+          <div class="carousel_about">
+            <div class="heading">
+              <span class="icon tenth"></span>
+              <h3>
+                <span class="label">10&mdash;Box Reward:</span> 
+                Pale Writer Dress (elin-only, account-bound), Chilly Little Cloud, Snowy Winter Scarf, and Apothecary Dye
+              </h3>
+            </div>
+            <div class="copy">
+              <p>Get a handle on the winter blues with a new wardrobe, including a brand-new costume for elin characters!</p>
+            </div>
+          </div>
+        <% elsif @game.downcase == 'closers' %>
+          <div class="carousel_about">
+            <div class="heading">
+              <span class="icon tenth"></span>
+              <h3>
+                <span class="label">10&mdash;Box Reward:</span> 
+                Six Months Elite
+              </h3>
+            </div>
+            <div class="copy">
+              <p>This grants you a variety of in-game benefits for six months!</p>
+            </div>
+          </div>
+        <% elsif @game.downcase == 'kritika' %>
+          <div class="carousel_about">
+            <div class="heading">
+              <span class="icon first"></span>
+              <h3>
+                <span class="label">10&mdash;Box Reward:</span> 
+                Inner Wear Costume Bundle
+              </h3>
+            </div>
+            <div class="copy">
+              <p>Contains an Inner Wear costume bundle for your choice of class, 1 Elite Status Voucher (30-Day), 11 Mysterious Keys, 5 Lucky Pet Potlucks, 10 Stylish Accent Boxes, and 7 Enigmatic Emblem Boxes.</p>
+            </div>
+          </div>
+        <% end %>
+      </li>
+
+      <li data-label="15">
+        <img src="http://download.enmasse.com/store/<%= @game %>/2018-gifting/Rewards/Reward_15.jpg" alt="Gifting Reward" />
+
+         <% if @game.downcase == 'tera' %>
+          <div class="carousel_about">
+            <div class="heading">
+              <span class="icon fifteenth"></span>
+              <h3>
+                <span class="label">15&mdash;Box Reward:</span> 
+                Glitterclaw dragon mount (account-bound), Cheery Winter Scarf, Glowing Skull Santa Hat
+              </h3>
+            </div>
+            <div class="copy">
+              <p>Who needs reindeer, when you can ride a dragon right through the heart of the season?</p>
+            </div>
+          </div>
+        <% elsif @game.downcase == 'closers' %>
+          <div class="carousel_about">
+            <div class="heading">
+              <span class="icon fifteenth"></span>
+              <h3>
+                <span class="label">15&mdash;Box Reward:</span> 
+                Tradeable Iridescent Phase Wings 3-Star Package
+              </h3>
+            </div>
+            <div class="copy">
+              <p>Iridescent Phase Wings, just like Irena’s!</p>
+            </div>
+          </div>
+        <% elsif @game.downcase == 'kritika' %>
+          <div class="carousel_about">
+            <div class="heading">
+              <span class="icon fifteenth"></span>
+              <h3>
+                <span class="label">15&mdash;Box Reward:</span> 
+                Inner Wear and Icicle Weapon Skin Bundle
+              </h3>
+            </div>
+            <div class="copy">
+              <p>Contains an Inner Wear costume bundle for your choice of class, an Icicle Weapon Skin for your choice of class, 1 Elite Status Voucher (30-Day), 15 Mysterious Keys, 6 Lucky Pet Potlucks, 12 Stylish Accent Boxes, and 12 Enigmatic Emblem Boxes.</p>
+          </div>
+        <% end %>
+      </li>
+
+      <li data-label="20">
+        <img src="http://download.enmasse.com/store/<%= @game %>/2018-gifting/Rewards/Reward_20.jpg" alt="Gifting Reward" />
+
+        <% if @game.downcase == 'tera' %>
+          <div class="carousel_about">
+            <div class="heading">
+              <span class="icon twenty"></span>
+              <h3>
+                <span class="label">20&mdash;Box Reward:</span> 
+                Elite Status Game Time (366 days), Spirit of the Season title (delivered via token), Snowflake Flurry
+              </h3>
+            </div>
+            <div class="copy">
+              <p>Send 20 gifts and you get elite status for a year, plus a title to identify you as a generous gift-giver!</p>
+            </div>
+          </div>
+        <% elsif @game.downcase == 'closers' %>
+          <div class="carousel_about">
+            <div class="heading">
+              <span class="icon twenty"></span>
+              <h3>
+                <span class="label">20&mdash;Box Reward:</span> 
+                Tradeable Mini Zenith Authority Wings
+              </h3>
+            </div>
+            <div class="copy">
+              <p>Send 20 gifts and you can have a pair of Mini Zenith Authority Wings. This is currently the only way to obtain these.</p>
+            </div>
+          </div>
+        <% elsif @game.downcase == 'kritika' %>
+          <div class="carousel_about">
+            <div class="heading">
+              <span class="icon twenty"></span>
+              <h3>
+                <span class="label">20&mdash;Box Reward:</span> 
+                Xanadu Costume Bundle
+              </h3>
+            </div>
+            <div class="copy">
+              <p>Contains a Xanadu costume bundle for your choice of class, an Inner Wear costume bundle for your choice of class, an Icicle Weapon Skin for your choice of class, 2 Elite Status Voucher (30-Day), 20 Mysterious Keys, 8 Lucky Pet Potlucks, 15 Stylish Accent Boxes, and 12 Enigmatic Emblem Boxes.</p>
+          </div>
+        <% end %>
+      </li>
+    </ul>
+  <% end %>
+
+
+  <% if (@my_gifts[:error]) %>
+  <%# elsif (@my_gifts["received_gifts"].nil? || @my_gifts["received_gifts"].select{|q| q["opened_by"].nil?}.length < 1) && (@my_gifts["unsent_gifts"].nil? || @my_gifts["unsent_gifts"].empty?) %>
+  <% else %>
+    <article class="twelve columns buy-more">
+      <div class="copy-class">
+        <h3>Your Gifting Progress</h3>
+        <p>The meter below tracks how many gifts you've sent so far during this season. The rewards you earn will just keep getting bigger and better the more you give.</p>
+      </div>
+      <ul id="gifts_tracker">
+        <li class="<%= 'active' if @my_gifts["sent_count"].to_i >= 1 %>" >1</li>
+        <li class="<%= 'active' if @my_gifts["sent_count"].to_i >= 5 %>">5</li>
+        <li class="<%= 'active' if @my_gifts["sent_count"].to_i >= 10 %>">10</li>
+        <li class="<%= 'active' if @my_gifts["sent_count"].to_i >= 15 %>">15</li>
+        <li class="<%= 'active' if @my_gifts["sent_count"].to_i >= 20 %>">20</li>
+      </ul>
+
+      <div class="purchased<%= ' whale' if (!@game_accounts.nil? && !@my_gifts.nil? && @my_gifts.key?("sent_count") && @my_gifts["sent_count"].to_i > 19) %>">
+      <% if @game_accounts.nil? || @my_gifts.nil? %>
+        <div class="bar"><span id="fill-0"></span></div>
+      <% else %>
+        <div class="bar">
+          <% if @my_gifts["sent_count"] != nil && @my_gifts["sent_count"] > 0 %>
+            <span class="left-section"></span>
+            <span id="fill-<%= (@my_gifts["sent_count"] < 20) ? @my_gifts["sent_count"] : '20' %>"></span>
+            <span id="countingplate-<%= (@my_gifts["sent_count"] < 20) ? @my_gifts["sent_count"] : '20' %>"></span>
+            <span class="right-section"></span>
+          <% else %>
+            <span id="fill-0"></span>
+          <% end %>
+        </div>
+      <% end %>
+
+        <div class="markers">
+          <span class="marker-1 <%= 'active' if @my_gifts["sent_count"].to_i >= 1 %>"></span>
+          <span class="marker-2"></span>
+          <span class="marker-3"></span>
+          <span class="marker-4"></span>
+          <span class="marker-5 <%= 'active' if @my_gifts["sent_count"].to_i >= 5 %>"></span>
+          <span class="marker-6"></span>
+          <span class="marker-7"></span>
+          <span class="marker-8"></span>
+          <span class="marker-9"></span>
+          <span class="marker-10 <%= 'active' if @my_gifts["sent_count"].to_i >= 10 %>"></span>
+          <span class="marker-11"></span>
+          <span class="marker-12"></span>
+          <span class="marker-13"></span>
+          <span class="marker-14"></span>
+          <span class="marker-15 <%= 'active' if @my_gifts["sent_count"].to_i >= 15 %>"></span>
+          <span class="marker-16"></span>
+          <span class="marker-17"></span>
+          <span class="marker-18"></span>
+          <span class="marker-19"></span>
+          <span class="marker-20 <%= 'active' if @my_gifts["sent_count"].to_i >= 20 %>"></span>
+        </div>
+      </div>
+
+    </article>
+  <% end %>
+
+  <% if @holiday == 'anniversary' %>
+  <p>Some restrictions apply. Please reference the <a href="http://support.enmasse.com/<%= @game %>/<%= @game %>-5th-anniversary-celebration-of-giving">Fifth Anniversary—Celebration of Giving FAQ</a> for more details and a full list of prizes.</p>
+  <%# else %>
+  <!--<p>Some restrictions apply. Please reference the <a href="http://support.enmasse.com/<%= @game %>/2016-holiday-gifting-event">Gifting FAQ</a> for more details and a full list of prizes.</p>-->
+  <% end %>
+
+  <% if (@game_accounts.nil? || @game_accounts.empty? || @didlogout) %>
+    <p class="text-align-center">You must sign in to see your gifts.</p>
+    <div class="register">
+        <%= erb :"shared/login-form" %>
+    </div>
+  <% elsif !@game_accounts.empty? %>
+    <div class="title-bar-dark" id="tabs"><a href="#inventory" class="active"><span>Gift Box Inventory</span></a><a href="#history"><span>Gift Box History</span></a></div>
+
+    <!-- new section for gift boxes layout -->
+    
+
+    
+    <!-- end of new section -->
+
+    <section id="inventory">
+      <% if (@my_gifts[:error]) %>
+
+        <% if @holiday === "wintera" %>
+          <div class="gift-card empty">
+            <span class="gc_icon"></span>
+            <p>Whoops! Looks like you have received no gift boxes yet. But you could still buy a 
+              <% if @game.downcase == 'tera' %>
+                <a href="/tera">gift box</a>
+              <% end %>
+              <% if @game.downcase == 'closers' %>
+                <a href="/closers/items">gift box</a>
+              <% end %>
+              <% if @game.downcase == 'kritika' %>
+                <a href="/kritika/items">gift box</a>
+              <% end %>
+              <% if @game.downcase == 'ava' %>
+                <a href="https://ava-shop.enmasse.com">gift box</a>
+              <% end %>
+            now or check back here after a friend has given you one.</p>
+          </div>
+        <% else %>
+          <article class="twelve columns">
+            <div class="four columns">
+              <div class="gift-card empty"></div>
+            </div>
+            <div class="eight columns last">
+              <% if @holiday =='anniversary' %>
+                <p>You have not yet received a gift. Purchase a <a href="http://store.enmasse.com/<%= @game %>#wide_body">Fifth Anniversary gift box</a> for a friend—or for yourself!—and check back here to see if they've sent you one in return.</p>
+              <% else %>
+                <p>Cupid's bowstring seem to have gotten tangled. He’ll be back on track soon!</p>
+              <% end  %>
+            </div>
+          </article>
+        <% end %>
+
+     <!-- <%# elsif (@my_gifts["received_gifts"].nil? || @my_gifts["received_gifts"].select{|q| q["opened_by"].nil?}.length < 1) && (@my_gifts["unsent_gifts"].nil? || @my_gifts["unsent_gifts"].empty?) %>
+
+        <%# if @holiday == "wintera" %>
+        the inventroy else section
+          <div class="gift-card empty">
+            <span class="gc_icon"></span>
+            <p>Whoops! Looks like you have received no gift boxes yet. But you could still buy a <a href="https://store.enmasse.com/<%= @game %>/items/goldengiftbox2016">gift box</a> now or check back here after a friend has given you one.</p>
+          </div>
+        <%# else %>
+          <article class="twelve columns">
+            <div class="four columns">
+              <div class="gift-card empty"><span class="gc_icon"></span></div>
+            </div>
+            <div class="eight columns last">
+              <%# if @holiday === "vday" %>
+                <p>You have no gift boxes. Purchase a <a href="/<%= @game %>/item/blackbox/black-velvet-party-box">Black Velvet party box</a> or <a href="/<%= @game %>/item/whitebox/white-satin-party-box">White Satin party box</a> for a friend—or for yourself!—and check back here to see if they’ve returned your affection.</p>
+              <%# else %>
+                <p>Received gifts appear here after you open them in your Gift Box Inventory.</p>
+              <%# end  %>
+            </div>
+          </article>
+        <%# end %>-->
+
+      <% else %>
+
+        <div class="box_section"><h4>&ndash; Unopened gift boxes you've received [<%= @my_gifts["received_gifts"].select{|q| q["opened_by"].nil?}.length %>] &ndash;</h4></div>
+
+        <% if (@my_gifts["received_gifts"].length < 1) %>
+        <%# if (@my_gifts["received_gifts"].nil? || @my_gifts["received_gifts"].select{|q| q["opened_by"].nil?}.length < 1) && (@my_gifts["unsent_gifts"].nil? || @my_gifts["unsent_gifts"].empty?) %>
+          <div class="gift-card empty">
+            <span class="gc_icon"></span>
+            <p>Whoops! It looks like you haven’t received any gift boxes yet. Buy a
+              <% if @game.downcase == 'tera' %>
+                <a href="/tera">gift box</a>
+              <% end %>
+              <% if @game.downcase == 'closers' %>
+                <a href="/closers/items">gift box</a>
+              <% end %>
+              <% if @game.downcase == 'kritika' %>
+                <a href="/kritika/items">gift box</a>
+              <% end %>
+              <% if @game.downcase == 'ava' %>
+                <a href="https://ava-shop.enmasse.com">gift box</a>
+              <% end %>
+            to populate your gift inventory or check back here throughout the promotion to see if you received one from a friend.</p>
+          </div>
+        <% else %>
+          <% @my_gifts["received_gifts"].each do | gift | %>
+            <% next if gift["opened_by"] %>
+
+            <!-- unopened received -->
+            <article class="gift_block" id="gift-<%= gift['id'] %>">
+              <div class="golden_gift_icon">
+                <img src="<%= img_url('gifting/wintera/gift-bg-small.png') %>" class="small_icon" alt="golden gift box" />
+                <span class="gc_icon"></span>
+              </div>
+              <div class="gg_about">
+                <span class="detail_label">From:</span>
+                <span class="details name"><%= gift["sender_name"] %></span>
+                <span class="detail_label">Message:</span>
+                <span class="details"><%= gift['message'] %></span>
+                <div class="colorbtn claim-gift">
+                  <a href="#" class="colorbtn" data-gift-id="<%= gift['id'] %>" data-msg="<%= gift['message'] %>" data-sender="<%= gift['sender_name'] %>" data-recipient="<%= gift['recipient_name'] %>" data-campaign="<%= gift['promotion_id'] %>">Open</a>
+                </div>
+              </div>
+            </article>
+          <% end %>
+        <% end %>
+
+        <div class="box_section"><h4>&ndash; Gift boxes you've bought, but not sent [<%= @my_gifts["unsent_gifts"].length %>] &ndash;</h4></div>
+
+        <% @my_gifts["unsent_gifts"].each do | gift | %> 
+          <!--bought, not sent -->
+          <article class="gift_block" id="gift-<%= gift['id'] %>">
+            <div class="golden_gift_icon">
+              <img src="<%= img_url('gifting/wintera/gift-bg-small.png') %>" class="small_icon" alt="golden gift box" />
+              <span class="gc_icon"></span>
+            </div>
+            <div class="gg_about">
+              <span class="detail_label">From:</span>
+              <span class="details name">You</span>
+              <span class="detail_label">Message:</span>
+              <span class="details">To send a gift to a friend, you’ll need the email address associated with their En Masse account or their character name and server name.<br />-or-<br />You could always keep this gift for yourself and open it to see what’s inside.</span>
+              <div class="colorbtn send-gift">
+                <a href="/" class="colorbtn" data-gift-id="<%= gift['id'] %>">Send It</a>
+              </div>
+              <div class="colorbtn claim-gift">
+                <a href="/" class="colorbtn" data-gift-id="<%= gift['id'] %>" data-msg="<%= gift['message'] %>" data-sender="<%= gift['sender_name'] %>" data-recipient="<%= gift['recipient_name'] %>" data-campaign="<%= gift['promotion_id'] %>">Open It</a>
+              </div>
+            </div>
+          </article>
+        <% end %>
+
+
+      <% end %>
+    </section>
+
+    <section id="history">
+      <% if !@my_gifts["received_gifts"].nil? && @my_gifts["received_gifts"].length %>
+      <div class="box_section"><h4>&ndash; Opened gift boxes you've received [<%= @my_gifts["received_gifts"].length %>] &ndash;</h4></div>
+      <% end %>
+      <% if @my_gifts["received_gifts"].nil? || @my_gifts["received_gifts"].empty? %>
+        <article class="twelve columns">
+          <div class="four columns">
+            <div class="gift-card empty"><span class="gc_icon"></span></div>
+          </div>
+          <div class="eight columns last">
+            <p>Received gifts will appear here after you open them in your Gift Box Inventory.</p>
+          </div>
+        </article>
+      <% else %>
+        <% @my_gifts["received_gifts"].each do | gift | %>
+          <%# next if !gift["opened_by"] %>
+
+          <article class="gift_block" id="gift-<%= gift['id'] %>">
+            <div class="golden_gift_icon">
+              <img src="<%= img_url('gifting/wintera/gift-bg-small.png') %>" class="small_icon" alt="golden gift box" />
+              <span class="gc_icon"></span>
+            </div>
+            <div class="gg_about">
+              <span class="detail_label">From:</span>
+              <span class="details name"><%= gift["sender_name"] %></span>
+              <span class="detail_label">Message:</span>
+              <span class="details"><%= gift['message'] %></span>
+            </div>
+          </article>
+
+        <% end %>
+      <% end %>
+    </section>
+  <% end %>
+</section>
+
+
+<div id="gift-faq" class="reveal-modal">
+    <h3 class="title-bar-dark">How Gifting Works</h3>
+    <div class="inner_wrap">
+      <h4>Here's how it works</h4>
+      <ol>
+        <li>Buy golden gift boxes in the 
+          <% if @game.downcase == 'tera' %>
+          <a href="/tera/items/loot-boxes"><em><%= @game.upcase %></em> Store.</a>
+        <% end %>
+        <% if @game.downcase == 'closers' %>
+          <a href="/closers/items"><em><%= @game.capitalize %></em> Store.</a>
+        <% end %>
+        <% if @game.downcase == 'kritika' %>
+          <a href="/kritika/items"><em>Kritika Online</em> Store.</a>
+        <% end %>
+        </li>
+        <li>You can open a box yourself to find one of many fun prizes <br /><br />or</li>
+        <li>You can give boxes to your friends and unlock special rewards, depending on how many gifts you give!</li>
+      </ol>
+      <p>Some restrictions apply. Please reference the <a href="http://support.enmasse.com/tera/2018-golden-gift-box-event">Golden Gift Box event FAQ</a> for more details and a full list of prizes.</p>
+      <p class="text-align-center"><a href="#" class="close">Close this window</a></p>
+    </div>
+    <a class="close-reveal-modal">&#215;</a>
+  </div>
+
+
+<%# if (@game_accounts && !@game_accounts.empty? && @my_gifts && !@my_gifts[:error] && @game_servers["servers"] && !@game_servers["servers"].empty?) %>
+<% if (@game_accounts && !@game_accounts.empty? && @my_gifts && !@my_gifts[:error]) %>
+  <div id="send-gift" class="reveal-modal large" data-gameName="<%= @game %>">
+    <h3 class="title-bar-dark reg_banner">Who should get this gift box?</h3>
+    <h3 class="error_banner">Gift Box Send Error</h3>
+
+    <ul class="selector">
+      <li data-id="email" class="selected">
+        <div class="inner"><span>Email Address</span></div>
+      </li>
+      <li data-id="charName">
+        <% if @game.downcase == 'tera' %>
+        <div class="inner"><span>Server &amp; Character Name</span></div>
+        <% elsif @game.downcase == 'kritika' || @game.downcase == 'closers' %>
+        <div class="inner"><span>World &amp; Character Name</span></div>
+        <% else %>
+        <div class="inner"><span>Character Name</span></div>
+        <% end %>
+      </li>
+    </ul>
+
+    <div class="inner_wrap">
+      <div id="email" style="display: block;">
+        <div>
+          <input type="email" name="email" placeholder="Enter an email address">
+          <a href="#" class="button-secondary validate">Validate</a>
+        </div>
+      </div>
+
+      <div id="charName">
+        <div>
+          <% if @game.downcase == 'tera' && @game_servers["servers"] && !@game_servers["servers"].empty? %>
+          <select name="server">
+            <option selected="true">Server</option>
+            <% @game_servers["servers"].each do |server| %>
+              <option value="<%= server["id"] %>"><%= server["name"] %></option>
+            <% end %>
+          </select>
+          <% end %>
+
+          <% if @game.downcase == 'kritika' %>
+          <select name="server">
+            <option selected="true">World</option>
+            <option value="na1">NA1</option>
+            <option value="eu">EU</option>
+          </select>
+          <% end %>
+
+          <% if @game.downcase == 'closers' %>
+          <select name="server">
+            <option selected="true">World</option>
+            <option value="na">NA</option>
+            <option value="eu">EU</option>
+          </select>
+          <% end %>
+
+          <input type="text" name="character" placeholder="Character Name">
+          <a href="#" class="button-secondary validate">Validate</a>
+        </div>
+        <div class="charInfo">
+          <ul>
+            <li><strong>Race:</strong> <span class="race"></span></li>
+            <li><strong>Class:</strong> <span class="class"></span></li>
+            <li><strong>Level:</strong> <span class="level"></span></li>
+          </ul>
+        </div>
+      </div>
+      <span class="name-check"></span>
+
+      <div class="error-alert"><span class="icon"></span><span class="message">We could not find a user by that character name</span></div>
+      <div class="messages">
+        <h6>Optional Message:</h6>
+        <div>
+          <input type="text" name="to" placeholder="Enter a custom “To” name ">
+          <span class="error to">Exceeds character limit.</span>
+          <small class="to-count">0/30</small>
+        </div>
+        <div>
+          <input type="text" name="from" placeholder="Enter a custom “From” name">
+          <span class="error from">Exceeds character limit.</span>
+          <small class="from-count">0/30</small>
+        </div>
+        <div>
+          <textarea name="message" placeholder="Enter a custom message to send to the gift’s recipient "></textarea>
+          <span class="error message">Exceeds character limit.</span>
+          <small class="message-count">0/250</small>
+        </div>
+      </div>
+      <div class="actions">
+        <a href="#" class="close">Cancel</a> <a href="#" class="button-primary disabled">Send Gift</a>
+      </div>
+    </div>
+      <a class="close-reveal-modal">&#215;</a>
+  </div>
+
+  <div id="gift-sent" class="reveal-modal" data-gameName="<%= @game %>">
+    <h3 class="title-bar-dark">Gift Sent Successfully!</h3>
+    <!--<div class="gift-card"></div>-->
+    <p><span class="name"></span> should receive your gift shortly!</p>
+    <!--<hr>-->
+    <h3 class="text-align-center">Gifting Progress:</h3>
+    <div id="gift-count" data-count="<%= @my_gifts["sent_count"].to_i %>"></div>
+    <p class="text-align-center"><a href="#" class="close">Close this window</a></p>
+    <a class="close-reveal-modal">&#215;</a>
+  </div>
+
+  <div id="gift-claim" class="reveal-modal" data-gameName="<%= @game %>">
+    <h3 class="title-bar-dark reg_banner">Opening Gift Box</h3>
+    <h3 class="error_banner">Opening Gift Box Error</h3>
+    <div class="claim-open">
+      <span class="mail-icon"></span>
+      <div class="open_copy">
+         <div class="error-alert"><span class="icon"></span><span class="message"></span></div>
+        <h6><span>Gift Message: </span><span id="gift-claim-recipient"></span></h6>
+        <p id="gift-claim-message"></p>
+        <span class="gift_author">-- <span id="gift-claim-sender"></span></span>
+      </div>
+    </div>
+    <div class="claim-copy">
+      
+      <h2 class="grats">You won <span class="prizeName"></span>.<br>Your new items will arrive in your Item Claim momentarily.</h2>
+      <% if @game_accounts %>
+        <% if @game_accounts.length > 1 %>
+          <div class="account">
+            <p>Game Account:</p>
+            <select id="game-account" name="game_account_id">
+              <% if @game_accounts.length > 1 %>
+                  <option disabled="disabled" value="0" selected>Select an account</option>
+              <% end %>
+              <% @game_accounts.each do |ga| %>
+                <% elite = ga["subscription_active"] %>
+                <option value="<%= ga["id"] %>" data-elite="<%= elite %>"><%= ga["name"] %><%= ' (Elite)' if elite %></option>
+              <% end %>
+            </select>
+          </div>
+        <% else %>
+          <input type="hidden" id="game-account" value="<%= @game_accounts[0]["id"] %>">
+        <% end %>
+      <% end %>
+      <h2 class="pick text-align-center">Pick a gift card:</h2>
+    </div>
+    <div class="content-block">
+      <div id="gifts-cover"></div>
+      <% 4.times do %>
+        <div class="gift">
+          <div class="flipper">
+            <div class="front"></div>
+            <div class="back">
+              <div class="prize"></div>
+              <div class="title"></div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    
+    <p class="text-align-center"><a href="#" class="close">Close window without picking a card</a></p>
+    <a class="close-reveal-modal">&#215;</a>
+  </div>
+<% end %>

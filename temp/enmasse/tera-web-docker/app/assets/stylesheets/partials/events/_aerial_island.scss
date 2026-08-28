@@ -1,0 +1,432 @@
+body.aerial-island {
+	#main-wrapper {
+		background: url(https://eme04.enmasse-game.com/images/tera/aerial_island/main_bg.jpg) top center no-repeat #ffffff;
+		//padding: 45px 35px 35px;
+		padding: 20px;
+	}
+	.content_nav {
+		clear:both;
+		display: -webkit-box;           
+    	display: -moz-box;              
+	   	display: -ms-flexbox;           
+	   	display: -webkit-flex;          
+	   	display: flex;                  
+	   	flex-direction: row;
+	   	flex-wrap: wrap;
+    	justify-content: space-between;
+    	li {
+    		width: calc(100% / 3); 
+    		height: 100%;
+    	}
+    	a {
+    		font-family: 'Exo 2', sans-serif;
+    		width:100%; 
+    		height: 100%;
+    		min-height: 55px;
+    		background: #43266f;
+    		color:#ffffff;
+    		text-transform: uppercase;
+    		display: block;
+    		font-size:14px;
+    		padding: 5px;
+    		line-height: 1.5;
+    		&:hover {
+    			background: #813de9;
+    		}
+    	}
+	}
+	#exodor {
+		background: #cbcbcb;
+		padding-bottom: 20px;
+	}
+	.heading {
+		text-align:center;
+		h1 {
+			text-transform: uppercase;
+			color:#43266f;
+			//font-size:40px;
+			font-size:24px;
+		}
+		p {
+			color:#43266f;
+			//font-size:30px;
+			//line-height:50px;
+			font-size:14px;
+			line-height:18px;
+			margin-bottom: 10px;
+		}
+	}
+	.key, .about {
+		display: block;
+		width:100%;
+	}
+	.about {
+		h3 {
+			font-family: 'Exo 2', sans-serif;
+			background: #43266f;
+			color:#ffffff;
+			text-transform: uppercase;
+			//padding:35px 40px;
+			padding: 20px;
+			width:100%;
+			font-size: 21px;
+		}
+		p {
+			color:#000000;
+			/*font-size:30px;
+			line-height:40px;*/
+			padding: 20px;
+			font-size:14px;
+			line-height:18px;
+			margin-bottom: 10px;
+		}
+	}
+	.about_cont {
+		h3 {
+			font-family: 'Exo 2', sans-serif;
+			color:#000000;
+			text-transform: uppercase;
+			//padding:35px 40px;
+			padding: 20px 20px 0;
+			width:100%;
+			font-size: 21px;
+		}
+		p {
+			color:#000000;
+			/*font-size:30px;
+			line-height:40px;*/
+			padding: 0 20px 20px;
+			font-size:14px;
+			line-height:18px;
+			margin-bottom: 10px;
+		}
+	}
+	.thumbs {
+		clear:both;
+		display: block;
+		li {
+			width:100%;
+			height: auto;
+			text-align: center;
+			img {
+				width:100%;
+				max-width:95%;
+				margin:0 auto 10px;
+			}
+		}
+	}
+	#newDungeon {
+		background: #cbcbcb;
+	}
+	#getThere {
+		//padding: 50px 75px;
+		padding: 20px;
+		text-align: center;
+		h2 {
+			font-family: 'Exo 2', sans-serif;
+			color:#000000;
+			//font-size:45px;
+			text-transform: uppercase;
+			font-size: 24px;
+		}
+		p {
+			font-family: 'Exo 2', sans-serif;
+			color:#000000;
+			font-weight:bold;
+			/*font-size:30px;
+			line-height:40px;*/
+			font-size:16px;
+			line-height:21px;
+		}
+	}
+	#cardcollection {
+		h3 {
+			width: 100%;
+			background: #43266f;
+			color:#ffffff;
+			text-transform: uppercase;
+			//padding:40px;
+			padding: 20px;
+			margin-bottom: 0;
+		}
+		img {
+			width:100%;
+			max-width:100%;
+			display: block;
+		}
+		p {
+			//padding: 50px 75px;
+			padding: 20px;
+			text-align: center;
+			color:#000000;
+			font-weight:bold;
+			/*font-size:30px;
+			line-height:40px;*/
+			font-size:14px;
+			line-height:18px;
+		}
+	}
+	#ngear {
+		background: #cbcbcb;
+	}
+}
+
+@media all and (min-width:768px) {
+	body.aerial-island {
+		.content_nav {
+			text-align:center;
+			a {
+				padding-top: 18px;
+			}
+		}
+		.heading {
+			h1 {
+				font-size:30px;
+				line-height:36px;
+			}
+			p {
+				font-size:18px;
+				line-height:24px;
+			}
+		}
+		.about, .about_cont {
+			p {
+				font-size:18px;
+				line-height:24px;
+			}
+		}
+		/*.key, .about {
+			display: inline-block;
+			vertical-align: top;
+			font-size:0;
+			width:50%;
+			top:0;
+			h3 {
+				font-size: 35px;
+			}
+			p {
+				font-size:30px;
+			}
+		}
+		.key {
+			width: calc(100% - 364px);
+		}
+		.about {
+			width: 364px;
+		}*/
+		.thumbs {
+			display: -webkit-box;           
+	    	display: -moz-box;              
+		   	display: -ms-flexbox;           
+		   	display: -webkit-flex;          
+		   	display: flex;                  
+		   	flex-direction: row;
+		   	flex-wrap: wrap;
+	    	justify-content: space-between;
+	    	padding: 0 15px;
+	    	li {
+				width:calc(100% / 3);
+				height: auto;
+				text-align: center;
+				padding: 0 5px 10px;
+				img {
+					width:100%;
+					max-width: 100%;
+					margin:0;
+				}
+			}
+		}
+		#getThere {
+			padding: 40px;
+			p {
+				font-size:18px;
+				line-height:24px;
+			}
+		}
+		#cardcollection {
+			p {
+				font-size:18px;
+				line-height:24px;
+				padding: 40px;
+			}
+		}
+	}
+}
+
+@media all and (max-width:1023px) {
+	body.aerial-island {
+		#newDungeon {
+			display: grid;
+	        grid-template-areas: 
+	                             "dungeonImg"
+	                             "dungeonAbout"
+	                             "dungeonThumbs";
+			.about {
+				grid-area: dungeonAbout;
+			}
+			.key {
+				grid-area: dungeonImg;
+			}
+			.thumbs {
+				grid-area: dungeonThumbs;
+			}
+		}
+	}
+}
+
+@media all and (min-width:1024px) {
+	body.aerial-island {
+		#main-wrapper {
+			padding: 45px 35px 35px;
+		}
+		.heading {
+			padding-bottom: 40px;
+			h1 {
+				font-size:32px;
+			}
+			p {
+				font-size:20px;
+				line-height:30px;
+			}
+		}
+		.about, .about_cont {
+			p {
+				font-size: calc(1rem + ((1vw - 10.24px) * 2.4306));
+				line-height:1.5;
+    /* Where: * 2.4306 = 100 * font_Size_Difference / viewport_Width_Difference */
+			}
+		}
+		#exodor, #newDungeon, #ngear {
+			display: -webkit-box;           
+	    	display: -moz-box;              
+		   	display: -ms-flexbox;           
+		   	display: -webkit-flex;          
+		   	display: flex;                  
+		   	flex-direction: row;
+		   	flex-wrap: wrap;
+	    	justify-content: space-between;
+		}
+		#exodor {
+			padding-bottom: 80px;
+		}
+		.key, .about {
+			max-width:50%;
+		}
+		.thumbs {
+			padding:20px 0 0 0;
+			li {
+				padding: 0 5px;
+				&:first-child {
+					padding-right:5px;
+				}
+				&:nth-child(2) {
+					padding-right:5px;
+					padding-left:5px;
+				}
+				&:last-child {
+					padding-left:5px;
+				}
+			}
+		}
+	}
+}
+
+@media all and (min-width:1600px) {
+	body.aerial-island {
+		.content_nav {
+			a {
+				font-size: 27px;
+				padding: 40px 0;
+			}
+		}
+		.heading {
+			h1 {
+				font-size:40px;
+			}
+			p {
+				font-size:30px;
+				line-height:50px;
+			}
+		}
+		.about {
+			h3 {
+				font-size:35px;
+				padding: 40px;
+			}
+			p {
+				font-size:30px;
+				line-height:40px;
+				padding: 40px;
+			}
+		}
+		.about_cont {
+			h3 {
+				font-size:35px;
+				padding: 40px 40px 0;
+			}
+			p {
+				font-size:30px;
+				line-height:40px;
+				padding: 0 40px 40px;
+			}
+		}
+		.key {
+			max-width: 842px;
+		}
+		.about {
+			max-width:calc( 100% - 842px);
+		}
+		.thumbs {
+			width:100%;
+			li {
+				padding:0;
+				width:500px;
+				&:first-child, &:nth-child(2), &:last-child {
+					padding:0;
+					width:500px;
+				}
+			}
+		}
+		#exodor, #newDungeon {
+			.emelightbox-pop {
+				width:100%;
+			}
+		}
+		#getThere {
+			padding: 50px 75px;
+			h2 {
+				font-size:45px;
+			}
+			p {
+				font-size:30px;
+				line-height:40px;
+			}
+		}
+		#cardcollection {
+			h3 {
+				font-size:35px;
+				padding: 40px;
+			}
+			p {
+				font-size:30px;
+				line-height:40px;
+				padding: 35px 80px;
+			}
+		}
+		#ngear {
+			.key {
+				max-width: 794px;
+				height: 600px;
+			}
+			.about {
+				max-width:calc( 100% - 794px);
+				p {
+					font-size: 21px;
+					line-height:40px;
+					padding-bottom: 0;
+					margin-bottom:0;
+				}
+			}
+		}
+	}
+}

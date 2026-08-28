@@ -1,0 +1,14 @@
+eme_subscription:
+  url: "http://subscription.service.edge.enmasse.com"
+  ssl: false
+  name: "EME::Subscription"
+  use_memcache: true
+  api_key: SECRET_KEY
+  memcache_hosts:
+    - "localhost:11211"
+  cache_prefix: "subs-dev"
+  type: json
+  log_level: debug
+  subscription_item_id: 2622
+  edit_ec_id: 37
+  edit_cc_id: 36

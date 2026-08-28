@@ -1,0 +1,85 @@
+.transaction-record-border {
+	border: 2px solid black;
+	background-color: #34353a;
+	margin: 10px;
+	padding: 2px;
+}
+
+.transaction-record {
+	border: 2px solid black;
+	padding: 10px;
+	color: #ffffff;
+	opacity: 0.8;
+	background: rgba(0, 0, 0, 0.8);
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(29, 33, 40, 0.8)), color-stop(100%, rgba(0, 0, 0, 0.8)));
+  background-image: -webkit-linear-gradient(rgba(29, 33, 40, 0.8), rgba(0, 0, 0, 0.8));
+  background-image: -moz-linear-gradient(rgba(29, 33, 40, 0.8), rgba(0, 0, 0, 0.8));
+  background-image: -o-linear-gradient(rgba(29, 33, 40, 0.8), rgba(0, 0, 0, 0.8));
+  background-image: linear-gradient(rgba(29, 33, 40, 0.8), rgba(0, 0, 0, 0.8));
+}
+
+.transaction-summary {
+	float: left;
+	width: 340px;
+
+	li {
+		font-size: 14px;
+		line-height: 1.5em;
+	}
+}
+
+.transaction-time {
+	padding-bottom: 20px;
+
+	time {
+		.day {
+			font-size: 22px;
+		}
+		.time{
+			font-size: 14px;
+		}
+	}
+}
+
+.transaction-item {
+	float: left;
+	width: 500px;
+
+	img {
+		padding-right: 10px;
+
+		float: left;
+		height: 150px;
+		width: 150px;
+	}
+
+	span {
+		display: block;
+		font-size: 22px;
+	}
+
+	p{
+		font-size: 14px;
+	}
+}
+
+.transaction-status {
+	float: left;
+	width: 200px;
+}
+
+.transaction-status-finished {
+	color: #00fb00; /* TODO: replace with standard success color */
+}
+
+.transaction-status-initialized, .transaction-status-pending {
+	color: #0297ff; /* TODO: need a pending color that isn't also our link color */
+}
+
+.transaction-status-chargeback, .transaction-status-refunded {
+	color: #FF6600; /* TODO: replace with standard warning color */
+}
+
+.transaction-status-failed, .transaction-status-expired {
+	color: #fb0000; /* TODO: replace with standard error color */
+}

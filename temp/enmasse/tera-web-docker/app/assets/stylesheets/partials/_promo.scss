@@ -1,0 +1,375 @@
+/* the promotional pages, not a page named promo */
+#available-block {
+	display: block;
+	padding: 20px 0;
+	//border-top:2px solid $white;
+	//border-bottom: 2px solid $white;
+	background: #d60330;
+	box-shadow: inset 0px 0px 2px $white;
+	h3 {
+		text-transform: uppercase;
+		color: $white;
+		text-align:center;
+		padding: 10px 0;
+		font-size:27px;
+	}
+}
+#content_nav {
+	clear:both;
+	display: -webkit-box;           
+	display: -moz-box;              
+   	display: -ms-flexbox;           
+   	display: -webkit-flex;          
+   	display: flex;                  
+   	flex-direction: row;
+   	flex-wrap: wrap;
+	justify-content: space-between;
+	li {
+		width: calc(100% / 3); 
+		height: 100%;
+	}
+	a {
+		font-family: 'Exo 2', sans-serif;
+		width:100%; 
+		height: 100%;
+		min-height: 55px;
+		background: #43266f;
+		color:#ffffff;
+		text-transform: uppercase;
+		display: block;
+		font-size:14px;
+		padding: 5px;
+		line-height: 3;
+		text-align:center;
+		&:hover {
+			background: #813de9;
+		}
+	}
+}
+#opening_section_wrapper {
+	.heading {
+		text-align:center;
+		h1 {
+			color:#43266f;
+			font-size: 24px;
+			padding: 20px;
+		}
+	}
+}
+
+.section-block {
+	display: block;
+	.content-block {
+		background-color: #cbcbcb;
+		margin-bottom: 20px;
+		.about {
+			&.full {
+				h3 {
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+	h5, .heading {
+		font-size:24px;
+		color: $white;
+		background: #323232;
+		text-transform: uppercase;
+		padding: 10px 20px;
+		margin: 0;
+	}
+	.copy, .label {
+		background: #cbcbcb;
+		color: $black;
+		font-size:21px;
+		padding: 20px;
+	}
+	.label {
+		font-size: 15px;
+    	padding: 10px;
+    	margin: 0 auto;
+    	text-align:center;
+	}
+	.about {
+		h3 {
+			font-family: 'Exo 2', sans-serif;
+			background: #43266f;
+			color:#ffffff;
+			text-transform: uppercase;
+			//padding:35px 40px;
+			width:100%;
+			font-size: 21px;
+			padding: 20px;
+		}
+		p, li {
+			color:#000000;
+			/*font-size:30px;
+			line-height:40px;*/
+			font-size:14px;
+			line-height:18px;
+			margin-bottom: 10px;
+		}
+	}
+	.emelightbox-pop {
+		width:100%;
+		margin:0 auto;
+	}
+	p {
+		padding:0;
+		margin-bottom:0;
+	}
+	ul {
+		display: -webkit-box;           /* OLD - iOS 6-, Safari 3.1-6 */
+		display: -moz-box;              /* OLD - Firefox 19- (doesn't work very well) */
+		display: -ms-flexbox;           /* TWEENER - IE 10 */
+		display: -webkit-flex;          /* NEW - Chrome */
+		display: flex;                  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		&.dungeon {
+			display: block;
+			text-align: left;
+			margin:40px 0 0 0;
+			li {
+				margin: 0;
+			}
+		}
+		li {
+			margin: 10px;
+			font-size: 15px;
+    		line-height: 21px;
+    		&.eme_slide {
+				margin: 10px auto;
+			}
+		}
+	}
+	.closer {
+		text-align:center;
+		padding: 20px;
+	}
+}
+/* some class things are in the way */
+body.male-brawler {
+	&.events {
+		background-image: url(/assets/bgs/bg_dial.png);
+    	background-position: top center;
+    	background-repeat: no-repeat;
+    	background-color: #841206;
+    	main {
+    		background-color: $white;
+    	}
+	}
+	.section-block {
+		p {
+			padding:0;
+			margin-bottom:0;
+		}
+	}
+	.eme-lightbox {
+		li {
+			position: relative;
+			cursor: pointer;
+			&.vidholder {
+				&:before {
+					content: "";
+					background: url(https://eme01.enmasse-game.com/images/tera/events/male-brawler/blueplaybtn.png) center center no-repeat;
+					display:block;
+					width:100%;
+					height:100%;
+					position:absolute;
+					top:0;
+					left:0;
+					opacity: 0.7;
+				}
+			}
+			&:hover {
+				&.vidholder {
+					&:before {
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
+}
+
+@include breakpoint(tablet) {
+	#available-block {
+		padding: 10px;
+		margin-bottom: 50px;
+		h3 {
+			border: 2px solid $white;
+		}
+	}
+	.section-block {
+		.content-block {
+			display: -webkit-box;           /* OLD - iOS 6-, Safari 3.1-6 */
+			display: -moz-box;              /* OLD - Firefox 19- (doesn't work very well) */
+			display: -ms-flexbox;           /* TWEENER - IE 10 */
+			display: -webkit-flex;          /* NEW - Chrome */
+			display: flex;                  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: space-around;
+			.img_wrap {
+				width:55%;
+				&.full {
+					width: 100%;
+				}
+			}
+			.about {
+				width:45%;
+			}
+			.about {
+				&.full {
+					width: 100%;
+				}
+			}
+		}
+		ul {
+			li {
+				&.eme_slide {
+					margin: 10px 0 0 0;
+					&.up3 {
+						width: 33%;
+					}
+					&.up2 {
+						width:49%;
+					}
+				}
+			}
+		}
+		.about {
+			p, li {
+				font-size:18px;
+				line-height:24px;
+			}
+		}
+	}
+
+	/* some class things are in the way */
+	body.male-brawler {
+		.section-block {
+			p {
+				padding:0;
+				margin-bottom:0;
+			}
+		}
+		&.events {
+			#class_hero_wrapper, #content_article_header {
+				min-height: auto;
+			}
+		}
+	}
+}
+
+@include breakpoint(desktop) {
+	#opening_section_wrapper {
+		padding: 45px 35px 35px;
+		.heading {
+			padding-bottom: 30px;
+		}
+	}
+	.section-block {
+		.about {
+			p, li {
+				font-size: calc(1rem + ((1vw - 10.24px) * 2.4306));
+				line-height:1.5;
+    /* Where: * 2.4306 = 100 * font_Size_Difference / viewport_Width_Difference */
+			}
+		}
+		.content-block {
+			margin-bottom: 40px;
+		}
+		.closer {
+			p {
+				font-size:30px;
+				line-height:40px;
+				font-weight: bold;
+			}
+		}
+	}
+	#opening_section_wrapper {
+		.heading {
+			h1 {
+				padding: 0;
+				font-size: 36px;
+			}
+		}
+	}
+}
+
+@include breakpoint(finallayout) {
+	/* some class things are in the way */
+	body.male-brawler {
+		&.events {
+			.section-block h5, .section-block .heading {
+				text-align:left;
+			}
+			#class_hero_wrapper, #content_article_header {
+				margin-bottom: 0;
+			}
+			p {
+				font-size:21px;
+				line-height: 40px;
+			}
+			#main-wrapper {
+				padding: 0 40px;
+			}
+			section#ankle {
+				margin-top: 30px;
+			}
+		}
+		.section-block {
+			ul {
+				margin: 30px auto 0;
+				justify-content: space-between;
+				li {
+					margin: 0 0 30px;
+				}
+				&.dungeon {
+					li {
+						font-size: 18px;
+    					margin: 0;
+    					line-height: 26px;
+					}
+				}
+			}
+			&#new-hair-styles {
+				ul {
+					justify-content: space-around;
+				}
+			}
+		}
+	}
+	#content_nav {
+		a {
+			font-size: 27px;
+			padding: 40px 0;
+		}
+	}
+	#opening_section_wrapper {
+		.heading {
+			h1 {
+				font-size: 38px;
+				line-height: 50px;
+			}
+		}
+	}
+	.section-block {
+		.about {
+			h3 {
+				font-size:35px;
+			}
+			p {
+				font-size:30px;
+				line-height:40px;
+			}
+			li {
+				font-size:30px;
+				line-height:1;
+			}
+		}
+	}
+}

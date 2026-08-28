@@ -1,0 +1,221 @@
+.promotions {
+  *zoom:1;
+  &:before, &:after { content: " "; display: table; }
+  &:after { clear: both; }
+  max-width: 1140px;
+  position: relative;
+  z-index: 1;
+  margin: 10px auto;
+  text-align: center;
+  .small, .mini, .micro {
+    @extend .border;
+    position: relative;
+    z-index: 0;
+    //background: image-url('store-promo.jpg') no-repeat 0 0;
+    background: #000000;
+    background-repeat:no-repeat;
+    //background-position: 0 0;
+    height: 300px;
+    @include transition(opacity, 0.3s);
+    opacity: 0.8;
+    &:hover { opacity: 1.0; }
+  }
+  .main {
+    width: 750px;
+    float: left;
+    @extend .border;
+    position: relative;
+    z-index: 0;
+    height: 300px;
+    @include transition(opacity, 0.3s);
+    opacity: 0.8;
+    &:hover { opacity: 1.0; }
+    & + .small { float: right; }
+  }
+  .small, .mini { width: 380px; }
+  .mini {
+    height: 145px;
+    float: right;
+    & + .mini { margin-top: 10px; }
+  }
+  .micro {
+    height: 145px;
+    width: 185px;
+    float: right;
+    margin-top: 10px;
+    & + .micro { margin-right: 10px; }
+  }
+
+  // Captions
+  .caption {
+    position: absolute;
+    right: 3px;
+    bottom: 3px;
+    left: 3px;
+    background: rgba(0,0,0, 0.8);
+    padding: 5px 10px;
+    h3 {
+      margin: 0;
+      font-family: "serif6_beta_rgbold",Times,serif;
+      font-size: 21px;
+    }
+    p { margin-bottom: 0; }
+  }
+  .main .caption { text-align: right; }
+  a { color: $txtColor; }
+  .border {
+    border: 1px solid black;
+    &:before, &:after {
+      content: "";
+      position: absolute;
+    }
+    &:before {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      border: 2px solid $lightGray;
+    }
+    &:after {
+      top: 2px;
+      right: 2px;
+      bottom: 2px;
+      left: 2px;
+      border: 1px solid black;
+    }
+  }
+}
+
+@media #{$medium} {
+  .promotions {
+    .main {
+      width: 380px;
+      .caption p { display: none; }
+    }
+    .caption {
+      h3 {
+        font-size:18px;
+      }
+    }
+  }
+}
+
+@media #{$small} {
+  .promotions {
+    .main {
+      width: 300px;
+      height: 145px;
+      .caption p { display: none; }
+    }
+    .mini {
+      height: 145px;
+      width: 145px;
+      float: none;
+      display:inline-block;
+      vertical-align: top;
+      margin-top: 10px;
+      //& + .mini { margin-right: 10px; }
+    }
+    .caption {
+      h3 {
+        font-size:14px;
+      }
+    }
+  }
+}
+
+
+// store specific
+.promotions {
+  .small, .mini, .micro {
+    //background: image-url('store-promo-default.png') no-repeat 0 0;
+    background-repeat: no-repeat;
+    //background-position: 0 0;
+    color: $txtColor;
+    .short { display: none; }
+  }
+  .main {
+    color: $txtColor;
+    .short { display: none; }
+  }
+  .small { background-position: 0 -300px; }
+  .elite, .emp {
+    .caption h3 {
+      color: white;
+      text-shadow: 0px 0px 5px $lightBlue;
+    }
+  }
+  .mini {
+    &.elite { background-position: -375px -300px; }
+    &.emp { background-position: -375px -450px; }
+    &.rounded {
+      @include border-radius(10px);
+      &:after { @include border-radius(10px); }
+      &:before { @include border-radius(10px); }
+      .caption {
+        @include border-bottom-left-radius(10px);
+        @include border-bottom-right-radius(10px);
+      }
+    }
+    .caption {
+      background: rgba(#153558, 0.8);
+      @include background(linear-gradient(rgba(#153558, 0.8), rgba(black, 0.8)));
+      padding: 0;
+      h3 {
+        padding: 0 10px;
+        background: image-url('filigree.png') repeat-x top center;
+      }
+    }
+  }
+  .micro {
+    &.elite { background-position: -380px -595px; }
+    &.emp { background-position: -565px -595px; }
+  }
+  &.promo {
+    .small, .mini, .micro {
+      //background-image: image-url('store-promo.jpg');
+    }
+  }
+}
+
+@media #{$medium} {
+  .promotions {
+    width: 770px;
+    margin: 10px auto;
+    float: none;
+    .main {
+      background-position: 0 -300px;
+      .caption p { display: none; }
+    }
+  }
+}
+
+@media #{$small} {
+  .promotions {
+    width: 380px;
+    margin: 10px auto;
+    float: none;
+    .main { 
+      background-position: 0 -600px;
+      display: block;
+      margin:0 auto;
+      float:none;
+    }
+    .mini {
+      &.elite { background-position: -588px -595px; }
+      &.emp { background-position: -398px -595px; }
+      .caption {
+        h3 {
+          display: none;
+          &.short { display: block; }
+        }
+      }
+      &.rounded {
+        .caption {
+          @include border-bottom-left-radius(0);
+          @include border-bottom-right-radius(0);
+        }
+      }
+    }
+  }
+}

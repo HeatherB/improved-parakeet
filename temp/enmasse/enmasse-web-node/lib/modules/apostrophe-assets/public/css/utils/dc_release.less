@@ -1,0 +1,1791 @@
+#dc_header {
+  position: relative;
+  height: 52px;
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  color: white;
+  background: -webkit-linear-gradient(right, #0c1c33, #0c1c33);
+  background: linear-gradient(to right, #0c1c33, #0c1c33);
+  border-width: 0px 0px 2px 0px;
+  border-style: solid;
+  border-color: #183561;
+  box-shadow: 0 1px 0 #000;
+  z-index: 2000;
+  display: block;
+  padding: 0 0 0 20px;
+  &:before, &:after {
+    background: -webkit-linear-gradient(right, #0c1c33, #0c1c33);
+    background: linear-gradient(to right, #0c1c33, #0c1c33);
+    border-width: 0px 0px 2px 0px;
+    border-style: solid;
+    border-color: #183561;
+    box-shadow: 0 1px 0 #000;
+    height:50px;
+  }
+}
+#dc_release {
+  overflow-x: hidden;
+  p {
+    color:#ffffff;
+  }
+  &.internal {
+    section {
+      &:after {
+        display: none;
+      }
+    }
+  }
+  #hero {
+ 	  //background: url(https://eme04.enmasse-game.com/images/dark_crystal_tactics/bgs/bg_hero.jpg);
+    background: url(https://eme04.enmasse-game.com/images/dark_crystal_tactics/bgs/dcheader_purchase.png);
+    max-width: 1600px;
+    width: 100%;
+    background-repeat:no-repeat;
+    margin:0 auto;
+    position: relative;
+
+    z-index:20;
+    background-color:#000200;
+
+
+    background-position: 90% 0%;
+    background-size: 920px;
+    .inner {
+      padding:20px 20px 20px;
+      height:500px;
+    }
+    h1 {
+      margin-bottom:25px;
+      margin-bottom: 0;
+      img {
+        //max-width:360px;
+        //max-width: 290px;
+        max-width:220px;
+        width: 100%;
+        position: relative; 
+        left: calc(100% - 260px);
+        z-index:2;
+        filter: drop-shadow(0px 0px 10px rgba(0,0,0,0.75));
+        -webkit-animation: appear 2s ease-in forwards normal;
+        -moz-animation: appear 2s ease-in forwards normal;
+        -o-animation: appear 2s ease-in forwards normal;
+        animation: appear 2s ease-in forwards normal;
+      }
+    }
+    #dc_crystal {
+      position: absolute;
+      right:5%;
+      top:0%;
+      width:100%;
+      max-width: 368px;
+      height:100%;
+      background-size:contain;
+      background-repeat: no-repeat;
+      transform: scaleX(-1);
+      z-index:0;
+      display: none;
+    }
+    ul {
+      li {
+        background-image: url(https://eme04.enmasse-game.com/images/dark_crystal_tactics/dct_sprite_january.png);
+        background-repeat:no-repeat;
+        display: inline-block;
+        vertical-align: top;
+        margin: 0 -15px;
+        &.icon_switch {
+          //background-position: 0 -5675px;
+          background-position: -146px -5675px;
+          text-indent:-9999em;
+          width:70px;
+          height:70px;
+        }
+        &.icon_ps {
+          //background-position: 0 -5536px;
+          background-position: -146px -5536px;
+          text-indent:-9999em;
+          width:75px;
+          height:68px;
+        }
+        &.icon_xbox {
+          //background-position: 0 -5745px;
+          background-position: -146px -5745px;
+          text-indent:-9999em;
+          width:72px;
+          height:72px;
+        }
+        &.icon_steam {
+          //background-position: 0 -5604px;
+          background-position: -146px -5604px;
+          text-indent:-9999em;
+          width:71px;
+          height:71px;
+        }
+        &.icon_osx {
+          //background-position: 0 -5466px;
+          background-position: -146px -5466px;
+          text-indent:-9999em;
+          width:74px;
+          height:70px;
+        }
+      }
+    }
+    ul, h3 {
+      display: inline-block;
+      vertical-align: middle;
+      position: relative; 
+      z-index:2;
+      text-align:center;
+    }
+    h3 {
+      font-family: 'PT Serif', serif;
+      font-weight:700;
+      text-transform:uppercase;
+      padding: 10px 0 0 10px;
+      text-shadow:0px 0px 6px rgba(171,101,54,0.8);
+    }
+    .action {
+      display: block;
+      position: absolute; 
+      z-index:2;
+      margin:0 auto;
+      bottom: 1rem;
+      left: 0;
+      right: 0;
+      text-align: center;
+      a {
+        background-image: url(https://eme04.enmasse-game.com/images/dark_crystal_tactics/dct_sprite_january.png);
+        background-repeat:no-repeat;
+        font-family: 'PT Serif', serif;
+        font-weight:700;
+        text-transform:uppercase;
+
+        width:200px;
+        background-size:188%;
+        background-position: 0 -91px;
+        padding-bottom:1%;
+        display: inline-block;
+        vertical-align: top;
+        color:#ffffff;
+        text-align:center;
+        line-height:2;
+      }
+      div {
+        display: block;
+        width:auto;
+        cursor:pointer;
+        &.pre-purchase {
+          display: none;
+        }
+      }
+      button {
+        background:none;
+        background-image: url(https://eme04.enmasse-game.com/images/dark_crystal_tactics/dct_sprite_january.png);
+        background-repeat:no-repeat;
+        font-family: 'PT Serif', serif;
+        font-weight:700;
+        text-transform:uppercase;
+        outline:none;
+        border: none;
+        cursor:pointer;
+        width:352px;
+        //height:78px;
+
+        height:45px;
+        //background-size:188%;
+        //background-position: 0 -6053px;
+        background-size: 100%;
+        background-position: 86px -2985px;
+        padding-bottom:1%;
+        display: block;
+        color:#ffffff;
+        text-align:center;
+        line-height:2;
+        font-size:16px;
+        margin:0 auto;
+      }
+    }
+  }
+  .inner {
+   	max-width:1280px;
+   	width:100%;
+   	margin:0 auto;
+  }
+  section:not(#hero) {
+    text-align: center;
+    h2 {
+      font-family: 'PT Serif', serif;
+      font-weight:700;
+      text-transform:uppercase;
+      font-style:italic;
+      text-shadow:0px 0px 6px rgba(0,0,0,0.8);
+    }
+    p {
+      font-size:16px;
+      line-height:20px;
+      font-family: 'Titillium Web', sans-serif;
+      text-shadow: 0px 0px 36px rgba(0,0,0,0.8);
+    }
+    .inner {
+      position: relative;
+      padding:50px;
+      &:before {
+        content:'';
+        display: block;
+        background-image: url(https://eme04.enmasse-game.com/images/dark_crystal_tactics/dct_sprite_january.png);
+        background-repeat:no-repeat;
+        width: 50%;
+        height: 340px;
+        position: absolute;
+        top:0;
+        left:0;
+        background-size: 400px;
+      }
+      &:after {
+        content:'';
+        display: block;
+        background-image: url(https://eme04.enmasse-game.com/images/dark_crystal_tactics/dct_sprite_january.png);
+        background-repeat:no-repeat;
+        width: 50%;
+        height: 340px;
+        position: absolute;
+        top:0;
+        left: calc(100% - 213px);
+        background-size: 400px;
+      }
+    }
+  }
+
+  section#unite_clans {
+    background: url(https://eme04.enmasse-game.com/images/dark_crystal_tactics/bgs/mobile/purple.jpg) top center no-repeat #170128;
+    background-size:cover;
+    position: relative;
+    z-index:30;
+    .inner {
+      /* special value to allow irregualr background to show in email capture field */
+      padding: 50px 0;
+      &:before {
+        background-position: 10px -1160px;
+      }
+      &:after {
+        background-position: -44px -2543px;
+      }
+    }
+    h2, p, .action, small {
+ 		 display: block;
+ 	  }
+    h2 {
+      &:after {
+        content:'';
+        display: block;
+        width:125px;
+        height: 100px;
+        background-image: url(https://eme04.enmasse-game.com/images/dark_crystal_tactics/dct_sprite_january.png);
+        background-repeat:no-repeat;
+        background-position: -2px -4090px;
+        background-size:500px;
+        margin:0 auto;
+      }
+    }
+    p {
+      width:100%;
+      max-width:570px;
+      margin:0 auto;
+      padding-left:50px;
+      padding-right:50px;
+    }
+    form {
+      background-position: 4px -2982px;
+    }
+    #chibi, .stars, #fizz {
+      display: none;
+    }
+  }
+  form {
+    display: flex;
+    background-image: url(https://eme04.enmasse-game.com/images/dark_crystal_tactics/dct_sprite_january.png);
+    background-repeat:no-repeat;
+    background-size:400px;
+    width:100%;
+    height: 74px;
+    margin:0 auto;
+    margin-left: calc((100% - 401px) / 2);
+    input[type="email"], button[type="submit"] {
+      background:transparent;
+      border: none;
+      outline: none;
+      //width: 46%;
+      width: 183px;
+      text-align:center;
+    }
+    input[type="email"] {
+      margin-left:18px;
+    }
+    button[type="submit"] {
+      cursor: pointer;
+      span {
+        color: #ffffff;
+        font-family: 'PT Serif', serif;
+        font-weight:700;
+        text-transform:uppercase;
+        text-shadow:0px 0px 6px rgba(0,0,0,0.8);
+        font-size: 13px;
+        margin-left: -18px;
+      }
+    }
+    .email_label {
+      display: block;
+      position: absolute;
+      opacity: 0;
+      margin-left: 42px;
+    }
+    #unite_email:placeholder-shown + .email_label {
+      visibility: hidden;
+      z-index: -1;
+    }
+    #unite_email:not(:placeholder-shown) + .email_label,
+    #unite_email:focus:not(:placeholder-shown) + .email_label {
+      visibility: visible;
+      z-index: 1;
+      opacity: 1;
+    }
+    #news_email:placeholder-shown + .email_label {
+      visibility: hidden;
+      z-index: -1;
+    }
+    #news_email:not(:placeholder-shown) + .email_label,
+    #news_email:focus:not(:placeholder-shown) + .email_label {
+      visibility: visible;
+      z-index: 1;
+      opacity: 1;
+    }
+  }
+  small {
+    font-family: 'Titillium Web', sans-serif;
+    font-size:12px;
+    line-height:18px;
+    margin:0 auto;
+    width:100%;
+    max-width:420px;
+    display: block;
+    padding-left:50px;
+    padding-left: 50px;
+  }
+
+ section#earn_victory {
+  background: url(https://eme04.enmasse-game.com/images/dark_crystal_tactics/bgs/mobile/blue.jpg) top center no-repeat #0c172c;
+  background-size:cover;
+  position: relative;
+  z-index:40;
+  .inner {
+    &:before {
+      top: 8px !important;
+      background-position: 10px -131px;
+    }
+    &:after {
+      background-position: -44px -1506px;
+    }
+  }
+ 	ul {
+    li {
+      width:100%;
+      max-width:350px;
+      margin:0 auto;
+    }
+ 	}
+ 	img, h5, p {
+ 		display: block;
+ 	}
+  h5 {
+    text-transform: none;
+    margin-bottom:16px;
+  }
+  img {
+    text-align:center;
+    margin: 1em auto;
+    width: 100%;
+    max-width:100%;
+  }
+  #chibi, .stars, #fizz {
+      display: none;
+    }
+ }
+
+ section#dc_media {
+  background: url(https://eme04.enmasse-game.com/images/dark_crystal_tactics/bgs/mobile/green.jpg) top center no-repeat #0a1806;
+  background-size: contain;
+  position: relative;
+  z-index:20;
+  .inner {
+    background: -webkit-linear-gradient(bottom, rgba(10,24,6, 1) 80%, rgba(10,24,6, 0) 100%);
+    background: linear-gradient(to top, rgba(10,24,6, 1) 80%, rgba(10,24,6, 0) 100%);
+    &:before {
+      background-position: 10px -815px;
+    }
+    &:after {
+      background-position: -44px -2198px;
+    }
+  }
+  .media-wrapper {
+    position: relative;
+    .playBTNButton {
+      &:after {
+        content:'';
+        display: block;
+        position: absolute;
+        background-image: url(https://eme04.enmasse-game.com/images/dark_crystal_tactics/icons/playBTNButton.svg);
+        width: 100%;
+        height:100%;
+        top:-30%;
+        left:0%;
+        background-size: cover;
+      }
+    }
+  }
+  .media_pagers {
+    display: none;
+  }
+  .wrap {
+    display: block;
+    position: relative;
+    width:300px;
+    height: auto;
+    z-index: 10;
+    margin: 3% auto 0;
+    &.first {
+      left:0px;
+      .wrapper {
+        background:#000000;
+        border:1px solid #6a9f00;
+      }
+    }
+    &.last {
+      right:0;
+      .wrapper {
+        background:#000000;
+        border:1px solid #6a9f00;
+      }
+    }
+
+    .wrapper {
+      background: #6a9f00;
+      background: -webkit-linear-gradient(bottom, #6a9f00 0%, #c2e46a 100%);
+      background: linear-gradient(to top, #6a9f00 0%, #c2e46a 100%);
+      padding:1px;
+    }
+    img {
+      width:100%;
+      max-width:100%;
+      display: block;
+    }
+  }
+
+  .media-btns {
+    display: none;
+  }
+
+  .action {
+    visibility: hidden;
+    &.playBTN {
+      visibility: visible;
+    }
+      span {
+        background-image: url(https://eme04.enmasse-game.com/images/dark_crystal_tactics/dct_sprite_january.png);
+        background-repeat:no-repeat;
+        background-position: 0 -63px;
+        background-size:400px;
+        width: 213px;
+        height: 34px;
+        display: block;
+        margin:1em auto;
+        cursor: pointer;
+        font-family: 'PT Serif', serif;
+        font-weight:700;
+        text-transform:uppercase;
+        text-shadow:0px 0px 6px rgba(0,0,0,0.8);
+        color:#ffffff;
+        line-height:2;
+        &:before {
+          content:'';
+          background-image: url(https://eme04.enmasse-game.com/images/dark_crystal_tactics/dct_sprite_january.png);
+          background-repeat:no-repeat;
+          background-position: 0 -3358px;
+          width: 25px;
+          height: 32px;
+          display: inline-block;
+          vertical-align: middle;
+          background-size:400px;
+          margin-right:10px;
+        }
+      }
+    }
+    #chibi, .stars, #fizz {
+      display: none;
+    }
+  }
+
+
+ section#dc_news {
+    background: url(https://eme04.enmasse-game.com/images/dark_crystal_tactics/bgs/mobile/brown.jpg) top center no-repeat #2a0e00;
+    background-size:cover;
+    position: relative;
+    z-index:60;
+    .inner {
+      background: -webkit-linear-gradient(bottom, rgba(42,14,0, 1) 80%, rgba(42,14,0, 0) 100%);
+      background: linear-gradient(to top, rgba(42,14,0, 1) 80%, rgba(42,14,0, 0) 100%);
+      /* special value to allow irregular background to show in email capture field */
+      padding: 50px 0;
+      &:before {
+        background-position: 10px -469px;
+      }
+      &:after {
+        background-position: -44px -1852px;
+      }
+    }
+    .about {
+      background: #230e07;
+      background: -webkit-linear-gradient(bottom, rgba(35,14,7,1) 80%, rgba(35,14,7,0) 100%);
+      background: linear-gradient(to top, rgba(35,14,7,1) 80%, rgba(35,14,7,0) 100%);
+      margin-top:-30px;
+      position: relative;
+      z-index:10;
+      min-height:95px;
+      p {
+        width:100%;
+        max-width:78%;
+        margin:0 auto;
+        position: relative;
+        top:40px;
+      }
+      a {
+        background-image: url(https://eme04.enmasse-game.com/images/dark_crystal_tactics/dct_sprite_january.png);
+        background-repeat:no-repeat;
+        background-position: 7px 0;
+        width: 325px;
+        height: 110px;
+        display: block;
+        padding-top:47px;
+        margin: 0 auto;
+        cursor:pointer;
+        position: relative;
+        top:10px;
+        color:#ffffff;
+        text-transform:uppercase;
+        font-style:italic;
+        font-size:16px;
+        font-family: 'Titillium Web', sans-serif;
+        span {
+          color:#ffffff;
+          text-transform:uppercase;
+          font-style:italic;
+          font-size:16px;
+          font-family: 'Titillium Web', sans-serif;
+        }
+      }
+      .in_the_way {
+        p {
+          width:auto;
+          max-width:100%;
+          left:auto;
+          right:auto;
+          top:auto;
+        }
+      }
+    }
+   	ul {
+      padding-left: 50px;
+      padding-right: 50px;
+      li {
+        border: 1px solid #a97b32;
+        margin:2em auto 0;
+        width:100%;
+        max-width:377px;
+        img {
+          display: block;
+          width:100%;
+          max-width:100%;
+          position: relative;
+          z-index:5;
+        }
+      }
+   	}
+   	form {
+   		display: flex;
+      background-position: 4px -2900px;
+   	}
+    .action {
+      small {
+        padding-left: 50px;
+        padding-right: 50px;
+      }
+    }
+  }
+  #chibi, .stars, #fizz, #spiders {
+    display: none;
+  }
+  /* news module */
+  /* remove whats already in use on this page */
+  section:not(#hero) {
+    #news {
+      &.inner {
+        padding: 0 50px;
+        background: none;
+        &:before, &:after {
+          content: none;
+        }
+      }
+      h2 {
+        text-transform: capitalize;
+        font-style: normal;
+        font-weight: 400;
+        font-family: 'Montserrat',sans-serif;
+      }
+      p {
+        color:#c6c6c6;
+      }
+    }
+  }
+  /* style this module*/
+  #news {
+    .box {
+      background: #230e07;
+      background: -webkit-linear-gradient(bottom, #230e07 0%, #1a1725 30%, #670084 100%);
+      background: linear-gradient(to top, #230e07 0%, #1a1725 30%, #670084 100%);
+      border: 1px solid #a97b32;
+      border-radius: 0;
+    }
+    .blog-post-content {
+      background: #230e07;
+      .blog-post-date {
+        color:#c7c7c7;
+        font-weight: 400;
+      }
+      .action {
+        a.btn {
+          background-image: url(https://eme04.enmasse-game.com/images/dark_crystal_tactics/dct_sprite_january.png);
+          background-repeat:no-repeat;
+          background-position: -460px -40px;
+          width: 240px;
+          height: 34px;
+          display: block;
+          padding-top:0px;
+          margin: 0 auto;
+          cursor:pointer;
+          position: relative;
+          top:10px;
+          span {
+            border-radius: 0;
+            border: none;
+            color:#ffffff;
+            box-shadow: none;
+            background: none;
+
+            text-transform:capitalize;
+            font-style:italic;
+            font-size:16px;
+            font-family: 'Titillium Web', sans-serif;
+          }
+          &.external {
+            span {
+              padding-top:6px;
+              &:after {
+                content:'';
+                display: inline-block;
+                vertical-align: top;
+                background-image: url(https://eme04.enmasse-game.com/images/dark_crystal_tactics/dct_sprite_january.png);
+                background-repeat:no-repeat;
+                background-position: -72px -6026px;
+                width: 25px;
+                height: 25px;
+                vertical-align: top;
+                margin: -3px 0 0 5px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .article-tag-container {
+      .article-tag {
+        text-transform: uppercase;
+        background: #090402;
+        color:#b8cbeb;
+      }
+    }
+  }
+}
+
+footer#dc {
+  z-index: 300;
+  overflow: visible;
+  .inner {
+    max-width:100%;
+  }
+  .social {
+    display: block;
+    li {
+      display: inline-block;
+      vertical-align:top;
+      margin:0 5px;
+      p {
+        max-width:auto;
+        margin: 0;
+      }
+      a {
+        display: block;
+        width:44px;
+        height:44px;
+      }
+    }
+
+    .icon_facebook, .icon_instagram, .icon_youtube, .icon_twitter, .icon_linkedin, .icon_discord, .icon_twitch, .icon_forums {
+      span {
+        background-image: url(https://eme04.enmasse-game.com/images/dark_crystal_tactics/dct_sprite_january.png);
+        background-repeat: no-repeat;
+        width: 44px;
+        height: 44px;
+        text-indent: -9999em;
+      }
+    }
+    .icon_facebook {
+      span {
+        background-position: -621px -5832px;
+      }
+    }
+    .icon_instagram {
+      span {
+        background-position: -621px -5876px;
+      }
+    }
+    .icon_youtube {
+      span {
+        background-position: -621px -6007px;
+      }
+    }
+    .icon_twitter {
+      span {
+        background-position: -621px -5963px;
+      }
+    }
+    .icon_linkedin {
+      span {
+        background-position: -621px -5920px;
+      }
+    }
+    .icon_discord {
+      span {
+        background-position: -671px -5832px;
+      }
+    }
+    .icon_twitch {
+      span {
+        background-position: -671px -5876px;
+      }
+    }
+    .icon_forums {
+      span {
+        background-position: -671px -5920px;
+      }
+    }
+  }
+  .attribution {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    max-width:1300px;
+    margin:0 auto;
+    #ft_netflix {
+      background-image: url(https://eme04.enmasse-game.com/images/dark_crystal_tactics/dct_sprite_january.png);
+      background-position: -563px -5508px;
+      width: 146px;
+      height: 40px;
+      text-indent:-9999em;
+      display: block;
+    }
+    #ft_krafton {
+      background-image: url(https://eme04.enmasse-game.com/images/dark_crystal_tactics/dct_sprite_january.png);
+      background-position: -647px -5674px;
+      width: 67px;
+      height: 107px;
+      text-indent:-9999em;
+      display: block;
+    }
+    #ft_bonusxp {
+      background-image: url(https://eme04.enmasse-game.com/images/dark_crystal_tactics/dct_sprite_january.png);
+      background-position: -566px -5591px;
+      width: 151px;
+      height: 53px;
+      text-indent:-9999em;
+      display: block;
+    }
+  }
+  .legal {
+    display: block;
+  }
+  .copyright {
+    p {
+      max-width:500px;
+      width:100%;
+      margin:0 auto;
+      color:#ffffff;
+      text-align:center;
+    }
+  }
+}
+
+@media all and (min-width: 768px) {
+  #dc_release {
+    #hero {
+      background: url(https://eme04.enmasse-game.com/images/dark_crystal_tactics/bgs/dcheader_purchase.png);
+      background-repeat: no-repeat;
+      background-size:810px;
+      background-position: top right;
+      background-color: #030205;
+      h1 {
+        margin-bottom:0;
+        margin-top:1rem;
+        img {
+          max-width: 300px;
+          left: 0;
+        }
+        &:after {
+          right:5%;
+        }
+      }
+      .inner {
+        padding: 20px 20px 120px 20px;
+        height: auto;
+      }
+      .action {
+        text-align: left;
+        left: 10%;
+        width: 335px;
+        left: 5%;
+        right: auto;
+        button {
+          margin: 0;
+          height: 78px;
+          background-size: 188%;
+          background-position: 0 -5610px;
+          font-size:24px;
+        }
+      }
+    }
+    section#unite_clans {
+      background: url(https://eme04.enmasse-game.com/images/dark_crystal_tactics/bgs/tablet/purple.jpg) top center no-repeat #170128;
+      background-size: contain;
+      .inner {
+        background: -webkit-linear-gradient(bottom, rgba(23,1,40, 1) 0%, rgba(23,1,40, 0) 100%);
+        background: linear-gradient(to top, rgba(23,1,40, 1) 0%, rgba(23,1,40, 0) 100%);
+      }
+    }
+    section#earn_victory {
+      background: url(https://eme04.enmasse-game.com/images/dark_crystal_tactics/bgs/tablet/blue.jpg) top center no-repeat #0c172c;
+      background-size: contain;
+       .inner {
+        background: -webkit-linear-gradient(bottom, rgba(12,23,44, 1) 80%, rgba(12,23,44, 0) 100%);
+        background: linear-gradient(to top, rgba(12,23,44, 1) 80%, rgba(12,23,44, 0) 100%);
+      }
+    }
+    section#dc_media {
+      background: url(https://eme04.enmasse-game.com/images/dark_crystal_tactics/bgs/tablet/green.jpg) top center no-repeat #0a1806;
+      .inner {
+        background: -webkit-linear-gradient(bottom, rgba(10,24,6, 1) 80%, rgba(10,24,6, 0) 100%);
+        background: linear-gradient(to top, rgba(10,24,6, 1) 80%, rgba(10,24,6, 0) 100%);
+      }
+      .media-wrpper {
+        .playBTNButton:after {
+          cursor: pointer;
+        }
+      }
+        .wrap {
+          display: none;
+          overflow: hidden;
+          position: absolute;
+          width:377px;
+          height: auto;
+          z-index: 10;
+          margin: 3% 0 0 0;
+          .action {
+            visibility: hidden;
+          }
+          &.first, &.selected, &.last {
+            display: inline-block;
+          }
+          &.first {
+            left:0;
+            img {
+              opacity: 0.4;
+            }
+          }
+          &.last {
+            right:0;
+            img {
+              opacity: 0.4;
+            }
+          }
+          &.selected {
+            position: relative;
+            width:450px;
+            height: auto;
+            z-index: 15;
+            left: 0;
+            right: 0;
+            margin:0 auto;
+            img {
+              cursor: pointer;
+            }
+            .action {
+              &.playBTN {
+                visibility: visible;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+        .media_pagers {
+          max-width:300px;
+          width:100%;
+          margin:0 auto;
+          display: -webkit-box;
+          display: -moz-box;
+          display: -ms-flexbox;
+          display: -webkit-flex;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: space-around;
+          span {
+            border-radius: 50%;
+            width:13px;
+            height:13px;
+            background: #6a9f00;
+            border:1px solid #6a9f00;
+            box-shadow:0px 0px 6px rgba(0,0,0,0.8);
+            text-indent: -9999em;
+            cursor: pointer;
+            &.active {
+              background: #ffffff;
+            }
+          }
+        }
+        .media-btns {
+          margin-top:3.5%;
+          position: absolute;
+          top: 0;
+          z-index:10;
+          width:100%;
+          height:63%;
+          display: block;
+          button {
+            height:100%;
+            width:49.5%;
+            display: inline-block;
+            background:transparent;
+            outline:none;
+            border:none;
+
+            background: #000000;
+            background: rgba(0,0,0,0.7);
+            span {
+              background-image: url(https://eme04.enmasse-game.com/images/dark_crystal_tactics/dct_sprite_january.png);
+              width:51px;
+              height:98px;
+              background-position: -440px -5680px;
+              border: none;
+              box-shadow: none;
+              display: block;
+              margin-left:3%;
+              cursor: pointer;
+            }
+            &.media-next {
+              span {
+                background-position: -440px -5573px;
+                margin-left:calc(97% - 45px);
+              }
+            }
+          }
+        }
+     }
+     section#earn_victory, section#dc_news {
+      ul {
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+    }
+    section#dc_news {
+      background: url(https://eme04.enmasse-game.com/images/dark_crystal_tactics/bgs/tablet/brown.jpg) top center no-repeat #2a0e00;
+      .inner {
+        background: none;
+      }
+      /* style this module*/
+      #news {
+        &.news-widget {
+          .news-widget-article-container {
+            .box {
+              margin-left: 0;
+              margin-right: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+/* weird extra styles to get around all the garbage in the interface */
+@media all and (min-width: 768px) {
+  #dc_release section#dc_media .media-wrapper {
+    /* when last slide is inside extra apos area */
+    .wrap.selected + .apos-area {
+      top: 0;
+      display: inline-block;
+      overflow: hidden;
+      position: absolute;
+      width: 377px;
+      height: 100%;
+      z-index: 10;
+      margin: 0;
+      right: 0;
+      .wrap.last {
+        margin-top: 5%;
+      }
+      .apos-area-widget-wrapper .apos-area-widget {
+        top: 0;
+        display: inline-block;
+        overflow: hidden;
+        position: absolute;
+        width: 377px;
+        height: 100%;
+        z-index: 10;
+        margin: 3% 0 0 0;
+        right: 0;
+        .apos-area-widget {
+          top: 0;
+          display: inline-block;
+          overflow: hidden;
+          position: absolute;
+          width: 377px;
+          height: 100%;
+          z-index: 10;
+          margin: 3% 0 0 0;
+          right: 0;
+        }
+      }
+    }
+    /* when first slide is inside extra apos area */
+    div[data-apos-widget-wrapper="dcmedias"] {
+      .wrap.first {
+        top: 0;
+      }
+      .wrap:last-of-type.first {
+        top: -317px;
+      }
+    }
+  }
+}
+/* end weird extra styles */
+/*@media all and (min-width: 900px) {
+  #dc_release {
+    #hero {
+      .inner {
+        padding-left: 100px;
+      }
+    }
+  }
+}*/
+
+@media all and (min-width: 1024px) {
+  #dc_release {
+    #hero {
+      background-size:940px;
+      h1 {
+        img {
+          max-width: 360px;
+        }
+      }
+      ul, #h3 {
+        margin-top:-20px;
+      }
+      .action {
+        a, button {
+          padding-bottom:0;
+        }
+      }
+    }
+    section#earn_victory {
+      .inner {
+        background: -webkit-linear-gradient(bottom, rgba(12,23,44, 1) 50%, rgba(12,23,44, 0) 100%);
+        background: linear-gradient(to top, rgba(12,23,44, 1) 50%, rgba(12,23,44, 0) 100%);
+      }
+    }
+    section#dc_media {
+      .inner {
+        background: -webkit-linear-gradient(bottom, rgba(10,24,6, 1) 0%, rgba(10,24,6, 0) 100%);
+        background: linear-gradient(to top, rgba(10,24,6, 1) 0%, rgba(10,24,6, 0) 100%);
+      }
+      .media-btns {
+        margin-top: 3.25%;
+        height: 63%;
+      }
+    }
+    section#dc_news {
+      background-size:100%;
+    }
+  }
+}
+
+@media all and (min-width: 1060px) {
+  #dc_release {
+    /* news module */
+    section:not(#hero) {
+      #news {
+        &.inner {
+          padding: 0;        
+        }
+      }
+    }
+    #news.news-widget {
+      max-width:990px;
+      width:100%;
+      .news-widget-article-container {
+        .box {
+          width: 480px;
+          &.featured {
+            width:990px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media all and (min-width: 1380px) {
+  #dc_release {
+    #hero {
+      //height:800px;
+      height: 790px;
+      position: relative;
+      background-size: 100%;
+      //background-size:auto;
+
+      background: url(https://eme04.enmasse-game.com/images/dark_crystal_tactics/bgs/dcheader_purchase_desktop.png);
+      background-repeat: no-repeat;
+      background-position: 52% 0%;
+      background-color: #030205;
+
+      
+     /* &:before {
+        content: '';
+        position: absolute;
+        right: calc(100% - ((100% - 1402px) / 2));
+        top: 0;
+        //background: -webkit-linear-gradient(top, #b77a3b 30%, #845537 80%);
+        //background: linear-gradient(to bottom, #b77a3b 30%, #845537 80%);
+        background: #000200;
+        display: block;
+        height: 100%;
+        width: 100%;
+        z-index: 101;
+      }
+      &:after {
+        content: '';
+        position: absolute;
+        left: calc(100% - ((100% - 1402px) / 2));
+        top: 0;
+        //background: url(https://eme04.enmasse-game.com/images/dark_crystal_tactics/bgs/bg_hero_tile.jpg) top left no-repeat #9c7257;
+        background: #000200;
+        display: block;
+        height: 100%;
+        width: 100%;
+        z-index: 101;
+      } */
+    }
+    section#unite_clans {
+      background: url(https://eme04.enmasse-game.com/images/dark_crystal_tactics/bgs/desktop/purple.jpg) top center no-repeat #170128;
+      height:750px;
+      position: relative;
+      &:before {
+        content: '';
+        position: absolute;
+        right: calc(100% - ((100% - 1580px) / 2));
+        top: 0;
+        background: -webkit-linear-gradient(top, #450057 0%, #120028 90%);
+        background: linear-gradient(to bottom, #450057 0%, #120028 90%);
+        display: block;
+        height: 100%;
+        width: 100%;
+        z-index: 101;
+      }
+      &:after {
+        content: '';
+        position: absolute;
+        left: calc(100% - ((100% - 1580px) / 2));
+        top: 0;
+        background: -webkit-linear-gradient(top, #450057 0%, #120028 90%);
+        background: linear-gradient(to bottom, #450057 0%, #120028 90%);
+        display: block;
+        height: 100%;
+        width: 100%;
+        z-index: 101;
+      }
+      p {
+        padding-left:0px;
+        padding-right:0px;
+      }
+      .inner {
+        background: none;
+        padding:50px;
+      }
+      small {
+        padding-left:0;
+      }
+    }
+    section#earn_victory {
+      background: url(https://eme04.enmasse-game.com/images/dark_crystal_tactics/bgs/desktop/blue.jpg) top center no-repeat #0c172c;
+      height:750px;
+      position: relative;
+      &:before {
+        content: '';
+        position: absolute;
+        right: calc(100% - ((100% - 1580px) / 2));
+        top: 0;
+        background: -webkit-linear-gradient(top, #0d192f 30%, #0b172d 80%);
+        background: linear-gradient(to bottom, #0d192f 30%, #0b172d 80%);
+        display: block;
+        height: 100%;
+        width: 100%;
+        z-index: 101;
+      }
+      &:after {
+        content: '';
+        position: absolute;
+        left: calc(100% - ((100% - 1580px) / 2));
+        top: 0;
+        background: -webkit-linear-gradient(top, #0d192f 30%, #0b172d 80%);
+        background: linear-gradient(to bottom, #0d192f 30%, #0b172d 80%);
+        display: block;
+        height: 100%;
+        width: 100%;
+        z-index: 101;
+      }
+      p {
+        padding-left:0px;
+        padding-right:0px;
+      }
+      .inner {
+        background: none;
+        padding:50px;
+      }
+    }
+    section#dc_media {
+      background: url(https://eme04.enmasse-game.com/images/dark_crystal_tactics/bgs/desktop/green.jpg) top center no-repeat #0a1806;
+      height:746px;
+      position: relative;
+      &:before {
+        content: '';
+        position: absolute;
+        right: calc(100% - ((100% - 1580px) / 2));
+        top: 0;
+        background: -webkit-linear-gradient(top, #274a14 0%, #031603 76%);
+        background: linear-gradient(to bottom, #274a14 0%, #031603 76%);
+        display: block;
+        height: 100%;
+        width: 100%;
+        z-index: 101;
+      }
+      &:after {
+        content: '';
+        position: absolute;
+        left: calc(100% - ((100% - 1580px) / 2));
+        top: 0;
+        background: -webkit-linear-gradient(top, #274a14 0%, #031603 76%);
+        background: linear-gradient(to bottom, #274a14 0%, #031603 76%);
+        display: block;
+        height: 100%;
+        width: 100%;
+        z-index: 101;
+      }
+      .wrap {
+        .action {
+          height: 80px;
+        }
+      }
+      .media-btns {
+        margin-top:2.25%;
+        height: 68%;
+      }
+      p {
+        padding-left:0px;
+        padding-right:0px;
+      }
+      .inner {
+        background: none;
+        padding:50px;
+      }
+    }
+    section#dc_news {
+      height:2438px;
+      height:auto;
+      position: relative;
+      background-size:auto;
+      &:before {
+        content: '';
+        position: absolute;
+        right: calc(100% - ((100% - 1580px) / 2));
+        top: 0;
+        background: -webkit-linear-gradient(top, #593c03 7%, #3c1f06 50%, #2a0e00 90%);
+        background: linear-gradient(to bottom, #593c03 7%, #3c1f06 50%, #2a0e00 90%);
+        display: block;
+        height: 100%;
+        width: 100%;
+        z-index: 101;
+      }
+      &:after {
+        content: '';
+        position: absolute;
+        left: calc(100% - ((100% - 1580px) / 2));
+        top: 0;
+        background: -webkit-linear-gradient(top, #593c03 7%, #3c1f06 50%, #2a0e00 90%);
+        background: linear-gradient(to bottom, #593c03 7%, #3c1f06 50%, #2a0e00 90%);
+        display: block;
+        height: 100%;
+        width: 100%;
+        z-index: 101;
+      }
+      ul {
+        padding-left:0;
+        padding-right:0;
+      }
+      #spiders {
+        display: block;
+        height: 366px;
+        width: 348px;
+        position: absolute;
+        right:-80px;
+        bottom:-270px;
+      }
+    }
+    .inner {
+      height:100%;
+    }
+    section:not(#hero) {
+      .inner {
+        &:before, &:after {
+          display: none;
+        }
+      }
+      h2 {
+        font-size:66px;
+        line-height:1;
+      }
+      p {
+        font-size:20px;
+        line-height:30px;
+      }
+      &#dc_news {
+        #news {
+          h2 {
+            font-size:20px;
+            line-height:25px;
+          }
+          p {
+            font-size:16px;
+            line-height:35px;
+          }
+        }
+      }
+    }
+    #hero {
+      .inner {
+          max-width:1370px;
+        //padding:140px 20px 20px 47px;
+        //padding: 20px 20px 20px 47px;
+      }
+      h3 {
+        font-size:26px;
+      }
+      h1 {
+        margin-bottom:0;
+        img {
+          //max-width:540px;
+          max-width:490px;
+          margin-left:40px;
+          margin-top:90px;
+          margin-bottom:50px;
+        }
+        &:after {
+          display: none;
+        }
+      }
+      #dc_crystal {
+        transform:scaleX(1);
+        max-width:703px;
+        right:-7%;
+        top:-5%;
+        height:auto;
+        -webkit-animation: rise 2s ease-out forwards normal;
+        -moz-animation: rise 2s ease-out forwards normal;
+        -o-animation: rise 2s ease-out forwards normal;
+        animation: rise 2s ease-out forwards normal;
+      }
+      ul {
+        margin-left:74px;
+      }
+      h3 {
+        margin-left:147px;
+      }
+      .action {
+        left: 11%;
+        a, button {
+          /*background-size:auto;
+          background-position: 0 -174px;
+          width:382px;
+          height:61px;
+          padding: 4px 0 0 0;*/
+          font-size:26px;
+        }
+        div {
+          width:100%;
+        }
+      }
+    }
+    section#unite_clans {
+      #chibi {
+        display: block;
+        height: auto;
+        width: 100%;
+        max-width:1600px;
+        position: absolute;
+        left:0;
+        right:0;
+        top:110px;
+        z-index:102;
+        margin:0 auto;
+      }
+      .stars {
+        display: block;
+        background: url(https://eme04.enmasse-game.com/images/dark_crystal_tactics/bgs/stars/purple.png) top center repeat;
+        -webkit-animation: bloom 45s normal infinite;
+        -moz-animation: bloom 45s normal infinite;
+        -o-animation: bloom 45s normal infinite;
+        animation: bloom 45s normal infinite;
+        position: absolute;
+        width:100%;
+        height:100%;
+        z-index:103;
+        max-width:1600px;
+        margin:0 auto;
+        left:0;
+        right:0;
+      }
+      #fizz {
+        display: block;
+        height: 155px;
+        width: 128px;
+        position: absolute;
+        left:180px;
+        bottom:-240px;
+        z-index:104;
+      }
+      .inner {
+        z-index:105;
+      }
+
+      p {
+        max-width:750px;
+        margin-bottom:30px;
+        font-size:20px;
+        line-height:30px;
+      }
+      form {
+        background-size:auto;
+        background-position: 0 -5322px;
+        margin-left: auto;
+        width:700px;
+        height:150px;
+        margin-top:-30px;
+        input[type="email"], button[type="submit"] {
+          width: 336px;
+        }
+      }
+    }
+    section#earn_victory {
+      overflow:hidden;
+      p {
+        font-size: 18px !important;
+        line-height: 24px !important;
+      }
+      #chibi {
+        display: block;
+        height: auto;
+        width: 100%;
+        max-width:1600px;
+        position: absolute;
+        left:0;
+        right:0;
+        top:220px;
+        z-index:102;
+        margin:0 auto;
+      }
+      .stars {
+        display: block;
+        background: url(https://eme04.enmasse-game.com/images/dark_crystal_tactics/bgs/stars/blue.png) top center repeat;
+        -webkit-animation: bloom 45s normal infinite;
+        -moz-animation: bloom 45s normal infinite;
+        -o-animation: bloom 45s normal infinite;
+        animation: bloom 45s normal infinite;
+        position: absolute;
+        width:100%;
+        height:100%;
+        z-index:103;
+        max-width:1600px;
+        margin:0 auto;
+        left:0;
+        right:0;
+      }
+      .inner {
+        z-index:105;
+      }
+    }
+  
+    section#dc_media {
+      overflow:hidden;
+      .vid_wrap {
+        width:690px;
+        height: auto;
+        margin: 2% 0 0 0;
+        &.selected {
+          width: 783px;
+          height: auto;
+          margin:0 auto;
+        }
+      }
+      .action {
+        span {
+          font-size:26px;
+          background-size:auto;
+          background-position: 0 -114px;
+          width: 390px;
+          height: 60px;
+          padding-top:5px;
+          &:before {
+            background-size:auto;
+            background-position: 0 -6008px;
+            width:40px;
+            height:40px;
+            margin-top: -6px;
+          }
+        }
+      }
+      #chibi {
+        display: block;
+        height: auto;
+        width: 100%;
+        max-width:1660px;
+        position: absolute;
+        left:0;
+        right:0;
+        //top:180px;
+        top:30px;
+        z-index:102;
+        margin:0 auto;
+      }
+      .stars {
+        display: block;
+        background: url(https://eme04.enmasse-game.com/images/dark_crystal_tactics/bgs/stars/green.png) top center repeat;
+        -webkit-animation: bloom 45s normal infinite;
+        -moz-animation: bloom 45s normal infinite;
+        -o-animation: bloom 45s normal infinite;
+        animation: bloom 45s normal infinite;
+        position: absolute;
+        width:100%;
+        height:100%;
+        z-index:103;
+        max-width:1600px;
+        margin:0 auto;
+        left:0;
+        right:0;
+      }
+      .inner {
+        z-index:105;
+      }
+    }
+    section#dc_news {
+      overflow:hidden;
+      .about {
+        p {
+          font-size:16px;
+          line-height:20px;
+        }
+      }
+      form {
+        background-size:auto;
+        background-position: 0 -5178px;
+        margin-left:0;
+        width: 690px;
+        height: 140px;
+        margin-left: auto;
+        input[type="email"], button[type="submit"] {
+          width: 336px;
+        }
+      }
+      #chibi {
+        display: block;
+        height: auto;
+        width: 100%;
+        max-width:1600px;
+        position: absolute;
+        left:0;
+        right:0;
+        top:260px;
+        z-index:102;
+        margin:0 auto;
+      }
+      .stars {
+        display: block;
+        background: url(https://eme04.enmasse-game.com/images/dark_crystal_tactics/bgs/stars/brown.png) top center repeat;
+        -webkit-animation: bloom 45s normal infinite;
+        -moz-animation: bloom 45s normal infinite;
+        -o-animation: bloom 45s normal infinite;
+        animation: bloom 45s normal infinite;
+        position: absolute;
+        width:100%;
+        height:100%;
+        z-index:103;
+        max-width:1600px;
+        margin:0 auto;
+        left:0;
+        right:0;
+      }
+      .inner {
+        z-index:105;
+      }
+      #spiders {
+        display: block;
+      }
+    }
+    form {
+      input[type="email"] {
+        font-size: 16px;
+      }
+      button[type="submit"] {
+        span {
+          font-size: 26px;
+        }
+      }
+      .email_label {
+        margin-left:42px;
+        margin-top: 10px;
+      }
+    }
+    small {
+      font-size:16px;
+    }
+  }
+}
+
+/* weird extra styles to get around all the garbage in the interface */
+@media all and (min-width: 1380px) {
+  #dc_release section#dc_media .media-wrapper {
+    /* when last slide is inside extra apos area */
+    .wrap.selected + .apos-area {
+      
+      .wrap.last {
+        margin-top:2%;
+      }
+      .apos-area-widget-wrapper .apos-area-widget {
+        
+        .apos-area-widget {
+          
+        }
+      }
+    }
+    /* when first slide is inside extra apos area */
+    div[data-apos-widget-wrapper="dcmedias"] {
+      .wrap.first {
+        
+      }
+      .wrap:last-of-type.first {
+        top: -542px;
+      }
+    }
+  }
+}
+/* end weird extra styles */
+
+@media all and (min-width: 1601px) {
+  #dc_release {
+    #hero {
+      //background-size:1600px;
+      //height: 960px;
+      .inner {
+        max-width:1370px;
+      }
+      .action {
+        left: 9%;
+      }
+
+      &:before {
+        content: '';
+        position: absolute;
+        right: calc(100% - ((100% - 1600px) / 2));
+        top: 0;
+        //background: -webkit-linear-gradient(top, #b77a3b 30%, #845537 80%);
+        //background: linear-gradient(to bottom, #b77a3b 30%, #845537 80%);
+        background: #000200;
+        display: block;
+        height: 100%;
+        width: 100%;
+        z-index: 101;
+      }
+      &:after {
+        content: '';
+        position: absolute;
+        left: calc(100% - ((100% - 1430px) / 2));
+        top: 0;
+        //background: url(https://eme04.enmasse-game.com/images/dark_crystal_tactics/bgs/bg_hero_tile.jpg) top left no-repeat #9c7257;
+        background: #000200;
+        background: -webkit-linear-gradient(right, rgba(23,23,30, 0) 0%, rgba(23,23,30, 1) 5%);
+        background: linear-gradient(to right,  rgba(23,23,30, 0) 0%, rgba(23,23,30, 1) 5%);
+        display: block;
+        height: 100%;
+        width: 100%;
+        z-index: 101;
+      }
+    }
+  }
+}
+
+/* grow appear */
+@keyframes appear {
+    0%   { opacity: 0; transform: scale(0.95) }
+    100% { opacity: 100%; transform: scale(1) }
+}
+@keyframes rise {
+    0%   { top: 0% }
+    100% { top: -5%; }
+}
+
+@keyframes bloom {
+  0% {
+    transform:scale(1);
+  }
+  50% {
+    transform:scale(1.2);
+  }
+  100% {
+    transform:scale(1);
+  }
+}
+

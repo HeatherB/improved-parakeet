@@ -1,0 +1,87 @@
+<section class="section hero">
+  <div class="hero-inner">
+    <span class="sparkle"><img src="http://eme02.enmasse-game.com/images/breach/zendesk/siteSkin/box_highlight.png" /></span>
+    <div class="search_bar_wrapper" id="homeSearch">
+      <h3>Search for answers by entering your keywords below</h3>
+    {{search submit=false instant=settings.instant_search class='search search-full'}}
+      <button type="button" id="find-this" value="Search" class="yellowBTN">Search</button>
+      <p>Example Keyword Searches: &ldquo;Forgot password&rdquo;</p>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <!--
+  <section class="section knowledge-base">
+    <section class="categories blocks">
+      <ul class="blocks-list">
+        {{#each categories}}
+          {{#if ../has_multiple_categories}}
+            <li class="blocks-item">
+              <a href='{{url}}' class="blocks-item-link">
+                <h4 class="blocks-item-title">{{name}}</h4>
+                <p class="blocks-item-description">{{excerpt description}}</p>
+              </a>
+            </li>
+          {{else}}
+            {{#each sections}}
+              <li class="blocks-item {{#if internal}}blocks-item-internal{{/if}}">
+                <a href='{{url}}' class="blocks-item-link">
+                  <h4 class="blocks-item-title">
+                    {{name}}
+                    {{#if internal}}
+                      <span class="icon-lock" title="{{t 'internal'}}"></span>
+                    {{/if}}
+                  </h4>
+                  <p class="blocks-item-description">{{excerpt description}}</p>
+                </a>
+              </li>
+            {{/each}}
+          {{/if}}
+        {{/each}}
+      </ul>
+      {{pagination}}
+    </section>
+  -->
+
+    {{#if promoted_articles}}
+      <section class="articles">
+        <h3>{{t 'promoted_articles'}}</h3>
+        <ul class="article-list promoted-articles">
+          {{#each promoted_articles}}
+            <li class="promoted-articles-item">
+              <a href="{{url}}">
+                {{title}}
+              </a>
+            </li>
+          {{/each}}
+        </ul>
+        <a class="blueBTN all_articles" href="https://qcgames.zendesk.com/hc/en-us/sections/360002009351-FAQ">View More Articles</a>
+      </section>
+    {{/if}}
+  </section>
+
+  <section class="action_btns section-tree">
+    <a class="yellowBTN" href="/articles">I Can't Login</a>
+    <a class="yellowBTN" href="https://qcgames.zendesk.com/hc/en-us/requests">My Tickets</a>
+    <a class="yellowBTN" href="https://qcgames.zendesk.com/hc/en-us/requests/new">Contact Support</a>
+  </section>
+
+<!--
+  {{#if help_center.community_enabled}}
+    <section class="section community">
+      <h2>{{t 'community'}}</h2>
+      {{#link 'community' class='community-link'}}
+        {{t 'join_conversation'}}
+      {{/link}}
+
+      <div class="community-image"></div>
+    </section>
+  {{/if}}
+
+  <section class="section activity">
+    {{#if settings.show_recent_activity}}
+      {{recent_activity}}
+    {{/if}}
+  </section-->
+</div>

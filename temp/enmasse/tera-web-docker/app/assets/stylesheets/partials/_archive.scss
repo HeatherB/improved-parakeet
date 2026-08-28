@@ -1,0 +1,69 @@
+.blog_archive_widget {
+	h3 {
+		display: block;
+		padding: 17px 0 18px 15px;
+		width:100%;
+		max-width:493px;
+		margin:0 auto;
+		background: url(/assets/bgs/side-carat.png) center right no-repeat $black;
+		font-size:30px;
+		text-transform: uppercase;
+		img {
+			max-width:140px;
+		}
+	}
+	nav {
+		background: none;
+		max-width: 493px;
+		padding-left: 6px;
+		margin:0 auto;
+		li {
+			display: block;
+			background: none;
+			padding: 0;
+			margin: 5px 0 15px;
+			a {
+				font-size:24px;
+				color: $btngrey;
+				text-transform: capitalize;
+				padding: 5px 0;
+			}
+			span {
+				display: inline-block;
+				vertical-align:middle;
+			}
+			.count {
+				background: $btngrey;
+				color: $white;
+				width:33px;
+				text-align:center;
+				padding: 0;
+				font-size:21px;
+			}
+			.datespan {
+				width: calc(100% - 45px);
+				font-size:24px;
+			}
+		}
+	}
+}
+#archive_listings {
+	padding: 20px;
+	
+}
+@include breakpoint(tablet) {
+	#archive_listings, #content_side_body.blog_archive_widget {
+		display: inline-block;
+		vertical-align:top;
+	}
+	#archive_listings {
+		padding: 40px 10px 40px 40px;
+		width:68%;
+	}
+	body.news {
+		#content_side_body.blog_archive_widget.archive {
+			width: 31%;
+			padding: 80px 40px 40px 10px;
+		}
+	}
+}

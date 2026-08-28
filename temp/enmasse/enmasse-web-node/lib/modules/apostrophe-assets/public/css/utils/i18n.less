@@ -1,0 +1,126 @@
+#dc_header .locale_picker {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+
+.locale_picker {
+    position: relative;
+    width: 160px;
+    cursor: pointer;
+
+    .locale_icon, .locale_arrow_down, .locale_arrow_up {
+        -webkit-transform: initial;
+        transform: initial;
+        position: absolute;
+        z-index: 2;   
+    }
+
+    .locale_icon {
+        width: 20px;
+        left: 8px;
+        top: 6px;
+    }
+    .locale_arrow_down, .locale_arrow_up {
+        width: 17px;
+        right: 6px;
+        top: 13px;
+    }
+
+    .locale_arrow_down { display: none; }
+    .locale_arrow_up { display: block; }
+
+    .locale_selected {
+        padding: 7px 29px 7px 20px;
+        text-align: right;
+        height: 42px;
+        a {
+            color: #ffffff;
+            padding: 7px 0 0;
+            display: inline-block;
+            width: 100%;
+        }
+    }
+
+    .locale_picker_list {
+        text-align: left;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, .1);
+        border-radius: 3px;
+        list-style: none; 
+        overflow: hidden;
+        -webkit-transition: height 0.3s ease;
+        transition: height 0.3s ease;
+        z-index: 1;
+        position: relative;
+        background:#fff;
+        border: 1px solid #d8d8d8;
+        border-radius: 3px;
+        height: auto;
+        padding: 10px 0;
+
+        li {
+            padding: 7px 29px 7px 20px;
+            text-align: left;
+            
+        }
+        
+        li:not(.selected):hover, li:not(.selected):active {
+            background:#f3f3f3;
+        }
+
+        a {
+            display: block;
+            color: #333333;
+            font-size: 15px;
+            font-family: 'Titillium Web', sans-serif;
+            font-weight: 400;
+            line-height: 1.5;
+            line-height: 1.75rem;
+            text-decoration: none;
+            -webkit-transition: color 0.3s ease;
+            transition: color 0.3s ease;
+        }
+        li a:hover, li a:active {
+            text-decoration: none;
+            color:#333;
+        }
+        
+        li.selected a {
+            background: none;
+            color: #ffffff;
+        }
+
+    }
+
+    &.closed {
+        .locale_arrow_down { display: block; }
+        .locale_arrow_up { display: none; }
+        .locale_picker_list { height: 0; border: none; padding: 0; }
+        
+    }
+}
+
+footer#dc .locale_picker {
+    position: absolute;
+    top: 7px;
+    right: 10px;
+
+    .locale_picker_list {
+        position: absolute;
+        bottom: 42px;
+        width: 100%;
+    }
+
+}
+
+@media all and (max-width: 768px) {
+
+    footer#dc .locale_picker {
+        position: relative;
+        top: initial;
+        right: initial;
+        margin: 0 auto;
+    }
+
+}

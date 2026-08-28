@@ -1,0 +1,112 @@
+<% if ENV['RACK_ENV'] == 'deployment' %>
+  <script>
+    try {
+      _tera_client_proxy_
+    }
+    catch(err) {
+      _tera_client_proxy_ = null;
+    }
+
+    window.onload = function() {
+      BT.bt = new BT({url: 'https://bt.enmasse.com', uid: '<%= @user["id"] %>', res: 'EME Store', game: 'tera'});
+      if (!_tera_client_proxy_) {// in browser
+        BT.bt.t({md: 'In browser', act: 'load', label: 'Potion Shack'});
+        _gaq.push(['_trackEvent', 'Potion Shack', 'Load in Browser', '/tera/potion-shack']); 
+      } else {// in game
+        BT.bt.t({md: 'In game', act: 'load', label: 'Potion Shack'});
+        _gaq.push(['_trackEvent', 'Potion Shack', 'Load in Game', '/tera/potion-shack']); 
+      }
+    }
+  </script>
+<% end %>
+
+<section id="wide_body" class="row">
+  <div class="wrapper">
+    <div id="control">
+      <div class="logo"></div>
+      <div class="catalysts">
+        <span>You have </span><span class="catalyst-icon"></span> <span id="catalyst-count"><%= @catalyst %></span>
+      </div>
+      <div id="info">
+        <h1><a href="#" data-url="http://static.enmasse.com/store/potion-shack/instructPlay.jpg" id="earn">Earn catalysts in game</a></h1>
+        <p>or</p>
+        <p>buy catalysts with EMP:</p>
+      </div>
+      <div id="buy-more" data-user="<%= @game_id %>">
+        <ul>
+          <li>
+            <a href="<%= @purchase_infos[:catalyst_1].price_id %>" data-count="1" data-price="<%= @purchase_infos[:catalyst_1].price %>">
+              <span class="num">1</span>CATALYST<br>
+              <span class="cost"><%= @purchase_infos[:catalyst_1].price %> EMP</span>
+            </a>
+          </li>
+          <li>
+            <a href="<%= @purchase_infos[:catalyst_5].price_id %>" data-count="5" data-price="<%= @purchase_infos[:catalyst_5].price %>">
+              <span class="num">5</span>CATALYSTS<br>
+              <span class="cost"><%= @purchase_infos[:catalyst_5].price %> EMP</span>
+            </a>
+          </li>
+          <li>
+            <a href="<%= @purchase_infos[:catalyst_10].price_id %>" data-count="10" data-price="<%= @purchase_infos[:catalyst_10].price %>">
+              <span class="num">10</span>CATALYSTS<br>
+              <span class="cost"><%= @purchase_infos[:catalyst_10].price %> EMP</span>
+            </a>
+          </li>
+          <li>
+            <a href="<%= @purchase_infos[:catalyst_25].price_id %>" data-count="25" data-price="<%= @purchase_infos[:catalyst_25].price %>">
+              <span class="num">25</span>CATALYSTS<br>
+              <span class="cost"><%= @purchase_infos[:catalyst_25].price %> EMP</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="buy-emp">
+        <button class="button">Buy EMP</button>
+        <p>EMP Balance: <span id="balance"><%= @emp %></span></p>
+      </div>
+    </div>
+
+    <div id="game">
+    <div class="spinner one"><div class="burst bottom"></div></div>
+    <div class="spinner two"><div class="burst top"></div></div>
+    <div id="bouncer"></div>
+    <div id="card">
+      <div id="prizeImage"></div>
+      <div id="prizeTitle"></div>
+    </div>
+
+      <div class="bubble">
+        <span class="arrow"></span><span id="speach">Will you help me make some potions?</span>
+      </div>
+
+      <div id="kyra" class=""></div>
+
+      <div id="bubbles"></div>
+      <div id="cauldron" class=""></div>
+
+      <div id="start">START<br><span>(uses 5 catalysts)</span></div>
+
+      <div id="firepit">
+        <div class="logs"></div>
+      </div>
+
+      <!-- <a href="http://static.enmasse.com/store/potion-shack/Bounty_board.png" id="bounties">Hunts</a> -->
+
+      <a href="http://static.enmasse.com/store/potion-shack/Prizes.jpg" id="prizes">Prize List</a>
+
+      <div id="bottleRed" class="bottle" data-index="1" data-color="red"></div>
+      <div id="bottleBlue" class="bottle" data-index="2" data-color="blue"></div>
+      <div id="bottlePurple" class="bottle" data-index="3" data-color="purple"></div>
+      <div id="bottleGreen" class="bottle" data-index="4" data-color="green"></div>
+      <div id="bottleYellow" class="bottle" data-index="5" data-color="yellow"></div>
+    </div>
+  </div>
+</section>
+
+<div id="lightbox" style="display:none;">
+  <div id="lightbox-container">
+    <div id="lightbox-head"></div>
+    <div id="lightbox-content"></div>
+    <!-- <a href="javascript:;" class="lightbox-close"></a> -->
+  </div>
+</div>

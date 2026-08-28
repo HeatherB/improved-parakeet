@@ -1,0 +1,13 @@
+<div id="cancelModal" class="content-block">
+  <h3>Are you sure you want to cancel?</h3>
+  <p>We are sorry to see you go!</p>
+  <p>After the remaining elite status time expires, all the
+    <a href="http://tera.enmasse.com/store/elite-status" target="_blank">elite status benefits</a> will end.</p>
+  <p>You are welcome to resubscribe to elite status at any time!</p>
+  <!--<p>After your Elite Status time expires all the <a href="http://tera.enmasse.com/store/elite-status" target="_blank">benefits</a> of Elite Status will stop, and you’ll be a total N00B again. Rly think about this, k.</p>-->
+  <form action="/tera/elite-status/cancel" method="post">
+    <input type="hidden" name="id" value="<%= @existing_sub ? @existing_sub["id"] : '' %>" id="eliteCancelSubscriptionId">
+    <input id="eliteCancelStateBtn" class="button-secondary" type="submit" value="Yes" onclick="_gaq.push(['_trackEvent', 'Purchase Funnels', 'Cancel Subscription', 'Subscription']);"/>
+    <a class="close-reveal-modal button-secondary">No</a>
+  </form>
+</div>

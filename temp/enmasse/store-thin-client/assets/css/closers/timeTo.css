@@ -1,0 +1,85 @@
+.transition {
+    -webkit-transition: top 400ms linear;
+    -moz-transition: top 400ms linear;
+    -ms-transition: top 400ms linear;
+    -o-transition: top 400ms linear;
+    transition: top 400ms linear;
+}
+
+.timer {
+  float: left;
+  margin-top: 7px;
+  color: white;
+  text-align: left;
+}
+.timeTo {
+  position: relative;
+  font-family: Tahoma, Verdana, Aial, sans-serif;
+  font-size: 28px;
+  line-height: 108%;
+  font-weight: bold;
+  height: 28px;
+  width: 156px;
+  padding-right: 36px;
+  margin: 5px 0;
+
+  background: #45484d; /* Old browsers */
+  background: -moz-linear-gradient(top, rgba(75,79,86,0.6) 0%, rgba(29,33,40,0.6) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(75,79,86,0.6)), color-stop(100%,rgba(29,33,40,0.6))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, rgba(75,79,86,0.6) 0%,rgba(29,33,40,0.6) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, rgba(75,79,86,0.6) 0%,rgba(29,33,40,0.6) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, rgba(75,79,86,0.6) 0%,rgba(29,33,40,0.6) 100%); /* IE10+ */
+  background: linear-gradient(to bottom, rgba(75,79,86,0.6) 0%,rgba(29,33,40,0.6) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgba(75,79,86,0.6)', endColorstr='rgba(29,33,40,0.6)',GradientType=0 ); /* IE6-9 */
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.timeTo:after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -6px;
+  width: 36px;
+  height: 36px;
+  background: url('/assets/icon-timer.png') no-repeat 0 0
+}
+
+
+.timeTo span {
+  vertical-align: top;
+  color: white;
+}
+.timeTo.timeTo-black div { color: white; }
+
+.timeTo figure {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+.timeTo figcaption {
+  text-align: center;
+  line-height: 80%;
+  font-weight: normal;
+  color: #888;
+}
+
+.timeTo div {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.timeTo ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  left: 3px;
+}
+
+.timeTo ul li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}

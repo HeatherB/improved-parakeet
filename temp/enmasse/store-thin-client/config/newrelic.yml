@@ -1,0 +1,37 @@
+common: &default_settings
+  license_key: 'c35976f152f9692288adf6c694b37a228713ed2a'
+  app_name: En Masse Store
+  enabled: false
+  log_level: info
+  ssl: true
+  apdex_t: 0.5
+  capture_params: false
+  transaction_tracer:
+    enabled: true
+    transaction_threshold: apdex_f
+    record_sql: obfuscated
+    stack_trace_threshold: 0.500
+  error_collector:
+    enabled: true
+    capture_source: true
+  browser_monitoring.auto_instrument: false
+development:
+  <<: *default_settings
+  enabled: false
+  app_name: En Masse Store (Development)
+  developer: true
+test:
+  <<: *default_settings
+  enabled: false
+production:
+  <<: *default_settings
+  enabled: true
+staging:
+  <<: *default_settings
+  enabled: false
+  app_name: En Masse Store (Staging)
+edge:
+  <<: *default_settings
+  enabled: true
+  log_level: debug
+  app_name: En Masse Store (Edge)

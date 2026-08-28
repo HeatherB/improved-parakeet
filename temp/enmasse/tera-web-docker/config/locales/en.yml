@@ -1,0 +1,110 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  hello: "Hello"
+  en: "English"
+  fr: "French"
+  de: "German"
+  es: "Spanish"
+  platform_all: "All"
+  platform_windows: "PC"
+  platform_playstation: "PS4"
+  platform_xbox: "XBOX ONE"
+  btn_readmore: "Read More"
+  btn_seemore: "See More"
+  btn_learnmore: "Learn More"
+  btn_seefewer: "See Fewer"
+  btn_allnews: "All News"
+  play_windows: "Play on PC"
+  play_playstation: "Play on PS4"
+  play_xbox: "Play on XBOX ONE"
+  learn_more: "Learn More"
+  twitter: "twitter"
+  facebook: "facebook"
+  twitch: "twitch"
+  discord: "discord"
+  youtube: "youtube"
+  legal: "Legal"
+  no_blog_articles_yet: "no blog articles yet"
+  end_user_license_agreement: "End-User License Agreement"
+  player_created_content: "Player-Created Content"
+  privacypolicy: "Privacy Policy"
+  termsofservice: "Terms of Service"
+  jobs: "Jobs"
+  rulesofconduct: "Rules of Conduct"
+  eula: "EULA"
+  contactus: "Contact Us"
+  enmasse: "En Masse"
+  bluehole: "Bluehole"
+  krafton: "Krafton"
+  copyright: "© 2019 En Masse vCopyright Krafton Inc. All Rights Reserved. Your use of this product is subject to the terms of the license agreement available on our website at tera.enmasse.com. TERA™, TERA: Rising And TERA: The Exiled Realm Of Arborea are trademarks of Krafton Inc. All other trademarks are the property of their respective owners."
+  ankle_copy: "TERA is a stunning fantasy MMO that features fast-paced action combat; a vast, gorgeous world; and highly customizable characters. Best of all, TERA is FREE to play!"
+  partners: "PARTNERS"
+  streamers: "STREAMERS"
+  media_label: "Media"
+  video_label: "Video"
+  playlist_label: "Playlist"
+  screenshots_label: "Screenshots"
+  concepts_label: "Concept Art"
+  home: "Home"
+  page_not_found: "Page not found"
+  events: "Events"
+  game: "Game"
+  what_is_tera: "What is TERA"
+  console_first_look: "Console: First Look"
+  races: "Races"
+  aman: "Aman"
+  baraka: "Baraka"
+  castanic: "Castanic"
+  elin: "Elin"
+  high_elf: "High Elf"
+  human: "Human"
+  popori: "Popori"
+  classes: "Classes"
+  archer: "Archer"
+  berserker: "Berserker"
+  lancer: "Lancer"
+  mystic: "Mystic"
+  valkyrie: "Valkyrie"
+  priest: "Priest"
+  slayer: "Slayer"
+  sorcerer: "Sorcerer"
+  warrior: "Warrior"
+  reaper: "Reaper"
+  gunner: "Gunner"
+  brawler: "Brawler"
+  ninja: "Ninja"
+  news: "News"
+  community: "Community"
+  support: "Support"
+  store: "Store"
+  tera_store_for_pc: "TERA Store for PC"
+  elite_status: "Elite Status"
+  emp_for_pc: "EMP for PC"
+  download: "Download"
+  play_free: "Play Free"
+  xbox_one: "XBOX ONE"
+  ps4: "PLAYSTATION 4"
+  eu: "EU"
+  na: "NA"
+  ps4_na_link: "Links to Playstation Store, North America"
+  ps4_eu_link: "Links to Playstation Store, Europe"

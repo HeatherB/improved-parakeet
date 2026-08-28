@@ -1,0 +1,69 @@
+.legal_pages {
+    h1 {
+        text-align: center;
+        color: #555;
+        border-bottom: solid .5px #555;
+        padding-bottom: 20px;
+        margin-bottom: 30px;
+    }
+    p, li {
+        margin-bottom: 30px;
+        text-align: justify;
+        font-size: 19px;
+    }
+}
+#content_wide_body {
+    .legal_pages  {
+        max-width: 1000px;
+        position: relative;
+        margin: 0 auto;
+        color: #555;
+        text-align: justify;
+        margin-top: 20px;
+        font-size: 19px;
+    }
+}
+
+#content_wide_body {
+    .legal_pages.terms-of-service_wrapper {
+        max-width: 1000px;
+        .heading-table {
+            width: 100%;
+        }
+        .rules {
+            width: 100%;
+            margin-bottom: 20px;
+            thead {
+                tr {
+                    background: #949da0;
+                    text-align: center;
+                }
+                th {
+                    border-bottom: solid .5px #555;
+                    padding: 10px;
+                    background: #949da0;
+                }
+            }
+            td {
+                padding: 20px;
+                p:last-child {
+                    margin-bottom: 0;
+                }
+            }
+            td:first-child, th:first-child {
+                width: 60%;
+            }
+            td:last-child, th:last-child {
+                width: 40%;
+                border-left: solid .5px #555;
+            }
+            tr:nth-child(even) {
+                background: #474a50;
+                color: white;
+            }
+            tr:nth-child(odd) {
+                background: #9aabb2;
+            }
+        }
+    }
+}

@@ -1,0 +1,428 @@
+body.dark-reaches {
+    #main-wrapper {
+        background-image: url(https://eme01.enmasse-game.com/images/tera/events/dark-reaches/faded-heading.png);
+        background-position: top;
+        background-repeat: no-repeat;
+        background-color: white;
+    }
+    .eme-lightbox li.vidholder.ytube {
+        position: relative;
+        &:hover {
+            &:before {
+                transform: scale(1.2);
+            }
+        }
+    }
+    .eme-lightbox li.vidholder.ytube:before {
+        background: url(https://eme01.enmasse-game.com/images/tera/events/youtube_play_btn.png) center center no-repeat;
+        width: 100%;
+        height: 100%;
+        max-width: 87px;
+        background-size: contain;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        position: absolute;
+        display: block;
+        content: "";
+        pointer-events: none;
+        transition: 250ms;
+    }
+    .section-block {
+        padding-top: 0px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 15px;
+    }
+    .bigdescription {
+        padding: 10px 35px;
+        text-align: center;
+        font-size: 29px;
+    }
+    .video-half {
+        max-width: 50%;
+    }
+    .copy.half {
+        width: 50%;
+        @media (max-width: 800px) {
+            width: 100%;
+            padding-bottom: 0 !important;
+        }
+    }
+    .imghalf {
+        @media (max-width: 800px) {
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+    }
+    .locked, #NewDungeons {
+        display: block;
+        clear: both;
+        padding: 35px 35px 15px 35px;
+        h3 {
+            background: #003173;
+            font-size: 21px;
+            padding: 30px;
+            position: relative;
+            color: white;
+            margin-bottom: 0;
+            font-weight: normal;
+            span {
+                display: inline-flex;
+                height: 100%;
+                align-items: center;
+                justify-content: left;
+                max-width: 780px;
+                font-size: 21px;
+                vertical-align: middle;
+                line-height: 1.2em;
+                margin-left: 10px;
+            }
+        }
+        img {
+            width: 100%;
+        }
+    }
+    .rewards-table {
+        display: block;
+        clear: both;
+        padding: 35px 35px 15px 35px;
+        font-size: 21.008px;
+        .title {
+            width: 100%;
+            background: black;
+            color: white;
+            padding: 12px 40px;
+            font-size: 21.008px;
+        }
+        .content {
+            background: #585252;
+            text-align: center;
+            overflow: hidden;
+            font-size: 21.008px;
+        }
+        .tier, .rewards {
+            display: inline-block;
+            vertical-align: top;
+            margin: 5px;
+            font-size: 21.008px;
+        }
+        .tier {
+            background: black;
+            color: white;
+            //width: 265px;
+            width: calc(40% - 10px);
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            margin-right: 0px;
+        }
+        .rewards {
+            background: #a6dcf5;
+            color: black;
+            width: calc(60% - 10px);
+            min-width: 100px;
+            padding: 15px;
+            text-align: left;
+        }
+        .column {
+            width: 100%;
+            display: inline-block;
+            vertical-align: top;
+            padding: 0;
+            @include breakpoint(tablet) {
+                width: 50%;
+            }
+        }
+        .column:first-child .rewards {
+            margin-right: 0;
+        }
+        &.four-column {
+            padding-top: 0px;
+            min-width: 585px;
+            @media (max-width: 800px) {
+                padding: 0;
+            }
+            .content {
+                min-width: 585px;
+            }
+            .rewards, .tier {
+                width: calc(25% - 15px);
+                text-align: center;
+                min-height: 100px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                line-height: 1.1em;
+                min-width: 130px;
+                @media (max-width: 800px) {
+                    font-size: 12px;
+                }
+            }
+            .row {
+                text-align: left;
+                position: relative;
+                min-width: 485px;
+            }
+            .title {
+                padding-left: 0;
+                padding-right: 0;
+                min-width: 585px;
+                @media (max-width: 800px) {
+                    font-size: 12px;
+                }
+                span {
+                    width: calc(25% - 5px);
+                    text-align: center;
+                    display: inline-block;
+                    vertical-align: top;
+                    min-width: 130px;
+                }
+            }
+        }
+    }
+
+    .overflow-container {
+        width: 100%;
+        @media (max-width: 800px) {
+            overflow-x: scroll;
+        }
+    }
+
+    .skillsContainer {
+        width: 100%;
+        text-align: center;
+    }
+
+    .skills {
+        width: 100%;
+        max-width: 650px;
+        display: inline-block;
+        vertical-align: top;
+        margin: 30px;
+        text-align: left;
+        .vidholder {
+            img {
+                max-height: 400px;
+                object-fit: cover;
+            }
+        }
+        h3 {
+            font-size: 34px;
+            padding: 35px;
+            background: #003173;
+            color: white;
+            text-transform: uppercase;
+            width: 100%;
+            margin: 0;
+        }
+        .skillicon {
+            width: 95px;
+            height: 95px;
+            background-image: url(https://eme01.enmasse-game.com/images/tera/events/dark-reaches/icons-sprite.jpg);
+            display: inline-block;
+            vertical-align: top;
+            margin-right: 10px;
+            border-radius: 2px;
+        }
+        .skillList {
+            li {
+                display: block;
+                width: 100%;
+                padding: 30px;
+                background: #dfdfdf;
+                color: black;
+                .skillText {
+                    display: inline-block;
+                    vertical-align: top;
+                    max-width: 80%;
+                    span {
+                        font-weight: bold;
+                        display: block;
+                    }
+                }
+            }
+            li:nth-child(even) {
+                background: #c0c0c0;
+            }
+        }
+
+        @media (max-width: 800px) {
+            margin: 10px;
+            h3 {
+                font-size: 22px;
+            }
+            .skillicon {
+                margin-bottom: 10px;
+            }
+            .skillList {
+                li {
+                    text-align: center;
+                    padding: 10px;
+                }
+            }
+        }
+    }
+
+    .dark-nav {
+        height: 100px;
+        background: #003173;
+        position: relative;
+        #close {
+            position: fixed;
+            right: 10px;
+            top: 45px;
+            z-index: 100;
+            height: 25px;
+            width: 25px;
+            text-align: center;
+            line-height: 20px;
+            background: #003173;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 0;
+            display: block;
+            font-size: 20px;
+            box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+            display: none;
+            span {
+                margin-top: -5px;
+                display: block;
+            }
+            &:hover {
+                filter: brightness(120%);
+            }
+            &:focus {
+                outline: none;
+            }
+        }
+        ul {
+            width: 100%;
+            position: relative;
+            height: 100px;
+            li {
+                display: inline-block;
+                vertical-align: top;
+                height: 100%;
+                margin: 0 -2.5px;
+                text-transform: uppercase;
+                font-size: 23.65px;
+                position: relative;
+                a {
+                   color: white;
+                   background: #0061e3;
+                   height: 100%;
+                   padding: 0 30px;
+                   line-height: 100px;
+                   display: block;
+                   text-align: center;
+                   &:hover {
+                       background: #3e90ff;
+                       cursor: pointer;
+                       transition: 500ms ease;
+                   }
+                   &.inactive {
+                       pointer-events: none;
+                       background: #003173;
+                       filter: brightness(60%);
+                       color: white;
+                       &:after {
+                           content: "October 9th";
+                           position: absolute;
+                           left: 0;
+                           right: 0;
+                           bottom: 10px;
+                           margin: 0 auto;
+                           font-size: 0.4em;
+                           height: 20px;
+                           line-height: 20px;
+                           text-align: center;
+                       }
+                   }
+                }
+            }
+            li:first-child {
+                background: #003173;
+                line-height: 100px;
+                color: white;
+                padding: 0 30px;
+                margin-left: 0;
+            }
+        }
+
+        @media (max-width: 1600px) {
+            ul {
+                li {
+                    width: 13%;
+                    font-size: 1.2vw;
+                    a {
+                        width: 100%;
+                        padding: 0 10px;
+                        &:after {
+                            content: "";
+                        }
+                    }
+                }
+                li:first-child {
+                    width: 22%;
+                    text-align: center;
+                }
+                li:nth-child(2), li:nth-child(3), li:nth-child(4) {
+                    width: 10%;
+                }  
+                li:nth-child(5) {
+                    width: 22%;
+                }
+            }
+        }
+
+        @media (max-width: 770px) {
+            display: none;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .locked, #NewDungeons {
+            h3 {
+                font-size: 35px;
+            }
+        }
+        .dark-nav {
+            &.fixed:not(.closed) {   
+                ul {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100vw;
+                    z-index: 99;
+                    height: 60px;
+                    box-shadow: 0 2px 2px -2px black;
+                    li {
+                        line-height: 60px;
+                        font-size: 13px;
+                        width: 14.31%;
+                        text-align: center;
+                        a {
+                            line-height: 60px;
+                            width: 100%;
+                            padding: 0 10px;
+                            &.inactive {
+                                &:after {
+                                    bottom: 3px;
+                                    font-size: 0.6em;
+                                }
+                            }
+                        }
+                    }
+                    li:first-child {
+                        padding: 0 10px;
+                    }
+                }
+                #close {
+                    display: block;
+                }
+            }
+        }
+    }
+}

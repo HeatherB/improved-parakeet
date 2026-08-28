@@ -1,0 +1,187 @@
+// #eme-bar {
+//   position: relative;
+//   height: 46px;
+//   font-family: Helvetica, Arial, sans-serif;
+//   font-size: 14px;
+//   color: #a2a2a2;
+//   background: #010101 image-url('eme-bar/eme-bar-bg.jpg') repeat-x 0 0;
+//   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.7);
+//   z-index: 10;
+//   a { font-weight: normal; }
+//   a:hover { color: #fff; }
+//   .container {
+//     width: 1200px;
+//     margin: 0 auto;
+//     // RESET vv
+//     padding: 0;
+//     border-top: none;
+//     background: none;
+//     &:before { background: none; }
+//     &:after { background: none; }
+//   }
+// }
+// #eme-bar .border {
+//   position: absolute;
+//   bottom: -9px;
+//   background: image-url('eme-bar/eme-bar-border.png') repeat-x 0 0;
+//   height: 11px;
+//   width:100%;
+//   // RESET vv
+//   border: none;
+//   &:before { border: none; }
+//   &:after { border: none; }
+// }
+
+// #games {
+//   float: left;
+//   width: 218px;
+//   height: 45px;
+//   margin-left: 88px;
+
+//   .vr {
+//     width: 2px;
+//     height: 44px;
+//     display: block;
+//     background: image-url('eme-bar/eme-bar-sprite.png') no-repeat -184px 0;
+//     float: left;
+//   }
+
+//   .eme {
+//     display: block;
+//     position: relative;
+//     float: left;
+//     width: 212px;
+//     height: 44px;
+
+//     &:hover,
+//     &.open {
+//       background: image-url('eme-bar/eme-bar-sprite.png') no-repeat 0 -168px;
+//       &:after {
+//         background-position: -202px 0;
+//       }
+//     }
+
+//     &:after {
+//       content: "";
+//       position: absolute;
+//       width: 12px;
+//       height: 7px;
+//       right: 22px;
+//       top: 18px;
+//       background: image-url('eme-bar/eme-bar-sprite.png') no-repeat -190px 0;
+//     }
+//   }
+// }
+
+// .eme-menu {
+//   width: 215px;
+//   height: 255px;
+//   background: image-url('eme-bar/eme-bar-sprite.png') no-repeat -309px 0;
+//   position: absolute;
+//   top: 46px;
+//   left: 89px;
+//   padding-top:1px;
+
+//   li {
+//     width: 215px;
+//     height: 126px;
+//     background-color: rgba(255, 255, 255, 0.3);
+//     background: image-url('eme-bar/eme-bar-sprite.png') no-repeat 0 -255px;
+//     &.tera {
+//       background-position: 0 -255px;
+//       margin-bottom: 1px;
+//     }
+//     &.zmr {
+//       background-position: 0 -381px;
+//     }
+//     a {
+//       display: block;
+//       width: 215px;
+//       height: 126px;
+
+//       &:hover {
+//         background: image-url('eme-bar/eme-bar-sprite.png') no-repeat -310px -255px;
+//       }
+//     }
+//   }
+// }
+// #account {
+//   float: right;
+//   height: 45px;
+//   margin-right: 85px;
+
+//   a {
+//     text-decoration: none;
+//     color: #48b3FF;
+//   }
+
+//   li {
+//     float: left;
+//     padding: 10px 0;
+//     font: normal 14px/25px Helvetica, Arial, sans-serif;
+//     -webkit-font-smoothing: subpixel-antialiased;
+//     &:last-child {
+//       margin-right: 46px;
+//     }
+//   }
+//   .vr {
+//     width: 2px;
+//     height: 44px;
+//     display: block;
+//     padding: 0px;
+//     margin: 0 15px;
+//     background: image-url('eme-bar/eme-bar-sprite.png') no-repeat -184px 0;
+//   }
+
+//   .create,
+//   .settings {
+//     color: #ff7e00;
+//   }
+//   .loading{
+//     background: image-url('eme-bar/loading.gif') no-repeat 0 0;
+//     width: 16px;
+//     height: 16px;
+//     display:inline-block;
+//     vertical-align: middle;
+//   }
+// }
+
+// .eme a {
+//   background: image-url('eme-bar/eme-bar-sprite.png') no-repeat 0 0;
+//   display: block;
+//   width: 148px;
+//   height: 44px;
+//   margin: 0 10px 0 20px;
+// }
+// .eme:hover {
+//   background-color: #000;
+//   cursor: pointer;
+// }
+
+// #blackout {
+//   position: fixed;
+//   top:0;
+//   right: 0;
+//   left: 0;
+//   bottom: 0;
+//   z-index: 200;
+//   background: #000;
+// }
+
+// #login-box {
+//   width: 410px;
+//   height: 410px;
+//   left: 50%;
+//   top:50%;
+//   margin-left: -205px;
+//   margin-top: -205px;
+//   z-index: 202;
+//   position: fixed;
+//   display: none;
+
+//   iframe {
+//     width: 400px;
+//     height: 400px;
+//     border: none;
+//   }
+// }

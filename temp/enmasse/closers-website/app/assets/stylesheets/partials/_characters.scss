@@ -1,0 +1,550 @@
+$pbgs: Seha Sylvi Yuri Misteltein J;
+@mixin char-profile-bgs {
+    @each $pbg in $pbgs {
+        body.characters {
+            #content_wide_body {
+                .profile {
+                    &##{$pbg} {
+                        background-image: url(https://eme04.enmasse-game.com/images/closers/profiles/lambs/#{$pbg}-profile-bg.jpg);
+                    }
+                }
+            }
+        }
+    }
+}
+$wpbgs: Harpy Levia Nata Tina;
+@mixin wolf-profile-bgs {
+    @each $wpbg in $wpbgs {
+        body.wolf {
+            #content_wide_body {
+                .profile {
+                    &##{$wpbg} {
+                        background-image: url(https://eme04.enmasse-game.com/images/closers/profiles/wolfdogs/#{$wpbg}-profile-bg.jpg);
+                    }
+                }
+            }
+        }
+    }
+}
+/* violet is a named color value, it may implant itself */
+body.wolf #content_wide_body .profile#Violet {
+    background-image: url(https://eme04.enmasse-game.com/images/closers/profiles/wolfdogs/Violet-profile-bg.jpg);
+}
+$hpbgs: Wolfgang Soma Luna Bai Seth;
+@mixin wild-profile-bgs {
+    @each $hpbg in $hpbgs {
+        body.wildhunter {
+            #content_wide_body {
+                .profile {
+                    &##{$hpbg} {
+                        background-image: url(https://eme04.enmasse-game.com/images/closers/profiles/wildhunter/#{$hpbg}-profile-bg.jpg);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include char-profile-bgs;
+@include wolf-profile-bgs;
+@include wild-profile-bgs;
+
+body.characters, body.wolf, body.wildhunter {
+    @include fontTeko;
+    main {
+        margin-top: 2px;
+        padding-bottom: 0;
+        width: 1073px;
+        #main-wrapper {
+            background-color: transparent;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        &:before {
+            background: none;
+        }
+    }
+    #content_article_header {
+        background-color: $teal;
+        height: 60px;
+        box-shadow: 0px 2px 4px rgba(0,0,0,.70);
+        overflow: hidden;
+        z-index: 5;
+        .item {
+            position: relative;
+            z-index: 0;
+            display: inline-block;
+            height: 60px;
+            width: 60px;
+            padding-left: 70px;
+            padding-top: 8px;
+            font-size: 16px;
+            color: transparent;
+            background-color: #222;
+            text-decoration: none;
+            @include breakpoint(tablet) {
+                width: 240px;
+                color: $white;
+                background-color: transparent;
+                text-shadow: 0px 1px 5px $black;
+                &:before {
+                    content: "";
+                    position: absolute;
+                    left: 0px;
+                    top: 0px;
+                    background: #404040;
+                    -webkit-transform: skew(-20deg);
+                    -moz-transform: skew(-20deg);
+                    -o-transform: skew(-20deg);
+                    transform: skew(-20deg);
+                    display: block;
+                    height: 60px;
+                    width: 240px;
+                    z-index: -1;
+                }
+            }
+            &:hover {
+                cursor: pointer;
+            }
+            &.selected {
+                color: transparent;
+                text-shadow: initial;
+                @include breakpoint(tablet) {
+                    color: $black;
+                }
+                &:before {
+                    background: -moz-linear-gradient(top, $white 45%, $teal 75%); /* FF3.6-15 */
+                    background: -webkit-linear-gradient(top, $white 45%, $teal 75%); /* Chrome10-25,Safari5.1-6 */
+                    background: linear-gradient(to bottom, $white 45%, $teal 75%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffeb00', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+                }
+            }
+            .inactive {
+                &:hover {
+                    cursor: initial;
+                }
+                /*@include breakpoint(tablet) {
+                    &:before {
+                        content:"";
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        text-transform: uppercase;
+                        color: $yellow;
+                        width: 100%;
+                        height: 100%;
+                        line-height: 60px;
+                        text-align: center;
+                        background-color: rgba(64, 64, 64, .75);
+                        z-index: 2;
+                        display: block;
+                        -webkit-transform: skew(-20deg);
+                        -moz-transform: skew(-20deg);
+                        -o-transform: skew(-20deg);
+                        transform: skew(-20deg);
+                    }
+                    &:after {
+                        content:"[T-WD Access Restricted]";
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        text-transform: uppercase;
+                        color: $yellow;
+                        width: 100%;
+                        height: 100%;
+                        line-height: 60px;
+                        text-align: center;
+                        z-index: 2;
+                        display: block;
+                    }
+                }*/
+            }
+            img {
+                position: absolute;
+                top: 2px;
+                left: 10px;
+                width: auto;
+            }
+            span {
+                display: block;
+                font-size: 32px;
+            }
+            &:nth-child(1) {
+                margin-left: -10px;
+                padding-left: 70px;
+            }
+        }
+    }
+    #content_side_body {
+        display: none;
+    }
+    #content_body {
+        width: 100%;
+        margin-top: -2px;
+        overflow: hidden;
+        display: -webkit-box; 
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex; 
+        display: flex;
+        .character {
+            width: 20%;
+            height: 150px;
+            display: inline-block;
+            background-position: -40px -40px;
+            background-repeat: no-repeat;
+            transition: 250ms;
+            position: relative;
+            overflow: hidden;
+            &.inactive {
+                background-color: #222 !important;
+                /*&:after {
+                    content: "[Redacted]";
+                    position: absolute;
+                    left: 0px;
+                    top: 0px;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0,0,0,.5);
+                    line-height: 150px;
+                    text-align: center;
+                    color: $yellow;
+                    font-size: 18px;
+                    color: #2d2d2d;
+                }*/
+                &:hover {
+                    background-color: #222;
+                    box-shadow: none;
+                    transform: scale(1);
+                    z-index: initial;
+                    cursor: initial;
+                }
+                .title {
+                    color: #595959;
+                    line-height: 41px;
+                    text-align: center;
+                }
+                &:after {
+                    content: "[Redacted]";
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: black;
+                    color: white;
+                    text-align: center;
+                    line-height: 150px;
+                    font-size: 20px;
+                }
+            }
+            .title {
+                background-color: $black;
+                position: absolute;
+                right: 0px;
+                bottom: 5px;
+                color: $white;
+                width: 100%;
+                height: 41px;
+                text-align: center;
+                font-size: 18px;
+                pointer-events: none;
+                @include breakpoint(tablet) {
+                    padding: 3px;
+                    text-align: left;
+                    width: 105px;
+                }
+                &:after {
+                    content: "";
+                    width: 0; 
+                    height: 0; 
+                    border-top: 41px solid transparent;
+                    border-bottom: 0px solid transparent;  
+                    border-right: 20px solid $black;
+                    position: absolute;
+                    left: -20px;
+                    top: 0px; 
+                }
+                span {
+                    display: block;
+                    color: $teal;
+                    font-style: italic;
+                    height: 18px;
+                    margin-top: -8px;
+                    text-transform: uppercase;
+                }
+            }
+            &.Seha {
+                background-image: url(/assets/characters/seha-head.png);
+                background-color: #292929;
+            }
+            &.Sylvi {
+                background-image: url(/assets/characters/sylvi-head.png);
+                background-color: #ffc500;
+            }
+            &.Yuri {
+                background-image: url(/assets/characters/yuri-head.png);
+                background-color: #ff9500;
+                background-position: -20px -30px;
+            }
+            &.Misteltein {
+                background-image: url(/assets/characters/misteltein-head.png);
+                background-color: #ffc5c3;
+                background-position: -20px -30px;
+            }
+            &.J {
+                background-image: url(/assets/characters/j-head.png);
+                background-color: #acacb0;
+            }
+            &.Levia {
+                background-image: url(https://static.enmasse.com/images/closers/wolfdogs/levia-head.png);
+                background-color: #de9ba0;
+            }
+            &.Harper {
+                background-image: url(https://static.enmasse.com/images/closers/wolfdogs/Harper_Hidden_head.png);
+                background-color: #5d5d5d;
+            }
+            &.Nata {
+                background-image: url(https://static.enmasse.com/images/closers/wolfdogs/nata-head.png);
+                background-position: -20px -40px;
+                background-color: #400300;
+            }
+            &.Tina {
+                background-image: url(https://static.enmasse.com/images/closers/wolfdogs/tina/Page_Assets/tina_head.png);
+                background-position: -20px -40px;
+                background-color: #550723;
+            }
+            &.Violet {
+                background-image: url(https://static.enmasse.com/images/closers/wolfdogs/violet/violet_head_fullcolor.png);
+                background-position: -26px -50px;
+                background-color: #39104c;
+            }
+            &.Wolfgang {
+                background-image: url(https://static.enmasse.com/images/closers/wildhunter/wolfgang/wolfgang-head.png);
+            }
+            &:hover {
+                cursor: pointer;
+                //height: 180px;
+                background-color: $yellow !important;
+                transform: scale(1.05);
+                z-index: 10;
+                box-shadow: 0px 0px 10px 0px #000000;
+            }
+        }
+    }
+    #content_wide_body {
+        background-color: $black;
+        margin-top: -8px;
+        .profile {
+            min-height: 1015px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: top center;
+            overflow: hidden;
+            display: none;
+            z-index: 0;
+            &.meetMe {
+                display: block;
+            }
+            .title {
+                position: relative;
+                margin-top: 85px;
+                width: 320px;
+                height: 140px;
+                padding: 12px 27px;
+                font-size: 100px;
+                color: $white;
+                background-color: $black;
+                line-height: 100px;
+                z-index: 2;
+                &:after {
+                    content: "";
+                    position: absolute;
+                    top: 0px;
+                    right: -60px;
+                    width: 0; 
+                    height: 0; 
+                    border-top: 0px solid transparent;
+                    border-bottom: 139px solid transparent;
+                    
+                    border-left: 60px solid $black;
+                }
+                span {
+                    display: block;
+                    font-style: italic;
+                    color: $teal;
+                    font-size: 36px;
+                    margin-top: -8px;
+                    height: 36px;
+                    line-height: 36px;
+                    text-transform: uppercase;
+                }
+            }
+            .info {
+                background-color: rgba(0,0,0,.75);
+                position: relative;
+                width: 275px;
+                height: 240px;
+                font-size: 20px;
+                margin-top: -10px;
+                z-index: 1;
+                padding-top: 15px;
+                &:after {
+                    content: "";
+                    position: absolute;
+                    top: 0px;
+                    right: -95px;
+                    width: 0; 
+                    height: 0; 
+                    border-top: 0px solid transparent;
+                    border-bottom: 240px solid transparent;
+                    
+                    border-left: 95px solid rgba(0,0,0, .75);
+                }
+                ul {
+                    li {
+                        color: $white;
+                        padding-left: 30px;
+                        span {
+                            color: $teal;
+                            text-transform: uppercase;
+                        }
+                    }
+                }
+            }
+            .bio {
+                width: 100%;
+                height: auto;
+                margin-top: 85px;
+                padding-bottom: 100px;
+                @include breakpoint(tablet) {
+                    padding-left: 30px;
+                    padding-right: 30px;
+                }
+                .bio-section {
+                    background-color: rgba(8,8,8,.9);
+                    padding: 15px;
+                    padding-bottom: 10px;
+                    margin-bottom: 15px;
+                    overflow: hidden;
+                    .emelightbox-pop {
+                        width: 100%;
+                        height: auto;
+                        display: inline-block;
+                        @include breakpoint(tablet) {
+                            width: 48%;
+                        }
+                    }
+                    .eme-lightbox {
+                        //width: 475px;
+                        width: 100%;
+                        height: auto;
+                        position: relative;
+                        &:after {
+                            content: url(/assets/icons/play-icon.png);
+                            position: absolute;
+                            width: 80px;
+                            height: 80px;
+                            left: 0;
+                            top: 0;
+                            bottom: 0;
+                            right: 0;
+                            margin: auto;
+                            transition: 250ms;
+                            pointer-events: none;
+                        }
+                        &:hover {
+                            &:after {
+                                transform: scale(1.2);
+                                cursor: pointer;
+                            }
+                        }
+                        img {
+                            width: 100%;
+                            height: 270px;
+                            object-fit: cover;
+                            box-shadow: -3px 3px 0px 0px $yellow;
+                        }
+                    }
+                    .text {
+                        display: inline-block;
+                        width: 100%;
+                        margin-left: 10px;
+                        vertical-align: top;
+                        color: $white;
+                        font-size: 24px;
+                        padding-top: 20px;
+                        padding-right: 10px;
+                        position: relative;
+                        @include breakpoint(tablet) {
+                            width: 50%;
+                        }
+                        h2 {
+                            color: $teal;
+                            font-style: italic;
+                            text-shadow: 0px 2px 2px rgba(0, 0, 0, 1);
+                            text-transform: uppercase;
+                        }
+                    }
+                }
+                .bio-section-1 {
+                    .text {
+                        &:after {
+                            content: url(/assets/icons/slants.png);
+                            position: absolute;
+                            top: -13px;
+                            right: -40px;
+                        }
+                    }
+                }
+                .bio-section-2 {
+                    .text {
+                        &:after {
+                            content: url(/assets/icons/slants.png);
+                            position: absolute;
+                            top: -13px;
+                            left: -40px;
+                        }
+                    }
+                }
+            }
+            /*&#Seha {
+                background-image: url(/assets/bgs/seha-profile-bg.jpg);
+            }
+            &#Sylvi {
+                background-image: url(/assets/bgs/sylvi-profile-bg.jpg);
+            }
+            &#Yuri {
+                background-image: url(/assets/bgs/yuri-profile-bg.jpg);
+            }
+            &#Misteltein {
+                background-image: url(/assets/bgs/misteltein-profile-bg.jpg);
+            }
+            &#J {
+                background-image: url(/assets/bgs/j-profile-bg.jpg);
+            }
+            &#Levia {
+                background-image: url(https://static.enmasse.com/images/closers/wolfdogs/levia-profile-bg.jpg);
+            }
+            &#Nata {
+                background-image: url(https://static.enmasse.com/images/closers/wolfdogs/nata/nata-profile-bg.jpg);
+            }
+            &#Tina {
+                background-image: url(https://static.enmasse.com/images/closers/wolfdogs/tina/Page_Assets/tina-profile-bg.jpg);
+            }
+            &#Wolfgang {
+                background-image: url(https://static.enmasse.com/images/closers/wildhunter/wolfgang/wolfgang-profile-bg.jpg);
+            }
+            &#Soma {
+                background-image: url(https://static.enmasse.com/images/closers/wildhunter/soma/profile-bg.jpg);
+            }
+            &#Luna {
+                background-image: url(https://static.enmasse.com/images/closers/wildhunter/luna/profile-bg.jpg);
+            }
+            &#Bai {
+                background-image: url(https://static.enmasse.com/images/closers/wildhunter/bai/profile-bg.jpg);
+            }*/
+        }
+    }
+}

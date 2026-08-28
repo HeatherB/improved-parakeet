@@ -1,0 +1,164 @@
+footer {
+	//background: -webkit-linear-gradient(right, @bodybluedark, #142a50, @bodybluedark);
+    //background: linear-gradient(to right, @bodybluedark, #142a50, @bodybluedark);
+    background: -webkit-linear-gradient(right, #0a1528, #142a50, #0a1528);
+    background: linear-gradient(to right, #0a1528, #142a50, #0a1528);
+	position: relative;
+	overflow: hidden;
+    .inner {
+		//max-width:340px;
+		max-width: 490px;
+		width:100%;
+		margin:0 auto;
+		padding: 20px;
+		text-align:center;
+	}
+	.social ul {
+		margin: 20px auto 40px;
+	}
+	.social li {
+		display: inline-block;
+		vertical-align:top;
+	}
+	.icon_facebook span, .icon_instagram span, .icon_youtube span, .icon_twitter span, .icon_linkedin span,
+	.icon_discord span, .icon_twitch span, .icon_forums span {
+		background-image: url(https://eme04.enmasse-game.com/images/enm/enmasse_sprite_0719.png);
+		background-repeat: no-repeat;
+		width: 44px;
+		height: 44px;
+		display: block;
+		text-indent: -9999em;
+	}
+	.icon_facebook span {
+		background-position: 0 0;
+	}
+	.icon_instagram span {
+		background-position: 0 -44px;
+	}
+	.icon_youtube span {
+		background-position: 0 -175px;
+	}
+	.icon_twitter span {
+		background-position: 0 -131px;
+	}
+	.icon_linkedin span {
+		background-position: 0 -88px;
+	}
+	.icon_discord span {
+		background-position: -50px 0;
+	}
+	.icon_twitch span {
+		background-position: -50px -44px;
+	}
+	.icon_forums span {
+		background-position: -50px -88px;
+	}
+	.logo_krafton {
+		background-image: url(https://eme04.enmasse-game.com/images/enm/enmasse_sprite_0719.png);
+		background-repeat: no-repeat;
+		background-position: -174px -730px;
+		width: 100px;
+		height: 78px;
+		display: block;
+		text-indent: -9999em;
+		margin:0 auto;
+	}
+}
+
+
+/* homepage footer */
+footer.full-ft {
+	/*background-image: url(assets/bgs/left_ft_chibis.png), url(assets/bgs/right_ft_chibis.png);
+	background-repeat: no-repeat, no-repeat;
+	background-position: top left, top right;*/
+	//background: url(https://eme04.enmasse-game.com/images/enm/bgs/full_enmasse_chibis.png) 75% 0 no-repeat;
+	position: relative;
+	background: url(https://eme04.enmasse-game.com/images/enm/bgs/ft_gradient.jpg) top center no-repeat;
+}
+footer {
+	.attribution, .legal {
+		display: inline-block;
+		vertical-align: middle;
+		margin: 0 auto;
+	}
+	.legal {
+		width:calc(100% - 125px);
+		text-align: left;
+	}
+	nav {
+		display: block;
+	}
+}
+footer h4 {
+	font-size:30px;
+}
+footer nav {
+	max-width: 310px;
+}
+footer nav ul {
+	/*display: -webkit-box;           
+	display: -moz-box;             
+	display: -ms-flexbox;           
+	display: -webkit-flex;          
+	display: flex;                  
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;*/
+	margin-top:0;
+	padding-top:0px;
+}
+footer nav ul li {
+	display: inline-block;
+	vertical-align: top;
+}
+footer nav ul li:after {
+	content: "|";
+	color: @lightblue;
+}
+footer nav ul li:last-child:after {
+	display: none;
+}
+footer nav a {
+	font-size: 12px;
+	font-weight: 700;
+	padding: 0 15px;
+}
+.copyright {
+	padding-top:10px;
+	padding-left:15px;
+}
+.copyright p {
+	font-size: 12px;
+	color:@grey;
+	font-weight: 700;
+}
+
+
+
+@media all and (min-width: 1024px) {
+	/* homepage footer */
+	footer.full-ft {
+		&:after {
+		  content: '';
+	      position: absolute;
+	      left: calc(100% - ((100% - 1366px) / 2));
+	      top: 0;
+	      background: @navgradient;
+	      display: block;
+	      height: 100%;
+	      width:100%;
+	      z-index: 100;
+		}
+		&:before {
+		  content: '';
+	      position: absolute;
+	      right: calc(100% - ((100% - 1366px) / 2));
+	      top: 0;
+	      background: @navgradient;
+	      display: block;
+	      height: 100%;
+	      width:100%;
+	      z-index: 100;
+		}
+	}
+}

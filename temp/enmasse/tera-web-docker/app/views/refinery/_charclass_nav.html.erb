@@ -1,0 +1,169 @@
+<div class="class_hero_wrapper">
+  
+<% if @page && @classPageChildren %>
+    <% @classPageChildren.each_with_index do |classPageChild, index| %>
+      <% if classPageChild["slug"] == @page.slug %>
+        <% if @classPageChildren[index-1] != nil %>
+          <% previous_item = @classPageChildren[index-1] %>
+        <% else %>
+          <% 
+            current_count = @classPageChildren.count
+            previous_item = @classPageChildren[current_count]  
+          %>
+        <% end %>
+
+        <% if @classPageChildren[index+1]  != nil %>
+          <% next_item = @classPageChildren[index+1] %>
+        <% else %>
+          <% next_item = @classPageChildren[0] %>
+        <% end %>
+
+        <div id="classSubNav">
+
+
+          <!--<%# if previous_item["link_url"] != "" %>
+            <a href="/game/classes/<%#= previous_item["link_url"] %>" id="prevClassBTN">
+          <%# else %>
+            <a href="/game/classes/<%#= previous_item["slug"] %>" id="prevClassBTN">
+          <%# end %>
+            <span>Prev Class:</span>
+            <span class="className">
+              <span class="arrow_icon"></span>
+              <span class="inner"><%#= previous_item["slug"].titleize.gsub('Page', '') %></span>
+            </span>
+          </a>-->
+
+
+
+          <!-- new part -->
+          <% if previous_item["link_url"] != "" %>
+
+            <% if previous_item.translations %>
+              <% previous_item.translations.each do |ptrans| %>
+                <% if Globalize.locale.to_s == ptrans.locale.to_s %>
+                <a href="/<%= ptrans.locale.to_s %>/game/classes/<%= previous_item["link_url"] %>" id="prevClassBTN">
+                  <span>Prev Class:</span>
+                  <span class="className">
+                    <span class="arrow_icon"></span>
+                    <span class="inner"><%= previous_item["slug"].titleize.gsub('Page', '') %></span>
+                  </span>
+                </a>
+                <% end %>
+              <% end %>
+            <% else %>
+              <a href="/game/classes/<%= previous_item["link_url"] %>" id="prevClassBTN">
+                <span>Prev Class:</span>
+                <span class="className">
+                  <span class="arrow_icon"></span>
+                  <span class="inner"><%= previous_item["slug"].titleize.gsub('Page', '') %></span>
+                </span>
+              </a>
+            <% end %>
+
+          <% else %>
+
+            <% if previous_item.translations %>
+              <% previous_item.translations.each do |ptrans| %>
+                <% if Globalize.locale.to_s == ptrans.locale.to_s %>
+                <a href="/<%= ptrans.locale.to_s %>/game/classes/<%= previous_item["slug"] %>" id="prevClassBTN">
+                  <span>Prev Class:</span>
+                  <span class="className">
+                    <span class="arrow_icon"></span>
+                    <span class="inner"><%= previous_item["slug"].titleize.gsub('Page', '') %></span>
+                  </span>
+                </a>
+                <% end %>
+              <% end %>
+            <% else %>
+              <a href="/game/classes/<%= previous_item["slug"] %>" id="prevClassBTN">
+                <span>Prev Class:</span>
+                <span class="className">
+                  <span class="arrow_icon"></span>
+                  <span class="inner"><%= previous_item["slug"].titleize.gsub('Page', '') %></span>
+                </span>
+              </a>
+            <% end %>
+
+          <% end %>
+          <!-- end new part -->
+
+
+
+          <!--<%# if next_item["link_url"] != "" %>
+            <a href="/game/classes/<%#= next_item["link_url"] %>" id="nextClassBTN">
+          <%# else %>
+            <a href="/game/classes/<%#= next_item["slug"] %>" id="nextClassBTN">
+          <%# end %>
+            <span>Next Class:</span>
+            <span class="className">
+              <span class="inner"><%#= next_item["slug"].titleize.gsub('Page', '') %></span>
+              <span class="arrow_icon"></span>
+            </span>
+          </a>-->
+
+          <!-- new part -->
+          <% if next_item["link_url"] != "" %>
+            <% if next_item.translations %>
+              <% next_item.translations.each do |ptrans| %>
+                <% if Globalize.locale.to_s == ptrans.locale.to_s %>
+                <a href="/<%= ptrans.locale.to_s %>/game/classes/<%= next_item["link_url"] %>" id="nextClassBTN">
+                  <span>Next Class:</span>
+                  <span class="className">
+                    <span class="inner"><%= next_item["slug"].titleize.gsub('Page', '') %></span>
+                    <span class="arrow_icon"></span>
+                  </span>
+                </a>
+                <% end %>
+              <% end %>
+            <% else %>
+              <a href="/game/classes/<%= next_item["link_url"] %>" id="nextClassBTN">
+                <span>Next Class:</span>
+                <span class="className">
+                  <span class="inner"><%= next_item["slug"].titleize.gsub('Page', '') %></span>
+                  <span class="arrow_icon"></span>
+                </span>
+              </a>
+            <% end %>
+
+          <% else %>
+
+            <% if next_item.translations %>
+              <% next_item.translations.each do |ptrans| %>
+                <% if Globalize.locale.to_s == ptrans.locale.to_s %>
+                <a href="/<%= ptrans.locale.to_s %>/game/classes/<%= next_item["slug"] %>" id="nextClassBTN">
+                  <span>Next Class:</span>
+                  <span class="className">
+                    <span class="inner"><%= next_item["slug"].titleize.gsub('Page', '') %></span>
+                    <span class="arrow_icon"></span>
+                  </span>
+                </a>
+                <% end %>
+              <% end %>
+            <% else %>
+              <a href="/game/classes/<%= next_item["slug"] %>" id="nextClassBTN">
+                <span>Next Class:</span>
+                <span class="className">
+                  <span class="inner"><%= next_item["slug"].titleize.gsub('Page', '') %></span>
+                  <span class="arrow_icon"></span>
+                </span>
+              </a>
+            <% end %>
+
+          <% end %>
+          <!-- end new part -->
+
+
+
+        </div>
+      <% end %>
+    <% end %>
+  <% else %>
+    <div id="classSubNav">
+      <a href="/game/classes" id="prevClassBTN">
+        <span>Return to all Classes</span>
+      </a>
+    </div>
+  <% end %>
+</div><!-- end wrapper -->
+               
+

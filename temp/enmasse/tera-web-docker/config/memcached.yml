@@ -1,0 +1,12 @@
+production:
+  servers:
+  - ch3-tmcache-p01.chi1.enmasse.com
+  - ch3-tmcache-p02.chi1.enmasse.com
+  options:
+    namespace: tera_refinery_prod
+
+development:
+  servers:
+  - 10.63.18.246:11211
+  options:
+    namespace: tera_refinery

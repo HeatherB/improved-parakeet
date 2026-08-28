@@ -1,0 +1,7 @@
+qa:
+  options:
+    namespace: enmasse_online_qa
+    expires_in: 30
+  servers:
+    - 10.63.2.48:11211
+    - 10.63.2.14:11211

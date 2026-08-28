@@ -1,0 +1,47 @@
+<div id="wide_body" class="row item-details item" data-item-id="<%= @item.id %>">
+  <div class="columns three">
+      <div class="show-for-medium-down">
+        <h2 class="item-title"><%= @item.pretty_name %></h2>
+      </div>
+      <div class="item-desc-card">
+        <div class="item-image" style='background-image: url(<%= @item.image_url %>);'>
+          <% if @item.bundle? %>
+            <div class="bundle"></div>
+          <% elsif @item.lootbox? %>
+            <div class="loot-box"></div>
+          <% end %>
+        </div>
+        <div class="item-info">
+          <% if @item.flair %>
+            <div class="item-alert badge-<%= @item.flair %>"><%= @item.flair.upcase %></div>
+          <% end %>
+          <div class="prices">
+            <div><span class="emp-icon medium"></span><span class="price" data-currency="<%= @item.currency %>"><%= @item.price %></span></div>
+            <% if @item.prices[:elite] %>
+            <div class="elite"><span class="emp-icon medium"></span><span class="elite-price" data-currency="<%= @item.currency %>"><%= @item.elite_price %></span></div>
+            <% end %>
+            <% if @item.prices[:sale] %>
+            <span class="full-price"><%= @item.prices[:sale].original_amount %></span>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <a href="#" class="button-secondary checkout"><span class="">Check Out</span></a>
+  </div>
+
+  <div class="columns nine">
+    <div class="show-for-large-up">
+      <h2 id="item-title"><%= @item.name %></h2>
+    </div>
+    <% if @item.campaign_description %>
+      <p class="sale-desc"><%= @item.campaign_description %></p>
+    <% end %>
+    <%= @item.detail_info %>
+  </div>
+
+  <%= erb :"shared/item-modal-product-info", :locals => { :item => @item } %>
+
+</div>
+
+<%= erb :"shared/item-modal" %>

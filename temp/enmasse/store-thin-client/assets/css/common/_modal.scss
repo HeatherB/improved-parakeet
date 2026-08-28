@@ -1,0 +1,275 @@
+.item-modal {
+  .title-bar-dark, .title-bar-light {
+    padding-right: 20px;
+  }
+  .purchase-info {
+    position: relative;
+    min-height: 210px;
+    ul { margin-left: 320px; }
+  }
+  .purchase-image {
+    width: 249px;
+    position: relative;
+    .item-image {
+      position: relative;
+      width: 251px;
+      height: 201px;
+      background-position: 0 -76px;
+      border: 2px solid $lightGray;
+    }
+    .loot-box, .bundle {
+      position: absolute;
+      bottom: 5px;
+      right: 5px;
+    }
+    .item-alert {
+      top: auto;
+      left: 0px;
+      bottom: 0px;
+    }
+  }
+  .gift-message {
+    display: none;
+  }
+  .anni-gift-message {
+    display: none;
+  }
+  .register form {
+    margin: 10px auto;
+    input { margin-bottom: 0; }
+  }
+  .account {
+    *zoom:1;
+    &:before, &:after { content: " "; display: table; }
+    &:after { clear: both; }
+    outline: 2px solid $black;
+    border: 2px solid rgba($lightGray, 0.8);
+    background: $midGray;
+    margin: 10px auto;
+    padding: 10px 10px 0;
+    p {
+      margin: 5px 10px 14px 0;
+      line-height: 1.2em;
+    }
+    select {
+      -webkit-appearance: menulist-button;
+      font-size: 16px;
+      line-height: 1;
+      height: 28px;
+      width: 200px;
+      padding-top: 2px;
+      color: black;
+    }
+  }
+  .purchase-options {
+    *zoom:1;
+    &:before, &:after { content: " "; display: table; }
+    &:after { clear: both; }
+    outline: 2px solid $black;
+    border: 2px solid rgba($lightGray, 0.8);
+    background: $midGray;
+    width: 630px;
+    margin: 10px auto;
+    padding: 10px 10px 0;
+    text-align: center;
+
+    .option {
+      display: inline-block;
+      width: 210px;
+      margin: 0 10px;
+      font: 16px/21px Arial, Helvetica, sans-serif;
+      span { float: left; }
+      select {
+        float: left;
+        width: 200px;
+        margin: 0 0 0 10px;
+      }
+    }
+  }
+  .prices {
+    *zoom:1;
+    &:before, &:after { content: " "; display: table; }
+    &:after { clear: both; }
+    margin-right: 10px;
+    table {
+      float: right;
+      margin: 0;
+    }
+    tr { background: none; }
+    td { 
+      padding: 0 0 0 3px;
+      text-align: right;
+      line-height: 1.6em;
+      .emp-icon.small { margin-bottom: -7px; }
+    }
+  }
+  hr {
+    margin: 15px;
+    background: rgba($midGray, 0.8);
+  }
+    
+  .purchase-actions {
+    *zoom:1;
+    &:before, &:after { content: " "; display: table; }
+    &:after { clear: both; }
+    margin: 10px;
+    form {
+      margin: 0;
+      ul { margin: 0; }
+    }
+    a {
+      font: 16px/42px Arial, Helvetica, sans-serif;
+
+      &.button-secondary {
+        font: bold 24px/31px Arial, Helvetica, sans-serif;
+        span.emp-icon.medium { margin-bottom: -5px; }
+      }
+    }
+    .processing-transaction a.button-secondary {
+      background: #30343b;
+      @include background(linear-gradient(darken($midGray, 15%), darken($darkGray, 10%)));
+      border-top:1px solid $darkGray;
+      border-bottom: 1px solid $lightGray;
+      color: #DDDDDD;
+      span.loading {
+        float: left;
+        margin: 8px 10px;
+      }
+    }
+  }
+  
+  #modal-error, #modal-warn { margin: 10px; }
+  #modal-error {
+    .error {
+      .icon {
+        display: block;
+        float: left;
+        width: 24px;
+        height: 28px;
+        background: image-url('image-sprite.png') no-repeat -251px -420px;
+        margin: 6px 10px 0 10px;
+      }
+    }
+  }
+}
+#success-modal {
+  .purchase-actions {
+    text-align: center;
+    a {
+      float: none;
+      margin: 0;
+    }
+  }
+  .purchase-info {
+    ul { margin-left: 0; }
+  }
+}
+
+@media #{$small} {
+  .item-modal {
+    margin-bottom: 0;
+    .desc .purchase-info {
+      padding: 0;
+      p { margin: 5px 10px; }
+    }
+    .purchase-image { margin: 5px auto; }
+    .register form {
+      width: 250px;
+      float: none;
+
+      #email-cont, #password-cont {
+        *zoom:1;
+        &:before, &:after { content: " "; display: table; }
+        &:after { clear: both; }
+        width: 250px;
+        input {
+          float: right;
+          margin: 3px;
+        }
+      }
+      ul {
+        float: none;
+        width: 170px;
+        margin: 5px auto;
+      }
+    }
+    .account { 
+      text-align: center;
+      select {margin-bottom: 10px;}
+    }
+    .purchase-actions {
+      text-align: center;
+      a {
+        float: none;
+        margin: 0 auto;
+        &.button-secondary { padding: 5px 10px; }
+      }
+      .processing-transaction a.button-secondary {
+        padding: 5px 10px;
+        span.loading {
+          float: none;
+          margin: 5px 10px;
+        }
+      }
+    }
+    #register, .register {
+      form li { margin: 10px 0; width: 80px; }
+    }
+  }
+}
+
+@media #{$mediumDown} {
+  .item-modal {
+    width: 100%;
+    .purchase-info { padding: 10px; }
+  }
+}
+
+@media #{$medium} {
+  .item-modal {
+    .purchase-image {
+      margin-right: 10px;
+      float: left;
+    }
+    .purchase-actions {
+      .account {
+        p, select { float: right; }
+      }
+      a {
+        float: right;
+        margin-right: 10px;
+        &.button-secondary { padding: 5px 30px; }
+      }
+    }
+  }
+}
+
+@media #{$screen} {
+  .item-modal {
+    .purchase-info {
+      padding: 10px;
+      padding-left: 280px;
+    }
+    .purchase-image {
+      margin: 5px;
+      position: absolute;
+      top: 6px;
+      left: 10px;
+    }
+    .account {
+      width: 630px;
+      p { float: right; }
+      select {
+        float: right;
+        margin: 0 0 0 10px;
+      }
+    }
+    .purchase-actions {
+      a {
+        float: right;
+        margin-right: 10px;
+        &.button-secondary { padding: 5px 30px; }
+      }
+    }
+  }
+}

@@ -1,0 +1,227 @@
+{#
+  This is an example default page template. It inherits and extends a layout template
+  that lives in the top-level views/ folder for convenience
+#}
+
+{% extends "layout.html" %}
+
+{% block foot_in_play %}
+<footer>
+      <div class="inner">        
+        <div class="attribution">
+          <a href="{{ data.home._url }}" class="logo_krafton">Krafton</a>
+        </div>
+
+        <div class="legal">
+          <nav>
+            <ul>
+              <li>
+                <a href="/legal/privacy-policy">Privacy Policy</a>
+              </li>
+              <li>
+                <a href="/legal/eula">Legal</a>
+              </li>
+              <li>
+                <a href="https://support.enmasse.com/hc/en-us">Contact Us</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="copyright">
+            <p>&copy; 2020 En Masse Entertainment, Inc. All Rights Reserved.</p>
+          </div>
+        </div><!-- end of legal -->
+      </div>
+    </footer>
+{% endblock %}
+
+{% block social_share %}
+  <meta name='twitter:card' content='summary_large_image'>
+  <meta name='twitter:site' content='@En_Masse_Ent'>
+  <meta name='twitter:title' content='Enmasse Entertainment'>
+  <meta name='twitter:description' content='Seattle-based publisher of TERA, Closers, Stranger Things 3: The Game and The Dark Crystal: Age of Resistance Tactics'>
+  <meta name='twitter:image' content='https://eme02.enmasse-game.com/images/enm/social_share/Sharing_Dark_Crystal.jpg'>
+
+  <meta property='fb:app_id' content='589750687728241' />
+  <meta property='og:title' content='Enmasse Entertainment' />
+  <meta property='og:site_name' content='Enmasse Entertainment' />
+  <meta property='og:url' content='https://enmasse.com/games/darkcrystaltactics' />
+  <meta property='og:type'  content='website' />
+  <meta property='og:description' content='Seattle-based publisher of TERA, Closers, Stranger Things 3: The Game and The Dark Crystal: Age of Resistance Tactics' />
+  <meta property='og:image' content='https://eme02.enmasse-game.com/images/enm/social_share/Sharing_Dark_Crystal.jpg' />
+{% endblock %}
+
+{% block nav_area_in_play %}
+<header class="{% if data.user %} admin_pane {% endif %}">
+      <div id="logo">
+        <a href="{{ data.home._url }}">
+          <span>Krafton En Masse</span>
+        </a>
+      </div>
+<nav>
+        <!--<ul>
+          <li>
+            <a href="/">Games</a>
+          </li>
+          <li>
+            <a href="/">Partners</a>
+          </li>
+          <li>
+            <a href="/">Developers</a>
+          </li>
+          <li>
+            <a href="/">Careers</a>
+          </li>
+          <li>
+            <a href="/">Support</a>
+          </li>
+          <li>
+            <a href="/">My Account</a>
+          </li>
+        </ul>-->
+        <ul>
+          <!--<li><a href="{{ data.home._url }}">{{ data.home.title }}</a></li>-->
+          {% for tab in data.home._children %}
+          <li class="{% if data.page and (apos.pages.isAncestorOf(tab, data.page) or tab._id == data.page._id) %} selected {% endif %}">
+            {% if tab.title == 'Games' %}
+              <a href="/#get-launcher">{{ tab.title }}</a>
+            {% elif tab.title == 'Support' %}
+              <a href="https://support.enmasse.com/hc/en-us">{{ tab.title }}</a>
+            {% elif tab.title == 'My Account' %}
+              <a href="https://account.enmasse.com/">{{ tab.title }}</a>
+            {% else %}
+              <a href="{{ tab._url }}">{{ tab.title }}</a>
+            {% endif %}
+            <!--<a href="{{ tab._url }}">{{ tab.title }}</a>-->
+            {% if tab._children.length %}
+              <ul>
+                {% for child in tab._children %}
+                  <li class="{% if data.page and (child._id == data.page._id) %} selected {% endif %}">
+                    <a href="{{ child._url }}">{{ child.title }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+      </nav>
+
+      <div id="mobile-nav-btn">
+        <span class="morph_bar top"></span>
+        <span class="morph_bar middletop"></span>
+        <span class="morph_bar middlebottom"></span>
+        <span class="morph_bar bottom"></span>
+      </div>
+    </header>
+{% endblock %}
+
+<!-- in its current state, this page only supports Dark Crystal -->
+
+{% block extra_social_pixel %}
+   <!-- Event snippet for Dark Crystal Newsletter conversion page -->
+  <script>
+    gtag('event', 'conversion', {'send_to': 'AW-797078716/MI6ZCKCZj6YBELzpifwC'});
+  </script>
+
+  <script>!function(f,b,e,v,n,t,s) {if(f.fbq)return;n=f.fbq=function(){n.callMethod? n.callMethod.apply(n,arguments):n.queue.push(arguments)}; if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0'; n.queue=[];t=b.createElement(e);t.async=!0; t.src=v;s=b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t,s)}(window,document,'script', 'https://connect.facebook.net/en_US/fbevents.js'); fbq('init', '312034293052440'); fbq('track', 'PageView'); fbq('track', 'Subscribe');</script><noscript><img height="1" width="1" src="https://www.facebook.com/tr?id=312034293052440&ev=PageView&noscript=1"/></noscript>
+
+  <script>
+  !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+  },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+  a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+  // Insert Twitter Pixel ID and Standard Event data below
+  twq('init','o269q');
+  twq('track','PageView');
+  twq('track','Subscribe');
+  </script>
+
+{% endblock %}
+
+
+{% block main %}
+
+
+<main class="receipt internal" id='receipt_Dark_Crystal{% if data.user %} admin_pane{% endif %}'>
+    {% extends "layout.html" %}
+
+    <div id="hero" class="internal">
+    	{{ apos.area(data.page, 'receiptHeroImg', {
+		  widgets: {
+		    'apostrophe-images': {
+		      size: 'full'
+		    }
+		  }
+		}) }}
+
+        {{ apos.area(data.page, 'receiptHeroVid', {
+              widgets: {
+                'videos': {}
+              }
+            }
+          )
+          }}
+
+
+          <div class="sleeve">
+            <div class="sleeve-inner">
+              <div id="hero_receipt_logo"></div>
+
+              <div class="action">
+                <span class="btn">
+                   
+                  <!--<div class="eme-lightbox">
+                    <button data-video="https://www.youtube.com/embed/ME8txmJgvms">lightbox trigger</button>
+                  </div>-->
+                  <!-- if you need to write some markup and not just stuff a button -->
+                  {{ apos.area(data.page, 'lightboxOption', {
+                    widgets: {
+                      'apostrophe-html': {}
+                    }
+                  }) }}
+
+
+                  {{ apos.area(data.page, 'receipthero_btn', {
+                    widgets: {
+                      'apostrophe-rich-text': {
+                        toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
+                        styles: [
+                          { name: 'Heading', element: 'h3' },
+                          { name: 'Paragraph', element: 'p' },
+                          { name: 'Span', element: 'span' },
+                          { name: 'Anchor', element: 'a'}
+                        ]
+                      }
+                    }
+                  }) }}
+                 <!-- <a href="/">Learn More</a> -->
+                </span>
+              </div><!-- end of action button -->
+            </div><!-- end of sleeve inner -->
+
+          </div><!-- end of sleeve -->
+
+    </div><!-- end of hero -->
+
+    <div class="page_wrap">
+
+        <section class="about">
+            <div class="sleeve">
+              {{ apos.area(data.page, 'bodyCopy', {
+                    widgets: {
+                      'apostrophe-html': {}
+                    }
+                  }) }}
+            	<!--<h2>You've Subscribed to The Dark Crystal: Age of Resistance Tactics Newsletter!</h2>
+            	<div class="button">
+                  <a href="https://www.enmasse.com/games/darkcrystaltactics">Return to Main Page</a>
+              </div>-->
+            
+            </div>
+        </section>
+
+        
+    </div><!-- end of page wrap -->
+</main>
+
+<input type="hidden" value='receipt_Dark_Crystal' id="page_layout_name" />
+{% endblock %}

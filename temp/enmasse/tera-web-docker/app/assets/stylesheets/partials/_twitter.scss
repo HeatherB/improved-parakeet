@@ -1,0 +1,87 @@
+/* homepage twitter feed */
+.twitter_feed {
+	//width:320px;
+	width:100%;
+	max-width:493px;
+	margin:25px auto;
+	h3 {
+		//background: url(/assets/headers/twitter-heading.png) top left no-repeat;
+		display: block;
+		padding: 5px 0 5px 5px;
+		//text-indent: -9999em;
+		//width:320px;
+		//height: 46px;
+		width:100%;
+		max-width:493px;
+		//background-size: contain;
+		margin:0 auto;
+		background: url(/assets/bgs/side-carat.png) center right no-repeat $black;
+		font-size:30px;
+		text-transform: uppercase;
+		span {
+			//background-image: -webkit-linear-gradient(top, #dbdbdb 45%, rgba(0,0,0,0.5) 100%); /* For Chrome and Safari */
+    		//background-image:    -moz-linear-gradient(top, #dbdbdb 45%, rgba(0,0,0,0.5) 100%); /* For old Fx (3.6 to 15) */
+    		//background-image:     -ms-linear-gradient(top, #dbdbdb 45%, rgba(0,0,0,0.5) 100%); /* For pre-releases of IE 10*/
+    		//background-image:      -o-linear-gradient(top, #dbdbdb 45%, rgba(0,0,0,0.5) 100%); /* For old Opera (11.1 to 12.0) */
+    		//background-image:         linear-gradient(to bottom, #dbdbdb 45%, rgba(0,0,0,0.5) 100%); /* Standard syntax; must be last */
+    		//color:transparent;
+    		//-webkit-background-clip: text;
+    		//background-clip: text;
+    		img {
+    			max-width: 260px;
+    		}
+		}
+		img {
+			max-width:114px;
+		}
+	}
+	.more-btn {
+		display: block;
+		clear: both;
+		background: $btngrey;
+		color: $white;
+		width:117px;
+		height: 37px;
+		padding-top: 4px;
+		text-align:center;
+		margin:0 auto;
+		&:hover {
+			background:$all-red;
+		}
+	}
+	/* cutoff the height of the twitter widget */
+	#twitter-widget-0 {height:510px !important;}
+}
+
+html:lang(fr), 
+html:lang(de) {
+	.twitter_feed .more-btn {
+		width:145px;
+	}
+}
+
+@include breakpoint(tablet) {
+	.twitter_feed {
+		margin:0 auto 20px;
+	}
+}
+@include breakpoint(meddesk) {
+	.twitter_feed {
+		max-width:493px;
+		h3 {
+			max-width:493px;
+			height: 71px;
+			padding: 14px 0 0 53px;
+		}
+	}
+}
+
+/*@include breakpoint(finallayout) {
+	.twitter_feed {
+		width:493px;
+		h3 {
+			width:493px;
+			height: 71px;
+		}
+	}
+}*/

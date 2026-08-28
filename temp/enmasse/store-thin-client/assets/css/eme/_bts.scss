@@ -1,0 +1,437 @@
+.bts_packs {
+	/*background: -webkit-linear-gradient(right, #0a1528 15%, #142a50 50%, #0a1528 85%);
+  	background: linear-gradient(to right, #0a1528 15%, #142a50 50%, #0a1528 85%);*/
+  	background: url(http://eme02.enmasse-game.com/images/store/bts/repeating_bg.png) top center repeat-y #0a1527;
+  	.hero {
+  		width:100%;
+		max-width:1366px;
+		margin:0 auto;
+		padding: 0;
+		position: relative;
+		img {
+			width:100%;
+			max-width:100%;
+		}
+  	}
+  	.packs_wrap, .discount_wrap {
+  		position: relative;
+  		z-index: 0;
+  	}
+  	.packs_wrap {
+  		background: url(http://eme02.enmasse-game.com/images/store/bts/game_area_doodle.png) top center no-repeat;
+  		min-height:1044px;
+  	}
+  	.discount_wrap {
+  		background: url(http://eme02.enmasse-game.com/images/store/bts/emp_doodle.png) top center no-repeat;
+  	}
+  	section {
+  		width:100%;
+		max-width:1190px;
+		margin:0 auto;
+		padding: 20px;
+		&.emp_banner {
+			text-align:center;
+			.inner {
+				background: url(http://eme02.enmasse-game.com/images/store/bts/gift_emp_bg.jpg) top center no-repeat;
+				height: 370px;
+			}
+			.after {
+				p {
+					//font-size:24px;
+					font-size: 18px;
+					margin:1em auto;
+				}
+				table {
+					border: 1px solid #b8cbeb;
+					margin:0 auto;
+					tr, th, td {
+						border: 1px solid #b8cbeb;
+					}
+					th {
+						background: #00b7fe;
+						color:#ffffff;
+						padding:5px;
+						//font-size:24px;
+						font-size: 18px;
+						font-weight:bold;
+					}
+					td {
+						color:#b8cbeb;
+						padding:5px;
+						font-size: 18px;
+					}
+				}
+			}
+			.action {
+				padding-top:265px;
+				a.btn_blue {
+					max-width: 250px;
+					width:100%;
+				}
+			}
+		}
+		&.game_disco {
+			text-align: center;
+			h2 {
+				color: $white;
+				font-family: 'Montserrat', sans-serif;
+        		font-weight: 400;
+        		text-transform: uppercase;
+        		font-size:76px;
+        		line-height:1;
+        		span {
+        			display: block;
+        			font-weight: 700;
+        		}
+			}
+		}
+		&.merch {
+			background: url(http://eme02.enmasse-game.com/images/store/bts/backpacks.png) center center no-repeat;
+		}
+		h2 {
+			color: $white;
+			font-family: 'Montserrat', sans-serif;
+        	font-weight: 700;
+        	text-transform: uppercase;
+        	font-size:21px;
+		}
+		dt {
+			font-family: 'Montserrat', sans-serif;
+			font-weight:400;
+			color:$white;
+			font-size:18px;
+			span {
+        		display: block;
+        		font-style: italic;
+        		font-size:16px;
+        	}
+		}
+		li {
+			font-family: 'Titillium Web', sans-serif;
+   			font-weight: 400;
+			color: $copyblue;
+			font-size:16px;
+			position: relative;
+			padding-left: 15px;
+			margin-bottom: 5px;
+			&:before {
+				content:'';
+				width: 7px;
+				height: 7px;
+				border-radius: 50%;
+				background: $hrBlue;
+				display: block;
+				position: absolute;
+				top: 8px;
+    			left: -2px;
+			}
+		}
+		h3 {
+			color: $white;
+			font-family: 'Montserrat', sans-serif;
+        	font-weight: 700;
+        	text-transform: uppercase;
+			font-size:30px;
+			span {
+				font-size:76px;
+				display: block;
+				margin-top: 20px;
+			}
+		}
+		p {
+			color: $white;
+			font-family: 'Montserrat', sans-serif;
+        	font-weight: 400;
+        	font-size:20px;
+        	max-width: 770px;
+        	width:100%;
+			margin:0 auto;		
+		}
+		h4 {
+			color: $white;
+			font-family: 'Montserrat', sans-serif;
+        	font-weight: 700;
+        	text-transform: uppercase;
+			font-size:35px;
+		}
+		.rightCol {
+			img {
+				width:100%;
+				max-width: 100%;
+			}
+		}
+		.action {
+			padding: 0px 0 35px;
+			text-align: center;
+			display: block;
+			width:100%;
+			a.btn_blue {
+				display: inline-block;
+				vertical-align: middle;
+				background: rgba(0,204,255,0.1);
+				border: 2px solid $hrBlue;
+				border-radius: 5px;
+				max-width: 300px;
+				width:100%;
+				margin:1em auto 0;
+				//display: block;
+				text-decoration: none;
+				cursor: pointer;
+				span {
+					font-family: 'Titillium Web', sans-serif;
+   					font-weight: 700;
+					color: $white;
+					text-transform: uppercase;
+					font-size:20px;
+					text-decoration: none;
+					padding: 15px;
+					display: inline-block;
+					vertical-align:middle;
+					width:100%;
+					height: 100%;
+				}
+				.regular {
+					text-decoration:line-through; 
+					color:rgba(255,255,255, 0.35); 
+					font-weight:normal;
+				}
+				&:hover {
+					background: $hrBlue;
+				}
+			}
+			.super_save {
+				color:#ffffff;
+				font-weight: bold;
+				font-size:21px;
+				padding:7px 14px;
+				background: green;
+				display: inline-block;
+				vertical-align: middle;
+				margin: 0.75em auto 0 10px;
+			}
+			.one_per {
+				text-align: center;
+			    margin:10px auto;
+			    color:#b8cbeb;
+			}
+		}
+		
+  	}
+}
+@media all and (min-width: 768px) {
+	.bts_packs {
+		section {
+			margin:0 auto 40px;
+			&.game_disco {
+				h2 {
+	        		font-size:96px;
+				}
+			}
+			&.merch {
+				h3 {
+					font-size:40px;
+				}
+			}
+			h2 {
+				font-size:26px;
+			}
+			dl {
+				columns: 2 auto;
+			}
+			dd {
+				max-width: 300px;
+			}
+			dt {
+				font-size:20px;
+			}
+			h3 {
+				font-size:50px;
+				span {
+					font-size:136px;
+					margin-top: 40px;
+				}
+			}
+			p {
+	        	font-size:40px;		
+			}
+			&.game_pack_offer, &.game_disco {
+				.leftCol, .rightCol {
+					display: inline-block;
+					vertical-align: top;
+					width:49%;
+				}
+				.rightCol {
+					padding-top:1em;
+					box-sizing: border-box;
+				}
+			}
+		}
+	}
+}
+
+@media all and (min-width: 1024px) {
+	.bts_packs {
+		.packs_wrap {
+			padding:40px 20px 0;
+		}
+		section {
+			padding: 40px 20px;
+			&.emp_banner {
+				.after {
+					p {
+						font-size:24px;
+					}
+					table {
+						th {
+							font-size:24px;
+						}
+					}
+				}
+			}
+			&.game_disco {
+				margin-bottom: 0;
+				h2 {
+	        		font-size:103px;
+				}
+			}
+			&.game_pack_offer {
+				margin-bottom:0;
+				padding: 0;
+				h2 {
+					max-width: 540px;
+					width: 100%;
+				}
+			}
+			h2 {
+				font-size:35px;
+			}
+			.leftCol, .rightCol {
+				display: inline-block;
+				vertical-align: top;
+				width:49%;
+			}
+			&.game_pack_offer {
+				.rightCol {
+					padding-top:1.5em;
+					padding-left:50px;
+					box-sizing: border-box;
+				}
+			}
+		}
+	}
+	/* special drop shadows */
+  	section.game_pack_offer {
+  		h2 {
+  			position: relative;
+  		}
+	  	h2:before {
+			display: block;
+		}
+		h2:after,
+		h2:before {
+			content: '';
+			position: absolute;
+			z-index: -1;
+		}
+		h2:before {
+			/*width: 349px;
+		    height: 67%;
+		    left: -707px;
+		    top: 199px;*/
+		    transform: translatex(100%) skewy(-45deg);
+		    /*background: -webkit-linear-gradient(top, rgba(11,23,44,1) 10%, rgba(11,23,44,0) 20%);
+		    background: linear-gradient(to left, rgba(11,23,44,1) 10%, rgba(11,23,44,0) 20%);*/
+		}
+		h2:after {
+			/*width: 538px;
+			height: 300px;
+			left: -137px;
+			bottom: 16px;*/
+			transform: translatey(100%) skewx(-45deg);
+			/*background: -webkit-linear-gradient(top, rgba(11,23,44,1) 10%, rgba(11,23,44,0) 45%);
+			background: linear-gradient(to bottom, rgba(11,23,44,1) 10%, rgba(11,23,44,0) 45%);*/
+		}
+		h2 {
+			text-shadow: -1px 1px 0 rgba(11,23,44,1), 
+		    -2px 2px 0 rgba(11,23,44,1), 
+		    -3px 3px 0 rgba(11,23,44,1), 
+		    -4px 4px 0 rgba(11,23,44,1),
+		    -5px 5px 0 rgba(11,23,44,1),
+		    -6px 6px 0 rgba(11,23,44,1),
+		    -7px 7px 0 rgba(11,23,44,1),
+		    -8px 8px 0 rgba(11,23,44,1),
+		    -9px 9px 0 rgba(11,23,44,1);
+		}
+		&.tera_bundle {
+			h2:before {
+				width: 349px;
+			    height: 29.5%;
+			    left: -698px;
+			    top: 190px;
+			    background: -webkit-linear-gradient(top, rgba(11,23,44,1) 14%, rgba(11,23,44,0) 35%);
+		    	background: linear-gradient(to left, rgba(11,23,44,1) 14%, rgba(11,23,44,0) 35%);
+			}
+			h2:after {
+				width: 431px;
+				height: 300px;
+				left: -142px;
+				bottom: 72px;
+				background: -webkit-linear-gradient(top, rgba(11,23,44,1) 19%, rgba(11,23,44,0) 43%);
+				background: linear-gradient(to bottom, rgba(11,23,44,1) 19%, rgba(11,23,44,0) 43%);
+			}
+		}
+		&.closers_bundle {
+			h2:before {
+				width: 349px;
+			    height: 23%;
+			    left: -698px;
+			    top: 197px;
+			    background: -webkit-linear-gradient(top, rgba(11,23,44,1) 14%, rgba(11,23,44,0) 35%);
+		    	background: linear-gradient(to left, rgba(11,23,44,1) 14%, rgba(11,23,44,0) 35%);
+			}
+			h2:after {
+				width: 503px;
+				height: 300px;
+				left: -142px;
+				bottom: 72px;
+				background: -webkit-linear-gradient(top, rgba(11,23,44,1) 19%, rgba(11,23,44,0) 43%);
+				background: linear-gradient(to bottom, rgba(11,23,44,1) 19%, rgba(11,23,44,0) 43%);
+			}
+		}
+	}
+  	/* end special drop shadow */
+}
+
+@media all and (min-width: 1366px) {
+	.bts_packs {
+		section {
+			padding: 40px 0px;
+		}
+		#page-content {
+			position: relative;
+			&:before {
+				content:'';
+				display: block;
+				height: 508px;
+				width:100%;
+				background: #25392a;
+				position: absolute;
+			}
+		}
+		/*.hero {
+			position: relative;
+			&:before {
+				content:'';
+				background: -webkit-linear-gradient(left, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 100%);
+		    	background: linear-gradient(to left, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 100%);
+		    	height:100%;
+		    	width:300px;
+		    	display: block;
+		    	position: absolute;
+		    	left:0;
+		    	top:0;
+			}
+		}*/
+	}
+}
+

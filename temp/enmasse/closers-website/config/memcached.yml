@@ -1,0 +1,11 @@
+production:
+  servers:
+  - ch3-tmcache-p01.chi1.enmasse.com
+  options:
+    namespace: closers_web_prod
+
+development:
+  servers:
+  - 10.63.127.68:11211
+  options:
+    namespace: closers_web_test

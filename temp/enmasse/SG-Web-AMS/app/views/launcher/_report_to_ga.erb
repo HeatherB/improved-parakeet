@@ -1,7 +1,0 @@
-<% if @track_args && !@track_args.empty? %>
-  <% content_for :custom_google_analytics_calls do %>
-    <% @track_args.each do |track_arg| %>
-      _gaq.push(['_trackEvent', '<%= track_arg[:category] %>', '<%= track_arg[:action] %>', '<%= track_arg[:label] %>', <%= track_arg[:value] %>]);
-    <% end %>
-  <% end %>
-<% end %>

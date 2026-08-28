@@ -1,5 +1,0 @@
-eme_sso:
-  auth_server: "auth.service.enmasse.com"
-  auth_server_port: 4567
-  account_server: "account.enmasse.com"
-  account_server_secure_url: "https://account.enmasse.com"

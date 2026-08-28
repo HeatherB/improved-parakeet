@@ -1,8 +1,0 @@
-steam_api:
-  url: "https://api.steampowered.com"
-  ssl: true
-  name: "SteamAPI"
-  use_memcache: false
-  type: json
-  api_key: "A3B841C368873FFF62FDE6DF47BED586"
-  url_prefix: "/ISteamMicroTxnSandbox"

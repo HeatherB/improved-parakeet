@@ -1,8 +1,0 @@
-<% if @post_flagged_playstation && @post_flagged_playstation.any? %>
-  <%#= render :partial => "/refinery/blog/shared/categories" %>
-    <%= render :partial => "/refinery/blog/shared/post", :collection => @post_flagged_playstation %>
-    <%#= will_paginate @post_flagged_playstation %>
-<% else %>
-   <!--<p class="alone"><%#=t :no_blog_articles_yet %></p>-->
-<% end %>
-<%#= I18n.locale.inspect %>

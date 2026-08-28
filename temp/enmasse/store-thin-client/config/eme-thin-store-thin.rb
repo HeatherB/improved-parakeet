@@ -1,1 +1,0 @@
-/srv/eme-thin-store/shared/eme-thin-store-thin.rb

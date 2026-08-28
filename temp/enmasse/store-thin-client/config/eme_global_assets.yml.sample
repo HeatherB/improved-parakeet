@@ -1,6 +1,0 @@
-# warning these directories will get wiped and copied over.
-eme_global_assets:
-  target_dirs:
-    js: "assets/javascripts/global"
-    css: "assets/css/global"
-    img: "assets/images/global"

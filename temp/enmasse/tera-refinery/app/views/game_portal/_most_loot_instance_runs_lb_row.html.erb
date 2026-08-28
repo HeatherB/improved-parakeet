@@ -1,9 +1,0 @@
-<% rank = (@lastloots == most_loot_instance_runs_lb_row.legendary_items_looted) ? @lastrank : ( most_loot_instance_runs_lb_row_counter + 1 )  %>
-<tr class="rank-<%= rank %>">
-  <td class="col-0"><%= rank %></td>
-  <td class="col-1"><%= most_loot_instance_runs_lb_row.character.name %></td>
-  <td class="col-2"><%= most_loot_instance_runs_lb_row.character.server.name %></td>
-  <td class="col-3"><%= most_loot_instance_runs_lb_row.legendary_items_looted %></td>
-</tr>
-<% @lastrank = rank %>
-<% @lastloots = most_loot_instance_runs_lb_row.legendary_items_looted %>

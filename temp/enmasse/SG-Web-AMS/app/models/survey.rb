@@ -1,3 +1,0 @@
-class Survey < ObjectShim
-
-end

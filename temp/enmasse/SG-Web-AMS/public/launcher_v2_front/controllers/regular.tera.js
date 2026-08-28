@@ -1,2 +1,0 @@
-launcherApp.controller('regularTERACtrl', ['$scope', "$http", "patchManager", "oauthManager", '$window', 'systemManager', "gameManager", "loginManager",
-  function ($scope, $http, patchManager, oauthManager, $window, systemManager, gameManager, loginManager) {}]);

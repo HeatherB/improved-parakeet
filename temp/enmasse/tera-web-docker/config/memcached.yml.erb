@@ -1,8 +1,0 @@
-<%= "#{fetch(:rails_env)}" %>:
-  servers:
-  <% fetch(:memcached_servers).each do |memsrv| %>
-  - <%= "#{memsrv}:#{fetch(:memcached_port)}" %>
-  <% end %>
-  options:
-    namespace: <%= "#{fetch(:memcached_name)}" %>
-  

@@ -1,7 +1,0 @@
-production:
-  access_token: dd7a54b7c788654b8afc986439dc0df7
-  base_url: "https://account.enmasse.com/api/private"
-
-development:
-  access_token: ef29bf65f9096bf682ddadff868ca14b
-  base_url: "https://account-edge.enmasse.com/api/private"

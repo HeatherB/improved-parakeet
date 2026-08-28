@@ -1,7 +1,0 @@
-<aside class='blog_comment_message' id='<%= "comment-#{comment.to_param}" %>'>
-  <%= image_tag comment.avatar_url, :alt => comment.name, :class => 'avatar' %>
-    <p class="comment-details"><%= t('posted_by', :scope => 'refinery.blog.posts.comments', :who => comment.name) %>,
-      <%= t('time_ago', :scope => 'refinery.blog.posts.comments', :time => time_ago_in_words(comment.created_at)) %></p>
-    </p>
-  <p class="comment-body"><%= simple_format auto_link(strip_tags(comment.message.to_s)) %></p>
-</aside>

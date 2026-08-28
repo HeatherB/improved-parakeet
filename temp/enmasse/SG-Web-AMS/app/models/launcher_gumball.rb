@@ -1,2 +1,0 @@
-class LauncherGumball < Gumball
-end

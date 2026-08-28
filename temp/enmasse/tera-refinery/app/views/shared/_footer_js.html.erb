@@ -1,8 +1,0 @@
-<%#= javascript_include_tag 'application' %>
-<%= render :partial => '/refinery/javascripts' %>
-<script>
-  jQuery(function(){
-    SSO.setup('<%= Rails.application.config.account_server %>');
-  });
-  LoginBox.address = "https://<%= Rails.application.config.account_server %>/remote_logins";
-</script>

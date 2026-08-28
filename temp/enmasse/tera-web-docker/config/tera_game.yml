@@ -1,5 +1,0 @@
-production:
-  base_url: "http://208.67.49.153:8000"
-
-development:
-  base_url: "http://10.63.22.114:8000"

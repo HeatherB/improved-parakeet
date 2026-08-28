@@ -1,0 +1,48 @@
+<div id="class-info">
+  <div id="berserker-icon"></div>
+  <h2>Berserker</h2>
+  <p>Role: Melee Burst DPS. Berserkers deal massive damage on the front line, and can block attacks.</p>
+</div>
+<% if @level <= 29 %>
+  <div id="skills">
+    <div class="skill">
+      <span class="icon axe-block"></span>
+      <p>Axe Block</p>
+      <p>Block frontal attacks with your weapon.</p>
+    </div>
+    <div class="skill">
+      <span class="icon thunder-strike"></span>
+      <p>Thunder Strike</p>
+      <p>Charge up your axe attack by holding down the skill button, then release it to attack.</p>
+    </div>
+    <div class="skill">
+      <span class="icon cyclone"></span>
+      <p>Cyclone</p>
+      <p>Charge up your attack by holding down the skill button, then release it to spin your axe in a circle.</p>
+    </div>
+    <div class="skill">
+      <span class="icon vampiric-blow"></span>
+      <p>Vampiric Blow</p>
+      <p>Charge up the axe’s power, then release the button to attack—and heal yourself by a percentage of the damage.</p>
+    </div>
+  </div>
+<% else %>
+  <div id="crystals">
+    <div class="pve">
+      <h3>PvE Crystals</h3>
+      <ul>
+        <li class="red-crystal">Bitter, savage, focused, carving</li>
+        <li class="blue-crystal">Hardy</li>
+        <li class="green-crystal">Carving</li>
+      </ul>
+    </div>
+    <div class="pvp">
+      <h3>PvP Crystals</h3>
+      <ul>
+        <li class="red-crystal">Savage, cruel, swift, virulent</li>
+        <li class="blue-crystal">Relentless, grieving</li>
+        <li class="green-crystal">Griefing</li>
+      </ul>
+    </div>
+  </div>
+<% end %>

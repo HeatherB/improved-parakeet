@@ -1,0 +1,25 @@
+// Title bar -- set width manually by usage
+  h3.title-bar-light, h3.title-bar-dark { margin: 0; }
+  .title-bar-light, .title-bar-dark { padding: 10px; }
+  table tbody tr.title-bar-light, .title-bar-light {
+    background: rgba($darkGray, 0.6);
+    @include background-image(linear-gradient(rgba($midGray, 0.6), rgba($darkGray, 0.6)));
+    //@include box-shadow(0px 0px 5px rgba($lightGray,0.25) inset, 0 2px 5px $lightGray inset, 0 2px 5px $darkGray);
+  }
+  table tbody tr.title-bar-dark, .title-bar-dark {
+    background: rgb(0,0,0);
+    background: rgba($black, 0.8);
+    color:#ffffff;
+    @include background-image(linear-gradient(rgba($darkGray, 0.8), rgba($black, 0.8)));
+    //@include box-shadow(0px 0px 5px rgba($midGray,0.25) inset, 0 2px 5px $darkGray inset, 0 2px 5px $black);
+  }
+
+  table tbody tr.title-bar-light, table tbody tr.title-bar-dark {
+    margin: 0;
+    th, td {
+      color: $headerFontColor;
+      font: #{ms(0)}/#{ms(0) + 2} $bodyFontFamily;
+      vertical-align: middle;
+      padding: 10px 5px;
+    }
+  }

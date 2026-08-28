@@ -1,0 +1,48 @@
+<div id="class-info">
+  <div id="ninja-icon"></div>
+  <h2>Ninja</h2>
+  <p>Role: Melee attacks, Burst DPS. Ninjas evade enemy blows while building up brutal combo attacks.</p>
+</div>
+<% if @level <= 29 %>
+  <div id="skills">
+    <div class="skill">
+      <span class="icon decoy-jutsu"></span>
+      <p>Decoy Jutsu</p>
+      <p>Drop a decoy target while you teleport behind your target to deliver a quick attack.</p>
+    </div>
+     <div class="skill">
+      <span class="icon one-thousand-cuts"></span>
+      <p>One Thousand Cuts</p>
+      <p>Charge straight forward to deliver a staggering series of blows, while becoming temporarily immune to damage.</p>
+    </div>
+    <div class="skill">
+      <span class="icon jagged-path"></span>
+      <p>Jagged Path</p>
+      <p>Dash forward in a zig-zag pattern and strike a stunning blow to the first target you encounter.</p>
+    </div>
+    <div class="skill">
+      <span class="icon circle-of-steel"></span>
+      <p>Circle of Steel</p>
+      <p>Throw your shuriken at nearby enemies to suspend them in the air while dealing damage (particularly on the final hit).</p>
+    </div>
+  </div>
+<% else %>
+  <div id="crystals">
+    <div class="pve">
+      <h3>PvE Crystals</h3>
+      <ul>
+        <li class="red-crystal">Bitter, Savage, Focused, Forceful</li>
+        <li class="blue-crystal">Hardy</li>
+        <li class="green-crystal">Carving, Powerful</li>
+      </ul>
+    </div>
+    <div class="pvp">
+      <h3>PvP Crystals</h3>
+      <ul>
+        <li class="red-crystal">Savage, Forceful, Salivating, Cruel</li>
+        <li class="blue-crystal">Relentless, Warding</li>
+        <li class="green-crystal">Griefing</li>
+      </ul>
+    </div>
+  </div>
+<% end %>

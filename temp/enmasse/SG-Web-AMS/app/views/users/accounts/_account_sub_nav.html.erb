@@ -1,0 +1,18 @@
+<h1 style="float:left;"><%= title %></h1>
+<div class="sub-nav-btn">
+  <ul>
+    <li><a href="#" class="default-button btn-4 enter-code-btn"><%= tslt("enter code")%></a></li>
+    <% if @valid_ext_promo %>
+      <li>
+        <%# hard-coded for TERA. need to fix. %>
+        <%= form_tag create_default_gacct_users_account_path do  %>
+          <%= hidden_field_tag :de_exist, (@de_num >= 1).to_s %>
+          <%= submit_tag tslt('existing_user_promo_button'), :class => "green-button" %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+  <div class="clear"></div>
+</div>
+<div class="clear"></div>
+<hr />

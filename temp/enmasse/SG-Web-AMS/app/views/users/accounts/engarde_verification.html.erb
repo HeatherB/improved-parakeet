@@ -1,0 +1,32 @@
+<div style="display:none;">
+  <div id="engarde-verification-form-cont" class="cb-min">
+    <%= render :partial => "shared/flash_notices" %>
+    <h3><%=tslt("account armor")%></h3><hr />
+    <p><%= tslt("you are logging in from an unknow device")%></p>
+    <p><%= tslt("as a added security measure you ll need to authorize this device by")%> <%= current_user.email.split("@")[1] %>.</p>
+
+    <%= form_tag submit_engarde_verification_users_account_path, :id => "engarde-verification-form", :class => "default", :method => :post do %>
+      <label for="engarde_ticket"><%= tslt("enter code")%></label>
+      <div class="iparent"><%= text_field_tag :engarde_ticket, "", :class => "input-2", :autocomplete => "off" %></div>
+      <div class="clear"></div>
+
+      <!--<label>&nbsp;</label>-->
+      <label class="label_check" for="remember_device"><%= check_box_tag :remember_device, "true", false %> <%= tslt("remember this device")%></label>
+      <div class="clear"></div>
+
+      <div class="submit"><a href="#" class="submit-link default-button btn-5" data-form="engarde-verification-form"><%= tslt("authorize")%></a></div>
+      <div class="submit">
+        <ul>
+          <li><%= link_to(tslt("resend code"), resend_engarde_ticket_users_account_path) %></li>
+          <li>|</li>
+          <li class="last"><%= link_to(tslt("cancel"), signout_path(:msg => "0")) %></li>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+</div>
+<script type="text/javascript">
+$(function() {
+ $.colorbox({ width:"339px", height:"332px", scrolling:false, inline:true, overlayClose:false, escKey:false, opacity: "1",href:"#engarde-verification-form-cont"});
+});
+</script>

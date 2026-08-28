@@ -1,0 +1,2 @@
+class LauncherGumball < Gumball
+end

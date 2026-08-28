@@ -1,0 +1,15 @@
+<% cache("nav_header") do %>
+  <div class="three columns">
+    <a href="/" id="header-logo"></a>
+  </div>
+  <%= Refinery::Pages::MenuPresenter.new(refinery_menu_pages, self).to_html %>
+  <% if tera_user_signed_in? %>
+  <div class="play-now">
+   <a href="/download" onclick="_gaq.push(['_trackEvent', 'Accounts', 'Clicked Play Now Button (Logged In User)', 'TERA Homepage']);">PLAY FREE</a>
+  </div>
+  <% else %>
+  <div class="play-now">
+   <a href="/sign-up" onclick="_gaq.push(['_trackEvent', 'Accounts', 'Clicked Play Now Button', 'TERA Homepage']);">PLAY FREE</a>
+  </div>
+  <% end %>
+<% end %>

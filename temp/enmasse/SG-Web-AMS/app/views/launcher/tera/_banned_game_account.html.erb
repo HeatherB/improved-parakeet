@@ -1,0 +1,48 @@
+<% store_redirect = SECURE_CONFIG["digital_river"]["game_purchase_redirect"] rescue SHOP_URL %>
+<% subscription_redirect = SECURE_CONFIG["enmasse"]["subscription_setup_url"] rescue SHOP_URL %>
+
+<div class='content-launcher'>
+  <%= render :partial => "shared/flash_notices" %>
+  <div class='clear'></div>
+  <div class='accounts-listing listing'>
+    <div class='listing-head'></div>
+    <div class='listing-body'>
+      <p>TERA Game account is banned!(WRITING)</p>
+      <h2><%= tslt("please select an account")%></h2>
+      <div class='list'>
+        <ul>
+          <% @game_accounts.each do |gacct_infos| %>
+            <% gacct, res_code, type_name = gacct_infos[:gacct], gacct_infos[:res_code], gacct_infos[:type_name] %>
+            <% store_redir = store_redirect % gacct.obfuscated_id %>
+            <% case res_code
+               when 200 %>
+              <% if gacct_infos[:unlimited]%>
+                <%= render :partial => 'launcher/free_play_game_account', :locals => { :gacct    => gacct,
+                                                                                       :res_code => res_code,
+                                                                                       :type_name => type_name } %>
+              <% else %>
+                <li>
+                  <%= link_to h(gacct.account_name), launcher_path(@game, :gid => gacct.id), :class => "account-link" %>
+                  - <%= h(type_name) %>
+                </li>
+              <% end %>
+            <% else %>
+              <%= render :partial => 'launcher/error_game_account', :locals => { :gacct    => gacct,
+                                                                                 :res_code => res_code,
+                                                                                 :type_name => type_name,
+                                                                                 :subscription_redirect => subscription_redirect,
+                                                                                 :store_redir => store_redir } %>
+            <% end %>
+          <% end %>
+        </ul>
+      </div><!--.list-->
+    </div><!--.listing-body-->
+    <div class='listing-foot'></div>
+  </div><!--.accounts-listing-->
+</div><!--#launcher-->
+<script>
+  $(function()
+  {
+    $('.list').jScrollPane();
+  });
+</script>

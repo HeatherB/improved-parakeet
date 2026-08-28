@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<%= render :partial => '/refinery/html_tag' %>
+  <%= render :partial => '/refinery/head' %>
+  <body>
+    <%#= render :partial => '/shared/splash' if show_splash_page_partial -%>
+    <%#= tera_header -%>
+    <%= render :partial => "/shared/alert_bar" %>
+    <div class="clearfix"></div>
+    <div id="page-content">
+      <%= yield %>
+    </div>
+    <%= render :partial => '/shared/footer_js' %>
+    <!-- <%= `hostname`.strip %> -->
+    <span class="loadtimestamp"></span>
+  </body>
+</html>

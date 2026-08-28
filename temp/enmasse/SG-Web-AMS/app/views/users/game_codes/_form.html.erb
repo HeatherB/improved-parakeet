@@ -1,0 +1,33 @@
+<% store_redirect = SECURE_CONFIG["digital_river"]["game_purchase_redirect"] rescue SHOP_URL %>
+<% if @promotion.present? %>
+<div id="code-success-container">
+  <%= render :partial => "users/game_codes/show" %>
+</div>
+<% else %>
+<div id="code-form-container">
+  <div class="pop-header">
+    <h3><%= tslt("enter a new code")%></h3><hr />
+  </div>
+  <div class="pop-content">
+    <%= render :partial => "shared/flash_notices" if @code_errors %>
+
+    <%= form_tag users_game_codes_path, :id => "game-codes-form", :class => "default", :'data-div' => "enter-code" do %>
+      <%= hidden_field_tag "pref_account", @pref_account.to_s %>
+      <label for="game_code"><%= tslt("game code")%></label>
+      <div class="iparent"><%= text_field_tag :game_code, params[:game_code], :class => "input-4 check-form focus", :autocomplete => "off" %></div>
+      <div class="check"></div>
+      <div class="clear"></div>
+
+      
+      <div class="actions">
+        <button type="submit" class="buttonDark game-code-submit pseudo-submit-link" data-form="game-codes-form"><%= tslt("submit")%></button>
+        <button type="button" class="cancel buttonLight"><%= tslt("cancel")%></button>
+      </div>
+    <% end %>
+
+    <% if @code_errors %>
+      <script type="text/javascript">addErrorsClass($("#game_code"));</script>
+    <% end %>
+  </div>
+</div>
+<% end %>

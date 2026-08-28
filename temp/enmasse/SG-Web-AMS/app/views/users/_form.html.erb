@@ -1,0 +1,112 @@
+<!-- needed for displaying error messages (see handleCreateAccountClick and showErrorExplanation in account.js -->
+<div class="row" id="registration">
+</div>
+<!-- needed for displaying error messages -->
+
+<%= get_update_token %>
+<input type="hidden" name="user[io_black_box]" id="user_io_black_box" value="" />
+<%= hidden_field_tag :rid, params[:rid] if params[:rid] %>
+
+<div class="row" id="email">
+  <% if @user.legacy_account? %>
+    <div class="label1"><%= f.label :email, tslt("email address") %></div>
+    <div class="input-text">
+      <%= @user.email %>
+      <%= f.hidden_field :email, :value => @user.email %>
+      <%= hidden_field_tag :ticket, params[:ticket] %>
+    </div>
+  <% else %>
+    <div class="label1"><%= f.label :email, tslt("email address"), :class => "email_label" %></div>
+    <div class="input iparent <%= user_error_css(@user, :email) %>">
+      <%= f.email_field :email,
+        :class => "input hintable",
+        :maxlength => 64,
+        :autocomplete => "off",
+        :type => "email",
+        :placeholder => tslt('input placeholder email'),
+        :value => (@referral.email if @referral) %>
+    </div>
+    <div class="check <%= user_error_css(@user, :email, true) %>"></div>
+  <% end %>
+</div>
+
+<div class="clear-left"></div>
+<div class="row" id="password">
+  <div class="label1"><%= f.label :password, tslt("password"), :class => "password_label" %></div>
+  <div class="input iparent <%= user_error_css(@user, :password) %>">
+    <%= f.password_field :password,
+      :class => "input password hintable",
+      :rel => ".pstrength-meter-cont",
+      :placeholder => "type password",
+      :autocomplete => "off" %>
+  </div>
+  <div class="check <%= user_error_css(@user, :password, true) %>"></div>
+  <div class="input iparent <%= user_error_css(@user, :password_confirmation) %>">
+    <%= f.password_field :password_confirmation,
+      :class => "input hintable",
+      :placeholder => "re-type password",
+      :autocomplete => "off" %>
+  </div>
+  <div class="check <%= user_error_css(@user, :password_confirmation, true) %>"></div>
+</div>
+
+<div class="clear-left"></div>
+<div class="row" id="notice">
+  <p class="notice-callout"><%#= tslt("sign_up_notice") %>By signing up, you agree to our <br><a href="http://www.enmasse.com/legal/terms-of-service">Terms of Service</a>, and verify that <br>you are 13 years of age or older.</p>
+</div>
+
+<% @mailing_lists.each do |mailing_list| %>
+  <div class="clear-left"></div>
+  <div class="row checkbox">
+    <%= check_box_tag mailing_list[:tag], "1", false %>
+    <label class="label_check" for=<%= mailing_list[:tag] %> id="newsletter-checkbox">
+      <span></span><!-- this span provdes the image checkbox-->
+      <p>Sign up to receive news and special offers from <em>TERA.</em></p>
+    </label>
+  </div>
+<% end %>
+
+<% if @mailing_lists.count > 0 %>
+  <%= hidden_field_tag :disable_auto_subscribing, 1 %>
+<% end %>
+
+<div class="clear-left"></div>
+<%= hidden_field_tag :game, params[:game] %>
+<div id="submit-btn">
+  <a href="#" id="btn-success" title="Success, please check your email" class="disabled preview-rounded"><%= tslt("success") %></a>
+  <a href="#" id="btn-create-account" class="disabled preview-rounded pseudo-submit-link" title="<%= tslt("please complete the registration form") %>" data-wait-text="<%= tslt("submitting") %>" data-success-text="<%= tslt("success") %>" data-form="account-registration-form">
+    <%= tslt("sign up now") %>
+  </a>
+
+</div>
+
+<script>
+ $(function() {
+    $('input').focus(function() {
+      $(this).closest(".iparent").addClass('focus');
+    });
+
+    $('input:active').trigger('focus');
+
+    $('input').blur(function() {
+      $(this).closest(".iparent").removeClass('focus');
+      $('#hint').remove();
+    });
+
+    $('input[placeholder]').placeholder();
+  });
+</script>
+
+<!-- hint corrections -->
+<style type="text/css">
+  #app-account #hint {
+    left: -377px;
+    width:341px;
+  }
+  #app-account #hint p {
+    margin-left:0 !important;
+  }
+  #app-account #hint.warning p {
+    width:335px !important;
+  }
+</style>

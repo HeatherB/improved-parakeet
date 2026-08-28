@@ -1,0 +1,43 @@
+div.server_status {
+  .dataTables_filter {
+    width: 300px;
+    float:left;
+
+    span {
+      font-size: ms(2);
+      font-weight: bold;
+      font-family: $headerFontFamily;
+      display: block;
+      margin:12px 0;
+      color: $white;
+    }
+    input[type=text] { width:280px; }
+  }
+
+  table {
+    width: 800px;
+    float: left;
+
+    th {
+      &.sorting, &.sorting_asc, &.sorting_desc {
+          background:$black image_url('icons/sorting.png') no-repeat right 0;
+      }
+      &.sorting_asc { background-position-y: -130px; }
+      &.sorting_desc { background-position-y: -90px; }
+    }
+
+    .server-status-icon {
+      background: image_url('icons/sorting.png') no-repeat 0 0;
+      font-size:0;
+    }
+    .server-up td:first-child { background-position: 0 -170px; }
+    .server-down td:first-child, .server-maint td:first-child { background-position: 0 -205px; }
+
+    td {
+      &.server-none { color: green; }
+      &.server-medium { color: yellow; }
+      &.server-high { color: red; }
+    }
+  }
+  .has-tip { color: $white; }
+}

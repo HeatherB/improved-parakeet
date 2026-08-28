@@ -1,0 +1,36 @@
+<script>
+  game_account_id = "<%= @game_account.obfuscated_id %>";
+  tr = <%= @game_account.game.transfer_restricted.to_s %>;
+</script>
+
+<div id="content">
+  <div class="content-top account-man"> 
+    <%= render :partial => "game_accounts/top_nav", :locals => { :current => "Account Overview" }%>
+  </div>
+  <div class="content-block">
+
+    <div id="character-transfer-message">
+      <h2><%= tslt("paid server transfer") %></h2>
+      <h3><%= tslt("paid server transfer description") %></h3>
+    </div>
+
+    <ol id='transfer-flow'>
+      <%= render :partial => 'game_accounts/character_transfer/form_steps/step_one', :locals => { :servers => @servers } %>
+      <%= render :partial => 'game_accounts/character_transfer/form_steps/step_two', :locals => { :servers => @servers } %>
+      <%= render :partial => 'game_accounts/character_transfer/form_steps/step_three', :locals => { :servers => @servers } %>
+
+      <%= render :partial => 'game_accounts/character_transfer/hidden_form' %>
+    </ol>
+    <div class='clear'></div>
+
+    <%= render :partial => 'game_accounts/character_transfer/transfer_history', :locals => { :transfers => @transfers } %>
+    <div id='transfer-status-popup-container'></div>
+    <div id='character-status-query-popup-container'>
+      <%= render :partial => 'game_accounts/character_transfer/transfer_query_popup' %>
+    </div>
+
+    <div class='clear'></div>
+  </div>
+</div>
+
+<%= render :partial => 'game_accounts/character_transfer/payment_popup', :locals => { :purchase_info => @purchase_info } %>

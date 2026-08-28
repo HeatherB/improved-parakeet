@@ -1,0 +1,48 @@
+<div id="class-info">
+  <div id="lancer-icon"></div>
+  <h2>Lancer</h2>
+  <p>Role: Absorption Tank. Lancers are front-line fighters focused on anchoring a battle.</p>
+</div>
+<% if @level <= 29 %>
+  <div id="skills">
+    <div class="skill">
+      <span class="icon stand-fast"></span>
+      <p>Stand Fast</p>
+      <p>Block frontal attacks with your shield.</p>
+    </div>
+    <div class="skill">
+      <span class="icon spring-attack"></span>
+      <p>Spring Attack</p>
+      <p>Leap to your foe and strike a hard blow.</p>
+    </div>
+    <div class="skill">
+      <span class="icon shield-barrage"></span>
+      <p>Shield Barrage</p>
+      <p>Move forward, attacking target with your shield. Repeat the attack up to 2 hits, and the last hit will briefly stun the target.</p>
+    </div>
+    <div class="skill">
+      <span class="icon leash"></span>
+      <p>Leash</p>
+      <p>Throw a magical hook and chain that drags an enemy toward you. Won't work on huge opponents.</p>
+    </div>
+  </div>
+<% else %>
+  <div id="crystals">
+    <div class="pve">
+      <h3>PvE Crystals</h3>
+      <ul>
+        <li class="red-crystal">Threatening, focused</li>
+        <li class="blue-crystal">Hardy, poised</li>
+        <li class="green-crystal">Threatening, power</li>
+      </ul>
+    </div>
+    <div class="pvp">
+      <h3>PvP Crystals</h3>
+      <ul>
+        <li class="red-crystal">Savage, forceful, salivating, cruel</li>
+        <li class="blue-crystal">Relentless, resolute</li>
+        <li class="green-crystal">Griefing</li>
+      </ul>
+    </div>
+  </div>
+<% end %>

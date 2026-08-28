@@ -1,0 +1,12 @@
+<div id="global-alerts-wrapper">
+  <% if @global_alerts %>
+    <div id="global-alerts">
+      <% @global_alerts.each do |global_alert| %>
+        <% msg = global_alert.message %>
+        <div class="alert <%= "alert-#{global_alert.level}" %>">
+          <%= content_tag :div, global_alert.message.to_s.html_safe, :class => "message" %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

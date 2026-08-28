@@ -1,0 +1,547 @@
+.tera {
+  #page-content {
+    &.what-is-tera {
+      #header {
+        position:absolute;
+        top:0;
+        left:0;
+        right:0;
+      }
+    }
+  }
+}
+#what-is-tera {
+  h1 {
+    color: #666666;
+    font-size:29px;
+    margin:0 auto;
+    text-align:center;
+  }
+  h3 {
+    color: #ffffff;
+    font-size:20px;
+    text-transform:uppercase;
+  }
+  .hero-video {
+    @include box-sizing(border-box);
+    @include clearfix();
+    position: relative;
+    z-index: 0;
+    width: 1140px;
+    min-height:640px;
+    margin:0 auto;
+
+    &:before, &:after {
+      content: "";
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 50px;
+      height: 692px;
+    }
+    &:before {
+      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+20,ffffff+100&amp;1+0,0+100 */
+      background: -moz-linear-gradient(left,  rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 20%, rgba(255,255,255,0) 100%); /* FF3.6+ */
+      background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,1)), color-stop(20%,rgba(255,255,255,0.8)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+      background: -webkit-linear-gradient(left,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.8) 20%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+      background: -o-linear-gradient(left,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.8) 20%,rgba(255,255,255,0) 100%); /* Opera 11.10+ */
+      background: -ms-linear-gradient(left,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.8) 20%,rgba(255,255,255,0) 100%); /* IE10+ */
+      background: linear-gradient(to right,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.8) 20%,rgba(255,255,255,0) 100%); /* W3C */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
+
+      z-index: 1;
+      left: 0;
+    }
+    &:after {
+      z-index: 1;
+      right: 0;
+
+      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+80,ffffff+100&amp;0+0,1+100 */
+      background: -moz-linear-gradient(left,  rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 80%, rgba(255,255,255,1) 100%); /* FF3.6+ */
+      background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,0)), color-stop(80%,rgba(255,255,255,0.8)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
+      background: -webkit-linear-gradient(left,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.8) 80%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
+      background: -o-linear-gradient(left,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.8) 80%,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
+      background: -ms-linear-gradient(left,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.8) 80%,rgba(255,255,255,1) 100%); /* IE10+ */
+      background: linear-gradient(to right,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.8) 80%,rgba(255,255,255,1) 100%); /* W3C */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 */
+
+    }
+  }
+
+  .learn {
+    @include box-sizing(border-box);
+    padding: 0;
+    height: 56px;
+    //width:1280px;
+    width:1140px;
+    background: #ffffff;
+    margin-bottom: 0;
+    z-index: 1;
+    box-shadow: 0px 5px 10px 0 rgb(0,0,0);
+    box-shadow: 0px 5px 10px 0 rgba(0,0,0,0.25);
+    &:before {
+      content: "";
+      display:block;
+      position: absolute;
+      left: 0;
+      right: 0;
+      width:1140px;
+      height: 105px;
+      top: -103px;
+      margin: 0 auto;
+      background: url('what-is-tera/aboutus_garnish.png') top center no-repeat;
+    }
+    .section-wrapper {
+      margin: 0 auto;
+      width:640px;
+      position:relative;
+      top:-78px;
+      z-index: 9999;
+    }
+    p {
+      color: #000000;
+      font-size: 14px;
+      line-height:24px;
+      text-align:left;
+      position: relative;
+      top: auto;
+      left: auto;
+      margin: 0 auto;
+      width:100%;
+    }
+  }
+
+  .combat {
+    .hero-video {
+      //margin: -157px auto 0;
+      margin:0 auto;
+      //background: image_url('what-is-tera/aboutuspage_video.jpg') no-repeat top center cover;
+      position:relative;
+      top:-8px;
+      min-width:1140px;
+      img {
+        width:100%;
+        max-width:100%;
+        //display:block;
+        //padding-top: 25px;
+      }
+      &:before {
+        content: '';
+        display:none;
+      }
+      &:after {
+        content: '';
+        display:none;
+      }
+      video {
+        width: 100%;
+        min-width:1140px;
+        //margin: -157px auto 0;
+        margin:0 auto;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top:0;
+        z-index: 0;
+      }
+    }
+    .learn {
+      min-width:1140px;
+      margin-top:-16px;
+    }
+  }
+
+  .world {
+    .hero-video {
+      background-image: url('what-is-tera/about_worldbg.jpg');
+      height: 641px;
+      padding-top: 44px;
+      &:before {
+        background: none;
+      }
+      &:after {
+        background: none;
+      }
+      //.slidesjs-control img {
+        #slides {
+        margin:0 auto;
+        width:789px !important;
+        height: auto;
+        -moz-box-shadow: 0px 0px 50px 10px rgba(0,0,0,0.25); /* FF3.5+ */
+        -webkit-box-shadow: 0px 0px 50px 10px rgba(0,0,0,0.25); /* Saf3.0+, Chrome */
+        box-shadow: 0px 0px 50px 10px rgba(0,0,0,0.25); /* Opera 10.5, IE9, Chrome 10+ */
+        height: 446px;
+        img {
+          border: 2px solid #ffffff;
+          -moz-box-shadow: inset 0px 0px 50px 10px rgba(0,0,0,0.25); /* FF3.5+ */
+          -webkit-box-shadow: inset 0px 0px 50px 10px rgba(0,0,0,0.25); /* Saf3.0+, Chrome */
+          box-shadow: inset inset 0px 0px 50px 10px rgba(0,0,0,0.25); /* Opera 10.5, IE9, Chrome 10+ */
+        }
+      }
+      ul.slidesjs-pagination {
+        margin:6px auto 0;
+        width:175px;
+        position: absolute;
+        z-index: 9999;
+        left: 0;
+        right: 0;
+      }
+      .slidesjs-navigation {
+        text-indent: -9999em;
+        display:inline-block;
+        vertical-align:top;
+        width:68px;
+        height:68px;
+        position: absolute;
+        top:33%;
+      }
+      .slidesjs-previous {
+        background: url('what-is-tera/slides/prev.png') top center no-repeat;
+        left: 100px;
+      }
+      .slidesjs-next {
+        background: url('what-is-tera/slides/next.png') top center no-repeat;
+        right: 100px;
+      }
+      .slidesjs-pagination-item {
+        display:inline-block;
+        a {
+          background: url('what-is-tera/slides/pager.png') 0 0 no-repeat;
+          width: 29px;
+          height: 29px;
+          display:block;
+          text-indent: -9999em;
+          &.active, &:hover {
+            background-position: -30px 0;
+          }
+        }
+      }
+    }
+  }
+
+
+  .style {
+    .hero-video {
+      background-image: url('what-is-tera/about_stylebg.jpg');
+      height: 641px;
+      &:before {
+        background: none;
+      }
+      &:after {
+        background: none;
+      }
+    }
+    .learn {
+      height:80px;
+    }
+    .hero-inner {
+      width:1140px;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      right:0;
+      z-index: -1;
+      //background: none;
+      //opacity: 0;
+      //@include prefix(transition, background 1s ease-in-out, webkit ms moz o);
+      &.ninja {
+        background: url('what-is-tera/classes/ninja.jpg') top center no-repeat;
+      }
+      &.brawler {
+        background: url('what-is-tera/classes/brawler.jpg') top center no-repeat;
+      }
+      &.warrior {
+        background: url('what-is-tera/classes/warrior.jpg') top center no-repeat;
+      }
+      &.berserker {
+        background: url('what-is-tera/classes/berserker.jpg') top center no-repeat;
+      }
+      &.archer {
+        background: url('what-is-tera/classes/archer.jpg') top center no-repeat;
+      }
+      &.lancer {
+        background: url('what-is-tera/classes/lancer.jpg') top center no-repeat;
+      }
+      &.reaper {
+        background: url('what-is-tera/classes/reaper.jpg') top center no-repeat;
+      }
+      &.priest {
+        background: url('what-is-tera/classes/priest.jpg') top center no-repeat;
+      }
+      &.slayer {
+        background: url('what-is-tera/classes/slayer.jpg') top center no-repeat;
+      }
+      &.sorcerer {
+        background: url('what-is-tera/classes/sorcerer.jpg') top center no-repeat;
+      }
+      &.mystic {
+        background: url('what-is-tera/classes/mystic.jpg') top center no-repeat;
+      }
+      &.gunner {
+        background: url('what-is-tera/classes/gunner.jpg') top center no-repeat;
+      }
+      &.valkyrie {
+        background: url('what-is-tera/classes/valkyrie.jpg') top center no-repeat;
+      }
+    }
+  }
+  .class-nav {
+    @include box-sizing(border-box);
+    display:inline-block;
+    width: 175px;
+    vertical-align: top;
+    padding-top:35px;
+    margin-left: 240px;
+    h3 {
+      @include box-sizing(border-box);
+      padding-left: 14px;
+    }
+    li {
+      display:block;
+      height: 36px;
+      &:hover, &.active {
+        text-shadow: 
+        1px 1px 3px #00b7de, 
+        -1px -1px 3px #00b7de;
+        background: url('what-is-tera/classes/class_highlight.png') center left no-repeat;
+        a {
+          &.warrior-select {
+            .select-icon {
+              background-position: -25px 4px;
+            }
+          }
+          &.berserker-select {
+            .select-icon {
+              background-position: -25px -22px;
+            }
+          }
+          &.archer-select {
+            .select-icon {
+              background-position: -25px -48px;
+            }
+          }
+          &.lancer-select {
+            .select-icon {
+              background-position: -25px -73px;
+            }
+          }
+          &.reaper-select {
+            .select-icon {
+              background-position: -25px -100px;
+            }
+          }
+          &.priest-select {
+            .select-icon {
+              background-position: -25px -127px;
+            }
+          }
+          &.slayer-select {
+            .select-icon {
+              background-position: -25px -153px;
+            }
+          }
+          &.sorcerer-select {
+            .select-icon {
+              background-position: -25px -181px;
+            }
+          }
+          &.mystic-select {
+            .select-icon {
+              background-position: -25px -207px;
+            }
+          }
+          &.gunner-select {
+            .select-icon {
+              background-position: -25px -235px;
+            }
+          }
+          &.brawler-select {
+            .select-icon {
+              background-position: -25px -263px;
+            }
+          }
+          &.ninja-select {
+            .select-icon {
+              background-position: -25px -291px;
+            }
+          }
+          &.valkyrie-select {
+            .select-icon {
+              background-position: -25px -319px;
+            }
+          }
+        }
+      }
+      
+      a {
+        @include box-sizing(border-box);
+        font-family: "exo_2light", Times, serif;
+        text-decoration: none;
+        display:block;
+        height: 100%;
+        font-size: 14px;
+        color: #ffffff;
+        .select-icon {
+          background-image: url('what-is-tera/classes/icon_sprite_val.png');
+          background-repeat: no-repeat;
+          width:30px;
+          height:31px;
+          display:inline-block;
+          vertical-align:middle;
+        }
+        &.ninja-select {
+          .select-icon {
+            background-position: 6px -291px;
+          }
+        }
+        &.brawler-select {
+          .select-icon {
+            background-position: 6px -263px;
+          }
+        }
+        &.warrior-select {
+          .select-icon {
+            background-position: 6px 4px;
+          }
+        }
+        &.berserker-select {
+          .select-icon {
+            background-position: 6px -22px;
+          }
+        }
+        &.archer-select {
+          .select-icon {
+            background-position: 6px -48px;
+          }
+        }
+        &.lancer-select {
+          .select-icon {
+            background-position: 6px -73px;
+          }
+        }
+        &.reaper-select {
+          .select-icon {
+            background-position: 6px -100px;
+          }
+        }
+        &.priest-select {
+          .select-icon {
+            background-position: 6px -127px;
+          }
+        }
+        &.slayer-select {
+          .select-icon {
+            background-position: 6px -153px;
+          }
+        }
+        &.sorcerer-select {
+          .select-icon {
+            background-position: 6px -181px;
+          }
+        }
+        &.mystic-select {
+          .select-icon {
+            background-position: 6px -207px;
+          }
+        }
+        &.gunner-select {
+          .select-icon {
+            background-position: 6px -235px;
+          }
+        }
+        &.valkyrie-select {
+          .select-icon {
+            background-position: 6px -319px;
+          }
+        }
+      }
+      .select-class {
+        @include box-sizing(border-box);
+        text-transform: uppercase;
+        font-size: 13px;
+        line-height: 2.5;
+        color: #ffffff;
+        padding-left: 4px;
+        display:inline-block;
+        vertical-align:middle;
+      }
+    }
+  }
+  .class-preview {
+    @include box-sizing(border-box);
+    display:inline-block;
+    width: auto;
+    vertical-align: top;
+    padding-top:75px;
+    li {
+      @include box-sizing(border-box);
+      //@include prefix(transition, opacity .5s ease-in-out, webkit ms moz o);
+      position: absolute;
+      //display: none;
+      opacity: 0;
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+      left: 755px;
+      &.active {
+        //display:block;
+        opacity: 1;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+      }
+      &.warrior-preview {
+        padding-top: 132px;
+      }
+      &.berserker-preview {
+        padding-top: 100px;
+      }
+      &.archer-preview {
+        padding-top: 147px;
+      }
+      &.lancer-preview {
+        padding-top: 285px;
+      }
+      &.reaper-preview {
+        padding-top: 269px;
+      }
+      &.priest-preview {
+        padding-top: 180px;
+      }
+      &.slayer-preview {
+        padding-top: 74px;
+      }
+      &.sorcerer-preview {
+        padding-top: 70px;
+      }
+      &.mystic-preview {
+        padding-top: 196px;
+      }
+      &.gunner-preview {
+        padding-top: 68px;
+      }
+      &.ninja-preview {
+        padding-top: 175px;
+      }
+      &.valkyrie-preview {
+        padding-top: 80px;
+      }
+    }
+    h1 {
+      font-size: 49px;
+      line-height: 1;
+      text-align:left;
+      color: #ffffff;
+      text-shadow:  1px 1px 1px rgba(0,0,0, 0.5);
+    }
+    p {
+      font-size:13px;
+      line-height:18px;
+      text-align: left;
+      width:240px;
+      color: #ffffff;
+      text-shadow:  1px 1px 1px rgba(0,0,0, 0.5);
+    }
+  }
+
+  .footer-wrapper {
+    position: relative;
+  }
+}// end about us 
+
+

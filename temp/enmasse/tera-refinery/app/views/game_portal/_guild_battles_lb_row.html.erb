@@ -1,0 +1,14 @@
+<% rank = (@lastbattles == guild_battles_lb_row.total_battles) ? @lastrank : ( guild_battles_lb_row_counter + 1 ) %>
+<tr class="rank-<%= rank %>">
+  <td class="col-0"><%= guild_battles_lb_row.battle_wins > 0 ? rank : "&#8212;" %></td>
+  <td class="col-1"><%# <img width="32" height="32" src="/images/sample_guild_logo.png" /> %><%= guild_battles_lb_row.name %></td>
+  <td class="col-2"><%= guild_battles_lb_row.server.name %></td>
+  <td class="col-3">
+    <span class="tiptop-e">
+    <%= guild_battles_lb_row.total_battles %>
+    <%= render :partial => 'guild_stats_tooltip', :object => guild_battles_lb_row %>
+    </span>
+  </td>
+</tr>
+<% @lastrank = rank %>
+<% @lastbattles = guild_battles_lb_row.total_battles %>

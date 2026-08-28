@@ -1,0 +1,111 @@
+<div class="game-window-wrapper wrapper" ng-style="{'background-image':'url('+gameGameManager.background_url+')'}">
+  <div class="game-window-upper">
+    <h1 class="game-name">ZMR</h1>
+    <div class="manage-bar">
+      <div class="game-options">
+        <nav class="select-like">
+          <ul>
+            <li><div class="toplevel">Game Options <span class="arrow-wrapper"><span class="arrow-down"></span></span></div>
+              <ul>
+                <li ng-if="gameGameManager.show_languages == true">
+                  <a href="/">Select a Language</a>
+                  <ul>
+                    <li ng-repeat="option in gameGameManager.languages">
+                      <input type="radio" id="select-{{option.value}}" name="select-language" ng-click='chooseLanguage(selectedLang, true)' ng-model="selectedLang" value="{{option.value}}" />
+                      <label for="select-{{option.value}}" class="thumb">{{option.title | plaintext}}</label>
+                    </li>
+                  </ul>
+                </li>
+                <li ng-repeat="option in gameGameManager.game_options" ng-if="option.action == 'link_to'">
+                  <a ng-click='openWebNoSession(option.value)'>{{option.title}}</a>
+                </li>
+                <div ng-controller='toolsCtrl'>
+                  <li ng-show="showRepairTool()"><a ng-click='repair()'>ZMR Repair Tool</a></li>
+                  <li><a ng-click='runEMEDiag()'> Run EME Diagnostic </a></li>
+                </div>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div><!-- end of game options -->
+
+      <div class="code-box" ng-if="gameGameManager.show_code_redemption == true" ng-controller="redeemEntryCtrl">
+        <a ng-click='redeem()' class="redeem-code"><span>Redeem a code</span></a>
+        <ul>
+          <li><span class="question">(?)</span>
+            <ul>
+              <li>
+                <div class="answer" >
+                  <p>Enter your promotional or serial code for in-game items</p>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div><!-- end of code box -->
+
+      <div class="game-accounts"></div><!-- end of game accounts -->
+    </div><!-- end of manage bar -->
+  </div><!-- end of game window upper -->
+
+  <div class="game-window-lower">
+    <div class="left">
+      <div>  <!-- ng-controller="SliderController" ng-init="setGame(gameGameManager)"> -->
+        <slider images="images" />
+      </div>
+    </div><!-- end of left -->
+
+
+    <div class="center">
+      <div class="gumballs">
+        <a ng-click='openWebNoSession(gameGameManager.gumballs[0].link_url)'>
+          <img ng-src="{{gameGameManager.gumballs[0].image_url}}" alt="gumball" width="242" height="136" />
+          <p class="gumball-copy" ng-bind-html="gameGameManager.gumballs[0].body | trust"></p>
+          <!--<p class="gumball-copy">{{gameGameManager.gumballs[0].body | plaintext}}</p>-->
+        </a>
+      </div><!-- end of gumballs -->
+    </div><!-- end of center -->
+
+    <div class="right">
+     <!-- <div class="maintenance">
+        <div class="header">
+          <h4>Patch Notes</h4>
+        </div>
+        <div class="feed">
+          <div class="content">
+            <h4>"Worlds at War" Update Patch Notes</h4>
+            <p> <a ng-click='openWebNoSession("http://zmr.enmasse.com/news/posts/worlds-at-war-update-patch-notes")'>Learn more ></a></p>
+          </div>
+        </div>
+      </div>--><!-- end of maintenance -->
+    </div><!-- end of right -->
+  </div><!-- end of game window lower -->
+</div><!--end of game window wrapper -->
+
+
+<!-- ######################################################################################################## -->
+<!-- progress bar -->
+<!-- ######################################################################################################## -->
+<div class="progress-wrapper wrapper" ng-controller='patchCtrl' ng-init="initialize('zmr')">
+  <div id="progress-bar">
+    <h5>Progress: <span ng-show="(game.progress != null)">{{game.statusMessage}} {{game.progress}} %</span></h5>
+    <div id="progress-outer">
+      <div id="progress-inner">
+        <progress ng-show="(game.status == gamestatus.NOT_INSTALLED)" ng-disabled="!(game.status == gamestatus.NOT_INSTALLED)" value="0" max="100"></progress>
+        <progress ng-show="(game.status == gamestatus.INSTALLING || game.status == gamestatus.REPAIRING || game.status == gamestatus.PATCHING)" ng-disabled="!(game.status == gamestatus.INSTALLING || game.status == gamestatus.REPAIRING || game.status == gamestatus.PATCHING)" value="{{game.progress}}" max="100"></progress>
+        <progress ng-show="(game.status == gamestatus.READY_TO_RUN || game.status == gamestatus.RUNNING)" ng-disabled="(game.status == gamestatus.REPAIRING  || game.status == gamestatus.INSTALLING || game.status == gamestatus.PATCHING)" value="100" max="100"></progress>
+      </div>
+    </div>
+  </div><!-- end of progress bar -->
+  <div id="play">
+    <div class="btn play" style="">
+      <a ng-click='install()' ng-show="(game.status == gamestatus.NOT_INSTALLED)"><span>INSTALL</span></a>
+      <a ng-click='pause()' ng-show="(game.status == gamestatus.INSTALLING || game.status == gamestatus.PATCHING || game.status == gamestatus.REPAIRING)"><span>PAUSE</span></a>
+      <a ng-click='resume()' ng-show="(game.status == gamestatus.PAUSED)"><span>RESUME</span></a>
+      <a ng-click='patch()' ng-show="(game.status == gamestatus.PATCHABLE)"><span>Run Patch</span></a>
+      <a ng-click='play()' ng-show="(game.status == gamestatus.READY_TO_RUN)"><span>Play</span></a>
+      <a ng-click='play()' ng-show="(game.status == gamestatus.RUNNING)" ng-disabled="true"><span>Running</span></a>
+    </div>
+  </div><!-- end of play -->
+  <span id="versionInfo">Version {{version}}</span>
+</div><!-- end of progress wrapper -->

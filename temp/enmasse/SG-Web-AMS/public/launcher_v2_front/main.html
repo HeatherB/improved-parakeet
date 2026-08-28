@@ -1,0 +1,402 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<html ng-app="launcherApp">
+<head>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+<title>start</title>
+
+<meta charset="UTF-8">
+
+<link href='https://fonts.googleapis.com/css?family=Exo+2:400,600' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="css/ngDialog.min.css" />
+<link rel="stylesheet" href="css/ngDialog-theme-default.min.css" />
+<link rel="stylesheet" href="css/anim-in-out.css" />
+<link rel="stylesheet" type="text/css" href="css/styles.css">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" type="image/x-icon" href="img/ava_webicon_70px.png" />
+<link type="image/x-icon" href="img/ava_webicon_70px.png" />
+
+<!-- external libraries -->
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/angular-ui-router.min.js"></script>
+<script type="text/javascript" src="js/angular-animate.min.js"></script>
+<script type="text/javascript" src="js/anim-in-out.js"></script>
+<script type="text/javascript" src="js/angular-filter.min.js"></script>
+<script src="js/json2.min.js" type="text/javascript"></script>
+<script src="js/jquery-1.8.0.min.js" type="text/javascript"></script>
+<script src="js/jquery.xml2json.js"></script>
+<script src="js/jquery.zrssfeed.js"></script>
+<script src="js/jquery.masonry.min.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+<script src="js/jquery.tooltips.js"></script>
+<script src="js/jquery.dateformat-1.0.min.js"></script>
+<script src="js/host-3.6.8.1.min.js" type="text/javascript"></script>
+<script src="js/downloader-3.6.8.1.min.js" type="text/javascript"></script>
+<script src="js/patcher-3.6.8.1.min.js" type="text/javascript"></script>
+<script src="js/analytics-3.6.8.1.min.js" type="text/javascript"></script>
+<script src="js/unifiedprogress.js" type="text/javascript"></script>
+<script src="js/ngDialog.min.js" type="text/javascript"></script>
+<script src="js/steam-support.js" type="text/javascript"></script>
+<!-- <script type="text/javascript" src="js/core.js"></script>
+<script type="text/javascript" src="js/sha1.js"></script>
+<script type="text/javascript" src="js/cipher-core.js"></script>
+<script type="text/javascript" src="js/aes.js"></script>
+<script type="text/javascript" src="js/enc-base64.js"></script>
+<script type="text/javascript" src="js/enc-utf16.js"></script>
+ -->
+
+<!-- angular app definition: should be positioned earlier than services and controllers-->
+<script type="text/javascript" src="main.js"></script>
+
+<!-- angular services -->
+<script type="text/javascript" src="services/oauth-manager.js"></script>
+<script type="text/javascript" src="services/system-manager.js"></script>
+<script type="text/javascript" src="services/patch-manager.js"></script>
+<script type="text/javascript" src="services/game-manager.js"></script>
+<script type="text/javascript" src="services/login-manager.js"></script>
+<script type="text/javascript" src="services/steam-manager.js"></script>
+
+<!-- startup and root controllers -->
+<script type="text/javascript" src="controllers/root.js"></script>
+<script type="text/javascript" src="controllers/start.js"></script>
+
+<!-- steam controllers -->
+<script type="text/javascript" src="controllers/steam.signin.js"></script>
+<script type="text/javascript" src="controllers/steam.signup.js"></script>
+<script type="text/javascript" src="controllers/steam.main.js"></script>
+<script type="text/javascript" src="controllers/steam.account_setup_guide.js"></script>
+<script type="text/javascript" src="controllers/steam.security_measure_guide.js"></script>
+<script type="text/javascript" src="controllers/steam.activation.js"></script>
+<script type="text/javascript" src="controllers/steam.qna.js"></script>
+<script type="text/javascript" src="controllers/steam.terms.js"></script>
+<script type="text/javascript" src="controllers/steam.armor.js"></script>
+<script type="text/javascript" src="controllers/steam.games.js"></script>
+
+<!-- regular controllers -->
+<script type="text/javascript" src="controllers/regular.signin.js"></script>
+<script type="text/javascript" src="controllers/regular.signup.js"></script>
+<script type="text/javascript" src="controllers/regular.main.js"></script>
+<script type="text/javascript" src="controllers/regular.activation.js"></script>
+<script type="text/javascript" src="controllers/regular.qna.js"></script>
+<script type="text/javascript" src="controllers/regular.terms.js"></script>
+<script type="text/javascript" src="controllers/regular.armor.js"></script>
+<script type="text/javascript" src="controllers/regular.main.js"></script>
+<script type="text/javascript" src="controllers/regular.games.js"></script>
+
+<!-- insertion controllers -->
+<script type="text/javascript" src="controllers/insert.dlc.js"></script>
+<script type="text/javascript" src="controllers/insert.redeem.js"></script>
+<script type="text/javascript" src="controllers/insert.tools.js"></script>
+<script type="text/javascript" src="controllers/insert.patch.js"></script>
+
+<!-- common for both steam and regular launcher -->
+<script type="text/javascript" src="controllers/common.redeem.js"></script>
+
+<!-- game specific controllers -->
+<script type="text/javascript" src="controllers/steam.ava.js"></script>
+<script type="text/javascript" src="controllers/steam.zmr.js"></script>
+<script type="text/javascript" src="controllers/steam.kritika.js"></script>
+<script type="text/javascript" src="controllers/regular.ava.js"></script>
+<script type="text/javascript" src="controllers/regular.tera.js"></script>
+<script type="text/javascript" src="controllers/regular.zmr.js"></script>
+<script type="text/javascript" src="controllers/regular.kritika.js"></script>
+
+<!-- IOVation BEGINS -->
+<script language="JavaScript">
+  var io_operation = "ioBegin";
+  var io_bbout_element_id = "blackbox";
+  var io_install_stm = false; // don't install active x
+  var io_install_flash = false; // don't require flash
+
+  function loadScript(url)
+  {
+    // Adding the script tag to the head as suggested before
+    var head = document.getElementsByTagName('head')[0];
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = url;
+
+    // Then bind the event to the callback function.
+    // There are several events for cross browser compatibility.
+    //script.onreadystatechange = callback;
+    //script.onload = callback;
+
+    // Fire the loading
+    head.appendChild(script);
+  }
+
+  var iovation_stage = app.getConfig('IOVationStage', 'production');
+  if (iovation_stage == 'production') {
+    loadScript('https://mpsnare.iesnare.com/snare.js');
+    loadScript('https://wdpbeta.iesnare.com/latest/llc.js');
+  } else {
+    loadScript('https://ci-mpsnare.iovation.com/snare.js');
+  }
+</script>
+<input type="hidden" name="blackbox" id="blackbox" ng-value="blackbox"/>
+<!-- IOVation ENDS -->
+
+</head>
+<body ng-controller='rootCtrl' style='width:100%;height:100%;overflow:hidden;'>
+
+    <div ng-controller='startCtrl' ng-init='setSize(500,350)'>
+    <div ui-view style='height:100%;width:100%' class="anim-in-out anim-fade" data-anim-speed="250" data-anim-sync="false">
+        <div align='center' ng-show='showContents' style='width:100%;height:100%'>
+            <div id="updateNoInterface">
+                <div class='pop-header'>
+                    <div id="dragMe" ng-mousedown="dragMe()"></div>
+                    <img src='img/eme-wordmark.png' alt='En Masse Entertainment' />
+                </div>
+                <h2>Launcher needs to update, it will restart when updating is complete.</h2>
+                <p>{{messageDisplay}}</p>
+                <div ng-style="{visibility: updating? visible:hidden}" class="progress-wrapper wrapper">
+                    <div id="progress-outer">
+                        <div id="progress-inner">
+                            <div id="myProgress" class='myClass'>
+                                <div id="myBar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- end of updating -->
+           <!-- <p>{{messageDisplay}}</p>
+
+            <progress ng-show='updateStarted' bgcolor='white' value={{progress}} max="100"><span>{{progressText}}</span></progress>
+            -->
+
+
+            <!--<div ng-show='updating' id="myProgress" class='myClass' style='position:relative;width:100%;height:30px;background-color:grey'>
+                <div id="myBar" style='position: absolute;width: 1%;height: 100%;background-color: green;'></div>
+            </div>-->
+        </div>
+    </div>
+  </div><!-- end of start control -->
+
+
+
+
+
+
+
+
+<!-- This part is default VIEW that work with default CONTROLLER -->
+<!-- Direct3 has tight connection between it's CONTROLLER and VIEW -->
+<!-- So, we may need to have this part here with invisible style. -->
+<!-- INVISIBLE PART BEGIN -->
+<div style="display:none"
+
+    <!-- Header -->
+    <div id="header">
+        <!-- Logo -->
+        <h1>UI_Header</h1>
+    </div>
+
+    <!-- Disables access to content screen -->
+    <div id="contentOverlay"></div>
+
+    <!-- RSS Card Viewer -->
+    <div id="rssContainer">
+        <div class="rssCloseIcon"></div>
+        <div class="rssViewer scrollBlack"></div>
+    </div>
+
+    <!-- Content -->
+    <div id="contentWrapper">
+        <!-- Primary Navigation -->
+        <ul id="nav">
+            <li id="paneNews" class="active"><a href="#"><span>UI_News</span></a></li>
+            <li id="paneSettings"><a href="#"><span>UI_Settings</span></a></li>
+            <li id="paneSupport"><a href="#"><span>UI_Support</span></a></li>
+        </ul>
+
+        <!-- Background -->
+        <div id="contentBackground"></div>
+
+        <!-- RSS Feed / Blog -->
+        <div class="content selected">
+            <div id="rss" class="scrollWhite"></div>
+        </div>
+
+        <!-- Settings -->
+        <div class="content"><div class="scrollWhite">
+            <div id="settings"><form action="">
+            <!-- Speed and Graph -->
+                <div class="settingsItemContainer masonry"><div id="settingDownloadGraph" class="settingsItem graphContainer">
+                <h1>UI_Performance</h1>
+                    <div id="downloadGraph"></div>
+                    <ul id="incomingSpeed">
+                        <li>UI_Incoming</li>
+                        <li><span class="curSpeed"></span> <span>UI_Cur</span></li>
+                        <li><span class="avgSpeed"></span> <span>UI_Avg</span></li>
+                        <li><span class="maxSpeed"></span> <span>UI_Max</span></li>
+                    </ul>
+                    <ul id="outgoingSpeed">
+                        <li>UI_Outgoing</li>
+                        <li><span class="curSpeed"></span> <span>UI_Cur</span></li>
+                        <li><span class="avgSpeed"></span> <span>UI_Avg</span></li>
+                        <li><span class="maxSpeed"></span> <span>UI_Max</span></li>
+                    </ul>
+                </div></div>
+                <!-- Download Method -->
+                <div class="settingsItemContainer masonry"><div class="settingsItem">
+                    <h1>UI_TrafficShaping</h1>
+                    <label>UI_Allow</label>
+                    <select name="downloadMethod">
+                        <option value="wp">UI_P2P_HTTP</option>
+                        <option value="w">UI_HTTP</option>
+                        <option value="p">UI_P2P</option>
+                    </select>
+                    <label>UI_MaxDownload</label>
+                    <select name="maxDownloadSpeed">
+                        <option value="0">UI_Unlimited</option>
+                        <option value="65536">64</option>
+                        <option value="131072">128</option>
+                        <option value="262144">256</option>
+                        <option value="524288">512</option>
+                        <option value="1048576">1024</option>
+                        <option value="2097152">2048</option>
+                        <option value="4194304">4096</option>
+                    </select>
+                    <label>UI_MaxUpload</label>
+                    <select name="maxUploadSpeed">
+                        <option value="0">UI_Unlimited</option>
+                        <option value="65536">64</option>
+                        <option value="131072">128</option>
+                        <option value="262144">256</option>
+                        <option value="524288">512</option>
+                        <option value="1048576">1024</option>
+                    </select>
+                </div></div>
+            </form></div>
+        </div></div>
+
+        <!-- Support (Arranged from Right-to-Left; List first items at the bottom and last items at the top
+             i.e. Order goes 5, 4, 3, 2, 1 to render 1, 2, 3, 4, 5.) -->
+        <div class="content"><div id="support" class="scrollWhite">
+            <!-- Patch Notes RSS Feed -->
+            <div id="patchNotes" class="scrollBlack">
+            </div>
+
+            <!-- Zendesk Link -->
+            <div id="contactUs">
+                <h1>UI_Support</h1>
+                <p>UI_SupportPortalDesc</p>
+            </div>
+
+            <div id="debug">
+                <h1>UI_Debug</h1>
+                <form>
+                    <input type="checkbox" id="debugFile" name="debugFile" /><label for="debugFile">UI_DebugFile</label>
+                    <input type="checkbox" id="debugConsole" name="debugConsole" /><label for="debugConsole">UI_DebugConsole</label>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer" class="active">
+        <!-- Download Stats -->
+        <div class="extendedInfo">
+            <ul id="titleLine">
+                <li id="title" class="patchTitle"></li>
+                <li id="patchesLeft" class="patchesLeft"></li>
+            </ul>
+
+            <ul id="stateInfo">
+                <li id="status" class="patchStatus downloadStatus"></li>
+                <li id="timeRemaining" class="downloadTimeRemaining patchTimeRemaining"></li>
+                <li id="bytesDownloaded" class="downloadBytesRemaining patchBytesRemaining"></li>
+                <li id="downloadSpeed" class="downloadTotalDownloadSpeed patchWriteSpeed"></li>
+                <li id="p2pActive" class="downloadP2PEnabled"></li>
+            </ul>
+        </div>
+
+        <!-- Status Text -->
+        <p id="statusText"><span class="patchStatus downloadStatus"></span></p>
+
+        <!-- Progress Bar -->
+        <div id="progressBar"><div id="progressBarEmpty"><div class="progressBarFull downloadProgress patchProgress"></div></div></div>
+
+        <!--Percent Complete -->
+        <p id="percentComplete" class="downloadPercent patchPercent"></p>
+
+        <!-- Repair Button -->
+        <!--<p id="buttonRepair"><a href="#" class="patchRepair" rel="tooltip" title="Repair Download">Repair Download</a></p>-->
+        <p id="buttonRepair"><a href="#" rel="tooltip" title="UI_Repair">UI_Repair</a></p>
+
+        <!-- Pause / Resume / Launch Button-->
+        <p id="buttonPause"><a href="#" class="downloadPauseResume" rel="tooltip" title="UI_Pause">UI_Pause</a></p>
+        <p id="buttonResume"><a href="#" class="downloadPauseResume" rel="tooltip" title="UI_Resume">UI_Resume</a></p>
+        <p id="buttonLaunch"><a href="#" class="actionPatchPlay" rel="tooltip" title="UI_Launch">UI_Launch</a></p>
+    </div>
+
+    <!-- Login Modal-->
+    <div id="loginModal" class="systemModal scrollWhite">
+        <h1>Login</h1>
+        <div class="modalContent">
+            <form>
+                <label for="username">WebAuthenticate_UserName</label>
+                <input type="text" name="username" size="15" />
+
+                <label for="password">WebAuthenticate_Password</label>
+                <input type="password" name="password" size="15" />
+
+                <input type="submit" value="Login" id="buttonLogin" />
+            </form>
+        </div>
+    </div>
+
+    <!-- Web Authenticate Modal-->
+    <div id="webAuthenticateModal" class="systemModal scrollWhite">
+        <h1>UI_WebAuthenticateHeader</h1>
+        <h2></h2>
+        <div class="modalContent">
+            <form>
+                <span>
+                    <label>WebAuthenticate_Server</label>
+                    <label class="server"></label>
+                </span>
+
+                <span>
+                    <label>WebAuthenticate_Port</label>
+                    <label class="port"></label>
+                </span>
+
+                <span>
+                    <label><b>WebAuthenticate_Realm</b></label>
+                    <label class="realm"></label>
+                </span>
+
+                <label for="username">WebAuthenticate_UserName</label>
+                <input type="text" name="username" size="15" />
+
+                <label for="password">WebAuthenticate_Password</label>
+                <input type="password" name="password" size="15" />
+
+                <input type="submit" class="modalOk" value="UI_Ok"  />
+                <input type="button" class="modalCancel" value="UI_Cancel" />
+            </form>
+        </div>
+    </div>
+
+    <!-- Repair Modal-->
+    <div id="repairModal" class="systemModal scrollWhite">
+        <h1>UI_RepairHeader</h1>
+        <div class="modalContent">
+            <p>UI_RepairDesc</p>
+            <button class="modalOk">UI_Ok</button>
+            <button class="modalCancel">UI_Cancel</button>
+        </div>
+    </div>
+</div>
+<!-- INVISIBLE PART END -->
+
+
+
+
+
+
+
+</body>
+</html>

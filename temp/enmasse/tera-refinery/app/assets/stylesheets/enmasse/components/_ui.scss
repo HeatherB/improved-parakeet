@@ -1,0 +1,375 @@
+  /* Labels ---------------------- */
+
+  .label { padding: 1px 4px 2px; font-size: ms(0) - 2; font-weight: bold; text-align: center; text-decoration: none; line-height: 1; white-space: nowrap; display: inline; position: relative; bottom: 1px; color: #fff; background: $mainColor;
+
+    &.radius { @include border-radius($buttonRadius); }
+    &.round { padding: 1px 7px 2px; @include border-radius(1000px); }
+
+    &.alert     { background-color: $alertColor; }
+    &.success   { background-color: $successColor; }
+    &.secondary   { background-color: $secondaryColor; color: darken($secondaryColor, 60%); }
+
+  }
+
+  /* Panels ---------------------- */
+
+  // .panel {
+  //   background: $midGray;
+  //   border: solid 1px $lightGray;
+  //   margin: 0 0 22px 0;
+  //   padding: 10px;
+
+  //   > :first-child { margin-top: 0; }
+  //   > :last-child { margin-bottom: 0; }
+
+  //   &.callout {
+  //     background: $mainColor;
+  //     color: #fff;
+  //     border-color: darken($mainColor, 10%);
+  //     @include box-shadow(inset 0px 1px 0px rgba($white,0.5));
+
+  //     a { color: #fff; }
+  //     .button {
+  //       background: $white;
+  //       border: none;
+  //       color: $mainColor;
+  //       @include text-shadow(none);
+
+  //       &:hover { background: rgba($white, 0.5); }
+  //     }
+  //   }
+
+  //   &.radius { @include border-radius($buttonRadius); }
+
+  // }
+
+  /* Accordion ---------------------- */
+
+  ul.accordion { margin: 0 0 22px 0; border-bottom: 1px solid $secondaryColor;
+
+    &>li {  list-style: none; margin: 0; padding: 0; border-top: 1px solid $secondaryColor;
+
+      & > div.title { cursor: pointer; background: lighten($secondaryColor, 5%); padding: 15px; margin: 0; position: relative;  border-#{$defaultFloat}: 1px solid $secondaryColor; border-#{$defaultOpposite}: 1px solid $secondaryColor; @include single-transition(0.15s, background, linear);
+
+        h1, h2, h3, h4, h5 { margin: 0; }
+        &:after { @include cssTriangle(6px, darken($secondaryColor, 30%), $defaultOpposite); position: absolute; #{$defaultOpposite}: 15px; top: 21px; }
+      }
+
+      .content { display: none; padding: 15px; }
+
+      &.active { border-top: 3px solid $mainColor;
+
+        .title { background: $white; padding-top: 13px;
+
+          &:after { @include cssTriangle(6px, darken($secondaryColor, 30%), top); }
+        }
+        .content { background: $white; display: block; border-#{$defaultFloat}: 1px solid $secondaryColor; border-#{$defaultOpposite}: 1px solid $secondaryColor; }
+      }
+    }
+  }
+
+
+
+  /* Side Nav ---------------------- */
+
+  ul.side-nav { display: block; list-style: none; margin: 0; padding: ms(1) 0;
+
+    li { display: block; list-style: none; margin: 0 0 (ms(0)/2) 0;
+
+      a { display: block; }
+      &.active a { color: lighten($black, 30%); font-weight: bold; }
+      &.divider { border-top: 1px solid darken($white, 10%); height: 0; padding: 0; }
+    }
+  }
+
+  /* Sub Navs http://www.zurb.com/article/292/how-to-create-simple-and-effective-sub-na ---------------------- */
+
+  dl.sub-nav {
+    display: block;
+    width: auto;
+    overflow: hidden;
+    margin: -4px 0 18px -9px;
+    padding-top: 4px;
+
+    dt, dd {
+      float: left;
+      display: inline;
+      margin-left: 9px;
+      margin-bottom: 10px;
+    }
+    dt {
+      color: #999;
+      font-weight: $bodyFontWeight;
+    }
+    dd a {
+      text-decoration: none;
+      @include border-radius(1000px);
+    }
+    dd.active a {
+      font-weight: bold;
+      background: $mainColor;
+      color: #fff;
+      padding: 3px 9px;
+      cursor: default;
+    }
+  }
+
+  /* Pagination ---------------------- */
+
+  ul.pagination { display: block; height: 24px; margin-#{$defaultFloat}: -5px;
+
+    li { float: $defaultFloat; display: block; height: 24px; color: #999; font-size: ms(0); margin-#{$defaultFloat}: 5px;
+
+      a { display: block; padding: 1px 7px 1px; color: #555; }
+      &:hover a, a:focus { background: darken($white, 10%); }
+      &.unavailable a { cursor: default; color: #999; }
+      &.unavailable:hover a, &.unavailable a:focus { background: transparent; }
+      &.current a { background: $mainColor; color: $white; font-weight: bold; cursor: default;
+        &:hover { background: $mainColor; }
+      }
+    }
+
+  }
+
+  /* Breadcrums ---------------------- */
+
+  // ul.breadcrumbs { display: block; background: lighten($secondaryColor, 5%); padding: 6px 10px 7px; border: 1px solid $secondaryColor; @include border-radius(2px); overflow: hidden; margin-#{$defaultFloat}: 0;
+
+  //   li { margin: 0; padding: 0 12px 0 0; float: $defaultFloat; list-style: none;
+
+  //     a, span { text-transform: uppercase; @include font-size(11); padding-#{$defaultFloat}: 12px; }
+  //     &:first-child a, &:first-child span { padding-#{$defaultFloat}: 0; }
+  //   }
+
+  //   li:before { content: "/"; color: #aaa; }
+  //   li:first-child:before { content: " "; }
+  //   li.current a { cursor: default; color: #333; }
+  //   li:hover a, li a:focus { text-decoration: underline; }
+  //   li.current:hover a, li.current a:focus { text-decoration: none; }
+  //   li.unavailable {
+  //     a { color: #999; }
+  //     &:hover a, a:focus { text-decoration: none; color: #999; cursor: default; }
+  //   }
+
+  // }
+
+  /* Inline Link List */
+  ul.inline-list, ul.link-list { margin: 0 0 $linkListBottomMargin; padding: 0; list-style: none; overflow: hidden;
+
+    & > li { list-style: none; float: $defaultFloat; margin-#{$defaultFloat}: 22px; display: block;
+
+      & > * { display: block; }
+    }
+  }
+
+   /* Link List */
+  ul.link-list { margin: 0 0 ms(1) -22px; padding: 0; list-style: none; overflow: hidden;
+
+    li { list-style: none; float: left; margin-left: 22px; display: block;
+
+      a { display: block; }
+    }
+  }
+
+  /* Keytroke Characters ---------------------- */
+
+  .keystroke, kbd { font-family: "Consolas", "Menlo", "Courier", monospace; font-size: ms(0) - 1; padding: 2px 4px 0px; margin: 0; background: darken($white, 7%); border: solid 1px darken($white, 14%); @include border-radius($buttonRadius); }
+
+  /* Image Thumbnails ---------------------- */
+  .th { display: block;
+    img { display: block; border: solid 4px #fff; @include box-shadow(0 0 0 1px rgba(#000,.2)); @include border-radius($thumbRadius); @include transition-property(box-shadow); @include transition-duration(300ms); }
+    &:hover {
+      img { @include box-shadow(0 0 6px 1px rgba($mainColor,.5)); }
+    }
+  }
+
+  /* Video - Mad props to http://www.alistapart.com/articles/creating-intrinsic-ratios-for-video/ ---------------------- */
+
+  .flex-video {
+    position: relative;
+    padding-top: 25px;
+    padding-bottom: 67.5%;
+    height: 0;
+    margin-bottom: 16px;
+    overflow: hidden;
+
+    &.widescreen { padding-bottom: 57.25%; }
+    &.vimeo { padding-top: 0; }
+
+    iframe, object, embed, video { position: absolute; top: 0; #{$defaultFloat}: 0; width: 100%; height: 100%; }
+
+  }
+
+  @media only screen and (max-device-width: 800px), only screen and (device-width: 1024px) and (device-height: 600px), only screen and (width: 1280px) and (orientation: landscape), only screen and (device-width: 800px), only screen and (max-width: 767px) {
+    .flex-video { padding-top: 0; }
+  }
+
+  /* Tables ---------------------- */
+
+  table {
+    background: transparent;
+    @include border-radius($tableBorderRadius);
+    margin: 0 0 18px;
+    border: none;
+    border-collapse: collapse;
+
+    &.full { width: 100%; }
+    &.cells {
+      td {
+        border-left: 1px solid $lightGray;
+        &:first-child { border-left: none; }
+      }
+    }
+    &.text-align-center {
+      td, th { text-align: center; }
+    }
+  }
+
+  table thead, table tfoot { 
+    background: $darkGray;
+    background: rgba($darkGray, 0.5);
+  }
+  table thead tr {
+    background: #9aabb2;
+    background: rgba(#9aabb2, 0.5);
+  }
+  table thead tr th,
+  table thead tr td,
+  table tfoot tr th,
+  table tbody tr td,
+  table tr td,
+  table tfoot tr td {
+    display: table-cell;
+    font-size: ms(0);
+    line-height: 1.4em;
+    text-align: left;
+  }
+  table thead tr th,
+  table thead tr td,
+  table tfoot tr td {
+    padding: 8px 10px 9px;
+    font-size: ms(0) + 2;
+    font-weight: normal;
+    color: #474a50;
+  }
+  table thead tr th:first-child, table tfoot tr td:first-child { border-left: none; }
+  table thead tr th:last-child, table tfoot tr td:last-child { border-left: none; }
+
+  table tbody tr.even,
+  table tbody tr.alt { background: #f9f9f9; }
+  table tbody tr:first-child,
+  table tbody tr:first-child + tr + tr,
+  table tbody tr:first-child + tr + tr + tr + tr,
+  table tbody tr:first-child + tr + tr + tr + tr + tr + tr,
+  table tbody tr:first-child + tr + tr + tr + tr + tr + tr + tr + tr,
+  table tbody tr:first-child + tr + tr + tr + tr + tr + tr + tr + tr + tr + tr,
+  table tbody tr:first-child + tr + tr + tr + tr + tr + tr + tr + tr + tr + tr + tr + tr,
+  table tbody tr:first-child + tr + tr + tr + tr + tr + tr + tr + tr + tr + tr + tr + tr + tr + tr {
+    background: rgb(71,74,80);
+    background: rgba(71,74,80, 0.8);
+    td { color: white; }
+  }
+  table tbody tr:first-child + tr,
+  table tbody tr:first-child + tr + tr + tr,
+  table tbody tr:first-child + tr + tr + tr + tr + tr,
+  table tbody tr:first-child + tr + tr + tr + tr + tr + tr + tr,
+  table tbody tr:first-child + tr + tr + tr + tr + tr + tr + tr + tr + tr,
+  table tbody tr:first-child + tr + tr + tr + tr + tr + tr + tr + tr + tr + tr + tr,
+  table tbody tr:first-child + tr + tr + tr + tr + tr + tr + tr + tr + tr + tr + tr + tr + tr,
+  table tbody tr:first-child + tr + tr + tr + tr + tr + tr + tr + tr + tr + tr + tr + tr + tr + tr + tr {
+    background: rgb(154,171,178);
+    background: rgba(154,171,178,0.8);
+  }
+  table tbody tr:nth-child(even) {
+    background: rgb(154,171,178);
+    background: rgba(154,171,178,0.8);
+    td { color: #474a50; }
+  }
+  table tbody tr:nth-child(odd) {
+    background: rgb(71,74,80);
+    background: rgba(71,74,80, 0.8);
+    td { color: white; }
+  }
+  table tbody tr td {
+    color: $txtColor;
+    padding: 9px 10px;
+    vertical-align: top;
+    border: none;
+  }
+
+  /* Microformats ---------------------- */
+
+  ul.vcard { display: inline-block; margin: 0 0 12px 0; border: 1px solid #ddd; padding: 10px;
+
+    li { margin: 0; display: block; }
+    li.fn { font-weight: bold; font-size: ms(0) + 1; }
+
+  }
+
+  p.vevent {
+    span.summary { font-weight: bold; }
+    abbr { cursor: default; text-decoration: none; font-weight: bold; border: none; padding: 0 1px; }
+  }
+
+  /* Progress Bar ---------------------- */
+
+  div.progress { padding: $progBarPad; margin-bottom: 10px; border: $progBarBorderSize solid $progBarBorderColor; height: $progBarHeight;
+
+  	/* meter */
+  	.meter { background: $mainColor; height: 100%; display: block; width:50%; }
+   	&.secondary .meter { background: $secondaryColor;}
+  	&.success .meter { background: $successColor;}
+  	&.alert .meter { background: $alertColor;}
+
+  	/* border radii */
+  	&.radius { @include border-radius($buttonRadius);
+      .meter { @include border-radius(2px); }
+    }
+  	&.round { @include border-radius(1000px);
+      .meter { @include border-radius(1000px); }
+    }
+
+  }
+
+  /* Pricing Tables ---------------------- */
+  .pricing-table { border: $priceTableBorder; margin-left: 0; margin-bottom: 20px;
+    & * { list-style: none; line-height: 1; }
+    .title { background-color: $priceTitleBgColor; padding: $priceTitlePadding; text-align: $priceTitleAlign; color: $priceTitleColor; font-weight: $priceTitleWeight; font-size: $priceTitleSize; }
+    .price { background-color: $priceMoneyBgColor; padding: $priceMoneyPadding; text-align: $priceMoneyAlign; color: $priceMoneyColor; font-weight: $priceMoneyWeight; font-size: $priceMoneySize; }
+    .description { background-color: $priceBgColor; padding: $priceDescPadding; text-align: $priceDescAlign; color: $priceDescColor; font-size: $priceDescFontSize; font-weight: $priceDescWeight; line-height: $priceDescLineHeight; border-bottom: $priceDescBtmBorder; }
+    .bullet-item { background-color: $priceBgColor; padding: $priceItemPadding; text-align: $priceItemAlign; color: $priceItemColor; font-size: $priceItemFontSize; font-weight: $priceItemWeight; border-bottom: $priceItemBtmBorder; }
+    .cta-button { background-color: $priceCtaBgColor; text-align: $priceCtaAlign; padding: $priceCtaPadding; }
+  }
+
+  /* Showhide ---------------------- */
+
+  div.cbt-page-entry, div.flair-box {
+    position: relative;
+    border: 1px solid #0297ff;
+    @include border-radius(5px);
+    @include border-bottom-right-radius(0);
+    @include background-image(radial-gradient(ellipse at center, rgba(255,255,255,0) 0%, rgba(27,161,255,0) 90%, rgba(2,151,255,1) 100%));
+    
+    padding: 10px 20px;
+    margin-bottom: 40px;
+
+    ul { margin-left:15px; }
+    .toggle, .cbt-expand-button {
+      position: absolute;
+      bottom: -28px;
+      right: -1px;
+      padding: 3px 10px;
+      background: #0297ff;
+      border: 1px solid #0297ff;
+      color: white;
+      display: block;
+      height: 28px;
+      cursor: pointer;
+      @include border-bottom-left-radius(5px);
+      @include border-bottom-right-radius(5px);
+      &:hover {
+        text-decoration: none;
+        @include box-shadow(rgba(255,255,255,0.75) 0px 0px 10px 0 inset);
+      }
+    }
+  }

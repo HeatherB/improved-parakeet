@@ -1,0 +1,43 @@
+<div class="inner-content">
+  <div class="leftSleeve">
+    <h2 class="error">Account transfer error</h2>
+    <%# if no_account? %>
+    <!-- do not have an account of any sort -->
+<!--
+    <p class="subhead">An existing AVA game account could not be found.</p>
+    <p>We could not find an existing AVA game account associated with the Aeria Games account you provided.</p>
+    <ul>
+      <li>If you would like to try a different Aeria Games account, click "Try Again".</li>
+      <li>If you have not created an AVA character on the Aeria Games account you provided, you will not be able to migrate that account.</li>
+    </ul>
+  -->
+    <%# elsif already_migrated? %>
+    <!-- already migrated ava account -->
+<!--
+    <p class="subhead">Your AVA account has already been linked to a different En Masse account than the account that is currently logged in.</p>
+    <p>You have two options:
+      <ul>
+        <li>If you believe you received this message in error, you can attempt to transfer the account again; or</li>
+        <li>If you have another En Masse account which might be linked to your AVA account, click "Cancel", then log into the other En Masse account and attempt the migration again.</li>
+      </ul>
+    </p>
+-->
+    <%# else %>
+    <!-- all other errors -->
+    <%# end %>
+
+    <p>For more information on this error, see our <a href="http://ava.enmasse.com/guide/account-transfer-guide">Account Transfer FAQ</a>, or contact <a href="http://support.enmasse.com/games">Customer Support</a> for assistance</p>
+    <div>
+      <div class="buttons">
+        <div class="button tryAgain"><a href="<%= @aeria_migration_start_url %>">Try Again</a></div>
+        <p>
+          <span class="or">or</span>
+          <a href="<%= users_account_url %>">Cancel</a>
+        </p>
+      </div>
+    </div>
+  </div><!-- end of left sleeve -->
+  <div class="rightSleeve">
+    <img src="/assets/account/avaToEnmasse.png" alt="migrate your AVA account to En Masse" />
+  </div><!-- end of rightSleeve -->
+</div>

@@ -1,0 +1,11 @@
+<% content_for :facebook do %>
+  <%= render :partial => "launcher/sessions/fb" %>
+<% end %>
+
+<div class='content-launcher index'>
+  <div class="logo"></div>
+  <%= render :partial => "shared/flash_notices" %>
+  <div id="login">
+    <%= render :partial => "launcher/default_login_form", :locals => { :url => launcher_signin_submit_url(params[:launcher_id]) } %>
+  </div>
+</div>

@@ -1,0 +1,345 @@
+/* popup screens */
+.ng-modal {
+   /* A centered div above the overlay with a box shadow. */
+  z-index:999999;
+  position: absolute;
+  width: 50%;
+
+  top:50px;
+  left:0;
+  right:0;
+  margin:0 auto;
+  &.nopop {
+    top:0;
+    &.signinPop {
+      width:420px;
+    }
+  }
+  &.alert {
+    .pop-content {
+      padding: 20px 25px;
+    }
+    .pop-footer {
+      display:none;
+    }
+  }
+}
+.ng-modal-dialog {
+  box-shadow: 0 0px 20px rgba(0, 0, 0, 0.25);
+  background: url(../img/popup-bg.jpg) top center repeat;
+}
+.ng-modal-dialog-content {
+  text-align: left;
+}
+.ng-modal-close {
+  position: absolute;
+  top: 3px;
+  right: 5px;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 120%;
+  display: inline-block;
+  font-weight: bold;
+  font-family: 'arial', 'sans-serif';
+}
+#sheerShown{
+  background: rgba(255,255,255,0.8);
+  width:100%;
+  height:100%;
+  display:block;
+  top:0;
+  .ng-modal-dialog {
+    display:none;
+  }
+}
+.pop-header {
+  background: url(../img/eme-bar-texture.png) top center repeat $black;
+  text-align:center;
+  box-sizing: border-box;
+  padding: 20px 0 10px;
+}
+.pop-content {
+  box-sizing:border-box;
+  padding: 40px 25px 20px;
+  &.innerSteps {
+    padding: 40px 30px 20px 50px;
+  }
+  &.narrowlayout {
+    padding: 40px 50px 20px;
+  }
+  &.didntpass {
+    padding: 20px 25px;
+  }
+  h2 {
+    @include font_exobold;
+    color: $black;
+    font-size:24px;
+    margin-bottom:20px;
+  }
+  .inner-pop {
+    box-sizing:border-box;
+    padding: 0 5px;
+    p, div, ul {
+      @include font_arial;
+      font-size:14px;
+      line-height:18px;
+      margin:0 auto 10px;
+      text-align:left;
+      &.closer {
+        text-align:center;
+        font-size: 14px;
+      }
+    }
+    .fbBTN {
+      text-align:center;
+    }
+    .leftSleeve {
+      display:inline-block;
+      vertical-align: top;
+      width:49%;
+    }
+    .rightSleeve {
+      display:inline-block;
+      vertical-align: top;
+      width:49%;
+    }
+  }
+}
+.signupPop {
+  .pop-content {
+    .inner-pop {
+      .fbBTN, .or.signup {
+        vertical-align:middle;
+        display: inline-block;
+      }
+      .leftSleeve {
+        padding-top: 50px;
+      }
+      .or.signup {
+        margin: 0 auto 15px 20px;
+      }
+    }
+  }
+  .error {
+    color:$failred;
+  }
+  .fail {
+   /* position: absolute;
+    top: 77px;
+    left: 352px;
+    h2 {
+      margin: 0 0 5px 0;
+    }*/
+    .error {
+      //margin-left: 34px;
+      width:350px;
+      text-align:left;
+      display: block;
+    }
+  }
+}
+.signinPop {
+  .registration_errors {
+    h2 {
+      margin-bottom: 10px;
+      margin-left: -35px;
+    }
+    p {
+      text-align:center;
+    }
+  }
+}
+.pop-footer {
+  @include font_arial;
+  text-align:center;
+  box-sizing:border-box;
+  padding-bottom: 25px;
+  a {
+    font-size:14px;
+    font-weight:bold;
+    color:$blue;
+  }
+  p {
+    a {
+      font-weight:normal;
+    }
+  }
+}
+
+/* login and other forms */
+form {
+  label {
+    @include font_arial;
+    font-size:16px;
+    display:block;
+    margin-bottom:5px;
+  }
+  input[type="text"], input[type="password"] {
+    border: 1px solid $black;
+    height:40px;
+    width:100%;
+    box-sizing: border-box;
+    padding:3px;
+    font-size:14px;
+    margin-bottom: 10px;
+  }
+}
+.pop-content .inner-pop input[type="checkbox"] + label p {
+  font-size:12px;
+  text-align:left;
+  display:inline-block;
+  vertical-align:top;
+  width:160px;
+  margin: 13px auto 0;
+}
+input[type="checkbox"] {
+  display:none;
+}
+input[type="checkbox"] + label span {
+  display:inline-block;
+  width:27px;
+  height:26px;
+  margin:3px 0 0 0px;
+  vertical-align:top;
+  position:relative;
+  left: 5px;
+  background:url(../img/checkbox.png) left top no-repeat;
+  cursor:pointer;
+}
+input[type="checkbox"]:checked + label span {
+  background:url(../img/checkbox.png) -27px top no-repeat;
+}
+#repeatSelect {
+  width:98%;
+  height:40px;
+  margin-bottom:20px;
+}
+
+.steps {
+  display:inline-block;
+  vertical-align:middle;
+  background:#6d6d6d;
+  color:#ffffff;
+  border-radius: 18px;
+  width:33px;
+  height:32px;
+  margin:0 7px 0 -40px;
+  text-align:center;
+  font-size:16px;
+  line-height:35px;
+}
+
+/* facebook */
+.or {
+  display:inline-block;
+  vertical-align:top;
+  background:#6d6d6d;
+  color:#ffffff;
+  border-radius: 10px;
+  width:23px;
+  height:23px;
+  margin:10px auto 10px 167px;
+  text-align:center;
+  font-size:14px;
+  line-height:21px;
+  &.signup {
+    margin:100px auto 15px 20px;
+  }
+}
+.login-facebook-btn {
+  display:inline-block;
+  vertical-align: middle;
+  width: 288px;
+  height: 57px;
+  background-image: url(../img/log_in_with_fb.png);
+  background-repeat: no-repeat;
+  margin: 0 auto;
+  text-indent:-9999em;
+  &:hover { background-position: 0 -57px; }
+  &:active { background-position: 0 -57px; }
+}
+.signup-facebook-btn {
+  display:inline-block;
+  vertical-align: middle;
+  width: 288px;
+  height: 57px;
+  background-image: url(../img/sign_up_with_fb.png);
+  background-repeat: no-repeat;
+  margin: 85px auto 0;
+  &:hover { background-position: 0 -57px; }
+  &:active { background-position: 0 -57px; }
+}
+.facebook-picture {
+  width:36px;
+  height:36px;
+  display:inline-block;
+  vertical-align:middle;
+  margin: 0 auto;
+  border: none;
+  padding: 0;
+}
+
+/* custom scrollbar */
+.customscroll {
+  &.inner-pop {
+    overflow-y:scroll;
+    background: #dcdcdc;
+    max-height:359px;
+  }
+  &.inner-pop::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  /* Track */
+  &.inner-pop::-webkit-scrollbar-track {
+    background: url(../img/trackback.png) top center repeat-y;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+  }
+       
+  /* Handle */
+  &.inner-pop::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    background: #1481c5; 
+    //-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+  }
+
+  &.inner-pop::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba(255,0,0,0.4); 
+  }
+}
+
+/* steam patching popup */
+.patch-game-options {
+  span {
+    display:inline-block;
+    vertical-align:middle;
+  }
+  button {
+    @include font_exobold;
+    font-size:16px;
+    box-sizing: border-box;
+    padding-top:0;
+    text-align:center;
+    border-radius: 3px;
+    border: none;
+    background:$white;
+    color:$blue;
+    width:139px;
+    height:32px;
+    &:hover {
+      background:$hoverblue;
+      color:$white;
+    }
+    &.patch-pause {
+      width:106px;
+      display:inline-block;
+      vertical-align:middle;
+      &:hover {
+        background:$hoverblue;
+        color:$white;
+      }
+    }
+  }
+}

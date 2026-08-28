@@ -1,0 +1,17 @@
+@mixin font_exo {
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 400;
+}
+
+@mixin font_exobold {
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 600;
+}
+
+@mixin font_arial {
+  font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
+}
+
+.exobold {
+   @include font_exobold;
+}

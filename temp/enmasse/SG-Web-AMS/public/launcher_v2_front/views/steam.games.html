@@ -1,0 +1,51 @@
+<!-- DLC controller -->
+<div ng-controller='DLCCtrl'></div>
+
+<div ng-init='setSize(1100, 575)' class="launcherwrapper steam-patch" ng-show='pageLoaded && pageShowed' style='width:1100px;height:575px'>
+  <div class="account-wrapper wrapper">
+    <ul id="acct-settings">
+      <li>
+        <div class="toplevel">
+          <span class="eme-logo">En Masse Entertainment</span>
+          Account Settings <span class="arrow-down"></span>
+        </div>
+        <ul>
+          <li><a ng-click='openWebNoSession("http://support.enmasse.com/tera/creating-and-managing-your-en-masse-account")' >Account Help (FAQ)</a></li>
+          <!-- account armor should open on its own only when prompted -->
+          <!--<li>
+            <a ng-click='navtoggleModal()'><span>Account Armor</span></a>
+          </li>-->
+          <li><a ng-click='openWeb("/users/account/profile")'>Manage Account</a></li>
+          <!--<li>
+            <a ng-click='allowLogin()'>Show Log In</a>
+          </li>-->
+          <li><a ng-click='close()'>Quit</a></li>
+        </ul>
+      </li>
+    </ul><!-- end of acct settings -->
+
+    <div id="user-message">
+      <div id="user-greet">
+        <p>Welcome <span id="user_emailHere"></span></p>
+      </div><!--end of user greet -->
+      <!--<div class="eme-alert">
+        <p>Eveything is broke. It's your fault. <a href="/">Learn more ></a></p>
+      </div>-->
+    </div><!-- end of user message -->
+
+    <div id="dragMe" ng-mousedown="dragMe()"></div>
+    <div id="user-emp">
+      <div class="close-launcher">
+        <span><a ng-click="minimize()"> _ </a></span>
+        <span><a ng-click='close()'> X </a></span>
+      </div><!-- end of close launcher -->
+    </div><!-- end of user emp -->
+  </div><!-- end of account wrapper -->
+
+  <!-- ######################################################################################################## -->
+  <!-- game view -->
+  <!-- ######################################################################################################## -->
+  <div ui-view>
+  </div>
+
+</div>

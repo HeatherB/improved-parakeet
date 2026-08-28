@@ -1,0 +1,80 @@
+div.gallery {
+  ul {
+    @include clearfix();
+    width: 955px;
+    height: 660px;
+    list-style-type: none;
+    float: left;
+
+    li {
+      float: left;
+      margin: 0px 25px;
+      width:200px;
+      text-align: center;
+
+      &:first-child { margin-left:0px; }
+      &:nth-child(4n+0) { margin-right:0px; }
+      &:nth-child(4n+1) { margin-left:0px; }
+
+      a {
+        img {
+          line-height: 0px;
+          opacity: 0.9;
+          padding: 2px;
+          background-color: $black;
+          border: 3px solid $lightGray;
+
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+  
+
+  div.side_pagination {
+    float: left;
+    margin: 0px 10px;
+    height: 660px;
+    width: 50px;
+
+    a {
+      height: 660px;
+      width: 50px;
+      display: block;
+
+
+
+      &.prev_page, &.next_page {
+        position: absolute;
+        top: 50%;
+        margin-top: -8px;
+
+        &.disabled {
+          display: none;
+          background-image: none;
+          border: none;
+        }
+      }
+
+
+      &.prev_page {
+        @include cssTriangle(16px, $linkColor, right);
+        left: 0;  
+        
+        &:hover {
+          @include cssTriangle(16px, $white, right);
+        }     
+      }
+      &.next_page {
+        @include cssTriangle(16px, $linkColor, left); 
+        right: 0;
+
+        &:hover{
+          @include cssTriangle(16px, $white, left);
+        }
+      }
+    }
+  }
+}

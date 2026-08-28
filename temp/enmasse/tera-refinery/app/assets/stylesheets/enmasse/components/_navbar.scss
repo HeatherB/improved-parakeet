@@ -1,0 +1,398 @@
+  .nav-bar {
+    height: 35px;
+    margin-left: 0;
+    margin-top:
+    $navBarHeight / 2;
+    padding: 0;
+
+    &>li { 
+      float: $defaultFloat; 
+      display: block; 
+      position: relative; 
+      padding: 0; 
+      margin: 0; 
+      border: 1px solid lighten($black, 20%); 
+      border-#{$defaultOpposite}: none; 
+      line-height: $navBarHeight - 2; 
+      @include box-shadow(1px 0 0 fade-out($shinyEdge, .3) inset);
+
+      &:first-child { @include box-shadow(0 0 0); }
+      &:last-child { 
+        border-#{$defaultOpposite}: solid 1px lighten($black, 20%);
+        @include box-shadow(1px 0 0 fade-out($shinyEdge, .3) inset, 1px 0 0 fade-out($shinyEdge, .3));
+      }
+
+      &.active {
+        background: $mainColor;
+        border-color: darken($mainColor, 10%);
+        &>a { color: $white; cursor: default; }
+        &:hover { background: $mainColor; cursor: default; }
+      }
+
+      &>a { color: darken($white, 10%); }
+      ul { margin-bottom: 0; }
+      .flyout { display: none; }
+
+      &.has-flyout {
+        &>a:first-child {
+          padding-#{$defaultOpposite}: $navBarHeight;
+          position: relative;
+          &:after {
+            @include cssTriangle(4px, darken($white, 10%), top);
+            position: absolute;
+            #{$defaultOpposite}: $navBarHeight / 2;
+            top: ($navBarHeight / 2) - 3;
+          }
+        }
+        &>a.flyout-toggle {
+          border-#{$defaultFloat}: 0;
+          position: absolute;
+          #{$defaultOpposite}: 0;
+          top: 0;
+          padding: ($navBarHeight / 2);
+          z-index: 2;
+          display: block;
+        }
+        &.is-touch {
+          &>a:first-child { padding-#{$defaultOpposite}: 55px;}
+          &>a.flyout-toggle { border-#{$defaultFloat}: 1px dashed #666; }
+        }
+      }
+    }
+
+    &>li>a:first-child {
+      position: relative;
+      padding: 0 ($navBarHeight / 2);
+      display: block;
+      text-decoration: none;
+      font-size: ms(0);
+    }
+    &>li>input { margin: 0 10px; }
+
+    &.vertical { height: auto; margin-top: 0;
+
+      &>li {
+        float: none;
+        border-bottom: none;
+        border-#{$defaultOpposite}: solid 1px lighten($black, 20%);
+        @include box-shadow(none);
+
+        &.has-flyout>a:first-child:after {@include cssTriangle(4px, darken($white, 10%), $defaultFloat); }
+        .flyout { #{$defaultFloat}: 100%; top: -1px;
+          &.right { #{$defaultFloat}: auto; #{$defaultOpposite}: 100%; }
+        }
+        &.active { border-#{$defaultOpposite}: solid 1px darken($mainColor, 10%); }
+        &:last-child { border-bottom: solid 1px lighten($black, 20%);}
+      }
+    }
+
+  }
+
+  .flyout {
+    background: darken($white, 5%);
+    padding: $navBarHeight / 2;
+    margin: 0;
+    border: 1px solid darken($white, 15%);
+    position: absolute;
+    top: $navBarHeight - 1;
+    #{$defaultFloat}: -1px;
+    width: $navFlyoutBaseWidth;
+    z-index: 40;
+    @include box-shadow(0 1px 5px rgba(#000, .1));
+
+    p { line-height: 1.2; font-size: ms(0) - 1; }
+    *:first-child { margin-top: 0; } /* remove margin on any first-child element */
+    *:last-child { margin-bottom: 0; } /* remove margin on last element */
+
+    &.small { width: $navFlyoutBaseWidth / 1.5; }
+    &.large { width: $navFlyoutBaseWidth * 1.75; }
+
+    &.right { left: auto; right: -2px; }
+    &.left { right: auto; left: -2px; }
+    &.up { top: auto; bottom: $navBarHeight - 1; }
+
+  }
+
+  ul.flyout, .nav-bar li ul { padding: 0; list-style: none;
+
+    li { border-#{$defaultFloat}: solid 3px #CCC;
+      a { background: darken($white, 5%); border: 1px solid darken($white, 10%); border-width: 1px 1px 0 0; color: #555; display: block; font-size: ms(0); height: auto; line-height: 1; padding: (($navBarHeight / 2) - 5) ($navBarHeight / 2); @include box-shadow(0 1px 0 $shinyEdge inset);
+        &:hover { background: darken($white, 8%); color: #333; }
+      }
+      &.active { margin-top: 0; border-top: 1px solid lighten($black, 30%); border-#{$defaultFloat}: 4px solid lighten($black, 10%);
+        a { background: lighten($black, 30%); border: none; color: #fff; height: auto; margin: 0; position: static; top: 0; @include box-shadow(0 0 0); }
+      }
+    }
+
+  }
+
+  /*********************************************************************************************/
+nav#menu {
+  width: 710px !important;
+  float: left  !important;
+  padding: 0;
+  .nav-bar {
+    background: rgba(black, 0.7);
+    border: none;
+    margin-top: 0;
+    padding: 0;
+
+    &> li {
+      text-align: center;
+      color: $navText;
+      border: none;
+      box-shadow: none;
+
+      &>a {
+        font-weight:bold;
+        color: $navText;
+        font: #{ms(2)}/#{ms(2)} 'exo_2light';
+        &:first-child { padding: 0 45px; }
+      }
+      &.has-flyout > a:first-child:after { display: none; }
+    }
+  }
+  a:hover { text-decoration: none; }
+}
+
+nav#menu, .menu-tree {
+  .flyout {
+    border: none;
+    background: none;
+    margin: 0;
+    padding: 0;
+    p { 
+        line-height: 1.2; 
+        font-size: ms(0) - 1; 
+    }
+  }
+}
+
+ul.flyout, .nav-bar li ul {
+    li {
+      border: none;
+
+      a {
+        background-color: black;
+        background-color: rgba(black, 0.7);
+        box-shadow: none;
+        border-top: none;
+        border-left: 1px solid #0069c2;
+        border-bottom: 1px solid  #0069c2;
+        border-right: 1px solid #0069c2;
+        color: $navText; 
+        display: block; 
+        font-size: ms(0); 
+        height: auto; 
+        line-height: 1;
+        padding: 6px 20px;
+      }
+      &:first-child a { border-top: 1px solid #0069c2; }
+      &:hover { 
+        &>a {
+          color: $navHover;
+          background: rgba(black, 0.5);
+        } 
+      }
+    }
+}
+
+nav#menu {
+  margin: 10px 0 0 0;
+  padding: 0;
+}
+
+nav#menu .nav-bar {
+  position: relative;
+  height: 35px;
+  width: 645px;
+  margin: 35px 0 0 20px;
+
+  &>li {
+    float: left;
+    display: block;
+    position: relative;
+    line-height: 33px;
+    border-right: none;
+
+    &:hover a { color: $navHover; }
+    &>a {
+      line-height: 36px;
+      &:hover {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #1a81c4;
+      }
+    }
+    ul { 
+        margin-bottom: 0; 
+        text-align: left; 
+    }
+    .flyout { display: none; }
+
+    &.has-flyout {
+      &>a:first-child { position: relative; }
+      &>.flyout-toggle { 
+        border-left: 0 !important; 
+        position: absolute; 
+        right: 0; 
+        top: 0; 
+        padding: 22px; 
+        z-index: 2; 
+        display: block; 
+      }
+      &.is-touch {
+        &>a:first-child { padding-right: 55px;}
+        &>.flyout-toggle { border-left: 1px dashed #666; }
+      }
+    }
+  }
+
+  &>li>a:first-child { 
+    position: relative; 
+    padding: 0px 10px; 
+    height: 35px;
+    display: block; 
+    text-decoration: none;
+  }
+  &>li>input { margin: 0 10px; }
+
+  &:after, &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    height: 35px;
+    width: 40px;
+  }
+  &:before {
+    left: -40px;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&amp;0+1,0.7+100 */
+    background: -moz-linear-gradient(left,  rgba(0,0,0,0) 0%, rgba(0,0,0,0) 1%, rgba(0,0,0,0.7) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,0)), color-stop(1%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.7))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,0.7) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,0.7) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,0.7) 100%); /* IE10+ */
+    background: linear-gradient(to right,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,0.7) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#b3000000',GradientType=1 ); /* IE6-9 */
+  }
+  &:after {
+    right: -40px;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&amp;0.7+0,0+100 */
+    background: -moz-linear-gradient(left,  rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,0.7)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left,  rgba(0,0,0,0.7) 0%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left,  rgba(0,0,0,0.7) 0%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left,  rgba(0,0,0,0.7) 0%,rgba(0,0,0,0) 100%); /* IE10+ */
+    background: linear-gradient(to right,  rgba(0,0,0,0.7) 0%,rgba(0,0,0,0) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 */
+  }
+}
+
+.flyout {
+  // @include box-shadow(0px 5px 10px rgba(#000, 1));
+  padding: 20px;
+  position: absolute;
+  top: $navBarHeight + 10;
+  left: 0;
+  width: $navFlyoutBaseWidth;
+  z-index: 40;
+
+  *:first-child { margin-top: 0; } /* remove margin on any first-child element */
+  *:last-child { margin-bottom: 0; } /* remove margin on last element */
+
+  &.small { width: $navFlyoutBaseWidth / 1.5; }
+  &.large { width: $navFlyoutBaseWidth * 1.75; }
+
+  &.right { left: auto; right: -2px; }
+  &.up { top: auto; bottom: $navBarHeight - 1; }
+
+  &>li {
+    &.active {
+      background: $darkGray;
+      border-color: darken($mainColor, 10%);
+
+      &>a { 
+        color: $navText;
+        cursor: default;
+      }
+      &:hover {
+        background: $mainColor;
+        cursor: default;
+      }
+    }
+    &:hover {
+      background: rgba(black, 0.5);
+      &> a { text-shadow: 0 0 1px #fff; }
+    }
+
+    &>a { color: darken($navText, 10%); }
+    ul { margin-bottom: 0; }
+    .flyout { 
+      display: none; 
+      left: $navFlyoutBaseWidth - 2; 
+      top: 0px; 
+    }
+
+    &.has-flyout {
+      &>a:first-child {
+        padding-right: 36px; 
+        position: relative;
+
+        &:after { 
+          @include cssTriangle(6px, white, left); 
+          position: absolute; 
+          right: 10px; 
+          top: 9px; 
+        }
+        &:hover:after { @include cssTriangle(6px, white, left); }
+      }
+      &>.flyout-toggle { 
+        border-left: 0 !important; 
+        position: absolute; 
+        right: 0; 
+        top: 0; 
+        padding: 22px; 
+        z-index: 2; 
+        display: block; 
+      }
+      &.is-touch {
+        &>a:first-child { padding-right: 55px;}
+        &>.flyout-toggle { border-left: 1px dashed #666; }
+      }
+    }
+  }
+}
+
+ul.flyout, .nav-bar li ul {
+  padding: 0;
+  list-style: none;
+  
+  li {
+    position: relative;
+    &.active {
+      margin-top: 0;
+      border-top: 1px solid lighten($navText, 30%);
+      border-left: 4px solid lighten($navText, 10%);
+        a {
+          background: lighten($navText, 30%);
+          border: none;
+          color: #fff;
+          height: auto;
+          margin: 0;
+          position: static;
+          top: 0;
+        }
+    }
+  }
+}
+
+nav#menu .nav-bar > li > ul.flyout { margin-top: -65px; }
+
+// ie8 nonsense
+.ie8 {
+  nav#menu {
+    .nav-bar>li>a:first-child {
+      padding: 0px 0px 0px 15px;
+    }
+  }
+}
+
+

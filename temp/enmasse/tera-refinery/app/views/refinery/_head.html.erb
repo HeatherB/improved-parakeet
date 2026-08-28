@@ -1,0 +1,112 @@
+<% skip_css = false unless skip_css %>
+<head>
+  <% cache("head/#{params[:controller] || controller.controller_name}/#{params[:action] || controller.action_name}/#{params[:path] || params[:id] || params[:page] || 1}") do %>
+    <%= raw @page.top_of_head_code if @page && !@page.top_of_head_code.blank? %>
+<!--
+     _____________  ___ 
+    /_  __/ __/ _ \/ _ |
+     / / / _// , _/ __ |
+    /_/ /___/_/|_/_/ |_|
+    
+-->    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
+    <title><%= browser_title(yield(:title)) %></title>
+    <%= raw(%(<meta name="description" content="#{@meta.meta_description}" />)) if @meta.meta_description.present? -%>
+    <%= raw(%(<meta name="keywords" content="#{@meta.meta_keywords}">)) if @meta.respond_to?(:meta_keywords) && @meta.meta_keywords.present? -%>
+    <%= raw(%(<link rel="canonical" content="#{@canonical}" />)) if @canonical.present? -%>
+    <%= yield :meta %>
+    
+    <!--  Place in <head> to set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <%= stylesheet_link_tag "application" unless skip_css %>
+
+    <link rel="shortcut icon" href="/favicon.ico" sizes="16x16 24x24 32x32 48x48">
+    <link rel="image_src" href="<%= asset_path 'ico_tera.png' %>">
+    <!-- apple touch icons -->
+    <link rel="icon" href="<%= asset_path ("icons/favicon-32x32.png") %>" sizes="32x32">
+    <link rel="apple-touch-icon" href="<%= asset_path ("icons/apple-touch-icon-57x57.png") %>" sizes="57x57">
+    <link rel="apple-touch-icon" href="<%= asset_path ("icons/apple-touch-icon-72x72.png") %>" sizes="72x72">
+    <link rel="apple-touch-icon" href="<%= asset_path ("icons/apple-touch-icon-76x76.png") %>" sizes="76x76">
+    <link rel="apple-touch-icon" href="<%= asset_path ("icons/apple-touch-icon-114x114.png") %>" sizes="114x114">
+    <link rel="apple-touch-icon" href="<%= asset_path ("icons/apple-touch-icon-120x120.png") %>" sizes="120x120">
+    <link rel="apple-touch-icon" href="<%= asset_path ("icons/apple-touch-icon-144x144.png") %>" sizes="144x144">
+    <link rel="apple-touch-icon" href="<%= asset_path ("icons/apple-touch-icon-152x152.png") %>" sizes="152x152">
+    <link rel="apple-touch-icon" href="<%= asset_path ("icons/apple-touch-icon-180x180.png") %>" sizes="180x180">
+
+    <meta name="msapplication-TileImage" content="<%= asset_path ("icons/mstile-144x144.png") %>">
+    <meta name="msapplication-TileColor" content="#000000">
+
+    <style type="text/css">
+      @font-face {
+          font-family: 'serif6_beta_rgbold';
+          src: url('/fonts/serif6beta-bold-webfont.eot');
+          src: url('/fonts/serif6beta-bold-webfont.eot?#iefix') format('embedded-opentype'),
+               url('/fonts/serif6beta-bold-webfont.woff') format('woff'),
+               url('/fonts/serif6beta-bold-webfont.ttf') format('truetype'),
+               url('/fonts/serif6beta-bold-webfont.svg#serif6_beta_rgbold') format('svg');
+          font-weight: bold;
+          font-style: normal;
+      }
+      @font-face {
+          font-family: 'serif6_beta_rgitalic';
+          src: url('/fonts/serif6beta-italic-webfont.eot');
+          src: url('/fonts/serif6beta-italic-webfont.eot?#iefix') format('embedded-opentype'),
+               url('/fonts/serif6beta-italic-webfont.woff') format('woff'),
+               url('/fonts/serif6beta-italic-webfont.ttf') format('truetype'),
+               url('/fonts/serif6beta-italic-webfont.svg#serif6_beta_rgitalic') format('svg');
+          font-weight: normal;
+          font-style: italic;
+      }
+
+
+      @font-face {
+        font-family: 'exo_2light';
+        src: url('/fonts/exo2-light-webfont.eot');
+        src: url('/fonts/exo2-light-webfont.eot?#iefix') format('embedded-opentype'),
+             url('/fonts/exo2-light-webfont.woff') format('woff'),
+             url('/fonts/exo2-light-webfont.ttf') format('truetype'),
+             url('/fonts/exo2-light-webfont.svg#exo_2light') format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+    </style>
+
+
+    <%#= stylesheet_link_tag "home" if home_page? %>
+    <%= yield :stylesheets %>
+    
+    <%# DEBUG: [ local_request? ] request.remote_ip is NOT 127.0.0.1 in production, but on the root page in a cache block it is. %>
+    <!-- <%= request.remote_ip.inspect %> -->
+    <%#= render :partial => '/refinery/google_analytics' %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+    <%= javascript_include_tag 'early' %>
+  <% end %>
+  <%= csrf_meta_tags if ::Refinery::Setting.find_or_set(:authenticity_token_on_frontend, true) -%>
+  <%= render :partial => '/refinery/google_analytics' %>
+
+  <% if Rails.env == "development" %>
+<!-- livereload -->
+<!--script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script-->
+  <% end %>
+
+  <!--[if IE 7]>
+  <style type="text/css">
+    #page_container .columns{
+        margin-right: -15px;
+        margin-left: -15px;
+        display:-moz-inline-stack;
+        display:inline-block;
+        zoom:1;
+        *display:inline;
+    }
+  </style>
+  <![endif]-->
+
+  <% if content_for?(:special_scripts) %>
+    <%= yield (:special_scripts) %>
+  <% end %>
+
+</head>

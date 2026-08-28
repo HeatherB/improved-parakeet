@@ -1,0 +1,71 @@
+<!--<h1 ng-init='setSize(500,300)'>Account Armor</h1>
+<p>{{messageDisplay}}</p>
+
+<div style='display:block'>
+Account Armor Code: <input ng-model='code' type='text' placeholder='enter account armor code' on-key-enter='codeSubmit()'>
+</div>
+
+<div style='display:block'>
+<input type="checkbox" ng-model="remember" style='display:inline'> Remember this device
+</div>
+
+<button ng-disabled='requesting' ng-click='codeSubmit()'>Submit</button>
+
+
+<p>If you don't have code, please click <a href='#' ng-click='resend()'>resend code.</a></p>
+-->
+<div class='ng-modal nopop' ng-init='setSize(420, 600 )'>
+  <div class='ng-modal-overlay' ng-click='hideModal()'></div>
+  <div class='ng-modal-dialog' ng-style='dialogStyle'>
+    <div class='popup'>
+      <div class='pop-header'>
+        <div id="dragMe" ng-mousedown="dragMe()"></div>
+        <div id="user-emp">
+          <div class="close-launcher">
+            <span><a ng-click="minimize()"> _ </a></span>
+            <span><a ng-click='close()'> X </a></span>
+          </div><!-- end of close launcher -->
+        </div><!-- end of user emp -->
+        <img src='img/eme-wordmark.png' alt='En Masse Entertainment' />
+      </div>
+      <div class='ng-modal-dialog-content'>
+
+<div class="pop-content narrowLayout">
+  <div ng-show="submitarmor_error" class="registration_errors fail">
+    <h2>Please try again</h2>
+  </div>
+  <h2 ng-show="!submitarmor_error">Authorize this device.</h2>
+  <div class="inner-pop">
+    <div ng-show="submitarmor_error" class="registration_errors fail">
+      <p>{{submitarmor_error}}</p>
+    </div>
+    <p ng-show="!submitarmor_error">You are logging in from an unknown device.</p>
+    <p ng-show="!submitarmor_error">As an added security measure, you'll need to authorize this device by entering the code sent to the email address on file for your account</p>
+    <form>
+      <label for="armor_code" class="exobold">Please enter account armor code below:</label>
+      <input id="armor_code" ng-model='code' type="text" placeholder='enter account armor code' on-key-enter='codeSubmit()' />
+
+      <input type="checkbox" id="rememberdevice" name="rememberdevice" ng-model="remember" />
+      <label for="rememberdevice">
+        <span></span><!-- this pan provides the image checkbox -->
+        <p>Remember this device</p>
+      </label>
+
+      <p>If you haven't gotten your email promptly you can <a class="instructional_link" ng-click='resend()'>resend account armor email</a></p>
+      <p>
+        {{resend_sent}}
+      </p>
+      <button class="btn centerspace submit" ng-disabled='requesting' ng-click='codeSubmit()' />Submit</button>
+    </form>
+    <p>If the verification email is still not showing up, <a class="instructional_link" ng-click="emailFAQlink()">Check our Email FAQ</a></p>
+  </div>
+</div>
+
+
+</div>
+      <div class='pop-footer'>
+        <!--<a class='back' id='closeLogin' ng-click='closeThisDialog(0)'>close this window</a>-->
+      </div>
+    </div>
+  </div>
+</div>

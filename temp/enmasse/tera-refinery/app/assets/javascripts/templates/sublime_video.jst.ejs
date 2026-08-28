@@ -1,0 +1,7 @@
+<div class="videoContainer">
+  <video class="sublime" width="640" height="360" preload="none">
+    <% for(var i = 0; i < sources.length; i++) { %>
+      <source src="<%= sources[i] %>" />
+    <% } %>
+  </video>
+</div>

@@ -1,0 +1,47 @@
+<!-- block for console login -->
+<section id="console-signin">
+	<div class="wrapper">
+	  <%#= button_to '< Back', fetch_signin_or_up_path(), :remote => true, :class => 'buttonLight' %>
+	  <button type="button" class="buttonLight backRegLogin">< Back</button>
+	  <h2 class="heading">Log in to your En Masse account by connecting through your console account.</h2>
+	  <div class="column_wrapper console-select-xboxone">
+	    <div class="leftCol">
+	      <div class="console-select active" id="console-select-xboxone">
+	        <span>xbox one login</span>
+	      </div>
+	    
+	      <div class="console-select" id="console-select-ps4">
+	        <span>playstation four login</span>
+	      </div>
+	    </div>
+	    <div class="rightCol">
+	    <% newsletter = defined?(newsletter) && newsletter ? newsletter : false %>
+	    <%  locals = { :url => signin_submit_url}
+	      	locals[:return_to] = return_to if defined?(return_to)
+	      	locals[:newsletter] = newsletter if newsletter
+	      	locals[:fail_to] = fail_to if defined?(fail_to)
+	  	%>
+
+	  	<%= render :partial => "shared/default_login_form", :locals => locals %>
+	      <!--<form>
+	        <label>Email Address:</label>
+	        <input type="text" value="" />
+
+	        <label>Password:</label>
+	        <input type="password" value="" />
+
+	        <div class="leftCol">
+	          <button type="submit" value="login" class="buttonYellow login_btn">LOGIN</button>
+	        </div>
+	        <div class="rightCol">
+	          <p>If you don't have an account, you can <a href="http://<%#= Rails.application.config.account_server %>">SIGNUP HERE.</a></p>
+	        </div>
+	      </form>-->
+	      	<div class="login-ft">
+				<p>Problems logging in? <a href="/users/password_reset">Reset your Password.</a></p>
+				<p>If you don't have an account, you can <a href="http://<%= Rails.application.config.account_server %>">SIGNUP HERE.</a></p>
+			</div>
+	    </div>
+	  </div>
+	</div>
+</section>

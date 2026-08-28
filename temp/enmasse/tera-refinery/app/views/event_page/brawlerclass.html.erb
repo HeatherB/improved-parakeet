@@ -1,0 +1,1643 @@
+<% content_for :title do %>Brawler | Classes | Game Guide<% end %>
+
+<% content_for :stylesheets do %>
+<link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+
+<% if Time.now < Time.new(2015, 12, 8, 9, 00, 00, "-07:00") %>
+<!-- facebook meta -->
+<meta property="og:title" content="Brawler - Coming December 2015" />
+<meta property="og:site_name" content="TERA - Brawler"/>
+<meta property="og:url" content="http://tera.enmasse.com/game-guide/classes/brawler" />
+<meta property="og:description" content="The brawler, TERA&#39;s newest class, is sure to be a knockout. With her massive &ldquo;powerfists&rdquo; and heavy armor, the brawler can go toe-to-toe with the biggest BAMs and bosses in the game, or pummel enemies into dust using a slew of dynamic combos. Releasing this December, the brawler brings TERA&#39;s action combat up close and personal." />
+<meta property="og:image" content="http://download.enmasse.com/images/Brawler/brawler_sharing_thumb.png" />
+<% end %>
+<% if Time.now > Time.new(2015, 12, 8, 9, 00, 00, "-07:00") %>
+<!-- facebook meta -->
+<meta property="og:title" content="TERA &ndash; Brawler Class" />
+<meta property="og:site_name" content="TERA - Brawler"/>
+<meta property="og:url" content="http://tera.enmasse.com/game-guide/classes/brawler" />
+<meta property="og:description" content="The brawler is TERA&#39;s newest class. Check out our brawler game guide to learn how to use her massive &ldquo;powerfists&rdquo; and dynamic combos to go toe-to-toe with the biggest BAMs and bosses in the game." />
+<meta property="og:image" content="http://download.enmasse.com/images/Brawler/brawler_sharing_thumb.png" />
+<% end %>
+
+
+<!--[if IE 8]>
+  <style type="text/css">
+    @font-face {
+    font-family: 'Abel';
+    src: url('/fonts/abel-regular-webfont.eot');
+    src: url('/fonts/abel-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/abel-regular-webfont.woff2') format('woff2'),
+         url('/fonts/abel-regular-webfont.woff') format('woff'),
+         url('/fonts/abel-regular-webfont.ttf') format('truetype'),
+         url('/fonts/abel-regular-webfont.svg#abelregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+  </style>
+  <![endif]-->
+
+  <style type="text/css">
+  h1 {
+    text-transform:uppercase;
+    text-align:center;
+    margin: 0 auto;
+    color:#ffffff;
+    background: url(<%= asset_path "brawler/class/headline-highlight.png" %>) 50% 80% no-repeat;
+    font-size:36px;
+    line-height:40px;
+    font-family: 'Abel', sans-serif;
+    height:132px;
+    padding-top: 38px;
+  }
+  h1.tagline {
+    position: relative;
+    color:#b10409;
+    background: none;
+    text-transform:uppercase;
+    top:500px;
+    position: relative;
+    left:800px;
+    text-align:left;
+    width:auto;
+    height:auto;
+    padding: 0;
+  }
+  h1.tagline.date {
+    top:200px;
+    left:70px;
+  }
+  p {
+    color:#000000;
+    font-size:16px;
+    line-height:20px;
+    font-family: "Helvetica",Helvetica,Arial,sans-serif;
+  }
+  .wrapper {
+    width:1140px;
+    height:100%;
+    margin:0 auto;
+    overflow-x: hidden;
+  }
+  #header {
+    width: 1140px;
+    min-width: 1140px;
+    max-width: 1140px;
+  }
+  #header > div.three {
+    width:274px !important;
+    float:left;
+  }
+  nav#menu {
+    width: 670px !important;
+  }
+  #main-nav {
+    background: rgb(255,255,255);
+    background: rgba(255,255,255,0.9);
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+    position: absolute;
+    z-index: 9999;
+    z-index:0;
+    display:block;
+    top:652px;
+    width:100%;
+    height: 74px;
+    left:0;
+    right:0;
+    padding: 13px 0;
+  }
+  #main-nav .wrapper {
+    box-sizing: border-box;
+    padding: 0 0 0 103px;
+  }
+  #main-nav.scroll {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    right:0;
+    z-index: 6;
+  }
+  #main-nav ul {
+    display:inline-block;
+    vertical-align:middle;
+    margin: 0;
+  }
+  #main-nav ul.nav-page {
+    margin-left: 130px;
+    padding-top: 8px;
+  }
+  #main-nav ul.nav-page li {
+    margin: 0 40px;
+  }
+  #main-nav li {
+    display:inline-block;
+    vertical-align:middle;
+    width:auto;
+    margin: 0;
+    text-transform: uppercase;
+    color: #000000;
+    font-family: 'Abel', sans-serif;
+    font-weight: bold;
+    font-size:18px;
+  }
+  #main-nav ul.nav-social li {
+    margin-right: 10px;
+  }
+  #main-nav a {
+    text-transform: uppercase;
+    color: #000000;
+    font-family: 'Abel', sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  #main-nav ul.nav-page a:hover {
+    border-bottom: 4px solid #d30617;
+  }
+  #main-nav ul.nav-page a.active {
+    border-bottom: 4px solid #d30617;
+  }
+  #share-facebook {
+    display:block;
+    height:31px;
+    width:16px;
+    text-indent: -9999em;
+    background: url(<%= asset_path "brawler/class/social-icons.png" %>) no-repeat 0 0;
+  }
+  #share-facebook:hover {
+    background-position: 0px -31px;
+  }
+  #share-twitter {
+    display:block;
+    height: 31px;
+    width:32px;
+    text-indent: -9999em;
+    background: url(<%= asset_path "brawler/class/social-icons.png" %>) no-repeat -30px 0;
+  }
+  #share-twitter:hover {
+    background-position: -30px -31px;
+  }
+  #main-nav .play-now {
+    position: relative;
+    z-index: 1;
+    float: right;
+    display:inline-block;
+    vertical-align:middle;
+    width: 150px;
+    height: 45px;
+    margin-top: 0;
+    margin-right:80px;
+  }
+
+  .leftcol {
+    width:500px;
+    box-sizing: border-box;
+    display:inline-block;
+  }
+  .rightcol {
+    width:510px;
+    position:relative;
+    left: 613px;
+    display:inline-block;
+    margin-top:20px;
+  }
+
+  .intro {
+    height:718px;
+    background: url(<%= asset_path "brawler/class/brawler-WebHeaderV2.jpeg" %>) top center no-repeat #ffffff;
+    position:absolute;
+    top:12px;
+    right:0;
+    left: 0;
+  }
+  .brawlerHeader {
+    position:absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  }
+  /* fix video grey background on windows browsers */
+  .brightness{
+    filter: brightness(108.5%);
+    -webkit-filter:brightness(108.5%); /* Chrome 19+ & Safari 6+ we do need this*/
+  }
+  .intro .wrapper {
+    height:718px;
+    background-image: url(<%= asset_path "brawler/class/leftEdge.png" %>), url(<%= asset_path "brawler/class/rightEdge.png" %>), url(<%= asset_path "brawler/class/hero-splat.png" %>);
+    background-position:top left, top right, center center;
+    background-repeat: repeat-y, repeat-y, no-repeat;
+    position: relative;
+  }
+  #highlights {
+    position:relative;
+    margin-top:550px;
+    display:block;
+    clear:both;
+    padding-top:10px;
+    padding: 10px 0 40px;
+  }
+  #highlights .wrapper {
+    background: url(<%= asset_path "brawler/class/highlight-bg.jpg" %>) 109% 9% no-repeat;
+  }
+  #highlights .leftcol {
+    margin-left: 60px;
+  }
+  #highlights .leftcol p {
+    margin-left: 30px;
+    width: 506px;
+  }
+  #highlights .highlights {
+    /*background: url(<%= asset_path "brawler/class/highlight-splat.png" %>) top left no-repeat;*/
+    box-sizing: border-box;
+    padding-left: 120px;
+    padding-top:20px;
+    min-height:117px;
+
+    position: relative;
+    overflow: hidden;
+  }
+  #highlights .highlights:before {
+    content: "";
+    position: absolute;
+    width: 102%;
+    height: 513%;
+    top: 60%;
+    left: -30%;
+    z-index: -1;
+    background: url(<%= asset_path "brawler/class/highlight-splat.png" %>) top left no-repeat;
+    -webkit-transform: rotate(30deg);
+    -moz-transform: rotate(30deg);
+    -ms-transform: rotate(30deg);
+    -o-transform: rotate(30deg);
+    transform: rotate(30deg);
+  }
+  #highlights .highlights:nth-child(2):before {
+    left: 0%;
+    top: 0%;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  #highlights .highlights:nth-child(3):before {
+    left: -80%;
+    top: 4%;
+    -webkit-transform: rotate(75deg);
+    -moz-transform: rotate(75deg);
+    -ms-transform: rotate(75deg);
+    -o-transform: rotate(75deg);
+    transform: rotate(75deg);
+  }
+  #highlights .highlights:nth-child(4):before {
+    left: -15%;
+    top: 41%;
+    -webkit-transform: rotate(15deg);
+    -moz-transform: rotate(15deg);
+    -ms-transform: rotate(15deg);
+    -o-transform: rotate(15deg);
+    transform: rotate(15deg);
+  }
+  #highlights .highlights:nth-child(5):before {
+    left: -101%;
+    top: -309%;
+    -webkit-transform: rotate(150deg);
+    -moz-transform: rotate(150deg);
+    -ms-transform: rotate(150deg);
+    -o-transform: rotate(150deg);
+    transform: rotate(150deg);
+  }
+  #highlights .highlights:nth-child(6):before {
+    left: 0%;
+    top: 0%;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  #highlights .highlights h4 {
+    font-size:18px;
+    font-family: "Helvetica",Helvetica,Arial,sans-serif;
+    font-weight:bold;
+    margin: 0;
+  }
+  #highlights .highlights p {
+    margin-left: 0;
+    width: 370px;
+  }
+  #skillvideos {
+    text-align:center;
+    padding-top:40px;
+  }
+  #skillvideos .video {
+    display:inline-block;
+    vertical-align:top;
+    width:49%;
+  }
+  #skillvideos .video h1 {
+    height:auto;
+    background: none;
+    color:#000000;
+    text-transform: none;
+    margin: 5px auto;
+  }
+  #skillvideos .video p {
+    display:block;
+    clear:both;
+    font-size: 16px;
+    font-family: "Helvetica",Helvetica,Arial,sans-serif;
+    margin:10px auto;
+    width:448px;
+  }
+  #skillvideos .video p span {
+    display:block;
+    font-weight:bold;
+    margin:10px auto;
+  }
+  #skills h1 {
+    background: url(<%= asset_path "brawler/class/skills-headline-highlight.png" %>) 50% 80% no-repeat;
+  }
+  #skills .wrapper {
+    background: url(<%= asset_path "brawler/class/leftEdge.png" %>) top left repeat-y, url(<%= asset_path "brawler/class/rightEdge.png" %>) top right repeat-y #e5e6e6;
+  }
+  #skillTable {
+    box-sizing: border-box;
+    padding-bottom: 50px;
+    /*background: url(<%= asset_path "brawler/class/leftEdge.png" %>) top left repeat-y;*/
+  }
+  #skillTable h3 {
+    font-family: "Helvetica",Helvetica,Arial,sans-serif;
+    font-weight:bold;
+    font-size: 28px;
+    display:inline-block;
+    vertical-align:middle;
+    width:200px;
+    margin-left: 60px;
+  }
+  #skillTable h4 {
+    font-family: "Helvetica",Helvetica,Arial,sans-serif;
+    font-weight:bold;
+    font-size:18px;
+    display:inline-block;
+    vertical-align:middle;
+    width:auto;
+  }
+  #skillTable h5 {
+    font-family: "Helvetica",Helvetica,Arial,sans-serif;
+    font-weight:bold;
+    font-size: 16px;
+    text-transform:uppercase;
+    margin: 1em 0 0.5em;
+  }
+  #skillTable h6 {
+    font-family: "Helvetica",Helvetica,Arial,sans-serif;
+    font-weight:bold;
+    font-size: 16px;
+    text-transform:none;
+  }
+  .glyphs {
+    box-sizing: border-box;
+    padding-left: 15px;
+  }
+  .glyph .icon,
+  .glyph h6,
+  .glyph p {
+    display:inline-block;
+    vertical-align:middle;
+  }
+  .glyph h6 {
+    margin-right:15px;
+  }
+  .glyph p {
+    margin: 0;
+  }
+
+/* glyph glyphs */
+  .glyphGlyphs-sprite, .glyphGlyphs-Skill_BullRush, .glyphGlyphs-Skill_Counter, .glyphGlyphs-Skill_CounterPunch, .glyphGlyphs-Skill_DivineWrath, .glyphGlyphs-Skill_FlipKick, .glyphGlyphs-Skill_GroundPounder, .glyphGlyphs-Skill_GrowingFury, .glyphGlyphs-Skill_Haymaker, .glyphGlyphs-Skill_HighKick, .glyphGlyphs-Skill_Infuriate, .glyphGlyphs-Skill_InvigoratingRage, .glyphGlyphs-Skill_Jackhammer, .glyphGlyphs-Skill_MeatGrinder, .glyphGlyphs-Skill_MountingRage, .glyphGlyphs-Skill_PileDriver, .glyphGlyphs-Skill_Provoke, .glyphGlyphs-Skill_Punch, .glyphGlyphs-Skill_QuickDash, .glyphGlyphs-Skill_Rampage, .glyphGlyphs-Skill_RoundhouseKick {
+    background-image: url(<%= asset_path "brawler/class/glyphGlyphs-se93b30df53.png" %>);
+    background-repeat: no-repeat;
+    display:block;
+    width:95px;
+    height:95px;
+    margin: 0 auto;
+  }
+
+  .glyphGlyphs-Skill_BullRush {
+    background-position: 0 0;
+  }
+
+  .glyphGlyphs-Skill_Counter {
+    background-position: 0 -95px;
+  }
+
+  .glyphGlyphs-Skill_CounterPunch {
+    background-position: 0 -190px;
+  }
+
+  .glyphGlyphs-Skill_DivineWrath {
+    background-position: 0 -285px;
+  }
+
+  .glyphGlyphs-Skill_FlipKick {
+    background-position: 0 -380px;
+  }
+
+  .glyphGlyphs-Skill_GroundPounder {
+    background-position: 0 -475px;
+  }
+
+  .glyphGlyphs-Skill_GrowingFury {
+    background-position: 0 -570px;
+  }
+
+  .glyphGlyphs-Skill_Haymaker {
+    background-position: 0 -665px;
+  }
+
+  .glyphGlyphs-Skill_HighKick {
+    background-position: 0 -760px;
+  }
+
+  .glyphGlyphs-Skill_Infuriate {
+    background-position: 0 -855px;
+  }
+
+  .glyphGlyphs-Skill_InvigoratingRage {
+    background-position: 0 -950px;
+  }
+
+  .glyphGlyphs-Skill_Jackhammer {
+    background-position: 0 -1045px;
+  }
+
+  .glyphGlyphs-Skill_MeatGrinder {
+    background-position: 0 -1140px;
+  }
+
+  .glyphGlyphs-Skill_MountingRage {
+    background-position: 0 -1235px;
+  }
+
+  .glyphGlyphs-Skill_PileDriver {
+    background-position: 0 -1330px;
+  }
+
+  .glyphGlyphs-Skill_Provoke {
+    background-position: 0 -1425px;
+  }
+
+  .glyphGlyphs-Skill_Punch {
+    background-position: 0 -1520px;
+  }
+
+  .glyphGlyphs-Skill_QuickDash {
+    background-position: 0 -1615px;
+  }
+
+  .glyphGlyphs-Skill_Rampage {
+    background-position: 0 -1710px;
+  }
+
+  .glyphGlyphs-Skill_RoundhouseKick {
+    background-position: 0 -1805px;
+  }
+
+/* end glyph glyphs */
+  
+  /* glyph icons */
+  /*.glyphIcons-sprite, .glyphIcons-Glyph_AirDamage, .glyphIcons-Glyph_Attack, .glyphIcons-Glyph_ChanceCrit, .glyphIcons-Glyph_DecreaseCooldown, .glyphIcons-Glyph_Defense, .glyphIcons-Glyph_EliminateCooldown, .glyphIcons-Glyph_MP, .glyphIcons-Glyph_PerfectDefense, .glyphIcons-Glyph_Rage, .glyphIcons-Glyph_RecoverHP, .glyphIcons-Glyph_SkillDamage, .glyphIcons-Glyph_SlowEnemy {
+    background-image: url(<%= asset_path "brawler/class/glyphIcons-sd32a4fb8b6.png" %>);
+    background-repeat: no-repeat;
+    display:block;
+    width:50px;
+    height:50px;
+  }
+
+  .glyphIcons-Glyph_AirDamage {
+    background-position: 0 0;
+  }
+
+  .glyphIcons-Glyph_Attack {
+    background-position: 0 -50px;
+  }
+
+  .glyphIcons-Glyph_ChanceCrit {
+    background-position: 0 -100px;
+  }
+
+  .glyphIcons-Glyph_DecreaseCooldown {
+    background-position: 0 -150px;
+  }
+
+  .glyphIcons-Glyph_Defense {
+    background-position: 0 -200px;
+  }
+
+  .glyphIcons-Glyph_EliminateCooldown {
+    background-position: 0 -250px;
+  }
+
+  .glyphIcons-Glyph_MP {
+    background-position: 0 -300px;
+  }
+
+  .glyphIcons-Glyph_PerfectDefense {
+    background-position: 0 -350px;
+  }
+
+  .glyphIcons-Glyph_Rage {
+    background-position: 0 -400px;
+  }
+
+  .glyphIcons-Glyph_RecoverHP {
+    background-position: 0 -450px;
+  }
+
+  .glyphIcons-Glyph_SkillDamage {
+    background-position: 0 -500px;
+  }
+
+  .glyphIcons-Glyph_SlowEnemy {
+    background-position: 0 -550px;
+  }*/
+/* end glyph icons */
+/* 40 px size */
+.glyphIcons-sprite, .glyphIcons-Glyph_AirDamage, .glyphIcons-Glyph_Attack, .glyphIcons-Glyph_ChanceCrit, .glyphIcons-Glyph_DecreaseCooldown, .glyphIcons-Glyph_Defense, .glyphIcons-Glyph_EliminateCooldown, .glyphIcons-Glyph_MP, .glyphIcons-Glyph_PerfectDefense, .glyphIcons-Glyph_Rage, .glyphIcons-Glyph_RecoverHP, .glyphIcons-Glyph_SkillDamage, .glyphIcons-Glyph_SlowEnemy {
+  background-image: url(<%= asset_path "brawler/class/glyphIcons-s4f191637a7.png" %>);
+  background-repeat: no-repeat;
+  display:block;
+  width:40px;
+  height:40px;
+}
+
+.glyphIcons-Glyph_AirDamage {
+  background-position: 0 0;
+}
+
+.glyphIcons-Glyph_Attack {
+  background-position: 0 -40px;
+}
+
+.glyphIcons-Glyph_ChanceCrit {
+  background-position: 0 -80px;
+}
+
+.glyphIcons-Glyph_DecreaseCooldown {
+  background-position: 0 -120px;
+}
+
+.glyphIcons-Glyph_Defense {
+  background-position: 0 -160px;
+}
+
+.glyphIcons-Glyph_EliminateCooldown {
+  background-position: 0 -200px;
+}
+
+.glyphIcons-Glyph_MP {
+  background-position: 0 -240px;
+}
+
+.glyphIcons-Glyph_PerfectDefense {
+  background-position: 0 -280px;
+}
+
+.glyphIcons-Glyph_Rage {
+  background-position: 0 -320px;
+}
+
+.glyphIcons-Glyph_RecoverHP {
+  background-position: 0 -360px;
+}
+
+.glyphIcons-Glyph_SkillDamage {
+  background-position: 0 -400px;
+}
+
+.glyphIcons-Glyph_SlowEnemy {
+  background-position: 0 -440px;
+}
+/* end 40 px size */
+
+
+  .skillRow {
+    box-sizing:border-box;
+    padding: 15px 0;
+  }
+  .skillRow.odd {
+    background: url(<%= asset_path "brawler/class/leftEdge.png" %>) top left repeat-y, url(<%= asset_path "brawler/class/rightEdge.png" %>) top right repeat-y #cfd0d2;
+  }
+  .skillRow.even {
+    background: url(<%= asset_path "brawler/class/leftEdge.png" %>) top left repeat-y, url(<%= asset_path "brawler/class/rightEdge.png" %>) top right repeat-y #e5e6e6;
+  }
+  #skillTable .skillRow h4 {
+    margin:0 0 5px 0;
+    width:100%;
+    box-sizing: border-box;
+    padding-left: 60px;
+  }
+  .skillcol {
+    display:inline-block;
+    vertical-align:top;
+  }
+  .colfirst {
+    width:250px;
+    /*box-sizing: border-box;
+    padding-left: 60px;*/
+  }
+  .colsecond {
+    width:788px;
+  }
+  #origin {
+    
+  }
+  #origin h1 {
+    background: url(<%= asset_path "brawler/class/origin-headline-highlight.png" %>) 50% 34% no-repeat;
+  }
+  #topcopy {
+    background: url(<%= asset_path "brawler/class/originone.jpg" %>) top right no-repeat;
+    height:873px;
+    box-sizing: border-box;
+    margin: 0 26px 0 90px;
+  }
+  #topcopy .leftcol {
+    width: 470px;
+  }
+  hr.brawlerStoryBreak {
+    margin:3em auto 0;
+  }
+  #bottomcopy {
+    background: url(<%= asset_path "brawler/class/origintwo.jpg" %>) top left no-repeat;
+    height: 1009px;
+    margin: 40px 44px 0 50px;
+  }
+  #bottomcopy .rightcol {
+    width:493px;
+    left: 555px;
+  }
+  .trailer {
+    border: 1px solid #ffffff;
+    box-shadow: 0px 0px 30px #ffffff;
+    width:448px;
+    height:255px;
+    margin:0 auto;
+    display:block;
+  }
+  .trailer:hover {
+    border: 1px solid #d3000f;
+    box-shadow: 0px 0px 30px #d3000f;
+  }
+  #trailerTank {
+    background: url(<%= asset_path "brawler/class/tanking-poster.jpg" %>) no-repeat 0 0;
+  }
+  #trailerCrowd {
+    background: url(<%= asset_path "brawler/class/crowd-poster.jpg" %>) no-repeat 0 0;
+  }
+  #trailerLockdown {
+    background: url(<%= asset_path "brawler/class/lockdown-poster.jpg" %>) no-repeat 0 0;
+  }
+  #trailerRage {
+    background: url(<%= asset_path "brawler/class/rage-poster.jpg" %>) no-repeat 0 0;
+  }
+  .eme-footer {
+    margin-top: 0;
+    background: none;
+  }
+  .eme-footer nav {
+    width: 652px;
+  }
+
+  /***** Lightbox *****/
+    #lb-blackout {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      z-index: 200;
+      background: #000;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    #lightbox {
+      position: absolute;
+      left: 0;
+      z-index: 9005;
+      width: 100%;
+      top: 150px;
+    }
+    #lightbox-container {
+      width: 640px;
+      padding: 8px;
+      position: relative;
+      margin: 0 auto;
+    }
+    #lightbox-container.video {
+      background: none;
+    }
+    #lightbox-content {
+    box-shadow: 0px 0px 0px 2px #ca0b1a;
+    border: 1px solid  #ca0b1a;
+    }
+    .lightbox-close {
+      width: 138px;
+      height: 110px;
+      position: absolute;
+      top: -49px;
+      right: -53px;
+      background: url(<%= asset_path "brawler/lightbox-close.png" %>) no-repeat 0 0;
+    }
+    .lightbox-close:hover {
+      background-position: 0 -110px;
+    }
+    
+  </style>
+
+  <!--[if IE 8]>
+  <style type="text/css">
+    .intro .wrapper {
+      background-image: url(<%= asset_path "brawler/class/hero-splat.png" %>);
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+    .brawlerHeader {
+      text-align:center;
+    }
+    .brawlerHeader {
+  
+    }
+    #highlights .highlights {
+    background: url(<%= asset_path "brawler/class/highlight-splat.png" %>) top left no-repeat;
+    }
+    #skills .wrapper {
+      background: #e5e6e6;
+    }
+    .odd.skillRow {
+      background: #cfd0d2;
+    }
+    .even.skillRow {
+      background: #e5e6e6;
+    }
+  </style>
+  <![endif]-->
+<% end %>
+
+<header id="header" class="row">
+  <%= render :partial => '/refinery/header' -%>
+</header>
+
+<div class="page-frame">
+
+  <div class="intro brightness">
+    <video autoplay loop width="1140" height="650" poster="<%= asset_path "brawler/class/brawler-WebHeaderV2.jpeg" %>"  class="brawlerHeader">
+      <img width="1140" height="650" src="<%= asset_path "brawler/class/brawler-WebHeaderV2.jpeg" %>">
+      <source src="http://download.enmasse.com/videos/tera/brawler/Brawler-WebHeaderV2.mp4" type="video/mp4">
+      <source src="http://download.enmasse.com/videos/tera/brawler/Brawler-WebHeaderV2.webm" type="video/webm">
+    </video>
+    <div class="wrapper">
+      <% if Time.now < Time.new(2015, 12, 8, 9, 00, 00, "-07:00") %>
+      <h1 class="tagline date">Coming December 8</h1>
+      <% end %>
+      <% if Time.now > Time.new(2015, 12, 8, 9, 00, 00, "-07:00") %>
+      <h1 class="tagline date">Available Now</h1>
+      <% end %>
+      <h1 class="tagline">Never.Back.Down.</h1>
+    </div>
+  </div><!-- end of intro -->
+
+  <nav id="main-nav">
+    <div class="wrapper">
+      <ul class="nav-social">
+        <li>SHARE</li>
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=http://tera.enmasse.com/game-guide/classes/brawler" id="share-facebook" target="_blank">Facebook</a></li>
+        <li><a class="twitter-share-button"
+    href="https://twitter.com/intent/tweet?text=THE%20BRAWLER%20IS%20HERE!%20Tell%20your%20friends%20to%20get%20out%20of%20the%20way!%20http://tera.enmasse.com/game-guide/classes/brawler"id="share-twitter" target="_blank">Twitter</a></li>
+      </ul>
+      <ul class="nav-page">
+        <li><a href="#highlights" id="nav-highlights">Class Highlights</a></li>
+        <li><a href="#skills" id="nav-skills">Skills</a></li>
+        <li><a href="#origin" id="nav-origin">Origin</a></li>
+      </ul>
+      <div class="play-now">
+        <a href="/sign-up" onclick="_gaq.push(['_trackEvent', 'Accounts', 'Clicked Play Now Button', 'TERA Homepage']);">PLAY FREE</a>
+      </div>
+    </div>
+  </nav>
+
+  <div id="highlights">
+    <div class="wrapper">
+      <h1>Class Highlights</h1>
+      <div class="leftcol">
+        <p>The brawler is an offensive dynamo with exceptional tanking capabilities, heavy armor, and massive powerfists that both dish out and block damage. She sends enemies sprawling and flying before her, helpless in the face of her fighting prowess.</p>
+        <div class="highlights">
+          <h4>In-Your-Face Tank</h4>
+          <p>Heavy armor and the ability to block directed attacks allow brawlers to go toe-to-toe with the biggest bosses in <em>TERA.</em></p>
+        </div>
+
+        <div class="highlights">
+          <h4>Massive Powerfists</h4>
+          <p>Powerfists are part boxing gloves, part brass knuckles. They pack a wallop that can send enemies sprawling, flying, and dying.</p>
+        </div>
+
+        <div class="highlights">
+          <h4>Punch and Counter</h4>
+          <p>Punch and Counter are the brawler&#39;s bread-and-butter. Every Punch landed increases the hit counter and alters the Counter effect.</p>
+        </div>
+
+        <div class="highlights">
+          <h4>Amazing Moves</h4>
+          <p>Brawlers knock enemies down and then kick them into the air. They gather up mobs and mow them down. Every attack sets up a devastating combo.</p>
+        </div>
+
+        <div class="highlights">
+          <h4>Never Say Die!</h4>
+          <p>Brawlers can barely contain their fighting fury. Every skill increases their Rage, which brawlers then use to unleash furious attacks.</p>
+        </div>
+      </div>
+
+      <div id="skillvideos">
+        <div class="video">
+          <h1>Fighting and Tanking</h1>
+          <a id="trailerTank" class="trailer" data-url="https://www.youtube.com/embed/GrLm9-4AXgo" href="#">
+            <video width="448" height="255" poster="<%= asset_path "brawler/class/tanking-poster.jpg" %>"  class="vidPreview trailerTank">
+              <img width="448" height="255" src="<%= asset_path "brawler/class/tanking-poster.jpg" %>">
+              <source src="http://download.enmasse.com/videos/tera/brawlerskills/Fight_1_short.mp4" type="video/mp4">
+              <source src="http://download.enmasse.com/videos/tera/brawlerskills/Fight_1_short.webm" type="video/webm">
+            </video>
+          </a>
+          <p>Brawlers use Punch and Counter to deal damage and block enemy attacks. <span>Skills: Punch and Counter</span></p>
+        </div><!-- end of video -->
+
+        <div class="video">
+          <h1>Crowd Control</h1>
+          <a id="trailerCrowd" class="trailer" data-url="https://www.youtube.com/embed/lz-Qx8vcfSQ" href="#">
+            <video width="448" height="255" poster="<%= asset_path "brawler/class/crowd-poster.jpg" %>"  class="vidPreview trailerCrowd">
+              <img src="<%= asset_path "brawler/class/crowd-poster.jpg" %>"  width="448" height="255">
+              <source src="http://download.enmasse.com/videos/tera/brawlerskills/Fight_2_short.mp4" type="video/mp4">
+              <source src="http://download.enmasse.com/videos/tera/brawlerskills/Fight_2_short.webm" type="video/webm">
+            </video>
+          </a>
+          <p>Brawlers have many ways to handle groups, including Provoke, Infuriate, and Ground Pounder. <span>Skills: Bull Rush and Jackhammer</span></p>
+        </div><!-- end of video -->
+
+        <div class="video">
+          <h1>Lockdown Skills</h1>
+          <a id="trailerLockdown" class="trailer" data-url="https://www.youtube.com/embed/mIYtn4Og6eY" href="#">
+            <video width="448" height="255" poster="<%= asset_path "brawler/class/lockdown-poster.jpg" %>"  class="vidPreview trailerLockdown">
+              <img src="<%= asset_path "brawler/class/lockdown-poster.jpg" %>"  width="448" height="255">
+              <source src="http://download.enmasse.com/videos/tera/brawlerskills/Fight_3_short.mp4" type="video/mp4">
+              <source src="http://download.enmasse.com/videos/tera/brawlerskills/Fight_3_short.webm" type="video/webm">
+            </video>
+          </a>
+          <p>Brawlers excel at preventing enemies from attacking by knocking them to the ground and tossing them into the air. <span>Skills: Haymaker / High Kick / Meatgrinder</span></p>
+        </div><!-- end of video -->
+
+        <div class="video">
+          <h1>Building Rage</h1>
+          <a id="trailerRage" class="trailer" data-url="https://www.youtube.com/embed/3dB3Cgx7ZCc" href="#">
+            <video width="448" height="255" poster="<%= asset_path "brawler/class/rage-poster.jpg" %>"  class="vidPreview trailerRage">
+              <img src="<%= asset_path "brawler/class/rage-poster.jpg" %>"  width="448" height="255">
+              <source src="http://download.enmasse.com/videos/tera/brawlerskills/Fight_4_short.mp4" type="video/mp4">
+              <source src="http://download.enmasse.com/videos/tera/brawlerskills/Fight_4_short.webm" type="video/webm">
+            </video>
+          </a>
+          <p>Perfect defense (using a Counter skill within a half-second of an attack) is one of the fastest ways to gain Rage. <span>Skills: Mounting Rage / Perfect Defense / Divine Wrath</span></p>
+        </div><!-- end of video -->
+      </div><!-- end of videos -->
+    </div><!-- end of wrapper -->
+  </div><!-- end of highlights -->
+
+  <div id="skills">
+    <div class="wrapper">
+      <h1>Skills</h1>
+      <div id="skillTable">
+        <h3>Level / Skill</h3><h4>Description</h4>
+
+        <!-- beging skill row odd -->
+        <div class="skillRow odd">
+          <h4>1 Punch</h4>
+          <div class="colfirst skillcol">
+            <span class="icon glyphGlyphs-Skill_Punch"></span>
+          </div>
+          <div class="colsecond skillcol">
+            <div class="copy">
+              <p>Throw a punch, replenishing your MP and increasing your Rage. The more punches you deliver in a row, the better the combo you&#39;ll get from using Counter.</p>
+            </div>
+
+            <div class="glyphs">
+              <h5>Glyphs</h5>
+              <div class="glyph">
+                <span class="icon glyphIcons-Glyph_SkillDamage"></span>
+                <h6>Empowered Punch</h6>
+                <p>Increases skill damage.</p>
+              </div><!-- end of glyph-->
+
+              <div class="glyph">
+                <span class="icon spirited-punch glyphIcons-Glyph_MP"></span>
+                <h6>Spirited Punch</h6>
+                <p>Increases MP replenishment per successful hit.</p>
+              </div><!-- end of glyph-->
+
+              <div class="glyph">
+                <span class="icon swift-punch glyphIcons-Glyph_Attack"></span>
+                <h6>Swift Punch</h6>
+                <p>Chance to increase Attack Speed.</p>
+              </div><!-- end of glyph-->
+            </div><!-- end of glyphs -->
+
+          </div><!-- end of second col -->
+        </div>
+        <!-- end of skill row odd -->
+
+        <!-- beging skill row even -->
+        <div class="skillRow even">
+          <h4>1 Counter</h4>
+          <div class="colfirst skillcol">
+            <span class="icon glyphGlyphs-Skill_Counter"></span>
+          </div>
+          <div class="colsecond skillcol">
+            <div class="copy">
+              <p>Block frontal enemy attacks, deal a little damage, or chain with Punch for some amazing combos: right hook (staggers target); uppercut (knocks enemy into the air); whirlwind punch (pulls enemies toward you); or super knockout punch (knocks enemies down). The better your powerfists, the better you&#39;ll block, and the more damage you&#39;ll deal.</p>
+              <p>If you Counter within 0.5 sec, you also deal the target 50% of Counter&#39;s crit damage, and gain 200 Rage.</p>
+              <p>You can also hold the skill button to stay in defensive stance until you run out of MP.</p>
+            </div>
+
+            <div class="glyphs">
+              <h5>Glyphs</h5>
+              <div class="glyph">
+                <span class="icon glyphIcons-Glyph_ChanceCrit"></span>
+                <h6>Carving Counter</h6>
+                <p>Doubles the chance to crit.</p>
+              </div><!-- end of glyph-->
+
+              <div class="glyph">
+                <span class="icon glyphIcons-Glyph_SkillDamage"></span>
+                <h6>Empowered Counter</h6>
+                <p>Increases skill damage.</p>
+              </div><!-- end of glyph-->
+
+              <div class="glyph">
+                <span class="icon swift-punch glyphIcons-Glyph_PerfectDefense"></span>
+                <h6>Powerlinked Counter</h6>
+                <p>Increases all skill damage after a Perfect Defense.</p>
+              </div><!-- end of glyph-->
+            </div><!-- end of glyphs -->
+
+          </div><!-- end of second col -->
+        </div>
+        <!-- end of skill row even -->
+
+        <!-- beging skill row odd -->
+        <div class="skillRow odd">
+          <h4>1 Quick Dash</h4>
+          <div class="colfirst skillcol">
+            <span class="icon glyphGlyphs-Skill_QuickDash"></span>
+          </div>
+          <div class="colsecond skillcol">
+            <div class="copy">
+              <p>Dodge past your enemy&#39;s attack.</p>
+            </div>
+
+            <div class="glyphs">
+              <h5>Glyphs</h5>
+              <div class="glyph">
+                <span class="icon glyphIcons-Glyph_EliminateCooldown"></span>
+                <h6>Persistent Quick Dash</h6>
+                <p>Chance to eliminate cooldown.</p>
+              </div><!-- end of glyph-->
+            </div><!-- end of glyphs -->
+
+          </div><!-- end of second col -->
+        </div>
+        <!-- end of skill row odd -->
+
+        <!-- beging skill row even -->
+        <div class="skillRow even">
+          <h4>2 Roundhouse Kick</h4>
+          <div class="colfirst skillcol">
+            <span class="icon glyphGlyphs-Skill_RoundhouseKick"></span>
+          </div>
+          <div class="colsecond skillcol">
+            <div class="copy">
+              <p>Kick a monster into the air, or stagger an opposing player.</p>
+            </div>
+
+            <div class="glyphs">
+              <h5>Glyphs</h5>
+              <div class="glyph">
+                <span class="icon glyphIcons-Glyph_DecreaseCooldown"></span>
+                <h6>Energetic Roundhouse Kick</h6>
+                <p>Decreases cooldown.</p>
+              </div><!-- end of glyph-->
+
+              <div class="glyph">
+                <span class="icon glyphIcons-Glyph_Defense"></span>
+                <h6>Grounding Roundhouse Kick</h6>
+                <p>Adds frontal defense effect to Jackhammer / Piledriver / Haymaker.</p>
+              </div><!-- end of glyph-->
+
+              <div class="glyph">
+                <span class="icon glyphIcons-Glyph_PerfectDefense"></span>
+                <h6>Powerlinked Roundhouse Kick</h6>
+                <p>Increases all skill damage upon successful hit.</p>
+              </div><!-- end of glyph-->
+            </div><!-- end of glyphs -->
+
+          </div><!-- end of second col -->
+        </div>
+        <!-- end of skill row even -->
+
+        <!-- beging skill row odd -->
+        <div class="skillRow odd">
+          <h4>4 Jackhammer</h4>
+          <div class="colfirst skillcol">
+            <span class="icon glyphGlyphs-Skill_Jackhammer"></span>
+          </div>
+          <div class="colsecond skillcol">
+            <div class="copy">
+              <p>Hammer your enemy with a flurry of rapid jabs, decreasing the target&#39;s Endurance.</p>
+            </div>
+
+            <div class="glyphs">
+              <h5>Glyphs</h5>
+              <div class="glyph">
+                <span class="icon glyphIcons-Glyph_AirDamage"></span>
+                <h6>Aggravating Jackhammer</h6>
+                <p>Increases damage to target suspended in air.</p>
+              </div><!-- end of glyph-->
+
+              <div class="glyph">
+                <span class="icon glyphIcons-Glyph_ChanceCrit"></span>
+                <h6>Carving Jackhammer</h6>
+                <p>Doubles the chance to crit.</p>
+              </div><!-- end of glyph-->
+
+              <div class="glyph">
+                <span class="icon glyphIcons-Glyph_SkillDamage"></span>
+                <h6>Empowered Jackhammer</h6>
+                <p>Increases skill damage.</p>
+              </div><!-- end of glyph-->
+
+              <div class="glyph">
+                <span class="icon glyphIcons-Glyph_Rage"></span>
+                <h6>Spirited Jackhammer</h6>
+                <p>Generates additional Rage per successful hit.</p>
+              </div><!-- end of glyph-->
+            </div><!-- end of glyphs -->
+
+          </div><!-- end of second col -->
+        </div>
+        <!-- end of skill row odd -->
+
+        <!-- beging skill row even -->
+        <div class="skillRow even">
+          <h4>6 Piledriver</h4>
+          <div class="colfirst skillcol">
+            <span class="icon glyphGlyphs-Skill_PileDriver"></span>
+          </div>
+          <div class="colsecond skillcol">
+            <div class="copy">
+              <p>Deliver a series of uppercuts while leaping into the air—then hammer an opponent as you land.</p>
+            </div>
+
+            <div class="glyphs">
+              <h5>Glyphs</h5>
+              <div class="glyph">
+                <span class="icon glyphIcons-Glyph_SkillDamage"></span>
+                <h6>Empowered Piledriver</h6>
+                <p>Increases skill damage.</p>
+              </div><!-- end of glyph-->
+
+              <div class="glyph">
+                <span class="icon glyphIcons-Glyph_EliminateCooldown"></span>
+                <h6>Persistent Piledriver</h6>
+                <p>Chance to eliminate cooldown.</p>
+              </div><!-- end of glyph-->
+
+              <div class="glyph">
+                <span class="icon glyphIcons-Glyph_Rage"></span>
+                <h6>Spirited Piledriver</h6>
+                <p>Generates additional Rage per successful hit.</p>
+              </div><!-- end of glyph-->
+            </div><!-- end of glyphs -->
+
+          </div><!-- end of second col -->
+        </div>
+        <!-- end of skill row even -->
+
+        <!-- beging skill row odd -->
+        <div class="skillRow odd">
+          <h4>8 Haymaker</h4>
+          <div class="colfirst skillcol">
+            <span class="icon glyphGlyphs-Skill_Haymaker"></span>
+          </div>
+          <div class="colsecond skillcol">
+            <div class="copy">
+              <p>Wind up and throw a terrifying punch, with a high chance of knockdown. Deals more damage against targets with low HP.</p>
+            </div>
+
+            <div class="glyphs">
+              <h5>Glyphs</h5>
+              <div class="glyph">
+                <span class="icon glyphIcons-Glyph_MP"></span>
+                <h6>Brilliant Haymaker</h6>
+                <p>Reduces MP cost.</p>
+              </div><!-- end of glyph-->
+
+              <div class="glyph">
+                <span class="icon glyphIcons-Glyph_ChanceCrit"></span>
+                <h6>Carving Haymaker</h6>
+                <p>Doubles the chance to crit.</p>
+              </div><!-- end of glyph-->
+
+              <div class="glyph">
+                <span class="icon glyphIcons-Glyph_SkillDamage"></span>
+                <h6>Empowered Haymaker</h6>
+                <p>Increases skill damage.</p>
+              </div><!-- end of glyph-->
+
+              <div class="glyph">
+                <span class="icon glyphIcons-Glyph_EliminateCooldown"></span>
+                <h6>Persistent Haymaker</h6>
+                <p>Chance to eliminate cooldown.</p>
+              </div><!-- end of glyph-->
+            </div><!-- end of glyphs -->
+
+          </div><!-- end of second col -->
+        </div>
+        <!-- end of skill row odd -->
+
+        <!-- beging skill row even -->
+        <div class="skillRow even">
+          <h4>10 Rampage</h4>
+          <div class="colfirst skillcol">
+            <span class="icon glyphGlyphs-Skill_Rampage"></span>
+          </div>
+          <div class="colsecond skillcol">
+            <div class="copy">
+              <p>Rage Skill: Block frontal attacks while you rush an enemy and deliver a series of devastating blows, knocking them into the air. Can trigger Perfect Defense.</p>
+            </div>
+
+            <div class="glyphs">
+              <h5>Glyphs</h5>
+              <div class="glyph">
+                <span class="icon glyphIcons-Glyph_SkillDamage"></span>
+                <h6>Empowered Rampage</h6>
+                <p>Increases skill damage.</p>
+              </div><!-- end of glyph-->
+
+              <div class="glyph">
+                <span class="icon glyphIcons-Glyph_RecoverHP"></span>
+                <h6>Restorative Rampage</h6>
+                <p>Recovers HP per successful hit.</p>
+              </div><!-- end of glyph-->
+
+              <div class="glyph">
+                <span class="icon glyphIcons-Glyph_MP"></span>
+                <h6>Spirited Rampage</h6>
+                <p>Increases MP replenishment per successful hit.</p>
+              </div><!-- end of glyph-->
+            </div><!-- end of glyphs -->
+
+          </div><!-- end of second col -->
+        </div>
+        <!-- end of skill row even -->
+
+        <!-- beging skill row odd -->
+        <div class="skillRow odd">
+          <h4>12 Ground Pounder</h4>
+          <div class="colfirst skillcol">
+            <span class="icon glyphGlyphs-Skill_GroundPounder"></span>
+          </div>
+          <div class="colsecond skillcol">
+            <div class="copy">
+              <p>Block frontal attacks while you pound the ground at your feet, pulling enemies closer and then knocking them into the air. Can trigger Perfect Defense.</p>
+            </div>
+
+            <div class="glyphs">
+              <h5>Glyphs</h5>
+              <div class="glyph">
+                <span class="icon glyphIcons-Glyph_ChanceCrit"></span>
+                <h6>Carving Ground Pounder</h6>
+                <p>Doubles the chance to crit.</p>
+              </div><!-- end of glyph-->
+
+              <div class="glyph">
+                <span class="icon glyphIcons-Glyph_SkillDamage"></span>
+                <h6>Empowered Ground Pounder</h6>
+                <p>Increases skill damage.</p>
+              </div><!-- end of glyph-->
+
+              <div class="glyph">
+                <span class="icon glyphIcons-Glyph_DecreaseCooldown"></span>
+                <h6>Energetic Ground Pounder</h6>
+                <p>Decreases cooldown.</p>
+              </div><!-- end of glyph-->
+
+              <div class="glyph">
+                <span class="icon glyphIcons-Glyph_Rage"></span>
+                <h6>Spirited Ground Pounder</h6>
+                <p>Generates additional Rage per successful hit.</p>
+              </div><!-- end of glyph-->
+            </div><!-- end of glyphs -->
+
+          </div><!-- end of second col -->
+        </div>
+        <!-- end of skill row odd -->
+
+        <!-- beging skill row even -->
+        <div class="skillRow even">
+          <h4>14 Bull Rush</h4>
+          <div class="colfirst skillcol">
+            <span class="icon glyphGlyphs-Skill_BullRush"></span>
+          </div>
+          <div class="colsecond skillcol">
+            <div class="copy">
+              <p>Charge forward, pushing back any enemies in your path and generating aggro. You can use your mouse to adjust your course in mid-charge.</p>
+            </div>
+
+            <div class="glyphs">
+              <h5>Glyphs</h5>
+              <div class="glyph">
+                <span class="icon glyphIcons-Glyph_DecreaseCooldown"></span>
+                <h6>Energetic Bull Rush</h6>
+                <p>Decreases cooldown.</p>
+              </div><!-- end of glyph-->
+              
+            </div><!-- end of glyphs -->
+
+          </div><!-- end of second col -->
+        </div>
+        <!-- end of skill row even -->
+
+        <!-- beging skill row odd -->
+        <div class="skillRow odd">
+          <h4>16 High Kick</h4>
+          <div class="colfirst skillcol">
+            <span class="icon glyphGlyphs-Skill_HighKick"></span>
+          </div>
+          <div class="colsecond skillcol">
+            <div class="copy">
+              <p>Kick an enemy you&#39;ve knocked down up into the air (a perfect setup for Meat Grinder).</p>
+            </div>
+
+            <div class="glyphs">
+              <h5>Glyphs</h5>
+              <div class="glyph">
+                <span class="icon glyphIcons-Glyph_ChanceCrit"></span>
+                <h6>Brutal High Kick</h6>
+                <p>Doubles damage to knocked-down target.</p>
+              </div><!-- end of glyph-->
+              
+            </div><!-- end of glyphs -->
+
+          </div><!-- end of second col -->
+        </div>
+        <!-- end of skill row odd -->
+
+        <!-- beging skill row even -->
+        <div class="skillRow even">
+          <h4>18 Provoke</h4>
+          <div class="colfirst skillcol">
+            <span class="icon glyphGlyphs-Skill_Provoke"></span>
+          </div>
+          <div class="colsecond skillcol">
+            <div class="copy">
+              <p>Draw the aggro of all enemies within 10m (even while you&#39;re moving).</p>
+            </div>
+
+            <div class="glyphs">
+              <h5>Glyphs</h5>
+              <div class="glyph">
+                <span class="icon glyphIcons-Glyph_MP"></span>
+                <h6>Brilliant Provoke</h6>
+                <p>Reduces MP cost.</p>
+              </div><!-- end of glyph-->
+
+              <div class="glyph">
+                <span class="icon glyphIcons-Glyph_DecreaseCooldown"></span>
+                <h6>Energetic Provoke</h6>
+                <p>Decreases cooldown.</p>
+              </div><!-- end of glyph-->
+              
+            </div><!-- end of glyphs -->
+
+          </div><!-- end of second col -->
+        </div>
+        <!-- end of skill row even -->
+
+        <!-- beging skill row odd -->
+        <div class="skillRow odd">
+          <h4>22 Counterpunch</h4>
+          <div class="colfirst skillcol">
+            <span class="icon glyphGlyphs-Skill_CounterPunch"></span>
+          </div>
+          <div class="colsecond skillcol">
+            <div class="copy">
+              <p>After a successful block, throw a counterpunch that knocks the enemy up into the air. Can trigger Perfect Defense.</p>
+            </div>
+
+            <div class="glyphs">
+              <h5>Glyphs</h5>
+              <div class="glyph">
+                <span class="icon glyphIcons-Glyph_SkillDamage"></span>
+                <h6>Empowered Counterpunch</h6>
+                <p>Increases skill damage.</p>
+              </div><!-- end of glyph-->
+
+              <div class="glyph">
+                <span class="icon glyphIcons-Glyph_DecreaseCooldown"></span>
+                <h6>Energetic Counterpunch</h6>
+                <p>Decreases cooldown.</p>
+              </div><!-- end of glyph-->
+              
+            </div><!-- end of glyphs -->
+
+          </div><!-- end of second col -->
+        </div>
+        <!-- end of skill row odd -->
+
+
+        <!-- beging skill row even -->
+        <div class="skillRow even">
+          <h4>28 Meat Grinder</h4>
+          <div class="colfirst skillcol">
+            <span class="icon glyphGlyphs-Skill_MeatGrinder"></span>
+          </div>
+          <div class="colsecond skillcol">
+            <div class="copy">
+              <p>Target an enemy that&#39;s already suspended in air and pummel it with a series of devastating blows. Locks down an opposing player&#39;s evasive skills for 3 seconds.</p>
+            </div>
+
+            <div class="glyphs">
+              <h5>Glyphs</h5>
+              <div class="glyph">
+                <span class="icon glyphIcons-Glyph_SkillDamage"></span>
+                <h6>Empowered Meat Grinder</h6>
+                <p>Increases skill damage.</p>
+              </div><!-- end of glyph-->
+
+              <div class="glyph">
+                <span class="icon glyphIcons-Glyph_DecreaseCooldown"></span>
+                <h6>Energetic Meat Grinder</h6>
+                <p>Decreases cooldown.</p>
+              </div><!-- end of glyph-->
+              
+            </div><!-- end of glyphs -->
+
+          </div><!-- end of second col -->
+        </div>
+        <!-- end of skill row even -->
+
+        <!-- beging skill row odd -->
+        <div class="skillRow odd">
+          <h4>34 Growing Fury</h4>
+          <div class="colfirst skillcol">
+            <span class="icon glyphGlyphs-Skill_GrowingFury"></span>
+          </div>
+          <div class="colsecond skillcol">
+            <div class="copy">
+              <p>Rage Skill: Increase your Power and Crit Factor by 50, your size and melee range by 10%, and reduces skill cooldowns by 30%. Adds Defense against all frontal attacks; blocks frontal attacks while casting. Decreases Attack Speed by 10, and consumes 300 MP per second. Cannot use Mounting Rage or Meat Grinder while in effect.</p>
+            </div>
+
+            <div class="glyphs">
+              <h5>Glyphs</h5>
+              <div class="glyph">
+                <span class="icon glyphIcons-Glyph_DecreaseCooldown"></span>
+                <h6>Energetic Growing Fury</h6>
+                <p>Decreases cooldown.</p>
+              </div><!-- end of glyph-->
+
+              <div class="glyph">
+                <span class="icon glyphIcons-Glyph_SkillDamage"></span>
+                <h6>Pumped Growing Fury</h6>
+                <p>Increases power for duration of effect.</p>
+              </div><!-- end of glyph-->
+              
+            </div><!-- end of glyphs -->
+
+          </div><!-- end of second col -->
+        </div>
+        <!-- end of skill row odd -->
+
+        <!-- beging skill row even -->
+        <div class="skillRow even">
+          <h4>40 Flip Kick</h4>
+          <div class="colfirst skillcol">
+            <span class="icon glyphGlyphs-Skill_FlipKick"></span>
+          </div>
+          <div class="colsecond skillcol">
+            <div class="copy">
+              <p>Kick an enemy in the head, stunning them. When used on an opposing player knocked into the air, locks down Retaliate for 3 seconds.</p>
+            </div>
+
+            <div class="glyphs">
+              <h5>Glyphs</h5>
+              <div class="glyph">
+                <span class="icon glyphIcons-Glyph_AirDamage"></span>
+                <h6>Aggravating Flip Kick</h6>
+                <p>Increases damage to target suspended in air.</p>
+              </div><!-- end of glyph-->
+
+              <div class="glyph">
+                <span class="icon glyphIcons-Glyph_AirDamage"></span>
+                <h6>Lingering Flip Kick</h6>
+                <p>Increases effect duration.</p>
+              </div><!-- end of glyph-->
+              
+            </div><!-- end of glyphs -->
+
+          </div><!-- end of second col -->
+        </div>
+        <!-- end of skill row even -->
+
+        <!-- beging skill row odd -->
+        <div class="skillRow odd">
+          <h4>46 Invigorating Rage</h4>
+          <div class="colfirst skillcol">
+            <span class="icon glyphGlyphs-Skill_InvigoratingRage"></span>
+          </div>
+          <div class="colsecond skillcol">
+            <div class="copy">
+              <p>Rage Skill: Burn off half your Rage to recover 40% of your HP and replenish 40% of your MP.</p>
+            </div>
+
+            <div class="glyphs">
+              <h5>Glyphs</h5>
+              <div class="glyph">
+                <span class="icon glyphIcons-Glyph_DecreaseCooldown"></span>
+                <h6>Energetic Invigorating Rage</h6>
+                <p>Decreases cooldown.</p>
+              </div><!-- end of glyph-->
+              
+            </div><!-- end of glyphs -->
+
+          </div><!-- end of second col -->
+        </div>
+        <!-- end of skill row odd -->
+
+        <!-- beging skill row even -->
+        <div class="skillRow even">
+          <h4>52 Mounting Rage</h4>
+          <div class="colfirst skillcol">
+            <span class="icon glyphGlyphs-Skill_MountingRage"></span>
+          </div>
+          <div class="colsecond skillcol">
+            <div class="copy">
+              <p>Gain 50% of your maximum Rage, then 50 more Rage every second for 20 seconds. Cannot use while Growing Fury is in effect.</p>
+            </div>
+
+            <div class="glyphs">
+              <h5>Glyphs</h5>
+              <div class="glyph">
+                <span class="icon glyphIcons-Glyph_DecreaseCooldown"></span>
+                <h6>Energetic Mounting Rage</h6>
+                <p>Decreases cooldown.</p>
+              </div><!-- end of glyph-->
+              
+            </div><!-- end of glyphs -->
+
+          </div><!-- end of second col -->
+        </div>
+        <!-- end of skill row even -->
+
+        <!-- beging skill row odd -->
+        <div class="skillRow odd">
+          <h4>58 Divine Wrath</h4>
+          <div class="colfirst skillcol">
+            <span class="icon glyphGlyphs-Skill_DivineWrath"></span>
+          </div>
+          <div class="colsecond skillcol">
+            <div class="copy">
+              <p>Rage Skill: Block frontal attacks while your leap into the air and smite a group of enemies, with a high chance of knocking them down. Has a high chance to crit.</p>
+            </div>
+
+            <div class="glyphs">
+              <h5>Glyphs</h5>
+              <div class="glyph">
+                <span class="icon glyphIcons-Glyph_DecreaseCooldown"></span>
+                <h6>Energetic Divine Wrath</h6>
+                <p>Decreases cooldown.</p>
+              </div><!-- end of glyph-->
+
+              <div class="glyph">
+                <span class="icon glyphIcons-Glyph_Rage"></span>
+                <h6>Spirited Divine Wrath</h6>
+                <p>Generates additional Rage per successful hit.</p>
+              </div><!-- end of glyph-->
+              
+            </div><!-- end of glyphs -->
+
+          </div><!-- end of second col -->
+        </div>
+        <!-- end of skill row odd -->
+
+        <!-- beging skill row even -->
+        <div class="skillRow even">
+          <h4>65 Infuriate</h4>
+          <div class="colfirst skillcol">
+            <span class="icon glyphGlyphs-Skill_Infuriate"></span>
+          </div>
+          <div class="colsecond skillcol">
+            <div class="copy">
+              <p>Challenge enemies in a wide area, maximizing your aggro.</p>
+            </div>
+
+            <div class="glyphs">
+              <h5>Glyphs</h5>
+              <div class="glyph">
+                <span class="icon glyphIcons-Glyph_DecreaseCooldown"></span>
+                <h6>Energetic Infuriate</h6>
+                <p>Decreases cooldown.</p>
+              </div><!-- end of glyph-->
+
+              <div class="glyph">
+                <span class="icon glyphIcons-Glyph_SlowEnemy"></span>
+                <h6>Slowing Infuriate</h6>
+                <p>Decreases opponent&#39;s Movement Speed.</p>
+              </div><!-- end of glyph-->
+              
+            </div><!-- end of glyphs -->
+
+          </div><!-- end of second col -->
+        </div>
+        <!-- end of skill row even -->
+
+        
+
+      </div><!-- end of skilltable -->
+    </div>
+  </div><!-- end of skills -->
+
+  <div id="origin">
+    <div class="wrapper">
+      <h1>Origin</h1>
+      <div id="topcopy">
+        <div class="leftcol">
+          <p>Marda crouched behind the anvil stump, trying not to draw attention before she was ready to act. The air was thick with smoke, but only some of it from the banked coals.</p><p>Her father once told her, &ldquo;If you ever see orcans, run. But if you have to fight, make sure they remember you.&rdquo; He was dead on the ground in front of her now, with a pair of crude orcan axes in his back. In any event, there was nowhere to run. The village was burning, and the screams of her neighbors were an eerie counterpart to the guttural, barking laughs of the raiding party.</p><p>They&#39;d been turning horseshoes when the attack began, and the latest one was still red-hot on the ground next to his outstretched hand. The tent flap moved in the slight breeze, teasing the hot metal with every pass. A few loose threads had already burned away, but it wasn&#39;t time yet.</p><p>They needed to get closer.</p><p>Marda flexed her hands in the reinforced gloves she and her father used in the shop. The other apprentices refused to even try a pair, but she&#39;d spent most of her childhood watching him reach directly into the forge to grab stock, and if it was small enough, bend it into shape without using a hammer.</p><p>And Marda was definitely her father&#39;s daughter.</p><p>The gloves were huge over her small hands, but wearing them filled her with confidence. She balled her fists, and felt the power of the forge sing inside her.</p><p>Almost time. Just a little closer.</p><p>An orcan shadow edged into the tent, and Marda tensed for an attack. With no armor, she&#39;d need to be fast, and match the raiders in ferocity, if not brute power. When it moved in and bent to reclaim its axes, she exploded from behind the anvil, upending the coal forge in a spray of fire.</p><p>Gathering two fistfuls of searing metal and red-hot coals, Marda stepped toward the shrieking orcan. Her first blow broke off one of its tusks, the next shoved the stump down its throat. With a kick for good measure, she stepped over the downed raider and out to face the rest.</p><p>She&#39;d bury her father later. There was work to be done.</p>
+        </div>
+      </div>
+      <hr class="brawlerStoryBreak" />
+      <div id="bottomcopy">
+        <div class="rightcol">
+          <p>Marda braced herself for the impact of the charging basilisk. She had no idea where the orcans had found the thing, or how they&#39;d trained it to attack on command. But their purpose was crystal clear: Distract her while they went after the caravan. It was overkill, sure, but the orcans did nothing small, and she was far past caring why.</p><p>Knowing their secrets wouldn&#39;t make her any less angry. Neither would beating those secrets out of the orcans&#39; raid leader. There would always be another orcan raid leader, and that suited her just fine.</p><p>The basilisk hit harder than she&#39;d expected, and she slid back half a step. Part of her was calculating her next move, anticipating the inevitable orcan attack. Part of her smiled at the excited gasps of the caravan master behind her. But the rest of her was just angry, and that suited her too.</p><p>She saw her first fight in her mind, a ring of kids forming around her as she defended herself from chants of “Daddy&#39;s Girl, Daddy&#39;s Girl.&rdquo; A well placed rock and a few missing teeth ended that one, but her father&#39;s admonition afterward was worse than the fight itself.</p><p>No tears, little one. They can only win if you let them. And never. Back. Down.</p><p>She saw him lying on the ground next to the first orcan she ever killed, and saw his face with every punch she landed. The basilisk pounced again, but she wasn&#39;t there when it landed. Her own rushing attack took it from the side, and it went down in a heap.</p><p>&ldquo;Who&#39;s next? Show yourselves!&rdquo;<br />She didn&#39;t have long to wait. Something hard hit her in the back and spun her to the ground. She rolled up next to the cooling corpse of the basilisk, spitting dust and blood from her smiling mouth.</p><p>Works every time.</p><p>Marda cocked her head toward the oncoming orcans, readying more boulders to throw—but now completely focused on her, and not their original prey. The merchants were already taking advantage of the distraction to get away. Marda&#39;s work was done.</p><p>Now it was time to have some fun.</p>
+        </div>
+      </div>
+    </div>
+  </div><!-- end of origin -->
+
+
+  
+
+  <div id="lightbox" style="display:none;">
+    <div id="lightbox-container">
+      <div id="lightbox-content"></div>
+      <a href="javascript:;" class="lightbox-close"></a>
+    </div>
+  </div>
+</div>
+
+
+<div class="twelve columns ankle">
+  <div class="row">
+    <div class="four columns">
+      <h5><a href="/patch-notes">Patch Notes</a></h5>
+      <p>Read about the latest <em>TERA</em> developments.</p>
+    </div>
+
+    <div class="four columns">
+      <h5><a href="/game-guide">Game Guide</a></h5>
+      <p>Learn about the world of <em>TERA</em>.</p>
+    </div>
+
+    <div class="four columns">
+      <h5><a href="http://support.enmasse.com/tera">Support</a></h5>
+      <p>Tell us where it hurts.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="four columns">
+      <h5><a href="/download">DOWNLOAD <em>TERA</em></a></h5>
+    </div>
+
+    <div class="four columns">
+      <h5>Follow <em>TERA</em>!</h5>
+      <ul class="social-links">
+        <li><a class="fb" href="https://www.facebook.com/TERAonline">Facebook</a></li>
+        <li><a class="twit" href="http://twitter.com/#!/TERAonline">Twitter</a></li>
+        <li><a class="yt" href="http://www.youtube.com/user/enmasseentertainment">YouTube</a></li>
+        <li><a class="twitch" href="http://www.twitch.tv/enmasseentertainment">Twitch</a></li>
+      </ul>
+    </div>
+
+    <div class="four columns">
+      <h5><a href="/server-status">Server Status</a></h5>
+      <p>View server options and availability.</p>
+    </div>
+  </div>
+</div>
+
+
+
+<%= javascript_include_tag 'brawlerclass-app.js' %>
+

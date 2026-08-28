@@ -1,0 +1,22 @@
+<div class="transfer-popup" id="transfer-confirm" style="display: none;">
+  <div class="heading">
+    <h2><%= tslt('transfer a character') %></h2>
+  </div>
+  <div class="transfer-description">
+    <span class="date white"><%= Time.now.strftime("%b %d, %Y") %></span>
+    <%= tslt('transferring') %>
+    <span class="character-name white"></span>
+    <%= tslt('from') %>
+    <span class="from-server white"></span>
+    <%= tslt('to') %>
+    <span class="to-server white"></span>
+  </div>
+
+  <div class="transfer-requirements">
+    <%= tslt('transfer requirements') %>
+  </div>
+  <div class="transfer-actions">
+    <a class="btn grey clickable" id='btn-cancel'><%= tslt('cancel') %></a>
+    <a class="btn blue clickable" id='btn-confirm'><%= tslt('confirm transfer') %></a>
+  </div>
+</div>

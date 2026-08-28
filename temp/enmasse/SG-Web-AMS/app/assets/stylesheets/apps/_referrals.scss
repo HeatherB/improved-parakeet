@@ -1,0 +1,483 @@
+@import "base/vars";
+
+#app-referrals {
+
+  #am-nav{height:49px;
+    li{float:left;padding-right:25px;
+      a{display:block;padding:10px;font-weight:bold;
+        span{background: image-url("site/icons.png") -20px 0px no-repeat;height:20px;margin-left:5px;}
+      }
+      a.active, a:hover{background-color:#272727;}
+    }
+    ul#user-details{padding-top:10px;float:right;color:#606060;
+      li{padding-right:5px;
+        a{color:#055084;padding:0px;display:inline;font-weight:normal;}
+        a:hover{background:none;text-decoration:underline;}
+      }
+    }
+  }
+  .sub-nav-btn{width:475px;float:right;
+    li{float:right; margin-left: 5px; 
+      a { font-size: 14px !important; }
+    }
+  }
+
+  #referral-email-container {
+    background: image-url("referrals/refer-to-field-bg.png") no-repeat;
+    height: 43px;
+    width: 430px;
+
+    input {
+      background-color: transparent;
+      padding-left: 43px;
+      width: 378px;
+      height: 43px;
+    }
+  }
+
+  #referral-sender-container {
+    background: image-url("referrals/refer-field-bg.png") no-repeat;
+    height: 43px;
+    width: 430px;
+
+    input {
+      background-color: transparent;
+      padding-left: 13px;
+      width: 378px;
+      height: 43px;
+    }
+  }
+
+  #new_referral {
+    td.label {
+      text-align: right;
+      padding-right: 20px;
+      vertical-align: top;
+      color: #fff;
+    }
+
+    td {
+      padding-bottom: 20px;
+      position: relative;
+      height: 43px;
+    }
+
+    label {
+      font-size: 22px;
+      line-height: 43px;
+      height: 43px;
+    }
+
+    .indicator-container { position: relative; }
+
+    .referral-step-indicator {
+      position: absolute;
+      bottom: 43px;
+
+      span {
+        line-height: 43px;
+        background-color: #222222;
+        min-width: 360px;
+        color: #828282;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+      }
+
+      &.active span {
+        background-color: #ff6e00;
+        color: #000;
+      }
+
+      .arrow {
+        position: absolute;
+        top: 0;
+        left: -384px;
+        background: image-url("referrals/refer-step-arrow.png") no-repeat;
+        width: 27px; height: 43px;
+      }
+
+      &.active .arrow {
+        background: image-url("referrals/refer-step-arrow-active.png") no-repeat;
+      }
+    }
+
+    table {
+      width: 100%;
+    }
+  }
+
+  #referral-from-container {
+    padding: 0px 15px 0px 30px;
+    width: 385px;
+
+    background: image-url("character_transfer/transfer-server-background.png");
+    font-size: 18px;
+    height: 43px;
+
+    &:hover {
+      background-position: bottom;
+    }
+
+    span {
+      line-height: 43px
+    }
+  }
+
+  #referral-msg-container {
+    background: image-url("referrals/refer-msg-field-bg.png") no-repeat;
+    width: 430px;
+    height: 266px;
+
+    textarea {
+      background-color: transparent;
+      width: 410px;
+      height: 246px;
+      padding: 10px;
+      resize: none;
+    }
+
+    position: relative;
+
+    .max-length-notice {
+      position: absolute;
+      left: 480px;
+      top: 0px;
+      width: 400px;
+    }
+  }
+
+  #referral-default-msg-container {
+    width: 430px;
+    padding-top: 16px;
+  }
+
+  #game-account-selection-modal {
+    min-width: 430px;
+    display: none;
+
+    .modal-error-message {
+      margin-top: 10px;
+      padding: 5px;
+      color: #ff0000;
+    }
+
+    .game-account {
+      float: left;
+      background: image-url("site/btn.png") no-repeat;
+      background-position: 0 -300px;
+      height: 28px;
+      width: 116px;
+      line-height: 28px;
+      vertical-align: middle;
+      font-weight: bold;
+      font-size: 13px;
+      display: block;
+      color: white;
+      text-align: center;
+      cursor: pointer;
+
+      &:hover, &.active {
+        background-position: 0 -350px;
+      }
+    }
+  }
+
+
+  .button {
+    background: image-url("character_transfer/transfer-btn-blue.png") no-repeat;
+    width: 223px;
+    height: 43px;
+    line-height: 43px;
+    display: block;
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+
+    &:hover {
+      background-position: bottom;
+    }
+
+  }
+
+  .button.disabled {
+    background: image-url("character_transfer/transfer-btn-grey.png") no-repeat;
+  }
+
+  .top-content {
+    float: left;
+    width: 500px;
+    margin-right: 5px;
+
+
+    &#referral-rewards {
+      background: #333;
+      padding: 20px;
+    }
+  }
+
+  .referral-content {
+    &.error-message {
+      color: red;
+    }
+    h4 {
+      font-size: 18px;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    table#referral-history-table {
+      width: 100%;
+
+      tr {
+        height: 40px;
+        line-height: 40px;
+
+        &.odd { background: #333; }
+      }
+
+      td { padding: 0 20px; }
+
+      .info {
+        color: #fff;
+        font-weight: bold;
+      }
+
+      a { font-weight: bold; }
+    }
+  }
+
+  #referral-sent-modal {
+    display: none;
+    width: 500px;
+    padding: 20px;
+
+    color: #aaa;
+    h3 {
+      text-transform: none;
+      font-size: 20px;
+      color: #fff;
+    }
+
+    .button {
+      margin: 20px auto;
+    }
+  }
+
+  #referral-status-modal {
+    display: none;
+
+    .actions {
+      margin: 20px auto 0;
+      width: 486px;
+
+      .button {
+        float: left;
+        margin-right: 20px;
+      }
+    }
+
+    table {
+      width: 560px;
+      margin: 0px auto;
+    }
+
+    hr {
+      width: 517px;
+      height: 2px;
+      background: #333;
+      margin: 10px auto;
+    }
+
+    td.label {
+      width: 100px;
+      text-align: right;
+      font-size: 18px;
+      color: #fff;
+      padding-right: 15px;
+      vertical-align: top;
+    }
+
+    td.message {
+      word-wrap: break-word;
+      padding-bottom: 30px;
+    }
+
+    .custom-message {
+      word-wrap: break-word;
+      width: 400px;
+    }
+
+    #bar-graph {
+      background: image-url("referrals/refer-status-bg.png") no-repeat;
+      width: 667px; height: 158px;
+      margin: 0 auto;
+      position: relative;
+
+      span {
+        color: #fff;
+        font-size: 16px;
+        position: absolute;
+        top: 15px;
+        height: 22px;
+        line-height: 22px;
+        display: block;
+        padding-right: 28px;
+
+        &#tier1 { left: 15px; }
+        &#tier2 { left: 245px; }
+        &#tier3 { left: 500px; }
+
+        &.completed {
+          background: image-url("referrals/refer-checkmark.png") no-repeat right;
+          color: #37d600;
+        }
+      }
+
+      #bar {
+        height: 28px;
+        width: 0px;
+        background: image-url("referrals/refer-status-bar.png") repeat-x;
+        position: absolute;
+        top: 51px;
+        left: 7px;
+
+        &.tier1 { width: 192px; }
+        &.tier2 { width: 419px; }
+        &.tier3 { width: 656px; }
+      }
+
+      .reward {
+        color: #999999;
+        position: absolute;
+        top: 95px;
+        display: block;
+        width: 160px;
+
+        &#tier1-reward { left: 15px; }
+        &#tier2-reward { left: 225px; }
+        &#tier3-reward { left: 455px; }
+      }
+    }
+  }
+
+  .server {
+    font-size: 18px;
+    cursor: pointer;
+    line-height: 34px;
+
+    .name {
+      color: $white;
+    }
+
+    .character-list {
+      font-size: 18px;
+
+      li {
+        border-top: 1px solid #595959;
+        padding-left: 10px;
+        position: relative;
+
+        .eligibility {
+          display: block;
+          position: absolute;
+          top: 0px;
+          right: 15px;
+          font-size: 14px;
+          z-index: 2;
+          height: 34px;
+          padding-left: 20px;
+        }
+
+        .unavailable {
+          background: #333 image-url("character_transfer/transfer-unavailable-icon-small.png") no-repeat center right;
+          padding-right: 20px;
+        }
+
+        .in-progress {
+          background: #333 image-url("character_transfer/transfer-progress-icon-small.png") no-repeat center right;
+          color: #fff799;
+          padding-right: 20px;
+        }
+
+        .available {
+          background: image-url("character_transfer/transfer-selected-icon-small.png") no-repeat center right;
+          padding-right: 20px;
+          color: #63a3d0;
+        }
+
+        .progress {
+          position: absolute;
+          display: none;
+          right: 10px;
+          top: -13px;
+          width: 16px;
+          height: 16px;
+        }
+      }
+
+      li.selected, li.hovered {
+        background-color: #3e3e3e;
+
+        .character-name { color: #63a3d0; }
+
+        .eligibility { z-index: 0; }
+
+        .unavailable {
+          background: #3e3e3e image-url("character_transfer/transfer-unavailable-icon-small.png") no-repeat center right;
+        }
+
+        .in-progress {
+          background: #3e3e3e image-url("character_transfer/transfer-progress-icon-small.png") no-repeat center right;
+        }
+
+        .available {
+          background: #3e3e3e image-url("character_transfer/transfer-selected-icon-small.png") no-repeat center right;
+        }
+      }
+
+      .character-name {
+        color: #0297ff;
+      }
+    }
+  }
+
+  .server.closed {
+    padding: 5px 15px 5px 30px;
+    width: 385px;
+
+    background: image-url("character_transfer/transfer-server-background.png");
+    height: 34px;
+    &:hover {
+      background-position: bottom;
+    }
+  }
+
+  .server.open {
+    display: none;
+
+    div {
+      padding: 5px 15px 5px 30px;
+      width: 385px;
+    }
+
+    .top {
+      background: image-url("character_transfer/character-list-top.png") no-repeat;
+      height: 35px;
+      padding: 0 15px 0 30px;
+      line-height: 45px;
+    }
+
+    .mid {
+      background: image-url("character_transfer/character-list-mid.png") repeat-y;
+    }
+
+    .bottom {
+      padding: 0;
+      height: 5px;
+      width: 430px;
+      background: image-url("character_transfer/character-list-bot.png") no-repeat;
+    }
+  }
+  
+}

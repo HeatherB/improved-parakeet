@@ -1,0 +1,17 @@
+<div id="game-time-card-form-container" class="cb-cont" <%= "style='display:none;'" if @promotion.present? %>>
+  <h3><%= tslt("enter a new game time card code")%></h3><hr />
+  <div id='game-time-card-flash' class='flash-notice'></div>
+
+  <p><%= tslt("please input your game time card code here")%></p><br />
+
+  <%= form_tag users_game_time_cards_path, :id => "game-time-card-code-form", :class => "default", :'data-div' => "enter-code" do %>
+    <%= hidden_field_tag "pref_account", @pref_account.to_s, :id => "game-time-card-pref-account" %>
+    <label for="game_code"><%= tslt("game time card code")%></label>
+    <div class="iparent"><%= text_field_tag :game_code, @game_code, :class => "input-4 check-form focus", :autocomplete => "off", :maxlength => 12 %></div>
+    <div class="check"></div>
+    <div class="clear"></div>
+  
+    <div class="submit"><a href="#" class="default-button btn-1 game-time-card-code-submit pseudo-submit-link" data-text="<%= tslt('submit') %>"><%= tslt("submit")%></a></div>
+    <div class="cancel"><a href="#"><%= tslt("cancel")%></a></div>
+  <% end %>
+</div>

@@ -1,0 +1,213 @@
+@import "base/vars";
+
+#app-amazon {
+
+  #container-main {
+    width: 600px;
+    height: 470px;
+    background: image-url("account/amazon-connect-bg.jpg") no-repeat 0 0;
+  }
+
+  #container-message {
+    width: 580px;
+    position: relative;
+    top: 140px;
+    left: 10px;
+  }
+
+  #registered-message {
+    width: 500px;
+    padding-top: 35px;
+    margin: 0 auto 0 auto;
+    font-size: 16px;
+    text-align: justify;
+    line-height: 130%;
+  }
+
+  // for auth.html.erb
+  #login.amazon {
+    width: 300px;
+    margin: 0 auto 0 auto;
+    #popup-login-form {
+      .input-text {
+        #email_text, #user_email, #pwd_text, #user_password {
+          float: left;
+          clear: both;
+        }
+      }
+    }
+    .links {
+      margin-top: 20px;
+    }
+  }
+
+  // for register.html.erb
+  #login {
+    #user-email-text-field {
+      background-size: 550px 37px;
+      width: 100%;
+    }
+
+    #user-password-confirm-text-field {
+      background-size: 267px 37px;
+    }
+
+    #user-password-text-field {
+      background-size: 267px 37px;
+    }
+
+    #user-password-container {
+      float: left;
+      width: 100%;
+    }
+
+    #user-password-group {
+      float: left;
+      width: 50%;
+    }
+
+    #user-password-confirm-group {
+      float: right;
+      width: 50%;
+    }
+
+    #link-button-container {
+      float: left;
+      width: 100%;
+    }
+
+    #login-links {
+      float: left;
+      width: 50%
+    }
+
+    #next-button {
+      float: right;
+      width: 50%
+    }
+
+    #user_submit {
+      float: right;
+      margin-top: 0px;
+      margin-right: 15px;
+    }
+
+    #secret-answer-text-field {
+      background-size: 550px 37px;
+      width: 100%;
+    }
+
+    #prev-button {
+      float: left;
+      width: 24%;
+    }
+    #terms-link {
+      float: left;
+      width: 52%;
+    }
+    #submit-button {
+      float: right;
+      width: 24%;
+    }
+
+    /* Easy Select Box */
+    .easy-select-box {
+      position: relative;
+      width: 580px;
+      height: 41px;
+      font-size: 11px;
+      color: #0c2245;
+      .easy-select-box-disp,.easy-select-box-disp:visited {
+        background: image-url("account/select-bg.png") no-repeat 0 0;
+        background-size: 547px 150px;
+        display: block;
+        color: #0c2245;
+        padding: 0 3px;
+        height: 37px;
+        line-height: 37px;
+        vertical-align: middle;
+        text-decoration: none;
+        font-size: 15px;
+        padding-left: 10px;
+        padding-right: 50px;
+        width: 500px;
+        overflow: hidden;
+        margin-top: 5px;
+      }
+      ul{
+        text-align: left;
+        position: absolute;
+        top: 39%;
+        left: 0;
+        border: 1px solid #cccccc;
+        display: none;
+        z-index: 99;
+        width: 544px;
+        height: auto;
+        max-height: 300px;
+        overflow: auto;
+        background: $white;
+        li {
+          text-align: left;
+          display: inline;
+          float: none;
+          padding: 0px;
+        }
+        li a{
+          background: $white;
+          display: block;
+          color: #000;
+          cursor: default;
+          font-size: 15px;
+          padding: 3px;
+          padding-left: 10px;
+        }
+        li.selected a {
+          background: $blue !important;
+          color: $white;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  #amazon-legal-text {
+    clear: both;
+    color: #666;
+    font-size: 11px;
+    text-align: justify;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 25px;
+  }
+
+  input.login-btn {
+    color:#fff;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    height: 41px;
+    line-height: 41px;
+    vertical-align: middle;
+  }
+
+  /*terms*/
+  #terms{text-align:center;padding:5px;height:310px;
+    h1{margin-bottom:10px;text-align:left;}
+    #terms-content{background-color:#000;color:$white;height:240px;overflow:auto;border:1px solid $white;padding:10px;margin-bottom:28px;text-align:left;
+      p{margin-bottom:10px;}
+    }
+    #terms-btn{width:310px;height:45px;background:image-url("account/terms-btn.png") no-repeat;margin:0 auto;
+      a{ color:$white;font-size:16px;font-weight:bold;height:100%;width:100%;display:block;padding:12px 0px; }
+    }
+    a.form-input-captcha.lQB,a.form-input-captcha.lBQ,a.form-input-captcha.QlB,
+    a.form-input-captcha.QBl,a.form-input-captcha.BlQ,a.form-input-captcha.BQl { display: none !important; }
+    #terms-btn:hover{background-position:0px -45px;}
+  }
+  #cboxClose {position:absolute; top:6px; right:10px; background:image-url("colorbox/eme_close.png") no-repeat 0 0; width:25px; height:25px; text-indent:-9999px;}
+  #cboxClose.hover {background-position:0 0;}
+  .no-layout #cboxClose {
+    display: block !important;
+  }
+
+}

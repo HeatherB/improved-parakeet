@@ -1,0 +1,90 @@
+<!--<h1 ng-init='setSize(500,300)'>SIGN-IN</h1>
+
+< display area BEGINS >
+<span ng-bind='displayMessage' style='color:red'></span>
+< display area ENDS >
+
+< facebook button BEGINS >
+<div ng-show="FBLogined" class="fbBTN">
+  < this shows when user is already logged in FB >
+  <img class="facebook-picture" ng-src="{{FBPictureURL}}">
+  <button ng-disabled='FBEmail==null || signInProgress' ng-click="signInWithFB()" class="login-facebook-link login-facebook-btn"> Sign-Up with Facebook </button>
+</div>
+<div ng-show="!FBLogined" class="fbBTN">
+  < this shows when user is not logged in FB >
+  <button ng-click="FBLogin()" class="login-facebook-link login-facebook-btn"> Login to Facebook </button>
+</div>
+< facebook button ENDS >
+
+< sign-in form BEGINS >
+<div style='display:block'>
+  <input type='text' ng-model='email' on-key-enter='signIn()' placeholder='enter email address' style='display:block'>
+  <input type='password' ng-model='password' on-key-enter='signIn()' placeholder='enter password' style='display:block'>
+  <button ng-disabled='signInProgress' ng-click='signIn()' style='display:block'>Sign-In</button>
+</div>
+< sign-in form ENDS >
+
+< sign-up button BEGINS >
+<p>If you want to create new account, please click <a href='#' ng-click='goSignUp()'>create an account</a>.</p>
+< sign-up button ENDS >
+-->
+
+
+
+<!-- login do have an account -->
+<div class='ng-modal nopop signinPop' ng-init='setSize(410, 600)' ng-class="displayMessage ? ' registration_errors alert' : ''">
+  <div class='ng-modal-overlay' ng-click='hideModal()'></div>
+  <div class='ng-modal-dialog' ng-style='dialogStyle'>
+    <div class='popup'>
+      <div class='pop-header'>
+        <div id="dragMe" ng-mousedown="dragMe()"></div>
+        <div id="user-emp">
+          <div class="close-launcher">
+            <span><a ng-click="minimize()"> _ </a></span>
+            <span><a ng-click='close()'> X </a></span>
+          </div><!-- end of close launcher -->
+        </div><!-- end of user emp -->
+        <img src='img/eme-wordmark.png' alt='En Masse Entertainment' />
+      </div>
+      <div class='ng-modal-dialog-content'>
+
+        <div class="pop-content narrowLayout">
+          <div class="inner-pop">
+            <div ng-show='displayMessage'>
+                <!-- <h2>Please try again</h2> -->
+                <p>{{displayMessage}}</p>
+            </div>
+            <!-- facebook button BEGINS -->
+            <div ng-show="FBLogined" class="fbBTN">
+              <!-- this shows when user is already logged in FB -->
+              <img class="facebook-picture" ng-src="{{FBPictureURL}}">
+              <button ng-disabled='FBEmail==null || signInProgress' ng-click="signInWithFB()" class="login-facebook-link login-facebook-btn"> Sign-Up with Facebook </button>
+            </div>
+            <div ng-show="!FBLogined" class="fbBTN">
+              <!-- this shows when user is not logged in FB -->
+              <button ng-click="FBLogin()" class="login-facebook-link login-facebook-btn"> Login to Facebook </button>
+            </div>
+            <!-- facebook button ENDS -->
+            <span class="or">or</span>
+            <form>
+                <label for="email_address">Email Address</label>
+                <input type="text" id="email_address" ng-model='email' on-key-enter='signIn()' placeholder='enter email address' autofocus ng-init="$element.focus()" />
+                <label for="password">Password</label>
+                <input type="password" id="password" ng-model='password' on-key-enter='signIn()' placeholder='enter password' />
+                <p class="closer"><a ng-click='goSignUp()'>Create an Account</a> | <a ng-click='openWebNoSession("https://account.enmasse.com/users/password_reset")'>Problems logging in?</a></p>
+                <!--<p class="closer"><a ng-click='goSignUp()'>Create an Account</a> | <a ng-click='openWebNoSession("https://account.enmasse.com/users/password_reset")'>Problems logging in?</a></p>-->
+                <button class="btn centerspace" id="signInBTN" value="LOG IN" ng-disabled='signInProgress' ng-click='signIn()' />LOG IN</button>
+            </form>
+         <!-- </div> -->
+          </div>
+        </div>
+
+
+      </div>
+      <div class='pop-footer'>
+        <!--<a class='back' id='closeLogin' ng-click='closePopup()'>close this window</a>-->
+      </div>
+    </div>
+  </div>
+</div>
+

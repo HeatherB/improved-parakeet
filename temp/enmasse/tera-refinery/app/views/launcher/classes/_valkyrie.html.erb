@@ -1,0 +1,43 @@
+<div id="class-info">
+  <div id="valkyrie-icon"></div>
+  <h2>Valkyrie</h2>
+  <p>Using her intricately-carved runeglaive, the valkyrie brands runemarks onto enemies and explodes them for massive damage. She mixes slashes, leaping attacks, and power slams to destroy her foes, maximizing the effectiveness of her crits while nimbly evading damage.</p>
+</div>
+<% if @level <= 29 %>
+  <div id="skills">
+    <div class="skill">
+      <span class="icon leaping-slash"></span>
+      <p>Leaping Slash</p>
+      <p>Leap into the air with a sweeping attack, then slam your enemies with a powerful overhand strike.</p>
+    </div>
+    <div class="skill">
+      <span class="icon glaive-strike"></span>
+      <p>Glaive Strike</p>
+      <p>Toss your runeglaive in the air, then slam it into the ground to cause a massive explosion.</p>
+    </div>
+    <div class="skill">
+      <span class="icon dream-slash"></span>
+      <p>Dream Slash</p>
+      <p>Throw a blazing crescent of dream energy up to 30m, damaging all enemies in its path.</p>
+    </div>
+  </div>
+<% else %>
+  <div id="crystals">
+    <div class="pve">
+      <h3>PvE Crystals</h3>
+      <ul>
+        <li class="red-crystal">Bitter, carving, pounding, savage</li>
+        <li class="blue-crystal">Hardy</li>
+        <li class="green-crystal">Carving, powerful</li>
+      </ul>
+    </div>
+    <div class="pvp">
+      <h3>PvP Crystals</h3>
+      <ul>
+        <li class="red-crystal">Carving, cruel, salivating, savage</li>
+        <li class="blue-crystal">Relentless</li>
+        <li class="green-crystal">Griefing</li>
+      </ul>
+    </div>
+  </div>
+<% end %>

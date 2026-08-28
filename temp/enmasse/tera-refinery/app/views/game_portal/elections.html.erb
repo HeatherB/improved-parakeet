@@ -1,0 +1,147 @@
+<% content_for :title, "TERA Vanarch Elections" %>
+<section id="body_content">
+  <div class="breadcrumbs"></div>
+  <section id="wide_body">
+    <div class="inner">
+      <div style="background: rgba(0, 0, 0, 0.6); padding: 5px 10px;">
+        <a href="/data">Leaderboards</a> &gt; Elections
+      </div>
+      <h2>
+      <% if @election.state == :reign %>
+        Current Vanarchs
+      <% else %>
+        Vanarch Elections
+      <% end %>
+      </h2>
+      <% if @message && @message.content_for("Wide Body") && !@message.content_for("Wide Body").blank? %>
+        <%= raw @message.content_for("Wide Body") %>
+        <hr />
+      <% end %>
+      <p id="election-state">
+      <% if @election.state == :registration %>
+        Time to <strong>register</strong> for the next vanarch election!
+      <% elsif @election.state == :competition %>
+        <strong>Polls are open</strong> for your votes!
+      <% elsif @election.state == :reign %>
+        <strong>Results</strong> of the last election displayed below.
+      <% end %>
+      </p>
+      <p id="elections-table-filters">
+        Server:<%= select_tag :server_names, options_for_select(@server_names) %>
+        Continent:<%= select_tag :continent_names, options_for_select(@continent_names) %>
+        Filter:<%= text_field_tag :name_guild_filter, "" %>
+      </p>
+      <% if @election.state != :reign %>
+        <%= render :partial => "elections" %>
+      <% else %>
+        <%= render :partial => "vanarchs" %>
+      <% end %>
+      <%= render :partial => "last_updated" %>
+    </div>
+  </section>
+</section>
+<div class="bottom-decor"></div>
+
+<script>
+  $(function(){
+    jQuery.fn.dataTableExt.oSort['percent-asc']  = function(a,b) {
+      var x = (a == "-") ? 0 : a.replace( /%/, "" );
+      var y = (b == "-") ? 0 : b.replace( /%/, "" );
+      x = parseFloat( x );
+      y = parseFloat( y );
+      if(isNaN(x)){
+        if(isNaN(y))
+          return 0;
+        else
+          return 1;
+      }
+      else if (isNaN(y))
+        return -1;
+    
+      return ((x < y) ? -1 : ((x > y) ?  1 : 0));
+    };
+    
+    jQuery.fn.dataTableExt.oSort['percent-desc'] = function(a,b) {
+      var x = (a == "-") ? 0 : a.replace( /%/, "" );
+      var y = (b == "-") ? 0 : b.replace( /%/, "" );
+      x = parseFloat( x );
+      y = parseFloat( y );
+      if(isNaN(x)){
+        if(isNaN(y))
+          return 0;
+        else
+          return 1;
+      }
+      else if (isNaN(y))
+        return -1;
+    
+      return ((x < y) ?  1 : ((x > y) ? -1 : 0));
+    };
+    
+    var electionTableSort = $('#elections-table').dataTable({
+      "bPaginate": false,
+      "bAutoWidth": false,
+      "sDom": 't',
+      "oLanguage": {
+        "sZeroRecords": "Choose a server above to start viewing the vanarch candidate information."
+      },
+      "aaSorting": [[3, "desc"], [0, "asc"]],
+      "aoColumns": [
+        { "sSortDataType": "data-value" }, { "sSortDataType": "data-value" }, { "bSearchable": false },
+        { "sType": "percent", "bSearchable": false }, { "bSearchable": false }, { "bSearchable": false }
+      ]
+    });
+
+    var battleTableSort = $('#battles-table').dataTable({
+      "bPaginate": false,
+      "bAutoWidth": false,
+      "sDom": 't',
+      "oLanguage": {
+        "sZeroRecords": "Choose a server above to start viewing the battle vanarch candidate information."
+      },
+      "aaSorting": [[3, "desc"], [0, "asc"]],
+      "aoColumns": [
+        { "sSortDataType": "data-value" }, { "sSortDataType": "data-value" }, { "bSearchable": false },
+        { "sType": "percent", "bSearchable": false }, { "bSearchable": false }, { "bSearchable": false }
+      ]
+    });
+
+    $("select#server_names").change( function () {
+      electionTableSort.fnFilter( $(this).val(), 5 );
+      battleTableSort.fnFilter( $(this).val(), 5 );
+      TipTop.init();
+    });
+    $("select#continent_names").change( function () {
+      if($(this).val() === 'all continents'){
+        electionTableSort.fnFilter( "", 2 );
+        battleTableSort.fnFilter( "", 2 );
+      } else {
+        electionTableSort.fnFilter( $(this).val(), 2 );
+        battleTableSort.fnFilter( $(this).val(), 2 );
+      }
+      TipTop.init();
+    });
+    
+    $('#etab').click(function(e){
+      e.preventDefault();
+      GamePortal.showTab('#election-tabs', '#election-tab', '#etab');
+      TipTop.init();
+      return false;
+    });
+    
+    $('#btab').click(function(e){
+      e.preventDefault();
+      GamePortal.showTab('#election-tabs', '#battle-tab', '#btab');
+      TipTop.init();
+      return false;
+    });
+    
+    $("input#name_guild_filter").keyup( function () {
+      electionTableSort.fnFilter($(this).val());
+      battleTableSort.fnFilter($(this).val());
+    });
+    
+    electionTableSort.fnFilter( $("select#server_names").val(), 5 );
+    battleTableSort.fnFilter( $("select#server_names").val(), 5 );
+  });
+</script>

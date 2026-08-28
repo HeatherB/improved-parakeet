@@ -1,0 +1,543 @@
+@mixin item-icon(){
+  @include border-radius(10px);
+  background-image: image_url('item-icons.jpg');;
+  width: 75px;
+  height: 75px;
+  position: relative;
+  border: 1px solid black;
+  margin: 5px;
+
+  &:after {
+    @include border-radius(10px);
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    border: 2px solid $lightGray;
+    width:79px;
+    height:79px;
+  }
+}
+
+@mixin item-icon-bgpos($x: 0, $y:0) {
+  @include item-icon();
+  background-position: #{-($x * 75px)} #{-($y * 75px)};
+}
+
+.housekeepers-frill, .hf                                  { @include item-icon-bgpos(0, 0); }
+.princess-arins-maid-uniform, .mu                         { @include item-icon-bgpos(1, 0); }
+.black-magic-suit, .bm                                    { @include item-icon-bgpos(2, 0); }
+.semi-enigmatic-scroll, .ses                              { @include item-icon-bgpos(3, 0); }
+.intricate-identification-scroll, .iis                    { @include item-icon-bgpos(4, 0); }
+.crystal-bind, .cb                                        { @include item-icon-bgpos(5, 0); }
+.instance-reset-scroll, .irs                              { @include item-icon-bgpos(6, 0); }
+.holism-potion, .hop                                      { @include item-icon-bgpos(7, 0); }
+.mana-potion, .mp                                         { @include item-icon-bgpos(8, 0); }
+.health-potion, .hp                                       { @include item-icon-bgpos(9, 0); }
+.masterwork-alkahest, .ma                                 { @include item-icon-bgpos(0, 1); }
+.refined-alkahest, .ra                                    { @include item-icon-bgpos(1, 1); }
+.veteran-bloodstone-neclace, .bn                          { @include item-icon-bgpos(2, 1); }
+.bank-expansion, .be                                      { @include item-icon-bgpos(3, 1); }
+.additional-character-slot, .cs                           { @include item-icon-bgpos(4, 1); }
+.greater-infused-charm, .ic                               { @include item-icon-bgpos(5, 1); }
+.greater-enduring-charm, .ec                              { @include item-icon-bgpos(6, 1); }
+.greater-power-charm, .pc                                 { @include item-icon-bgpos(7, 1); }
+.mutinous-crux, .mc                                       { @include item-icon-bgpos(8, 1); }
+.fine-savage-crux, .sc                                    { @include item-icon-bgpos(9, 1); }
+.fine-relentless-crux, .frc                               { @include item-icon-bgpos(0, 2); }
+.anarchic-crux, .ac                                       { @include item-icon-bgpos(1, 2); }
+.masterwork-enigmatic-scroll, .mes                        { @include item-icon-bgpos(2, 2); }
+.spellbind, .sb                                           { @include item-icon-bgpos(3, 2); }
+.template-gold-cuirass, .gc                               { @include item-icon-bgpos(4, 2); }
+.template-gold-gloves, .gg                                { @include item-icon-bgpos(5, 2); }
+.template-gold-boots, .gb                                 { @include item-icon-bgpos(6, 2); }
+.template-sterling-cuirass, .scr                          { @include item-icon-bgpos(7, 2); }
+.template-sterling-gloves, .sg                            { @include item-icon-bgpos(8, 2); }
+.template-sterling-boots, .sbo                            { @include item-icon-bgpos(9, 2); }
+.template-gold-robe, .gr                                  { @include item-icon-bgpos(0, 3); }
+.template-gold-sleeves, .gs                               { @include item-icon-bgpos(1, 3); }
+.template-gold-shoes, .gsh                                { @include item-icon-bgpos(2, 3); }
+.template-sterling-robe, .sr                              { @include item-icon-bgpos(3, 3); }
+.template-sterling-sleeves, .ss                           { @include item-icon-bgpos(4, 3); }
+.template-sterling-shoes, .ssh                            { @include item-icon-bgpos(5, 3); }
+.template-gold-hauberk, .gh                               { @include item-icon-bgpos(6, 3); }
+.template-gold-gauntlets, .gga                            { @include item-icon-bgpos(7, 3); }
+.template-gold-greaves, .ggr                              { @include item-icon-bgpos(8, 3); }
+.template-sterling-hauberk, .sh                           { @include item-icon-bgpos(9, 3); }
+.template-sterling-gauntlets, .sga                        { @include item-icon-bgpos(0, 4); }
+.template-sterling-greaves, .sgr                          { @include item-icon-bgpos(1, 4); }
+.ex-trm-mount, .exm                                       { @include item-icon-bgpos(2, 4); }
+.nightmare-mount, .nm                                     { @include item-icon-bgpos(3, 4); }
+.sleipnir-mount, .sm                                      { @include item-icon-bgpos(4, 4); }
+.federation-charger, .fc                                  { @include item-icon-bgpos(5, 4); }
+.lelyns-bandage, .lb                                      { @include item-icon-bgpos(6, 4); }
+.divine-infusion, .di                                     { @include item-icon-bgpos(7, 4); }
+.rejuvenation-potion, .rp                                 { @include item-icon-bgpos(8, 4); }
+.kaias-dedication, .kd                                    { @include item-icon-bgpos(9, 4); }
+.safe-haven-teleport-scroll, .ts                          { @include item-icon-bgpos(0, 5); }
+.veliks-bloodstone-necklace, .vbn                         { @include item-icon-bgpos(1, 5); }
+.city-wheel-earing, .we                                   { @include item-icon-bgpos(2, 5); }
+.battle-panacea, .bp                                      { @include item-icon-bgpos(3, 5); }
+.pet-skill-candyspinner, .psc                             { @include item-icon-bgpos(4, 5); }
+.pet-food, .pf                                            { @include item-icon-bgpos(5, 5); }
+.kill-bam, .kb                                            { @include item-icon-bgpos(6, 5); }
+.black-magic, .bmg                                        { @include item-icon-bgpos(7, 5); }
+.social-skill-kitchen-dance, .kda                         { @include item-icon-bgpos(8, 5); }
+.summon-dimon, .sd                                        { @include item-icon-bgpos(9, 5); }
+.summon-monti, .smo                                       { @include item-icon-bgpos(0, 6); }
+.summon-phargo, .sp                                       { @include item-icon-bgpos(1, 6); }
+.summon-shwab, .ssw                                       { @include item-icon-bgpos(2, 6); }
+.travelers-tnsurance, .ti                                 { @include item-icon-bgpos(3, 6); }
+.serens-sand-ring, .ssr                                   { @include item-icon-bgpos(4, 6); }
+.extensive-alkahest, .ea                                  { @include item-icon-bgpos(5, 6); }
+.character-slot, .csl                                     { @include item-icon-bgpos(6, 6); }
+.bank-slot, .bs                                           { @include item-icon-bgpos(7, 6); }
+.xp-boost, .xb                                            { @include item-icon-bgpos(8, 6); }
+.name-change, .nc                                         { @include item-icon-bgpos(9, 6); }
+.race-change, .rc                                         { @include item-icon-bgpos(0, 7); }
+.apothecary-dye, .ad                                      { @include item-icon-bgpos(1, 7); }
+.godesses-blessing, .gbl                                  { @include item-icon-bgpos(2, 7); }
+.pristine-relentless-zyrk, .prz                           { @include item-icon-bgpos(3, 7); }
+.acrimonious-crux, .acx                                   { @include item-icon-bgpos(4, 7); }
+.fine-vigorous-crux, .fvc                                 { @include item-icon-bgpos(5, 7); }
+.ice-weapon-skin-box, .iwsb                               { @include item-icon-bgpos(6, 7); }
+.pristine-powerful-zyrk, .ppz                             { @include item-icon-bgpos(7, 7); }
+.loot-box, .lob                                           { @include item-icon-bgpos(8, 7); }
+.bundle, .bu                                              { @include item-icon-bgpos(9, 7); }
+.gold-hunter-boost, .ghb                                  { @include item-icon-bgpos(0, 8); }
+.questers-gold-boost, .qgb                                { @include item-icon-bgpos(1, 8); }
+.munchhausen, .mun                                        { @include item-icon-bgpos(2, 8); }
+.gourmando, .gou                                          { @include item-icon-bgpos(3, 8); }
+.elin-peg-leg, .epl                                       { @include item-icon-bgpos(4, 8); }
+.pop-peg-leg, .ppl                                        { @include item-icon-bgpos(5, 8); }
+.castf-peg-leg, .cfpl                                     { @include item-icon-bgpos(6, 8); }
+.castm-peg-leg, .cmpl                                     { @include item-icon-bgpos(7, 8); }
+.amanf-peg-leg, .afpl                                     { @include item-icon-bgpos(8, 8); }
+.maleaman-peg-leg, .ampl                                  { @include item-icon-bgpos(9, 8); }
+.femelf-peg-leg, .efpl                                    { @include item-icon-bgpos(0, 9); }
+.elfm-peg-leg, .empl                                      { @include item-icon-bgpos(1, 9); }
+.humanf-peg-leg, .hfpl                                    { @include item-icon-bgpos(2, 9); }
+.humanm-peg-leg, .hmpl                                    { @include item-icon-bgpos(3, 9); }
+.pirate-eye, .pe                                          { @include item-icon-bgpos(4, 9); }
+.gold-eye, .ge                                            { @include item-icon-bgpos(5, 9); }
+.silver-eye, .se                                          { @include item-icon-bgpos(6, 9); }
+.redbeard-hat, .rh                                        { @include item-icon-bgpos(7, 9); }
+.pirate-bandana-green, .gban                              { @include item-icon-bgpos(8, 9); }
+.blackbeard-hat, .bh                                      { @include item-icon-bgpos(9, 9); }
+.pirate-bandana-red, .rban                                { @include item-icon-bgpos(0, 10); }
+.pirate-costume, .pir                                     { @include item-icon-bgpos(1, 10); }
+.strong-key, .sk                                          { @include item-icon-bgpos(2, 10); }
+.bar-peg-leg, .peg                                        { @include item-icon-bgpos(3, 10); }
+.turduken, .tur                                           { @include item-icon-bgpos(4, 10); }
+.chefs-hat, .chef                                         { @include item-icon-bgpos(5, 10); }
+.shrimp-hat, .shr                                         { @include item-icon-bgpos(6, 10); }
+.fish-hat, .fish                                          { @include item-icon-bgpos(7, 10); }
+.steffana-sunglasses, .ssg                                { @include item-icon-bgpos(8, 10); }
+.waverider-surfboard, .ws                                 { @include item-icon-bgpos(9, 10); }
+.scuba-tank, .st                                          { @include item-icon-bgpos(0, 11); }
+.deluxe-aqualung, .da                                     { @include item-icon-bgpos(1, 11); }
+.baseball-cap, .bc                                        { @include item-icon-bgpos(2, 11); }
+.diving-helmet, .dh                                       { @include item-icon-bgpos(3, 11); }
+.gold-dive-helmet, .gdh                                   { @include item-icon-bgpos(4, 11); }
+.dyeable-popori-duckie, .pd                               { @include item-icon-bgpos(5, 11); }
+.dyeable-popori-life-vest, .plv                           { @include item-icon-bgpos(6, 11); }
+.dyeable-human-male-duckie, .hmd                          { @include item-icon-bgpos(7, 11); }
+.dyeable-human-male-fundoshi, .hmf                        { @include item-icon-bgpos(8, 11); }
+.dyeable-human-male-jammers, .hmj                         { @include item-icon-bgpos(9, 11); }
+.dyeable-human-male-speeders, .hms                        { @include item-icon-bgpos(0, 12); }
+.dyeable-baraka-life-vest, .blv                           { @include item-icon-bgpos(1, 12); }
+.dyeable-baraka-duckie, .bd                               { @include item-icon-bgpos(2, 12); }
+.dyeable-elin-black-stockings-mailot, .wmail              { @include item-icon-bgpos(3, 12); }
+.dyeable-elin-white-stockings-mailot, .bmail              { @include item-icon-bgpos(4, 12); }
+.dyeable-castanic-female-varsity-swimsuit, .vars          { @include item-icon-bgpos(5, 12); }
+.dyeable-castanic-female-duckie, .cfd                     { @include item-icon-bgpos(6, 12); }
+.dyeable-castanic-female-croptop, .cfc                    { @include item-icon-bgpos(7, 12); }
+.dyeable-castanic-female-bikini, .cfb                     { @include item-icon-bgpos(8, 12); }
+.dyeable-high-elf-female-duckie, .efd                     { @include item-icon-bgpos(9, 12); }
+.dyeable-high-elf-female-deep-v, .efv                     { @include item-icon-bgpos(0, 13); }
+.dyeable-high-elf-female-silver-bikini, .esb              { @include item-icon-bgpos(1, 13); }
+.dyeable-human-female-duckie, .hfd                        { @include item-icon-bgpos(2, 13); }
+.dyeable-human-female-jersey-cover-up, .fjc               { @include item-icon-bgpos(3, 13); }
+.dyeable-human-female-string-bikini, .fsb                 { @include item-icon-bgpos(4, 13); }
+.dyeable-amani-female-duckie, .afd                        { @include item-icon-bgpos(5, 13); }
+.dyeable-amani-female-deep-v, .afv                        { @include item-icon-bgpos(6, 13); }
+.dyeable-amani-female-silver-bikini, .afb                 { @include item-icon-bgpos(7, 13); }
+.sun-hat, .sun                                            { @include item-icon-bgpos(8, 13); }
+.heart-shaped-glasses, .hsg                               { @include item-icon-bgpos(9, 13); }
+.cooler, .cool                                            { @include item-icon-bgpos(0, 14); }
+.beachbag , .bb                                           { @include item-icon-bgpos(1, 14); }
+.sit-emote, .a14                                          { @include item-icon-bgpos(2, 14); }
+.peace-emote, .b14                                        { @include item-icon-bgpos(3, 14); }
+.allemanthea-prep-uniform, .c14                           { @include item-icon-bgpos(4, 14); }
+.velika-vocational-uniform, .d14                          { @include item-icon-bgpos(5, 14); }
+.kai-poly-uniform, .e14                                   { @include item-icon-bgpos(6, 14); }
+.feral-valley-jr-high-uniform, .f14                       { @include item-icon-bgpos(7, 14); }
+.charcoal-eldritch-academy-uniform, .g14                  { @include item-icon-bgpos(8, 14); }
+.ivory-eldritch-academy-uniform, .h14                     { @include item-icon-bgpos(9, 14); }
+.can-haz-backpack, .i14                                   { @include item-icon-bgpos(0, 15); }
+.popo-panda-piper-pack, .j14                              { @include item-icon-bgpos(1, 15); }
+.blue-team-captain, .a15                                  { @include item-icon-bgpos(2, 15); }
+.red-team-captain, .b15                                   { @include item-icon-bgpos(3, 15); }
+.blue-volleyball, .c15                                    { @include item-icon-bgpos(4, 15); }
+.red-volleyball, .d15                                     { @include item-icon-bgpos(5, 15); }
+.lost-and-found-box, .e15                                 { @include item-icon-bgpos(6, 15); }
+.sports-bag, .f15                                         { @include item-icon-bgpos(7, 15); }
+.school-bag, .g15                                         { @include item-icon-bgpos(8, 15); }
+.peep, .h15                                               { @include item-icon-bgpos(9, 15); }
+.ember, .i15                                              { @include item-icon-bgpos(0, 16); }
+.violet-birdcage, .j15                                    { @include item-icon-bgpos(1, 16); }
+.fire-birdcage, .a16                                      { @include item-icon-bgpos(2, 16); }
+.gas-mask, .b16                                           { @include item-icon-bgpos(3, 16); }
+.piston-arm, .c16                                         { @include item-icon-bgpos(4, 16); }
+.thermal-coupling, .d16                                   { @include item-icon-bgpos(5, 16); }
+.hinged-ballista, .e16                                    { @include item-icon-bgpos(6, 16); }
+.flywheel, .f16                                           { @include item-icon-bgpos(7, 16); }
+.thermalleus, .g16                                        { @include item-icon-bgpos(8, 16); }
+.timesplitter, .h16                                       { @include item-icon-bgpos(9, 16); }
+.bayonette, .i16                                          { @include item-icon-bgpos(0, 17); }
+.tool-and-die, .j16                                       { @include item-icon-bgpos(1, 17); }
+.steamer-trunk, .a17                                      { @include item-icon-bgpos(2, 17); }
+.dyeable-steampunk-lootbox, .b17                          { @include item-icon-bgpos(3, 17); }
+.cheeks-and-totes-bundle, .c17                            { @include item-icon-bgpos(4, 17); }
+.totes, .d17                                              { @include item-icon-bgpos(5, 17); }
+.cheeks, .e17                                             { @include item-icon-bgpos(6, 17); }
+.titan-force-all-males, .f17                              { @include item-icon-bgpos(7, 17); }
+.dyeable-titan-force-all-males-loot-box, .g17             { @include item-icon-bgpos(8, 17); }
+.accesories-loot-box-all-titan-helmets, .h17              { @include item-icon-bgpos(9, 17); }
+.accessories-loot-box-with-alien-head, .i17               { @include item-icon-bgpos(0, 18); }
+.accessories-loot-box-with-knife-hat, .j17                { @include item-icon-bgpos(1, 18); }
+.accesories-loot-box-with-new-frankenstein-mask, .a18     { @include item-icon-bgpos(2, 18); }
+.elin-witch, .b18                                         { @include item-icon-bgpos(3, 18); }
+.devilicious-all-females, .c18                            { @include item-icon-bgpos(4, 18); }
+.dyeable-devilicious-all-females-loot-box, .d18           { @include item-icon-bgpos(5, 18); }
+.canephora-potion, .e18                                   { @include item-icon-bgpos(6, 18); }
+.tertas-fruit-candy, .f18                                 { @include item-icon-bgpos(7, 18); }
+.hyper-hero-mask-gold, .g18                               { @include item-icon-bgpos(8, 18); }
+.hyper-hero-mask-white, .h18                              { @include item-icon-bgpos(9, 18); }
+.hyper-hero-mask-red, .i18                                { @include item-icon-bgpos(0, 19); }
+.hyper-hero-mask-black, .j18                              { @include item-icon-bgpos(1, 19); }
+.hyper-hero-mask-blue, .a19                               { @include item-icon-bgpos(2, 19); }
+.ultra-hero-mask-gold, .b19                               { @include item-icon-bgpos(3, 19); }
+.ultra-hero-mask-white, .c19                              { @include item-icon-bgpos(4, 19); }
+.ultra-hero-mask-red, .d19                                { @include item-icon-bgpos(5, 19); }
+.ultra-hero-mask-black, .e19                              { @include item-icon-bgpos(6, 19); }
+.ultra-hero-mask-blue, .f19                               { @include item-icon-bgpos(7, 19); }
+.devil-horns, .g19                                        { @include item-icon-bgpos(8, 19); }
+.devil-wings, .h19                                        { @include item-icon-bgpos(9, 19); }
+.rare-devil-wings, .i19                                   { @include item-icon-bgpos(0, 20); }
+.witchy-poo, .j19                                         { @include item-icon-bgpos(1, 20); }
+.witch-hat, .a20                                          { @include item-icon-bgpos(2, 20); }
+.bat-wings, .b20                                          { @include item-icon-bgpos(3, 20); }
+.franken-mask, .c20                                       { @include item-icon-bgpos(4, 20); }
+.famished-skeleton-mask, .d20                             { @include item-icon-bgpos(5, 20); }
+.fresh-pumkpin-mask, .e20                                 { @include item-icon-bgpos(6, 20); }
+.packleader-wolf-mask, .f20                               { @include item-icon-bgpos(7, 20); }
+.alluri-giant-killer-mask, .g20                           { @include item-icon-bgpos(8, 20); }
+.nightsky-domino-mask, .h20                               { @include item-icon-bgpos(9, 20); }
+.sunbright-domino-mask, .i20                              { @include item-icon-bgpos(0, 21); }
+.black-bat-hairband, .j20                                 { @include item-icon-bgpos(1, 21); }
+.knife-hat, .a21                                          { @include item-icon-bgpos(2, 21); }
+.bone-weary-skeleton-mask, .b21                           { @include item-icon-bgpos(3, 21); }
+.stylish-pumpkin-mask, .c21                               { @include item-icon-bgpos(4, 21); }
+.big-bad-wolf-mask, .d21                                  { @include item-icon-bgpos(5, 21); }
+.frakenhat, .e21                                          { @include item-icon-bgpos(6, 21); }
+.nightsky-mask, .f21                                      { @include item-icon-bgpos(7, 21); }
+.sunbright-mask, .g21                                     { @include item-icon-bgpos(8, 21); }
+.red-bat-hairband, .h21                                   { @include item-icon-bgpos(9, 21); }
+.alien-mask, .i21                                         { @include item-icon-bgpos(0, 22); }
+.dyeable-elin-witch, .j21                                 { @include item-icon-bgpos(1, 22); }
+.dyeable-black-devilicious-all-females, .a22              { @include item-icon-bgpos(2, 22); }
+.dyeable-red-devilicious-all-females, .b22                { @include item-icon-bgpos(3, 22); }
+.dyeable-devilicious-all-females, .d22                    { @include item-icon-bgpos(4, 22); }
+.dyeable-titan-force-all-males, .e22                      { @include item-icon-bgpos(5, 22); }
+.dyeable-elin-witch-lootbox, .f22                         { @include item-icon-bgpos(6, 22); }
+.white-captain-hat, .g22                                  { @include item-icon-bgpos(7, 22); }
+.steel-party-boat-captain, .h22                           { @include item-icon-bgpos(8, 22); }
+.red-captain-hat, .i22                                    { @include item-icon-bgpos(9, 22); }
+.navy-party-boat-captain, .j22                            { @include item-icon-bgpos(0, 23); }
+.navy-captain-hat, .a23                                   { @include item-icon-bgpos(1, 23); }
+.red-party-boat-captain, .b23                             { @include item-icon-bgpos(2, 23); }
+.steel-captain-hat, .c23                                  { @include item-icon-bgpos(3, 23); }
+.white-party-boat-captain, .d23                           { @include item-icon-bgpos(4, 23); }
+.party-boat-loot-box, .e23                                { @include item-icon-bgpos(5, 23); }
+.harley, .f23                                             { @include item-icon-bgpos(6, 23); }
+.petunia, .g23                                            { @include item-icon-bgpos(7, 23); }
+.boss, .h23                                               { @include item-icon-bgpos(8, 23); }
+.harry-porker, .i23                                       { @include item-icon-bgpos(9, 23); }
+.waddles, .j23                                            { @include item-icon-bgpos(0, 24); }
+.pig-loot-box, .a24                                       { @include item-icon-bgpos(1, 24); }
+.road-hog-loot-box, .b24                                  { @include item-icon-bgpos(2, 24); }
+.farmer-hat, .c24                                         { @include item-icon-bgpos(3, 24); }
+.dyeable-steampunk-costume, .d24                          { @include item-icon-bgpos(4, 24); }
+.ico-emp, .e24                                            { @include item-icon-bgpos(5, 24); }
+.silver-shimmering, .f24                                  { @include item-icon-bgpos(6, 24); }
+.gold-shimmering, .g24                                    { @include item-icon-bgpos(7, 24); }
+.steampunk-weapons, .h24                                  { @include item-icon-bgpos(8, 24); }
+.ice-weapon, .i24                                         { @include item-icon-bgpos(9, 24); }
+.plunder-bundle, .j24                                     { @include item-icon-bgpos(0, 25); }
+.rainbow, .a25                                            { @include item-icon-bgpos(1, 25); }
+.golden-giftbox, .b25                                     { @include item-icon-bgpos(2, 25); }
+.female-santa-suit, .c25                                  { @include item-icon-bgpos(3, 25); }
+.travel-journal, .d25                                     { @include item-icon-bgpos(4, 25); }
+.village-atlas, .e25                                      { @include item-icon-bgpos(5, 25); }
+.elin-dyeable-snowbelle-wrap, .f25                        { @include item-icon-bgpos(6, 25); }
+.all-female-dyeable-snowbelle-wrap, .g25                  { @include item-icon-bgpos(7, 25); }
+.santa-hood, .h25                                         { @include item-icon-bgpos(8, 25); }
+.golden-antler-hairband, .i25                             { @include item-icon-bgpos(9, 25); }
+.snowbelle-lootbox, .j25                                  { @include item-icon-bgpos(0, 26); }
+.snowbelle-bundle, .a26                                   { @include item-icon-bgpos(1, 26); }
+.hot-coffee, .b26                                         { @include item-icon-bgpos(2, 26); }
+.santa-candle, .c26                                       { @include item-icon-bgpos(3, 26); }
+.double-scoope-icecream, .d26                             { @include item-icon-bgpos(4, 26); }
+.smoothie, .e26                                           { @include item-icon-bgpos(5, 26); }
+.dyeable-princess-rida-maid-uniform, .f26                 { @include item-icon-bgpos(6, 26); }
+.male-dyeable-legitimate-buisness-suits, .g26             { @include item-icon-bgpos(7, 26); }
+.Elintat-sleeve-suit, .h26                                { @include item-icon-bgpos(8, 26); }
+.dyeable-elin-gun-moll-suit, .i26                         { @include item-icon-bgpos(9, 26); }
+.female-dyeable-legitimate-buisness-suits, .j26           { @include item-icon-bgpos(0, 27); }
+.clown-mask, .k26                                         { @include item-icon-bgpos(1, 27); }
+.legitimate-buisness-accesories-lootbox, .a27             { @include item-icon-bgpos(2, 27); }
+.legitimate-buisness-suits-lootbox, .b27                  { @include item-icon-bgpos(3, 27); }
+.organ-grinder, .c27                                      { @include item-icon-bgpos(4, 27); }
+.tortoise-shell-glasses, .d27                             { @include item-icon-bgpos(5, 27); }
+.pink-glasses, .e27                                       { @include item-icon-bgpos(6, 27); }
+.black-glasses, .f27                                      { @include item-icon-bgpos(7, 27); }
+.brown-glasses, .g27                                      { @include item-icon-bgpos(8, 27); }
+.grey-fedora, .h27                                        { @include item-icon-bgpos(9, 27); }
+.brown-fedora, .i27                                       { @include item-icon-bgpos(0, 28); }
+.white-fedora, .j27                                       { @include item-icon-bgpos(1, 28); }
+.black-fedora, .k28                                       { @include item-icon-bgpos(2, 28); }
+.red-bow, .b28                                            { @include item-icon-bgpos(3, 28); }
+.monocle, .c28                                            { @include item-icon-bgpos(4, 28); }
+.moustache, .d28                                          { @include item-icon-bgpos(5, 28); }
+.silver-crown, .e28                                       { @include item-icon-bgpos(6, 28); }
+.gold-crown, .f28                                         { @include item-icon-bgpos(7, 28); }
+.single-bloom, .g28                                       { @include item-icon-bgpos(8, 28); }
+.pink-wreath, .h28                                        { @include item-icon-bgpos(9, 28); }
+.red-feelers, .i28                                        { @include item-icon-bgpos(0, 29); }
+.widows-veil, .j28                                        { @include item-icon-bgpos(1, 29); }
+.wig, .a28                                                { @include item-icon-bgpos(2, 29); }
+.brides-veil, .b29                                        { @include item-icon-bgpos(3, 29); }
+.all-females-midnight-party-dress, .c29                   { @include item-icon-bgpos(4, 29); }
+.all-females-moonlight-party-dress, .d29                  { @include item-icon-bgpos(5, 29); }
+.all-males-crimson-bolero, .e29                           { @include item-icon-bgpos(6, 29); }
+.all-males-gold-bolero, .f29                              { @include item-icon-bgpos(7, 29); }
+.accessories-lootbox-icon, .g29                           { @include item-icon-bgpos(8, 29); }
+.party-attire-cosutmes-lootbox-icon, .h29                 { @include item-icon-bgpos(9, 29); }
+.black-giftbox, .i29                                      { @include item-icon-bgpos(0, 30); }
+.white-giftbox, .j29                                      { @include item-icon-bgpos(1, 30); }
+.candy-spun-hairband, .a30                                { @include item-icon-bgpos(2, 30); }
+.roamin-helm, .b30                                        { @include item-icon-bgpos(3, 30); }
+.farming-hat, .c30                                        { @include item-icon-bgpos(4, 30); }
+.hypnotizing-hairband, .d30                               { @include item-icon-bgpos(5, 30); }
+.little-devil-horns, .e30                                 { @include item-icon-bgpos(6, 30); }
+.patterned-bandana, .f30                                  { @include item-icon-bgpos(7, 30); }
+.viking-horn-helmet, .g30                                 { @include item-icon-bgpos(8, 30); }
+.frog-hat, .h30                                           { @include item-icon-bgpos(9, 30); }
+.soft-bear-hat, .i30                                      { @include item-icon-bgpos(0, 31); }
+.warm-kitty-hat, .j30                                     { @include item-icon-bgpos(1, 31); }
+.accessories-lootbox, .a31                                { @include item-icon-bgpos(2, 31); }
+.celestial-weapon-lootbox, .b31                           { @include item-icon-bgpos(3, 31); }
+.pot-o-green-lootbox, .c31                                { @include item-icon-bgpos(4, 31); }
+.premium-alkahest, .d31                                   { @include item-icon-bgpos(5, 31); }
+.green-honker, .e31                                       { @include item-icon-bgpos(6, 31); }
+.green-glasses, .f31                                      { @include item-icon-bgpos(7, 31); }
+.olive-bandit-mask, .g31                                  { @include item-icon-bgpos(8, 31); }
+.green-arrow-apple, .h31                                  { @include item-icon-bgpos(9, 31); }
+.turtle-back, .i31                                        { @include item-icon-bgpos(0, 32); }
+.me-lucky-hat, .j31                                       { @include item-icon-bgpos(1, 32); }
+.dyeable-maid-outfit, .a32                                { @include item-icon-bgpos(2, 32); }
+.carniverous-plant, .b32                                  { @include item-icon-bgpos(3, 32); }
+.elin-elite-nightfall-ninjagi, .c32                       { @include item-icon-bgpos(4, 32); }
+.straw-hat, .d32                                          { @include item-icon-bgpos(5, 32); }
+.kitsune-mask, .e32                                       { @include item-icon-bgpos(6, 32); }
+.dokebi-mask, .f32                                        { @include item-icon-bgpos(7, 32); }
+.ninja-face-mask, .g32                                    { @include item-icon-bgpos(8, 32); }
+.leather-ninja-mask, .h32                                 { @include item-icon-bgpos(9, 32); }
+.ninja-steelface-mask, .i32                               { @include item-icon-bgpos(0, 33); }
+.ninja-steel-horn-mask, .j32                              { @include item-icon-bgpos(1, 33); }
+.ninja-usagi-mask, .a33                                   { @include item-icon-bgpos(2, 33); }
+.ninja-oni-horn-mask, .b33                                { @include item-icon-bgpos(3, 33); }
+.elin-elite-bloodshadow-ninjagi, .c33                     { @include item-icon-bgpos(4, 33); }
+.true-ultimate-power-weapon-lootbox, .d33                 { @include item-icon-bgpos(5, 33); }
+.nightfall-ninja-for-life, .e33                           { @include item-icon-bgpos(6, 33); }
+.ultimate-power-accessory-loot-box, .f33                  { @include item-icon-bgpos(7, 33); }
+.true-ultimate-elin-elite-box, .g33                       { @include item-icon-bgpos(8, 33); }
+.elin-bloodshadow-ninjagi, .h33                           { @include item-icon-bgpos(9, 33); }
+.all-female-bloodshadow-ninjagi, .i33                     { @include item-icon-bgpos(0, 34); }
+.all-male-bloodshadow-ninjagi, .j33                       { @include item-icon-bgpos(1, 34); }
+.blitz, .a34                                              { @include item-icon-bgpos(2, 34); }
+.temper, .b34                                             { @include item-icon-bgpos(3, 34); }
+.cinder, .c34                                             { @include item-icon-bgpos(4, 34); }
+.slash, .d34                                              { @include item-icon-bgpos(5, 34); }
+.wolf-pack, .e34                                          { @include item-icon-bgpos(6, 34); }
+.cinderstorm, .f34                                        { @include item-icon-bgpos(7, 34); }
+.cinderheart, .g34                                        { @include item-icon-bgpos(8, 34); }
+.cinderglow, .h34                                         { @include item-icon-bgpos(9, 34); }
+.red-rose-eye-patch, .a35                                 { @include item-icon-bgpos(0, 35); }
+.black-rose-eye-patch, .b35                               { @include item-icon-bgpos(1, 35); }
+.pink-rose-eye-patch, .c35                                { @include item-icon-bgpos(2, 35); }
+.pale-purple-rose-eye-patch, .d35                         { @include item-icon-bgpos(3, 35); }
+.white-rose-eye-patch, .e35                               { @include item-icon-bgpos(4, 35); }
+.white-capes-lootbox, .f35                                { @include item-icon-bgpos(5, 35); }
+.nobles-cape, .g35                                        { @include item-icon-bgpos(6, 35); }
+.frosty-matle-of-indifference, .h35                       { @include item-icon-bgpos(7, 35); }
+.generals-mantle, .i35                                    { @include item-icon-bgpos(8, 35); }
+.commmanders-mantle, .j35                                 { @include item-icon-bgpos(9, 35); }
+.veterans-mantle, .a36                                    { @include item-icon-bgpos(0, 36); }
+.captains-mantle, .b36                                    { @include item-icon-bgpos(1, 36); }
+.officers-mantle, .c36                                    { @include item-icon-bgpos(2, 36); }
+.blackheart-lootbox, .d36                                 { @include item-icon-bgpos(3, 36); }
+
+/* correction for overwrite of sup from global reset, no idea why the rest would do this improperly, should be fixedi nnew globals */
+sup {
+  top:0.25em;
+  font-size: small;
+  vertical-align: top;
+  line-height:1;
+}
+
+// Hiding arrow in menu for patch notes drop down
+#patch-notes > a:after { display: none; }
+
+// footer fix
+footer {
+  clear:both;
+  a:hover { color: #48b3FF; }
+}
+.eme-footer {
+  padding-top: 0;
+}
+
+// game guide pages
+//classes
+#classesTable {
+  a {
+    &:hover {
+      color: #ffffff;
+    }
+  }
+}
+
+ //legal pages
+ ol {
+  list-style-type: decimal;
+ }
+ ul.nav-bar, ul.nav-bar li {
+  list-style-type: none;
+ }
+
+ // games drop down helper
+ .eme-menu {
+  max-width: 100vw;
+ }
+ // tablet styles
+//@media only screen and (min-width: 768px) {
+@include breakpoint(tablet) {
+  .games-link {
+    height: 130px;
+    width:220px;
+    margin: 5px;
+    border-width:4px;
+    display: inline;
+    float:left;
+  }
+  .eme-menu {
+    top:53px;
+    padding-left:calc((100% - 690px) / 2);
+  }
+}
+
+//@media only screen and (min-width: 1024px) {
+@include breakpoint(desktop) {
+  .eme-menu {
+    padding-left:calc((100% - 920px) / 2);
+  }
+}
+// end media size 
+
+@media only screen and (min-width: 72.500em) {
+//@include breakpoint(meddesktop) {
+  .eme-menu {
+    padding-left:calc((100% - 880px) / 2);
+  }
+}
+
+// ie8 nonsense
+.ie8 {
+  nav {
+    &#menu {
+      .nav-bar {
+        background: #000000;
+        li {
+          ul {
+            a:hover {
+              color: #000000;
+            }
+          }
+        }
+      }
+    }
+  }
+  #eme-bar {
+    .wrapper {
+      .eme-menu {
+        a {
+          height:75px;
+        }
+      }
+    }
+  }
+
+  #home-video {
+    video {
+      height:641px;
+    }
+  }
+
+} // end ie8
+
+
+// corrections for navigation in mobile
+@media only screen and (max-width : 767px) {
+  // should apply to mobile and tablet only
+  body #eme-bar #account {
+    width:150px;
+  }
+  nav#menu .nav-bar > li > ul.flyout {
+    margin-top:0;
+    position:absolute;
+    min-width: 149px;
+  }
+  .flyout > li .flyout {
+    left: 149px;
+    position:absolute;
+  }
+ 
+  nav#menu .nav-bar > li:hover a {
+    border: none;
+  }
+  nav#menu .nav-bar >li >a:hover {
+    text-shadow: none;
+  }
+  .nav-bar li ul li {
+    border: 1px solid #0069c2;
+  }
+  
+} // end mobile nav corrections
+
+
+// overwrite style from _eme-bar.scss
+@include breakpoint(mobileonly) {
+  body #eme-bar {
+    #account {
+      li { float: left; }
+    }
+  }
+}
+
+// append to global footer style
+footer #footer-logos {
+  clear: both;
+  display: block;
+}

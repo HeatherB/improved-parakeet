@@ -1,0 +1,102 @@
+.beta_standing {
+	.beta_group {
+		display: block;
+		background: #212222;
+		box-sizing: border-box;
+		padding:10px;
+		h3 {
+			color:#017dd3;
+			font-weight:bold;
+			margin:10px 0 0 7px;
+			font-size:11pt;
+		}
+	}
+	.heading {
+		h4 {
+			color: #999999;
+			padding-left: 35px;
+			margin-bottom: 10px;
+			font-size:9pt;
+			&:nth-child(3n) {
+				padding-left: 27px;
+			}
+			&.label {
+				font-weight:bold;
+				padding-top:12px;
+				padding-left: 10px;
+			}
+		}
+	}
+	.col {
+		display: inline-block;
+	    vertical-align:top;
+	}
+	#beta_actions {
+		float:right;
+		padding-top:15px;
+	}
+	a {
+		color: #ffffff;
+		text-decoration: none;
+		font-weight: bold;
+		font-size: 10px;
+		font-weight:normal;
+		line-height: 28px;
+		text-align:center;
+		border-radius: 3px;
+		box-sizing:border-box;
+		padding: 0px 10px;
+		display: block;
+		border-top: 1px solid #624500;
+		background:#a77600;
+		background: -webkit-linear-gradient(rgba(167,118,0,1) 10%, rgba(98,69,0,1) 80%);
+        background: linear-gradient(rgba(167,118,0,1) 0%, rgba(98,69,0,1) 80%);
+    	&:hover {
+    		border-top: 1px solid #a77600;
+			background:#624500;
+			background: -webkit-linear-gradient(rgba(98,69,0,1) 10%, rgba(167,118,0,1) 80%);
+        	background: linear-gradient(rgba(98,69,0,1) 0%, rgba(167,118,0,1) 80%);
+    	}
+	}
+	.beta_withdraw {
+		a {
+			border-top: 1px solid #154e7b;
+    		background:#0f3858;
+    		background: -webkit-linear-gradient(rgba(15,56,88,1) 10%, rgba(21,78,123,1) 80%);
+	        background: linear-gradient(rgba(15,56,88,1) 0%, rgba(21,78,123,1) 80%);
+	    	&:hover {
+	    		border-top: 1px solid #0f3858;
+	    		background: #154e7b;
+	    		background: -webkit-linear-gradient(rgba(21,78,123,1) 0%, rgba(15,56,88,1) 80%);
+	        	background: linear-gradient(rgba(21,78,123,1) 10%, rgba(15,56,88,1) 80%);
+	    	}
+		}
+	}
+	.beta_thumb {
+	    border: 2px solid #30343b;
+	    border-radius: 3px;
+	    background-repeat:no-repeat;
+	    background-position: top center;
+	    width:74px;
+	    height:74px;
+	    display: inline-block;
+	    vertical-align:middle;
+	    margin:6px 0;
+	    &.kritika {
+	    	background-image: url(/assets/beta/kritika-thumb.jpg);
+	    }
+	}
+}
+#beta-status-block {
+	p {
+		text-align:center;
+	}
+}
+.beta-details {
+	text-align:center;
+}
+.beta-heading {
+	text-align:center;
+	margin: 10px auto 0;
+}
+

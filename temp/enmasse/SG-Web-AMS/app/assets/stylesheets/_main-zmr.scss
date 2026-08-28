@@ -1,0 +1,470 @@
+$eme_bg: #010101;
+$eme_border: #262626;
+$eme_link: #48b3FF;
+
+
+body #container-main {
+  width: 100%;
+  min-width: 1200px;
+  background: #f0f0eb url(/assets/account/zmr-signup-bg.jpg) repeat-y 50% 32px;
+  position: relative;
+}
+
+body #content-primary {
+  width: 100% !important;
+}
+
+/**** Global Alert Styles ****/
+#local-alerts {
+  z-index: 5;
+  .container {
+    z-index: 30;
+  }
+}
+html #global-alerts .alert-warning {
+  background: #ff9400;
+  background: rgba(195, 110, 0, 0.95);
+  z-index: 50;
+}
+
+/**** EME Bar Styles ****/
+.container {
+  position: relative;
+  width: 1200px;
+  margin: 0px auto;
+  &:after {clear:both;}
+  &:before, &:after {content: " "; display: table;}
+}
+
+/***** EME Global Footer *****/
+.eme-footer {
+  color: #525252;
+  font-size: 14px;
+  min-height: 300px;
+  background: url(/assets/eme-bar/eme-bar-bg.jpg) repeat-x 0px 0px $eme_bg;
+  margin-top: 14px;
+  .logo {
+    float: left;
+    width: 300px;
+    height: 77px;
+    margin: 40px 0 0 88px;
+
+    a {
+      display: block;
+      width: 300px;
+      height: 77px;
+      background: url(/assets/eme-bar/eme-bar-sprite.png) no-repeat -10px -92px;
+    }
+  }
+  nav {
+    float: right;
+    width: 665px;
+    height: 38px;
+    margin: 60px 108px 0 0;
+    text-align: right;
+    li {
+      display: inline-block;
+      text-align: center;
+      padding: 6px 12px 7px;
+      border-right: 1px solid $eme_border;
+      &.last {border-right: none;}
+    }
+  }
+  .disclaimer {
+    text-align: center;
+    margin: 163px 0 80px;
+  }
+  a {
+    text-decoration: none;
+    color: $eme_link;
+    font-weight: normal;
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+
+/***** Masthead area *****/
+.zmr-masthead {
+  position: relative;
+  z-index: 20;
+  h1 {
+    top: 0px;
+    width: 1464px;
+    height: 735px;
+    background: url(/assets/account/zmr-signup-banner.png) no-repeat 50% 0;
+    margin: -46px 0px 0px -181px;
+    z-index: 2;
+    text-indent: -9999px;
+    display: block;
+    padding: 0;
+  }
+}
+
+/***** Video Area *****/
+#zmr-video {
+  position: absolute;
+  top: 287px;
+  right: 88px;
+  width: 556px;
+  height: 313px;
+  video {
+    z-index: 2;
+    top: 0;
+    position: absolute;
+  }
+}
+#video-overlay {
+  width: 556px;
+  height: 313px;
+  background: url(/assets/account/zmr-video-overlay.png) no-repeat 0 0;
+  z-index: 3;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  &:hover { background-position: 0 -313px; }
+}
+
+#video {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}
+
+/***** ZMR Overview *****/
+.zmr-overview {
+  color: #000;
+  font-size: 18px;
+  line-height: 1.14em;
+  width: 460px;
+  margin: 11px 0px 0px 167px;
+  p { margin-bottom: 1.14em; }
+}
+
+/***** ZMR Features *****/
+.zmr-features {
+  background: url(/assets/account/zmr-feature-bg.png) no-repeat 0px 0px;
+  width: 1200px;
+  height: 1098px;
+  margin: -82px 0px 0px 0px;
+  position: relative;
+  padding-top: 1px;
+  z-index: 4;
+  strong {
+    display: block;
+    text-shadow:
+       2px 0px 0px #000,  
+        -2px 0px 0px #000,
+        0px 2px 0px #000,
+         0px -2px 0px #000,
+         2px 2px 0px #000,  
+        -2px -2px 0px #000,
+        2px -2px 0px #000,
+         -2px 2px 0px #000;
+  }
+  div {
+    width: 350px;
+    line-height: 1.2em;
+  }
+  .f2,
+  .f4 {
+    width: 330px;
+  }
+  .f5,
+  .f6 {
+    width: 420px;
+  }
+  .f3,
+  .f4 {
+    p { color: #000; }
+    strong { margin-bottom: 2px; }
+  }
+  .f1 {
+    margin: 157px 0px 0px 286px;
+    width: 340px;
+  }
+  .f2 { margin: 32px 0px 0px 286px; }
+  .f3 { margin: 104px 0px 0px 715px; }
+  .f4 { margin: 35px 0px 0px 715px; }
+  .f5 { margin: 119px 0px 0px 284px; }
+  .f6 { margin: 40px 0px 0px 284px; }
+}
+
+/***** ZMR Offer *****/
+.offer {
+  width: 818px;
+  height: 471px;
+  margin: -41px 0px 0px 46px;
+  background: url(/assets/account/zmr-offer.png) no-repeat 0 0;
+  color: #000;
+  font-size: 16px;
+  h3 { text-indent: -9999px; }
+  p { margin: 122px 0px 0px 74px; }
+}
+
+/***** Registration *****/
+.register-content {
+  display: none;
+}
+body {
+  #cboxOverlay { background: url(/assets/colorbox/zmr_overlay.png) repeat 0 0; }
+  #cboxTopLeft { background: url(/assets/colorbox/zmr_controls.png) no-repeat -100px 0; }
+  #cboxTopCenter { background: url(/assets/colorbox/zmr_border.png) repeat-x 0 0; }
+  #cboxTopRight {
+    width: 21px;
+    background: url(/assets/colorbox/zmr_controls.png) no-repeat -129px 0;
+  }
+  #cboxMiddleLeft { background: url(/assets/colorbox/zmr_controls.png) repeat-y left top; }
+  #cboxMiddleRight { background: url(/assets/colorbox/zmr_controls.png) repeat-y right top; }
+  #cboxBottomLeft { background: url(/assets/colorbox/zmr_controls.png) no-repeat -100px -29px; }
+  #cboxBottomCenter { background: url(/assets/colorbox/zmr_border.png) repeat-x 0 -29px; }
+  #cboxBottomRight {
+    width: 21px;
+    background: url(/assets/colorbox/zmr_controls.png) no-repeat -129px -29px;
+  }
+  #cboxClose { background: url(/assets/colorbox/zmr_controls.png) no-repeat -25px 0; }
+  #cboxClose:hover { background: url(/assets/colorbox/zmr_controls.png) no-repeat -25px -25px; }
+  #cboxLoadedContent { overflow: visible !important; }
+  #cboxContent {
+    overflow: visible !important;;
+    background: #383838;
+  }
+  #colorbox,
+  #cboxWrapper { height: 400px !important; }
+}
+#register-modal {
+  position: relative;
+  text-align: left;
+  z-index: 30;
+}
+.iparent {
+  position: relative;
+}
+
+/***** Facebook Login Button *****/
+#register-modal {
+  position: relative;
+  z-index: 5;
+  .fbook-signup {
+    float: left;
+    width: 290px;
+    height: 80px;
+    margin: 66px 40px 0px -7px;
+    .signup-facebook-link {
+      background: url(/assets/account/zmr-modal-buttons.png) no-repeat 0px 0px;
+      display: block;
+      color: #ffffff;
+      text-indent: -9999px;
+      height: 80px;
+      width: 290px;
+      &:hover { background-position: 0px -80px; }
+      &:active {  background-position: 0px -160px; }
+    }
+  }
+  .form-signup {
+    float: left;
+    width: 264px;
+    z-index: 20;
+    span.input-default {
+      left: 8px;
+      top: 2px;
+      font-style: italic;
+      color: #6a6a6a;
+      font-size: 14px;
+    }
+  }
+}
+.form-signup {
+  position: relative;
+  input {
+    width: 220px;
+    margin: 3px 0px 0px 0px;
+    padding: 5px 10px;
+    border: 2px solid #000;
+    border-radius: 5px;
+    box-shadow: inset 1px 3px 5px rgba(0, 0, 0, .5);
+    font-size: 14px;
+    &.with_errors { border: 2px solid #eb0000; }
+  }
+  #email { margin-bottom: 10px; }
+  ::-webkit-input-placeholder {
+    font-style: italic;
+    color: #6a6a6a;
+    font-size: 14px;
+  }
+  #notice {
+    display: none;
+  }
+  /**** Validation styles ****/
+  .check {
+    display: none;
+    position: relative;
+    top: -20px;
+    left: 248px;
+    margin-bottom: -10px;
+    width: 12px;
+    height: 10px;
+    right: -5px;
+    background: url(/assets/site/icons.png) no-repeat 0 0;
+  }
+  .check.with_errors {
+    display: block;
+    background-position: 0px 0px;
+  }
+  .check.valid {
+    display: block;
+    background-position: 0px -20px;
+  }
+  div.input {
+    position: relative;
+  }
+  ::-moz-placeholder {
+    font-style: italic;
+    color: #6a6a6a;
+    font-size: 14px;
+  }
+  :-ms-input-placeholder {
+    font-style: italic;
+    color: #6a6a6a;
+    font-size: 14px;
+  }
+}
+/**** Hints *****/
+body #app-account #hint {
+  left: 250px;
+  width: 265px;
+  #arrow {
+    left: -12px;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent #FFF transparent transparent;
+  }
+}
+.disclaimer-signup {
+  float: left;
+  width: 260px;
+  margin: 85px 0px 0px 10px;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  a { color: #ffcb18; }
+}
+/**** Sign-up button *****/
+#submit-btn {
+  position: relative;
+  margin: 3px 0px 0px 35px;
+  width: 186px;
+  height: 56px;
+  text-align: center;
+  z-index: 10;
+  a { display: block; }
+  #btn-success { display: none; }
+  #btn-success,
+  #btn-create-account {
+    background: url(/assets/account/zmr-modal-buttons.png) no-repeat -290px 0px;
+    text-indent: -9999px;
+    position: relative;
+    width: 180px;
+    height: 80px;
+    &:hover { background-position: -290px -80px; }
+  }
+  #btn-success.disabled:hover,
+  #btn-create-account.disabled:hover {
+    background-position: -290px -160px;
+  }
+}
+.row.checkbox {
+  margin: 7px 0px 0px 0px;
+  font-size: 14px;
+}
+#receive_news_2 {
+  width: auto;
+}
+/***** Taglines *****/
+.tagline {
+  position: absolute;
+  text-indent: -9999px;
+  background: url(/assets/account/zmr-taglines.png) no-repeat 0 0;
+  width: 509px;
+  height: 367px;
+  top: 311px;
+  left: 73px;
+  border: none;
+  display: block;
+}
+
+/***** Sign up buttons *****/
+.zmr-signup-top {
+  position: absolute;
+  right: 192px;
+  bottom: -69px;
+  z-index: 10;
+}
+.zmr-signup-top a,
+.zmr-signup-bottom a {
+  background: url(/assets/account/zmr-sign-up-buttons.png) no-repeat 0px 0px;
+  display: block;
+  width: 356px;
+  height: 128px;
+  z-index: 11;
+}
+.zmr-signup-top a {
+  background-position: -356px 0px;
+  display: block;
+}
+.zmr-signup-top a:hover {
+  background-position: -356px -128px;
+}
+.zmr-signup-top a:active {
+  background-position: -356px -256px;
+}
+.zmr-signup-bottom {
+  position: absolute;
+  right: 119px;
+  top: 140px;
+  z-index: 10;
+}
+.zmr-signup-bottom a {
+  background-position: 0px 0px;
+}
+.zmr-signup-bottom a:hover {
+  background-position: 0px -128px;
+}
+.zmr-signup-bottom a:active {
+  background-position: 0px -256px;
+}
+
+.play-free {
+  width: 361px;
+  height: 174px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  .play-on-steam {
+    display: block;
+    background: url(/assets/account/play-free-button.png) no-repeat 0 0;
+    width: 361px;
+    height: 131px;
+    text-indent: -9999px;
+    position: relative;
+    z-index: 2;
+    &:hover { background-position: -361px 0; }
+    &:active { background-position: -722px 0; }
+  }
+  .download {
+    position: relative;
+    z-index: 1;
+    margin-top: -10px;
+    background: url(/assets/account/play-free-button.png) no-repeat 0 -151px;
+    padding: 14px 0px 14px 0px;
+    text-shadow: 1px 1px 1px #000;
+    color: #fff;
+    height: 30px;
+    a {
+      color: #feffae;
+      text-decoration:none;
+      font-weight:normal;
+      &:hover {text-decoration:underline;}
+    }
+  }
+}

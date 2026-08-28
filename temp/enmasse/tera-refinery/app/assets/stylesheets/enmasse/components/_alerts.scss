@@ -1,0 +1,168 @@
+/* SITE WIDE ALERTS AND ERRORS */
+  .site-alert {
+    width: 100%;
+    position: relative;
+    z-index: 11;
+
+    article {
+      width: 1140px;
+      margin: 0 auto;
+    }
+    div.error {
+      margin-bottom: 0;
+      background: #c7101e image_url('alert_noise.png') repeat 0 0;
+      border:none;
+      padding: 10px 0;
+    }
+
+    div.warning {
+      margin-bottom: 0;
+      @include bgGradient($midOranges, $darkOranges);
+      border:none;
+      padding: 10px 0;
+    }
+
+    div.info {
+      margin-bottom: 0;
+      @include bgGradient($midGreen, $darkGreen);
+      border:none;
+      padding: 10px 0;
+    }
+  }
+  .error-alert, .site-alert .error, #subsEmailMsgAlert, #modal-error .error  {
+    background: #4c0609;
+    background: rgba($lightRed, 0.5);
+    border:1px solid $midRed;
+    color: $white;
+    padding: 10px;
+    margin-bottom: 10px;
+    line-height: 1.2em;
+
+    em { color: $white; }
+
+    span.icon {
+      display: block;
+      float: left;
+      width: 29px;
+      height: 29px;
+      background: image_url('alerts.png') no-repeat 0 0;
+      margin: -5px 10px 0 0;
+    }
+
+    a {
+      color: #6ec3ff;
+      text-decoration: underline;
+      &:hover {
+        color: #b1dfff;
+      }
+    }
+  }
+  .warn-alert, .site-alert .warning, #foundation-modal .warning {
+    background: #643d02;
+    background: rgba($midOranges,0.5);
+    border:1px solid $lightOranges;
+    color: $white;
+    padding: 10px;
+    margin-bottom: 10px;
+
+    em { color: $white; }
+
+    span.icon {
+      display: block;
+      float: left;
+      width: 29px;
+      height: 29px;
+      background: image_url('alerts.png') no-repeat -30px 0;
+      margin: -5px 10px 0 0;
+    }
+    a {
+      color: #6ec3ff;
+      text-decoration: underline;
+      &:hover {
+        color: #b1dfff;
+      }
+    }
+  }
+  .success-alert, .site-alert .info, #foundation-modal .info { 
+    background: #144a04;
+    background: rgba($midGreen,0.5);
+    border:1px solid $lightGreen;
+    color: $white;
+    padding: 10px;
+    margin-bottom: 10px;
+
+    em { color: $white; }
+
+    span.icon {
+      display: block;
+      float: left;
+      width: 29px;
+      height: 29px;
+      background: image_url('alerts.png') no-repeat -60px 0;
+      margin: -5px 10px 0 0;
+    }
+    a {
+      color: #6ec3ff;
+      text-decoration: underline;
+      &:hover {
+        color: #b1dfff;
+      }
+    }
+  }
+
+// Item Callouts for global use
+  .item-alert {
+    @include border-top-right-radius(10px);
+    @include box-shadow(0px 5px 10px rgba(#000, 1));
+    position: absolute;
+    top: -20px;
+    left: -1px;
+    padding: 2px 20px 0;
+    font: bold #{ms(1)}/28px $bodyFontFamily;
+    color: $white;
+
+    &.orange, &.badge-elite {
+      background-image: $orange-px;
+      @include background(linear-gradient(left, darken($midOranges, 10%), darken($lightOranges, 10%), darken($midOranges, 10%)));
+      @include box-shadow($midOranges 0 1px 2px, $lightOranges 0 2px inset);
+    }
+    &.green, &.badge-sale, &.badge-bogo {
+      background-image: $green-px;
+      @include background(linear-gradient(left, $darkGreen, $lightGreen, $darkGreen));
+      @include box-shadow($darkGreen 0 1px 2px, $lightGreen 0 2px inset);
+    }
+    &.blue, &.badge-new {
+      background-image: $blue-px;
+      @include background(linear-gradient(left, darken($midBabyBlues, 10%), darken($lightBabyBlues, 10%), darken($midBabyBlues, 10%)));
+      @include box-shadow($midBabyBlues 0 1px 2px, $lightBabyBlues 0 2px inset);
+    }
+    &.purple, &.badge-event {
+      background-image: $purple-px;
+      @include background(linear-gradient(left, darken($midPurples, 10%), darken($lightPurples, 10%), darken($midPurples, 10%)));
+      @include box-shadow($midPurples 0 1px 2px, $lightPurples 0 2px inset);
+    }
+    &.peach, &.badge-featured {
+      background-image: $peach-px;
+      @include background(linear-gradient(left, darken($midPeach, 10%), darken($lightPeach, 10%), darken($midPeach, 10%)));
+      @include box-shadow($midPeach 0 1px 2px, $lightPeach 0 2px inset);
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

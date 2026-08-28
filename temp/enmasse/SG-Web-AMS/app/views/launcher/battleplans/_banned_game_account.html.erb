@@ -1,0 +1,106 @@
+<% store_redirect = SECURE_CONFIG["digital_river"]["game_purchase_redirect"] rescue SHOP_URL %>
+<% subscription_redirect = SECURE_CONFIG["enmasse"]["subscription_setup_url"] rescue SHOP_URL %>
+
+<div class='content-launcher'>
+  <%= render :partial => "shared/flash_notices" %>
+  <div class='clear'></div>
+  <div class='accounts-listing listing'>
+    <div class='listing-head'></div>
+    <div class='listing-body'>
+      <p>Battleplans Game account is banned!(WRITING)</p>
+      <h2><%= tslt("please select an account")%></h2>
+      <div class='list'>
+        <ul>
+          <% @game_accounts.each do |gacct_infos| %>
+            <% gacct, res_code, type_name = gacct_infos[:gacct], gacct_infos[:res_code], gacct_infos[:type_name] %>
+            <% store_redir = store_redirect % gacct.obfuscated_id %>
+            <% case res_code
+               when 200 %>
+              <% if gacct_infos[:unlimited]%>
+                <%= render :partial => 'launcher/free_play_game_account', :locals => { :gacct    => gacct,
+                                                                                       :res_code => res_code,
+                                                                                       :type_name => type_name } %>
+              <% else %>
+                <li>
+                  <%= link_to h(gacct.account_name), launcher_path(@game, :gid => gacct.id), :class => "account-link" %>
+                  - <%= h(type_name) %>
+                </li>
+              <% end %>
+            <% else %>
+              <%= render :partial => 'launcher/error_game_account', :locals => { :gacct    => gacct,
+                                                                                 :res_code => res_code,
+                                                                                 :type_name => type_name,
+                                                                                 :subscription_redirect => subscription_redirect,
+                                                                                 :store_redir => store_redir } %>
+            <% end %>
+          <% end %>
+        </ul>
+      </div><!--.list-->
+    </div><!--.listing-body-->
+    <div class='listing-foot'></div>
+  </div><!--.accounts-listing-->
+</div><!--#launcher-->
+<script>
+  $(function()
+  {
+    $('.list').jScrollPane();
+  });
+</script>
+
+<script>
+$(document).ready(function() {
+    $('#app-launcher').addClass('openPop');
+});
+</script>
+
+<style type="text/css">
+/* open various messes in popup */
+  .openPop {
+    position:absolute;
+    top:0;
+    right:0;
+    left:0;
+    margin:0 auto;
+    width:700px;
+    height:520px;
+    height:100%;
+  }
+  .openPop#app-launcher .content-launcher:before {
+    display:none;
+  }
+  .openPop#app-launcher .content-launcher {
+    background: rgb(0,0,0);
+    background: rgba(0,0,0,0.8);
+    color: #ffffff;
+    font-size:18px;
+    font-family: 'Amaranth', sans-serif;
+    width:660px;
+    height:100%;
+    min-height:260px;
+    border-radius: 10px;
+  }
+  .openPop#app-launcher .listing {
+    max-width:470px;
+    width:100%;
+  }
+  .openPop#app-launcher .listing .listing-head {
+    background: none;
+  }
+  .openPop#app-launcher .listing .listing-body {
+    color: #ffffff;
+    background: none;
+    font-size:18px;
+    font-family: 'Amaranth', sans-serif;
+    max-width:470px;
+    width:100%;
+  }
+  .openPop#app-launcher .listing .listing-foot {
+    background: none;
+  }
+  .openPop#app-launcher h1,h2,h3,h4,h5,h6 {
+    color:#fc6f0c;
+    text-transform:uppercase;
+    font-size:24px;
+  }
+</style>
+

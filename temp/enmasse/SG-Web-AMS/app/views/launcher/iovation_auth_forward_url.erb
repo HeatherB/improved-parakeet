@@ -1,0 +1,34 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en" lang="en">
+<head>
+  <title>FORWARDING</title>
+  <%= javascript_include_tag 'application' %>
+</head>
+  <body>
+    <%= form_tag submit_iovation_launcher_auth_forward_path, :id => 'submit-iovation' do %>
+      <input type="hidden" name="blackbox" id="blackbox" value=""/>
+      <input type="hidden" name="next_url" value="<%= @next_url %>"/>
+      <input type="hidden" name="ticket" value="<%= @ticket %>"/>
+    <% end %>
+    <%= render :partial => "shared/iovation_init" %>
+
+    <script type="text/javascript">
+
+      $(document).ready(function () {
+        // wait until iovation blackbox value filled and then submit form
+        var c = setInterval(
+            function() {
+              if ($('#blackbox').val().length > 0) {
+                // stop timer
+                clearInterval(c);
+                // submit form
+                $('#submit-iovation').submit();
+              }
+            }, 100
+        );
+
+      });
+
+    </script>
+  </body>
+</html>

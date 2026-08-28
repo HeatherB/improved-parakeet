@@ -1,0 +1,113 @@
+<%= form_for @referral, :url => users_referrals_path do |f| %>
+  <% if @game_accounts.count == 1 %>
+    <%= f.hidden_field :game_account_id, :value => @game_accounts.first.obfuscated_id %>
+  <% else %>
+    <%= f.hidden_field :game_account_id %>
+  <% end %>
+
+  <%= f.hidden_field :server %>
+  <%= f.hidden_field :character_name %>
+  <%= f.hidden_field :server_id %>
+  <%= f.hidden_field :char_srl %>
+
+  <table>
+    <tr id="step-1">
+      <td class="label">
+        <%= f.label :email, 'To:' %>
+      </td>
+      <td>
+        <div id="referral-email-container">
+          <%= f.text_field :email, :placeholder => 'myfriend@email.com', :required => true %>
+        </div>
+      </td>
+      <td>
+        <div class="indicator-container">
+          <div class='referral-step-indicator active'>
+            <div class="arrow">&nbsp;</div>
+            <span><%= tslt('referral step 1') %></span>
+          </div>
+        </div>
+      </td>
+    </tr>
+
+    <tr id="step-2">
+      <td class="label">
+        <%= f.label :character_name, 'From:' %>
+      </td>
+      <td>
+        <div id="referral-from-container">
+          <span id="sender">Select a character</span>
+        </div>
+      </td>
+      <td>
+        <div class="indicator-container">
+          <div class='referral-step-indicator'>
+            <div class="arrow"></div>
+            <span><%= tslt('referral step 2') %></span>
+          </div>
+        </div>
+      </td>
+    </tr>
+
+    <tr id="step-3">
+      <td class="label">
+        <%= f.label :sender, 'Name:' %>
+      </td>
+      <td>
+        <div id="referral-sender-container">
+          <%= f.text_field :sender, :placeholder => 'Your Name', :maxlength => 20, :required => true %>
+        </div>
+      </td>
+      <td>
+        <div class="indicator-container">
+          <div class='referral-step-indicator'>
+            <div class="arrow"></div>
+            <span><%= tslt('referral step 3') %></span>
+          </div>
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="label">
+        <%= f.label :message, 'Message:' %>
+      </td>
+      <td>
+        <div id='referral-default-msg-container'>
+          <%= tslt('referral default email') %>
+        </div>
+      </td>
+      <td>
+      </td>
+    </tr>
+
+    <tr id="step-4">
+      <td></td>
+      <td>
+        <div id="referral-msg-container">
+          <%= f.text_area :message, :placeholder => tslt('referral optional message placeholder') %>
+          <span class="max-length-notice"><%= tslt('referral message max length notice') %></span>
+        </div>
+      </td>
+      <td>
+        <div class="indicator-container">
+          <div class='referral-step-indicator'>
+            <div class="arrow"></div>
+            <span><%= tslt('referral step 4') %></span>
+          </div>
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <div style='width:870px'>
+          <%= f.submit 'Submit', :class => 'button disabled', :style => 'margin: 0 auto;' %>
+        </div>
+      </td>
+    </tr>
+
+  </tr>
+</table>
+
+<% end %>

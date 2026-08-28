@@ -1,0 +1,48 @@
+<% content_for :title, "TERA Guild Battles Leaderboard" %>
+<section id="body_content">
+  <h1 class="guild-battles">Guild Battles</h1>
+  <section id="wide_body">
+    <div class="inner">
+      <% if @message && @message.content_for("Wide Body") && !@message.content_for("Wide Body").blank? %>
+        <%= raw @message.content_for("Wide Body") %>
+        <hr />
+      <% end %>
+      <div class="breadcrumbs">
+        <a href="/data">Leaderboards</a> &gt; Guild Battles &gt; Battles
+      </div>
+      <div id="guild-battle-flags">
+        <%= render :partial => "guild_navigation", :locals => {:board => @board} %>
+        <div>
+          <ul id="top-three">
+          <% @guild_count.times do |i| %>
+            <li id="place-<%= i+1 %>"><span><%= @guilds[i].name %></span></li>
+          <% end %>
+          </ul>
+        </div>
+      </div>
+      <% @lastrank = 0; @lastwins = (@guilds.length > 0 ? (@guilds[0].battle_wins || 0) : 0) + 1 %>
+      <table id="guild-battle-leaderboard" class="leaderboard">
+        <thead>
+          <tr>
+            <th width="50">Rank</th>
+            <th width="200">Guild Name</th>
+            <th width="200">Server</th>
+            <th width="100">Battles</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr id="my-stats" style="display:none;text-align:center;" ><td colspan=4><%= link_to('Log in', sign_in_uri) %> to view your stats here.</td></tr>
+          <tr><td>&#x22EE;</td><td>&#x22EE;</td><td>&#x22EE;</td><td>&#x22EE;</td></tr>
+          <%= render :partial => "guild_battles_lb_row", :collection => @guilds %>
+        </tbody>
+      </table>
+      <%= render :partial => "last_updated" %>
+    </div>
+    <div class="bottom-decor"></div>
+    <script>
+      $(function(){
+        GamePortal.showMyGuildWinStats('<%= @board %>');
+      });
+    </script>
+  </section>
+</section>

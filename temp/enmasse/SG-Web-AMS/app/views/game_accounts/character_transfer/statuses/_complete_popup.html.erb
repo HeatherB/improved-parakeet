@@ -1,0 +1,12 @@
+<div class="transfer-status complete"><%= image_tag 'character_transfer/transfer-complete-icon.png' %><%= tslt('transfer complete') %></div>
+
+<div class="transfer-requirements">
+  <%= tslt('character transfer description') %>
+</div>
+
+<div class="transfer-actions">
+<a class="btn grey clickable" id='btn-close'><%= tslt('close window') %></a>
+<script>
+  $('#btn-close').click(function() { $.colorbox.close(); });
+</script>
+</div>

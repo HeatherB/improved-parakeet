@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<%= render :partial => '/refinery/html_tag' %>
+<%= render :partial => '/refinery/head' %>
+<style type="text/css">
+#eme-bar {
+  z-index:9999;
+}
+#eme-bar .wrapper {
+    min-width: 320px;
+    margin: 0 auto;
+    max-width: 100%;
+    width: 100%;
+    height:auto;
+    overflow:visible;
+}
+</style>
+  <body>
+    <%= EMEGlobalAssets.snippet("eme-bar", {:create_link => "https://#{Rails.application.config.account_server}/tera/sign-up", :eme_bar => true, :games_menu => true, :alinks => true}) %>
+    <%#= render :partial => '/shared/simple_eme_bar' %>
+    <%= yield %>
+
+    <div class="footer-wrapper">
+      <%#= EMEGlobalAssets.snippet(:footer, :game => "TERA") %>
+      <%= render :partial => '/shared/footer' %>
+      <!--<footer id="footer" class="row">
+        <%#= render :partial => '/refinery/footer' -%>
+      </footer>-->
+    </div>
+    <%= render :partial => '/shared/footer_js' %>
+  </body>
+</html>

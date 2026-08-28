@@ -1,0 +1,46 @@
+<!-- redeem -->
+<div class='ng-modal nopop' style="width: 420px;">
+  <!--<div class='ng-modal-overlay' ng-click='hideModal()'></div>-->
+  <div class='ng-modal-dialog' ng-style='dialogStyle'>
+    <div class='popup'>
+      <div class='pop-header'>
+        <img src='img/eme-wordmark.png' alt='En Masse Entertainment' />
+      </div>
+      <div class='ng-modal-dialog-content'>
+
+        <div class="pop-content narrowLayout">
+          <h2>Code Redeem Failed</h2>
+          <div class="inner-pop code-box">
+
+            <!-- tell the reason why this has failed -->
+            <ul>
+              <li ng-repeat='message in ngDialogData.errorMessages'> {{message}} </li>
+            </ul>
+
+
+            <!-- <div>That code has already been used or is invalid.
+              <ul>
+                <li><span class="question">(?)</span>
+                  <ul>
+                    <li>
+                      <div class="answer" >
+                        <p>The code cannot be used more than once, or you may have entered a typo.</p>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div> -->
+            <div><a ng-click='retryRedeem()'>Re-enter Code</a></div>
+            <div><p>Having trouble? <a ng-click='openWebNoSession("https://support.enmasse.com/ava")'>Contact Customer Support</a></p></div>
+          </div><!-- end of inner pop -->
+        </div>
+
+
+      </div>
+      <div class='pop-footer'>
+        <a class='back' id='closeLogin' ng-click='closeThisDialog(0)'>close this window</a>
+      </div>
+    </div>
+  </div>
+</div>

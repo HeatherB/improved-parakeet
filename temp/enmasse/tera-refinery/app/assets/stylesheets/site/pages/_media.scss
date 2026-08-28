@@ -1,0 +1,31 @@
+section#wide_body > div.hubteaser {
+  padding:0px;
+  margin:10px;
+  position: relative;
+  width: 520px;
+  height: 300px;
+  float: left;
+  a {
+    img { opacity: 0.9; }
+    &:hover img { opacity: 1.0; }
+  }
+
+  .hubteaser-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 5px 10px;
+    background: $black;
+    background: rgba($black, 0.9);
+
+    a {
+      position: relative;
+      color: $linkColor;
+      &:hover {
+        color: $linkHover;
+        text-decoration: underline;
+      }
+    }
+  }
+}

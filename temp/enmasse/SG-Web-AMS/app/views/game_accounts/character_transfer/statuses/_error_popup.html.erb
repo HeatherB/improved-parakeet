@@ -1,0 +1,25 @@
+<div class="transfer-status error"><%= image_tag 'character_transfer/transfer-error-icon.png' %><%= tslt('transfer error') %></div>
+
+<div class="transfer-requirements">
+  <%= tslt('oh no we encountered errors attempting transfer') %>
+  <div class="transfer-reasons">
+    <% if @character_transfer.return_code.present? %>
+      <ul>
+        <% CharacterTransfer.parse_return_code(@character_transfer.return_code).each do |error| %>
+          <li><%= error.is_a?(Array) ? tslt(error.last, :original_msg_if_empty=>true) : tslt(error, :original_msg_if_empty=>true) %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+
+  <div class="transfer-suggestions">
+    <%= tslt('transfer error recommendations') %>
+  </div>
+</div>
+
+<div class="transfer-actions">
+<a class="btn grey clickable" id='btn-close'><%= tslt('close window') %></a>
+<script>
+  $('#btn-close').click(function() { $.colorbox.close(); });
+</script>
+</div>

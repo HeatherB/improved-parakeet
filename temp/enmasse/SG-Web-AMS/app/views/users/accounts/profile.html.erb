@@ -1,0 +1,166 @@
+<% content_for :facebook do %>
+  <div id="fb-root"></div>
+  <script type="text/javascript">
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId  : "<%= SECURE_CONFIG['facebook']['id'] %>",
+        status : true,
+        cookie : true,
+        xfbml  : true,
+        version: 'v2.6'
+      });
+
+      var permissions = 'email,user_birthday,user_friends';
+
+      $('.connect-facebook-link').click(function(e) {
+        e.preventDefault();
+
+        _gaq.push(['_trackEvent', 'Accounts', 'Start Facebook Connect Process', 'existing account']);
+
+        FB.login(function(response) {
+          if (response.authResponse) {
+            handleFacebookLogin(false);
+          }
+        }, { scope: permissions });
+      });
+
+      $(document).trigger('fbInit');
+    };
+
+    (function(d) {
+      var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+      js = d.createElement('script'); js.id = id; js.async = true;
+      js.src = "//connect.facebook.net/en_US/sdk.js";
+      d.getElementsByTagName('head')[0].appendChild(js);
+    }(document));
+  </script>
+<% end %>
+
+<% title "Profile Management" %>
+
+<div id="content">
+<!--rounded corners-->
+  <div class="content-top account-man">
+    <%= render :partial => "account_nav", :locals => { :current => "Profile Management" }%>
+  </div>
+<!--end rounded corners-->
+  <div class="content-block">
+    <%= render :partial => "account_sub_nav", :locals => { :title => tslt("profile management") } %>
+<!--start left column-->
+    <div class="left-column">
+      <h2><%= tslt("settings")%></h2>
+
+      <div class="settings">
+        <h3><%= tslt("login details")%></h3><hr />
+        <ul class="labels">
+          <li><%=tslt("email")%>:</li>
+          <li><%=tslt("password")%>:</li>
+        </ul>
+        <ul class="values">
+          <li><%= h(@user.email) %></li>
+          <li>********</li>
+        </ul>
+        <ul class="buttons">
+          <li><a href="#" class="default-button btn-6 edit-email-link"><%=tslt("edit")%></a></li>
+          <li><a href="#" class="default-button btn-6 edit-password-link"><%=tslt("edit")%></a></li>
+        </ul>
+        <div class="clear"></div>
+
+
+        <% if @user.new_email.present? %>
+          <p><%= tslt("you have a pending email change request")%>.</p><br />
+          <%= render :partial => "pending_email_change", :locals => { :user => @user } %>
+        <% end %>
+
+      </div>
+
+      <div class="settings">
+        <h3><%= tslt("notification preferences")%></h3>
+        <hr />
+        <%= form_tag(mailing_list_subscriptions_update_path, :id => "update-notifications-form", :class => "default", :method => :put) do %>
+          <% @mailing_lists.each do |ml| %>
+            <div>
+              <%= check_box_tag "subscribe[]", ml.id, @user.mailing_lists.include?(ml) %> <%= ml.display_name %>
+              <%= hidden_field_tag "mailing_list_ids[]", ml.id %>
+            </div>
+          <% end %>
+          <ul class="buttons">
+            <li><a href="#" class="default-button btn-6 submit-link" data-form="update-notifications-form" data-wait-text="<%=tslt("updating")%>"><%= tslt("update")%></a></li>
+          </ul>
+          <div class="clear"></div>
+        <% end %>
+      </div>
+
+      <div class="settings">
+        <h3><%= tslt("connection settings")%></h3>
+        <hr />
+        <% if @facebook_authorization %>
+          <p class="pull-left"><%= tslt("your facebook account is connected") %></p>
+          <% if current_user.crypted_password %>
+            <%= link_to "", "#", :class => "disconnect-authorization-link disconnect-facebook-btn pull-right", "data-provider" => "facebook", :title => tslt("disconnect"), "data-set-password" => false %>
+          <% else %>
+            <%= link_to "", "#", :class => "disconnect-authorization-link disconnect-facebook-btn pull-right", "data-provider" => "facebook", :title => tslt("disconnect"), "data-set-password" => true %>
+          <% end %>
+        <% else %>
+          <p class="pull-left"><%= tslt("your facebook account is not connected") %></p>
+          <%= link_to "", "javascript:void(0);", :title => tslt("connect"), :class => "connect-facebook-link connect-facebook-btn pull-right" %>
+        <% end %>
+        <div class="clear" style="padding-bottom: 10px"></div>
+        <% if @steam_authorization %>
+            <p class="pull-left"><%= tslt("your steam account is connected") %></p>
+            <%= link_to "Disconnect", "#", :class => "disconnect-authorization-link default-button btn-7 pull-right", "data-provider" => "steam", :title => tslt("disconnect") %>
+        <% else %>
+            <p class="pull-left"><%= tslt("your steam account is not connected") %></p>
+        <% end %>
+        <div class="clear"></div>
+      </div>
+    </div>
+<!--end left column-->
+
+<!--start right column-->
+    <div class="right-column">
+      <h2><%= tslt("account protection")%></h2>
+
+      <div class="settings">
+        <h3><%=tslt("account armor")%></h3><hr />
+        <ul class="labels">
+          <li><%=tslt("enabled")%>:</li>
+        </ul>
+        <ul class="values">
+          <li><%= @user.engarde_enabled? ? "#{tslt("yes")}" : "#{tslt("no")}" %></li>
+        </ul>
+        <ul class="buttons">
+          <li><a href="#" class="edit-engarde-link default-button btn-6"><%=tslt("edit")%></a></li>
+        </ul>
+        <div class="clear"></div>
+      </div>
+
+      <div class="settings">
+        <h3>Payment Method</h3>
+        <hr />
+        <% if @billing_info %>
+            <ul class="values">
+              <li>Card ending in <%= @billing_info.ccacct %></li>
+            </ul>
+            <%= form_tag(remove_billing_info_users_account_path, :id => "remove-billing-info-form", :class => "default", :method => :put) do %>
+                <ul class="buttons">
+                  <li><a href="#" class="default-button btn-6 submit-link" data-form="remove-billing-info-form" data-wait-text="Removing">Remove</a></li>
+                </ul>
+            <% end %>
+        <% else %>
+            <p class="pull-left">No card on file.</p>
+        <% end %>
+        <div class="clear"></div>
+      </div>
+
+    </div>
+<!--end right column-->
+    <div class="clear"></div>
+  </div>
+<!--rounded corners-->
+<div class="content-bottom"></div>
+<!--end rounded corners-->
+</div>
+
+<%= render :partial => "settings_colorboxes" %>
+<%= render :partial => "sub_nav_colorboxes" %>

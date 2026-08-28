@@ -1,0 +1,13 @@
+<%= render :partial => '/launcher/battleplans_launcher_style' %>
+<link href='https://fonts.googleapis.com/css?family=Amaranth' rel='stylesheet' type='text/css'>
+<div class='content-launcher index'>
+  <%= render :partial => "shared/flash_notices" %>
+  <div class="form-signup">
+    <%= render :partial => "/launcher/users/form"%>
+  </div>
+  <p class="class-name-here">By creating an account, you are accepting the <a href="/" target="new">Terms of Service</a>.</p>
+</div>
+
+<div class="account-links">
+  <%= link_to('Back to Sign In', "/launcher/#{@game.id}/signin") %>
+</div>

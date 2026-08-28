@@ -1,0 +1,48 @@
+<div id="class-info">
+  <div id="priest-icon"></div>
+  <h2>Priest</h2>
+  <p>Role: Primary healer. Priests restore health and vitality, as well as boost attacks with buffs.</p>
+</div>
+<% if @level <= 29 %>
+  <div id="skills">
+    <div class="skill">
+      <span class="icon backstep"></span>
+      <p>Backstep</p>
+      <p>Quickly back up out of harm's way.</p>
+    </div>
+    <div class="skill">
+      <span class="icon purifying-circle"></span>
+      <p>Purifying Circle</p>
+      <p>Instantly removes all harmful effects from up to 15 allies within 17m.</p>
+    </div>
+    <div class="skill">
+      <span class="icon focus-heal"></span>
+      <p>Focus Heal</p>
+      <p>Restore HP to 2 targeted party members within 19m (modified by your heal bonus).</p>
+    </div>
+    <div class="skill">
+      <span class="icon healing-circle"></span>
+      <p>Healing Circle</p>
+      <p>Heal several nearby group members other than you, modified by your heal bonus.</p>
+    </div>
+  </div>
+<% else %>
+  <div id="crystals">
+    <div class="pve">
+      <h3>PvE Crystals</h3>
+      <ul>
+        <li class="red-crystal">Swift, brilliant, carving</li>
+        <li class="blue-crystal">Hardy, poised</li>
+        <li class="green-crystal">Succoring, grounding</li>
+      </ul>
+    </div>
+    <div class="pvp">
+      <h3>PvP Crystals</h3>
+      <ul>
+        <li class="red-crystal">Swift, brilliant, carving</li>
+        <li class="blue-crystal">Relentless, grieving</li>
+        <li class="green-crystal">Indomitable</li>
+      </ul>
+    </div>
+  </div>
+<% end %>

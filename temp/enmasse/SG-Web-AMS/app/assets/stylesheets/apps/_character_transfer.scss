@@ -1,0 +1,612 @@
+@import "base/vars";
+@import "base/shared_mixins";
+
+#app-character_transfer {
+  font-size:16px;
+  hr{
+    background-color:#282929;color:#282929;height:1px;margin:20px 0;
+  }
+  .double-border {
+    border: 2px solid #000;
+    outline: 4px solid #4b4f56;
+  }
+  #character-transfer-message{
+    height: auto;
+    margin-bottom: 20px;
+    h2 {
+      padding: 0;
+      margin-bottom: 10px;
+    }
+    h3 {
+      font-size: 18px;
+      text-transform: none;
+      margin: 0
+    }
+  }
+  .heading {
+    @include gradient(#30343b, #1e2128);
+    border-bottom: 2px solid #14171b;
+    height: 38px;
+    line-height: 38px;
+    
+    h2 {
+      font-family: "serif6_beta_rgbold",Times,serif;
+      border: none;
+      padding: 0;
+      margin: 0 0 0 16px;
+      color: #ddd;
+    }
+  }
+  #cboxTopLeft, #cboxTopRight, #cboxBottomLeft, #cboxBottomRight, #cboxMiddleLeft, #cboxMiddleRight, #cboxTopCenter, #cboxBottomCenter, #cboxContent {
+    background: none;
+    &.cboxIE6 { background: none; }
+  }
+  #cboxClose{position:absolute; top:6px; right:10px; background: image-url("colorbox/eme_close.png") no-repeat 0 0; width:25px; height:25px; text-indent:-9999px;}
+  #cboxClose.hover{background-position:0 0;}
+
+  #am-nav{height:49px;
+    li{float:left;padding-right:25px;
+      a{display:block;padding:10px;font-weight:bold;
+        span{background: image-url("site/icons.png") -20px 0px no-repeat;height:20px;margin-left:5px;}
+      }
+      a.active, a:hover{background-color:#272727;}
+    }
+    ul#user-details{padding-top:10px;float:right;color:#606060;
+      li{padding-right:5px;
+        a{color:#055084;padding:0px;display:inline;font-weight:normal;}
+        a:hover{background:none;text-decoration:underline;}
+      }
+    }
+  }
+  .sub-nav-btn{width:475px;float:right;
+    li{float:right; margin-left: 5px; 
+      a { font-size: 14px !important; }
+    }
+  }
+
+  #transfer-flow {
+    list-style: none;
+    li.step-header {
+      font-size: 22px;
+      color: $white;
+      margin: 0 0 15px 0px;
+    }
+    .flow-step {
+      float: left;
+      margin-right: 10px;
+    }
+
+    .flow-step.disabled {
+      > li { color: #333; }
+    }
+
+    #initiate-payment {
+      .button {
+        background-image: image-url("character_transfer/initiate-transfer-btn.png");
+        width: 223px;
+        height: 43px;
+        display: block;
+        &:hover {
+          background-position: bottom;
+        }
+      }
+    }
+
+    #initiate-payment.disabled {
+      .button {
+        background-image: image-url("character_transfer/initiate-transfer-btn-inactive.png");
+      }
+    }
+  }
+
+  #server-list {
+    .server {
+      font-size: 18px;
+      cursor: pointer;
+      line-height: 34px;
+
+      .name {
+        color: $white;
+      }
+
+      .character-list {
+        font-size: 18px;
+
+        li {
+          border-top: 1px solid #595959;
+          padding-left: 10px;
+          position: relative;
+
+          .eligibility {
+            display: block;
+            position: absolute;
+            top: 0px;
+            right: 15px;
+            font-size: 14px;
+            z-index: 2;
+            height: 34px;
+            padding-left: 20px;
+          }
+
+          .unavailable {
+            background: #333 image-url("character_transfer/transfer-unavailable-icon-small.png") no-repeat center right;
+            padding-right: 20px;
+          }
+
+          .in-progress {
+            background: #333 image-url("character_transfer/transfer-progress-icon-small.png") no-repeat center right;
+            color: #fff799;
+            padding-right: 20px;
+          }
+
+          .available {
+            background: image-url("character_transfer/transfer-selected-icon-small.png") no-repeat center right;
+            padding-right: 20px;
+            color: #63a3d0;
+          }
+
+          .progress {
+            position: absolute;
+            display: none;
+            right: 10px;
+            top: -13px;
+            width: 16px;
+            height: 16px;
+          }
+        }
+
+        li.selected, li.hovered {
+          background-color: #3e3e3e;
+
+          .character-name { color: #63a3d0; }
+
+          .eligibility { z-index: 0; }
+
+          .unavailable {
+            background: #3e3e3e image-url("character_transfer/transfer-unavailable-icon-small.png") no-repeat center right;
+          }
+
+          .in-progress {
+            background: #3e3e3e image-url("character_transfer/transfer-progress-icon-small.png") no-repeat center right;
+          }
+
+          .available {
+            background: #3e3e3e image-url("character_transfer/transfer-selected-icon-small.png") no-repeat center right;
+          }
+        }
+
+        .character-name {
+          color: #0297ff;
+        }
+      }
+    }
+
+    .server.closed {
+      padding: 5px 15px 5px 30px;
+      width: 385px;
+
+      background: image-url("character_transfer/transfer-server-background.png");
+      height: 34px;
+      &:hover {
+        background-position: bottom;
+      }
+    }
+
+    .server.open {
+      display: none;
+
+      div {
+        padding: 5px 15px 5px 30px;
+        width: 385px;
+      }
+
+      .top {
+        background: image-url("character_transfer/character-list-top.png") no-repeat;
+        height: 35px;
+        padding: 0 15px 0 30px;
+        line-height: 45px;
+      }
+
+      .mid {
+        background: image-url("character_transfer/character-list-mid.png") repeat-y;
+      }
+
+      .bottom {
+        padding: 0;
+        height: 5px;
+        width: 430px;
+        background: image-url("character_transfer/character-list-bot.png") no-repeat;
+      }
+    }
+  }
+
+  #transfer-history {
+    margin-top: 60px;
+
+    h2 {
+      padding: 0;
+      margin-bottom: 20px;
+    }
+
+    .transfer {
+      font-size: 18px;
+      height: 60px;
+      line-height: 60px;
+      padding: 0 15px;
+
+      .character-name, .from, .to, .date {
+        color: $white;
+      }
+
+      .character-name, .date {
+        font-weight: bold;
+      }
+
+      .date {
+        margin-right: 20px;
+      }
+
+      img {
+        margin-top: 10px;
+      }
+    }
+
+    .even {
+      background-color: #222222;
+    }
+
+    .odd {
+      background-color: #121212;
+    }
+  }
+
+  .transfer-popup, #transfer-status-popup {
+    border: solid 2px #30343b;
+    outline: solid 2px #000;
+    @include gradient(#14181d, #1d2128);
+    color: #bbb;
+    font-size: 16px;
+
+    h2 {
+      border-color: #626262;
+      padding: 0px 0px 5px;
+    }
+
+    .transfer-description {
+      margin: 10px 20px;
+      text-align: center;
+
+      .white {
+        color: $white;
+      }
+
+      .date, .character-name {
+        font-weight: bold;
+      }
+
+      .date { margin-right: 15px; }
+    }
+
+    .transfer-requirements {
+      text-align: left;
+
+      h2 {
+        color: #979797;
+        border: 0;
+      }
+      .pull-right {
+        position: absolute;
+        bottom: 20px;
+        right: 10px;
+      }
+      color: #999999;
+      margin: 10px 40px;
+      position: relative;
+    }
+
+    .btn {
+      cursor: pointer;
+      width: 223px;
+      height: 43px;
+      display: block;
+      float: left;
+      font-size: 18px;
+      font-weight: bold;
+      color: $white;
+      line-height: 43px;
+      text-align: center;
+      position: absolute;
+      margin-top: 10px;
+    }
+
+    .transfer-status-description {
+      margin: 20px;
+      text-align: center;
+
+      h2 {
+        border: 0px;
+      }
+    }
+
+    .transfer-actions {
+      margin-bottom: 20px;
+    }
+
+    .btn#btn-close {
+      position: relative;
+      float: none;
+      margin: 0 auto;
+    }
+
+    .btn.grey {
+      background: image-url("character_transfer/transfer-btn-grey.png") no-repeat;
+    }
+
+    .btn.blue {
+      background: image-url("character_transfer/transfer-btn-blue.png") no-repeat;
+    }
+
+    .btn#btn-cancel {
+      left: 60px;
+    }
+
+    .btn#btn-confirm, .btn#submitting {
+      right: 60px;
+    }
+
+  }
+
+  #destination-dropdown {
+    position: relative;
+    #server-select-container {
+      background: image-url("character_transfer/destination-dropdown-input.png") no-repeat;
+      width: 360px;
+      height: 43px;
+
+      input {
+        background: none;
+        width: 310px;
+        height: 42px;
+        line-height: 42px;
+        padding-left: 40px;
+      }
+
+      &.selected {
+        background-position: center;
+      }
+    }
+
+    #server-select-list {
+      position: absolute;
+      background: image-url("character_transfer/destination-dropdown-list.png") no-repeat;
+      width: 360px;
+      height: 194px;
+      overflow: auto;
+
+      ul {
+        padding: 10px 30px;
+      }
+
+      li {
+        list-style-type: disc;
+        padding: 2px 0;
+        cursor: pointer;
+
+        span {
+          color: #0297ff;
+          &:hover {
+            color: #5bbcff;
+          }
+        }
+      }
+    }
+
+    &.disabled {
+      #server-select-container {
+        background-position: bottom;
+      }
+    }
+  }
+
+  #transfer-notices {
+    margin-top: 20px;
+    width: 360px;
+
+    .server-list {
+      list-style: disc;
+      color: #AD3737;
+      margin: 10px 0 0 20px;
+    }
+  }
+
+  .transfer-status {
+    text-align: center;
+    &.error {
+      color: #ff6c00;
+    }
+
+    &.complete {
+      color: #39b54a;
+    }
+
+    &.progress {
+      color: #fff799;
+    }
+
+    img {
+      margin-right: 5px;
+    }
+  }
+
+  .transfer-popup {
+    .transfer-reasons {
+      padding: 20px 3px;
+    }
+    ul {
+      margin: 20px;
+      li {
+        list-style: disc;
+      }
+    }
+  }
+
+  .transfer-history-status {
+    cursor: pointer;
+  }
+
+  #transfer-history-popup {
+    width: 800px;
+  }
+
+  .payment-popup {
+    border: solid 2px #30343b;
+    outline: solid 2px #000;
+    @include gradient(#14181d, #1d2128);
+    color: #bbb;
+    width: 660px;
+    min-height: 300px;
+    font-size: 16px;
+
+    .purchase-info {
+      padding: 10px;
+      padding-left: 280px;
+      position: relative;
+      min-height: 210px;
+      
+      .purchase-image {
+        margin: 8px 0 0 8px;
+        position: absolute;
+        top: 6px;
+        left: 10px;
+      }
+      .purchase-description {
+        margin-top: 3px;
+        margin-left: 10px;
+      }
+    }
+
+    .payment-actions {
+      min-height: 150px;
+
+      .emp-icon {
+        background: image-url("character_transfer/emp.png") no-repeat 2px 0px;
+        background-size: 18px 18px;
+        width: 20px;
+        height: 20px;
+        margin-left: 5px;
+        margin-right: 5px;
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      .payment-transfer-description {
+        background-color: #2a2e34;
+        border: solid 2px #4b4f56;
+        outline: solid 2px #000;
+        padding: 10px;
+        margin: 10px 14px 0 14px;
+        text-align: center;
+        color: #fff;
+        
+        span {
+          &.character-name, &.from-server, &.to-server {
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 1.1em;
+          }
+        }
+
+        .name {
+          margin-bottom: 20px;
+        }
+        .servers {
+          img.arrow {
+            margin: 0 4px 4px 4px;
+          }
+        }
+      }
+
+      .price-description {
+        display: block;
+        float: right;
+        margin: 15px 30px 15px 0;
+      }
+
+      hr {
+        clear: both;
+        margin: 15px 25px;
+        background: rgba(48,52,59,0.8);
+      }
+
+      .actions {
+        min-height: 43px;
+        margin-right: 20px;
+        margin-bottom: 10px;
+
+        #close-without-buying {
+          float: left;
+          margin: 12px 10px 0 0;
+        }
+
+        .btn {
+          cursor: pointer;
+          width: 223px;
+          height: 43px;
+          display: block;
+          float: left;
+          font-size: 18px;
+          font-weight: bold;
+          color: $white;
+          line-height: 43px;
+          text-align: center;
+          position: absolute;
+          margin-top: 10px;
+          
+          &.grey {
+            background: image-url("character_transfer/transfer-btn-grey.png") no-repeat;
+          }
+
+          &.blue {
+            background: image-url("character_transfer/transfer-btn-blue.png") no-repeat 0 0;
+            
+            &:hover {
+              background: image-url("character_transfer/transfer-btn-blue.png") no-repeat 0 -43px;
+            }            
+          }
+
+          &#btn-confirm, &#submitting {
+            position: relative;
+            float: right;
+            margin: 0;
+          }
+          
+        }
+  
+      }
+
+    }
+
+    .error-messages {
+      background-color: #ff0000;
+      background: rgba(251,0,0,0.36);
+      border: 1px solid #fb0000;
+      color: #ddd;
+      padding: 10px;
+      line-height: 1.2em;
+      margin: 10px;
+
+      a:link, a:visited, a:hover, a:active {
+        color: #0297ff;
+      }
+      .icon {
+        display: block;
+        float: left;
+        width: 23px;
+        height: 23px;
+        background: image-url("site/flash-icons.png") no-repeat 0 0;
+        margin: -2px 10px 0 0;
+      }
+    }
+
+  }
+}

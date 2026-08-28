@@ -1,0 +1,44 @@
+<% content_for :javascripts do %>
+  <%= javascript_include_tag 'server_status' %>
+<% end %>
+<% cache_opts = Rails.application.config.server_status_cache_options %>
+<% cache("server_status_show", cache_opts) do %>
+  <% if @page.content_for("Article Header") %>
+    <section class="article_header">
+      <%= raw @page.content_for("Article Header") %>
+    </section>
+  <% end %>
+  <section id="body_content">
+    <div class="breadcrumbs"></div>
+    <section id="wide_body" class="wrapper">
+      <time id="clock" style="float:right;"></time>
+      <h1>Server Status</h1>
+      <% if @page.content_for("Wide Body") && !@page.content_for("Wide Body").blank? %>
+        <%= raw @page.content_for("Wide Body") %>
+        <hr />
+      <% end %>
+      <% servers = WebserviceCacher.latest_server_statuses.select{|s| s.category.downcase != 'event'} %>
+      <%= render "server_statuses/table", :servers => servers %>
+    </section>
+    <div class="bottom-decor"></div>
+  </section>
+<% end %>
+<script type="text/javascript">
+  window.onload = function(){
+    var loadTime = new Date();
+    var serverTime = <%= (Time.now.in_time_zone("Pacific Time (US & Canada)").to_f * 1000).to_i %>,
+        timeZoneOffset = (<%= Time.now.in_time_zone("Pacific Time (US & Canada)").gmt_offset / 60 %> + (loadTime.getTimezoneOffset())) * 60000,
+        clock = document.getElementById("clock");
+
+    function displayClock() {
+      var t = new Date( serverTime + (new Date() - loadTime) + timeZoneOffset);
+      var ampm = (t.getHours() >= 12) ? 'p.m.' : 'a.m.';
+      var hours = t.getHours() % 12;
+      hours = (hours < 1) ? 12 : hours;
+      var minutes = ((t.getMinutes() <= 9) ? "0" : "") + t.getMinutes();
+      var seconds = ((t.getSeconds() <= 9) ? "0" : "") + t.getSeconds();
+      clock.innerHTML = ( hours + ":" + minutes + ":" + seconds + " " + ampm + " Pacific");
+    }
+    setInterval(displayClock, 999);
+  };
+</script>

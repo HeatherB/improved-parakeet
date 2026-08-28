@@ -1,0 +1,45 @@
+<div id='server-list' class='flow-step'>
+  <li class="step-header">1. <%= tslt 'select a character to transfer' %></li>
+  <% @servers.each do |server| %>
+    <div class="server closed">
+      <span class="name"><%= server['name'].strip %></span>
+      <span class="pull-right"><%= server['category'].strip %></span>
+    </div>
+
+    <div class="server open" data-server-name="<%= server['name'] %>">
+      <div class="top">
+        <span class="name"><%= server['name'].strip %></span>
+        <span class="pull-right"><%= server['category'] %></span>
+      </div>
+
+      <div class="mid">
+        <ul class="character-list">
+          <% if server['characters'].present? %>
+            <% server['characters'].each do |character| %>
+              <% in_progress = (@in_progress_transfers[character['server_id']].is_a?(Array) and @in_progress_transfers[character['server_id']].include?(character['char_srl'])) ? true : false %>
+              <li data-character-srl="<%= character['char_srl'] %>"
+                  data-server-id="<%= server['id'] %>"
+                  data-character-name="<%= character['char_name'] %>"
+                  data-server-name="<%= server['name'] %>"
+                  class="character<%= " disabled" if in_progress %>">
+                <span class="character-name"><%= character['char_name'] %></span>
+                -
+                lvl. <%= character['char_level'] %>
+                <span class="eligibility<%= " in-progress" if in_progress %>"><%= tslt('transfer in progress indicator') if in_progress %></span>
+                <div class="progress">
+                  <%= image_tag 'icons/ajax-loader.gif' %>
+                </div>
+              </li>
+            <% end %>
+          <% else %>
+            <li>
+              <%= tslt('no characters on this server') %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+
+      <div class="bottom"></div>
+    </div>
+  <% end %>
+</div>

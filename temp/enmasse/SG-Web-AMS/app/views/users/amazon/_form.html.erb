@@ -1,0 +1,132 @@
+<%= get_update_token %>
+<input type="hidden" name="user[io_black_box]" id="user_io_black_box" value="" />
+<div id="right-column">
+  <div id="hint"></div>
+</div>
+<div id="left-column">
+  <div class="row" id="email">
+    <% if @user.legacy_account? %>
+      <div class="label1"><%= f.label :email, tslt("email address") %></div>
+      <div class="input-text">
+        <%= @user.email %>
+        <%= f.hidden_field :email %>
+        <%= f.hidden_field :amazon_request_token, params[:requestId] %>
+        <%= hidden_field_tag :ticket, params[:ticket] %>
+      </div>
+    <% else %>
+      <div class="label1"><%= f.label :email, tslt("email address") %></div>
+      <div class="input iparent <%= user_error_css(@user, :email) %>">
+        <%= f.email_field :email,
+          :class => "focus hintable",
+          :maxlength => 64,
+          :autocomplete => "off",
+          :type => "email",
+          :placeholder => tslt('input placeholder email') %>
+      </div>
+      <div class="check <%= user_error_css(@user, :email, true) %>"></div>
+      <div class="label2"><%= f.label :email_confirmation, tslt("verify") %></div>
+      <div class="input iparent <%= user_error_css(@user, :email_confirmation) %>">
+        <%= f.text_field :email_confirmation,
+          :class => "hintable",
+          :maxlength => 64,
+          :autocomplete => "off" %>
+      </div>
+      <div class="check <%= user_error_css(@user, :email_confirmation, true) %>"></div>
+    <% end %>
+  </div>
+</div>
+
+<div class="clear-left"></div>
+<div class="row" id="password">
+  <div class="label1"><%= f.label :password, tslt("password") %></div>
+  <div class="input iparent <%= user_error_css(@user, :password) %>">
+    <%= f.password_field :password,
+      :class => "password hintable",
+      :rel => ".pstrength-meter-cont",
+      :placeholder => tslt('input placeholder password') %>
+  </div>
+  <div class="check <%= user_error_css(@user, :password, true) %>"></div>
+  <div class="label2"><%= f.label :password_confirmation, tslt("verify") %></div>
+  <div class="input iparent <%= user_error_css(@user, :password_confirmation) %>">
+    <%= f.password_field :password_confirmation,
+      :class => "hintable" %>
+  </div>
+  <div class="check <%= user_error_css(@user, :password_confirmation, true) %>"></div>
+</div>
+
+<div class="clear-left"></div>
+<div class="row" id="secret">
+  <div class="label1">
+    <%= f.label :secret_question_id, tslt("select a secret question") %>
+  </div>
+  <div class="input3 <%= user_error_css(@user, :secret_question_id) %>">
+    <%= f.select :secret_question_id,
+      @secret_questions.collect { |q| [q.question, q.id] },
+      { :prompt => tslt("select question") },
+      { :class => "easy-select hintable" } %>
+  </div>
+  <div id="secret_question_chk" class="check <%= user_error_css(@user, :secret_question_id, true) %>"></div>
+</div>
+
+<div class="clear-left"></div>
+<div class="row" id="secret-answer">
+  <div class="label1">
+    <%= f.label :secret_answer, tslt("secret answer") %>
+  </div>
+  <div class="input3 iparent <%= user_error_css(@user, :secret_answer) %>">
+    <%= f.text_field :secret_answer,
+      :class => "input3 hintable",
+      :autocomplete => "off",
+      :maxlength => 300,
+      :placeholder => tslt('input placeholder secret answer') %>
+  </div>
+  <div class="check <%= user_error_css(@user, :secret_answer, true) %>"></div>
+</div>
+
+<div class="clear-left"></div>
+<div class="row" id="dob">
+  <div class="label1">
+    <%= f.label :date_of_birth, tslt("date of birth") %>
+  </div>
+  <div class="input iparent <%= user_error_css(@user, :age) %>">
+    <%= f.text_field :date_of_birth,
+      :class => "hintable",
+      :autocomplete => "off",
+      :placeholder => "03/31/1992",
+      :value => (@user.present? && @user.date_of_birth.present? ? @user.date_of_birth.strftime("%m/%d/%Y") : "") %>
+  </div>
+  <div class="check <%= user_error_css(@user, :age, true) %>"></div>
+  <div class="date">(MM/DD/YYYY)</div>
+</div>
+<div class="clear"></div>
+<hr />
+<div id="submit">
+  <label class="label_check" for="user_receive_news">
+    <%= f.check_box :receive_news %>
+    <%= tslt("sign up for our newsletter for the latest news and offers")%>
+  </label>
+  <div class="newsletter">
+    <a href="http://tera.enmasse.com/sample-newsletter" target="_blank" data-img="account/sample-newsletter.png" class="preview"><%= tslt("see a sample newsletter")%></a>
+  </div>
+  <div style="clear:both;"></div>
+</div>
+<hr />
+<p class="smaller-text">
+  <%= tslt("en masse entertainment respects your privacy and is committed to protecting the personal info")%>
+  <a href="http://tera.enmasse.com/privacy-policy" target="_blank"><%= tslt("privacy policy")%></a>.
+</p>
+<a href="#" id="btn-create-account" class="default-button btn-1 disabled preview pseudo-submit-link" title="<%= tslt("please complete the registration form") %>"><%= tslt("create account")%></a>
+
+<script>
+  $(function() {
+    $('input').focus(function() {
+      $(this).parent().addClass('focus');
+    });
+
+    $('input:active').trigger('focus');
+
+    $('input').blur(function() {
+      $(this).parent().removeClass('focus');
+    });
+  });
+</script>

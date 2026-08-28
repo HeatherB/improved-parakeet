@@ -1,0 +1,44 @@
+<script type="text/javascript">
+  GAME_ID = <%= @game.id %>;
+  SLS_URL = "<%= "#{@game.settings(:sls_url)}/list.#{current_user.language.downcase}" %>";
+  CURRENT_LANGUAGE = "<%= current_language %>";
+  CUSTOMER_SUPPORT_URL = "<%= @game.settings(:customer_support_url) %>";
+  GAME_EXE = "<%= @game.exe_path %>";
+  ACCOUNT_NAME = "<%= current_user.screen_name %>";
+  ACCOUNT_EMAIL = "<%= current_user.email %>";
+  ACCOUNT_ID = <%= current_user.id %>;
+  GACCT_ID = <%= @game_account.id %>;
+  GACCT_ACCESS_TYPE = <%= @game_account.auth_access_type.to_i %>;
+  GACCT_IS_TRIAL = <%= @game_account.is_trial? %>;
+  DISPLAY_INFO_TITLE = "<%= escape_javascript(tslt("display info title")) %>";
+  DISPLAY_INFO_BODY = "<%= escape_javascript(tslt("display info body")) %>";
+  ELITE_STATUS = <%= @game_account.active_subscription? %>;
+
+  <% TRANSLATIONS.keys.select { |k,v| k.starts_with?("launcher_end_popup_") }.each do |t| -%>
+    LAUNCHER_EXIT_MSGS["<%= t.gsub("launcher_end_popup_", "") %>"] = "<%= escape_javascript(tslt(t)) %>";
+  <% end -%>
+
+  <% @game_settings.each do |row| -%>
+    GAME_SETTINGS_TABLE["<%= escape_javascript(row.key) %>"] = "<%= escape_javascript(row.value) %>";
+  <% end -%>
+
+  // if the launcher support a new protocol, use it
+  if ((typeof parent.OnHideLoginWindow === 'function') && (typeof parent.OnUpdateGame === 'function')) {
+      // Hide login window and start updating game
+      parent.OnHideLoginWindow();
+      parent.OnUpdateGame();
+  }
+  else {
+    // Use the old protocol
+    parent.LoginSuccess();
+  }
+</script>
+
+<% if false # indefinitely removing ams inline error popup %>
+<div style="display:none;">
+  <div id="game-message-popup">
+    <h1 id="popup-category"></h1>
+    <div id="popup-description"></div>
+  </div>
+</div>
+<% end %>

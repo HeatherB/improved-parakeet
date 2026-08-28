@@ -1,0 +1,9 @@
+<% rank = (@lastcomps == most_instance_runs_lb_row.completions) ? @lastrank : ( most_instance_runs_lb_row_counter + 1 )  %>
+<tr class="rank-<%= rank %>">
+  <td class="col-0"><%= rank %></td>
+  <td class="col-1"><%= most_instance_runs_lb_row.character.name %></td>
+  <td class="col-2"><%= most_instance_runs_lb_row.character.server.name %></td>
+  <td class="col-3"><%= most_instance_runs_lb_row.completions %></td>
+</tr>
+<% @lastrank = rank %>
+<% @lastcomps = most_instance_runs_lb_row.completions %>

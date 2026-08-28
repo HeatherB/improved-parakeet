@@ -1,0 +1,19 @@
+<% if @game_code %>
+    <h3>Game Code Redemption Status</h3><hr />
+    <%= render :partial => "shared/flash_notices" if @code_errors %>
+
+    <% if @promotion.present? %>
+      <% @skus.each do |sku| %>
+        <div class="sku-info left">
+          <% icon = sku.warehouse_sku_icon %>
+          <%= image_tag sku.warehouse_sku_icon.public_filename, :alt => "sku icon", :class => "sku-icon" if icon.present? %>
+        </div>
+        <div class="sku-info right">
+          <p><%= h(sku.title) %></p>
+          <p><%= add_breaks(h(sku.description)) %></p>
+          <div class="status-text"><%= sku_status_text(@promotion, @game_code, sku, @unredeemed_assets[sku.id]) %></div>
+        </div>
+        <div class="clear"></div>
+      <% end %>
+    <% end %>
+<% end %>

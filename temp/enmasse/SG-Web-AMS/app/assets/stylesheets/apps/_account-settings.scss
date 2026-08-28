@@ -1,0 +1,257 @@
+body.acct_pages {
+	.account-settings {
+		h1 {
+			padding: 20px 20px 0 10px;
+		}
+		.enter-code-btn {
+			margin-left: 10px;
+		}
+	}
+	.hover-info {
+		color: $blueDark;
+		.hover-reveal {
+			position: absolute;
+			left: -9999em;
+			background: rgba(0,0,0,0.8);
+			border-radius: 3px;
+			display: block;
+			padding: 10px;
+			color:$white;
+			text-transform: none;
+			&.showTip {
+				left: auto;
+			}
+		}
+		&:hover {
+			.hover-reveal {
+				left: auto;
+			}
+		}
+	}
+	.edit_btn {
+		width:54px;
+		padding: 3px 0;
+	}
+	.input_wrap {
+		background: $blueInput;
+		padding: 7px 11px;
+		border-radius: 3px;
+		input[type="text"], input[type="password"], .edit_btn, .text_input {
+			display: inline-block;
+			vertical-align:top;
+		}
+		input[type="text"], input[type="password"], .text_input {
+			width:calc(100% - 60px);
+			height:30px;
+			overflow:hidden;
+			border-right: 2px solid $blueInput;
+		}
+		.text_input {
+			color: $white;
+			text-align:left;
+		}
+		.edit_btn {
+			margin:0 0 4px 0;
+		}
+	}
+	.input_block {
+		display: block;
+		box-sizing: border-box;
+		padding: 20px 20px 0 20px;
+		h3 {
+			text-transform: capitalize;
+		}
+	}
+	.armor_label, .edit_btn {
+		display: inline-block;
+		vertical-align:top;
+	}
+	.armor_label {
+		width:calc(100% - 70px);
+		span, p {
+			display: inline-block;
+			vertical-align:top;
+		}
+		p {
+			width:calc(100% - 50px);
+			margin-left: 10px;
+		}
+	}
+	.copy {
+		p {
+			color:$white;
+		}
+	}
+	#support_tickets {
+		.wrapper {
+			padding: 0 0 10px 0;
+			background:$tableOdd;
+			button {
+				margin: 1em auto;
+			}
+		}
+	}
+	.buy-emp_btn {
+		width:206px;
+		margin:10px 0 20px;
+		margin-left: calc(100% - 206px);
+	}
+	.emp_amt {
+		color:$white;
+		font-size:27px;
+		line-height: 34px;
+	    font-weight:bold;
+	    padding-left:10px;
+	}
+	.pref_acct {
+		color:$white;
+		font-size:16px;
+	    padding-left: 10px;
+	}
+	#payment_details {
+		.edit_btn {
+			display: block;
+			margin-left: calc(100% - 55px);
+		}
+		.actions {
+			button, a {
+				width:260px;
+				margin: 5px 0 10px;
+			}
+			margin-left: calc(100% - 260px);
+		}
+	}
+	.elite_sub {
+		text-align:center;
+		.copy {
+			h2 {
+				font-size: 22px;
+				border-bottom: none;
+			}
+			p {
+				font-size:17px;
+				margin: 20px auto 10px;
+			}
+		}
+	}
+	.elite_sub_standing {
+		text-transform:uppercase;
+		.active {
+			color:$statusGreen;
+		}
+		.inactive {
+			color:$statusOrange;
+		}
+	}
+	.elite_sub_expire {
+		color:$statusOrange;
+		display: block;
+	}
+	&#app-account {
+		#pending-email-change-cont {
+			a.resend-email-link, a.cancel-email-link {
+				display: inline-block;
+				vertical-align:top;
+				float:none;
+				padding: 8px;
+			}
+		}
+		.settings {
+			#pending-email-change-cont {
+				li {
+					color:$white;
+				}
+			}
+		}
+		#create {
+			a {
+				max-width:150px;
+				padding: 8px;
+			}
+		}
+		#preview {
+			&.text {
+				p {
+					background: none;
+					color:$black;
+				}
+			}
+		}
+	}
+
+
+
+	@include breakpoint(tablet) {
+		.account-settings, .pass-reset-step-1, .pass-reset-step-2, .pass-reset-validate, .pass-reset-complete {
+			padding:0 20px;
+			h1 {
+				padding: 35px 8px 30px;
+			}
+		}
+		.buy-emp_btn {
+			width:146px;
+			position: relative;
+			top: -57px;
+			margin-left: calc(100% - 149px);
+			margin-bottom: -40px;
+		}
+		#support_tickets {
+			.wrapper {
+				padding: 20px 30px;
+				background:$blueWrapper;
+			}
+		}
+	    .elite_wrapper {
+			background:$blueInput;
+			border-radius: 3px;
+			padding: 10px 0;
+		}
+		.elite_subscription_logo {
+			margin:0 20px 0 0;
+		}
+	    .elite_sub {
+	      display: inline-block;
+	      vertical-align:top;
+	      border-radius: 0;
+	      background: none;
+	      width: calc(100% - 190px);
+	      text-align:center;
+	      .copy {
+	      	text-align:center;
+	      	display: inline-block;
+	        vertical-align:top;
+	      	h2 {
+	      		padding: 20px 0 0 0;
+	      	}
+	      	p {
+	      		margin: 10px auto 0;
+	      	}
+	      }
+	    }
+	    #payment_details {
+	    	.edit_btn {
+	    		display: inline-block;
+	    		vertical-align:middle;
+	    		position: relative;
+	    		margin: 0;
+	    		left: 44%;
+	    	}
+	    	.actions {
+		      display: inline-block;
+		      vertical-align:top;
+		      margin:0;
+		      a {
+		      	width:175px;
+		      	padding:8px 0;
+		      }
+		    }
+	    }
+	}
+
+	@include breakpoint(desktop) {
+		.elite_sub {
+			text-align:left;
+		}
+	}
+
+}

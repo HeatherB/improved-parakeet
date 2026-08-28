@@ -1,0 +1,57 @@
+<% cache("footer") do %>
+  <!--<div class="twelve columns" id="footer-linkroll">
+    <ul>
+      <li><a href="#">^ Back to Top</a></li>
+      <li><a href="/privacy-policy">Privacy Policy</a></li>
+      <li><a href="/terms-of-service">Terms of Service</a></li>
+      <li><a href="/rules-of-conduct">Rules of Conduct</a></li>
+      <li><a href="http://www.enmasse.com/jobs">Jobs</a></li>
+      <li><a href="http://support.enmasse.com/tera">Contact Us</a></li>
+    </ul>
+  </div>
+  <div class="twelve columns" id="footer-logos">
+    <div class="row">
+      <div class="six columns">
+        <a href="http://www.enmasse.com"><div id="foot-eme" class="footer-sprite"></div></a>
+      </div>
+      <div class="six columns">
+        <a href="https://www.bluehole.net/en/"><div id="foot-bhs" class="footer-sprite"></div></a>
+      </div>
+    </div>
+  </div>
+  <div class="twelve columns copy">
+    <p>
+      COPYRIGHT &#169; <%= Time.now.year %> BLUEHOLE INC. ALL RIGHTS RESERVED. YOUR USE OF THIS PRODUCT IS SUBJECT
+      TO THE TERMS OF THE LICENSE AGREEMENT AVAILABLE ON OUR WEBSITE AT <a href="http://tera.enmasse.com/en">TERA.ENMASSE.COM</a>.
+      <em>TERA&#8482;</em>, <em>&#8220;TERA: RISING&#8221;</em> AND <em>&#8220;TERA: THE EXILED REALM OF ARBOREA&#8221;</em>
+      ARE TRADEMARKS OF BLUEHOLE INC. ALL OTHER TRADEMARKS ARE THE PROPERTY OF THEIR RESPECTIVE OWNERS.
+    </p>
+  </div>-->
+  <div class="twelve columns">
+    <div class="row footer-linkroll">
+    <%= EMEGlobalAssets.snippet("ft-links", {:game => "TERA"}) %>
+    </div>
+
+    <div class="twelve columns" id="footer-logos">
+      <div class="row">
+        <div class="six columns">
+          <!--<a href="http://www.enmasse.com"><div id="foot-eme" class="footer-sprite"></div></a>-->
+          <%= EMEGlobalAssets.snippet("corp-logos", {:clogo => "enmasse-lightbg"}) %>
+        </div>
+          
+        <div class="six columns">
+          <!--<a href="https://www.bluehole.net/en/"><div id="foot-bhs" class="footer-sprite"></div></a>-->
+          <%= EMEGlobalAssets.snippet("corp-logos", {:clogo => "bluehole"}) %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="disclaimer twelve columns">
+        <!--<p>COPYRIGHT ©2016 BLUEHOLE INC. ALL RIGHTS RESERVED. YOUR USE OF THIS PRODUCT IS SUBJECT TO THE TERMS OF THE LICENSE AGREEMENT AVAILABLE ON OUR WEBSITE AT TERA.ENMASSE.COM. TERA™, "TERA: RISING" AND "TERA: THE EXILED REALM OF ARBOREA" ARE TRADEMARKS OF BLUEHOLE INC. ALL OTHER TRADEMARKS ARE THE PROPERTY OF THEIR RESPECTIVE OWNERS.</p>-->
+        <%= EMEGlobalAssets.snippet("copyright", {:game => "TERA"}) %>
+      </div>
+    </div>
+  </div>
+<% end %>
+

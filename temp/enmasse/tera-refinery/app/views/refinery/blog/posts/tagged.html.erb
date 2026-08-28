@@ -1,0 +1,23 @@
+<% cache("tagged_#{@tag_name}") do %>
+  <% content_for :title, "#{t('.posts_tagged')} '#{@tag_name.titleize}'"  %>
+  <% content_for :body_content_left do %>
+    <h1>
+      <%= t('.posts_tagged') %> &#8220;<%= @tag_name.titleize %>&#8221;
+    </h1>
+  
+    <% if @posts.any? %>
+        <%= render :partial => "/refinery/blog/shared/post", :collection => @posts %>
+        <%= will_paginate @posts %>
+    <% else %>
+      <p><%= t('.no_blog_articles_yet') %></p>
+    <% end %>
+  <% end %>
+  
+  <%= render :partial => '/refinery/blog/shared/body_content_right' %>
+  
+  <section class="split_body row">
+  <%= render "refinery/content_page", :remove_automatic_sections => true, :sections => [{:yield => :body_content_left}, {:yield => :body_content_right}] %>
+  </section>
+  
+  <% content_for :stylesheets, stylesheet_link_tag('refinery/blog/frontend') %>
+<% end %>

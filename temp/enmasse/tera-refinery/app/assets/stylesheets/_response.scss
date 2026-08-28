@@ -1,0 +1,51 @@
+/* This is to remove responsiveness from tera. DELETE THIS AFTER WE FIX EVERYTHING!!! */
+.tera {
+  #eme-bar {
+    width:100%;
+    min-width:1140px;
+  }
+  #page_container, #page_container .split_body, #page_container #wide_body {
+    width: $rowWidth;
+    min-width: $rowWidth;
+    max-width: $rowWidth;
+  }
+  #page-content {
+      #eme-bar-wrapper {
+        width: 850px !important;
+        float: right;
+        border: 2px solid $black;
+        #eme-bar { border: 2px solid #30343b; }
+      }
+      #header {
+        position: relative;
+        width: $rowWidth;
+        min-width: $rowWidth;
+        max-width: $rowWidth;
+        clear:both;
+        .three {
+          width: 274px !important;
+          float: left;
+        }
+        #menu { width: 670px !important; }
+      }
+      #body_content_left {
+        width: 760px !important;
+        float: left;
+      }
+      #body_content_right {
+        width: 380px !important;
+        float: left;
+        padding-right: 0;
+      }
+  }
+  .footer-wrapper {
+    position: relative;
+    width: $rowWidth;
+    margin: 0 auto;
+    .twelve, .row { width: $rowWidth !important; }
+    .four {
+      width: 380px !important;
+      float: left;
+    }
+  }
+}

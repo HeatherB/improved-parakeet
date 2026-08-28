@@ -1,0 +1,137 @@
+<!-- needed for displaying error messages (see handleCreateAccountClick and showErrorExplanation in account.js -->
+<div class="row" id="registration">
+</div>
+<!-- needed for displaying error messages -->
+
+<%= get_update_token %>
+<input type="hidden" name="user[io_black_box]" id="user_io_black_box" value="" />
+<%= hidden_field_tag :rid, params[:rid] if params[:rid] %>
+<input type="hidden" name="campaign[game]" id="signup_campaign_game" value="<%= @campaign.game %>" />
+<input type="hidden" name="campaign[campaign]" id="signup_campaign_campaign" value="<%= @campaign.loaded_campaign %>" />
+<input type="hidden" name="campaign[revision]" id="signup_campaign_revision" value="<%= @campaign.loaded_revision %>" />
+
+<div class="row" id="email">
+  <% if @user.legacy_account? %>
+    <div class="label1"><%= f.label :email, tslt("email address") %></div>
+    <div class="input-text">
+      <%= @user.email %>
+      <%= f.hidden_field :email, :value => @user.email %>
+      <%= hidden_field_tag :ticket, params[:ticket] %>
+    </div>
+  <% else %>
+    <div class="label1"><%= f.label :email, tslt("email address"), :class => "email_label" %></div>
+    <div class="input iparent <%= user_error_css(@user, :email) %>">
+      <%= f.email_field :email,
+        :class => "input hintable",
+        :maxlength => 64,
+        :autocomplete => "off",
+        :type => "email",
+        :value => (@referral.email if @referral) %>
+    </div>
+    <div id="hint" class="user_email warning">
+  <p></p>
+  <p class="server-error" style="font-size:16px; line-height: 1.6em; font-family: Helvetica Neue,Helvetica,Arial,sans-serif; font-weight:normal;">Email contains a reserved domain.</p>
+  <!-- 
+  &quot;abuse&quot;, &quot;admin&quot;, &quot;all&quot;, &quot;everyone&quot;, &quot;ftp&quot;, &quot;investor relations&quot;, 
+  &quot;jobs&quot;, &quot;marketing&quot;, &quot;media&quot;, &quot;noc&quot;, &quot;postmaster&quot;, &quot;privacy&quot;, &quot;remove&quot;, &quot;request&quot;, &quot;root&quot;, &quot;sales&quot;, &quot;security&quot;, 
+  &quot;subscribe&quot;, &quot;unsubscribe&quot;, &quot;usenet&quot;, &quot;users&quot;, &quot;uucp&quot;, &quot;webmaster&quot;, &quot;www&quot;
+  -->
+<span id="arrow"></span></div>
+    <div class="check <%= user_error_css(@user, :email, true) %>"></div>
+  <% end %>
+</div>
+
+<div class="row" id="password">
+  <div class="label1"><%= f.label :password, tslt("password"), :class => "password_label" %></div>
+  <div class="input iparent <%= user_error_css(@user, :password) %>">
+    <%= f.password_field :password,
+      :class => "input password hintable",
+      :rel => ".pstrength-meter-cont",
+      :autocomplete => "off" %>
+  </div>
+  <div class="check <%= user_error_css(@user, :password, true) %>"></div>
+  <div id="toggle_pass">
+    <span><a href="/">Show Password</a></span>
+  </div><!-- end of toggle pass -->
+  <div class="secondary_pass">
+    <div class="input iparent <%= user_error_css(@user, :password_confirmation) %>">
+      <%= f.password_field :password_confirmation,
+        :class => "input hintable",
+        :placeholder => "re-type password",
+        :autocomplete => "off" %>
+    </div>
+    <div class="check <%= user_error_css(@user, :password_confirmation, true) %>"></div>
+  </div><!-- end of secondary_pass -->
+</div>
+
+<div class="row" id="notice">
+  <p class="notice-callout"><%#= tslt("sign_up_notice") %>By creating an account, you agree to the En Masse <a href="http://www.enmasse.com/legal/terms-of-service">Terms of Service</a>, and verify that you are 13 years of age or older.</p>
+</div>
+
+<div class="mailing_list_wrapper">
+<% @mailing_lists.each do |mailing_list| %>
+  <div class="row checkbox">
+    <%= check_box_tag mailing_list[:tag], "1", false %>
+    <label class="label_check" for=<%= mailing_list[:tag] %> id="newsletter-checkbox">
+      <span></span><!-- this span provdes the image checkbox-->
+      <p>I want to receive news and special offers about 
+        <% if(params[:game] && (params[:game]).downcase == 'tera') %>
+        <em class="tera"><%= params[:game] %></em>
+        <% elsif @campaign.game.downcase == 'zmr' %>
+        <em><%= @campaign.game.upcase %></em>
+        <% elsif @campaign.game.downcase == 'ava' %>
+        <em><%= @campaign.game.upcase %></em>
+        <% else %>
+        <%= params[:game] %>
+        <% end %>
+      </p>
+    </label>
+  </div>
+<% end %>
+
+<% if @mailing_lists.count > 0 %>
+  <%= hidden_field_tag :disable_auto_subscribing, 1 %>
+<% end %>
+</div><!-- end of mailing lists wrapper -->
+
+<%= hidden_field_tag :game, params[:game] %>
+<div id="submit-btn">
+  <a href="#" id="btn-success" class="preview-rounded"><%= tslt("success") %></a>
+  <a href="#" id="btn-create-account" class="preview-rounded pseudo-submit-link" data-wait-text="<%= tslt("submitting") %>" data-success-text="<%= tslt("success") %>" data-form="account-registration-form">
+    <%= tslt("sign up") %>
+  </a>
+
+</div>
+
+<script>
+ $(function() {
+   /* $('input').focus(function() {
+      $(this).closest(".iparent").addClass('focus');
+    });
+
+    $('input:active').trigger('focus');
+
+    $('input').blur(function() {
+      $(this).closest(".iparent").removeClass('focus');
+      $('#hint').remove();
+    });
+
+    $('input[placeholder]').placeholder();
+    */
+    $('#user_email').trigger('focus');
+  });
+</script>
+
+<!-- hint corrections 
+<style type="text/css">
+  #app-account #hint {
+    left: -377px;
+    width:341px;
+  }
+  #app-account #hint p {
+    margin-left:0 !important;
+  }
+  #app-account #hint.warning p {
+    width:335px !important;
+  }
+</style>-->

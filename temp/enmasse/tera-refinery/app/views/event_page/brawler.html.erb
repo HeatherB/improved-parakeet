@@ -1,0 +1,528 @@
+<% content_for :title do %>Brawler<% end %>
+
+<% content_for :stylesheets do %>
+<link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+
+<!-- facebook meta -->
+<meta property="og:title" content="THE BRAWLER IS HERE!" />
+<meta property="og:site_name" content="TERA - Brawler"/>
+<meta property="og:url" content="http://tera.enmasse.com/brawler" />
+<meta property="og:description" content="The brawler, TERA&#39;s newest class, is sure to be a knockout. With her massive &ldquo;powerfists&rdquo; and heavy armor, the brawler can go toe-to-toe with the biggest BAMs and bosses in the game, or pummel enemies into dust using a slew of dynamic combos. Released on December 8th, the brawler brings TERA&#39;s action combat up close and personal." />
+<meta property="og:image" content="http://download.enmasse.com/images/Brawler/brawler_sharing_thumb.png" />
+
+<!--[if IE 8]>
+  <style type="text/css">
+    @font-face {
+    font-family: 'Abel';
+    src: url('/fonts/abel-regular-webfont.eot');
+    src: url('/fonts/abel-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/abel-regular-webfont.woff2') format('woff2'),
+         url('/fonts/abel-regular-webfont.woff') format('woff'),
+         url('/fonts/abel-regular-webfont.ttf') format('truetype'),
+         url('/fonts/abel-regular-webfont.svg#abelregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+  </style>
+  <![endif]-->
+
+<style type="text/css">
+  h1 {
+    text-transform:uppercase;
+    color:#cc0006;
+    font-size:28px;
+    line-height:30px;
+    font-family: 'Abel', sans-serif;
+  }
+  p {
+    color:#ffffff;
+    font-size:14px;
+    line-height:21px;
+    font-family: "Helvetica Light",Helvetica,Arial,sans-serif;
+  }
+  .page-frame {
+    background: url(<%= asset_path "brawler/brawler-bg.jpg" %>) no-repeat top center #000000;
+  }
+  .wrapper {
+    width:1140px;
+    margin:0 auto;
+  }
+  #main-nav ul {
+    float:right;
+    margin-right:85px;
+  }
+  #main-nav li {
+    display:inline-block;
+    vertical-align:top;
+    width:auto;
+    margin: 30px 20px 0;
+    text-transform: uppercase;
+    color: #ffffff;
+    font-family: 'Abel', sans-serif;
+    font-weight: bold;
+  }
+  #main-nav a {
+    text-transform: uppercase;
+    color: #ffffff;
+    font-family: 'Abel', sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  #main-nav a.hover-bar:hover {
+    border-bottom: 2px solid #d30617;
+  }
+  /*#main-nav a.hover-bar.active {
+    border-bottom: 2px solid #d30617;
+  }*/
+  #main-nav ul ul {
+    box-sizing: border-box;
+    display:block;
+    float:none;
+    margin:0 auto;
+    padding: 0 16px;
+    width:70px;
+  }
+  #main-nav ul ul li {
+    display:inline-block;
+    width:22px;
+    height:22px;
+    margin: 0 -3px;
+  }
+  #share-facebook {
+    display:block;
+    height:22px;
+    text-indent: -9999em;
+    background: url(<%= asset_path "brawler/social-icons.png" %>) no-repeat 0 0;
+  }
+  #share-facebook:hover {
+    background-position: 0px -22px;
+  }
+  #share-twitter {
+    display:block;
+    height: 22px;
+    text-indent: -9999em;
+    background: url(<%= asset_path "brawler/social-icons.png" %>) no-repeat -22px 0;
+  }
+  #share-twitter:hover {
+    background-position: -22px -22px;
+  }
+  .nav-tera a {
+    text-indent: -9999px;
+    background: url(<%= asset_path "brawler/tera-logo.png" %>) no-repeat 0 0;
+    width: 186px;
+    height: 80px;
+    float: left;
+    margin-left: 62px;
+  }
+  /*#main-nav.scroll ul {
+    position: fixed;
+    top: 0px;
+    z-index: 5;
+    width:440px;
+    margin:0 0 0 753px;
+  }
+  #main-nav.scroll ul ul {
+    position: relative;
+    top: auto;
+    z-index: 5;
+    width:auto;
+    margin:0;
+  }*/
+  #intro {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding-top:117px;
+    padding-bottom: 80px;
+    background: url(<%= asset_path "brawler/hero-bg.jpg" %>) no-repeat top center #000000;
+  }
+  #intro .inner-wrapper {
+    width:290px;
+    margin-left: 72px;
+  }
+  #trailer {
+    background: url(<%= asset_path "brawler/poster.jpg" %>) no-repeat 0 0;
+    border: 1px solid #ffffff;
+    box-shadow: 0px 0px 30px #ffffff;
+    width:289px;
+    height:165px;
+    margin-top:90px;
+    display:block;
+  }
+  #trailer:hover {
+    border: 1px solid #d3000f;
+    box-shadow: 0px 0px 30px #d3000f;
+  }
+  h1.tagline {
+    font-size:20px;
+    position: relative;
+    left: 587px;
+    top:-22px;
+    letter-spacing: 0.03em;
+  }
+  #origin {
+    background: url(<%= asset_path "brawler/origin-bg.jpg" %>) no-repeat 0 0;
+  }
+  #origin .inner-wrapper {
+    width:410px;
+    margin-left: 72px;
+    padding-top: 7px;
+    display:inline-block;
+    vertical-align:bottom;
+  }
+  #origin p {
+    font-size:16px;
+    line-height: 20px;
+    font-family: "Helvetica",Helvetica,Arial,sans-serif;
+    font-weight: bold;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    -o-hyphens: auto;
+    hyphens: auto;
+  }
+  /* origin slides */
+  #origin .slides {
+    width: 600px;
+    margin: 0 0 0 40px;
+    display:inline-block;
+    vertical-align:bottom;
+  }
+  #origin .slides li {
+    display:inline-block;
+    vertical-align: bottom;
+    width: 180px;
+    margin: 0 5px;
+    text-align: center;
+  }
+  #origin .slides a {
+    display: block;
+    width: 180px;
+    height: 102px;
+    margin: 0 auto;
+    border: 1px solid #ffffff;
+    background: url(<%= asset_path "brawler/scenes.jpg" %>) no-repeat 0 0;
+  }
+  #origin .slides a:hover {
+    border: 1px solid #d3000f;
+  }
+  #origin .slides .one {}
+  #origin .slides .two { background-position: 0 -102px; }
+  #origin .slides .three { background-position: 0 -204px; }
+
+  /***** Lightbox *****/
+  #lb-blackout {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 200;
+    background: #000;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  #lightbox {
+    position: absolute;
+    left: 0;
+    z-index: 9005;
+    width: 100%;
+    top: 150px;
+  }
+  #lightbox-container {
+    width: 640px;
+    padding: 7px;
+    position: relative;
+    margin: 0 auto;
+  }
+  #lightbox-container.video {
+    background: none;
+  }
+  #lightbox-container.video .lightbox-close{
+    /*top: -18px;
+    right: -18px;*/
+  }
+  #lightbox-content {
+    box-shadow: 0px 0px 0px 2px #ca0b1a;
+    border: 1px solid  #ca0b1a;
+  }
+  .lightbox-close {
+    width: 138px;
+    height: 110px;
+    position: absolute;
+    top: -49px;
+    right: -53px;
+    background: url(<%= asset_path "brawler/lightbox-close.png" %>) no-repeat 0 0;
+  }
+  .lightbox-close:hover {
+      background-position: 0 -110px;
+    }
+
+  #close {
+    background: url(<%= asset_path "brawler/closer.jpg" %>) no-repeat 0 0;
+    height: 827px;
+  }
+  #close h1 {
+    font-size:36px;
+    line-height:40px;
+  }
+  #close h1:nth-child(2) {
+    margin-left:90px;
+  }
+  #close .inner-wrapper {
+    width:370px;
+    margin-left:72px;
+    padding-top:200px;
+  }
+  #close ul {
+    width:100%;
+    margin:0 auto;
+    text-align:center;
+  }
+  #close li {
+    display:inline-block;
+    vertical-align:top;
+    background: url(<%= asset_path "brawler/footer-social-sprite.png" %>) no-repeat;
+    height:60px;
+  }
+  #close li a {
+    display: block;
+    text-decoration: none;
+    text-indent: -9999em;
+    width:100%;
+    height:100%;
+  }
+  #close li.ft-facebook {
+    width:53px;
+    width:27px;
+    background-position: 0 0;
+  }
+  #close li.ft-facebook:hover { background-position: 0 -60px;}
+  #close li.ft-twitter {
+    width:88px;
+    width:67px;
+    margin-left: 26px;
+    background-position: -53px 0;
+  }
+  #close li.ft-twitter:hover { background-position: -53px -60px;}
+  #close li.ft-youtube {
+    width:98px;
+    width:73px;
+    margin-left: 21px;
+    background-position: -141px 0;
+  }
+  #close li.ft-youtube:hover { background-position: -141px -60px;}
+  #close li.ft-twitch {
+    width:59px;
+    margin-left:25px;
+    background-position: -239px 0;
+  }
+  #close li.ft-twitch:hover { background-position: -239px -60px;}
+  footer {
+    background: #000;
+    color: #525252;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    min-height: 370px;
+    background: #010101 url(/assets/eme-bar/eme-bar-bg.jpg) repeat-x 0 0;
+  }
+  .eme-footer {
+    margin-top: 0;
+    padding-top:50px;
+  }
+  .eme-footer nav {
+    width: 652px;
+  }
+  /* sliding hover bar */
+  /*#red-bar {
+    height:10px;
+    width:150px;
+    margin: 0 0 -10px 770px;
+    position:relative;
+  }
+  #red-bar #inner-bar {
+    width:65px;
+    height:2px;
+    position: absolute;
+    top: 52px;
+    background: #d30617;
+  }
+  #red-bar.scroll {
+    position: fixed;
+    top: 0px;
+    z-index: 5;
+   
+  }*/
+</style>
+  <!--<script type="text/javascript">
+    var google_conversion_id = 1009279073;
+    var google_custom_params = window.google_tag_params;
+    var google_remarketing_only = true;
+  </script>
+  <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+  <noscript>
+    <div style="display:inline;">
+      <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1009279073/?value=0&amp;guid=ON&amp;script=0"/>
+    </div>
+  </noscript>
+  
+  <script type="text/javascript">
+    adroll_adv_id = "KZMKJYLJTRBAVOYWGKDOBI";
+    adroll_pix_id = "4X77SKRO4RAALNUZX4ZX5C";
+    (function () {
+    var oldonload = window.onload;
+    window.onload = function(){
+       __adroll_loaded=true;
+       var scr = document.createElement("script");
+       var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
+       scr.setAttribute('async', 'true');
+       scr.type = "text/javascript";
+       scr.src = host + "/j/roundtrip.js";
+       ((document.getElementsByTagName('head') || [null])[0] ||
+        document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
+       if(oldonload){oldonload()}};
+    }());
+  </script>
+
+  <script type='text/javascript'>
+    var ebRand = Math.random()+'';
+    ebRand = ebRand * 1000000;
+    document.write('<scr'+'ipt src="HTTPS://bs.serving-sys.com/Serving/ActivityServer.bs?cn=as&amp;ActivityID=617612&amp;rnd=' + ebRand + '"></scr' + 'ipt>');
+  </script>
+  <noscript>
+    <img width="1" height="1" style="border:0" src="HTTPS://bs.serving-sys.com/Serving/ActivityServer.bs?cn=as&amp;ActivityID=617612&amp;ns=1"/>
+  </noscript>-->
+
+  <!--<style type="text/css">
+    iframe[name="google_conversion_frame"]{display:none;}
+    </style>-->
+
+  <!--[if IE 8]>
+  <style type="text/css">
+    h1 {font-size: 22px; }
+    #close h1 {font-size: 28px }
+  </style>
+  <![endif]-->
+<% end %>
+
+<div class="page-frame">
+  <div class="wrapper">
+    <nav id="main-nav">
+      <div class="nav-tera">
+        <a href="/" class="btn-nav-tera">Back to TERA</a>
+      </div>
+      <ul>
+        <!--<li><a href="#intro" id="nav-brawler" class="hover-bar" onclick="return false">BRAWLER</a></li>
+        <li><a href="#origin" id="nav-origin" class="hover-bar" onclick="return false">ORIGIN</a></li>-->
+        <li>SHARE THIS
+          <ul>
+            <li><a href="https://www.facebook.com/sharer/sharer.php?u=http://tera.enmasse.com/brawler" id="share-facebook" target="_blank">Facebook</a></li>
+            <li><a class="twitter-share-button"
+  href="https://twitter.com/intent/tweet?text=THE%20BRAWLER%20IS%20HERE!%20Tell%20your%20friends%20to%20get%20out%20of%20the%20way!%20http://tera.enmasse.com/brawler"id="share-twitter" target="_blank">Twitter</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <!--<div id="red-bar">
+      <div id="inner-bar"></div>
+    </div>-->
+  </div>
+
+  <div class="wrapper">
+    <div id="intro">
+      <div class="inner-wrapper">
+        <% if Time.now < Time.new(2015, 12, 8, 9, 00, 00, "-07:00") %>
+        <h1>Coming December 2015</h1>
+        <% end %>
+        <% if Time.now > Time.new(2015, 12, 8, 9, 00, 00, "-07:00") %>
+        <h1>Available Now</h1>
+        <% end %>
+        <p>This groundbreaking new tank gives as good as she gets—dropping enemies left and right with her massive powerfists. With stunning combos, powerful knock-backs, and the strength to go toe-to-toe with BAMs and bosses, the brawler is a relentless fighter who can take charge of any situation.</p>
+        <a id="trailer" href="#">
+          <video width="287" height="163" poster="<%= asset_path "brawler/poster.jpg" %>"  id="vidPreview">
+              <source src="http://download.enmasse.com/videos/tera/Brawler_Teaser-15mbps-V1.mp4" type="video/mp4">
+              <source src="http://download.enmasse.com/videos/tera/Brawler_Teaser-15mbps-V1.webm" type="video/webm">
+              <img src="<%= asset_path "brawler/poster.jpg" %>"  width="287" height="163">
+          </video>
+        </a>
+        <h1 class="tagline">NEVER. BACK. DOWN.</h1>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="wrapper">
+    <div id="origin">
+      <div class="inner-wrapper">
+        <h1>ORIGIN</h1>
+        <p>Marda crouched behind the anvil stump, trying not to draw attention before she was ready to act. The air was thick with smoke, but only some of it from the banked coals.</p>
+        <p>Her father once told her, &ldquo;If you ever see orcans, run. But if you have to fight, make sure they remember you.&rdquo; He was dead on the ground in front of her now, with a pair of crude orcan axes in his back. In any event, there was nowhere to run. The village was burning, and the screams of her neighbors were an eerie counterpart to the guttural, barking laughs of the raiding party.</p>
+        <p>They&#39;d been turning horseshoes when the attack began, and the latest one was still red-hot on the ground next to his outstretched hand. The tent flap moved in the slight breeze, teasing the hot metal with every pass. A few loose threads had already burned away, but it wasn&#39;t time yet.</p>
+        <p>They needed to get closer.</p>
+        <p>Marda flexed her hands in the reinforced gloves she and her father used in the shop. The other apprentices refused to even try a pair, but she&#39;d spent most of her childhood watching him reach directly into the forge to grab stock, and if it was small enough, bend it into shape without using a hammer.</p>
+        <p>And Marda was definitely her father&#39;s daughter. 
+        The gloves were huge over her small hands, but wearing them filled her with confidence. She balled her fists, and felt the power of the forge sing inside her.</p>
+        <p>Almost time. Just a little closer.</p>
+        <p>An orcan shadow edged into the tent, and Marda tensed for an attack. With no armor, she&#39;d need to be fast, and match the raiders in ferocity, if not brute power. When it moved in and bent to reclaim its axes, she exploded from behind the anvil, upending the coal forge in a spray of fire.</p>
+        <p>Gathering two fistfuls of searing metal and red-hot coals, Marda stepped toward the shrieking orcan. Her first blow broke off one of its tusks, the next shoved the stump down its throat. With a kick for good measure, she stepped over the downed raider and out to face the rest.</p>
+        <p>She&#39;d bury her father later. There was work to be done.</p>
+      </div>
+
+      <div class="slides">
+        <ul>
+          <li>
+            <a href="" class="one" id="sceneone"></a>
+          </li>
+          <li>
+            <a href="" class="two" id="scenetwo"></a>
+          </li>
+          <li>
+            <a href="" class="three" id="scenethree"></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="wrapper">
+    <div class="close" id="close">
+      <div class="inner-wrapper">
+        <% if Time.now < Time.new(2015, 12, 8, 9, 00, 00, "-07:00") %>
+        <h1>COMING DECEMBER 2015</h1>
+        <% end %>
+        <% if Time.now > Time.new(2015, 12, 8, 9, 00, 00, "-07:00") %>
+        <h1 style="margin-left: 65px;">AVAILABLE NOW</h1>
+        <% end %>
+        <h1>FOLLOW US</h1>
+        <ul>
+          <li class="ft-facebook"><a href="http://www.facebook.com/TERAonline" target="_blank">facebook</a></li>
+          <li class="ft-twitter"><a href="http://twitter.com/teraonline" target="_blank">twitter</a></li>
+          <li class="ft-youtube"><a href="http://www.youtube.com/enmasseentertainment" target="_blank">youtube</a></li>
+          <li class="ft-twitch"><a href="http://www.twitch.tv/enmasseentertainment" target="_blank">twitch</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="lightbox" style="display:none;">
+    <div id="lightbox-container">
+      <div id="lightbox-content"></div>
+      <a href="javascript:;" class="lightbox-close"></a>
+    </div>
+  </div>
+</div>
+
+<div id="brawlerinfo" style="display:none;">
+  <div class="info sceneone">
+    <img src="<%= asset_path "brawler/info/brawler01.jpg" %>" alt="" width="1080">
+  </div>
+  <div class="info scenetwo">
+    <img src="<%= asset_path "brawler/info/brawler02.jpg" %>" alt="" width="1080">
+  </div>
+  <div class="info scenethree">
+    <img src="<%= asset_path "brawler/info/brawler03.jpg" %>" alt="" width="1080">
+  </div>
+</div>
+
+<%= javascript_include_tag 'brawler-app.js' %>

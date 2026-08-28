@@ -1,0 +1,113 @@
+<!--new code and successful account creation-->
+<div style="display:none;">
+  <div id="disconnect-authorization-form-cont" class="properPop_wrapper">
+    <div class="pop-header">
+      <h3><%= tslt("disconnect authorization")%></h3>
+    </div>
+
+    <div class="pop-content">
+      <%= form_for :user, :url => disconnect_authorization_users_account_path, :html => { :id => "disconnect-authorization-form", :class => "default", :method => :put } do |f| %>
+        <%= render :partial => "/users/disconnect_authorization_form", :locals => { :f => f } %>
+      <% end %>
+    </div>
+  </div>
+
+  <div id="change-password-form-cont" class="properPop_wrapper">
+    <div class="pop-header">
+      <h3><%= tslt("change your password")%></h3>
+    </div>
+
+    <div class="pop-content">
+      <%= form_for :user, :url => update_password_users_account_path, :html => { :id => "change-password-form", :class => "default", :method => :put } do |f| %>
+        <label for="user_old_password"><%= tslt("current password")%></label>
+        <div class="iparent"><%= f.password_field :old_password, :value => "", :class => "input-4 check-form old-password focus", :autocomplete => "off" %></div>
+        <div class="check"></div>
+        <!--<div class="clear"></div>-->
+        <%= render :partial => "/users/change_password_form", :locals => { :f => f } %>
+      <% end %>
+    </div>
+  </div>
+
+  <div id="change-email-form-cont" class="properPop_wrapper">
+    <div class="pop-header">
+      <h3><%= tslt("change your email")%></h3>
+    </div>
+
+    <div class="pop-content">
+      <%= form_for :user, :url => update_email_users_account_path, :html => { :id => "change-email-form", :class => "default", :method => :put } do |f| %>
+        <% email_arr = current_user.email.split("@") %>
+
+        <label for="user_old_password"><%= tslt("current password")%></label>
+        <div class="iparent"><%= f.password_field :old_password, :value => "", :class => "input-4 check-form old-password focus", :autocomplete => "off" %></div>
+        <div class="check"></div>
+        <div class="clear"></div>
+
+        <label for="user_new_email"><%= tslt("new email")%></label>
+        <div class="iparent"><%= f.text_field :new_email, :value => "", :class => "input-4 check-form", :autocomplete => "off" %></div>
+        <div class="check"></div>
+        <!--<div class="clear"></div>
+
+        <label>&nbsp;</label>-->
+        <div class="hint">
+          <div id="user_email-hint" class="hint-text">
+            <p><%= tslt("your email address will be used to")%></p>
+            <p><%= tslt("your email cannot contain the following text")%></p>
+            <p id="user_new_email_notice" style="display:none;"></p>
+          </div>
+        </div>
+        <div class="clear"></div>
+
+        <label for="user_new_email_confirmation"><%= tslt("confirm new email")%></label>
+        <div class="iparent"><%= f.text_field :new_email_confirmation, :value => "", :class => "input-4 check-form", :autocomplete => "off" %></div>
+        <div class="check"></div>
+        <div class="clear"></div>
+
+        <div class="actions">
+          <button type="submit" id="email-submit" class="submit-link default-button btn-1 disabled preview buttonDark" title="<%= tslt("please complete the change email form")%>" data-form="change-email-form"><%= tslt("update")%></button>
+          <button type="button" class="cancel buttonLight"><%= tslt("cancel")%></button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div id="engarde-form-cont" class="properPop_wrapper">
+    <div class="pop-header">
+      <h3><%= tslt("account armor settings")%></h3>
+    </div>
+
+    <div class="pop-content">
+      <% if current_user.engarde_enabled? %>
+        <p><%= tslt("your en masse account is currently being protected by account armor")%></p>
+        <p>
+          <%= tslt("if your account is accessed from an unrecognized device")%>
+        </p>
+      <% else %>
+        <p><%=tslt("your en masse account is not being protected by account armor")%></p>
+        <p>
+          <%= tslt("please consider enabling it in order to protect your account from falling")%>
+        </p>
+      <% end %>
+      <%= form_for :user, :url => update_engarde_users_account_path, :html => { :id => "update-engarde-form", :class => "default", :method => :put } do |f| %>
+        <ul class="values">
+          <li class="radio"><%= f.radio_button :engarde_enabled, true %></li>
+          <li class="radio-text main"><label for="user_engarde_enabled_true"><%= tslt("protect my account with account armor")%></label></li>
+          <div class="clear"></div>
+          <li class="check-box"><label class="label_check" for="deauthorize_devices"><%= check_box_tag :deauthorize_devices, "true", false %> <%= tslt("de authorize all other devices now")%></label></li>
+          <div class="clear"></div>
+        </ul>
+        <ul class="values">
+          <li class="radio"><%= f.radio_button :engarde_enabled, false %></li>
+          <li class="radio-text"><label for="user_engarde_enabled_false"><%= tslt("disable account armor not recommended")%></label></li>
+          <div class="clear"></div>
+        </ul>
+
+        <div class="actions">
+          <button type="submit" id="engarde-submit" class="submit-link buttonDark" data-form="update-engarde-form"><%= tslt("update")%></button>
+          <button type="button" class="cancel buttonLight"><%= tslt("cancel")%></button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>
+<!--end new code and successful account creation-->

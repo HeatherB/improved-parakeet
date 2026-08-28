@@ -1,0 +1,62 @@
+<div class='ng-modal nopop signupPop' ng-init='setSize(420, 700)'>
+  <div class='ng-modal-overlay' ng-click='hideModal()'></div>
+  <div class='ng-modal-dialog' ng-style='dialogStyle'>
+    <div class='popup'>
+      <div class='pop-header'>
+        <div id="dragMe" ng-mousedown="dragMe()"></div>
+        <div id="user-emp">
+          <div class="close-launcher">
+            <span><a ng-click="minimize()"> _ </a></span>
+            <span><a ng-click='close()'> X </a></span>
+          </div><!-- end of close launcher -->
+        </div><!-- end of user emp -->
+        <img src='img/eme-wordmark.png' alt='En Masse Entertainment' />
+      </div>
+      <div class='ng-modal-dialog-content'>
+
+        <div class="pop-content narrowLayout">
+          <!--<h2>Please choose a sign in option:</h2>-->
+          <h2>Create a free En Masse account:</h2>
+          <div ng-show='messageDisplay' class="registration_errors fail">
+            <!--<h2>Please try again</h2>-->
+            <span class="error">{{messageDisplay}}</span>
+          </div>
+          <div class="inner-pop">
+            <div>
+              <form>
+                <label for="email_address">Email Address <span class="error">{{messageDisplayEmail}}</span></label>
+                <input type="text" id="email_address" ng-model='email' placeholder='enter your email address' on-key-enter='signUp()' ng-change='passwordValid()' ng-disabled='requesting'/>
+                <label for="password">Password <span class="error">{{messageDisplayPassword}}</span></label>
+                <input type="password" id="password" ng-model='password' placeholder='enter password' on-key-enter='signUp()' ng-change='passwordValid()' ng-disabled='requesting'/>
+                <!--<label for="password_confirm">Re-type password</label>
+                <input type="password" id="password_confirm" ng-model='password_confirmation' />-->
+
+                <!-- password validation message -->
+                <div ng-show='minLength' style='display:block;color:red'>
+                Password requires 8 or more characters.
+                </div>
+                <div ng-show='maxLength' style='display:block;color:red'>
+                Password requires 99 or less characters.
+                </div>
+                <div ng-show='format' style='display:block;color:red'>
+                Password must be combination of 2 out of (letters, digits, symbols).
+                </div>
+                <div ng-show='includeEmail' style='display:block;color:red'>
+                Password should not contain email.
+                </div>
+                <!-- password validation message -->
+                <button class="btn" ng-click='signUp()' ng-disabled='requesting'>SIGN UP</button>
+              </form>
+            </div>
+            <p class="closer">By creating an account, you are accepting our <a ng-click='openTerms()'>terms of service.</a></p>
+            <p class="closer">If you already have account and want to sign-in with it, go back to <a href='#' ng-click='goSignIn()'>sign-in</a>.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+

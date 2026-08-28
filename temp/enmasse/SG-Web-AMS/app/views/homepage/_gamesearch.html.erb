@@ -1,0 +1,40 @@
+<% if @search_results == [] %>
+    <p class="search_fail">No Search Results <button class="justtext clearsearch">clear search</button></p>
+  <% else %>
+  <!-- display search resutls -->
+  <h3>Search Results for <span class="keyword"><%= @search_term %></span>:</h3>
+  <button class="justtext clearsearch">clear search</button>
+  <ul>
+    <% @search_results.each do |search_result| %>
+      <li class="game_tile" id="game_tile_<%= search_result.name.downcase %>">
+        <a href="/">
+          <div class="thumb <%= search_result.name.downcase %>">
+          <% if (search_result.beta_applications_open) == true %>
+            <span class="flair beta">in beta</span>
+          <% end %>
+          </div>
+          <div class="nameplate">
+            <span class="game_name"><%= search_result.name %></span>
+            <% if search_result.name.downcase == "tera" %>
+              <span class="game_type">PC - Epic Fantasy MMORPG</span>
+            <% elsif search_result.name.downcase == "ava" %>
+              <span class="game_type">PC - Online FPS</span>
+            <% elsif search_result.name.downcase == "zmr" %>
+              <span class="game_type">PC - Online FPS</span>
+            <% elsif search_result.name.downcase == "kritika" %>
+              <span class="game_type">PC - Stylish Fantasy MMORPG</span>
+            <% elsif search_result.name.downcase == "closers" %>
+              <span class="game_type">PC - Arcade Fantasy MMORPG</span>
+            <% elsif search_result.name.downcase == "tera_ps_na" %>
+              <span class="game_type">PS - Epic Fantasy MMORPG</span>
+            <% elsif search_result.name.downcase == "tera_xb_na" %>
+              <span class="game_type">XB - Epic Fantasy MMORPG</span>
+            <% else %>
+              <span class="game_type">TBD</span>
+            <% end %>
+          </div>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+  <% end %>

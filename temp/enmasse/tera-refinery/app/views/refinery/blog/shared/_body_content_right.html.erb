@@ -1,0 +1,14 @@
+<% content_for :body_content_right do %>
+  <%= yield(:body_content_right_prepend) %>
+  <%#= render :partial => "/refinery/blog/shared/rss_feed" %>
+  <%#= render :partial => "/refinery/blog/shared/categories" %>
+  <%# cache("tag_cloud") do %>
+    <%#= render :partial => "/refinery/blog/shared/tags" %>
+  <%# end %>
+  <%#= render :partial => "/refinery/blog/shared/posts" %>
+  <%#= render :partial => "/refinery/blog/shared/related_posts" %>
+  <% cache("archive_list") do %>
+    <%= blog_archive_widget %>
+  <% end if @page.slug != "home" %>
+  <%= yield(:body_content_right_append) %>
+<% end %>

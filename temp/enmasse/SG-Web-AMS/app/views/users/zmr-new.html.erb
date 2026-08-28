@@ -1,0 +1,173 @@
+<script>
+  facebookLoginRedir = "/users/game_newsletter/" + <%= @zmr_newsletter_id %> + "/zmr";
+  //var facebookRedirOverride = window.location.protocol + "//" + window.location.hostname + facebookLoginRedir;
+</script>
+
+<% content_for :seo_site do %>
+Sign up for ZMR | Zombies Monsters Robots
+<% end %>
+
+<% content_for :custom_favicon do %>
+<%= favicon_link_tag 'zmr-favicon.ico', :rel => 'shortcut icon' %>
+<% end %>
+
+<% content_for :meta_description do %>
+<meta name="description" content="Zombies Monsters Robots (ZMR) is an intense third-person shooter that pits players against unexpected enemies, environments, and game modes." />
+<%= stylesheet_link_tag "application-zmr", :media => "all" %>
+<% end %>
+
+<% content_for :tracking_js do %>
+  <script src='https://secure-ds.serving-sys.com/BurstingRes/CustomScripts/mmConversionTagV3.js'></script>
+<% end %>
+
+<% content_for :custom_google_analytics_calls do %>
+  _gaq.push(['_trackEvent', 'Accounts', 'View Sign-up Landing Page', '/zmr/sign-up', 0, true]);
+<% end %>
+
+<div id="zmr-su">
+  <div id="zmr-signup" style="display:none;"></div>
+  <input type="hidden" name="blackbox" id="blackbox" value="" />
+  <%= render :partial => "shared/iovation_init" %>
+<div id="local-alerts">
+  <div class="container">
+    <%= render :partial => "shared/global_alerts" %>
+  </div>
+</div>
+  <div class="zmr-masthead">
+    <div class="container">
+      <h1>ZMR - Zombies Monsters Robots - Kill Every Thing</h1>
+      <h2 class="tagline">Kill Every Thing</h2>
+      <div class="reg-vid-container">
+        <div id="zmr-video">
+        <!-- Injecting Here -->
+        <div id="video-overlay"></div>
+          <video width="556" height="313" loop="loop" autoplay="autoplay" poster="/assets/account/ZMR-SignUp-Final.jpg" id="vidPreview">'
+            <source src="/assets/ZMR-SignUp-Final.mp4" type="video/mp4">
+            <source src="/assets/ZMR-SignUp-Final.webm" type="video/webm">
+            <img src="/assets/account/ZMR-SignUp-Final.jpg" width="556" height="313">
+          </video>
+            <iframe id="video" width="556" height="313" src="//www.youtube.com/embed/rtw9L7DaA40?showinfo=0&wmode=transparent&vq=hd720&rel=0" frameborder="0" allowfullscreen="" data-page="/zmr/sign-up" data-var="0"></iframe>
+        </div>
+
+
+
+        <div class="zmr-signup-top">
+          <% if logged_in? %>
+          <a href="/users/game_newsletter" class="zmr-sign-up"></a>
+          <% else %>
+          <a href="#" class="zmr-sign-up sign-up"></a>
+          <% end %>
+        </div>
+
+
+        <div class="register-content">
+          <div id="register-modal">
+            <div class="fbook-signup">
+              <%= link_to "sign up with", "/auth/facebook", :class => "signup-facebook-link signup-facebook-btn", :title => tslt("sign in with facebook") %>
+            </div>
+            <div class="form-signup" id="registration">
+              <%= form_for :user, :url => users_path, :html => { :method => :post, :id => "account-registration-form" } do |f| %>
+                <%= render :partial => "form", :locals => { :f => f } %>
+              <% end %>
+            </div>
+            <div class="disclaimer-signup">
+              <p>Already have an account?<br/><a href="http://zmr.enmasse.com/download">Download the game!</a></p>
+            </div>
+          
+            <%# SIGN IN DO NOT REMOVE %>
+            <div style="display:none">
+            <%= render :partial => "/shared/full_login_box", :locals => {:newsletter => @zmr_newsletter_id, :fail_to => index_path(:slogin => true), :return_to => verified_users_path} %>
+            </div>
+            <%#  /DO NOT REMOVE %>
+          </div>
+        </div>
+        <div class="offer-sm"></div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="zmr-overview">
+      <p><em>Zombies Monsters Robots</em> is an intense, third person shooter that pits players against an unexpected assortment 
+      of enemies, environments, and game modes. Enter a war  against monstrous enemies that will stop at nothing to see 
+      the end of mankind.</p>
+      <p>This is the world of <em>ZMR</em>.</p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="zmr-features">
+      <div class="f1">
+        <strong>IMMERSIVE THIRD-PERSON ACTION</strong>
+        <p>Don't just stand there! Dynamic cover, blind fire, dodging, and active reload systems make firefights strategic and engaging.</p>
+      </div>
+      <div class="f2">
+        <strong>MUCHOS, MUCHOS ENEMIES!</strong>
+        <p>From the undead, to cyborgs, the supernatural, to mutants, to rival corporations,prepare for anything to pop up in your sights.</p>
+      </div>
+      <div class="f3">
+        <strong>INTENSE GAME MODES</strong>
+        <p>Fight with up to 16 players in campaign, competitive, and wave-based survival modes across a wide range of maps.</p>
+      </div>
+      <div class="f4">
+        <strong>FREAKISH BOSS FIGHTS</strong>
+        <p>Face truly monstrous bosses, each with their own unique strengths and weaknesses—and a burning desire to see you crawl.</p>
+      </div>
+      <div class="f5">
+        <strong>DEEP CUSTOMIZATION OF GUNS &amp; GEAR</strong>
+        <p>Upgrade your firepower with a customizable arsenal. Earn and equip perks to boost your abilities and give you an edge against opponents. </p>
+      </div>
+      <div class="f6">
+        <strong>MONTHLY CONTENT UPDATES</strong>
+        <p><em>ZMR</em>&rsquo;s vast amount of content is just a taste of what&rsquo;s 
+in store. Regular updates with more enemies, weapons, 
+maps, and modes—there&rsquo;s always new battles to fight!</p>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="offer">
+      <h3>Limited Time Offer!</h3>
+      <p>Sign up now and receive a free <strong>E-ZK Corpse Caller grenade</strong> that attracts zombies then blows them up!</p>
+      
+    </div>
+    <div class="zmr-signup-bottom">
+      <% if logged_in? %>
+      <a href="/users/game_newsletter" class="zmr-sign-up"></a>
+      <% else %>
+      <a href="#" class="zmr-sign-up sign-up"></a>
+      <% end %>
+    </div>
+  </div>
+  
+</div>
+
+<%= javascript_include_tag 'apps/zmr_signup' %>
+<script type="text/javascript">
+  window.onload = function() {
+    $("#video-overlay").click(handleVideoOverlayClick);
+  }
+</script>
+
+<%= render :partial => "signup_modals" %>
+<%= render :partial => "hints" %>
+<%= CustomBlock.content_for("zmr_view_sign-up_landing_page").to_s.html_safe %>
+<footer class="eme-footer">
+  <div class="container">
+    <div class="logo"><a href="http://www.enmasse.com"></a></div>
+    <nav>
+      <ul>
+        <li><a href="http://www.enmasse.com/legal/privacy-policy">Privacy Policy</a></li>
+        <li><a href="http://www.enmasse.com/legal/terms-of-service">Terms of Service</a></li>
+        <li><a href="http://www.enmasse.com/jobs">Jobs</a></li>
+        <li><a href="http://support.enmasse.com/zmr">Contact Us</a></li>
+        <li class="last"><a href="#" class="to-top">Back to Top</a></li>
+      </ul>
+    </nav>
+    <div class="disclaimer">
+      <p>Copyright © 2014 Yingpei Games. All Rights Reserved. Your use of this product is subject<br>
+        to the terms of the license agreement available on our website, enmasse.com.<br>
+        ZMR is a trademark of En Masse Entertainment.<br>
+        All other trademarks are the property of their respective owners.</p>
+    </div>
+  </div>
+</footer>
+

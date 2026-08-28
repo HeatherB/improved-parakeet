@@ -1,0 +1,31 @@
+<!-- Add JavaScript to configure iovation -->
+<script language="JavaScript">
+  <% unless in_launcher? %>
+    // basic configuration for ioBegin
+    var io_operation = "ioBegin";
+    var io_bbout_element_id = "blackbox";
+    var io_install_stm = false; // do not install ActiveX
+    var io_install_flash = false; // do not require Flash (get redirected in launcher)
+
+    // define function to redirect to Adobe to get Flash player
+    /*
+    function redirectFlash() {
+      document.location.href="http://www.adobe.com/shockwave/download";
+    }
+    var io_install_stm_error_handler = "";
+    var io_flash_needs_update_handler = "redirectFlash();";
+    var io_install_flash_error_handler = "redirectFlash();";
+    */
+  <% else %>
+    var io_operation = "ioBegin";
+    var io_bbout_element_id = "blackbox";
+    var io_install_stm = false; // don't install active x
+    var io_install_flash = false; // don't require flash
+  <% end %>
+</script>
+
+<% if Rails.env.production? %>
+  <script src="https://mpsnare.iesnare.com/snare.js" type="text/javascript"></script>
+<% else %>
+  <script src="https://ci-mpsnare.iovation.com/snare.js" type="text/javascript"></script>
+<% end %>

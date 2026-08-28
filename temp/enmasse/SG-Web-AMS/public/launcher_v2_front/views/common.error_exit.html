@@ -1,0 +1,35 @@
+<!--<p>Launcher has encountered unspecified error.</p>
+<p>code: {{ngDialogData.code}}</p>
+<p>>We're sorry about this. Please try another time.</p>
+<div class="ngdialog-buttons">
+  <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="closeThisDialog()">Exit</button>
+</div>-->
+
+
+<div class='ng-modal nopop'>
+  <!--<div class='ng-modal-overlay' ng-click='hideModal()'></div>-->
+  <div class='ng-modal-dialog' ng-style='dialogStyle'>
+    <div class='popup'>
+      <div class='pop-header'>
+        <div id="dragMe" ng-mousedown="dragMe()"></div>
+        <img src='img/eme-wordmark.png' alt='En Masse Entertainment' />
+      </div>
+      <div class='ng-modal-dialog-content'>
+
+        <div class="pop-content narrowLayout" style="width: 420px;">
+          <h2>Launcher Error</h2>
+          <div class="inner-pop">
+            <p>Launcher has encountered an internal error. Please try another time.</p>
+            <p>code: {{ngDialogData.code}}</p>
+            <div class="ngdialog-buttons">
+              <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="closeThisDialog()">Exit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class='pop-footer'>
+        <!--<a class='back' id='closeLogin' ng-click='closePopup()'>close this window</a>-->
+      </div>
+    </div>
+  </div>
+</div>

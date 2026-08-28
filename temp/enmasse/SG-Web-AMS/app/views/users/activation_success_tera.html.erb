@@ -1,0 +1,52 @@
+<% content_for :custom_favicon do %>
+<%= favicon_link_tag 'tera-favicon.ico', :rel => 'shortcut icon' %>
+<% end %>
+
+<% title tslt("account verification complete") %>
+<% content_for :custom_google_analytics_calls do %>
+  _gaq.push(['_trackEvent', 'Accounts', 'Complete Registration', 'TERA']);
+<% end %>
+
+<div id="content" class="default-message-cont">
+<!--rounded corners-->
+  <div class="content-top short"> <h1><%= tslt("account verified") %></h1>
+    <hr />
+  </div>
+  <!--end rounded corners-->
+  <div class="content-block verified">
+    <hr />
+    <div id="download-btn">
+      <%#= link_to(tslt("download tera"), "http://www.thehappycloud.com/tera_enmasse_installer", :id => "btn-download") %>
+      <a href="http://tera.enmasse.com/download" id="btn-download">Download TERA</a>
+    </div>
+    <h2><%= tslt("learn more about tera") %></h2>
+    <div id="learn-more" class="border-highlight">
+      <map id="learn-more-full-map" name="learn-more-full-map">
+        <area shape="poly" alt="<%= tslt("getting started") %>" title="<%= tslt("getting started") %>" coords="2,2,152,2,69,144,2,145" href="http://tera.enmasse.com/game-guide/the-basics" target="_self" class="menu-link" data-position="one" />
+        <area shape="poly" alt="<%= tslt("races and classes") %>" title="<%= tslt("races and classes") %>" coords="153,2,302,2,218,145,70,145" href="http://tera.enmasse.com/game-guide/races" target="_self" class="menu-link" data-position="two" />
+        <area shape="poly" alt="<%= tslt("combat") %>" title="<%= tslt("combat") %>" coords="303,2,456,2,373,145,219,145" href="http://tera.enmasse.com/game-guide/gameplay" target="_self" class="menu-link" data-position="three" />
+        <area shape="poly" alt="<%= tslt("dungeons") %>" title="<%= tslt("dungeons") %>" coords="457,2,613,2,529,145,374,145" href="http://tera.enmasse.com/game-guide/dungeons" target="_self" class="menu-link" data-position="four" />
+        <area shape="poly" alt="<%= tslt("pvp") %>" title="<%= tslt("pvp") %>" coords="614,2,773,2,690,145,530,145" href="http://tera.enmasse.com/game-guide/pvp" target="_self" class="menu-link" data-position="five" />
+        <area shape="poly" alt="<%= tslt("endgame") %>" title="<%= tslt("endgame") %>" coords="774,2,929,2,846,145,691,145" href="http://tera.enmasse.com/game-guide/endgame" target="_self" class="menu-link" data-position="six" />
+        <area shape="poly" alt="<%= tslt("more") %>" title="<%= tslt("more") %>" coords="930,2,1008,2,1008,145,847,145" href="http://tera.enmasse.com/game-guide" target="_self" class="menu-link" data-position="seven" />
+      </map>
+        <div id="learn-more">
+          <div id="learn-more-menu">
+            <%= image_tag("account/learn-more-full/learn-more-full-map.png", :usemap => "#learn-more-full-map") %>
+            <span id="menu-one"><%= tslt("getting started") %></span>
+            <span id="menu-two"><%= tslt("races and classes") %></span>
+            <span id="menu-three"><%= tslt("combat") %></span>
+            <span id="menu-four"><%= tslt("dungeons") %></span>
+            <span id="menu-five"><%= tslt("pvp") %></span>
+            <span id="menu-six"><%= tslt("endgame") %></span>
+            <span id="menu-seven"><%= tslt("more") %></span>
+          </div>
+        </div>
+    </div>
+  </div>
+  <!--rounded corners-->
+  <div class="content-bottom"></div>
+<!--end rounded corners-->
+</div>
+
+<%= CustomBlock.content_for("complete_registration").to_s.html_safe %>

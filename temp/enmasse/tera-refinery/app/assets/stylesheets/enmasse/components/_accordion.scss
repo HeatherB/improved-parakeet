@@ -1,0 +1,117 @@
+/* Accordion ---------------------- */
+
+.accordion {
+    background: #efefef;
+    margin: 0 0 22px 0;
+    border: 2px solid #959393;
+    outline: none;
+    input {
+        display: inline; width:0; height:0; float:left;
+    }
+
+    label {
+        @include transition(background, color 0.3s ease-in-out);
+        padding: 4px 10px 4px 10px;
+        font-weight: bold;
+        color: #666;
+        line-height: 1.6em;
+        font-size: 16px;
+        background: #c1c1c1;
+        @include background(linear-gradient(top, #fff, #c1c1c1));
+        display: block;
+        position: relative;
+        border-top: 2px solid #efefef;
+        border-bottom: 2px solid #efefef;
+        cursor: pointer;
+
+        &:hover {
+            color: #000;
+            background: #c1c1c1;
+            @include background(linear-gradient(top, #c1c1c1, #959393));
+        }
+
+        &:after {
+            content: "";
+            display: block;
+            width:0; height:0;
+            @include cssTriangle(6px, #959393, right);
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+        em { color: #666; }
+    }
+
+    article {
+        overflow: hidden;
+        height: 0;
+        position: relative;
+        z-index: 10;
+        background: #fff;
+        @include background(linear-gradient(top, #fff, #c1c1c1));
+    }
+
+    input:checked + label,
+    input:checked + label:hover,
+    input.checked + label,
+    input.checked + label:hover {
+        background: #959393;
+        @include background(linear-gradient(top, #959393, #c1c1c1));
+        outline: none;
+        color: #000;
+    }
+
+    input.checked+label:after, input:checked+label:after {
+        @include cssTriangle(6px, #959393, top);
+        top: 15px;
+    }
+
+    article.checked {
+        height: 100%;
+    }
+    
+    input:checked~article {
+        height: 100%;
+    }
+
+    article ul {
+        margin: 0;
+        padding: 0;
+
+        li a{
+            padding-left: 35px;
+            display: block;
+
+            &:hover {
+                background: #c1c1c1;
+                text-decoration: none;
+            }
+
+        }
+
+        li  .selected {
+            background: #c1c1c1;
+            text-decoration: none;
+
+            &:hover {
+                background: #c1c1c1;
+            }
+        }
+
+
+    }
+    p {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        padding: 3px 10px;
+        background: #c1c1c1;
+        @include background(linear-gradient(top, #c1c1c1, #959393));
+    }
+
+    div:last-child a { color: white; }
+
+    &.dungeon-guide-list {
+        div:last-child a { color: #0297ff; }
+    }
+}

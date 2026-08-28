@@ -1,0 +1,18 @@
+<div class="display-none">
+  <div id="verification">
+    <h1 id="email_address">Email sent</h1>
+    <hr />
+    <div id="verification-content">
+      <p><%= tslt("please check your email") %></p>
+      <span id="email_inbox"></span>
+    </div>
+  </div>
+</div>
+<div class="display-none">
+  <div id="terms">
+    <h1><%= tslt("en masse terms of service")%></h1>
+    <div id="terms-content">
+      <%= render :partial => "pages/terms_of_service" %>
+    </div>
+  </div>
+</div>

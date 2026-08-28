@@ -1,0 +1,31 @@
+<!doctype html>
+<!--<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en" lang="en">-->
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+  <head>
+    <%= render :partial => "shared/head" %>
+  </head>
+  <body id="app-<%= @current_app if defined?(@current_app) %>" class="registration">
+    <%= yield(:google_experiment) if content_for?(:google_experiment) %>
+    <%= yield(:facebook) if content_for?(:facebook) %>
+    <a name='top'></a>
+    <div id='blackout' style='display:none;'></div>
+    <div id="container-main">
+      <div id="content-container-<%= (cols=yield(:cols)) ? cols : 2 %>col">
+        <div id="content-primary">
+          <%= yield %>
+        </div><!--#primary-->
+        <% unless cols.to_i == 1 %>
+          <aside id="content-secondary">
+            <%= yield(:sidebar) %>
+          </aside><!--#secondary-->
+          <div class="clear"></div>
+        <% end -%>
+      </div><!--#content-container-->
+    </div><!--#container-main-->
+  </body>
+</html>

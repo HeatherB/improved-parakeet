@@ -1,0 +1,16 @@
+<% unless items.blank? %>
+  <div class='gallery'>
+    <ul>
+      <% items.each do |i| %>
+        <li>
+          <% case i %>
+          <% when Refinery::Image %>
+            <%= link_to image_tag(i.thumbnail("200x200#c").url), cdnify(i.thumbnail.url), "data-item-type" => "image", :title => "" %>
+          <% else %>
+            <% Rails.logger.debug "Bad gallery thing: #{i.inspect}" %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

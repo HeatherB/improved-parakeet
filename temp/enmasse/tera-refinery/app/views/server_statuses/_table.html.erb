@@ -1,0 +1,44 @@
+<div class="server_status">
+  <% if servers.any? %>
+    <table class="sorttable" id="server-status-table">
+      <thead>
+        <tr>
+          <th><span class="sorttable-header">Status</span></th>
+          <th><span class="sorttable-header">Server</span></th>
+          <th><span class="sorttable-header">Type</span></th>
+          <th><span class="sorttable-header">Queue</span></th>
+          <th><span class="sorttable-header">Population</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% servers.each do |server| %>
+          <% if server.up? %>
+            <tr class="server-up">
+              <td class="server-status-icon" data-value="<%= server.status_sort %>">a</td>
+          <% elsif server.down? %>
+            <tr class="server-down">
+              <td class="server-status-icon" data-value="<%= server.status_sort %>">c</td>
+          <% else %>
+            <tr class="server-maint">
+              <td class="server-status-icon" data-value="<%= server.status_sort %>">b</td>
+          <% end %>
+            <td class="server-name"><%= server.name %></td>
+            <td data-value="<%= server.category_sort %>"><%= server.category %></td>
+            <td class="server-<%= server.crowdness %>" data-value="<%= server.crowdness_sort %>">
+              <span class="has-tip" data-tooltip data-width title="<%= raw "#{server.crowdness_message}" unless server.crowdness_message.blank? %>">
+                <%= server.crowdness %>
+              </span>
+            </td>
+            <td class="server-<%= server.open %>" data-value="<%= server.open_sort %>">
+              <span class="has-tip" data-tooltip data-width title="<%= raw "#{server.open_message}" unless server.open_message.blank? %>">
+                <%= server.open %>
+              </span>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p><%= t('.server_list_empty') %></p>
+  <% end %>
+</div>

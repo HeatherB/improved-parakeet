@@ -1,0 +1,48 @@
+<div id="class-info">
+  <div id="sorcerer-icon"></div>
+  <h2>Sorcerer</h2>
+  <p>Role: Ranged attacks, Burst DPS. Sorcerers deal critical damage with devastating combos.</p>
+</div>
+<% if @level <= 29 %>
+  <div id="skills">
+    <div class="skill">
+      <span class="icon magma-bomb"></span>
+      <p>Magma Bomb</p>
+      <p>Arc a fiery projectile several meters away, where it explodes, damaging anyone nearby.</p>
+    </div>
+    <div class="skill">
+      <span class="icon teleport-jaunt"></span>
+      <p>Teleport Jaunt</p>
+      <p>Teleport a short distance in the direction the camera faces.</p>
+    </div>
+    <div class="skill">
+      <span class="icon time-gyre"></span>
+      <p>Time Gyre</p>
+      <p>Briefly immobilize up to 3 targets within 18m. Prevents other players from using evasion and reduces base movement to zero.</p>
+    </div>
+    <div class="skill">
+      <span class="icon fireblast"></span>
+      <p>Fireblast</p>
+      <p>Blast targets in a flaming circle with a 4m radius centered 10m in front of you.</p>
+    </div>
+  </div>
+<% else %>
+  <div id="crystals">
+    <div class="pve">
+      <h3>PvE Crystals</h3>
+      <ul>
+        <li class="red-crystal">Savage, forceful, bitter</li>
+        <li class="blue-crystal">Hardy</li>
+        <li class="green-crystal">Carving</li>
+      </ul>
+    </div>
+    <div class="pvp">
+      <h3>PvP Crystals</h3>
+      <ul>
+        <li class="red-crystal">Savage, forceful, salivating, carving</li>
+        <li class="blue-crystal">Relentless</li>
+        <li class="green-crystal">Griefing, carving</li>
+      </ul>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,182 @@
+<style type="text/css">
+  html #app-launcher { color: #666666; }
+  html #app-launcher .form-signup {
+    margin-top: 50px;
+  }
+  html #app-launcher input {
+    width: 220px;
+    padding: 10px 20px 10px 5px;
+    background: white;
+    border-radius: 5px;
+    border: 1px solid black;
+    height: 18px;
+    font-size: 16px;
+    margin: 5px auto 10px;
+    display: block;
+  }
+  #app-launcher .content-launcher .iparent {
+    position: relative;
+    margin: 5px auto;
+  }
+
+  html #app-launcher .logo {
+    width: 158px;
+    height: 59px;
+    background: url("/assets/launcher/small-tera.png") no-repeat 0 0;
+    margin: 10px auto 15px;
+  }
+  #app-launcher .content-launcher .content {
+    width: 410px;
+    margin: 0 auto;
+  }
+  #app-launcher .content-launcher .flash {
+    font: bold 16px/24px 'exo_2light';
+  }
+
+  #app-launcher .content-launcher form {
+    width: 275px;
+    margin: 0 auto;
+  }
+
+  #app-launcher .content-launcher input {
+    margin: 0; padding: 0 5px;
+    background: white;
+    width: 275px;
+    height: 45px;
+    border: 1px solid #a8a8a8;
+    color: #666666;
+    -webkit-box-shadow: inset 0px 2px 3px 0px rgba(168,168,168,1);
+    text-align: center;
+    font: bold 20px/45px 'exo_2light';
+  }
+  #app-launcher .content-launcher li {
+    margin: 10px 0;
+  }
+  #app-launcher .content-launcher select {
+    background-position: -5px -2px;
+    height: 23px;
+    border-radius: 5px;
+    border: 1px solid #000;
+    padding: 5px;
+    width: 285px;
+    font-family: arial;
+    height: 35px;
+    display: block;
+    margin: 5px auto;
+  }
+  
+
+
+  #hint {
+    right: -330px;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    z-index: 9999;
+    width: 300px;
+    padding: 5px;
+    background: #212222;
+    color: #D6D6D6;
+    font-size: 13px;
+    font-weight: bold;
+    border: 1px solid #FFFFFF;
+    border-radius: 5px;
+  }
+  .email #hint { top: 1px; }
+  .password #hint { top: -50px; }
+  .password #hint.warning { top: -50px; }
+  .password-confirmation #hint { top: 10px; }
+  .password-confirmation #hint.warning { top: 10px; }
+
+  #hint #arrow {
+    position: absolute;
+    left: -12px;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 6px 6px 6px 6px;
+    border-color: transparent #212222 transparent transparent;
+  }
+
+  .password #hint #arrow { top: 66px; }
+  .password-confirmation #hint #arrow { top: 6px; }
+  
+  .disclaimer-signup {
+    float: left;
+    width: 260px;
+    margin: 85px 0px 0px 10px;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+  }
+  #hint .disclaimer-signup a { color: #ffcb18; }
+  #hint .rounded-corners { border-radius: 8px; }
+  #hint ul {list-style-type: none;}
+  #hint ul li { font-weight: bold; }
+  #hint p { font-weight: bold; }
+  #hint.warning {
+    background: #711d14;
+    color: #828181;
+    border-color: #FFFFFF;
+  }
+  #hint.warning #arrow {
+    border-color: #FFFFFF transparent transparent  transparent;
+  }
+  #info-box {z-index: 5;}
+  form .check.with_errors { background: image-url("site/icons.png") no-repeat 0px 0px !important; }
+  form .check.valid { background: image-url("site/icons.png") no-repeat 0px -20px !important; }
+  form .input-text { float: left; width: 478px; padding-top: 8px; }
+  form .check {
+    display: none;
+    position: relative;
+    top: -35px;
+    left: 270px;
+    width: 12px;
+    margin-bottom: -10px;
+    height: 10px;
+    background: url(/assets/site/icons.png) no-repeat 0 0;
+  }
+  .check.with_errors {
+    display: block;
+    background-position: 0px 0px;
+  }
+  .check.valid {
+    display: block;
+    background-position: 0px -20px;
+  }
+
+  html #app-launcher #account-registration-form .btn-create {
+    background: -webkit-linear-gradient(top, #fef9f1 0%,#ecb75c 100%);
+    width: 286px;
+    height: 64px;
+    margin: 10px auto;
+    display: block;
+    border: none;
+  }
+  html #app-launcher #account-registration-form .btn-create:hover {background: -webkit-linear-gradient(top, #e6b300 0%,#ffffff 0%,#f1cb8a 100%);}
+  html #app-launcher #account-registration-form .btn-create:active {background: -webkit-linear-gradient(top, #e6b300 0%,#ecb75c 0%,#fef9f1 100%);}
+
+
+  #app-launcher .content-launcher #activate {
+    width: 250px;
+    margin: 0 auto;
+    height: 50px;
+    outline: none;
+    font: bold 28px/50px 'exo_2light';
+    padding: 0 0 8px;
+    color: black;
+    text-shadow: none;
+    border: 1px solid #e6b300;
+    background: #fef9f1;
+    background: -webkit-linear-gradient(top, #fef9f1 0%,#ecb75c 100%);
+  }
+  #app-launcher .content-launcher #activate:hover {
+    background: #e6b300;
+    background: -webkit-linear-gradient(top, #e6b300 0%,#ffffff 0%,#f1cb8a 100%);
+  }
+  #app-launcher .content-launcher #activate:active {
+    background: #e6b300;
+    background: -webkit-linear-gradient(top, #e6b300 0%,#ecb75c 0%,#fef9f1 100%);
+  }
+  #app-launcher .content-launcher .class-name-here { text-align: center; }
+</style>

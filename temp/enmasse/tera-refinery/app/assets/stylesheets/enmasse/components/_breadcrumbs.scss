@@ -1,0 +1,36 @@
+/* BREADCRUMBS */
+.breadcrumb {
+  @include clearfix();
+  background-image: $gray-px;
+  @include background(linear-gradient(rgba($white, 0.075), rgba($white, 0.05)));
+  @include box-shadow(rgba($lightGray, 0.8) 0 2px 3px -1px inset);
+
+  border: 1px solid $black;
+  overflow: hidden;
+  display: inline-block;
+
+  li {
+    display: block;
+    position: relative;
+    float: left;
+    padding:0 15px 0 5px;
+    font-size: ms(0) - 2;
+    line-height: 22px;
+
+    a {
+      &:after {
+        content: "";
+        width: 12px;
+        height: 22px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        background: #{$image-sprite} no-repeat -382px -467px transparent;
+      }
+    }
+    &.last {
+      padding-right: 10px;
+      color: $headerFontColor;
+    }
+  }
+}

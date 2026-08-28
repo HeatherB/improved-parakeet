@@ -1,0 +1,62 @@
+@mixin gradient($start, $end) {
+  background: -webkit-gradient(linear, left top, left bottom, from($start), to($end));
+  background: -webkit-linear-gradient($start, $end);
+  background: -moz-linear-gradient(top, $start, $end);
+  background: -ms-linear-gradient($start, $end);
+  background: -o-linear-gradient($start, $end);
+  background: linear-gradient($start, $end);
+  -pie-background: linear-gradient($start, $end);
+  //behavior: url(/assets/PIE.htc);
+}
+
+@mixin mask {
+  overflow: hidden;
+}
+
+@mixin rounded-corners-each($corner-top-left-radius, $corner-top-right-radius, $corner-bottom-right-radius, $corner-bottom-left-radius) {
+  -moz-border-radius: $corner-top-left-radius $corner-top-right-radius $corner-bottom-right-radius $corner-bottom-left-radius;
+  -webkit-border-radius: $corner-top-left-radius $corner-top-right-radius $corner-bottom-right-radius $corner-bottom-left-radius;
+  -ms-border-radius: $corner-top-left-radius $corner-top-right-radius $corner-bottom-right-radius $corner-bottom-left-radius;
+  -o-border-radius: $corner-top-left-radius $corner-top-right-radius $corner-bottom-right-radius $corner-bottom-left-radius;
+  border-radius: $corner-top-left-radius $corner-top-right-radius $corner-bottom-right-radius $corner-bottom-left-radius;
+  //behavior: url(/assets/PIE.htc);
+}
+
+@mixin rounded-corners($corner-radius) {
+  -moz-border-radius: $corner-radius;
+  -webkit-border-radius: $corner-radius;
+  -ms-border-radius: $corner-radius;
+  -o-border-radius: $corner-radius;
+  border-radius: $corner-radius;
+  //behavior: url(/assets/PIE.htc);
+}
+
+@mixin rounded-top($corner-radius) {
+  -moz-border-radius: $corner-radius $corner-radius 0 0;
+  -webkit-border-radius: $corner-radius $corner-radius 0 0;
+  -ms-border-radius: $corner-radius $corner-radius 0 0;
+  -o-border-radius: $corner-radius $corner-radius 0 0;
+  border-radius: $corner-radius $corner-radius 0 0;
+  //behavior: url(/assets/PIE.htc);
+}
+
+@mixin rounded-bottom($corner-radius) {
+  -moz-border-radius: 0 0 $corner-radius $corner-radius;
+  -webkit-border-radius: 0 0 $corner-radius $corner-radius;
+  -ms-border-radius: 0 0 $corner-radius $corner-radius;
+  -o-border-radius: 0 0 $corner-radius $corner-radius;
+  border-radius: 0 0 $corner-radius $corner-radius;
+  //behavior: url(/assets/PIE.htc);
+}
+
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+
+@mixin text-shadow($args) {
+  text-shadow: $args;
+}

@@ -1,0 +1,25 @@
+<div id="language-drop-down">
+  <div id="language-select-close">
+    <div id="change-language-cont" class="language-menu-link">
+      <% lang = ISO_6392_MAPPINGS[current_language] || DEFAULT_LANGUAGE %>
+      <%= image_tag "flags/#{lang.iso6392}.png", :class => "flag" -%>
+      <%= lang.native_desc %>
+    </div>
+    <%= link_to '', "toggleLanguageMenu()", :id => 'open-arrow', :class => "language-menu-link" %>
+  </div>
+
+  <div id="language-select-open" style="display:none;">  
+    <div class="transparent-bg"></div>
+    <ul id="language-selection" data-url="<%= change_language_users_path %>">
+      <% ACTIVE_LANGUAGES.each do |l| %>
+        <li class='change-language-link <%= "checked" if l.iso6391 == current_language %>' 
+          data-language='<%= l.iso6391 %>' data-loading="<%= tslt("loading") %>">
+          <%= image_tag "flags/#{l.iso6392}.png", :class => "flag" -%>
+          <%= l.native_desc -%>
+        </li>
+      <% end %>
+    <ul>
+  </div>
+</div><!--language-drop=down-->
+
+

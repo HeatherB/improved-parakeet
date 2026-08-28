@@ -1,0 +1,148 @@
+<section class="signup" id="console">
+      <div class="inner">
+        <div class="form_wrapper">
+            <div class="logo">
+              <img src="/assets/console/tera.png" alt="TERA" />
+            </div>
+            <div class="video-wrapper">
+              <div class="video-inner">
+                <iframe src="https://www.youtube.com/embed/uL0VWHaJUdE?rel=0" id="video" frameborder="0" width="443" height="249"></iframe>
+                <div id="video-overlay" style="background-image: url(http://download.enmasse.com/images/sign-up/tera/master/Video_tera.jpg); "></div>
+              </div>
+            </div><!-- end of video wrapper -->
+
+            <h1>Register for the Closed Beta</h1>
+<!-- errors should be here -->
+            <% if flash[:error] %>
+                <div class="error-alert"><span class="icon"></span><%= flash[:error] %></div>
+            <% elsif flash[:notice] %>
+                <div class="notice-alert"><span class="icon"></span><%= flash[:notice] %></div>
+            <% end %>
+<!-- end error block -->
+                  <%= form_for :tera_console_beta_signup, :url => consolebeta_path, :html => {:method => :post, :id => "tera-console-beta-signup-form"} do |f| %>
+
+                      <input type="hidden" name="user[io_black_box]" id="user_io_black_box" value=""/>
+                      <input type="hidden" name="game" value="teraconsole"/>
+
+
+                      <fieldset class="console_pref">
+                        <h4>Choose Your Preferred Platform:</h4>
+                        <div class="checkbox">
+                          <%= f.check_box :xbox %>
+                          <label class="label_check" for="tera_console_beta_signup_xbox">
+                            <span></span><!-- this span provdes the image checkbox-->
+                            <span class="label">Xbox One</span>
+                          </label>
+                        </div>
+                        <div class="checkbox">
+                          <%= f.check_box :ps4 %>
+                          <label class="label_check" for="tera_console_beta_signup_ps4">
+                            <span></span><!-- this span provdes the image checkbox-->
+                            <span class="label">PlayStation 4</span>
+                          </label>
+                        </div>
+                      </fieldset>
+
+                      <fieldset class="email">
+                        <%= label_tag(:email, "Enter Your Email Address:") %>
+                        <%= f.email_field :email, :required => true %>
+                      </fieldset>
+
+
+                      <fieldset>
+                        <div class="checkbox yellow">
+                          <%= check_box_tag 'privacy_policy', 'privacy_policy', checked = true %>
+                          <label class="label_check" for="privacy_policy" id="privacy_policy-checkbox">
+                            <span></span><!-- this span provdes the image checkbox-->
+                            <span class="label">I agree to the terms of the <em>TERA</em> <a href="legal/privacy-policy" target="_blank">Privacy Policy.</a></span>
+                          </label>
+                        </div>
+
+                        <div class="checkbox yellow">
+                          <%= check_box_tag 'marketing_comm', 'marketing_comm', checked = true %>
+                          <label class="label_check" for="marketing_comm" id="marketing_comm-checkbox">
+                            <span></span><!-- this span provdes the image checkbox-->
+                             <span class="label">I agree to receive newsletters and marketing communications for <em>TERA</em></span>
+                          </label>
+                        </div>
+                        <p class="hint">You must agree to these terms.</p>
+                      </fieldset>
+
+
+
+                     <fieldset class="submit">
+                      <%= f.submit 'Sign Up Now', :disabled => false %>
+                    </fieldset>
+
+
+                  <% end %>
+              </div><!-- end of wrapper -->
+            </div><!-- end of inner -->
+
+            <div class="footer">
+              <div class="inner">
+                <div class="copyright">
+                  <p>Copyright &copy; <%= Time.now.year %> Bluehole Inc. All rights reserved. Your use of this product is subject to the terms of the license agreement available on our website at tera.enmasse.com. TERA™, TERA: Rising, and TERA: The Exiled Realm of Arborea are trademarks of Bluehole Inc. Fate of Arun is a trademark of En Masse Entertainment. All other trademarks are the property of their respective owners.</p>
+                  <p>The "PS" Family logo is a registered trademark and "PS4" is a trademark of Sony Computer Entertainment Inc. Software platform logo (TM and &copy;) EMA 2006.</p>
+                </div>
+              </div>
+            </div>
+
+    </section>
+
+    <style>
+      .footer-wrapper {
+        display: none;
+      }
+    </style>
+
+    <script>
+    $('.yellow input[type="checkbox"]').on('click', function() {
+      if(!$('#marketing_comm').is(':checked')) {
+        $('.hint').show();
+        $('.submit input').prop("disabled", true);
+      } else if(!$('#privacy_policy').is(':checked')) {
+        $('.hint').show();
+        $('.submit input').prop("disabled", true);
+      } else {
+        $('.hint').hide();
+        $('.submit input').prop("disabled", false);
+      }
+    });
+   
+
+    function autoPlayVideo(video_id, width, height){
+      var container = $(video_id).parent();
+      var autoplaySrc = $(video_id).attr('src').replace('autohide=0', 'autohide=1') + '?&amp;autoplay=1';
+      var autoplayHtml = '<iframe id="video" width="' + width + '" height="' + height + '" src="' + autoplaySrc + '" frameborder="0" allowfullscreen></iframe>';
+      $(video_id).remove();
+      container.prepend(autoplayHtml);
+    }
+
+    function trackVideoPlay(page, version) {
+      version = typeof version !== 'undefined' ? version : 0;
+       _gaq.push(['_trackEvent', 'Videos', 'Play', page, parseInt(version)]);
+    }
+
+    function handleVideoOverlayClick() {
+      $(this).hide();
+      $('#vidPreview').stop().hide();
+      var width,
+          height,
+          page,
+          version,
+          video = $('#video');
+      width = video.attr('width');
+      height = video.attr('height');
+      page = video.attr('data-page');
+      version = video.attr('data-var');
+      // trigger the google analytics code
+     trackVideoPlay(page, version)
+      autoPlayVideo('#video', width, height);
+    }
+
+    $("#video-overlay").click(handleVideoOverlayClick);
+
+    </script>
+
+

@@ -1,0 +1,211 @@
+/* special for Internet Explorer */
+.ie9 {
+  button {
+    background: none;
+    filter: none;
+    -ms-filter: none;
+    border: none;
+  }
+}
+.eme-lightbox {
+  img {
+    &:hover {
+      border: 2px solid #1a81c4;
+    }
+  }
+}
+
+/* overwrite of gallery parts */
+#emelightbox-wrapper  {
+  .buttons {
+    position: absolute;
+    top:50%;
+    width:104%;
+    margin-left: -3%;
+    z-index:350;
+    //display:none;
+    button {
+      background: url(/assets/eme-lightbox/lightbox-sprite.png) 0 0 no-repeat;
+      width:70px;
+      height:70px;
+      text-indent: -9999em;
+      border:none;
+      outline: none;
+    }
+    .prev {
+      float:left;
+      background-position: 0px -70px;
+      &:hover {
+        background-position: 0px -143px;
+      }
+    }
+    .next {
+      float:right;
+      background-position: 1px 3px;
+      &:hover {
+        background-position: 1px -217px;
+      }
+    }
+  }
+  .pagers {
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align:center;
+    bottom: -9px;
+    width:auto;
+    z-index:360;
+    .carouselpager {
+      display:inline-block;
+      position: relative;
+      //background:#000000;
+      //border-radius: 5px;
+      //height:10px;
+      //width:10px;
+      background: url(/assets/eme-lightbox/lightbox-sprite.png) -74px -3px no-repeat;
+      width:30px;
+      height:30px;
+      padding: 0;
+      margin:0;
+      border:none;
+      outline: none;
+      &.active, &:hover {
+        //background:#fefefe;
+        background-position: -103px -3px;
+      }
+    }
+  }
+  .eme_slide {
+    width:0;
+    height:0;
+    left:-9999em;
+    z-index:330;
+    text-align:center;
+    p, h1, h2, h3, h4, h5, h6, ul, li, span, div {
+      text-align:left;
+    }
+    &.active {
+      left:0;
+      width:100%;
+      height:100%;
+    }
+  }
+}
+
+
+// transition effects
+/*.fade {
+  .eme_slide {
+    opacity: 0;
+    transition: opacity .5s ease-in-out;
+    -moz-transition: opacity .5s ease-in-out;
+    -webkit-transition: opacity .5s ease-in-out;
+    &.active {
+      opacity: 1;
+      left:0;
+      top:0;
+      height:100%;
+    }
+  }
+}*/
+
+
+.lb-thumbs {
+	width:285px;
+	height:233px;
+}
+/* the content inside the acutal lightbox */
+#emelightbox-wrapper {
+	/*position: fixed;
+	z-index: 99;
+	top:50px;
+	bottom:0;
+	right:0;
+	left:0;
+	margin:0 auto;
+	box-shadow: 0px 0px 0px 2px #ca0b1a;
+  border: 1px solid  #ca0b1a;
+  background-color:#dedede;*/
+  display: none;
+  position: absolute;
+  left:0;
+  right:0;
+  top: 50px;
+  width:100%;
+  z-index:300;
+  #emelightbox {
+    position: relative;
+    margin:0 auto;
+    padding: 10px;
+    box-shadow: 0px 0px 0px 2px #000000;
+    border: 1px solid  #000000;
+    background-color:#dedede;
+    width:90vw;
+  }
+  #emelightbox-content {
+    padding-bottom: 20px;
+  }
+	.one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten, .eleven, .twelve,
+  .row .one, .row .two, .row .three, .row .four, .row .five, .row .six, .row .seven, .row .eight, .row .nine, .row .ten, .row .eleven, .row .twelve {
+		width:100%;
+	}
+	.column, .columns {
+		float:none;
+	}
+  .eme_slide {
+    img {
+      width:100%;
+      max-width:100%;
+      vertical-align: middle;
+    }
+  }
+  .lb-thumbs {
+    height:auto;
+  }
+}
+/*#bg_sheer {
+	background: rgb(0,0,0);
+	background: rgba(0,0,0,0.6);
+	width:100%;
+	height:100%;
+	display: none;
+	position: fixed;
+	z-index:98;
+	top:0;
+	bottom:0;
+	right:0;
+	left:0;
+	margin:0 auto;
+}*/
+.emelightbox-open {
+	#emelightbox-wrapper, #blackout {
+		display: block;
+	}
+}
+.emelightbox-close {
+  width: 64px;
+  height: 64px;
+  position: absolute;
+  top: -32px;
+  right: -26px;
+  border: 0;
+  text-align:center;
+  padding-top:15px;
+  z-index: 370;
+  text-indent: -9999em;
+  background: url(/assets/eme-lightbox/lightbox-sprite.png) no-repeat -140px -3px;
+  &:hover {
+    background-position: -206px -3px;
+  }
+}
+
+/* the content that pops the lightbox */
+.emelightbox-pop {
+	.emeGallery_wrapper {
+		.buttons, .pagers {
+			display: none !important;
+		}
+	}
+}
+
+

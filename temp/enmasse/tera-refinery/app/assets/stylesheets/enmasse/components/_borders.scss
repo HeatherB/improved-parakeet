@@ -1,0 +1,26 @@
+// Global Borders
+  .double-border {
+    border: 2px solid $black;
+    outline: none;
+  }
+  .reverse-border {
+    outline: none;
+    border: 2px solid $lightGray;
+  }
+  img.double-border { 
+    min-width: none;
+    padding:2px;
+    background-color: $black;
+    border: 2px solid $lightGray;
+    @include single-transition(all, 200ms, ease-in-out);
+    position: relative;
+  }
+
+  a:hover img.double-border {
+    border: 2px solid $lightBlue;
+    outline: none;
+  }
+
+  .image-caption a:hover img {
+    outline: 4px solid $lightBlue;
+  }

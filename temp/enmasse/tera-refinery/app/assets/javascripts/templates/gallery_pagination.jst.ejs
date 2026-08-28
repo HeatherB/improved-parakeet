@@ -1,0 +1,28 @@
+<div class="pagination">
+  <a href="" class="prev_page">&lt;</a>
+
+  <% if(nPages > 1) { %>
+    <% for(var i = 0; i < nPages; i++) { %>
+      <% if(i == nPages - 1) { %>
+        <span class="last-page elipses">...</span>
+      <% } %>
+
+      <%  var css_class ;
+          if(i == 0) {
+            css_class = "first-page-link page_link" ;
+          } else if(i == nPages - 1) {
+            css_class = "last-page-link page_link" ;
+          } else {
+            css_class = "page_link" ;
+          } %>
+
+      <a href="" class="<%= css_class %>"><%= i+1 %></a>
+
+      <% if(i === 0) { %>
+        <span class="first-page elipses">...</span>
+      <% } %>
+    <% } %>
+  <% } %>
+
+  <a href="" class="next_page">&gt;</a>
+</div>

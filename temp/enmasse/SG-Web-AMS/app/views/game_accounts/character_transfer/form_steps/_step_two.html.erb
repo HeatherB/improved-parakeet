@@ -1,0 +1,31 @@
+<%
+  no_transfers_to_servers = CharacterTransfer::DISABLED_SERVERS || []
+  allowed_servers = servers.select{|s| !(no_transfers_to_servers.include?(s['name'])) }
+%>
+<script>
+  serverList = [ <%= allowed_servers.map{ |server| '"' + server['name'] + '"' }.join(", ").html_safe %> ];
+  pve = [ <%= allowed_servers.select{ |server| server['category'] == 'PVE' }.map{ |server| '"' + server['name'] + '"' }.join(', ').html_safe %> ];
+  pvp = [ <%= allowed_servers.select{ |server| server['category'] == 'PVP' }.map{ |server| '"' + server['name'] + '"' }.join(', ').html_safe %> ];
+  serverListWithId = { <%= allowed_servers.map{ |server| '"' + server['name'] + '":"' + server['id'] + '"' }.join(", ").html_safe %> };
+</script>
+
+<div id='destination-dropdown' class='flow-step disabled'>
+  <li class="step-header">2. <%= tslt 'select a destination server' %></li>
+  <% server_list = allowed_servers.map{ |server| [server['name'].strip, server['id']] } %>
+
+  <div id='server-select-container'>
+    <input id="server-select-input" type="text" disabled="disabled"></input>
+  </div>
+
+  <div id='server-select-list' style="display:none">
+    <ul>
+      <% allowed_servers.each do |server| %>
+        <li><span><%= server['name'] %></span></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div id='transfer-notices'>
+    <%= tslt('transfer_notices') %>
+  </div>
+</div>

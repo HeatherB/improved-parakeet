@@ -1,0 +1,14 @@
+<input type="hidden" name="blackbox" id="blackbox" value="" />
+<%= render :partial => "shared/iovation_init" %>
+
+<div id="container-message">
+  <div id='login'>
+    <%= form_for @user, :url => register_submit_users_amazon_index_url(:protocol => DEFAULT_PROTOCOL), :html => { :id => "account-registration-form" } do |f| %>
+      <%= render :partial => (@form.present? ? "users/amazon/register/#{@form}" : "users/amazon/register/form_1"), :locals => { :f => f } %>
+    <% end %>
+  </div>
+
+  <div id="amazon-legal-text">
+    <%= tslt('amazon account linking legal text') %>
+  </div>
+</div>

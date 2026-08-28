@@ -1,0 +1,31 @@
+<div class='ng-modal nopop' ng-init='setSize(420,346)'>
+  <div class='ng-modal-overlay' ng-click='hideModal()'></div>
+  <div class='ng-modal-dialog' ng-style='dialogStyle'>
+    <div class='popup'>
+      <div class='pop-header'>
+        <div id="dragMe" ng-mousedown="dragMe()"></div>
+        <div id="user-emp">
+          <div class="close-launcher">
+            <span><a ng-click="minimize()"> _ </a></span>
+            <span><a ng-click='close()'> X </a></span>
+          </div><!-- end of close launcher -->
+        </div><!-- end of user emp -->
+        <img src='img/eme-wordmark.png' alt='En Masse Entertainment' />
+      </div>
+      <div class='ng-modal-dialog-content'>
+
+        <div class="pop-content narrowLayout">
+          <h2>Account Setup Guide</h2>
+
+          <div class="inner-pop">
+            <p>We cound not find your En Masse account for the current Steam account. We'll guide you through En Masse Account Setup process. </p>
+            <button class="btn" ng-click='proceed()'>Proceed</button>
+          </div>
+        </div>
+      </div>
+      <div class='pop-footer'>
+        <!--<a class='back' id='closeLogin' ng-click='closeThisDialog(0)'>close this window</a>-->
+      </div>
+    </div>
+  </div>
+</div>

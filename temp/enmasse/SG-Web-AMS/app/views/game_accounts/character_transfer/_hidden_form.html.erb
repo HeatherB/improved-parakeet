@@ -1,0 +1,11 @@
+<div id="hidden_form" style="display: none;">
+  <%= form_for :character_transfer, :url => game_account_transfer_index_path( :game_account_id => @game_account.obfuscated_id ) do |f| %>
+    <%= f.hidden_field :from_server_name %>
+    <%= f.hidden_field :character_name %>
+    <%= f.hidden_field :to_server_name %>
+
+    <%= f.hidden_field :from_server_id %>
+    <%= f.hidden_field :character_id %>
+    <%= f.hidden_field :to_server_id %>
+  <% end %>
+</div>

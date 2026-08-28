@@ -1,0 +1,271 @@
+<script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+<script>
+window.onload = function() {
+  WebFont.load({
+    google: {
+      families: [ 'Noto+Sans:400italic,700:latin' ]
+    }
+  });
+}
+</script>
+<style type="text/css">
+body {
+  background: transparent;
+}
+#app-launcher {
+  background: transparent;
+  font-family: "Noto Sans", Arial;
+}
+#app-launcher .content-launcher {
+  background: transparent url(/assets/launcher/zmr-login-background.png) no-repeat 0 0;
+  width: 450px;
+  height: 502px;
+  -webkit-box-shadow: none;
+  margin: 0;
+}
+#app-launcher .content-launcher:before { display: none; }
+#app-launcher .content-launcher #login .heading {
+  margin: 99px 0px 8px 71px;
+  background: none;
+}
+.login-facebook-btn {
+  background: transparent url(/assets/launcher/zmr-login-btn.png) no-repeat 0 -98px;
+  width: 202px;
+  height: 44px;
+}
+.login-facebook-btn:hover {
+  background: transparent url(/assets/launcher/zmr-login-btn.png) no-repeat 0 -144px;
+}
+#login p {
+  font-size: 12px;
+  font-weight: bold;
+  color: #000;
+  text-align: center;
+  margin: 0px 0px 0px 72px;
+}
+#login p strong {
+  color: #a80007;
+}
+#app-launcher .content-launcher #login .fgroup {
+  margin-bottom: 15px;
+}
+#app-launcher .content-launcher #login .fgroup .input-text {
+  width: 236px;
+  height: 30px;
+}
+#app-launcher .content-launcher #login .fgroup .input-text input.field {
+  width: 224px;
+  margin-left: 140px;
+  height: 30px;
+  font: 16px/19px Arial;
+  border-radius: 5px;
+  border: 1px solid #000;
+}
+#app-launcher .content-launcher #login #remember_text {
+  color: #000;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: italic;
+  line-height: 19px;
+}
+#app-launcher .content-launcher #login #remember_label {
+  border: 1px solid #000;
+}
+/*  launcher crate account screen */
+#app-launcher .form-signup{
+  margin: 130px 60px 0 140px;
+  color: red;
+}
+
+#app-launcher #user_email, #app-launcher #user_password, #app-launcher #user_password_confirmation {
+  width: 250px;
+  margin-bottom: 12px;
+}
+
+/* end launcher account_create design */
+#app-launcher .content-launcher #login .controls {
+  margin-top: 20px;
+}
+#app-launcher .content-launcher #login #remember_div {
+  margin-left: 80px;
+  margin-bottom: 11px;
+}
+#app-launcher .content-launcher #login .controls .btn-login, #app-launcher .form-signup .btn-login {
+  background: url(/assets/launcher/zmr-login-btn.png) no-repeat 0 0;
+  height: 49px;
+  margin-left: 45px;
+  width: 223px;
+  text-indent: -9999px;
+  border: none;
+  padding: 0;
+}
+#app-launcher .content-launcher #login .controls .btn-login:hover, #app-launcher .form-signup .btn-login:hover {
+  background: url(/assets/launcher/zmr-login-btn.png) no-repeat 0 -49px;
+}
+#app-launcher .content-launcher #login .controls .btn-login.disabled, #app-launcher .form-signup .btn-login:disabled {
+  background: url(/assets/launcher/zmr-login-btn.png) no-repeat 0 -49px;
+}
+
+/* Create account */
+#app-launcher .content-launcher .form-signup {
+  color: #000000;
+}
+#app-launcher .content-launcher .controls .btn-create {
+  background: url(/assets/launcher/zmr-login-btn.png) no-repeat 0 -190px;
+  height: 49px;
+  margin-left: 17px;
+  width: 223px;
+  text-indent: -9999px;
+}
+#app-launcher .content-launcher .controls .btn-create:hover, #app-launcher .content-launcher #login .controls .btn-create:disabled {
+  background-position: 0 -240px;
+}
+#app-launcher .content-launcher #login .fgroup {
+  margin-bottom: 5px;
+  margin-top: 0;
+}
+#app-launcher .content-launcher .form-signup #account-registration-form input[type=email],
+#app-launcher .content-launcher .form-signup #account-registration-form input[type=password] {
+  width: 227px;
+  margin-left: 7px;
+  background-position: -5px -2px;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid #000;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+#app-launcher .content-launcher p.class-name-here {
+  margin: 8px 0 0 7px;
+  font-size: 12px;
+  text-align: center;
+}
+#app-launcher .content-launcher .content {
+  color: #000000;
+  padding:120px 0 0 140px;
+  width: 250px;
+}
+#app-launcher .content-launcher .content h3 {
+  margin-bottom: 5px;
+  color: #000000;
+  text-align: center;
+}
+#app-launcher .content-launcher .content li {
+  margin: 10px;
+}
+#app-launcher .content-launcher input[type=text],
+#app-launcher .content-launcher select {
+  background-position: -5px -2px;
+  height: 23px;
+  border-radius: 5px;
+  border: 1px solid #000;
+  padding: 5px;
+  width: 239px;
+  font-family: arial;
+  height: 35px;
+}
+#app-launcher .content-launcher #activate {
+  background: url(/assets/launcher/zmr-login-btn.png) no-repeat 0 -289px;
+  height: 49px;
+  width: 223px;
+  text-indent: -9999px;
+  margin-left: 20px;
+}
+#app-launcher .content-launcher #activate:hover {
+  background-position: 0 -339px;
+}
+form .check.with_errors { background: image-url("site/icons.png") no-repeat 0px 0px !important; }
+form .check.valid { background: image-url("site/icons.png") no-repeat 0px -20px !important; }
+form .input-text { float: left; width: 478px; padding-top: 8px; }
+form .check {
+  display: none;
+  position: relative;
+
+  top: -35px;
+  left: 250px;
+  width: 12px;
+  margin-bottom: -10px;
+  height: 10px;
+  background: url(/assets/site/icons.png) no-repeat 0 0;
+}
+.check.with_errors {
+  display: block;
+  background-position: 0px 0px;
+}
+.check.valid {
+  display: block;
+  background-position: 0px -20px;
+}
+/* Sign in form hints */
+#app-launcher .input { position: relative; }
+#hint {
+  left: -45px;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  z-index: 9999;
+  width: 300px;
+  padding: 9px;
+  background: #eadcc9;
+  color: #000000;
+  font-size: 13px;
+  font-weight: bold;
+  border: 1px solid #000000;
+  border-radius: 5px;
+}
+.email #hint { top: -65px; }
+.password #hint { top: -137px; }
+.password #hint.warning { top: -137px; }
+.password-confirmation #hint { top: -47px; }
+.password-confirmation #hint.warning { top: -83px; }
+
+#hint #arrow {
+  bottom: -20px;
+  border-style: solid;
+  border-width: 10px 10px 10px 10px;
+  border-color: #000000 transparent transparent  transparent;
+
+  position: absolute;
+  right: 50px;
+  width: 0px;
+  height: 0px;
+  
+}
+.disclaimer-signup {
+  float: left;
+  width: 260px;
+  margin: 85px 0px 0px 10px;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+}
+#hint .disclaimer-signup a { color: #ffcb18; }
+#hint .rounded-corners { border-radius: 8px; }
+#hint ul {list-style-type: none;}
+#hint ul li { font-weight: bold; }
+#hint p { font-weight: bold; }
+#hint.warning {
+  color: #711d14;
+  border-color: #711d14;
+}
+#hint.warning #arrow {
+  border-color: #711d14 transparent transparent  transparent;
+}
+
+#app-launcher .content-launcher .account-links {
+  font-size: 14px;
+  color: #000;
+  bottom: 65px;
+  text-align: left;
+  margin-left: 162px;
+}
+
+#app-launcher .content-launcher .account-links a {
+  color: #a80007;
+  font-weight: bold;
+}
+
+#app-launcher .content-launcher .account-links a:hover {
+  color: #c10008;
+}
+</style>

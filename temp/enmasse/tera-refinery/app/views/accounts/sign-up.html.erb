@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<%= render :partial => '/refinery/html_tag' %>
+  <%= render :partial => '/refinery/head' %>
+  <script language="JavaScript">
+    var io_operation = "ioBegin";
+    var io_bbout_element_id = "blackbox";
+    var io_install_stm = false; // do not install ActiveX
+    var io_install_flash = false; // do not require Flash (get redirected in launcher)
+  </script>
+
+  <script src="https://<%= Rails.env == "production" ? "mpsnare.iesnare" : "ci-mpsnare.iovation" %>.com/snare.js" type="text/javascript"></script>
+
+  <!--<style type="text/css">
+    body.account #page_container {
+      background: url(/assets/sign-up-bg.jpg) no-repeat center center cover;
+    }
+  </style>-->
+
+  <body class="tera account">
+    <%#= EMEGlobalAssets.snippet("eme-bar", {:create_link => "https://#{Rails.application.config.account_server}/tera/sign-up", :game => "TERA"}) %>
+    <%= EMEGlobalAssets.snippet("eme-bar", {:create_link => "https://#{Rails.application.config.account_server}/tera/sign-up", :eme_bar => true, :games_menu => true, :alinks => true}) %>
+
+
+    <%#= render :partial => '/accounts/facebook' %>
+
+    <div id="page-content">
+      <div id="page_container">
+        <h2 class="free-gift">Sign up now and receive a FREE CINDER MOUNT</h2>
+        <%= form_tag '/sign-up', :id => "sign-up" do %>
+          <input type="hidden" name="blackbox" id="blackbox" value="" />
+
+          <% if flash[:error] %>
+            <div class="error-alert"><span class="icon"></span><%= flash[:error] %></div>
+          <% end %>
+
+          <a href="/" id="header-logo"></a>
+          <!--<a href="javascript:void(0);" class="signup-facebook-link login-facebook-btn" title="Sign in with Facebook"></a>-->
+          <%#= link_to "", "javascript:void(0);", :class => "signup-facebook-link login-facebook-btn", :title => "Sign in with Facebook" %>
+
+          <!--<div><span>or</span></div>-->
+          <!-- remove margin-top on .email when facebook login returns -->
+          <div class="email" style="margin-top:50px;">
+            <%= label_tag(:email, "Email Address") %>
+            <%= text_field_tag(:email) %>
+            <div class="msg">Invalid email address.</div>
+            <div class="taken">Email has already been taken</div>
+          </div>
+
+          <div class="password">
+            <%= label_tag(:password, "Password") %>
+            <%= password_field_tag(:password) %>
+            <div id="hint">
+              <p>Your password must meet the following criteria:</p>
+              <ul class="disc">
+                <li class="gt8">Has 8 or more characters.</li>
+                <li class="lt99">Has fewer than 99 characters.</li>
+                <li class="sym">Uses at least 2 of the following: 
+                  <ul>
+                    <li>letters (a-z, A-Z)</li>
+                    <li>digits (0-9)</li>
+                    <li>symbols (-+=@^&amp;%/?!#)</li>
+                  </ul>
+                </li>
+                <li class="contains">Does not contain your email name or domain.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <p>By signing up, you agree to our <br><a href="http://www.enmasse.com/legal/terms-of-service">Terms of Service</a>, and verify that <br>you are 13 years of age or older.</p>
+          </div>
+
+          <div>
+            <p><%= check_box_tag(:newsletter) %>Sign up to receive news <br>and special offers from <em>TERA</em>.</p>
+          </div>
+
+          <div>
+            <%= submit_tag("SIGN UP NOW", :id => "create-account") %>
+          </div>
+
+          <div>
+            <p>Already have an account?<br><a href="/download">Download the game!</a></p>
+          </div>
+
+          <div class="signupOffer">
+            <img src="/assets/promo.jpg" alt="Sign Up Now and receive a free crimson dragon mount" />
+          </div>
+        <% end %>
+      </div>
+      <%= render :partial => '/shared/footer' %>
+      <%#= EMEGlobalAssets.snippet(:footer, :game => "TERA") %>
+    </div>
+
+
+
+    <%= render :partial => '/shared/footer_js' %>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+<% error_msg = tslt("can_play_error_#{res_code}") %>
+
+<li class="blocked">
+  <%= h(gacct.account_name) %>
+  - <%= h(type_name) %><br />
+  <% if [402, 417].include?(res_code) %>
+    <% if gacct.is_trial? %>
+      <span class='msg'>- <%= link_to error_msg, users_account_url, :target => :blank %></span>
+    <% else %>
+      <span class='msg'>- <%= link_to error_msg, store_redir, :target => :blank %></span>
+    <% end %>
+  <% else %>
+    <%= "<span class='msg'>- #{error_msg}</span>".html_safe unless error_msg.blank? %>
+  <% end %>
+</li>

@@ -1,0 +1,32 @@
+<h2>Beta Applications</h2>
+<div class="beta_standing">
+  <% @games_in_beta.each do |game| %>
+    <% app = @beta_applications.select { |a| a.game_id = game.id }[0] %>
+    <div class="beta_group">
+      <div class="col">
+        <h3><%= game.name %></h3> 
+        <div class="beta_thumb <%= game.name.downcase %>"></div>
+      </div><!-- end of col -->
+      <div class="col">
+        <div class="heading">
+          <h4 class="label">Account</h4>
+          <h4>Type: <%= game.name %> Beta Application</h4>
+          <h4><span>Status:</span> <%= app ? app.status : "None" %></h4>
+        </div>
+      </div><!-- end of col --> 
+      <div class="col" id="beta_actions">
+        <% if app.nil? || app.status == "Withdrawn" %>
+          <div class="actions beta_apply">
+            <%= link_to( "Apply to Beta", "/kritika/sign-up", game_id: game.id ) %>
+          </div>
+        <%# elsif app.status == "Active" || app.status == "Accepted" || app.status =="Waitlist" %>
+          <!--<div class="actions beta_withdraw">
+            <%#= link_to( "Withdraw my Application", "/beta/withdraw", game_id: game.id ) %>
+          </div>-->
+        <% end %>
+        </div>
+      </div><!-- end of col --> 
+    </div><!-- end of beta group -->
+  <% end %>
+</div>
+<hr/>

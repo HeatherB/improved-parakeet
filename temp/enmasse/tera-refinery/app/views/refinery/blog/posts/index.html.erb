@@ -1,0 +1,35 @@
+<% cache("blog_posts_index_#{params[:page] || 1}") do %>
+  <% if @page.content_for("Article Header") %>
+    <section class="article_header row">
+      <%= raw @page.content_for("Article Header") %>
+    </section>
+  <% end %>
+
+  <% content_for :body_content_left do %>
+    <% if is_home? %>
+      <% if @page.content_for(:body) %>
+        <div class="sticky">
+          <%= raw @page.content_for(:body) %>
+        </div>
+      <% end %>
+    <% end %>
+
+    <% if @posts.any? %>
+      <div class="blog-teasers">
+        <%= render :partial => "/refinery/blog/shared/post", :collection => @posts %>
+        <%= will_paginate @posts, :renderer => NewsPagedLinkRenderer, :inner_window => 1, :outer_window => 0 %>
+      </div>
+    <% else %>
+      <p><%= t('.no_blog_articles_yet') %></p>
+    <% end %>
+  <% end %>
+
+  <% content_for :body_content_right_prepend do -%>
+    <%= raw @page.content_for(:side_body) %>
+  <% end if ::Refinery::Pages.config.default_parts.many? -%>
+  <%= render :partial => '/refinery/blog/shared/body_content_right' %>
+
+  <section class="split_body row">
+    <%= render "/refinery/content_page", :sections => [{:yield => :body_content_left}, {:yield => :body_content_right}] %>
+  </section>
+<% end %>

@@ -1,0 +1,512 @@
+<style type="text/css">
+  html #app-launcher { 
+    color: #666666; 
+    position: absolute;
+    left:798px;
+  }
+  html #app-launcher .form-signup {
+    margin-top: 50px;
+  }
+  html #app-launcher input {
+    width: 220px;
+    padding: 10px 20px 10px 5px;
+    background: white;
+    border-radius: 5px;
+    border: 1px solid black;
+    height: 18px;
+    font-size: 16px;
+    margin: 5px auto 10px;
+    display: block;
+  }
+  #app-launcher #global-alerts {
+    min-height:auto;
+  }
+  .modalScreen {
+    background: none;
+    left:auto;
+    right:25px;
+    top:62px;
+    height:456px;
+    width:226px;
+    border-radius: 0;
+  }
+  iframe.login {
+    top:0;
+    right:0;
+    left:0;
+    height:100%;
+    width:100%;
+    margin:0;
+  }
+  #app-launcher .content-launcher::before {
+    display:none;
+  }
+  #app-launcher .content-launcher {
+    background: rgb(0,0,0);
+    background: rgba(0,0,0, 0.6);
+    border-radius: 10px;
+    height:456px;
+    width:226px;
+    margin: 0;
+    box-sizing: border-box;
+    padding-top:25px;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+  }
+  #app-launcher .content-launcher form {
+    width: 196px;
+    margin: 0 auto;
+  }
+  #app-launcher .content-launcher #login .heading {
+    background: none;
+  }
+  #app-launcher .content-launcher #login .heading .facebook-picture {
+    /*display:none;*/
+    position: relative;
+    left: -63px;
+    top:-37px;
+    margin-bottom:-30px;
+  }
+  #app-launcher .content-launcher #login .heading .facebook-picture {
+    height:20px;
+  }
+  #app-launcher .content-launcher #login .heading .facebook-picture img {
+    height: 20px;
+  }
+  #app-launcher .content-launcher #login .heading .switch-user-link {
+    /*display:none;*/
+    position: absolute;
+    top: 45px;
+    left: 70px;
+    font-size: 14px;
+  }
+  #app-launcher .content-launcher #login .heading .login-facebook-btn {
+    background: url("/assets/launcher/battleplans/facebookLogin.png") top center no-repeat;
+    width:196px;
+    height:36px;
+  }
+  #app-launcher .content-launcher #login .heading .login-facebook-btn:hover {
+    background: url("/assets/launcher/battleplans/facebookLogin.png") top center no-repeat;
+  }
+  #app-launcher .content-launcher #login .or {
+    background: url("/assets/launcher/battleplans/or.png") top center no-repeat;
+    width:33px;
+    height:33px;
+    margin:0 auto;
+    text-indent:-9999em;
+    margin-top: 5px;
+  }
+  #app-launcher .content-launcher #login .input-text {
+    width:100%;
+    height:auto;
+    font-family: 'Amaranth', sans-serif;
+    padding:0;
+    float:none;
+  }
+  #app-launcher .content-launcher #login .input,
+  #app-launcher .content-launcher #login .input-text input.field {
+    width:196px;
+    height:40px;
+    box-sizing: border-box;
+    padding:0 5px;
+    margin:0;
+    border-radius: 0;
+    font:normal 14px 'Amaranth', sans-serif;
+    color: #000000;
+    border-radius: 0;
+    text-align:left;
+  }
+  .button_strength {
+    font-size:11px;
+    color: #ffffff;
+  }
+  .button_strength:before {
+    content: "";
+    display:inline-block;
+    vertical-align:bottom;
+    padding-right:2px;
+    background: url(/assets/battleplans/checkmark.png) 0 0 no-repeat;
+    height:14px;
+    width:14px;
+  }
+  .hide_button_strength:before {
+    content: "";
+    display:inline-block;
+    vertical-align:middle;
+    padding-right:5px;
+    background: url(/assets/battleplans/checkmark.png) 0 -14px no-repeat;
+    height:14px;
+    width:14px;
+  }
+  .strength_meter {
+    display:none;
+  }
+  #app-launcher .content-launcher .account-links {
+    text-align:left;
+  }
+  #app-launcher .content-launcher .account-links div {
+    margin-bottom: 5px;
+  }
+  #app-launcher .content-launcher .account-links div a {
+    text-decoration: underline;
+    text-align:left;
+    font-size:14px;
+    color:#fc6f0c;
+    font-family: 'Amaranth', sans-serif;
+  }
+  #app-launcher .content-launcher .account-links div a:hover {
+    text-decoration:none;
+  }
+  #app-launcher .account-links div span {
+    display:block;
+    color:#ffffff;
+    font-size:14px;
+    text-align:left;
+    font-family: 'Amaranth', sans-serif;
+  }
+  #app-launcher .content-launcher #login .login-btn {
+    background: url("/assets/launcher/battleplans/signinBtn.png") 50% 0 no-repeat;
+    width:197px;
+    height:48px;
+  }
+  #app-launcher .content-launcher #login .login-btn:hover {
+    background: url("/assets/launcher/battleplans/signinBtn.png") 50% -48px no-repeat;
+    width:197px;
+    height:48px;
+  }
+  #app-launcher .content-launcher #login .controls .btn-login {
+    width:100%;
+    height:100%;
+    font:normal 24px/40px 'Amaranth', sans-serif;
+    padding:0;
+    color:#ffffff;
+    background: none;
+    border: none;
+  } 
+  #app-launcher .content-launcher #login .controls .btn-login:hover {
+    background: none;
+    border: none;
+  }
+  #app-launcher .content-launcher .iparent {
+    position: relative;
+    margin: 5px auto;
+  }
+
+  #app-launcher .content-launcher .logo {
+    width: 82px;
+    height: 12px;
+    background: url("/assets/launcher/battleplans/welcome.png") no-repeat 0 0;
+    margin: 0 auto 21px;
+  }
+  #app-launcher .content-launcher .content {
+    width: 410px;
+    margin: 0 auto;
+  }
+  
+  #app-launcher .content-launcher input {
+    margin: 0; padding: 0 5px;
+    background: #ffffff;
+    width: 195px;
+    height: 40px;
+    border: 1px solid #a8a8a8;
+    color: #000000;
+    -webkit-box-shadow: inset 0px 2px 3px 0px rgba(168,168,168,1);
+    text-align: center;
+    border-radius: 0;
+    font-size:14px;
+  }
+  #app-launcher .content-launcher li {
+    margin: 10px 0;
+  }
+  #app-launcher .content-launcher select {
+    background-position: -5px -2px;
+    height: 23px;
+    border-radius: 5px;
+    border: 1px solid #000;
+    padding: 5px;
+    width: 285px;
+    height: 35px;
+    display: block;
+    margin: 5px auto;
+  }
+  
+
+
+  #hint {
+    right: -330px;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    z-index: 9999;
+    width: 300px;
+    padding: 5px;
+    background: #212222;
+    color: #D6D6D6;
+    font-size: 13px;
+    font-weight: bold;
+    border: 1px solid #FFFFFF;
+    border-radius: 5px;
+  }
+  .email #hint { top: 1px; }
+  .password #hint { top: -50px; }
+  .password #hint.warning { top: -50px; }
+  .password-confirmation #hint { top: 10px; }
+  .password-confirmation #hint.warning { top: 10px; }
+
+  #hint #arrow {
+    position: absolute;
+    left: -12px;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 6px 6px 6px 6px;
+    border-color: transparent #212222 transparent transparent;
+  }
+
+  .password #hint #arrow { top: 66px; }
+  .password-confirmation #hint #arrow { top: 6px; }
+  
+  .disclaimer-signup {
+    float: left;
+    width: 260px;
+    margin: 85px 0px 0px 10px;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+  }
+  #hint .disclaimer-signup a { color: #ffcb18; }
+  #hint .rounded-corners { border-radius: 8px; }
+  #hint ul {list-style-type: none;}
+  #hint ul li { font-weight: bold; }
+  #hint p { font-weight: bold; }
+  #hint.warning {
+    background: #711d14;
+    color: #828181;
+    border-color: #FFFFFF;
+  }
+  #hint.warning #arrow {
+    border-color: #FFFFFF transparent transparent  transparent;
+  }
+  /*#info-box {z-index: 5;}*/ /* info box obscures show pass word button */
+  form .check.with_errors { background: image-url("site/icons.png") no-repeat 0px 0px !important; }
+  form .check.valid { background: image-url("site/icons.png") no-repeat 0px -20px !important; }
+  form .input-text { float: left; width: 478px; padding-top: 8px; }
+  form .check {
+    display: none;
+    position: relative;
+    top: -35px;
+    left: 270px;
+    width: 12px;
+    margin-bottom: -10px;
+    height: 10px;
+    background: url(/assets/site/icons.png) no-repeat 0 0;
+  }
+  .check.with_errors {
+    display: block;
+    background-position: 0px 0px;
+  }
+  .check.valid {
+    display: block;
+    background-position: 0px -20px;
+  }
+  /*#app-launcher .content-launcher #info-box {
+    width:660px;
+    height:260px;
+    position:absolute;
+    top:100px;
+    left: -600px;
+  }*/
+  #app-launcher .content-launcher #info-box #info-box-notice, 
+  #app-launcher .content-launcher #info-box #info-box-warning, 
+  #app-launcher .content-launcher #info-box #info-box-error {
+    z-index: 5;
+    width:660px;
+    height:260px;
+    position:absolute;
+    top:100px;
+    left: -600px;
+  }
+  #info-box .info-warning {
+    background: rgb(0,0,0);
+    background: rgba(0,0,0,0.6);
+    color:#ffffff;
+    font-family: 'Amaranth', sans-serif;
+    font-size:18px;
+    text-align:center !important;
+    border: none;
+    border-radius:10px;
+    z-index: 9999;
+    box-sizing: border-box;
+    padding: 20px;
+    margin: 0 auto;
+  }
+  #info-box .warning-box {
+    background-image: none;
+    font-weight:normal;
+    float:none;
+    width:100%;
+    padding: 0;
+    margin: 20px auto 0;
+  }
+  #info-box .close-box {
+    color:#ffffff;
+    font: normal 24px/28px 'Amaranth', sans-serif;
+    background: url("/assets/launcher/battleplans/errorOkBtn.png") 0 0 no-repeat;
+    width:197px;
+    height:48px;
+    margin: 30px auto;
+    border: none;
+    float:none;
+    box-sizing: border-box;
+    padding: 7px 0 0 0;
+  }
+  #info-box .close-box a:link, #info-box .close-box a:visited, #info-box .close-box a:active, #info-box .close-box a:hover {
+    color:#ffffff !important;
+    font-size:24px !important;
+    font-weight:normal !important;
+    text-indent:-9999em;
+    display:block;
+  }
+  html #app-launcher #account-registration-form .btn-create {
+    background: -webkit-linear-gradient(top, #fef9f1 0%,#ecb75c 100%);
+    width: 286px;
+    height: 64px;
+    margin: 10px auto;
+    display: block;
+    border: none;
+  }
+  html #app-launcher #account-registration-form .btn-create:hover {background: -webkit-linear-gradient(top, #e6b300 0%,#ffffff 0%,#f1cb8a 100%);}
+  html #app-launcher #account-registration-form .btn-create:active {background: -webkit-linear-gradient(top, #e6b300 0%,#ecb75c 0%,#fef9f1 100%);}
+
+
+  #app-launcher .content-launcher #activate {
+    width: 250px;
+    margin: 0 auto;
+    height: 50px;
+    outline: none;
+    font: bold 28px/50px 'exo_2light';
+    padding: 0 0 8px;
+    color: black;
+    text-shadow: none;
+    border: 1px solid #e6b300;
+    background: #fef9f1;
+    background: -webkit-linear-gradient(top, #fef9f1 0%,#ecb75c 100%);
+  }
+  #app-launcher .content-launcher #activate:hover {
+    background: #e6b300;
+    background: -webkit-linear-gradient(top, #e6b300 0%,#ffffff 0%,#f1cb8a 100%);
+  }
+  #app-launcher .content-launcher #activate:active {
+    background: #e6b300;
+    background: -webkit-linear-gradient(top, #e6b300 0%,#ecb75c 0%,#fef9f1 100%);
+  }
+  #app-launcher .content-launcher .class-name-here { text-align: center; }
+
+  /* show hide password checkbox */
+  #app-launcher .content-launcher input#shhdpassword {
+    width: auto;
+    height:auto;
+    margin: 5px 5px 5px 0;
+    display:inline-block;
+    vertical-align:middle;
+  }
+  #app-launcher .content-launcher #shhdpassword_label {
+    display:inline-block;
+    vertical-align:middle;
+    color:#ffffff;
+    font-size:11px;
+  }
+
+  /* open various messes in popup */
+  .openPop {
+    position:absolute;
+    top:0;
+    right:0;
+    left:0;
+    margin:0 auto;
+    width:700px;
+    height:520px;
+    height:100%;
+  }
+  .openPop#app-launcher {
+    left: 0;
+  }
+  .openPop#app-launcher a {
+    color: #fc6f0c;
+    font-family: 'Amaranth', sans-serif;
+  }
+  .openPop#app-launcher .content-launcher:before {
+    display:none;
+  }
+  .openPop#app-launcher .content-launcher {
+    background: rgb(0,0,0);
+    background: rgba(0,0,0,0.8);
+    color: #ffffff;
+    font: normal 18px/21px 'Amaranth', sans-serif;
+    width:660px;
+    height:100%;
+    min-height:260px;
+    border-radius: 10px;
+    margin: 0 auto;
+  }
+  .openPop#app-launcher .listing {
+    max-width:470px;
+    width:100%;
+  }
+  .openPop#app-launcher .listing .listing-head {
+    background: none;
+  }
+  .openPop#app-launcher .listing .listing-body {
+    color: #ffffff;
+    background: none;
+    font: normal 18px/21px 'Amaranth', sans-serif;
+    max-width:470px;
+    width:100%;
+  }
+  .openPop#app-launcher .listing .listing-foot {
+    background: none;
+  }
+  .openPop#app-launcher h1,h2,h3,h4,h5,h6 {
+    color:#fc6f0c;
+    text-transform:uppercase;
+    font-size:24px;
+  }
+  .openPop#app-launcher .content-launcher .logo {
+    display:none;
+  }
+  .openPop#app-launcher .content-launcher form {
+    width: 390px;
+    text-align: center;
+  }
+  .openPop#app-launcher .content-launcher select {
+    width: 385px;
+  }
+  .openPop#app-launcher .content-launcher input {
+    margin: 0 auto;
+    width:370px;
+  }
+  .openPop#app-launcher .content-launcher .content {
+    width:600px;
+  }
+  .openPop#app-launcher .content-launcher #activate {
+    color:#ffffff;
+    font: normal 24px/28px 'Amaranth', sans-serif;
+    background: url("/assets/launcher/battleplans/signinBtn.png") 50% 0 no-repeat;
+    width:197px;
+    height:48px;
+    margin: 30px auto;
+    border: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    padding-top:5px;
+  }
+  .openPop#app-launcher .content-launcher #activate:hover {
+    background: url("/assets/launcher/battleplans/signinBtn.png") 50% -48px no-repeat;
+    width:197px;
+    height:48px;
+    border: none;
+  }
+
+</style>

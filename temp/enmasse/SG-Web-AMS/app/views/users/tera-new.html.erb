@@ -1,0 +1,635 @@
+<% content_for :facebook do %>
+  <div id="fb-root"></div>
+  <script type="text/javascript">
+  $(document).ready(function() {
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId  : "<%= SECURE_CONFIG['facebook']['id'] %>",
+          status : true,
+          cookie : true,
+          xfbml  : true,
+          version: 'v2.6'
+        });
+
+        var permissions = 'email,user_birthday,user_friends';
+
+        $('.signup-facebook-link').click(function(e) {
+          e.preventDefault();
+
+          _gaq.push(['_trackEvent', 'Accounts', 'Start Facebook Connect Process', 'signup']);
+
+          FB.login(function(response) {
+            if (response.authResponse) {
+              handleFacebookLogin(false);
+            }
+          }, { scope: permissions });
+        });
+
+        $(document).trigger('fbInit');
+      };
+
+      (function(d) {
+        var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+        js = d.createElement('script'); js.id = id; js.async = true;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        d.getElementsByTagName('head')[0].appendChild(js);
+      }(document));
+    });
+  </script>
+<% end %>
+
+<% title tslt("create account") %>
+
+
+<% content_for :custom_google_analytics_calls do %>
+  _gaq.push(['_trackEvent', 'Accounts', 'View Sign-up Landing Page', 'TERA', 0, true]);
+<% end %>
+
+<input type="hidden" name="blackbox" id="blackbox" value="" />
+<%= render :partial => "shared/iovation_init" %>
+<%= render :partial => "shared/global_alerts" %>
+<div id="content" class="landing">
+  <!--<img src="/assets/account/tera-wwLRG-bg.jpg"  id="teraWW" alt=" tera background image " />-->
+  <div class="wrapper">
+    <div class="content-block" id="registration">
+      <%= error_messages_for :user %>
+
+          <style type="text/css">
+          body a {
+            color:#1a81c4;
+          }
+          body a:hover {
+            text-decoration: underline;
+          }
+          html #global-alerts {
+            position: absolute;
+            width: 100%;
+            top: -50px;
+          }
+          html #global-alerts .alert-warning {
+            background: #ff9400;
+            background: rgba(195, 110, 0, 0.95);
+          }
+            html body#app-account.registration {
+              background: #ffffff;
+              /*background-size:cover;
+              padding-top: 25px;
+              padding-top:50px;*/
+            }
+            #container-main {
+              width: 100% !important;
+            }
+            #content-primary {
+              width: 100% !important;
+            }
+            #teraWW {
+              min-height:941px;
+              height:100%;
+              min-width:1600px;
+              width:100%;
+            }
+            html body#app-account.registration #content { 
+              /*overflow-x: hidden;*/
+              /*background: #ffffff url('/assets/account/tera-wwLRG-bg.jpg') no-repeat center bottom !important;*/
+              background: #ffffff url('/assets/account/tera-ww-bg-ninja.jpg') no-repeat center center !important;
+              background-size:cover !important;
+              background-attachment: fixed;
+              padding-top: 0px !important;
+              padding-top:50px;
+              width:100% !important;
+              height:941px;
+              height:1137px;
+              
+            }
+            html body#app-account.registration #content .wrapper {
+              width: 1060px; 
+              margin:0 auto;
+              /*position:absolute;
+              top: 50px;
+              left: 0;
+              right: 0;*/
+            }
+            #content .content-block {
+              color: #000000;
+            }
+            #content .content-block#registration #left-column {
+              float:left;
+              width: 630px;
+              height:941px;
+              display: block;
+              padding: 0;
+            }
+            #content .content-block#registration #left-column .column-content { 
+              position: relative; 
+              padding: 0;
+              width: 620px;
+              height: 350px;
+              background: none;
+              background-color: none;
+            }
+            #app-account #content.landing {
+              min-height: 730px;
+              min-height: 896px;
+            }
+            #app-account #content .content-block#registration #left-column { width: 691px;}
+            #app-account #content .content-block#registration #left-column #video-overlay {
+              position: absolute;
+              top: 1px;
+              left: 0px;
+              /*width: 100%;
+              height: 100%;*/
+              width: 620px;
+              height: 350px;
+              background:transparent;
+              z-index: 5;
+              cursor: pointer;
+              cursor: hand;
+            }
+            #app-account #content .content-block#registration #left-column #video-overlay {
+              content: "";
+              position: absolute;
+              border: 1px;
+              top: -1px;
+              left: -1px;
+              width: 620px;
+              height: 350px;
+              border: 3px solid #c11b05;
+              background: url('/assets/account/video_frame_ninja.jpg') 0 0 no-repeat;
+              z-index: 1;
+              box-shadow: 0px 0px 10px rgb(80,80,80);
+            }
+            #app-account #content .content-block#registration #left-column #video-overlay:hover {
+              background-position: -620px 0;
+            }
+            #image_advertisement {
+              display:block;
+              text-align:center;
+              text-shadow: 2px 2px 10px rgb(0,0,0,0.5);
+              text-align:center;
+              letter-spacing: 0.07em;
+              width: 620px;
+              border: 3px solid #c11b05;
+              box-shadow:0px 0px 10px rgb(80,80,80);
+              /*margin-bottom: -176px;*/
+            }
+            #image_advertisement span {
+              font-weight: bold;
+              display:block;
+            }
+            #image_advertisement p {
+              display:inline-block;
+              vertical-align:top;
+              width:220px;
+              padding-top:40px;
+            }
+            #image_advertisement img {
+              display:inline-block;
+              vertical-align:top;
+              width: 620px;
+              margin-left: 0;
+            }
+            #content .content-block#registration #signup-column,
+            #content .content-block#registration #ad-column {
+              display: none;
+            }
+            #content .content-block#registration #signup-column {
+              float:right;
+              width: 310px;
+              display: block;
+              padding-top:60px;
+            }
+            #content .content-block#registration #signup-column .frame {
+              /*background: url('/assets/account/frame.png') 0 0 no-repeat;*/
+              background: rgb(255,255,255);
+              background: rgba(255,255,255,0.9);
+              box-shadow: 0px 0px 10px rgb(80,80,80);
+              width: 271px;
+              padding: 40px 40px 30px;
+              margin-bottom: 10px;
+              margin-top:50px;
+            }
+            #content .content-block#registration #signup-column .frame p {
+              width: 250px;
+              text-align: center;
+              font-size: 12px;
+            }
+            #app-account #content .content-block#registration {
+              padding: 0;
+            }
+            #app-account #content .content-block#registration #signup-column .heading {
+              margin-top: 0;
+            }
+            #app-account #content .content-block#registration #signup-column .heading .signup-facebook-btn {
+              background-image: url('/assets/account/log_in_with_fb.png');
+              width: 205px;
+              height: 36px;
+              background-position:0 0;
+            }
+            #app-account #content .content-block#registration #signup-column .heading .signup-facebook-btn:hover {
+              background-position:0 -36px;
+            }
+           /* .ie8 #app-account #content .content-block#registration #signup-column .heading .signup-facebook-btn {
+              display:none;
+            }*/
+            #app-account #content .content-block#registration #signup-column .emblem-hr {
+              color: #000000;
+            }
+            .ie8 #app-account #content .content-block#registration #signup-column .emblem-hr {
+              display:none;
+            }
+            #app-account #content .content-block#registration form .iparent {
+              margin-top:5px;
+            }
+            #app-account #content .content-block#registration form .row {
+              margin: 20px 10px;
+            }
+            #app-account #content .content-block#registration form .row#registration {
+              display: none;
+            }
+            #app-account #content .content-block#registration form .row label.email_label,
+            #app-account #content .content-block#registration form .row label.password_label {
+              font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+              font-size:14px;
+              color: #000000;
+              text-transform:lowercase;
+            }
+            html #app-account #content .content-block#registration form .input,
+            html #app-account #content .content-block#registration form .input-dob {
+              background: white;
+              width: 246px;
+              -webkit-border-radius: 0px;
+              -moz-border-radius: 0px;
+              border-radius: 0px;
+              border: 1px solid #a8a8a8;
+              box-shadow: inset 0px 1px 5px rgb(190,190,190);
+            }
+            html #app-account #content .content-block#registration form .input input {
+              width: 220px;
+              padding: 10px 20px 10px 5px;
+            }
+            #content .content-block#registration form .input input,
+            #content .content-block#registration form .input-dob input {
+              width: 240px;
+              -webkit-border-radius: 3px;
+              -moz-border-radius: 3px;
+              border-radius: 3px;
+            }
+            #app-account #content .content-block#registration form .row label.label_check#newsletter-checkbox {
+              white-space: normal;
+            }
+            #app-account #content .content-block#registration form .row.checkbox {
+              height: auto;
+              text-align:center;
+              padding-bottom: 0;
+            }
+            #app-account #content .content-block#registration form .row.checkbox p {
+              font-size:12px;
+              text-align:center;
+              display:inline-block;
+              vertical-align:top;
+              /*width:calc(100% - 16px);*/
+              width:160px;
+            }
+            input[type="checkbox"] {
+              display:none;
+            }
+            input[type="checkbox"] + label span {
+              display:inline-block;
+              width:12px;
+              height:12px;
+              margin:3px 0 0 0px;
+              vertical-align:top;
+              position:relative;
+              left: 5px;
+              background:url('/assets/account/checkboxes.png') left top no-repeat;
+              cursor:pointer;
+            }
+            input[type="checkbox"]:checked + label span {
+              background:url('/assets/account/checkboxes.png') -12px top no-repeat;
+            }
+            /* ie8 uses original checkbox */
+            .ie8 input[type="checkbox"] {
+              display:block;
+              float:left;
+              left: 35px;
+              position:relative;
+            }
+            .ie8 input[type="checkbox"] + label span {
+              display:none;
+              background: none;
+              width: 0;
+              height: 0;
+              margin: 0;
+              padding: 0;
+              left: 0;
+            }
+            .ie8 input[type="checkbox"]:checked + label span {
+              background:none;
+            }
+            .ie8 #app-account #content .content-block#registration form .row.checkbox p {
+              float:left;
+              display:block;
+              position:relative;
+              left: 35px;
+            }
+            /* end ie8 checkbox */
+            #content .content-block#registration form .input,
+            #content .content-block#registration form .input-dob { width: 250px; }
+            #app-account #content .content-block#registration form .check { margin: -25px 7px 0 0; }
+            #content .content-block#registration #signup-column > img { margin-left: 5px; }
+            #content .content-block#registration #signup-column .frame #hint { z-index: 10; }
+            #content .content-block#registration #signup-column .frame #hint p { margin-top: 0; }
+            #app-account #content .content-header {margin-top:50px; margin-bottom: 30px;}
+            #app-account #content .content-header h1 { text-align: left; padding-left: 145px; }
+            #app-account #content .content-header img { padding-right: 0; }
+            html .footer-wrapper footer .columns.four {
+              width: 31%;
+            } 
+            #app-account #content .content-block#registration form #submit-btn {
+              padding: 0;
+              width:249px;
+              height:72px;
+            }
+            #app-account #content .content-block#registration form #submit-btn #btn-create-account {
+              width:249px;
+              height:72px;
+            }
+            #app-account #content .content-block#registration form #submit-btn #btn-create-account:hover {
+              background-position: 0 -72px;
+            }
+            #app-account #content .content-block#registration form #submit-btn #btn-success {
+              padding: 0;
+              width:249px;
+              height:72px;
+            }
+            #app-account #content .content-block#registration form #submit-btn #btn-success:hover {
+              background-position: 0 -72px;
+            }
+            #app-account #hint {
+              font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+              background:#b91621;
+              display:none;
+              color: #ffffff;
+              border: none;
+              -webkit-border-radius: 0px;
+              -moz-border-radius: 0px;
+              border-radius: 0px;
+              font-size: 16px;
+              line-height:1.6em;
+              font-weight: normal;
+              right: 0px;
+              left: -278px;
+              width: 100%;
+            }
+            #app-account #hint.warning {
+              font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+              display:block;
+              background:#b91621;
+            }
+            #app-account #hint.user_password_confirmation {
+              width:275px !important;
+              left: -310px !important;
+            }
+            #app-account #hint.user_password_confirmation p {
+              padding-left:10px;
+            }
+            #app-account #hint.user_password_confirmation.warning {
+              width:380px !important;
+              left: -415px !important;
+            }
+            #app-account #hint #arrow {
+              border-color: transparent transparent transparent #b91621;
+              right: -10px;
+            }
+            #app-account #password #hint {
+              font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+              background:#475e72;
+              font-size: 16px;
+              line-height:1.6em;
+              width: 380px;
+              padding: 6px 10px;
+              display:block;
+              left: -415px;
+            }
+            #app-account #password #hint #arrow {
+              border-color: transparent transparent transparent #475e72;
+            }
+            #app-account #password #hint p,
+            #app-account #password #hint ul li {
+              font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+              font-weight: normal;
+              list-style-type: disc;
+              font-size: 16px;
+              line-height:1.6em;
+              width: 380px;
+            }
+            #app-account #password #hint ul li ul li {
+              list-style-type: circle;
+            }
+            /* style the tooltip */
+            #app-account #preview-rounded p {
+              font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+              font-size: 16px;
+              color: #fe3fe3;
+              line-height:1.6em;
+              padding:10px 0;
+            }
+            #app-account #preview-rounded.image {
+              background: url(/assets/account/tooltip-bg-rounded.png) no-repeat 0px 0px;
+              background: none;
+            }
+            #app-account #preview-rounded.text {
+              background: url(/assets/site/tooltip-text-bg-rounded.png) no-repeat;
+              background: none;
+              background: url(/assets/account/tooltip-bg-rounded-red-arrow.png) no-repeat;
+              margin-top: 0 !important;
+              font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+              font-size: 16px;
+              color: #fe3fe3;
+              line-height:1.6em;
+            }
+            #app-account #preview-rounded.text p {
+              font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+              background-color:#b91621 !important; 
+              color :#fff !important;
+              font-weight:normal !important;
+              -moz-border-radius: 0px !important;
+              -webkit-border-radius: 0px !important;
+              -ms-border-radius: 0px !important;
+              -o-border-radius: 0px !important;
+              border-radius: 0px !important;
+              margin: -5px 0px 0px 9px !important;
+            }
+            #app-account #preview-rounded.right.image {
+              background: url(/assets/account/tooltip-bg-rounded-right-arrow.png) no-repeat 0px 0px;
+              background: none;
+            }
+            #app-account #preview-rounded.right.text {
+              background: url(/assets/site/tooltip-text-bg-rounded-right-arrow.png) no-repeat;
+              background: none;
+              background: url(/assets/account/tooltip-bg-rounded-red-arrow-right.png) no-repeat;
+              background-position:top right;
+            }
+            #app-account #preview-rounded.right.text p {
+              font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+              margin: -5px 0px 0px 10px !important;
+            }
+            #app-account .footer-wrapper {
+              /*background: url(/assets/account/tera-foot-bg.jpg) top center no-repeat;
+              background-size:cover;*/
+              background: none;
+              min-width:1060px;
+              width:100%;
+              /*min-width:1600px;*/
+              min-height:196px;
+              height:auto;
+              /*position: relative;
+              margin-bottom: -20px;
+              top:941px;*/
+            }
+            .footer-wrapper footer {
+              margin:0 auto;
+              padding: 25px 0 0;
+            }
+            .footer-wrapper footer p {
+              color: #ffffff;
+            }
+            .footer-wrapper #footer-logos {
+              display:none;
+            }
+            .ft-social {
+              padding: 0px 0 25px;
+            }
+            .ft-social li {
+              display:inline-block;
+              vertical-align:top;
+              /*height:36px;
+              width:30px;*/
+              width: 50px;
+              height: 45px;
+              background: url(/assets/account/socials-pink.png) top center no-repeat;
+            }
+            .ft-social li a {
+              display:block;
+              text-indent: -9999em;
+              width:100%;
+              height:100%;
+            }
+            .ft-social li.facebook {
+              background-position: 0 0;
+            }
+            .ft-social li.twitter {
+              background-position: -50px 0;
+            }
+            .ft-social li.youtube {
+              background-position: -100px 0;
+            }
+            .ft-social li.twitch {
+              background-position: -150px 0;
+            }
+            .ft-social li.facebook:hover {
+              background-position: 0 -45px;
+            }
+            .ft-social li.twitter:hover {
+              background-position: -50px -45px;
+            }
+            .ft-social li.youtube:hover {
+              background-position: -100px -45px;
+            }
+            .ft-social li.twitch:hover {
+              background-position: -150px -45px;
+            }
+           </style>
+
+          <!--[if lte IE 9]>
+            <style type="text/css">
+              html #app-account #content .content-block#registration form .input .input-default { left: -234px; }
+              #app-account #content .content-block#registration #left-column #video-overlay {
+              background: #000 url('/assets/account/video_frame_ninja.jpg') 0 0 no-repeat;
+            }
+            #app-account #content #video-overlay:after {
+              left: 0px;
+            }
+            </style>
+          <![endif]-->
+
+          <div id="left-column">
+            <div class="content-header">
+              <h1><%= link_to(image_tag("account/tera-logo-april.png"), "http://tera.enmasse.com/en") %></h1>
+            </div>
+            <div class="column-content">
+              <iframe id="video" width="620" height="352" src="https://www.youtube.com/embed/Q1tXA9P5LxY?showinfo=0&wmode=transparent&rel=0&autohide=1&vq=hd720" frameborder="0" allowfullscreen="" data-page="TERA Sign-up Page"></iframe>
+              <div id="video-overlay"></div>
+            </div>
+            <div id="image_advertisement">
+              <!--<p>Sign up now and receive a <span>FREE CINDER MOUNT</span></p> -->
+              <%= image_tag("account/ad.jpg") %>
+            </div>
+          </div>
+          <div id="signup-column">
+            <div class="frame">
+              <div class="heading">
+                <%= link_to "", "javascript:void(0);", :class => "signup-facebook-link signup-facebook-btn", :title => "Log in with Facebook" %>
+              </div>
+              <div class="emblem-hr">
+                <%= tslt("or") %>
+              </div>
+              <%= form_for :user, :url => users_path, :html => { :method => :post, :id => "account-registration-form"} do |f| %>
+                <%= render :partial => "form", :locals => { :f => f } %>
+                <p class="row download-callout"><%= tslt("already have an account") %><br><%= link_to(tslt("download the game"), "http://tera.enmasse.com/download") %>!</p>
+              <% end %>
+            </div>
+            
+          </div>
+
+          <script>
+            window.onload = function(){
+              var pageVariations = [
+                function() {
+                  //  $('#left-column #video-overlay').addClass('learn');
+                  $('#left-column').bind('click', function(){
+                    _gaq.push(['_trackEvent', 'Videos', 'Play', 'Sign-up: theatric launch trailer']);
+                  })
+                },
+                function() {
+                  //Lk1Is8WoRW0
+                  $('#left-column iframe').attr('src', '//www.youtube.com/embed/s2K4K25Pb0k?showinfo=0&wmode=transparent&rel=0&autohide=1&vq=hd720');
+                  //  $('#left-column #video-overlay').addClass('action');
+                  $('#left-column').bind('click', function(){
+                    _gaq.push(['_trackEvent', 'Videos', 'Play', 'Sign-up: True Action Combat informative video']);
+                  })
+                }
+              ];
+
+             
+
+
+              /* video hack for chrome - it sucks */
+              var isChrome = !!window.chrome;
+              if (isChrome) {
+                /* Take out mp4 so Chrome will properly load the video */
+                // alert('chrome');
+                // $("#vidPreview").replaceWith($('<video width="689" height="387" loop="loop" autoplay="autoplay"><source src="/assets/tera_trailer.webm" type="video/webm"></video>'));
+              }
+            }
+          </script>
+    </div>
+    <div class="clear"></div>
+  
+<% content_for :signupsocial do %>
+  <ul class="ft-social">
+    <li class="facebook"><a href="https://www.facebook.com/TERAonline" target="_blank" ><span>facebook</span></a></li>
+    <li class="twitter"><a href="https://twitter.com/TERAonline" target="_blank"><span>twitter</span></a></li>
+    <li class="youtube"><a href="https://www.youtube.com/user/enmasseentertainment" target="_blank"><span>youtube</span></a></li>
+    <li class="twitch"><a href="http://www.twitch.tv/enmasseentertainment" target="_blank"><span>twitch</span></a></li>
+  </ul>
+<% end %>
+<%= render :partial => "landing_footer" %>
+
+</div><!-- end of inner wapper -->
+</div><!-- end of content -->
+
+<%= render :partial => "signup_modals" %>
+<%= render :partial => "hints" %>
+
+<%= CustomBlock.content_for("view_sign-up_landing_page").to_s.html_safe %>

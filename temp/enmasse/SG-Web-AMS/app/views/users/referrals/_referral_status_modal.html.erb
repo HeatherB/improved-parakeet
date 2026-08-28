@@ -1,0 +1,42 @@
+<div id="referral-status-modal">
+  <% if @referral %>
+    <h2><%= tslt('invitation status') %></h2>
+    <table>
+      <tr>
+        <td class="label">To:</td>
+        <td><%= @referral.email %></td>
+      </tr>
+      <tr>
+        <td class="label">From:</td>
+        <td><%= @referral.character_name %></td>
+      </tr>
+    </table>
+    <hr />
+    <table>
+      <tr>
+        <td class="label">Message:</td>
+        <td class="message">
+          <%= tslt("referral default email") %>
+          <div class="custom-message">
+            <%= @referral.message %>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <div id='bar-graph'>
+      <span id="tier1" class="<%= referral_rank_active_class(@referral, 1) %>"><%= tslt("created an account") %></span>
+      <span id="tier2" class="<%= referral_rank_active_class(@referral, 2) %>"><%= tslt("bought the game") %></span>
+      <span id="tier3" class="<%= referral_rank_active_class(@referral, 3) %>"><%= tslt("subscribed") %></span>
+      <div id="bar" class="tier<%= referral_tier(@referral) %>"></div>
+
+      <% if false %><span id="tier1-reward" class="reward"><%= tslt('referral tier1 reward') %></span><% end %>
+      <span id="tier2-reward" class="reward"><%= tslt('referral tier2 reward') %></span>
+      <span id="tier3-reward" class="reward"><%= tslt('referral tier3 reward') %></span>
+    </div>
+
+    <div class="actions">
+      <%= link_to tslt("#{ @referral.can_resend? ? 'resend' : 'sent' }"), '', :class => "button referral-resend#{ " disabled" unless @referral.can_resend? }", :id => 'referral-resend', 'data-rid' => @referral.obfuscated_id %>
+      <%= link_to tslt('close'), '', :class => 'button referral-modal-close', :id => 'referral-modal-close' %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,22 @@
+<script type="text/javascript">
+    var store_url = "<%= @store_url %>";
+    var game_id = <%= @game_id %>;
+    var steam_user_id = "<%= @steam_user_id %>";
+    var steam_user_persona_name = "<%= @steam_user_persona_name %>";
+
+    if (store_url) {
+        var ticket = "";
+        $.ajax({
+            type: "POST",
+            async: false,
+            data: {steam_user_id: steam_user_id, steam_user_persona_name: steam_user_persona_name},
+            dataType: 'json',
+            url: "/launcher/" + game_id + "/sso_auth_ticket",
+            success: function (data) {
+                ticket = data.ticket;
+            }
+        });
+        window.location = location.protocol + "//"+ location.host + "/launcher/auth_forward_url?next=" + encodeURIComponent(store_url) + "&ticket=" + ticket;
+    }
+</script>
+

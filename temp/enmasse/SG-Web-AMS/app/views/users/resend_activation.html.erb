@@ -1,0 +1,156 @@
+<% content_for :facebook do %>
+  <div id="fb-root"></div>
+  <script type="text/javascript">
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId  : "<%= SECURE_CONFIG['facebook']['id'] %>",
+        status : true,
+        cookie : true,
+        xfbml  : true,
+        version: 'v2.0'
+      });
+
+      var permissions = 'email,user_birthday,user_friends';
+
+      $('.signup-facebook-link').click(function(e) {
+        e.preventDefault();
+
+        _gaq.push(['_trackEvent', 'Accounts', 'Start Facebook Connect Process', 'signup']);
+
+        FB.login(function(response) {
+          if (response.authResponse) {
+            handleFacebookLogin(false);
+          }
+        }, { scope: permissions });
+      });
+
+      $(document).trigger('fbInit');
+    };
+
+    (function(d) {
+      var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+      js = d.createElement('script'); js.id = id; js.async = true;
+      js.src = "//connect.facebook.net/en_US/sdk.js";
+      d.getElementsByTagName('head')[0].appendChild(js);
+    }(document));
+  </script>
+<% end %>
+
+<% content_for :seo_site do %>
+Sign up for an En Masse Account | En Masse Entertainment
+<% end %>
+
+<% content_for :meta_description do %>
+<meta name="description" content="En Masse strives to publish the best games in the world." />
+<% end %>
+
+<% content_for :custom_google_analytics_calls do %>
+  _gaq.push(['_trackEvent', 'Accounts', 'View Sign-up Landing Page', 'EME']);
+<% end %>
+
+<% content_for :stylesheets do %>
+  <%#= stylesheet_include_tag "apps/eme-bar" %>
+  <style type="text/css">
+      <%= raw @campaign.custom_css %>
+  </style>
+<% end %>
+
+<div id="eme-bar">
+  <div class="wrapper">
+    <div class="eme"><a href="http://www.enmasse.com/"></a></div>
+
+    <div id="games">
+      <a href="#" onclick="return false" class="trigger"><span>Games</span></a>
+      <ul class="eme-menu">
+        <li class="games-link tera"><a href="http://tera.enmasse.com"><span>Windows</span></a></li>
+        <li class="games-link kritika"><a href="http://www.playkritika.com"><span>Windows</span></a></li>
+        <li class="games-link zmr"><a href="http://zmr.enmasse.com"><span>Windows</span></a></li>
+         <li class="games-link ava"><a href="http://ava.enmasse.com"><span>Windows</span></a></li>
+        <!--<li class="games-link battleplans"><a href="http://www.enmasse.com/games/battleplans"><span>iOS &amp; Android</span></a></li>-->
+        <!--<li class="games-link fruit-attacks"><a href="http://www.enmasse.com/games/fruit-attacks"><span>iOS &amp; Android</span></a></li>
+        <li class="games-link pocket-platoons"><a href="http://www.enmasse.com/games/pocket-platoons"><span>iOS &amp; Android</span></a></li>-->
+      </ul>
+    </div>
+
+    <!--<div  id="account">
+      <ul>
+        <li><a href="#" class="sign-in login-popup-link">Sign In</a></li>
+        <li><a href="https://account-edge.enmasse.com/tera/sign-up" class="create">Create Account</a></li>
+      </ul>
+    </div>-->
+
+  </div><!-- end wrapper -->
+</div><!-- end eme bar -->
+
+
+
+<%= render :partial => "shared/global_alerts" %>
+
+<section id="<%= raw @campaign.campaign_name %>" class="page_bg default">
+  <div class="wrapper">
+
+    <div class="sleeve">
+      <% if @campaign.game.blank? %>
+      <h1 class="game_logo">
+            <img src="http://download.enmasse.com/images/sign-up/eme/master/eme_signup_logo.png" alt="en masse" />
+      </h1>
+      <% else %>
+      <h1 class="game_logo">
+            <img src="<%= raw @campaign.game_logo_url %>" alt="<%= raw @campaign.game %>" />
+      </h1>
+      <% end %>
+
+
+
+      <div id="verify-wrap" class="secondary-wrap">
+        <div class="progess-bar">
+          <img src="/assets/sign-up-multi/progress-verify.png" alt="Signup [Verify] Security Download">
+        </div><!-- end of progress bar -->
+
+        <h2>Account Activation Email</h2>
+        <p><%= @page_copy %>
+          <!--Your account activation email has been resent. Please check your email, including your spam or junk folder for your activation link.-->
+        </p>
+
+        <%# if raw @campaign.download_link %>
+        <% if @campaign.download_link.blank? %>
+        <% else %>
+        <p>In the meantime, start downloading 
+          <% if @campaign.game.downcase  == 'tera' %>
+            <em class="tera"><%= @campaign.game %></em>
+          <% elsif @campaign.game.downcase == 'zmr' %>
+            <%= @campaign.game.upcase %>
+          <% elsif @campaign.game.downcase == 'ava' %>
+            <em><%= @campaign.game.upcase %></em>
+          <% else %>
+            <%= @campaign.game %>
+          <% end %>
+        </p>
+        <div class="btn_options">
+          <a class="eme_btn" href="<%= raw @campaign.download_link %>">Download</a>
+          <p class="small"><a href="<%= raw @campaign.download_link %>">See more download options</a></p>
+        </div>
+        <% end %>
+
+        <p class="small">If you are still not receiving a verification email, please consult our <a href="http://support.enmasse.com/tera/i-didn-t-receive-my-account-verification-email">email verification FAQ.</a></p>
+      </div><!-- end verify wrap -->
+
+
+
+
+
+    </div><!-- end of sleeve -->
+  </div><!-- end of wrapper -->         
+</section><!-- end of main content -->
+
+
+
+<%= render :partial => "signup_modals" %>
+<%#= render :partial => "hints" %>
+
+<%#= javascript_include_tag "apps/eme-bar" %>
+<%= javascript_include_tag "apps/shame" %>
+
+
+
+<%= CustomBlock.content_for("eme_view_sign-up_landing_page").to_s.html_safe %>

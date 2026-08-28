@@ -1,0 +1,54 @@
+<%= get_update_token %>
+<input type="hidden" name="user[io_black_box]" id="user_io_black_box" value="" />
+
+<%= hidden_field_tag :rid, params[:rid] if params[:rid] %>
+<%= hidden_field_tag :id, id %>
+<%= hidden_field_tag :ticket, ticket %>
+
+<div class="row" id="secret">
+  <div class="label1">
+    <%= f.label :secret_question_id, "Select security question" %>
+  </div>
+  <div class="input4 styled-select <%= user_error_css(@user, :secret_question_id) %>">
+    <%= f.select :secret_question_id,
+      @secret_questions.collect { |q| [q.question, q.id] },
+      { :prompt => tslt("select question") },
+      { :class => "easy-select hintable" } %>
+  </div>
+  <div id="secret_question_chk" class="check <%= user_error_css(@user, :secret_question_id, true) %>"></div>
+</div>
+
+<div class="clear-left"></div>
+<div class="row" id="secret-answer">
+  <div class="label1">
+    <%= f.label :secret_answer, "Provide answer" %>
+  </div>
+  <div class="input4 iparent <%= user_error_css(@user, :secret_answer) %>">
+    <%= f.text_field :secret_answer,
+      :class => "input4 hintable",
+      :autocomplete => "off",
+      :maxlength => 300,
+      :placeholder => tslt("make this answer hard to guess") %>
+  </div>
+  <div class="check <%= user_error_css(@user, :secret_answer, true) %>"></div>
+</div>
+
+<div id="submit-btn">
+  <%= f.submit "Activate Account", :id => "btn-save-changes", :class => "disabled" %>
+</div>
+
+<script>
+  $(function() {
+    $('input').focus(function() {
+      $(this).closest(".iparent").addClass('focus');
+    });
+
+    $('input:active').trigger('focus');
+
+    $('input').blur(function() {
+      $(this).closest(".iparent").removeClass('focus');
+    });
+
+    $('input[placeholder]').placeholder();
+  });
+</script>

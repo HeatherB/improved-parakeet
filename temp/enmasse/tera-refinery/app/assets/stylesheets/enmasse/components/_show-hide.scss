@@ -1,0 +1,27 @@
+.show-hide-content {
+  display: none;
+  padding: 5px;
+
+  table { clear: both; }
+  tr { border: none; }
+  &.showing { display: block; }
+}
+.show-hide-trigger {
+  @include background(linear-gradient(rgba($midBlue, 0.7), rgba($darkBlue, 0.7)));
+  @include border-top-left-radius(8px);
+  @include border-bottom-right-radius(8px);
+
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 32px;
+  line-height: 36px;
+  text-align: center;
+  padding: 0 20px;
+  color: $white;
+  cursor: pointer; cursor: hand;
+
+  &:hover {
+    @include background(linear-gradient(rgba($darkBlue, 0.7), rgba($midBlue, 0.7)));
+  }
+}

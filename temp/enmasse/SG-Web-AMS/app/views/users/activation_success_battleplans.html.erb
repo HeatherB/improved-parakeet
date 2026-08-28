@@ -1,0 +1,171 @@
+<% title tslt("account verification complete") %>
+<% content_for :custom_google_analytics_calls do %>
+  _gaq.push(['_trackEvent', 'Accounts', 'Complete Registration', 'battleplans']);
+<% end %>
+<% content_for :meta_description do %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><![endif]-->
+
+
+    <meta property="og:title" content="Sign up for the Battleplans PC beta!"/>
+    <meta property="og:site_name" content="Sign up for the Battleplans PC beta!"/>
+    <meta property="og:url" content="https://account.enmasse.com/battleplans/sign-up"/>
+    <meta property="og:description" content="I just signed up for the Battleplans PC beta. Invites haven&#39;t gone out yet, so there&#39;s still time to join me and lead your heroes into battle."/>
+    <meta property="og:image" content="http://download.enmasse.com/images/battleplans/sign-up/battleplans_share_icon.png"/>
+
+    <!--[if lt IE 9]>
+    <script>
+      document.createElement('header');
+      document.createElement('nav');
+      document.createElement('section');
+      document.createElement('article');
+      document.createElement('aside');
+      document.createElement('footer');
+      document.createElement('hgroup');
+      document.createElement('main');
+    </script>
+    <![endif]-->
+<% end %>
+
+<style type="text/css">
+#container-main, #container-main #header, #container-main #footer, #container-main #content-featured {
+  max-width: 1100px;
+  width: 100%;
+}
+#content-primary {
+  max-width: 1100px;
+  width: 100% !important;
+}
+#content {
+  background-image: url(/assets/battleplans/content_background.png);
+  background-repeat: repeat;
+  background-position: 0 50%;
+  background-size: 100%;
+  max-width: 1100px;
+  width:100%;
+  margin: -29px 0px -122px 0px;
+  margin:0 auto;
+  height: 615px;
+  font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
+  letter-spacing: 1px;
+  text-align:center;
+}
+#content h2 {
+  font-size: 36px;
+  line-height: 1;
+  font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
+  border-bottom: none;
+  color: #81386e;
+  font-weight:bold;
+}
+#content .congrats {
+  margin: 0 auto;
+  padding-top: 0;
+  font-size: 24px;
+  line-height: 38px;
+  background: #ffffff;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 290px;
+  height: 600px;
+  padding: 50px 16px 16px 16px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 2px 8px #8c4c00;
+  -moz-box-shadow: 0px 2px 8px #8c4c00;
+  box-shadow: 0px 2px 8px #8c4c00;
+  position: relative;
+  top:50px;
+}
+#content p {
+  margin: 15px auto;
+  font-family: Arial;
+  text-transform: none;
+  font-size: 18px;
+  line-height: 1.6em;
+  letter-spacing: 0;
+  width: 100%;
+  color:#9b4284;
+}
+#content a {
+  color: #eb0000;
+}
+#content a:hover {
+  color: #ffc800;
+}
+#content strong {
+  color: #eb0000;
+  font-weight: normal;
+  font-weight: bold;
+}
+#content .nowrap {
+  white-space: nowrap;
+}
+.battleplans_facebook {
+  display:block;
+  margin:1em auto;
+}
+.gradient {
+  display:none;
+}
+
+body h3 {
+  font-weight:bold;
+  font-size: 36px;
+  padding: 10px 0;
+}
+p {
+  color:#9b4284;
+  text-align:center;
+}
+.socials {
+  text-align:center;
+  display:block;
+  padding: 20px 0 10px;
+}
+.socials a {
+  display:inline-block;
+  vertical-align:middle;
+  width:55px;
+  height:55px;
+  margin: 0 10px;
+}
+.socials a span {
+  display:block;
+  text-indent: -9999em;
+}
+a.shr-facebook {
+  background: url(/assets/battleplans/socials/facebook.png) top center no-repeat;
+}
+a.shr-twitter {
+  background: url(/assets/battleplans/socials/twitter.png) top center no-repeat;
+  width:66px;
+}
+
+  /* tablet styles */
+@media only screen and (min-width: 640px) { 
+  #content {
+    background-image: url(/assets/battleplans/characters-left.png),url(/assets/battleplans/characters-right.png), url(/assets/battleplans/content_background.png);
+    background-repeat: no-repeat, no-repeat, repeat;
+    background-position: 0% 17%, 0 17%, 0 50%;
+    background-size: 100%;
+  }
+}
+
+</style>
+
+<div id="content">
+  <div class="congrats">
+    <h3>Thank you!</h3>
+      <div id="verification-content">
+        <p>You’ve signed up to receive an email invite for Battleplans’ beta test, when available. If you’d like to play alongside your friends, why not share this page with them?</p>
+        <div class="socials">
+          <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://account.enmasse.com/battleplans/sign-up" class="shr-facebook"><span>facebook</span></a>
+          <a target="_blank" href="https://twitter.com/intent/tweet?text=I%20signed%20up%20for%20the%20Battleplans%20PC%20beta.%20Come%20join%20me.%20Sign%20up%20today%20and%20lead%20your%20heroes%20into%20battle!%20https://account.enmasse.com/battleplans/sign-up" class="shr-twitter"><span>twitter</span></a>
+        </div>
+      </div>
+  </div>
+</div>
+
+<%= CustomBlock.content_for("battleplans_complete_registration").to_s.html_safe %>

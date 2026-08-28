@@ -1,0 +1,1063 @@
+body {
+  @include font_arial;
+  font-size:14px;
+}
+h1, h2, h3 ,h4 ,h5 ,h6 {
+  @include font_exobold;
+}
+
+.launcher {
+  width:1100px;
+  height:700px;
+  margin:0 auto;
+}
+
+a {
+  text-decoration:none;
+  color:$blue;
+  &:hover {
+    color:$black;
+    cursor: pointer;
+  }
+}
+
+.alert {
+  color:$red;
+}
+.fail, .success {
+  h2 {
+    &:before {
+      content:"";
+      width:32px;
+      height:34px;
+      display:inline-block;
+      vertical-align:top;
+      background-image: url(../img/icons.png);
+      background-repeat:no-repeat;
+      background-position: 0 -66px;
+      margin-top:-5px;
+      margin-right:10px;
+      margin-left:35px;
+    }
+  }
+  .inner-pop {
+    margin-left:70px;
+  }
+}
+.success {
+  h2 {
+    &:before {
+      background-position: 0 -31px;
+    }
+  }
+}
+.registration_errors {
+  p {
+    color:$failred;
+  }
+}
+
+b {
+  font-weight: bold;
+}
+i, em {
+  font-style: italic;
+}
+.inline-block {
+  display:inline-block;
+}
+.nomargin {
+  margin: 0 !important;
+}
+
+/* allow window to move */
+#dragMe {
+  position: absolute;
+  left: 210px;
+  width:570px;
+  height:44px;
+  top:0;
+}
+.nopop {
+  #dragMe {
+    position: absolute;
+    left: 0;
+    right:0;
+    margin:0 auto;
+    width:80%;
+    height:44px;
+    top:0;
+  }
+}
+
+.wrapper {
+  width:100%;
+  display:block;
+  margin:0;
+  padding:0;
+}
+
+/* account bar area */
+.account-wrapper {
+  background: url(../img/eme-bar-texture.png) top center repeat $black;
+  height:45px;
+  box-sizing:border-box;
+  padding-top:9px;
+  .close-launcher {
+    display:inline-block;
+    vertical-align: top;
+    margin-right:11px;
+    margin-left:15px;
+    span {
+      display:inline-block;
+      width:25px;
+      height:26px;
+      a {
+        @include font_arial;
+        border-radius: 3px;
+        background: $blue;
+        color: $white;
+        display:block;
+        width: 100%;
+        height:100%;
+        text-align:center;
+        box-sizing: border-box;
+        padding: 6px 0 0 0;
+        &:hover {
+          background: $hoverblue;
+        }
+      }
+    }
+  }
+}
+
+.nopop {
+  .close-launcher {
+    display:inline-block;
+    vertical-align: top;
+    margin-right:11px;
+    margin-left:15px;
+    position: absolute;
+    top:8px;
+    right:0;
+    span {
+      display:inline-block;
+      width:25px;
+      height:26px;
+      a {
+        @include font_arial;
+        border-radius: 3px;
+        background: $blue;
+        color: $white;
+        display:block;
+        width: 100%;
+        height:100%;
+        text-align:center;
+        box-sizing: border-box;
+        padding: 6px 0 0 0;
+        &:hover {
+          background: $hoverblue;
+        }
+      }
+    }
+  }
+}
+
+/* ngdialog overwrite */
+.ng-modal {
+  //width:auto;
+  //width:420px;
+  width:100%;
+  height:auto;
+}
+.ngdialog {
+  &.ngdialog-theme-default {
+    .ngdialog-content {
+      width:95%;
+      max-width:400px;
+    }
+  }
+}
+#ngdialog1 {
+   padding: 0;
+   margin: 30px auto 0;
+}
+.ngdialog-open {
+  .ng-modal-overlay {
+    position:absolute;
+    z-index:9999;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color:#000000;
+    opacity: 0.8;
+  }
+}
+
+.arrow-down {
+  width: 0; 
+  height: 0; 
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid $white;
+}
+.arrow-up {
+  width: 0; 
+  height: 0; 
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  
+  border-bottom: 8px solid $white;
+}
+
+.eme-alert {
+  color:$red;
+  &:before {
+    content:"";
+    background: url(../img/icons.png) top center no-repeat;
+    display:inline-block;
+    vertical-align: middle;
+    height:33px;
+    width:33px;
+  }
+  p, div {
+    display:inline-block;
+    vertical-align: middle;
+  }
+  a {
+    color:$red;
+    &:hover {
+      color:$white;
+    }
+  }
+}
+
+.showSheer {
+  background: rgba(255,255,255, 0.7);
+  width:100%;
+  height:705px;
+  display:block;
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+}
+
+
+#acct-settings {
+  @include font_exobold;
+  display:inline-block;
+  vertical-align: top;
+  font-size:16px;
+  color: $white;
+  background-color: $blue;
+  width:210px;
+  height:45px;
+  margin-top:-9px;
+  position: relative;
+  z-index:99999;
+  .eme-logo {
+    text-indent:-9999em;
+    display:inline-block;
+    vertical-align:top;
+    background: url(../img/eme-logo.png) top center no-repeat;
+    width:26px;
+    height:27px;
+    margin-right:5px;
+    margin-top:-6px;
+  }
+  .toplevel, a {
+    padding:18px 0 0 12px;
+    box-sizing: border-box;
+    color: $white;
+    width:100%;
+    height:100%;
+    display:block;
+    vertical-align:top;
+    &:hover {
+      background: $hoverblue;
+    }
+    .arrow-down, .arrow-up {
+      float:right;
+      margin-top:6px;
+      margin-right:18px;
+    }
+  }
+  li {
+    height:100%;
+    ul {
+      position: relative;
+      left: -9999em;
+      background:#3b3b3b;
+      box-shadow: 0px 6px 15px rgba(0,0,0, 0.25);
+      li {
+        border: none;
+        border-radius:0;
+        height:33px;
+        &:hover {
+          a {
+            background: $white;
+            color:$black;
+          }
+        }
+        a {
+          padding:8px 0 8px 45px;
+          line-height:1;
+        }
+      }
+    }
+    &:hover {
+      ul {
+        left:0;
+      }
+    }
+  }
+}
+
+#user-message {
+  display:inline-block;
+  vertical-align: top;
+  padding-left:20px;
+}
+#user-greet {
+  @include font_arial;
+  color:$white;
+  font-size:14px;
+  p {
+    margin-top:8px;
+  }
+}
+#user-emp {
+  @include font_exo;
+  display:inline-block;
+  vertical-align: top;
+  float:right;
+  .btn {
+    display: inline-block;
+    vertical-align: middle;
+    width:90px;
+    height:26px;
+    margin: 0 auto;
+    text-align:center;
+    margin-right:15px;
+    a {
+      width:100%;
+      height:100%;
+      color:#ffffff;
+      background: $blue;
+      border-radius: 3px;
+      display:block;
+      &:hover {
+        background: $hoverblue;
+      }
+      span {
+        display:block;
+        padding-top:5px;
+        color:$white;
+        font-size:17px;
+      }
+    }
+  }
+
+  .user_emp {
+    display: inline-block;
+    vertical-align: middle;
+    background:$lightblue;
+    border-radius: 3px;
+    width:150px;
+    height:22px;
+    span {
+      display: inline-block;
+      vertical-align: middle;
+      margin: 1px 0 0 0;
+      &:before {
+        content: "";
+        display: inline-block;
+        vertical-align: middle;
+        background: url(../img/emp-logo.png) center left no-repeat;
+        width:26px;
+        height:25px;
+        position: relative;
+        top:-3px;
+        left:-7px;
+      }
+    }
+  }
+}
+
+/* game bar area */
+.game-bar-wrapper {
+  background: url(../img/game-bar-texture.jpg)top center repeat-x;
+  box-shadow:0px 5px 15px rgba(0,0,0, 0.25);
+  text-align:center;
+  font-size:0;
+  position: relative;
+  z-index:99;
+  height:127px;
+  .game-wrapper {
+    display:inline;
+    float:left;
+    vertical-align:top;
+    width:16.667%;
+    height:127px;
+    margin:0;
+    font-size: 16px;
+    box-sizing: border-box;
+    padding: 15px 0 0 0;
+    input {
+      position: absolute;
+      z-index:-1;
+    }
+    .thumb {
+      width:144px;
+      height:83px;
+      border-radius: 3px;
+      background-position: top center;
+      background-repeat: no-repeat;
+      display: block;
+      margin:0 19px;
+    }
+    &.haveGame {
+      .thumb {
+        background-position:0 -83px;
+      }
+    }
+    &.active, &:hover {
+      background-color:$bluegrey;
+      .thumb {
+        background-position:0 -83px;
+      }
+      .title {
+        color:$white;
+      }
+    }
+    .title {
+      @include font_exo;
+      display:block;
+      text-transform:uppercase;
+      color:$grey;
+      margin:5px auto 0;
+    }
+    .game-info {
+      @include font_arial;
+      position: relative;
+      width:146px;
+      height:20px;
+      margin:-17px auto -3px;
+      padding-left:1px;
+      padding-right:1px;
+      color:$white;
+      font-size:14px;
+      box-sizing:border-box;
+      .nav-patching-label {
+        position: absolute;
+        top:2px;
+        left: 0;
+        right:0;
+      }
+      progress {
+        height:17px;
+      }
+      progress[value] {
+        height:17px;
+      }
+    }
+    .add-game {
+      background:$blue;
+      width:29px;
+      height:29px;
+      display:block;
+      position: absolute;
+      margin-left: 140px;
+      margin-top: -10px;
+      border-radius: 3px;
+      .plus-me {
+        @include font_arial;
+        color:$white;
+        font-weight:bold;
+        font-size:33px;
+        line-height:31px;
+      }
+      &:hover {
+        background: $lightblue;
+      }
+    }
+  }
+
+}
+
+.game-window-lower {
+  margin-top:10px;
+  font-size:0;
+  // allow inline-block to remove whitespace bug, be careful to restore font-size to nested elements
+}
+
+/* specific game screens */
+.game-options, .code-box, .game-accounts {
+  display:inline-block;
+  vertical-align:top;
+}
+.manage-bar {
+  position: relative;
+  z-index:9999;
+}
+nav.select-like {
+  ul {
+    background: $white;
+    li {
+      border: 2px solid #bfbfbf;
+      border-radius:3px;
+      height:30px;
+      .arrow-wrapper {
+        display:inline-block;
+        background: $blue;
+        width:32px;
+        height:30px;
+        position: relative;
+        top:-7px;
+        right:-7px;
+        .arrow-down {
+          position: relative;
+          top:21px;
+          left:10px;
+        }
+      }
+      a, .toplevel {
+        @include font_arial;
+        font-size:14px;
+        box-sizing: border-box;
+        padding: 7px 5px 0;
+        color:$black;
+        display:block;
+        height:100%;
+      }
+      ul {
+        position: relative;
+        left: -9999em;
+        background:#e5e5e5;
+        box-shadow: 0px 6px 15px rgba(0,0,0, 0.25);
+        li {
+          border: none;
+          border-radius:0;
+          &:hover {
+            a {
+              background: $blue;
+              color:$white;
+            }
+          }
+        }
+      }
+      &:hover {
+        ul {
+          left:0;
+        }
+        ul li ul {
+          left: -9999em;
+        }
+      }
+    }
+  }
+  ul li ul li {
+    ul {
+      position: relative;
+      left: 133px;
+      top:-30px;
+      background:#e5e5e5;
+      box-shadow: 0px 6px 15px rgba(0,0,0, 0.25);
+      color:#000000;
+      padding: 5px;
+    }
+    &:hover {
+      ul {
+        left: 133px;
+      }
+    }
+  }
+  
+}
+.redeem-code, .question {
+  display:inline-block;
+  vertical-align:middle;
+}
+.redeem-code {
+  @include font_exobold;
+  font-size:16px;
+  box-sizing: border-box;
+  padding-top:8px;
+  text-align:center;
+  border-radius: 3px;
+  background:$blue;
+  color:$white;
+  width:139px;
+  height:32px;
+  &:hover {
+    background:$hoverblue;
+    color:$white;
+  }
+}
+.code-box ul {
+  display:inline-block;
+  vertical-align:middle;
+}
+.code-box ul ul {
+  position: absolute;
+  left:-9999em;
+}
+.code-box ul li {
+  cursor: pointer;
+}
+.code-box ul li:hover ul {
+  left: auto;
+  margin:-25px 0 0 25px;
+  width:250px;
+}
+.code-box ul li li {
+  cursor: default;
+}
+.question {
+  @include font_exobold;
+  color:$blue;
+  font-size:15px;
+}
+.answer {
+  @include font_exobold;
+  z-index:9999;
+  background: $bluegrey;
+  color:$white;
+  box-sizing: border-box;
+  padding:10px;
+  border-radius: 3px;
+}
+
+.game-window-wrapper {
+  background: #ffffff;
+  background-position: top center;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  height:410px;
+  padding:20px 32px;
+  h1 {
+    @include font_exobold;
+    font-size:39px;
+    margin-bottom: 10px;
+  }
+}
+
+.left, .center, .right {
+  display:inline-block;
+  vertical-align:top;
+}
+.center {
+  margin:0 20px;
+}
+
+/* the emeCarousel styles */
+.left {
+  width:411px;
+  font-size:14px;
+}
+.galleryWrapper {
+  width:411px;
+  height:271px;
+  position: relative;
+  overflow:hidden;
+  background: #454545;
+  display:block;
+}
+.emeslides {
+  margin:0;
+  padding:0;
+   a {
+    color:$black;
+   }
+}
+.emeslides img {
+  display:block;
+}
+.emeslides li {
+  font-size:36px;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  width:100%;
+  list-style:none;
+  text-align:center;
+  position: absolute;
+  /*top: 420px;*/
+  top:0;
+}
+.emeslides li.active {
+  top:0px;
+}
+.buttons {
+  text-align:center;
+  z-index: 10;
+  position: absolute;
+  margin-top:-40px;
+  width:411px;
+}
+.buttons button {
+  display:inline-block;
+  vertical-align:middle;
+  background: $blue;
+  color:$white;
+  border: none;
+  width:40px;
+  height:40px;
+  outline: 0;
+  &.prev {
+    float:left;
+  }
+  &.next {
+    float:right;
+  }
+}
+.arrow {
+  font-size:55px;
+  position: relative;
+  top: -18px;
+}
+.offscreen {
+  position: absolute;
+  left: -2000px;
+}
+
+.pagers li {
+  width:10px;
+  height:10px;
+  display:inline-block;
+  vertical-align:top;
+  margin: 0 2px;
+}
+.pagers li a {
+  text-indent: -9999em;
+  width:100%;
+  height:100%;
+  display:block;
+  background-color: #dddddd;
+}
+.slide-tagline {
+  @include font_exo;
+  height:40px;
+  width:331px;
+  margin-left:40px;
+  box-sizing:border-box;
+  padding: 12px 0 0 17px;
+  font-size:15px;
+  color:$black;
+  background:$lightgrey;
+  text-align:left;
+  a {
+    color:$black;
+  }
+}
+
+/* the gumball */
+.gumballs {
+  a {
+    color:$black;
+  }
+}
+.center {
+  width:242px;
+  img {
+    display:block;
+    width:100%;
+    height: auto;
+  }
+  .gumball-copy {
+    @include font_arial;
+    font-size:14px;
+    line-height:21px;
+    width:233px;
+    box-sizing: border-box;
+    padding-top:12px;
+    padding-left:3px;
+  }
+}
+
+/* promo or maintenance */
+.right {
+  width:325px;
+  height:268px;
+}
+
+.maintenance {
+  width:100%;
+  height: 100%;
+  background: $lightorange;
+  font-size:14px;
+  line-height:16px;
+  z-index: 99;
+  position: relative;
+  .header {
+    background: $darkorange;
+    box-sizing: border-box;
+    padding: 15px 25px;
+    height:55px;
+    h4 {
+      color:$white;
+      font-size:17px;
+      text-transform:uppercase;
+      display:inline-block;
+      vertical-align:middle;
+      &:before {
+        content: "";
+        display:inline-block;
+        vertical-align:middle;
+        background: url(../img/icons.png) 0 -101px no-repeat;
+        height:40px;
+        width:32px;
+        margin-left:-10px;
+      }
+    }
+  }
+  .content {
+    box-sizing: border-box;
+    padding: 15px 25px;
+  }
+}
+
+#progress-bar, #play {
+  display:inline-block;
+  vertical-align:top;
+}
+
+/* progress bar */
+.progress-wrapper {
+  background: url(../img/progress-wrapper-bg.jpg) top center no-repeat;
+  height:118px;
+  box-sizing: border-box;
+  padding:15px 33px;
+  h5 {
+    @include font_exobold;
+    font-size:17px;
+    margin-bottom:15px;
+    display: inline-block;
+    vertical-align:top;
+  }
+  .update_and_patch {
+    display: inline-block;
+    vertical-align:top;
+    width:360px;
+    margin-top:-4px;
+    margin-left: 20px;
+  }
+  #progress-outer {
+    background:$bluegrey;
+    width:780px;
+    height:30px;
+    border-radius:2px;
+    overflow:hidden;
+  }
+  #progress-inner {
+    //height:100%;
+    //width:60%;
+    border-radius:2px;
+    height:50px;
+  }
+}
+progress {
+  height:50px; 
+  border-radius:2px;
+  //background: -webkit-linear-gradient(left,  #1481c5 0%,#26acff 100%);
+}
+progress[value] {
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+  border-radius:2px;
+
+  width: 100%;
+  height:50px; 
+  //background: -webkit-linear-gradient(left,  #1481c5 0%,#26acff 100%);
+}
+progress[value]::-webkit-progress-value {
+  background: -webkit-linear-gradient(left,  #1481c5 0%,#26acff 100%);
+}
+
+button {
+  &.btn {
+    @include font_exobold;
+    color:$black;
+    font-size:35px;
+    line-height:78px;
+    text-transform:uppercase;
+    margin:0 auto;
+    width:212px;
+    height:81px;
+    overflow:hidden;
+    display:block;
+    border-radius:2px;
+    border:none;
+    background-image: url(../img/btn_sprite.png);
+    background-repeat: no-repeat;
+    background-position: 0 -81px;
+    text-align:center;
+    background-color:transparent;
+    &:hover {
+      background-position: 0 -162px;
+      cursor:pointer;
+      height:81px;
+    }
+    &.disabled {
+      background-position: 0 0;
+    }
+  }
+}
+
+.btn {
+  width:212px;
+  height:81px;
+  overflow:hidden;
+  display:block;
+  border-radius:2px;
+  border:none;
+  background-color:transparent;
+  &.play {
+    background-image: url(../img/btn_sprite.png);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+  }
+  &.submit {
+    a {
+      @include font_exobold;
+      color:$black;
+      font-size:35px;
+      line-height:78px;
+      text-transform:uppercase;
+    }
+  }
+  input[type="submit"] {
+    @include font_exobold;
+    color:$black;
+    font-size:35px;
+    text-transform:uppercase;
+  }
+  .beABTN {
+    width:100%;
+    height:81px;
+    display:block;
+    background-image: url(../img/btn_sprite.png);
+    background-repeat: no-repeat;
+    background-position: 0 -81px;
+    text-align:center;
+    border:none;
+    background-color:transparent;
+  }
+  a, input[type="submit"] {
+    width:100%;
+    height:81px;
+    display:block;
+    background-image: url(../img/btn_sprite.png);
+    background-repeat: no-repeat;
+    background-position: 0 -81px;
+    text-align:center;
+    border:none;
+    background-color:transparent;
+    &:hover {
+      background-position: 0 -162px;
+      cursor:pointer;
+      height:81px;
+    }
+    &.disabled {
+      background-position: 0 0;
+    }
+  }
+  span {
+      @include font_exobold;
+      color:$black;
+      font-size:35px;
+      text-transform:uppercase;
+      box-sizing: border-box;
+      padding-top: 20px;
+      display: block;
+    }
+  &.centerspace {
+    margin:20px auto;
+  }
+}
+
+#play {
+  margin-left:20px;
+  .btn {
+     position: absolute;
+  }
+}
+
+#versionInfo {
+  @include font_arial;
+  font-size:14px;
+  color:$versiongrey;
+  display: block;
+  clear: both;
+  margin: 0.5em 0;
+}
+
+.instructional_link {
+  display:block;
+}
+
+/* layout for no interface patching */
+#updateNoInterface {
+  box-shadow: 0 0px 20px rgba(0, 0, 0, 0.25);
+  background: url(../img/popup-bg.jpg) top center repeat;
+  width:98%;
+  h2 {
+    font-size:18px;
+    box-sizing: border-box;
+    padding:1em 0.5em;
+  }
+  p {
+    margin:0 auto 0.5em;
+  }
+  #myBar {
+    background: -webkit-linear-gradient(left,  #1481c5 0%,#26acff 100%);
+    display:block;
+    height:30px;
+    max-width:450px;
+    position: absolute;
+  }
+  .progress-wrapper {
+    height:60px;
+    padding: 15px 0;
+  }
+  #myProgress {
+    display:block;
+  }
+  #progress-outer {
+    width:450px;
+    display:block;
+    height:30px;
+  }
+}
+
+/* beta */
+.progress-wrapper{
+  &.beta {
+    text-align:right;
+  }
+}
+.betabtn {
+  width:212px;
+  height:55px;
+  overflow:hidden;
+  border-radius:2px;
+  border:none;
+  background:$blue; 
+  color:$white;
+  font-weight:bold;
+  text-transform: capitalize;
+  display: block;
+  position: absolute;
+  right:30px;
+  &:hover {
+    background:$hoverblue;
+  }
+  &.disable {
+    background:$grey;
+    &:hover {
+      background:$grey;
+    }
+  }
+}

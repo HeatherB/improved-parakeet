@@ -1,0 +1,22 @@
+<tr data-campaign-id="<%= campaign_row.id %>">
+  <td><%= campaign_row.continent_name %></td>
+  <td>
+    <span class="tool-tip-container">
+      <span class="tool-tip-text"><%= campaign_row.candidate_name %></span>
+      <span class="tool-tip"><%= render :partial => "candidate_info", :object => campaign_row %></span>
+    </span>
+  </td>
+  <td>
+    <span class="tool-tip-container">
+      <span class="tool-tip-text"><%= campaign_row.guild_name %></span>
+      <span class="tool-tip"><%= render :partial => "guild_info", :object => campaign_row %></span>
+    </span>
+  </td>
+  <td>
+    <span class="tool-tip-container">
+      <span class="tool-tip-text">Campaign Info</span>
+      <span class="tool-tip"><%= render :partial => "campaign_info", :object => campaign_row %></span>
+    </span>
+  </td>
+  <td><span style="display:none"><%= campaign_row.server_name %></span></td>
+</tr>

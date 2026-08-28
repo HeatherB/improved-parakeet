@@ -1,0 +1,144 @@
+<% content_for :facebook do %>
+  <%= render :partial => "shared/facebook" %>
+<% end %>
+
+<% if params[:activated] == 'true' && params[:uid] %>
+  <% content_for :custom_google_analytics_calls do %>
+    _gaq.push(['_trackEvent', 'Accounts', 'Registration Completed', '<%= params[:uid].to_i(36) %>']);
+  <% end %>
+<% end %>
+
+<!-- <img src="https://ad.adlegend.com/ping?spacedesc=1097917_1061349_1x1_1061349_1061349&db_afcr=123&group=032012_ SITETRACKING&event=LOGINPG" width=1 height=1 alt=" " border=0> -->
+<noscript>
+  <div class="noscript">
+    <p>Javascript is required to login and use this site. <a href="http://support.enmasse.com/tera/account-creation-and-login-requires-javascript-enabled">Click here for instructions.</a></p>
+  </div>
+</noscript>
+
+<div class="account-home">
+  <% if !logged_in? %>
+    <div id="login_options">
+      <div class="in_our_out">
+        <%= render :partial => 'homepage/signin_or_up' %>
+      </div>
+      <div class="regular_in">
+        <%= render :partial => 'homepage/regular_login' %>
+      </div>
+      <div class="console_in">
+        <%= render :partial => 'homepage/console_login' %>
+      </div>
+    </div>
+  <% end %>
+</div><!-- of account-home -->
+
+<div class="game-accounts">
+  <h1 class="heading">Our Games</h1>
+  <form action="/gamesearch" method="post" data-remote="true">
+    <input type="text" placeholder="Search keyword . . ." class="searchbox" name="searchbox" id="homepage-games-searchbox" />
+    <input type="submit" value="Search" class="buttonDark searchSubmit" />
+  </form>
+
+  <div id="homepage-games-searchbox_results"></div>
+
+  <div id="game_tile_grid">
+    <div class="filtersblock">
+      <div class="game-filter">
+        <h6 data-gamefilter="platform">Platform</h6>
+        <ul class="selectable-filters">
+        <% @platform_filters_all.each do |platform_filter| %>
+          <li data-platformfilter="<%= platform_filter %>"><%= platform_filter %></li>
+        <% end %>
+         <!-- <li data-platformfilter="pc">PC</li>
+          <li data-platformfilter="mobile">Mobile</li>
+          <li data-platformfilter="allc">All Console</li>
+          <li data-platformfilter="xbox">XBox</li>
+          <li data-platformfilter="playstation">Playstation</li>-->
+        </ul>
+      </div>
+      <div class="game-filter">
+        <h6 data-gamefilter="genre">Genre</h6>
+        <ul class="selectable-filters">
+        <% @genre_filters_all.each do |genre_filter| %>
+          <li data-genrefilter="<%= genre_filter %>"><%= genre_filter %></li>
+        <% end %>
+         <!-- <li data-genrefilter="mmorpg">MMORPG</li>
+          <li data-genrefilter="shooter">Shooter</li>-->
+        </ul>
+      </div>
+      <div class="game-filter">
+        <h6 data-gamefilter="type">Type</h6>
+        <ul class="selectable-filters">
+        <% @type_filters_all.each do |type_filter| %>
+          <li data-typefilter="<%= type_filter %>"><%= type_filter %></li>
+        <% end %>
+          <!--<li data-typefilter="mmorpg">MMORPG</li>
+          <li data-typefilter="shooter">Shooter</li>-->
+        </ul>
+      </div>
+    </div>
+    <div id="filterTitle"></div>
+    <ul class="flex">
+      <% @games_all.each do |game| %>
+      <li class="game_tile" id="game_tile_<%= game.name.downcase %>">
+        <a href="http://<%= game.name.downcase %>.enmasse.com" target="_blank">
+          <div class="thumb <%= game.name.downcase %>">
+          <% if (game.beta_applications_open) == true %>
+            <span class="flair beta">in beta</span>
+          <% end %>
+          </div>
+          <div class="nameplate">
+            <span class="game_name"><%= game.name %></span>
+            <% if game.name.downcase == "tera" %>
+              <span class="game_type">
+                <span class="type_platform"><%= @platform_PC %></span> - 
+                <span class="type_type"><%= @type_epic %> <%= @type_fantasy %></span> 
+                <span class="type_genre"><%= @genre_mmorpg %></span>
+              </span>
+            <% elsif game.name.downcase == "ava" %>
+              <span class="game_type">
+                <span class="type_platform"><%= @platform_PC %></span> - 
+                <span class="type_type"><%= @type_online %></span> 
+                <span class="type_genre"><%= @genre_fps %></span>
+              </span>
+            <% elsif game.name.downcase == "zmr" %>
+              <span class="game_type">
+                <span class="type_platform"><%= @platform_PC %></span> - 
+                <span class="type_type"><%= @type_online %></span> 
+                <span class="type_genre"><%= @genre_fps %></span>
+              </span>
+            <% elsif game.name.downcase == "kritika" %>
+              <span class="game_type">
+                <span class="type_platform"><%= @platform_PC %></span> - 
+                <span class="type_type"><%= @type_stylish %> <%= @type_fantasy %> </span> 
+                <span class="type_genre"><%= @genre_mmorpg %></span>
+              </span>
+            <% elsif game.name.downcase == "closers" %>
+              <span class="game_type">
+                <span class="type_platform"><%= @platform_PC %></span> - 
+                <span class="type_type"><%= @type_arcade %> <%= @type_fantasy %></span> 
+                <span class="type_genre"><%= @genre_mmorpg %></span>
+              </span>
+            <% elsif game.name.downcase == "tera_ps_na" %>
+              <span class="game_type">
+                <span class="type_platform"><%= @platform_PS %></span> - 
+                <span class="type_type"><%= @type_epic %> <%= @type_fantasy %></span> 
+                <span class="type_genre"><%= @genre_mmorpg %></span>
+              </span>
+            <% elsif game.name.downcase == "tera_xb_na" %>
+              <span class="game_type">
+                <span class="type_platform"><%= @platform_Xbox %></span> - 
+                <span class="type_type"><%= @type_epic %> <%= @type_fantasy %></span> 
+                <span class="type_genre"><%= @genre_mmorpg %></span>
+              </span>
+            <% else %>
+              <span class="game_type">TBD</span>
+            <% end %>
+          </div>
+        </a>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+
+</div><!-- of account-home -->
+        

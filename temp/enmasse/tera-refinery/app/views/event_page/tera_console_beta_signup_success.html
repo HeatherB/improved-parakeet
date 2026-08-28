@@ -1,0 +1,54 @@
+<section class="signup" id="console_thanks">
+      <div class="inner">
+        <div class="form_wrapper">
+            <div class="logo">
+              <img src="/assets/console/tera.png" alt="TERA" />
+            </div>
+            
+
+            <h1><img src="/assets/console/success_icon.png" alt="checkmark icon" />Beta Application Received</h1>
+
+                  <img src="/assets/console/success.png" alt="you did it" />
+
+                  <p>Thanks for your interest in the upcoming TERA closed beta for PlayStation 4 and Xbox One. If you are selected to participate in the beta, you will receive an email containing further details and instructions at a future date.</p>
+                  <p>To ensure you receive this email please add <span>news@enmasse.com</span> to your safe senders list.</p>
+              </div><!-- end of wrapper -->
+            </div><!-- end of inner -->
+
+            <div class="footer">
+              <div class="inner">
+                <p class="copyright">Copyright &copy; <%= Time.now.year %> Bluehole Inc. All rights reserved. Your use of this product is subject to the terms of the license agreement available on our website at tera.enmasse.com. TERA™, TERA: Rising, and TERA: The Exiled Realm of Arborea are trademarks of Bluehole Inc. Fate of Arun is a trademark of En Masse Entertainment. All other trademarks are the property of their respective owners.</p>
+              </div>
+            </div>
+
+    </section>
+
+    <script>
+      fbq('track', 'CompleteRegistration');
+    </script>
+
+    <style>
+      .footer-wrapper {
+        display: none;
+      }
+    </style>
+
+    <% content_for :special_scripts do %>
+    <!-- Facebook Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '262595967533565'); // Insert your pixel ID here.
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=262595967533565&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- DO NOT MODIFY -->
+    <!-- End Facebook Pixel Code -->
+    <% end %>
+
+

@@ -1,0 +1,8 @@
+The <%= GAME_NAME %> account <%= @user.screen_name %> has been restored and can once again be used to login to the website and/or games.
+
+<% if @suspension.message.present? %>
+Message: <%= h(@suspension.message) %>
+<% end %>
+ 
+Thank you,
+<%= GAME_NAME %> Customer Support

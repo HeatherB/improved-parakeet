@@ -1,0 +1,80 @@
+<%= form_for @user, :url => launcher_user_create_path, :html => { :method => :post, :id => "account-registration-form", :'data-io-bb' => "user_io_black_box" } do |f| %>
+  
+  <div class="input iparent email <%= user_error_css(@user, :email) %>">
+    <%= f.email_field :email,
+      :class => "input hintable",
+      :maxlength => 64,
+      :autocomplete => "off",
+      :type => "email",
+      :placeholder => tslt('input placeholder email') %>
+  </div>
+  <div class="check <%= user_error_css(@user, :email, true) %>"></div>
+  
+  <div class="clear-left"></div>
+  <div class="row" id="password">
+    <div class="input iparent password <%= user_error_css(@user, :password) %>">
+      <%= f.password_field :password,
+        :class => "input password hintable",
+        :rel => ".pstrength-meter-cont",
+        :placeholder => "type password",
+        :autocomplete => "off" %>
+    </div>
+    <div class="check <%= user_error_css(@user, :password, true) %>"></div>
+    <div class="input iparent password-confirmation <%= user_error_css(@user, :password_confirmation) %>">
+      <%= f.password_field :password_confirmation,
+        :class => "input hintable",
+        :placeholder => "re-type password",
+        :autocomplete => "off" %>
+    </div>
+    <div class="check <%= user_error_css(@user, :password_confirmation, true) %>"></div>
+    <%= f.hidden_field :io_black_box %>
+    <%= hidden_field_tag :in_steam %>
+  </div>
+  <%= hidden_field_tag :game, @game.id %>
+
+  <% @mailing_lists.each do |mailing_list| %>
+    <div class="clear-left"></div>
+    <div class="row checkbox">
+      <label class="label_check" for=<%= mailing_list[:tag] %> id="newsletter-checkbox">
+        <%= check_box_tag mailing_list[:tag], "1", false %>
+        <%= "Sign up for #{mailing_list[:name]}" %>
+      </label>
+    </div>
+  <% end %>
+  <% if @mailing_lists.count > 0 %>
+    <%= hidden_field_tag :disable_auto_subscribing, 1 %>
+  <% end %>
+
+  <div class="controls">
+  <%= f.submit "Create Account", :class => "btn-create", :id => "btn-create-account", :"data-form" => "account-registration-form" %>
+<% end %>
+
+<%= render :partial => "hints" %>
+
+<script>
+  jQuery(function(){
+    $("#account-registration-form").submit(function(e){
+      copyBlackBox("#account-registration-form", "#user_io_black_box", 0);
+      if (inLauncher() && parent.steamUserId)
+        $("#in_steam").val("true");
+      return true;
+    });
+  });
+  $(function() {
+    // $('input').focus(function() {
+    //   $(this).closest(".iparent").addClass('focus');
+    // });
+
+    // $('input:active').trigger('focus');
+
+    // $('input').bind('keypress blur', function() {
+    //   $(this).closest(".iparent").removeClass('focus');
+    //   $('#hint').remove();
+    // });
+
+    // $('input[placeholder]').placeholder();
+
+    // unbound click event handler to follow launcher account creation flow
+    $("#btn-create-account").off("click", handleCreateAccountClick);
+  });
+</script>

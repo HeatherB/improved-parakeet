@@ -1,0 +1,27 @@
+<div class='ng-modal nopop'>
+  <!--<div class='ng-modal-overlay' ng-click='hideModal()'></div>-->
+  <div class='ng-modal-dialog' ng-style='dialogStyle'>
+    <div class='popup'>
+      <div class='pop-header'>
+        <div id="dragMe" ng-mousedown="dragMe()"></div>
+        <img src='img/eme-wordmark.png' alt='En Masse Entertainment' />
+      </div>
+      <div class='ng-modal-dialog-content'>
+
+        <div class="pop-content narrowLayout">
+          <h2 ng-show="ngDialogData.error_msg">{{ngDialogData.error_msg}}.</h2>
+          <h2 ng-hide="ngDialogData.error_msg">Your account has been banned or suspended.</h2>
+          <p>Please visit our <a ng-click='openWebNoSession("http://support.enmasse.com/tera/i-can-t-log-into-my-account-help")'>FAQ</a>, or contact <a ng-click='openWebNoSession("http://support.enmasse.com/tickets/submit")'>Customer Service</a> for assistance.</p>
+          <div class="inner-pop">
+            <div class="ngdialog-buttons">
+              <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="closeThisDialog()">Exit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class='pop-footer'>
+        <!--<a class='back' id='closeLogin' ng-click='closePopup()'>close this window</a>-->
+      </div>
+    </div>
+  </div>
+</div>

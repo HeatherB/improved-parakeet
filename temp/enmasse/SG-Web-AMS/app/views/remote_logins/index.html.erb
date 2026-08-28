@@ -1,0 +1,27 @@
+<style>
+html body.no-layout {
+  background: transparent;
+}
+body div#container-main {
+  width: 305px;
+}
+#login {
+  border-radius: 7px;
+  width: 320px;
+  background-color: #30343b;
+  border: 2px solid #000;
+}
+</style>
+<script>  // Not in launcher - ignore launcher JS
+  function inLauncher() { return false; }
+</script>
+<% if logged_in? %>
+  <p>Successfully logged in.</p>
+  <script>
+    parent.postMessage("loggedIn","*");
+  </script>
+<% else %>
+  <input type="hidden" name="blackbox" id="blackbox" value="" />
+  <%= render :partial => "/shared/iovation_init" %>
+  <%= render :partial => "/shared/full_login_box", :locals => {:show_errors => true, :pop_tabs => true, :return_to => "/remote_logins" } %>
+<% end %>

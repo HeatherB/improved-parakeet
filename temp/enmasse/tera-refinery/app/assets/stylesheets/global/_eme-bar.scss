@@ -1,0 +1,510 @@
+#eme-bar {
+  position: relative;
+  //height: 46px;
+  height: 52px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #a2a2a2;
+  background: #000000;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+  z-index: 10;
+
+  a {
+    font-weight: normal;
+  }
+
+  a:hover {
+    color: #fff;
+  }
+  .wrapper {
+    //max-width: 1140px;
+    min-width: 320px;
+    margin: 0 auto;
+  }
+}
+// move site alert drop shadow under games drop down
+.site-alert {
+  z-index: 9 !important;
+}
+
+.eme {
+  @include box-sizing(border-box);
+  float: left;
+  position: relative;
+  z-index: 9999;
+  //width: 150px;
+  //height: 44px;
+  width: 42px;
+  height: 52px;
+  cursor: pointer;
+
+  a {
+    @include prefix(background-color, .25s ease-out, webkit ms moz o);
+    background: image-url("global/eme-bar/eme-bar-sprite.png") no-repeat 0 -523px;
+    display: block;
+    width: 42px;
+    //height: 44px;
+    height: 52px;
+    margin: 0;
+  }
+  &:hover {
+    background-color:#303030;
+  }
+}
+
+/* restore the non-corporate site styles */
+#eme-bar {
+  border-bottom: 1px solid #333333;
+  color:#ADADAD;
+  a {
+    font-family:'Arial', sans-serif;
+    &:hover {
+      color: #ffffff;
+    }
+  }
+  #games {
+    position: relative;
+    height: 52px;
+
+    .trigger {
+      @include box-sizing(border-box);
+      position: relative;
+      display: block;
+      float: left;
+      line-height: 48px;
+      padding: 0 3px;
+      color: #ADADAD;
+      border-left: 1px solid #333333;
+      border-right: 1px solid #333333;
+      transition: background-color .25s ease-out;
+      -moz-transition: background-color .25s ease-out;
+      -ms-transition: background-color .25s ease-out;
+      -o-transition: background-color .25s ease-out;
+      -webkit-transition: background-color .25s ease-out;
+      span {
+        display:inline-block;
+        vertical-align:middle;
+        &:after {
+          content: "";
+          display:inline-block;
+          vertical-align:middle;
+          background-image: image-url("global/eme-bar/eme-bar-sprite.png");
+          background-position: -492px -491px;
+          background-repeat: no-repeat;
+          width:16px;
+          height:52px;
+          margin-left: 3px;
+        }
+      }
+      &:hover {
+        text-decoration: none;
+        color: #000000;
+        background-color: #ffffff;
+        span {
+          &:after {
+            background-position: -492px -535px;
+          }
+        }
+      }
+    }
+    &.open {
+      .eme-menu {
+        display: block;
+      }
+    }
+  }
+  
+}
+
+/* give access to games drop down stlying to all */
+.eme-menu {
+  display: none;
+  width: 100%;
+  position:absolute;
+  left:0;
+  right:0;
+  top:53px;
+  background-color: rgb(255,255,255);
+  background-color: rgba(255, 255, 255, 0.90);
+  margin:0px;
+  padding:8px 0px;
+  clear:both;
+  border-width:0px 0px 1px 0px;
+  border-style:solid; 
+  border-color:#ADADAD;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.25);
+  z-index:2000;
+}
+.games-link{
+  @include transition(background-size .25s ease-in, border-color .25s ease-out);
+  @include border-radius(8px);
+  margin:0px 10px 10px 0px;
+  height: 80px;
+  width: 140px;
+  margin: 2px 4px;
+  display:inline-block;
+  background-size:100% 100%;
+  background-repeat:no-repeat;
+  background-position:50% 50%;
+  border:2px solid $white;
+  a {
+    display:block;
+    background: none;
+    position:relative;
+    height:100%;
+    text-shadow: none;
+    letter-spacing: 0;
+    span {
+      @include border-radius(2px);
+      background: $black;
+      color: $white;
+      position:absolute;
+      top: calc(100% - 23px);
+      right:-1px;
+      font-size: 10px;
+      line-height: 12px;
+      font-weight:normal;
+      padding:2px 4px;
+      margin:4px;
+      font-family: "Arial", sans-serif;
+    }
+  }
+  &.tera {
+    background-image:image-url("global/eme-bar/games/games_thumb_tera@2x.jpg");
+  }
+  &.kritika {
+    background-image:image-url("global/eme-bar/games/games_thumb_kritika@2x.jpg");
+  }
+  &.zmr {
+    background-image:image-url("global/eme-bar/games/games_thumb_zmr@2x.jpg");
+  }
+  &.battleplans {
+    background-image:image-url("global/eme-bar/games/games_thumb_battleplans@2x.jpg");
+  }
+  &.fruit-attacks {
+    background-image:image-url("global/eme-bar/games/games_thumb_fruitattacks@2x.jpg");
+  }
+  &.pocket-platoons {
+    background-image:image-url("global/eme-bar/games/games_thumb_pocketplatoons@2x.jpg");
+  }
+  &.ava {
+    background-image:image-url("global/eme-bar/games/games_thumb_ava@2x.jpg");
+  }
+  &:hover{
+    border-color: #1481c5;
+    background-size:120% 120%;
+    background-position:50% 50%;
+  }
+}
+// mobile
+// @media (max-width: 47.9em) 
+@include breakpoint(mobileonly) {
+  body #eme-bar {
+    #account {
+      width: 250px;
+      li { float: right; }
+      .user li { padding: 0 8px; }
+    }
+  }
+}
+
+// medium mobile 
+//@media only screen and (min-width: 480px) {
+@include breakpoint(mediummobile) {
+  .eme {
+    width:160px;
+    padding:0 3px;
+    a {
+      background-position: -39px -531px;
+      width:100%;
+    }
+  }
+  #eme-bar {
+    #games {
+      .trigger {
+        padding:0 25px;
+        span {
+          &:after {
+            margin-left: 8px;
+          }
+        }
+      }
+    }
+  }
+}
+// tablet styles
+//@media only screen and (min-width: 768px) {
+@include breakpoint(tablet) {
+  .games-link {
+    height: 130px;
+    width:220px;
+    margin: 5px;
+    border-width:4px;
+    display: inline;
+    float:left;
+  }
+  .eme-menu {
+    top:53px;
+    padding-left:calc((100% - 690px) / 2);
+  }
+}
+
+//@media only screen and (min-width: 1024px) {
+@include breakpoint(desktop) {
+  .eme-menu {
+    padding-left:calc((100% - 920px) / 2);
+  }
+}
+// end media size 
+
+//@media only screen and (min-width: 1160px) {
+@include breakpoint(meddesk) {
+  .eme-menu {
+    padding-left:calc((100% - 880px) / 2);
+  }
+}
+// end media size 
+
+
+#account {
+  float: right;
+  height: 45px;
+  a {
+    display: block;
+    text-decoration: none;
+    color: #48b3ff;
+    font-size: 12px;
+    @include breakpoint(tablet) {
+      font-size: 14px;
+    }
+    &:hover {
+      color: #48b3ff;
+    }
+  }
+  ul { list-style-type: none; }
+  li {
+    list-style-type: none;
+    float: left;
+    padding: 10px 0;
+    font-size: 14px;
+    line-height: 24px;
+    transition: background-color .25s ease-out;
+    -moz-transition: background-color .25s ease-out;
+    -ms-transition: background-color .25s ease-out;
+    -o-transition: background-color .25s ease-out;
+    -webkit-transition: background-color .25s ease-out;
+    &:hover { background: #ffffff; }
+    &.welcome:hover { background: none; }
+  }
+  .vr {
+    width: 2px;
+    height: 44px;
+    display: block;
+    padding: 0px;
+    margin: 0 15px;
+    background: image-url("global/eme-bar/eme-bar-sprite.png") no-repeat -184px 0;
+  }
+
+  /*.create,
+  .settings {
+    color: #ff7e00;
+  }*/
+  .loading{
+    background: image-url("global/eme-bar/loading.gif") no-repeat 0 0;
+    width: 16px;
+    height: 16px;
+    display:inline-block;
+    vertical-align: middle;
+  }
+}
+/* the non-corporate site styles */
+#eme-bar {
+  #account {
+    height: 52px;
+    position: absolute;
+    top:0;
+    right: 0;
+    float:none;
+    li {
+      &:hover {
+        cursor: pointer;
+      }
+      @include box-sizing(border-box);
+      padding: 13px 5px;
+      @include breakpoint(desktop) {
+        padding: 13px 10px;
+      }
+      &.welcome:hover { cursor: auto; }
+    }
+  }
+}
+#blackout {
+  position: fixed;
+  top:0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 200;
+  background: #000;
+  background: rgba(0, 0, 0, 0.9);
+}
+
+#login-box {
+  width: 410px;
+  height: 410px;
+  left: 50%;
+  top:50%;
+  margin-left: -205px;
+  margin-top: -205px;
+  z-index: 202;
+  position: fixed;
+  display: none;
+
+  iframe {
+    width: 400px;
+    height: 400px;
+    border: none;
+  }
+}
+
+#region-select {
+  width: 574px;
+  height: 496px;
+  left: 50%;
+  top: 50%;
+  margin-left: -287px;
+  margin-top: -248px;
+  z-index: 202;
+  position: fixed;
+  display: none;
+
+  .explanation {
+    background: #1b1b1b;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    width: 558px;
+    margin: 0px auto;
+  }
+
+  .explanation p {
+    text-align: center;
+    line-height: 1.25em;
+    font-size: 14px;
+    margin: 0;
+    padding: 15px 0px;
+  }
+
+  .separator {
+    background: image-url("global/redirect/eu_redirect_sprite.png") no-repeat 0 17px;
+    font-size: 14px;
+    text-align: center;
+    width: 360px;
+    margin: 15px auto 0px auto;
+    padding: 0px 0px 10px 0px;
+  }
+
+  .selector {
+    background: image-url("global/redirect/eu_redirect_sprite.png") no-repeat -44px -20px;
+    height: 340px;
+    width: 523px;
+    margin: 7px 0px 0px 0px;
+    position: relative;
+  }
+
+  #select-ho,
+  #select-zmr {
+    position: absolute;
+    display: block;
+    float: left;
+    color: #ffffff;
+    font-size: 12px;
+    text-transform: uppercase;
+    background: image-url("global/redirect/eu_redirect_sprite.png") no-repeat -574px -369px;
+    &:hover {
+      color: #ffffcc;
+    }
+  }
+
+  #select-ho {
+    top: 150px;
+    right: -66px;
+    width: 223px;
+    height: 34px;
+    background-position: -574px -369px;
+    padding: 80px 0px 0px 46px;
+
+    &:hover { background-position: -574px -487px; }
+  }
+  #select-zmr {
+    top: 71px;
+    left: 18px;
+    width: 203px;
+    height: 34px;
+    background-position: -574px -20px;
+    padding: 108px 0px 0px 35px;
+
+    &:hover { background-position: -574px -170px; }
+  }
+}
+
+/* Internet Explorer 8 */
+.ie8 {
+  #eme-bar {
+    .wrapper {
+      a {
+        background-image: none;
+        width: auto;
+        height: auto;
+      }
+      .eme {
+        a {
+          background: none;
+          filter: progid:DXImageTransform.Microsoft.AlphaImageLoader( src='/assets/global/eme-bar/eme_mobile_brand.png', sizingMethod='scale');
+          width: 34px;
+          height:44px;
+          @include breakpoint(mediummobile) {
+            background: none;
+            filter: progid:DXImageTransform.Microsoft.AlphaImageLoader( src='/assets/global/eme-bar/eme_logo_white_3.png', sizingMethod='scale');
+            width: 120px;
+            height:77px;
+          }
+        }
+      }
+      #games {
+        .games-link {
+          &.tera {
+            background: none;
+            filter: progid:DXImageTransform.Microsoft.AlphaImageLoader( src='/assets/global/eme-bar/games/games_thumb_tera@2x.jpg', sizingMethod='scale');
+          }
+          &.kritika {
+            background: none;
+            filter: progid:DXImageTransform.Microsoft.AlphaImageLoader( src='/assets/global/eme-bar/games/games_thumb_kritika@2x.jpg', sizingMethod='scale');
+          }
+          &.zmr {
+            background: none;
+            filter: progid:DXImageTransform.Microsoft.AlphaImageLoader( src='/assets/global/eme-bar/games/games_thumb_zmr@2x.jpg', sizingMethod='scale');
+          }
+          &.battleplans {
+            background: none;
+            filter: progid:DXImageTransform.Microsoft.AlphaImageLoader( src='/assets/global/eme-bar/games/games_thumb_battleplans@2x.jpg', sizingMethod='scale');
+          }
+          &.fruit-attacks {
+            background: none;
+            filter: progid:DXImageTransform.Microsoft.AlphaImageLoader( src='/assets/global/eme-bar/games/games_thumb_fruitattacks@2x.jpg', sizingMethod='scale');
+          }
+          &.pocket-platoons {
+            background: none;
+            filter: progid:DXImageTransform.Microsoft.AlphaImageLoader( src='/assets/global/eme-bar/games/games_thumb_pocketplatoons@2x.jpg', sizingMethod='scale');
+          }
+          &.ava {
+            background: none;
+            filter: progid:DXImageTransform.Microsoft.AlphaImageLoader( src='/assets/global/eme-bar/games/games_thumb_ava@2x.jpg', sizingMethod='scale');
+          }
+        }
+      }
+    }
+  }
+}
+
+
+

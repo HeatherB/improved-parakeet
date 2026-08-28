@@ -1,0 +1,63 @@
+  <% content_for :title, "TERA Dungeon Run Leaderboard" %>
+<section id="body_content">
+  <h1 class="dungeon-rankings">Dungeon Rankings</h1>
+  <section id="wide_body">
+    <div class="inner">
+      <div class="dungeon-backgrounds" id="instance-banner-<%= @current_dungeon.clean_name %>">
+        <div class="breadcrumbs">
+          <a href="/data">Leaderboards</a> &gt; Dungeons &gt; <%= @current_dungeon.name %> &gt; <%= @board.capitalize %>
+        </div>
+        <h2>Select Dungeon:</h2>
+        <ul id="dungeon-list">
+          <% @dungeons.each do |dungeon| %>
+            <li id='<%= dungeon.clean_name %>'<%= " class='selected'" if @current_dungeon.clean_name == dungeon.clean_name %>>
+              <a href="/data/leaderboards/dungeons/<%= dungeon.clean_name + "/#{@board}" %>"><%= dungeon.name %></a>
+            </li>
+          <% end %>
+        </ul>
+        <h2>Select Filter:</h2>
+        <div class="clearfix">
+          <ul id="instance-filters">
+            <li id="top-100"><span id="top-100-title">Top 100</span><br />From the last 60 days</li>
+            <li id="top-100-colon">:</li>
+            <li id="times-completed">Times Completed</li>
+            <li id="legendary-items" class="tool-tip-container"><span class="tool-tip-text">Legendary Items</span><span class="tool-tip">Coming Soon!</span></li>
+            <li id="fastest-run"><span class="tool-tip-text">Fastest Run</span><span class="tool-tip">Coming Soon!</span></li>
+          </ul>
+        </div>
+      </div>
+      <% if @message && @message.content_for("Wide Body") && !@message.content_for("Wide Body").blank? %>
+        <%= raw @message.content_for("Wide Body") %>
+        <hr />
+      <% end %>
+      <table id="instance-run-leaderboard" class="leaderboard">
+        <thead>
+          <tr>
+            <th width="50">Rank</th>
+            <th width="700">Participants</th>
+            <th width="64">Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render :partial => "instance_runs_lb_row", :collection => @runs %>
+        </tbody>
+      </table>
+      <div class="clearfix"></div>
+      <% if @last_updated_at %>
+        <p><br/>Shown data was last updated <%= time_ago_in_words(@last_updated_at) %> ago.</p>
+      <% end %>
+    </div>
+    <div class="bottom-decor"></div>
+  </section>
+</section>
+
+
+<script>
+  $(function(){
+    $('#instance-run-leaderboard tr').find('td:last').each(function(i, ele){
+      ele = $(ele);
+      ele.html(GamePortal.timeSpanHMS(ele.html()));
+    });
+    GamePortal.highlightColumn('#instance-run-leaderboard', 2);
+  });
+</script>

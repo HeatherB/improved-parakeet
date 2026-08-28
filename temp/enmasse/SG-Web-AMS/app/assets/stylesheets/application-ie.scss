@@ -1,0 +1,12 @@
+
+/* Center layout in older versions of IE */
+body { text-align: center;
+  #container-main { text-align: left; }
+}
+/* IE Input Line Height */
+#inline-signin {
+  input.field{ background: image-url("account/input-login.png") no-repeat; width:274px; height:37px !important;float:none; margin:5px 0 10px 0px;padding:0 5px!important; font-size: 14px !important; line-height: 37px !important; }
+}
+#login {
+  input.field{ background: image-url("account/input-login.png") no-repeat; width:274px; height:37px !important;float:none; margin:5px 0 10px 0px;padding:0 5px!important; font-size: 14px !important; line-height: 37px !important; }
+}

@@ -1,0 +1,39 @@
+<div id="additional-requirements">
+  <%= form_for :user, :url => submit_additional_requirements_users_path, :html => { :id => "additional-requirements-form" } do |f| %>
+    <input type="hidden" name="user[io_black_box]" id="user_io_black_box" value="" />
+    <% if in_launcher %>
+      <%= hidden_field_tag :in_launcher, true %>
+      <%= hidden_field_tag :game_id, @game.id %>
+    <% end %>
+    <div id="secret">
+      <div class="label1">
+        <%= f.label :secret_question_id, tslt("select a secret question") %>
+      </div>
+      <div class="input4 <%= user_error_css(@user, :secret_question_id) %>">
+        <%= f.select :secret_question_id,
+          @secret_questions.collect { |q| [q.question, q.id] },
+          { :prompt => tslt("select question") },
+          { :class => "easy-select hintable" } %>
+      </div>
+      <div id="secret_question_chk" class="check <%= user_error_css(@user, :secret_question_id, true) %>"></div>
+    </div>
+
+    <div id="secret-answer">
+      <div class="label1">
+        <%= f.label :secret_answer, tslt("secret answer") %>
+      </div>
+      <div class="input4 iparent <%= user_error_css(@user, :secret_answer) %>">
+        <%= f.text_field :secret_answer,
+          :class => "input4 hintable",
+          :autocomplete => "off",
+          :maxlength => 300,
+          :placeholder => tslt("make this answer hard to guess") %>
+      </div>
+      <div class="check <%= user_error_css(@user, :secret_answer, true) %>"></div>
+    </div>
+
+    <div id="submit-btn">
+      <%= f.submit tslt("save changes"), :id => "btn-save-changes", :class => "disabled" %>
+    </div>
+  <% end %>
+</div>

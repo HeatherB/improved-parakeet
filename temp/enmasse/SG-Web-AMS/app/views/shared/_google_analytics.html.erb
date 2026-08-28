@@ -1,0 +1,35 @@
+<%= yield(:google_analytics_experiment_code) %>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+
+  window.gaq = _gaq;
+
+  <% google_analytics_account = yield(:google_analytics_account) %>
+
+  <% google_analytics_account = (in_launcher? ? 'UA-10684483-3' : 'UA-10684483-2') if google_analytics_account.blank? %>
+
+  _gaq.push(['_setAccount', '<%= google_analytics_account %>'],
+            ['_setAllowLinker', true],
+            ['_setAllowHash', false],
+            ['_setDomainName', 'enmasse.com'],
+            ['_addIgnoredRef', 'www.enmasse.com'],
+            ['_addIgnoredRef', 'store.enmasse.com'],
+            ['_addIgnoredRef', 'tera.enmasse.com'],
+            ['_addIgnoredRef', 'tera-forums.enmasse.com'],
+            ['_addIgnoredRef', 'support.enmasse.com'],
+            ['_addIgnoredRef', 'account.enmasse.com'],
+            ['_addIgnoredRef', 'zmr.enmasse.com'],
+            ['_addIgnoredRef', 'tera-community.enmasse.com'],
+            ['_addIgnoredRef', 'guilds.enmasse.com'],
+            ['_trackPageview']
+  );
+
+  <%= yield(:custom_google_analytics_calls) %>;
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>

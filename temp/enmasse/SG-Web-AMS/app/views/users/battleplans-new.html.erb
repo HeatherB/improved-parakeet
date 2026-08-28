@@ -1,0 +1,273 @@
+<% content_for :title do %>Battleplans Beta Sign-up
+<% end %>
+
+<% content_for :meta_description do %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><![endif]-->
+
+
+    <meta property="og:title" content="Sign up for the Battleplans PC beta!"/>
+    <meta property="og:site_name" content="Sign up for the Battleplans PC beta!"/>
+    <meta property="og:url" content="https://account.enmasse.com/battleplans/sign-up"/>
+    <meta property="og:description" content="I just signed up for the Battleplans PC beta. Invites haven&#39;t gone out yet, so there&#39;s still time to join me and lead your heroes into battle."/>
+    <meta property="og:image" content="http://download.enmasse.com/images/battleplans/sign-up/battleplans_share_icon.png"/>
+
+    <!--[if lt IE 9]>
+    <script>
+      document.createElement('header');
+      document.createElement('nav');
+      document.createElement('section');
+      document.createElement('article');
+      document.createElement('aside');
+      document.createElement('footer');
+      document.createElement('hgroup');
+      document.createElement('main');
+    </script>
+    <![endif]-->
+<% end %>
+
+<% content_for :stylesheets do %>
+    <%= stylesheet_link_tag "application-battleplans", :media => "all" %>
+<% end %>
+
+<% content_for :custom_favicon do %>
+    <link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64" href="<%= asset_path ("icons/battleplans/favicon.ico") %>">
+    <link rel="apple-touch-icon" sizes="57x57" href="<%= asset_path ("icons/battleplans/icon_A-57.png") %>">
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="<%= asset_path ("icons/battleplans/icon_A-57.png") %>">
+    <link rel="apple-touch-icon" sizes="72x72" href="<%= asset_path ("icons/battleplans/icon_A-72.png") %>">
+    <link rel="apple-touch-icon" sizes="114x114" href="<%= asset_path ("icons/battleplans/icon_A-114.png") %>">
+    <link rel="apple-touch-icon" sizes="120x120" href="<%= asset_path ("icons/battleplans/icon_A-120.png") %>">
+    <link rel="apple-touch-icon" sizes="144x144" href="<%= asset_path ("icons/battleplans/icon_A-144.png") %>">
+    <link rel="apple-touch-icon" sizes="152x152" href="<%= asset_path ("icons/battleplans/icon_A-152.png") %>">
+    <meta name="application-name" content="Battleplans">
+    <meta name="msapplication-TileImage" content="<%= asset_path ("icons/battleplans/icon_A-144.png") %>">
+    <meta name="msapplication-TileColor" content="#ffffff">
+<% end %>
+<% content_for :facebook do %>
+    <div id="fb-root"></div>
+    <script type="text/javascript">
+
+      // override facebook login success url
+      facebookLoginRedir = "/users/game_newsletter/" + <%= @bp_newsletter_id %> + "/battleplans";
+
+      $(document).ready(function () {
+        window.fbAsyncInit = function () {
+          FB.init({
+            appId: "<%= SECURE_CONFIG['facebook']['id'] %>",
+            status: true,
+            cookie: true,
+            xfbml: true,
+            version: 'v2.6'
+          });
+
+          FB.getLoginStatus(function(response) {
+            console.log("alkdjfljsdf");
+            if (response.status === 'connected') {
+              if (response.authResponse) {
+                if (response.authResponse.userID) {
+                  $(".login-facebook-btn").before("<div class='facebook-picture'><img src='//graph.facebook.com/v2.6/" + response.authResponse.userID + "/picture' /></div>");
+                }
+              }
+            }
+          }, true);
+
+          var permissions = 'email,user_birthday,user_friends';
+
+          $('.signup-facebook-link, .login-facebook-link').click(function (e) {
+            e.preventDefault();
+
+            _gaq.push(['_trackEvent', 'Accounts', 'Start Facebook Connect Process', 'signup']);
+
+            FB.login(function (response) {
+              if (response.authResponse) {
+                handleFacebookLogin(false);
+              }
+            }, {scope: permissions});
+          });
+
+          $(document).trigger('fbInit');
+        };
+
+        (function (d) {
+          var js, id = 'facebook-jssdk';
+          if (d.getElementById(id)) {
+            return;
+          }
+          js = d.createElement('script');
+          js.id = id;
+          js.async = true;
+          js.src = "//connect.facebook.net/en_US/sdk.js";
+          d.getElementsByTagName('head')[0].appendChild(js);
+        }(document));
+      });
+    </script>
+<% end %>
+
+
+<% content_for :custom_google_analytics_calls do %>
+    _gaq.push(['_trackEvent', 'Accounts', 'View Sign-up Landing Page', 'Battleplans', 0, true]);
+<% end %>
+
+<input type="hidden" name="blackbox" id="blackbox" value=""/>
+<%= render :partial => "shared/iovation_init" %>
+<%= render :partial => "shared/global_alerts" %>
+
+<main class="battleplansbeta">
+  <div class="sleeve">
+    <section class="hero">
+      <div class="inner">
+        <h1><span>Battleplans</span></h1>
+      </div>
+    </section>
+    <section class="signup">
+      <div class="inner">
+        <h2>Battleplans beta is coming soon to Windows!</h2>
+        <h3>Act now to be notified when beta testing starts.</h3>
+        <% if logged_in? %>
+            <!-- already signed into eme account when land on this page -->
+            <div class="signupform-wrapper existing">
+              <div class="signup_noform">
+                <div>
+                  <span class="bold">
+                    <a href="/users/game_newsletter/<%= @bp_newsletter_id %>/battleplans" class="battleplans-sign-up btn-create-account">Sign Up Now</a>
+                  </span> for the Battleplans Beta!
+                </div>
+              </div>
+            </div>
+        <% else %>
+            <!-- not already signed into eme account when land on this page -->
+            <!-- complete signup form -->
+            <div class="signupform-wrapper">
+              <div class="signupform">
+                <h3><span class="bold">Sign Up Now</span> for a New En Masse Account</h3>
+                <div id="registration">
+                <div id="battleplans-signup" style="display:none;"></div>
+                <%= link_to "", "javascript:void(0);", :class => "signup-facebook-link signup-facebook-btn", :title => "Log in with Facebook" %>
+                <div class="or"><span>or</span></div>
+
+                <%= form_for :user, :url => users_path, :html => {:method => :post, :id => "account-registration-form"} do |f| %>
+
+                    <input type="hidden" name="user[io_black_box]" id="user_io_black_box" value=""/>
+                    <input type="hidden" name="game" value="battleplans"/>
+
+                    <% if flash[:error] %>
+                        <div class="error-alert"><span class="icon"></span><%= flash[:error] %></div>
+                    <% end %>
+
+                    <div class="email">
+                      <%= label_tag(:email, "Email Address") %>
+                      <%= f.email_field :email %>
+                      <div id="email_hint"><p></p></div>
+                      <div class="msg">Invalid email address.</div>
+                      <div class="tkn">Email has already been taken</div>
+                      <div class="check <%= user_error_css(@user, :email, true) %>"></div>
+                    </div>
+
+                    <div class="password">
+                      <%= label_tag(:password, "Password") %>
+                      <%= f.password_field :password %>
+                      <%= f.password_field :password_confirmation %>
+                      <%= hidden_field_tag :newsletter_id, @bp_newsletter_id if defined?(@bp_newsletter_id) %>
+                      <div id="hint">
+                        <p>Your password must meet the following criteria:</p>
+                        <ul class="disc">
+                          <li class="gt8">Has 8 or more characters.</li>
+                          <li class="lt99">Has fewer than 99 characters.</li>
+                          <li class="sym">Uses at least 2 of the following:
+                            <ul>
+                              <li>letters (a-z, A-Z)</li>
+                              <li>digits (0-9)</li>
+                              <li>symbols (-+=@^&amp;%/?!#)</li>
+                            </ul>
+                          </li>
+                          <li class="contains">Does not contain your email name or domain.</li>
+                        </ul>
+                      </div>
+                      <div class="check <%= user_error_css(@user, :password_confirmation, true) %>"></div>
+                    </div>
+
+                    <!--<div>
+                      <p>By signing up, you agree to our <br><a href="http://www.enmasse.com/legal/terms-of-service">Terms of Service</a>, and verify that <br>you are 13 years of age or older.</p>
+                    </div> -->
+
+                    <div id="submit-btn">
+                      <a href="#" id="btn-success" title="Success, please check your email" class="disabled preview-rounded"><%= tslt("success") %></a>
+                      <a href="#" id="btn-create-account" class="btn-create-account" title="<%#= tslt("please complete the registration form") %>" data-wait-text="<%#= tslt("submitting") %>" data-success-text="<%#= tslt("success") %>" data-form="account-registration-form"></a>
+                      <!--<input class="btn-create-account" id="btn-create-account" name="commit" type="submit" value="Sign Up">
+                      <%#= submit_tag("Sign Up", :id => "btn-create-account", :class => "btn-create-account", :disabled => true) %>-->
+                      <!--<input href="#" id="btn-create-account" class="btn-create-account" title="<%= tslt("please complete the registration form") %>" data-wait-text="<%= tslt("submitting") %>" data-success-text="<%= tslt("success") %>" data-form="account-registration-form" disabled />-->
+                    </div>
+                    <div>or <a href="#" class="login-popup-link" onclick="return false" data-game="battleplans">Log In</a> with an existing <br/>En Masse Account</div>
+
+
+                <% end %>
+                </div>
+              </div>
+            </div><!-- end signup form wrapper -->
+
+            <!-- end of signup form stuff -->
+        <% end %>
+
+
+        <div class="battle-signup-gallery">
+          <ul>
+            <li class="thumb"><a class="image-popup-fit-width thumb1" href="/assets/battleplans/gallery/screen_02.jpg">
+              <!--<img src="/assets/battleplans/gallery/screen_02_sm.jpg">-->
+            </a></li>
+            <li class="thumb"><a class="image-popup-fit-width thumb2" href="/assets/battleplans/gallery/screen_04.jpg">
+              <!--<img src="/assets/battleplans/gallery/screen_04_sm.jpg">-->
+            </a></li>
+            <li class="thumb"><a class="image-popup-fit-width thumb3" href="/assets/battleplans/gallery/screen_05.jpg">
+              <!--<img src="/assets/battleplans/gallery/screen_05_sm.jpg">-->
+            </a></li>
+          </ul>
+        </div><!-- end of battle signup gallery -->
+      </div>
+    </section>
+
+    <footer>
+      <div class="inner">
+        <a class="ft-logo" href="http://enmasse.com/"><img src="/assets/battleplans/foot/eme-logo.png" alt="En Masse Entertainment" /></a>
+        <a class="ft-logo" href="http://www.c4mprod.com/" target="_blank"><img src="/assets/battleplans/foot/c4m-logo.png" alt="C4M" /></a>
+        <p class="copyright">&copy; 2016 C4M, Inc. En Masse Entertainment, Inc. and all associated logos and designs are trademarks or registered trademarks of En Masse Entertainment, Inc and C4M, Inc. All rights reserved. All other trademarks are the property of their respective owners.</p>
+      </div><!-- end of sleeve -->
+    </footer>
+  </div><!-- end of sleeve -->
+
+  <section id="thankyouwrapper" class="mfp-hide">
+    <div id="thankyoupop">
+      <div class="display-none">
+        <div id="verification">
+          <h3>Thank you!</h3>
+          <div id="verification-content">
+            <p>You’ve signed up to receive an email invite for Battleplans’ beta test, when available. If you’d like to play alongside your friends, why not share this page with them?</p>
+            <div class="socials">
+              <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://account.enmasse.com/battleplans/sign-up" class="shr-facebook"><span>facebook</span></a>
+              <a target="_blank" href="https://twitter.com/intent/tweet?text=I%20signed%20up%20for%20the%20Battleplans%20PC%20beta.%20Come%20join%20me.%20Sign%20up%20today%20and%20lead%20your%20heroes%20into%20battle!%20https://account.enmasse.com/battleplans/sign-up" class="shr-twitter"><span>twitter</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<%= render :partial => "landing_footer" %>
+
+<% if logged_in? %>
+    <script>
+      parent.postMessage("loggedIn", "*");
+    </script>
+<% else %>  <!--popup login box-->
+    <div style="display:none;">
+      <%= render :partial => "/shared/full_login_box", :locals => {:newsletter => @bp_newsletter_id, :fail_to => index_path(:slogin => true), :return_to => verified_users_path} %>
+    </div>
+<% end %>
+<!--end login popup box-->
+
+<%= javascript_include_tag 'apps/battleplans_signup' %>
+
+<%= render :partial => "signup_modals" %>
+<%= render :partial => "hints" %>

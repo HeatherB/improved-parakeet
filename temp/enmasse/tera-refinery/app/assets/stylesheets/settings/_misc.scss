@@ -1,0 +1,40 @@
+// Grid Settings
+$rowWidth: 1140px !default;
+$columnGutter: 20px !default;
+$totalColumns: 12 !default;
+$mobileTotalColumns: 4 !default;
+$lineHeight: 1.6em;
+$blockGridElements: 12 !default; // Highest number of block grid elements, Maximum of 24 supported
+
+// nav
+$navWhite: rgba(black,.7);
+$navText: #DDDDDD;
+$navBlack: #000000;
+$navHover: $navText;
+
+// Button Settings
+$buttonRadius: 3px !default;
+$btnBase: 10px !default;
+$tinyBtnBase: $btnBase - 5 !default;
+$smallBtnBase: $btnBase - 3 !default;
+$largeBtnBase: $btnBase + 5 !default;
+
+
+// Nav Bar Settings
+$navBarHeight: 90px !default;
+$navFlyoutBaseWidth: 200px !default;
+
+// UI Settings
+$thumbRadius: 3px !default;
+$progBarHeight: 25px !default;
+$progBarBorderColor: darken(#fff, 20%) !default;
+$progBarBorderSize: 1px !default;
+$progBarPad: 2px !default;
+$linkListBottomMargin: 17px -22px !default;
+$tableBorderRadius: 3px !default;
+
+// Off Canvas Width Settings
+$mainWidth: 80% !default;
+$complementaryWidth: 20% !default;
+
+

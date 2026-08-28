@@ -1,0 +1,78 @@
+$white: #ffffff;
+$black: #000000;
+$grey: #222222;
+$gray: #969696;
+$greyBorder: #bbbbbb;
+$searchgrey: #626262;
+$lightgrey: #dddddd;
+$copyBlack: #010101;
+$red: #ff0000;
+$gold: #e38f18;
+$green: #2fc147;
+$greenShadow: #1d6d2b;
+
+$blueDark: #007dd9;
+$blueDarkCopy: #f2f2f2;
+$blueDarkShadow: #005a9c;
+$blueLight: #d8f0ff;
+$blueLightShadow: #70a3c5;
+$blueGrey: #758e9f;
+$blueWrapper: #90adc0;
+$blueInput: #26465e;
+$blueBorder: #86a7d3;
+$brightBlue: #6cb2e0;
+$brightBlueHighlight:#9ae8ff;
+$brightBlueShadow:#4488b4;
+$tileShadow: #185482;
+$tileHightlight: #72bef5;
+$goodoleinternetblue: #007dd9;
+$whiteBlue: #bee3ff;
+$whiteBlueShadow: #316180;
+$periwinkle: #8aaad5;
+$internetBlue: #2a88dc;
+
+$filterBlueDark:#465262;
+$filterBlueLight:#007dd9;
+$filterBorder:#708eb5;
+
+$fbBlue: #3e5a98;
+$fbBlueHover: #416cbc;
+
+$xboxgreen:#0f7c10;
+$xboxgreenDark: #075507;
+
+$yellow: #eebe6c;
+
+$tableOdd: #1a2a36;
+$tableEven: #2b3b48;
+$tableLink: #259ff9;
+$statusGreen: #0cff00;
+$statusOrange: #ff9000;
+
+// error
+$lightRed: #960909;
+$midRed: #820707;
+$darkRed: #530202;
+$errorRed: #ff2600;
+
+// warn
+$lightOranges: #ff9400;
+$midOranges: #c36e00;
+$darkOranges: #663d00;
+$warnOrange: #ff9c00;
+
+ //info
+$lightGreen: #1C9509;
+$midGreen: #198607;
+$darkGreen: #115f02;
+$infoGreen: #179735;
+
+.red {
+	color: $red;
+}
+.gold {
+	color: $gold;
+}
+.green, .active {
+	color: $green;
+}
